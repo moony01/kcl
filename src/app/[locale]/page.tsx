@@ -1,26 +1,28 @@
 /**
- * HomePage (리그 시스템) - SSR 적용됨
+ * HomePage (리그 시스템) - Edge Runtime
  *
  * KCL 리그 시스템 메인 페이지
  * - Server Component로 동작
  * - 초기 데이터 Fetching 후 Client Component(HomeClient)로 전달
  *
- * @updated T1.19 - SSR 적용
+ * @updated Cloudflare Edge Runtime 적용
  */
+
+export const runtime = 'edge';
 
 import { HomeClient } from './HomeClient';
 import type { CompaniesResponse } from '@/types/api';
 
 /**
  * 리그 데이터 서버 사이드 Fetching
- * 30초마다 Revalidation (ISR)
+ * Edge Runtime에서 동적 렌더링 (캐시 없음)
  */
 async function getLeagueData(): Promise<CompaniesResponse | null> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     // 내부 API 호출 (절대 경로 필요)
     const res = await fetch(`${baseUrl}/api/companies`, {
-      next: { revalidate: 30 }, // 30초 ISR
+      cache: 'no-store', // Edge에서 동적 fetch
     });
 
     if (!res.ok) {

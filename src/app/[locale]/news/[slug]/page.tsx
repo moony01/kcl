@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
@@ -5,11 +7,8 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getAllNewsParams, getNewsBySlug } from '@/lib/news';
+import { getNewsBySlug } from '@/lib/news';
 import styles from './page.module.scss';
-
-/** 지원 언어 목록 */
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
 
 /**
  * 뉴스 상세 페이지 Props
@@ -19,14 +18,6 @@ interface NewsDetailPageProps {
     locale: string;
     slug: string;
   }>;
-}
-
-/**
- * 정적 경로 생성
- * 빌드 타임에 모든 뉴스 상세 페이지 생성
- */
-export async function generateStaticParams() {
-  return getAllNewsParams(locales);
 }
 
 /**
