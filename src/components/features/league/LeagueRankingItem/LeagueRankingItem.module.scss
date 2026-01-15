@@ -199,21 +199,17 @@ $color-promotion: #28a745;
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  opacity: 0;
-
-  .item:hover & {
-    opacity: 1;
-  }
+  transition:
+    background-color 0.2s ease,
+    filter 0.2s ease;
+  opacity: 1; // 항상 표시
 
   &:hover {
-    transform: scale(1.05);
     filter: brightness(1.1);
   }
 
-  // 모바일에서는 항상 표시
+  // 모바일/PC 모두 동일하게 적용되므로 미디어 쿼리 통합/제거
   @media (max-width: 767px) {
-    opacity: 1;
     padding: 8px 14px;
     font-size: 0.8rem;
   }
