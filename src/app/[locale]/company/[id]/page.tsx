@@ -16,6 +16,7 @@ import { setRequestLocale } from 'next-intl/server';
  * generateStaticParams 제거하고 SSR로 전환
  */
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export default function CompanyDetailPage({
   params,

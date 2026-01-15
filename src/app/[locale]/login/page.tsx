@@ -9,6 +9,7 @@ import Link from 'next/link';
  * Phase 1에서는 로그인 기능이 비활성화되어 있습니다.
  */
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export default function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
   // We can unwrap params if needed, but for now we rely on Link href context from calling page
