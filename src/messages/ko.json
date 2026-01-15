@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "실시간 화력 순위",
+    "ranking": "실시간 랭킹",
+    "support": "총공하기",
+    "search_placeholder": "아티스트 또는 회사 검색...",
+    "vote_button": "투표하기",
+    "firepower": "화력"
+  },
+  "HallOfFame": {
+    "title": "명예의 전당",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "대상",
+    "annual_champion": "연간 챔피언",
+    "victories": "회 우승",
+    "current_race": "현재 순위",
+    "monthly_champions": "월간 챔피언",
+    "archives": "역대 기록",
+    "no_champion_yet": "아직 챔피언이 없습니다",
+    "loading": "로딩 중...",
+    "months": {
+      "1": "1월",
+      "2": "2월",
+      "3": "3월",
+      "4": "4월",
+      "5": "5월",
+      "6": "6월",
+      "7": "7월",
+      "8": "8월",
+      "9": "9월",
+      "10": "10월",
+      "11": "11월",
+      "12": "12월"
+    }
+  },
+  "Common": {
+    "unofficial": "이 앱은 비공식 팬 제작 앱이며, 특정 소속사와 관련이 없습니다.",
+    "fan_app": "비공식 팬 앱",
+    "loading": "로딩중...",
+    "error": "오류가 발생했습니다",
+    "coming_soon": "준비중..."
+  },
+  "Nav": {
+    "home": "홈",
+    "ranking": "랭킹",
+    "support": "총공",
+    "my": "마이",
+    "create": "만들기",
+    "theme": "테마",
+    "report": "제보/문의",
+    "analytics": "통계",
+    "hall_of_fame": "명예의 전당",
+    "news": "뉴스",
+    "settings": "설정",
+    "logout": "로그아웃",
+    "login": "로그인",
+    "switch_account": "계정 전환",
+    "mode_switch": "모드 전환"
+  },
+  "News": {
+    "title": "뉴스 & 인사이트",
+    "subtitle": "K-Pop 산업의 최신 트렌드와 분석 리포트",
+    "backToList": "← 목록으로",
+    "noArticles": "등록된 기사가 없습니다.",
+    "readMore": "더 보기"
+  },
+  "Company": {
+    "detail": "회사 상세",
+    "artists": "소속 아티스트",
+    "total_votes": "총 득표수",
+    "trending": "급상승",
+    "back": "뒤로"
+  },
+  "Vote": {
+    "who_fan": "어떤 아티스트의 팬이신가요?",
+    "select_artist": "아티스트를 선택하세요",
+    "success": "투표 성공!",
+    "error": "투표 실패. 다시 시도해주세요.",
+    "daily_limit": "오늘의 투표 한도에 도달했습니다.",
+    "quota": {
+      "title": "오늘의 투표권",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "자정에 충전됩니다",
+      "exhausted_title": "내일 다시 와주세요!",
+      "exhausted_countdown": "{hours}시간 {minutes}분 후 투표권 충전"
+    },
+    "button": {
+      "vote": "투표하기",
+      "exhausted": "투표 완료"
+    },
+    "vote_success": "{company}에 +1 화력"
+  },
+  "Analytics": {
+    "title": "통계",
+    "subtitle": "투표 데이터 분석",
+    "period": {
+      "today": "오늘",
+      "week": "7일",
+      "month": "30일",
+      "all": "전체"
+    },
+    "charts": {
+      "trend": "실시간 트렌드",
+      "trend_desc": "시간별 투표 추이",
+      "market_share": "소속사별 점유율",
+      "market_share_desc": "전체 투표 비율",
+      "rising": "급상승 소속사",
+      "rising_desc": "최근 상승폭 Top 5"
+    },
+    "stats": {
+      "total_votes": "총 투표수",
+      "active_companies": "참여 소속사",
+      "top_company": "1위 소속사"
+    },
+    "last_updated": "마지막 업데이트",
+    "minutes_ago": "{minutes}분 전",
+    "votes": "표",
+    "rank_up": "순위 상승",
+    "no_data": "데이터가 없습니다"
+  },
+  "League": {
+    "season": {
+      "title": "{year}년 {month}월 시즌",
+      "days_remaining": "D-{days} 남음",
+      "ends_today": "오늘 마감!",
+      "current_leader": "현재 1위",
+      "realtime": "실시간 업데이트"
+    },
+    "tabs": {
+      "premier": "1부 리그",
+      "challengers": "2부 리그",
+      "swipe_hint": "스와이프하여 리그 전환"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "1부 리그",
+      "relegation_zone": "강등 위기",
+      "relegation_warning": "11위와 {count}표 차이"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "2부 리그",
+      "promotion_zone": "승격 기회",
+      "votes_to_promotion": "승격까지 {count}표!",
+      "promotion_cta": "지금 밀어주세요!",
+      "show_more": "더 보기"
+    },
+    "promotion_battle": {
+      "title": "승강전",
+      "button": "투표하기",
+      "gap": "격차",
+      "gap_message": "승격까지 단 {count}표!",
+      "cta": "지금 역전하세요!"
+    },
+    "vote": {
+      "button": "투표하기",
+      "hourly": "시간당 +{count}"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "상세보기"
+  }
+}

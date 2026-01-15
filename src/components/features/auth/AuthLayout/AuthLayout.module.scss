@@ -1,0 +1,87 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  padding-bottom: 60px; // Footer space
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 935px;
+}
+
+.leftPanel {
+  display: none; // Hidden on mobile
+  
+  // Instagram shows visual on wider screens
+  @media (min-width: 876px) {
+    display: block;
+    width: 380px;
+    height: 580px;
+    // background: url(...) or component
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    
+    // Add a nice glass/gradient bg for the 3D element
+    background: radial-gradient(circle at center, rgba($color-primary, 0.1), transparent 70%);
+  }
+}
+
+.rightPanel {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.authBox {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px; // Slightly less rounded than Insta (usually 1px solid dbdbdb)
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.subBox {
+  @extend .authBox;
+  padding: 24px;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 0.9rem;
+  
+  a {
+    color: $color-primary;
+    font-weight: 600;
+    margin-left: 4px;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Logo inside AuthForm
+.logo {
+  font-family: $font-display;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #fff 0%, $color-primary 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

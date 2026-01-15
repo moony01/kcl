@@ -1,0 +1,139 @@
+/**
+ * LeagueTabs.module.scss
+ *
+ * 리그 탭 네비게이션 스타일
+ * - 1부 리그: 골드 테마
+ * - 2부 리그: 실버 테마
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+.tabsContainer {
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.tabList {
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+  background: rgba($color-text, 0.05);
+  border-radius: 16px;
+
+  @media (min-width: 768px) {
+    gap: 12px;
+    padding: 6px;
+  }
+}
+
+.tabButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &:hover:not(.active) {
+    background: rgba($color-text, 0.05);
+  }
+
+  &.active {
+    background: $color-panel-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    padding: 16px 24px;
+    gap: 10px;
+  }
+}
+
+.tabIcon {
+  transition: color 0.2s ease;
+  color: $color-text-dim;
+
+  .active & {
+    // color는 inline style로 설정됨
+  }
+}
+
+.tabLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-text-dim;
+  transition: color 0.2s ease;
+
+  .active & {
+    color: $color-text;
+    font-weight: 700;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.tabBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: rgba($color-text, 0.1);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $color-text-dim;
+
+  .active & {
+    background: rgba($color-primary, 0.15);
+    color: $color-primary;
+  }
+
+  // 1부 리그 활성화
+  .premier.active & {
+    background: rgba(212, 175, 55, 0.15);
+    color: #d4af37;
+  }
+
+  // 2부 리그 활성화
+  .challengers.active & {
+    background: rgba(192, 192, 192, 0.2);
+    color: #888;
+  }
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+
+.swipeHint {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  color: $color-text-dim;
+  opacity: 0.5;
+  margin-top: 8px;
+
+  @media (min-width: 768px) {
+    display: none; // 데스크톱에서는 숨김
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "อันดับพลังไฟปัจจุบัน",
+    "ranking": "อันดับแบบเรียลไทม์",
+    "support": "สนับสนุน",
+    "search_placeholder": "ค้นหาศิลปินหรือบริษัท...",
+    "vote_button": "โหวตเลย",
+    "firepower": "พลังไฟ"
+  },
+  "HallOfFame": {
+    "title": "หอเกียรติยศ",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "แกรนด์แชมเปี้ยน",
+    "annual_champion": "แชมเปี้ยนประจำปี",
+    "victories": "ชนะ",
+    "current_race": "อันดับปัจจุบัน",
+    "monthly_champions": "แชมเปี้ยนรายเดือน",
+    "archives": "เอกสารเก่า",
+    "no_champion_yet": "ยังไม่มีแชมเปี้ยน",
+    "loading": "กำลังโหลด...",
+    "months": {
+      "1": "ม.ค.",
+      "2": "ก.พ.",
+      "3": "มี.ค.",
+      "4": "เม.ย.",
+      "5": "พ.ค.",
+      "6": "มิ.ย.",
+      "7": "ก.ค.",
+      "8": "ส.ค.",
+      "9": "ก.ย.",
+      "10": "ต.ค.",
+      "11": "พ.ย.",
+      "12": "ธ.ค."
+    }
+  },
+  "Common": {
+    "unofficial": "นี่คือแอปแฟนคลับไม่เป็นทางการ ไม่เกี่ยวข้องกับบริษัทบันเทิงใดๆ",
+    "fan_app": "แอปที่แฟนคลับสร้างขึ้น",
+    "loading": "กำลังโหลด...",
+    "error": "เกิดข้อผิดพลาด",
+    "coming_soon": "เร็วๆ นี้..."
+  },
+  "Nav": {
+    "home": "หน้าแรก",
+    "ranking": "อันดับ",
+    "support": "สนับสนุน",
+    "my": "โปรไฟล์ของฉัน",
+    "create": "สร้าง",
+    "theme": "ธีม",
+    "report": "แจ้งปัญหา/ติดต่อ",
+    "analytics": "สถิติ",
+    "settings": "การตั้งค่า",
+    "logout": "ออกจากระบบ",
+    "login": "เข้าสู่ระบบ",
+    "switch_account": "สลับบัญชี",
+    "mode_switch": "สลับโหมด",
+    "hall_of_fame": "หอเกียรติยศ",
+    "news": "ข่าวสาร"
+  },
+  "News": {
+    "title": "ข่าวสารและบทวิเคราะห์",
+    "subtitle": "เทรนด์ล่าสุดและรายงานวิเคราะห์อุตสาหกรรม K-Pop",
+    "backToList": "← กลับไปยังรายการ",
+    "noArticles": "ไม่มีบทความ",
+    "readMore": "อ่านเพิ่มเติม"
+  },
+  "Company": {
+    "detail": "รายละเอียดบริษัท",
+    "artists": "ศิลปิน",
+    "total_votes": "โหวตทั้งหมด",
+    "trending": "กำลังมาแรง",
+    "back": "กลับ"
+  },
+  "Vote": {
+    "who_fan": "คุณเป็นแฟนของศิลปินคนไหน?",
+    "select_artist": "เลือกศิลปิน",
+    "success": "โหวตสำเร็จ!",
+    "error": "โหวตไม่สำเร็จ กรุณาลองใหม่อีกครั้ง",
+    "daily_limit": "คุณถึงขีดจำกัดการโหวตรายวันแล้ว",
+    "quota": {
+      "title": "โหวตวันนี้",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "รีเซ็ตเที่ยงคืน",
+      "exhausted_title": "มาใหม่พรุ่งนี้!",
+      "exhausted_countdown": "รีเซ็ตใน {hours}ชม. {minutes}น."
+    },
+    "button": {
+      "vote": "โหวต",
+      "exhausted": "โหวตแล้ว"
+    },
+    "vote_success": "+1 พลังไฟให้ {company}"
+  },
+  "Analytics": {
+    "title": "สถิติ",
+    "subtitle": "การวิเคราะห์ข้อมูลการโหวต",
+    "period": {
+      "today": "วันนี้",
+      "week": "7 วัน",
+      "month": "30 วัน",
+      "all": "ทั้งหมด"
+    },
+    "charts": {
+      "trend": "เทรนด์แบบเรียลไทม์",
+      "trend_desc": "แนวโน้มการโหวตรายชั่วโมง",
+      "market_share": "ส่วนแบ่งตลาด",
+      "market_share_desc": "การกระจายโหวต",
+      "rising": "บริษัทที่กำลังมาแรง",
+      "rising_desc": "Top 5 ตามการเติบโต"
+    },
+    "stats": {
+      "total_votes": "โหวตทั้งหมด",
+      "active_companies": "บริษัทที่ใช้งาน",
+      "top_company": "บริษัทอันดับ 1"
+    },
+    "last_updated": "อัพเดทล่าสุด",
+    "minutes_ago": "{minutes} นาทีที่แล้ว",
+    "votes": "โหวต",
+    "rank_up": "อันดับขึ้น",
+    "no_data": "ไม่มีข้อมูล"
+  },
+  "League": {
+    "season": {
+      "title": "ฤดูกาล {month} {year}",
+      "days_remaining": "เหลืออีก {days} วัน",
+      "ends_today": "สิ้นสุดวันนี้!",
+      "current_leader": "อันดับ 1 ปัจจุบัน",
+      "realtime": "อัพเดทแบบเรียลไทม์"
+    },
+    "tabs": {
+      "premier": "ดิวิชั่น 1",
+      "challengers": "ดิวิชั่น 2",
+      "swipe_hint": "ปัดเพื่อเปลี่ยนลีก"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "ดิวิชั่น 1",
+      "relegation_zone": "โซนตกชั้น",
+      "relegation_warning": "ตามหลังอันดับ 11 อยู่ {count} โหวต"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "ดิวิชั่น 2",
+      "promotion_zone": "โซนเลื่อนชั้น",
+      "votes_to_promotion": "อีก {count} โหวตเพื่อเลื่อนชั้น!",
+      "promotion_cta": "สนับสนุนเลย!",
+      "show_more": "ดูเพิ่มเติม"
+    },
+    "promotion_battle": {
+      "title": "ศึกเพลย์ออฟ",
+      "button": "โหวตเลย",
+      "gap": "ส่วนต่าง",
+      "gap_message": "อีกแค่ {count} โหวตเพื่อเลื่อนชั้น!",
+      "cta": "พลิกสถานการณ์เลย!"
+    },
+    "vote": {
+      "button": "โหวต",
+      "hourly": "+{count}/ชม."
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "ดูรายละเอียด"
+  }
+}

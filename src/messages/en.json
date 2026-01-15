@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "Current Top Firepower",
+    "ranking": "Real-time Ranking",
+    "support": "Support",
+    "search_placeholder": "Search artist or company...",
+    "vote_button": "Vote Now",
+    "firepower": "Firepower"
+  },
+  "HallOfFame": {
+    "title": "Hall of Fame",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "Grand Champion",
+    "annual_champion": "Annual Champion",
+    "victories": "Wins",
+    "current_race": "Current Race",
+    "monthly_champions": "Monthly Champions",
+    "archives": "Archives",
+    "no_champion_yet": "No champion yet",
+    "loading": "Loading...",
+    "months": {
+      "1": "Jan",
+      "2": "Feb",
+      "3": "Mar",
+      "4": "Apr",
+      "5": "May",
+      "6": "Jun",
+      "7": "Jul",
+      "8": "Aug",
+      "9": "Sep",
+      "10": "Oct",
+      "11": "Nov",
+      "12": "Dec"
+    }
+  },
+  "Common": {
+    "unofficial": "This is an Unofficial Fan App. Not affiliated with any entertainment company.",
+    "fan_app": "Fan Made App",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "coming_soon": "Coming Soon..."
+  },
+  "Nav": {
+    "home": "Home",
+    "ranking": "Ranking",
+    "support": "Support",
+    "my": "My Profile",
+    "create": "Create",
+    "theme": "Theme",
+    "report": "Report/Contact",
+    "analytics": "Analytics",
+    "hall_of_fame": "Hall of Fame",
+    "news": "News",
+    "settings": "Settings",
+    "logout": "Logout",
+    "login": "Login",
+    "switch_account": "Switch Account",
+    "mode_switch": "Switch Mode"
+  },
+  "News": {
+    "title": "News & Insights",
+    "subtitle": "Latest trends and analysis reports on the K-Pop industry",
+    "backToList": "← Back to News",
+    "noArticles": "No articles available.",
+    "readMore": "Read More"
+  },
+  "Company": {
+    "detail": "Company Details",
+    "artists": "Artists",
+    "total_votes": "Total Votes",
+    "trending": "Trending",
+    "back": "Back"
+  },
+  "Vote": {
+    "who_fan": "Who is your favorite artist?",
+    "select_artist": "Select an artist",
+    "success": "Vote successful!",
+    "error": "Failed to vote. Please try again.",
+    "daily_limit": "You've reached your daily vote limit.",
+    "quota": {
+      "title": "Today's Votes",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "Resets at midnight",
+      "exhausted_title": "Come back tomorrow!",
+      "exhausted_countdown": "Votes refresh in {hours}h {minutes}m"
+    },
+    "button": {
+      "vote": "Vote",
+      "exhausted": "Voted"
+    },
+    "vote_success": "+1 Firepower for {company}"
+  },
+  "Analytics": {
+    "title": "Analytics",
+    "subtitle": "Vote Data Analysis",
+    "period": {
+      "today": "Today",
+      "week": "7 Days",
+      "month": "30 Days",
+      "all": "All Time"
+    },
+    "charts": {
+      "trend": "Real-time Trend",
+      "trend_desc": "Hourly vote trends",
+      "market_share": "Market Share",
+      "market_share_desc": "Vote distribution",
+      "rising": "Rising Companies",
+      "rising_desc": "Top 5 by growth"
+    },
+    "stats": {
+      "total_votes": "Total Votes",
+      "active_companies": "Active Companies",
+      "top_company": "Top Company"
+    },
+    "last_updated": "Last Updated",
+    "minutes_ago": "{minutes}m ago",
+    "votes": "votes",
+    "rank_up": "Rank Up",
+    "no_data": "No data available"
+  },
+  "League": {
+    "season": {
+      "title": "{month} {year} Season",
+      "days_remaining": "D-{days} left",
+      "ends_today": "Ends Today!",
+      "current_leader": "Current #1",
+      "realtime": "Real-time Updates"
+    },
+    "tabs": {
+      "premier": "Premier League",
+      "challengers": "Challengers",
+      "swipe_hint": "Swipe to switch leagues"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "1st Division",
+      "relegation_zone": "Relegation Zone",
+      "relegation_warning": "{count} votes behind 11th"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "2nd Division",
+      "promotion_zone": "Promotion Zone",
+      "votes_to_promotion": "{count} votes to promotion!",
+      "promotion_cta": "Support now!",
+      "show_more": "Show More"
+    },
+    "promotion_battle": {
+      "title": "Promotion Battle",
+      "button": "Vote Now",
+      "gap": "Gap",
+      "gap_message": "Only {count} votes to promotion!",
+      "cta": "Turn the tide now!"
+    },
+    "vote": {
+      "button": "Vote",
+      "hourly": "+{count}/hr"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "View Details"
+  }
+}

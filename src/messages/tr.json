@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "Güncel En İyi Güç",
+    "ranking": "Canlı Sıralama",
+    "support": "Destek",
+    "search_placeholder": "Sanatçı veya şirket ara...",
+    "vote_button": "Şimdi Oy Ver",
+    "firepower": "Güç"
+  },
+  "HallOfFame": {
+    "title": "Şöhret Salonu",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "Büyük Şampiyon",
+    "annual_champion": "Yıllık Şampiyon",
+    "victories": "Zafer",
+    "current_race": "Güncel Sıralama",
+    "monthly_champions": "Aylık Şampiyonlar",
+    "archives": "Arşiv",
+    "no_champion_yet": "Henüz şampiyon yok",
+    "loading": "Yükleniyor...",
+    "months": {
+      "1": "Oca",
+      "2": "Şub",
+      "3": "Mar",
+      "4": "Nis",
+      "5": "May",
+      "6": "Haz",
+      "7": "Tem",
+      "8": "Ağu",
+      "9": "Eyl",
+      "10": "Eki",
+      "11": "Kas",
+      "12": "Ara"
+    }
+  },
+  "Common": {
+    "unofficial": "Bu Resmi Olmayan Bir Hayran Uygulamasıdır. Hiçbir eğlence şirketiyle ilişkili değildir.",
+    "fan_app": "Hayran Yapımı Uygulama",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "coming_soon": "Yakında..."
+  },
+  "Nav": {
+    "home": "Ana Sayfa",
+    "ranking": "Sıralama",
+    "support": "Destek",
+    "my": "Profilim",
+    "create": "Oluştur",
+    "theme": "Tema",
+    "report": "Bildir/İletişim",
+    "analytics": "İstatistikler",
+    "settings": "Ayarlar",
+    "logout": "Çıkış Yap",
+    "login": "Giriş Yap",
+    "switch_account": "Hesap Değiştir",
+    "mode_switch": "Mod Değiştir",
+    "hall_of_fame": "Şöhret Salonu",
+    "news": "Haberler"
+  },
+  "News": {
+    "title": "Haberler ve Analizler",
+    "subtitle": "K-Pop endüstrisinin en son trendleri ve analiz raporları",
+    "backToList": "← Listeye Dön",
+    "noArticles": "Makale bulunamadı.",
+    "readMore": "Devamını Oku"
+  },
+  "Company": {
+    "detail": "Şirket Detayları",
+    "artists": "Sanatçılar",
+    "total_votes": "Toplam Oy",
+    "trending": "Trend",
+    "back": "Geri"
+  },
+  "Vote": {
+    "who_fan": "Favori sanatçınız kimdir?",
+    "select_artist": "Bir sanatçı seçin",
+    "success": "Oy başarılı!",
+    "error": "Oy verilemedi. Lütfen tekrar deneyin.",
+    "daily_limit": "Günlük oy limitinize ulaştınız.",
+    "quota": {
+      "title": "Bugünkü Oylar",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "Gece yarısı sıfırlanır",
+      "exhausted_title": "Yarın tekrar gelin!",
+      "exhausted_countdown": "{hours}s {minutes}d sonra sıfırlanır"
+    },
+    "button": {
+      "vote": "Oy Ver",
+      "exhausted": "Oy Verildi"
+    },
+    "vote_success": "{company} için +1 Güç"
+  },
+  "Analytics": {
+    "title": "İstatistikler",
+    "subtitle": "Oy Veri Analizi",
+    "period": {
+      "today": "Bugün",
+      "week": "7 Gün",
+      "month": "30 Gün",
+      "all": "Tümü"
+    },
+    "charts": {
+      "trend": "Gerçek Zamanlı Trend",
+      "trend_desc": "Saatlik oy trendleri",
+      "market_share": "Pazar Payı",
+      "market_share_desc": "Oy dağılımı",
+      "rising": "Yükselen Şirketler",
+      "rising_desc": "Büyümeye göre Top 5"
+    },
+    "stats": {
+      "total_votes": "Toplam Oy",
+      "active_companies": "Aktif Şirketler",
+      "top_company": "1. Şirket"
+    },
+    "last_updated": "Son Güncelleme",
+    "minutes_ago": "{minutes}dk önce",
+    "votes": "oy",
+    "rank_up": "Sıralama Yükseldi",
+    "no_data": "Veri bulunamadı"
+  },
+  "League": {
+    "season": {
+      "title": "{month} {year} Sezonu",
+      "days_remaining": "{days} gün kaldı",
+      "ends_today": "Bugün sona eriyor!",
+      "current_leader": "Şu an #1",
+      "realtime": "Gerçek zamanlı güncelleme"
+    },
+    "tabs": {
+      "premier": "Birinci Lig",
+      "challengers": "İkinci Lig",
+      "swipe_hint": "Lig değiştirmek için kaydırın"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "Birinci Lig",
+      "relegation_zone": "Düşme hattı",
+      "relegation_warning": "11. sıranın {count} oy gerisinde"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "İkinci Lig",
+      "promotion_zone": "Yükselme bölgesi",
+      "votes_to_promotion": "Yükselmek için {count} oy!",
+      "promotion_cta": "Şimdi destekle!",
+      "show_more": "Daha fazla göster"
+    },
+    "promotion_battle": {
+      "title": "Play-off Maçı",
+      "button": "Şimdi oy ver",
+      "gap": "Fark",
+      "gap_message": "Yükselmek için sadece {count} oy!",
+      "cta": "Durumu tersine çevir!"
+    },
+    "vote": {
+      "button": "Oy Ver",
+      "hourly": "+{count}/saat"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "Detayları Görüntüle"
+  }
+}

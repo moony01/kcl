@@ -1,0 +1,82 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.button {
+  @include mix.flex-center;
+  position: relative;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  overflow: hidden;
+
+  // Sizes
+  &.sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    height: 36px;
+  }
+  &.md {
+    padding: 12px 24px;
+    font-size: 1rem;
+    height: 48px;
+  }
+  &.lg {
+    padding: 16px 32px;
+    font-size: 1.125rem;
+    height: 56px;
+    width: 100%; // Large buttons typically fill width
+  }
+
+  // Variants
+  &.solid {
+    background: $gradient-primary;
+    color: white;
+    box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+
+    &:hover:not(:disabled) {
+      box-shadow: 0 6px 16px rgba($color-primary, 0.5);
+      filter: brightness(1.1);
+    }
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid rgba($color-primary, 0.5);
+    color: $color-primary;
+
+    &:hover:not(:disabled) {
+      background: rgba($color-primary, 0.1);
+      border-color: $color-primary;
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+    color: $color-text-dim;
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.05);
+      color: $color-text;
+    }
+  }
+
+  // States
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  .icon {
+    margin-right: 8px;
+    display: flex;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

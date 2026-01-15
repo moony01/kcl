@@ -1,0 +1,241 @@
+/**
+ * TopThreeCard.module.scss
+ *
+ * Top 3 대형 카드 스타일
+ * - 순위별 테마 컬러
+ * - 글로우 효과
+ * - 화려한 호버 애니메이션
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+// 메달 컬러
+$gold: #ffd700;
+$silver: #c0c0c0;
+$bronze: #cd7f32;
+
+.card {
+  @include mix.glass-panel;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+
+  // 1위 카드 특별 스타일
+  &[data-rank='1'] {
+    border: 2px solid rgba($gold, 0.4);
+    box-shadow: 0 4px 20px rgba($gold, 0.15);
+
+    &:hover {
+      box-shadow: 0 8px 32px rgba($gold, 0.3);
+    }
+  }
+
+  // 2위 카드
+  &[data-rank='2'] {
+    border: 2px solid rgba($silver, 0.3);
+    box-shadow: 0 4px 16px rgba($silver, 0.1);
+
+    &:hover {
+      box-shadow: 0 8px 28px rgba($silver, 0.2);
+    }
+  }
+
+  // 3위 카드
+  &[data-rank='3'] {
+    border: 2px solid rgba($bronze, 0.3);
+    box-shadow: 0 4px 16px rgba($bronze, 0.1);
+
+    &:hover {
+      box-shadow: 0 8px 28px rgba($bronze, 0.2);
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 24px 20px;
+  }
+}
+
+.medalBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+    top: -10px;
+    right: -10px;
+  }
+}
+
+.medalEmoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  z-index: 3;
+
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+  }
+}
+
+.logoWrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    width: 84px;
+    height: 84px;
+    font-size: 2.25rem;
+    border-radius: 20px;
+  }
+}
+
+.glow {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: 0;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.companyName {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $color-text;
+  font-family: $font-display;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+.voteCount {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.fireIcon {
+  color: #ff6b35;
+}
+
+.rankUp {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #28a745;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.rankDown {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #dc3545;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.rankSame {
+  color: $color-text-dim;
+}
+
+.hourlyVotes {
+  margin: 0;
+  font-size: 0.75rem;
+  color: $color-text-dim;
+  font-weight: 500;
+}
+
+.voteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}

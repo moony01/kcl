@@ -1,0 +1,264 @@
+/**
+ * VoteQuotaBar.module.scss
+ *
+ * 투표권 상태 표시 스타일
+ * 진행률 바 + 남은 투표권 표시
+ */
+
+@use 'sass:color';
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+// 색상 변수
+$color-plenty: #10b981; // 여유 (21~30)
+$color-caution: #f59e0b; // 주의 (11~20)
+$color-warning: #ef4444; // 경고 (1~10)
+$color-exhausted: #6b7280; // 소진 (0)
+
+// 그라디언트용 어두운 색상 (Dart Sass 3.0 호환)
+$color-plenty-dark: color.adjust($color-plenty, $lightness: -10%);
+$color-caution-dark: color.adjust($color-caution, $lightness: -10%);
+$color-warning-dark: color.adjust($color-warning, $lightness: -10%);
+
+// =====================================
+// Full 모드 (PC)
+// =====================================
+.quotaBar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba($color-text, 0.03);
+  border: 1px solid rgba($color-border, 0.5);
+
+  // 레벨별 테두리 색상
+  &.plenty {
+    border-color: rgba($color-plenty, 0.3);
+
+    .icon,
+    .count,
+    .progressFill {
+      color: $color-plenty;
+      background-color: $color-plenty;
+    }
+
+    .progressFill {
+      background: linear-gradient(90deg, $color-plenty 0%, $color-plenty-dark 100%);
+    }
+  }
+
+  &.caution {
+    border-color: rgba($color-caution, 0.3);
+
+    .icon,
+    .count,
+    .progressFill {
+      color: $color-caution;
+      background-color: $color-caution;
+    }
+
+    .progressFill {
+      background: linear-gradient(90deg, $color-caution 0%, $color-caution-dark 100%);
+    }
+  }
+
+  &.warning {
+    border-color: rgba($color-warning, 0.3);
+
+    .icon,
+    .count,
+    .progressFill {
+      color: $color-warning;
+      background-color: $color-warning;
+    }
+
+    .progressFill {
+      background: linear-gradient(90deg, $color-warning 0%, $color-warning-dark 100%);
+    }
+  }
+
+  &.exhausted {
+    border-color: rgba($color-exhausted, 0.3);
+    background: rgba($color-exhausted, 0.05);
+
+    .icon,
+    .count,
+    .progressFill {
+      color: $color-exhausted;
+      background-color: $color-exhausted;
+    }
+
+    .progressFill {
+      background: $color-exhausted;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon {
+  flex-shrink: 0;
+  background-color: transparent !important;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.count {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: $font-display;
+  background-color: transparent !important;
+}
+
+.progressBar {
+  height: 6px;
+  background: rgba($color-text, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: $color-text-dim;
+}
+
+.hintIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.exhaustedMessage {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exhaustedTitle {
+  font-weight: 600;
+  color: $color-text;
+}
+
+.countdown {
+  color: $color-text-dim;
+}
+
+// =====================================
+// Compact 모드 (Mobile)
+// =====================================
+.quotaBarCompact {
+  display: flex;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba($color-text, 0.03);
+  border: 1px solid rgba($color-border, 0.5);
+
+  // 레벨별 색상
+  &.plenty {
+    border-color: rgba($color-plenty, 0.3);
+
+    .icon,
+    .compactCount,
+    .progressFill {
+      color: $color-plenty;
+    }
+
+    .progressFill {
+      background: $color-plenty;
+    }
+  }
+
+  &.caution {
+    border-color: rgba($color-caution, 0.3);
+
+    .icon,
+    .compactCount,
+    .progressFill {
+      color: $color-caution;
+    }
+
+    .progressFill {
+      background: $color-caution;
+    }
+  }
+
+  &.warning {
+    border-color: rgba($color-warning, 0.3);
+
+    .icon,
+    .compactCount,
+    .progressFill {
+      color: $color-warning;
+    }
+
+    .progressFill {
+      background: $color-warning;
+    }
+  }
+
+  &.exhausted {
+    border-color: rgba($color-exhausted, 0.3);
+    background: rgba($color-exhausted, 0.05);
+
+    .icon,
+    .compactCount,
+    .progressFill,
+    .resetIcon {
+      color: $color-exhausted;
+    }
+
+    .progressFill {
+      background: $color-exhausted;
+    }
+  }
+}
+
+.compactRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.progressWrapper {
+  flex: 1;
+
+  .progressBar {
+    height: 4px;
+  }
+}
+
+.compactCount {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: $font-display;
+  white-space: nowrap;
+}
+
+.resetIcon {
+  flex-shrink: 0;
+  color: $color-text-dim;
+}

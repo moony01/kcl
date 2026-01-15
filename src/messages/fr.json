@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "Puissance Actuelle Maximale",
+    "ranking": "Classement en Temps Réel",
+    "support": "Soutenir",
+    "search_placeholder": "Rechercher artiste ou entreprise...",
+    "vote_button": "Voter Maintenant",
+    "firepower": "Puissance"
+  },
+  "HallOfFame": {
+    "title": "Temple de la Renommée",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "Grand Champion",
+    "annual_champion": "Champion Annuel",
+    "victories": "Victoires",
+    "current_race": "Classement Actuel",
+    "monthly_champions": "Champions Mensuels",
+    "archives": "Archives",
+    "no_champion_yet": "Pas encore de champion",
+    "loading": "Chargement...",
+    "months": {
+      "1": "Jan",
+      "2": "Fév",
+      "3": "Mar",
+      "4": "Avr",
+      "5": "Mai",
+      "6": "Juin",
+      "7": "Juil",
+      "8": "Août",
+      "9": "Sep",
+      "10": "Oct",
+      "11": "Nov",
+      "12": "Déc"
+    }
+  },
+  "Common": {
+    "unofficial": "Ceci est une Application de Fans Non Officielle. Non affiliée à aucune société de divertissement.",
+    "fan_app": "Application Créée par des Fans",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "coming_soon": "Bientôt..."
+  },
+  "Nav": {
+    "home": "Accueil",
+    "ranking": "Classement",
+    "support": "Soutenir",
+    "my": "Mon Profil",
+    "create": "Créer",
+    "theme": "Thème",
+    "report": "Signaler/Contact",
+    "analytics": "Statistiques",
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "switch_account": "Changer de compte",
+    "mode_switch": "Changer de mode",
+    "hall_of_fame": "Temple de la Renommée",
+    "news": "Actualités"
+  },
+  "News": {
+    "title": "Actualités et Insights",
+    "subtitle": "Dernières tendances et analyses de l'industrie K-Pop",
+    "backToList": "← Retour à la liste",
+    "noArticles": "Aucun article disponible.",
+    "readMore": "Lire la suite"
+  },
+  "Company": {
+    "detail": "Détails de l'Entreprise",
+    "artists": "Artistes",
+    "total_votes": "Votes Totaux",
+    "trending": "Tendance",
+    "back": "Retour"
+  },
+  "Vote": {
+    "who_fan": "Qui est votre artiste préféré?",
+    "select_artist": "Sélectionnez un artiste",
+    "success": "Vote réussi!",
+    "error": "Échec du vote. Veuillez réessayer.",
+    "daily_limit": "Vous avez atteint votre limite quotidienne de votes.",
+    "quota": {
+      "title": "Votes du Jour",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "Réinitialisation à minuit",
+      "exhausted_title": "Revenez demain!",
+      "exhausted_countdown": "Réinitialisation dans {hours}h {minutes}m"
+    },
+    "button": {
+      "vote": "Voter",
+      "exhausted": "Voté"
+    },
+    "vote_success": "+1 Puissance pour {company}"
+  },
+  "Analytics": {
+    "title": "Statistiques",
+    "subtitle": "Analyse des Données de Vote",
+    "period": {
+      "today": "Aujourd'hui",
+      "week": "7 Jours",
+      "month": "30 Jours",
+      "all": "Tout"
+    },
+    "charts": {
+      "trend": "Tendance en Temps Réel",
+      "trend_desc": "Tendance des votes par heure",
+      "market_share": "Part de Marché",
+      "market_share_desc": "Distribution des votes",
+      "rising": "Entreprises en Hausse",
+      "rising_desc": "Top 5 par croissance"
+    },
+    "stats": {
+      "total_votes": "Total des Votes",
+      "active_companies": "Entreprises Actives",
+      "top_company": "Entreprise #1"
+    },
+    "last_updated": "Dernière Mise à Jour",
+    "minutes_ago": "il y a {minutes}m",
+    "votes": "votes",
+    "rank_up": "Montée au Classement",
+    "no_data": "Aucune donnée disponible"
+  },
+  "League": {
+    "season": {
+      "title": "Saison {month} {year}",
+      "days_remaining": "J-{days} restants",
+      "ends_today": "Se termine aujourd'hui!",
+      "current_leader": "#1 Actuel",
+      "realtime": "Mise à jour en temps réel"
+    },
+    "tabs": {
+      "premier": "Première Division",
+      "challengers": "Deuxième Division",
+      "swipe_hint": "Glissez pour changer de ligue"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "Première Division",
+      "relegation_zone": "Zone de relégation",
+      "relegation_warning": "{count} votes derrière le 11ème"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "Deuxième Division",
+      "promotion_zone": "Zone de promotion",
+      "votes_to_promotion": "{count} votes pour monter!",
+      "promotion_cta": "Soutenez maintenant!",
+      "show_more": "Voir plus"
+    },
+    "promotion_battle": {
+      "title": "Match de Barrage",
+      "button": "Voter maintenant",
+      "gap": "Écart",
+      "gap_message": "Seulement {count} votes pour monter!",
+      "cta": "Renversez la situation!"
+    },
+    "vote": {
+      "button": "Voter",
+      "hourly": "+{count}/hr"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "Voir les détails"
+  }
+}

@@ -1,0 +1,162 @@
+/**
+ * CurrentRaceChart 스타일
+ *
+ * 현재 연도 우승 경쟁 현황 바 차트
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+
+$chart-gold: #d4af37;
+$chart-bg: rgba(255, 255, 255, 0.03);
+$chart-border: rgba(255, 255, 255, 0.08);
+
+.container {
+  padding: 20px;
+  background: $chart-bg;
+  border: 1px solid $chart-border;
+  border-radius: 16px;
+
+  @media (min-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.chartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 40px 1fr 2fr auto;
+  align-items: center;
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 50px 180px 1fr auto;
+    gap: 16px;
+  }
+}
+
+// 순위 뱃지
+.rankBadge {
+  font-family: $font-display;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+// 소속사 정보
+.companyInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.companyLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  span {
+    font-family: $font-display;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    width: 36px;
+    height: 36px;
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.companyName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: 768px) {
+    font-size: 0.95rem;
+  }
+}
+
+// 바
+.barWrapper {
+  height: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    height: 28px;
+  }
+}
+
+.bar {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 4px;
+}
+
+// 우승 횟수
+.winCount {
+  font-family: $font-display;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 60px;
+  text-align: right;
+
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+    min-width: 80px;
+  }
+}
+
+// 데이터 없음
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  p {
+    font-size: 0.9rem;
+    color: $color-text-dim;
+    margin: 0;
+  }
+}

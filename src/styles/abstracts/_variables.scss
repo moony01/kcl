@@ -1,0 +1,27 @@
+// SCSS Variables Map to CSS Variables
+// IMPORTANT: Do NOT put actual CSS output (like :root or selectors) here.
+// Only SCSS variable definitions.
+
+$color-primary: var(--color-primary);
+$color-primary-glow: var(--color-primary-glow);
+$color-secondary: var(--color-secondary);
+$color-bg: var(--color-bg);
+$color-text: var(--color-text);
+$color-text-dim: var(--color-text-dim);
+$color-panel-bg: var(--color-panel-bg);
+$color-border: var(--color-border);
+$color-danger: var(--color-danger);
+
+// Fonts (from layout variables)
+$font-stack: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+$font-display: var(--font-montserrat), sans-serif;
+
+// Z-index System
+$z-base: 1;
+$z-nav: 100;
+$z-modal: 1000;
+$z-overlay: 999;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $color-primary 0%, #7C3AED 100%);
+$gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);

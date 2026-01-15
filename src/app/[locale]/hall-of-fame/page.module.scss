@@ -1,0 +1,164 @@
+/**
+ * Hall of Fame 페이지 스타일
+ *
+ * Black & Gold 테마의 명예의 전당 레이아웃
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+
+// 디자인 토큰
+$hof-gold: #d4af37;
+$hof-gold-light: #f5d061;
+$hof-bg-dark: #0a0a0a;
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (min-width: 768px) {
+    padding: 32px 0 60px;
+    gap: 40px;
+  }
+}
+
+// 페이지 헤더
+.pageHeader {
+  text-align: center;
+  padding: 20px 0;
+
+  @media (min-width: 768px) {
+    padding: 32px 0;
+  }
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $hof-gold;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+  }
+}
+
+.subtitle {
+  font-family: $font-display;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: $color-text-dim;
+  margin: 0;
+  letter-spacing: 2px;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+// Grand Champion 섹션
+.grandChampionSection {
+  margin: 0;
+}
+
+// 2단 레이아웃
+.twoColumnLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+.raceSection {
+  flex: 1;
+  min-width: 0;
+
+  @media (min-width: 1024px) {
+    flex: 0 0 45%;
+  }
+}
+
+.timelineSection {
+  flex: 1;
+  min-width: 0;
+
+  @media (min-width: 1024px) {
+    flex: 0 0 55%;
+  }
+}
+
+// Archives 섹션
+.archivesSection {
+  margin-top: 8px;
+}
+
+// 로딩 상태
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+
+  p {
+    font-size: 0.9rem;
+    color: $color-text-dim;
+    margin: 0;
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(212, 175, 55, 0.2);
+  border-top-color: $hof-gold;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 에러 상태
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+
+  p {
+    font-size: 1rem;
+    color: $color-danger;
+    margin: 0;
+  }
+}
+
+// 빈 상태
+.emptyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+
+  p {
+    font-size: 1rem;
+    color: $color-text-dim;
+    margin: 0;
+  }
+}

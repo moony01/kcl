@@ -1,0 +1,212 @@
+/**
+ * ArchivesCarousel 스타일
+ *
+ * 역대 연간 대상 수상자 캐러셀
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+
+$archive-gold: #d4af37;
+$archive-bg: rgba(255, 255, 255, 0.03);
+$archive-border: rgba(255, 255, 255, 0.08);
+
+.container {
+  padding: 20px;
+  background: $archive-bg;
+  border: 1px solid $archive-border;
+  border-radius: 16px;
+
+  @media (min-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+// 스크롤 컨트롤
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.scrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: $color-text-dim;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: $archive-gold;
+    color: $archive-gold;
+  }
+}
+
+// 캐러셀 래퍼
+.carouselWrapper {
+  position: relative;
+  margin: 0 -20px;
+  padding: 0 20px;
+
+  @media (min-width: 768px) {
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+}
+
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 8px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// 카드
+.card {
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, #151515 0%, #0d0d0d 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $archive-gold;
+    transform: translateY(-4px);
+  }
+
+  @media (min-width: 768px) {
+    flex: 0 0 260px;
+    padding: 28px 24px;
+  }
+}
+
+// 연도 배지
+.yearBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, $archive-gold 0%, #b8860b 100%);
+  border-radius: 12px;
+  margin-bottom: 16px;
+
+  svg {
+    color: #0a0a0a;
+  }
+
+  span {
+    font-family: $font-display;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0a0a0a;
+  }
+}
+
+// 소속사 로고
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+
+  span {
+    font-family: $font-display;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    width: 80px;
+    height: 80px;
+
+    span {
+      font-size: 2rem;
+    }
+  }
+}
+
+// 소속사 이름
+.companyName {
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0 0 8px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+// 통계
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.winCount {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $archive-gold;
+}
+
+// 데이터 없음
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+
+  p {
+    font-size: 0.9rem;
+    color: $color-text-dim;
+    margin: 0;
+  }
+}

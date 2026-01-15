@@ -1,0 +1,116 @@
+/**
+ * BottomSheet.module.scss
+ * 
+ * 모바일 슬라이드업 패널 스타일
+ * iOS/Android 네이티브 시트 느낌을 재현합니다.
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.bottomSheetWrapper {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+
+  // 모든 자식 요소에 pointer-events 복원
+  & > * {
+    pointer-events: auto;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.sheet {
+  position: relative;
+  @include mix.glass-panel;
+
+  // 가독성을 위한 배경 및 효과 강화
+  background-color: var(--color-bg-secondary, #1a1a1a);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.6);
+  z-index: 100;
+
+  border-radius: 24px 24px 0 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  touch-action: none; // 드래그 중 스크롤 방지
+
+  // 상단 모서리 글로우 효과
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba($color-primary, 0.5) 50%,
+      transparent 100%
+    );
+  }
+}
+
+.dragHandle {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 8px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.handleBar {
+  width: 40px;
+  height: 4px;
+  background: rgba($color-text, 0.2);
+  border-radius: 2px;
+  transition: background 0.2s ease;
+
+  .dragHandle:hover & {
+    background: rgba($color-text, 0.4);
+  }
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 20px 32px;
+
+  // iOS 안전 영역 대응
+  padding-bottom: calc(32px + env(safe-area-inset-bottom, 0));
+
+  // 스크롤바 스타일링
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-text, 0.1);
+    border-radius: 2px;
+  }
+}

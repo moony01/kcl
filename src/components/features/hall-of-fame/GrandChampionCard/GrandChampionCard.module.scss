@@ -1,0 +1,226 @@
+/**
+ * GrandChampionCard 스타일
+ *
+ * Black & Gold 테마의 대상 수상자 카드
+ * 최고 권위를 표현하는 프리미엄 디자인
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+
+// 디자인 토큰
+$champion-gold: #d4af37;
+$champion-gold-light: #f5d061;
+$champion-gold-champagne: #f7e7ce;
+$champion-bg: #0a0a0a;
+$champion-border: rgba(212, 175, 55, 0.3);
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+  background: linear-gradient(180deg, $champion-bg 0%, #151515 100%);
+  border: 1px solid $champion-border;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    padding: 56px 40px;
+    border-radius: 24px;
+  }
+}
+
+// 배경 장식
+.backgroundDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glowEffect {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+  background-size:
+    60px 60px,
+    80px 80px,
+    100px 100px;
+}
+
+// 타이틀 배지
+.titleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, $champion-gold 0%, $champion-gold-light 100%);
+  border-radius: 20px;
+  margin-bottom: 24px;
+  z-index: 1;
+
+  span {
+    font-family: $font-display;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $champion-bg;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.trophyIcon {
+  color: $champion-bg;
+}
+
+// 로고 섹션
+.logoSection {
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.3),
+    0 0 40px rgba(212, 175, 55, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+
+  @media (min-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.logoText {
+  font-family: $font-display;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+.shineEffect {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 60%
+  );
+  animation: shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+// 소속사 이름
+.companyName {
+  font-family: $font-display;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 8px;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    font-size: 2.2rem;
+  }
+}
+
+// 부제목
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $champion-gold;
+  margin: 0 0 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+}
+
+// 통계
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    gap: 40px;
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statValue {
+  font-family: $font-display;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $champion-gold;
+
+  @media (min-width: 768px) {
+    font-size: 2.2rem;
+  }
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $color-text-dim;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, $champion-border, transparent);
+}

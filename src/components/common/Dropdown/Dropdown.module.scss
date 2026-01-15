@@ -1,0 +1,49 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.popoverContent {
+  width: 266px;
+  background-color: #262626; // Darker popover bg
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  color: $color-text;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.itemIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.divider {
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 4px -8px; // Full width bleed? Instagram actually has separate blocks or thick separator
+  // The provided image shows thick separator block
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.switch {
+  margin-left: auto;
+  // Custom switch styling if needed, or simple icon swap
+}

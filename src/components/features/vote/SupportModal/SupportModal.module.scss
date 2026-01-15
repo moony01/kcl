@@ -1,0 +1,119 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.targetInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    @include mix.flex-center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .message {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba($color-text, 0.9);
+
+    strong {
+      color: $color-primary;
+      font-weight: 700;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 10px;
+
+  button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+
+    &.cancel {
+      background: rgba($color-text, 0.05);
+      border: 1px solid rgba($color-text, 0.1);
+      color: $color-text;
+
+      &:hover {
+        background: rgba($color-text, 0.1);
+      }
+    }
+
+    &.confirm {
+      background: $color-primary;
+      border: none;
+      color: #000; // Contrast
+      font-weight: 700;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($color-primary, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+    }
+  }
+}
+
+.successContent {
+  composes: content;
+  padding: 20px 0;
+
+  .glowCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: $color-primary;
+    box-shadow: 0 0 40px $color-primary, inset 0 0 20px #fff;
+    @include mix.flex-center;
+    margin-bottom: 16px;
+    animation: pulse 1s infinite alternate;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    color: $color-text-dim;
+  }
+}
+
+@keyframes pulse {
+  from { transform: scale(1); box-shadow: 0 0 20px $color-primary; }
+  to { transform: scale(1.1); box-shadow: 0 0 50px $color-primary; }
+}

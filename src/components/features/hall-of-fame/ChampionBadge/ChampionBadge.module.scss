@@ -1,0 +1,115 @@
+/**
+ * ChampionBadge 스타일
+ *
+ * Black & Gold 테마의 월간 챔피언 배지
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+
+// 디자인 토큰
+$badge-gold: #d4af37;
+$badge-gold-light: #f5d061;
+$badge-bg: rgba(212, 175, 55, 0.1);
+$badge-border: rgba(212, 175, 55, 0.3);
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: $badge-bg;
+  border: 1px solid $badge-border;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: $badge-gold;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $badge-gold;
+    outline-offset: 2px;
+  }
+}
+
+// 사이즈 변형
+.small {
+  padding: 8px;
+  gap: 4px;
+  border-radius: 8px;
+
+  .logoWrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .monthLabel {
+    font-size: 0.7rem;
+  }
+}
+
+.medium {
+  .logoWrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .monthLabel {
+    font-size: 0.8rem;
+  }
+}
+
+.large {
+  padding: 16px;
+  gap: 10px;
+
+  .logoWrapper {
+    width: 64px;
+    height: 64px;
+  }
+
+  .monthLabel {
+    font-size: 0.9rem;
+  }
+}
+
+// 소속사 로고
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logoText {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+// 월 레이블
+.monthLabel {
+  font-family: $font-display;
+  font-weight: 600;
+  color: $badge-gold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// 소속사 이름 (large 사이즈만)
+.companyName {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $color-text-dim;
+  text-align: center;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

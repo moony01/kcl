@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "Aktuelle Top-Feuerkraft",
+    "ranking": "Echtzeit-Rangliste",
+    "support": "Unterstützen",
+    "search_placeholder": "Künstler oder Firma suchen...",
+    "vote_button": "Jetzt Abstimmen",
+    "firepower": "Feuerkraft"
+  },
+  "HallOfFame": {
+    "title": "Ruhmeshalle",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "Großer Champion",
+    "annual_champion": "Jahres-Champion",
+    "victories": "Siege",
+    "current_race": "Aktuelle Rangliste",
+    "monthly_champions": "Monats-Champions",
+    "archives": "Archiv",
+    "no_champion_yet": "Noch kein Champion",
+    "loading": "Laden...",
+    "months": {
+      "1": "Jan",
+      "2": "Feb",
+      "3": "Mär",
+      "4": "Apr",
+      "5": "Mai",
+      "6": "Jun",
+      "7": "Jul",
+      "8": "Aug",
+      "9": "Sep",
+      "10": "Okt",
+      "11": "Nov",
+      "12": "Dez"
+    }
+  },
+  "Common": {
+    "unofficial": "Dies ist eine Inoffizielle Fan-App. Nicht verbunden mit irgendeinem Unterhaltungsunternehmen.",
+    "fan_app": "Von Fans Erstellte App",
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "coming_soon": "Demnächst..."
+  },
+  "Nav": {
+    "home": "Startseite",
+    "ranking": "Rangliste",
+    "support": "Unterstützen",
+    "my": "Mein Profil",
+    "create": "Erstellen",
+    "theme": "Design",
+    "report": "Melden/Kontakt",
+    "analytics": "Statistiken",
+    "settings": "Einstellungen",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "switch_account": "Konto wechseln",
+    "mode_switch": "Modus wechseln",
+    "hall_of_fame": "Ruhmeshalle",
+    "news": "Nachrichten"
+  },
+  "News": {
+    "title": "Nachrichten & Einblicke",
+    "subtitle": "Neueste Trends und Analysen der K-Pop-Branche",
+    "backToList": "← Zurück zur Liste",
+    "noArticles": "Keine Artikel verfügbar.",
+    "readMore": "Weiterlesen"
+  },
+  "Company": {
+    "detail": "Firmendetails",
+    "artists": "Künstler",
+    "total_votes": "Gesamtstimmen",
+    "trending": "Im Trend",
+    "back": "Zurück"
+  },
+  "Vote": {
+    "who_fan": "Wer ist Ihr Lieblingskünstler?",
+    "select_artist": "Wählen Sie einen Künstler",
+    "success": "Abstimmung erfolgreich!",
+    "error": "Abstimmung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "daily_limit": "Sie haben Ihr tägliches Abstimmungslimit erreicht.",
+    "quota": {
+      "title": "Heutige Stimmen",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "Wird um Mitternacht zurückgesetzt",
+      "exhausted_title": "Kommen Sie morgen wieder!",
+      "exhausted_countdown": "Zurücksetzung in {hours}h {minutes}m"
+    },
+    "button": {
+      "vote": "Abstimmen",
+      "exhausted": "Abgestimmt"
+    },
+    "vote_success": "+1 Feuerkraft für {company}"
+  },
+  "Analytics": {
+    "title": "Statistiken",
+    "subtitle": "Abstimmungsdatenanalyse",
+    "period": {
+      "today": "Heute",
+      "week": "7 Tage",
+      "month": "30 Tage",
+      "all": "Gesamt"
+    },
+    "charts": {
+      "trend": "Echtzeit-Trend",
+      "trend_desc": "Stündliche Abstimmungstrends",
+      "market_share": "Marktanteil",
+      "market_share_desc": "Stimmenverteilung",
+      "rising": "Aufsteigende Unternehmen",
+      "rising_desc": "Top 5 nach Wachstum"
+    },
+    "stats": {
+      "total_votes": "Gesamtstimmen",
+      "active_companies": "Aktive Unternehmen",
+      "top_company": "Top-Unternehmen"
+    },
+    "last_updated": "Letzte Aktualisierung",
+    "minutes_ago": "vor {minutes}m",
+    "votes": "Stimmen",
+    "rank_up": "Rangaufstieg",
+    "no_data": "Keine Daten verfügbar"
+  },
+  "League": {
+    "season": {
+      "title": "Saison {month} {year}",
+      "days_remaining": "Noch {days} Tage",
+      "ends_today": "Endet heute!",
+      "current_leader": "Aktuell #1",
+      "realtime": "Echtzeit-Updates"
+    },
+    "tabs": {
+      "premier": "Erste Liga",
+      "challengers": "Zweite Liga",
+      "swipe_hint": "Wischen zum Wechseln"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "Erste Liga",
+      "relegation_zone": "Abstiegszone",
+      "relegation_warning": "{count} Stimmen hinter Platz 11"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "Zweite Liga",
+      "promotion_zone": "Aufstiegszone",
+      "votes_to_promotion": "{count} Stimmen zum Aufstieg!",
+      "promotion_cta": "Jetzt unterstützen!",
+      "show_more": "Mehr anzeigen"
+    },
+    "promotion_battle": {
+      "title": "Relegation",
+      "button": "Jetzt abstimmen",
+      "gap": "Abstand",
+      "gap_message": "Nur {count} Stimmen zum Aufstieg!",
+      "cta": "Jetzt das Blatt wenden!"
+    },
+    "vote": {
+      "button": "Abstimmen",
+      "hourly": "+{count}/Std"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "Details ansehen"
+  }
+}

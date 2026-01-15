@@ -1,0 +1,137 @@
+/**
+ * MonthlyTimeline 스타일
+ *
+ * 월별 챔피언 타임라인/그리드
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+
+$timeline-gold: #d4af37;
+$timeline-bg: rgba(255, 255, 255, 0.03);
+$timeline-border: rgba(255, 255, 255, 0.08);
+
+.container {
+  padding: 20px;
+  background: $timeline-bg;
+  border: 1px solid $timeline-border;
+  border-radius: 16px;
+
+  @media (min-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+// 연도 네비게이션
+.yearNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: $color-text-dim;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: $timeline-gold;
+    color: $timeline-gold;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.yearLabel {
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $timeline-gold;
+  min-width: 50px;
+  text-align: center;
+}
+
+// 월별 그리드
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.monthSlot {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 빈 슬롯 (아직 결정되지 않은 월)
+.emptySlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.emptyMonth {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $color-text-dim;
+  text-transform: uppercase;
+}
+
+.emptyLabel {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.2);
+}

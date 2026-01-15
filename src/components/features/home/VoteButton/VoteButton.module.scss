@@ -1,0 +1,68 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.voteBtn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.1s;
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.logoWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  @include mix.flex-center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  
+  // Glow animation handled by framer-motion or inline styles
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-display;
+  font-weight: 700;
+  color: $color-primary;
+  font-size: 1.1rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.scorePopup {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 900;
+  color: $color-secondary; // or dynamic
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba($color-secondary, 0.5);
+}

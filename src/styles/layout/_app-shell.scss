@@ -1,0 +1,43 @@
+/**
+ * _app-shell.scss
+ * 
+ * 전역 앱 셸 스타일 - body 및 배경 효과
+ * 레이아웃 구조는 AppShell.module.scss에서 처리
+ */
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as mix;
+
+html {
+  // 스크롤 시 헤더에 가리는 문제 방지
+  scroll-padding-top: 60px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  
+  // 배경 오로라 효과
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(ellipse at 10% 20%, rgba($color-primary, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba($color-secondary, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba($color-bg, 0.9) 0%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+// 기존 .app-shell 클래스는 더 이상 사용하지 않음
+// AppShell 컴포넌트에서 module.scss를 사용함

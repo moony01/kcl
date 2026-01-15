@@ -1,0 +1,134 @@
+/**
+ * page.module.scss (리그 시스템)
+ * 
+ * 홈 페이지 스타일 (탭 기반 리그 UI)
+ * - 반응형 레이아웃 (Grid/Flex)
+ * - 시즌 헤더 + 탭 + 콘텐츠 구조
+ */
+
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as mix;
+
+// 메인 레이아웃 - 세로 배치
+.dashboardContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 100px; // 모바일 하단 여백 (BottomNav)
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (min-width: 1024px) {
+    padding-bottom: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 24px;
+  }
+}
+
+// 상단 영역: 시즌 헤더 + 검색 + 탭 (전체 너비)
+.headerSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (min-width: 1024px) {
+    gap: 20px;
+  }
+}
+
+// 검색 섹션
+.searchSection {
+  z-index: 50;
+
+  @media (min-width: 1024px) {
+    max-width: 500px;
+  }
+}
+
+// 하단 영역: 탭 콘텐츠 + Battle Station (2열 레이아웃)
+.contentLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}
+
+// 리그 리스트 섹션 (탭 콘텐츠)
+.leagueListSection {
+  flex: 1;
+  min-width: 0; // flex item overflow 방지
+  width: 100%;
+}
+
+// 우측 패널 컬럼 (데스크톱 전용) - Battle Station
+.panelColumn {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    flex-shrink: 0; // 줄어들지 않음
+    position: sticky;
+    top: 24px; // 헤더 아래에 고정
+    height: fit-content; // 콘텐츠 높이에 맞춤
+    max-height: calc(100vh - 48px);
+
+    // 스크롤바 스타일링
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 360px;
+  }
+}
+
+// ===== 기존 스타일 호환성 (deprecated) =====
+// 아래 클래스들은 더 이상 사용되지 않거나 하위 호환을 위해 남겨둠
+
+.searchHeader,
+.sectionTitle,
+.rankingSection,
+.rankingList,
+.homeContainer,
+.hero,
+.heroTitle,
+.voteSection,
+.rankingButton,
+.list {
+  display: none;
+}
+
+// 페이드 인 애니메이션
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}

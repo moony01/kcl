@@ -1,0 +1,101 @@
+/**
+ * PremierLeague.module.scss
+ *
+ * 1부 리그 탭 콘텐츠 스타일
+ * - 골드 테마
+ * - Top 3 그리드
+ *
+ * @updated T1.16 - 10위 강등 위기 영역 제거 (SeasonHeader로 통합)
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+$color-gold: #d4af37;
+$color-relegation: #dc3545;
+
+.premierLeague {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  color: $color-gold;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text;
+  font-family: $font-display;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $color-gold;
+}
+
+// Top 3 그리드
+.topThreeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  // 모바일에서 1위를 크게 표시
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    // 첫 번째 카드(1위) 강조
+    & > *:first-child {
+      order: -1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    gap: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 20px;
+  }
+}
+
+// 4-10위 리스트 - T1.16: 10위도 일반 표시
+// T1.XX: 2열 그리드 제거 → 1열 세로 리스트로 변경
+.rankingList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    gap: 12px;
+  }
+
+  // 데스크탑에서도 1열 유지 (2열 그리드 제거)
+  @media (min-width: 1024px) {
+    gap: 14px;
+  }
+}
+
+// ===== T1.16: 10위 강등 위기 영역 스타일 (deprecated - SeasonHeader로 통합) =====
+// 하위 호환성을 위해 스타일은 유지하나, 컴포넌트에서 사용하지 않음
+
+.relegationZone {
+  display: none; // T1.16: 사용 중단
+}

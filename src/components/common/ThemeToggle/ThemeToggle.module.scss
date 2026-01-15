@@ -1,0 +1,164 @@
+/**
+ * ThemeToggle.module.scss
+ * 
+ * 테마 토글 버튼 스타일
+ * 
+ * 기능:
+ * - Sun/Moon 아이콘 전환 애니메이션
+ * - 호버 및 포커스 효과
+ * - 반응형 레이아웃 지원
+ * - 접근성 포커스 스타일
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: $color-text;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+
+  // 호버 효과
+  &:hover {
+    background-color: rgba($color-text, 0.08);
+
+    .iconWrapper {
+      transform: scale(1.05);
+    }
+  }
+
+  // 포커스 스타일 (접근성)
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  // 활성화 상태
+  &:active {
+    transform: scale(0.96);
+  }
+
+  // 비활성화 상태
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// 컴팩트 모드 (아이콘만)
+.compact {
+  padding: 8px;
+  border-radius: 50%;
+
+  .iconWrapper {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// 아이콘 래퍼
+.iconWrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+// 아이콘 공통 스타일
+.icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // 보이는 상태
+  &.visible {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+// Sun 아이콘 스타일
+.sunIcon {
+  width: 22px;
+  height: 22px;
+  color: #f59e0b; // 따뜻한 오렌지 (햇빛 색상)
+
+  // 라이트 모드에서 회전 효과
+  .visible & {
+    animation: sunRise 0.3s ease-out;
+  }
+}
+
+// Moon 아이콘 스타일
+.moonIcon {
+  width: 20px;
+  height: 20px;
+  color: #a78bfa; // 보라색 (달빛 색상)
+
+  // 다크 모드에서 나타나는 효과
+  .visible & {
+    animation: moonRise 0.3s ease-out;
+  }
+}
+
+// 플레이스홀더 (로딩 중)
+.placeholder {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba($color-text, 0.1);
+}
+
+// 레이블 텍스트
+.label {
+  font-size: 0.95rem;
+  white-space: nowrap;
+  color: $color-text;
+  font-weight: 400;
+}
+
+// 애니메이션: 해 뜨기
+@keyframes sunRise {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  50% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+// 애니메이션: 달 뜨기
+@keyframes moonRise {
+  0% {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}

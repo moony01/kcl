@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "Peringkat Firepower Saat Ini",
+    "ranking": "Peringkat Real-time",
+    "support": "Dukung",
+    "search_placeholder": "Cari artis atau perusahaan...",
+    "vote_button": "Vote Sekarang",
+    "firepower": "Firepower"
+  },
+  "HallOfFame": {
+    "title": "Hall of Fame",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "Juara Besar",
+    "annual_champion": "Juara Tahunan",
+    "victories": "Kemenangan",
+    "current_race": "Peringkat Saat Ini",
+    "monthly_champions": "Juara Bulanan",
+    "archives": "Arsip",
+    "no_champion_yet": "Belum ada juara",
+    "loading": "Memuat...",
+    "months": {
+      "1": "Jan",
+      "2": "Feb",
+      "3": "Mar",
+      "4": "Apr",
+      "5": "Mei",
+      "6": "Jun",
+      "7": "Jul",
+      "8": "Agu",
+      "9": "Sep",
+      "10": "Okt",
+      "11": "Nov",
+      "12": "Des"
+    }
+  },
+  "Common": {
+    "unofficial": "Ini adalah Aplikasi Fan Tidak Resmi. Tidak berafiliasi dengan perusahaan hiburan manapun.",
+    "fan_app": "Aplikasi Buatan Fan",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "coming_soon": "Segera Hadir..."
+  },
+  "Nav": {
+    "home": "Beranda",
+    "ranking": "Peringkat",
+    "support": "Dukung",
+    "my": "Profil Saya",
+    "create": "Buat",
+    "theme": "Tema",
+    "report": "Laporkan/Kontak",
+    "analytics": "Statistik",
+    "settings": "Pengaturan",
+    "logout": "Keluar",
+    "login": "Masuk",
+    "switch_account": "Ganti Akun",
+    "mode_switch": "Ganti Mode",
+    "hall_of_fame": "Hall of Fame",
+    "news": "Berita"
+  },
+  "News": {
+    "title": "Berita & Wawasan",
+    "subtitle": "Tren terbaru dan laporan analisis industri K-Pop",
+    "backToList": "← Kembali ke daftar",
+    "noArticles": "Tidak ada artikel tersedia.",
+    "readMore": "Baca selengkapnya"
+  },
+  "Company": {
+    "detail": "Detail Perusahaan",
+    "artists": "Artis",
+    "total_votes": "Total Voting",
+    "trending": "Trending",
+    "back": "Kembali"
+  },
+  "Vote": {
+    "who_fan": "Siapa artis favorit Anda?",
+    "select_artist": "Pilih artis",
+    "success": "Vote berhasil!",
+    "error": "Gagal vote. Silakan coba lagi.",
+    "daily_limit": "Anda telah mencapai batas vote harian.",
+    "quota": {
+      "title": "Vote Hari Ini",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "Diperbarui saat tengah malam",
+      "exhausted_title": "Kembali besok!",
+      "exhausted_countdown": "Diperbarui dalam {hours}j {minutes}m"
+    },
+    "button": {
+      "vote": "Vote",
+      "exhausted": "Sudah Vote"
+    },
+    "vote_success": "+1 Firepower untuk {company}"
+  },
+  "Analytics": {
+    "title": "Statistik",
+    "subtitle": "Analisis Data Voting",
+    "period": {
+      "today": "Hari Ini",
+      "week": "7 Hari",
+      "month": "30 Hari",
+      "all": "Semua"
+    },
+    "charts": {
+      "trend": "Tren Real-time",
+      "trend_desc": "Tren voting per jam",
+      "market_share": "Pangsa Pasar",
+      "market_share_desc": "Distribusi voting",
+      "rising": "Perusahaan Naik Daun",
+      "rising_desc": "Top 5 berdasarkan pertumbuhan"
+    },
+    "stats": {
+      "total_votes": "Total Voting",
+      "active_companies": "Perusahaan Aktif",
+      "top_company": "Perusahaan #1"
+    },
+    "last_updated": "Terakhir Diperbarui",
+    "minutes_ago": "{minutes}m yang lalu",
+    "votes": "suara",
+    "rank_up": "Naik Peringkat",
+    "no_data": "Tidak ada data tersedia"
+  },
+  "League": {
+    "season": {
+      "title": "Musim {month} {year}",
+      "days_remaining": "D-{days} tersisa",
+      "ends_today": "Berakhir hari ini!",
+      "current_leader": "Saat ini #1",
+      "realtime": "Update real-time"
+    },
+    "tabs": {
+      "premier": "Divisi Utama",
+      "challengers": "Divisi Dua",
+      "swipe_hint": "Geser untuk ganti liga"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "Divisi Utama",
+      "relegation_zone": "Zona degradasi",
+      "relegation_warning": "{count} suara di belakang peringkat 11"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "Divisi Dua",
+      "promotion_zone": "Zona promosi",
+      "votes_to_promotion": "{count} suara untuk naik!",
+      "promotion_cta": "Dukung sekarang!",
+      "show_more": "Lihat lebih"
+    },
+    "promotion_battle": {
+      "title": "Pertarungan Promosi",
+      "button": "Vote sekarang",
+      "gap": "Selisih",
+      "gap_message": "Hanya {count} suara untuk naik!",
+      "cta": "Balikkan keadaan sekarang!"
+    },
+    "vote": {
+      "button": "Vote",
+      "hourly": "+{count}/jam"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "Lihat Detail"
+  }
+}

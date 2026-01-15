@@ -1,0 +1,401 @@
+/**
+ * SeasonHeader.module.scss
+ *
+ * 시즌 대시보드 스타일 (T1.16 승강전 통합)
+ * - 그라디언트 배경
+ * - 반응형 레이아웃
+ * - 승강전 섹션 스타일 추가
+ *
+ * @updated T1.16
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+// 컬러 변수
+$color-gold: #d4af37;
+$color-relegation: #dc3545; // 빨강 - 강등 위기
+$color-promotion: #28a745; // 초록 - 승격 기회
+
+.seasonHeader {
+  @include mix.glass-panel;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+
+  // 골드 그라디언트 오버레이
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba($color-gold, 0.08) 0%, rgba($color-gold, 0.02) 100%);
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    padding: 20px 24px;
+  }
+}
+
+// 상단 행: 시즌 정보 + D-day
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 1;
+}
+
+.seasonTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: $color-text;
+  font-family: $font-display;
+  letter-spacing: -0.5px;
+
+  // Premium Text Effect
+  background: linear-gradient(135deg, #ffffff 0%, #c0c0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.seasonInfo {
+  display: block;
+  font-size: 0.8rem;
+  color: $color-text-dim;
+  font-weight: 500;
+
+  @media (min-width: 768px) {
+    font-size: 0.95rem;
+  }
+}
+
+.trophyIcon {
+  color: $color-gold;
+}
+
+.daysRemaining {
+  span {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba($color-text, 0.08);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $color-text-dim;
+
+    &.urgent {
+      background: rgba($color-relegation, 0.15);
+      color: $color-relegation;
+      animation: pulse 1.5s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+// 구분선
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba($color-gold, 0.3) 50%, transparent 100%);
+  z-index: 1;
+}
+
+// 하단 행: 1위 정보 + 승강전
+.bottomRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
+
+// 1위 정보 (클릭 가능)
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  margin: -8px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba($color-gold, 0.08);
+  }
+
+  &:focus {
+    outline: 2px solid rgba($color-gold, 0.5);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+    align-items: flex-start;
+  }
+}
+
+.leaderLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: $color-text-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leaderCompany {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.companyLogo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.companyDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.companyName {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: $color-text;
+}
+
+.voteCount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: $color-primary;
+  font-weight: 600;
+
+  svg {
+    color: #ff6b35;
+  }
+}
+
+// ===== 승강전 섹션 (T1.16 추가) =====
+
+.promotionBattleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+
+  @media (min-width: 768px) {
+    align-items: flex-end;
+  }
+}
+
+.battleHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swordsIcon {
+  color: $color-gold;
+}
+
+.battleTitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $color-gold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.battleContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
+}
+
+// 10위/11위 개별 카드
+.battleCompany {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.75rem;
+
+  &[data-zone='relegation'] {
+    background: rgba($color-relegation, 0.1);
+    border: 1px solid rgba($color-relegation, 0.2);
+
+    .zoneIcon {
+      color: $color-relegation;
+    }
+
+    .battleRank {
+      color: $color-relegation;
+    }
+
+    &:hover {
+      background: rgba($color-relegation, 0.15);
+      border-color: rgba($color-relegation, 0.4);
+    }
+  }
+
+  &[data-zone='promotion'] {
+    background: rgba($color-promotion, 0.1);
+    border: 1px solid rgba($color-promotion, 0.2);
+
+    .zoneIcon {
+      color: $color-promotion;
+    }
+
+    .battleRank {
+      color: $color-promotion;
+    }
+
+    &:hover {
+      background: rgba($color-promotion, 0.15);
+      border-color: rgba($color-promotion, 0.4);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid rgba($color-gold, 0.5);
+    outline-offset: 2px;
+  }
+}
+
+.zoneIcon {
+  flex-shrink: 0;
+}
+
+.battleRank {
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+.battleName {
+  font-weight: 600;
+  color: $color-text;
+  max-width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: 768px) {
+    max-width: 100px;
+  }
+}
+
+.battleVotes {
+  font-weight: 600;
+  color: $color-text-dim;
+  font-size: 0.7rem;
+}
+
+// GAP 표시 (중앙)
+.gapBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba($color-gold, 0.15);
+  border: 1px solid rgba($color-gold, 0.3);
+}
+
+.gapArrow {
+  font-size: 0.6rem;
+  color: $color-gold;
+  opacity: 0.7;
+}
+
+.gapValue {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: $color-gold;
+  font-family: $font-display;
+}
+
+// 실시간 표시기
+.realtimeIndicator {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  color: $color-text-dim;
+  opacity: 0.6;
+
+  svg {
+    color: $color-promotion;
+  }
+
+  @media (min-width: 768px) {
+    top: 12px;
+    right: 16px;
+    font-size: 0.7rem;
+  }
+}
+
+// ===== 기존 호환성 (deprecated) =====
+// .seasonInfo removed

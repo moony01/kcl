@@ -1,0 +1,27 @@
+---
+title: 'The Era of 1 Million Trainees: How is the Training System Changing?'
+excerpt: 'From closed dormitory training to public audition programs and data-driven training systems. An in-depth analysis of changes in the K-Pop idol debut process.'
+date: '2024-12-28'
+category: 'Trainee System'
+thumbnail: '/images/news/trainee-system.jpg'
+---
+
+## From Hungry Spirit to Systematic Management
+
+The success stories of 'surviving on just ramen while practicing' are now tales of the past. As the K-Pop industry has grown massive, entertainment companies' trainee development systems (T&D, Training & Development) have become as sophisticated as elite sports athlete training programs.
+
+### 1. Data-Driven Evaluation Systems
+
+Not only vocal and dance skills but also physical fitness, personality, and star quality are quantified and managed. Monthly evaluation videos are stored in databases and used to analyze growth trends. Some major agencies have introduced AI motion analysis technology to correct dance accuracy down to 0.1-second intervals.
+
+### 2. Strengthening Mental Care and Character Education
+
+Mental health management for trainees, which was previously overlooked, has become a mandatory curriculum. Regular psychological counseling is provided to help trainees cope with stress from malicious comments or excessive schedules after debut. Additionally, character education and SNS usage training are thoroughly conducted to prevent controversies such as school bullying.
+
+### 3. Increase in 'Public Trainees'
+
+The strategy of revealing the training process through YouTube or TikTok before debut and gathering fandoms has become commonplace. This is advantageous for reducing debut failure risks and securing initial fandoms. Fan feedback is reflected in real-time to modify group concepts.
+
+## Rookies That KCL is Watching
+
+KCL (K-pop Company League) discovers and highlights small and medium-sized agencies with systematic training systems amid these changes. Through transparent evaluation metrics, we will support hidden gem agencies and artists to shine in the global market.

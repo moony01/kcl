@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #8B5CF6;
+  --color-primary-glow: rgba(139, 92, 246, 0.5);
+  --color-secondary: #00F0FF;
+  --color-bg: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-dim: rgba(0, 0, 0, 0.6);
+  --color-panel-bg: rgba(0, 0, 0, 0.05);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-danger: #FF3366;
+}
+
+[data-theme='dark'] {
+  --color-primary: #8B5CF6;
+  --color-primary-glow: rgba(139, 92, 246, 0.5);
+  --color-secondary: #00F0FF;
+  --color-bg: #050505;
+  --color-text: #FFFFFF;
+  --color-text-dim: rgba(255, 255, 255, 0.6);
+  --color-panel-bg: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-danger: #FF3366;
+}

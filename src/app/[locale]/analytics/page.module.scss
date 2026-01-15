@@ -1,0 +1,135 @@
+/**
+ * Analytics 페이지 스타일
+ *
+ * 통계 및 차트 페이지 레이아웃
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 16px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    padding: 32px 24px 60px;
+    gap: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 40px 32px 60px;
+  }
+}
+
+// 페이지 헤더
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  color: $color-primary;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+  line-height: 1.2;
+
+  @media (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: $color-text-dim;
+  margin: 4px 0 0;
+}
+
+.filterWrapper {
+  flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    margin-top: 4px;
+  }
+}
+
+// 차트 그리드
+.chartsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    gap: 28px;
+  }
+}
+
+.trendSection {
+  width: 100%;
+}
+
+// 2열 레이아웃
+.twoColumnLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 32px;
+  }
+}
+
+.marketShareSection {
+  flex: 1;
+  min-width: 0;
+}
+
+.risingSection {
+  flex: 1;
+  min-width: 0;
+}
+
+// 푸터
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px;
+  margin-top: auto;
+  color: $color-text-dim;
+  font-size: 0.75rem;
+
+  svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+}

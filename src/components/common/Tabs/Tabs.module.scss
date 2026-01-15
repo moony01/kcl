@@ -1,0 +1,48 @@
+@use '../../../styles/abstracts/variables' as *;
+
+.tabsContainer {
+  width: 100%;
+}
+
+.tabHeader {
+  display: flex;
+  border-bottom: 1px solid rgba($color-text, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba($color-text, 0.5);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: rgba($color-text, 0.8);
+  }
+
+  &.active {
+    color: $color-primary; // or var(--color-text) depending on design
+    font-weight: 700;
+  }
+}
+
+.indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: $color-primary;
+  border-radius: 2px 2px 0 0;
+}
+
+.tabContent {
+  min-height: 200px;
+}

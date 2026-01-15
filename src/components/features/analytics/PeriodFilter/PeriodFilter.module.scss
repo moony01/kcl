@@ -1,0 +1,75 @@
+/**
+ * PeriodFilter 스타일
+ *
+ * 글래스모픽 스타일의 토글 버튼 그룹
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as *;
+
+.container {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: $color-panel-bg;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+
+  @media (min-width: 768px) {
+    gap: 6px;
+    padding: 5px;
+  }
+}
+
+.button {
+  position: relative;
+  flex: 1;
+  min-width: 60px;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  @media (min-width: 768px) {
+    min-width: 80px;
+    padding: 12px 16px;
+  }
+
+  &:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.activeBackground {
+  position: absolute;
+  inset: 0;
+  background: $color-primary;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $color-text-dim;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+
+  @media (min-width: 768px) {
+    font-size: 0.85rem;
+  }
+
+  .active & {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}

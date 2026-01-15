@@ -1,0 +1,83 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.appContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: $color-bg;
+  color: $color-text;
+  position: relative;
+}
+
+// Side Navigation (Desktop >= 768px)
+.sidebarWrapper {
+  display: none; // Hidden on mobile
+  flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    display: block;
+    width: 72px; // Default collapsed width
+  }
+
+  @media (min-width: 1264px) {
+    width: 244px; // Expanded width
+  }
+  
+  // Note: Actual sidebar is fixed, so this wrapper just reserves space in flow if needed,
+  // OR we rely on main margin. Instagram uses fixed sidebar + margin-left on main.
+  // Sidebar component itself is fixed. So this wrapper might strictly be for Logical structure
+  // or we don't need a wrapper if we handle margin on main.
+  // With Fixed Sidebar, we don't strictly need a flex item for it, but let's keep it structured.
+}
+
+// Main Content
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  // Mobile Defaults
+  padding-bottom: 80px; // Space for BottomNav
+  
+  // Tablet Handling (Sidebar uses 72px)
+  @media (min-width: 768px) {
+    padding-bottom: 0; // No bottom nav
+    margin-left: 72px; // Push content
+    width: calc(100% - 72px);
+  }
+
+  // Desktop Handling (Sidebar uses 244px)
+  @media (min-width: 1264px) {
+    margin-left: 244px;
+    width: calc(100% - 244px);
+  }
+}
+
+.contentInner {
+  width: 100%;
+  max-width: 935px; // Instagram Standard Feed Width
+  margin: 0 auto;   // Center alignment
+  flex: 1;
+  position: relative;
+}
+
+// Bottom Navigation (Mobile < 768px)
+.bottomNavWrapper {
+  display: block;
+  
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.legalFooter {
+  padding: 40px 20px 20px;
+  text-align: center;
+  color: $color-text-dim;
+  font-size: 0.75rem;
+  
+  @media (min-width: 768px) {
+    padding-bottom: 40px;
+  }
+}

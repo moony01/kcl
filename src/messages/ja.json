@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "現在のトップファイアパワー",
+    "ranking": "リアルタイムランキング",
+    "support": "応援",
+    "search_placeholder": "アーティストまたは会社を検索...",
+    "vote_button": "投票する",
+    "firepower": "ファイアパワー"
+  },
+  "HallOfFame": {
+    "title": "殿堂入り",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "大賞",
+    "annual_champion": "年間チャンピオン",
+    "victories": "回優勝",
+    "current_race": "現在の順位",
+    "monthly_champions": "月間チャンピオン",
+    "archives": "歴代記録",
+    "no_champion_yet": "まだチャンピオンがいません",
+    "loading": "読み込み中...",
+    "months": {
+      "1": "1月",
+      "2": "2月",
+      "3": "3月",
+      "4": "4月",
+      "5": "5月",
+      "6": "6月",
+      "7": "7月",
+      "8": "8月",
+      "9": "9月",
+      "10": "10月",
+      "11": "11月",
+      "12": "12月"
+    }
+  },
+  "Common": {
+    "unofficial": "これは非公式のファンアプリです。いかなるエンターテイメント会社とも関係ありません。",
+    "fan_app": "ファン制作アプリ",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "coming_soon": "近日公開..."
+  },
+  "Nav": {
+    "home": "ホーム",
+    "ranking": "ランキング",
+    "support": "応援",
+    "my": "マイページ",
+    "create": "作成",
+    "theme": "テーマ",
+    "report": "報告/お問い合わせ",
+    "analytics": "統計",
+    "settings": "設定",
+    "logout": "ログアウト",
+    "login": "ログイン",
+    "switch_account": "アカウント切替",
+    "mode_switch": "モード切替",
+    "hall_of_fame": "殿堂入り",
+    "news": "ニュース"
+  },
+  "News": {
+    "title": "ニュース＆インサイト",
+    "subtitle": "K-Pop業界の最新トレンドと分析レポート",
+    "backToList": "← 一覧に戻る",
+    "noArticles": "記事がありません。",
+    "readMore": "続きを読む"
+  },
+  "Company": {
+    "detail": "会社詳細",
+    "artists": "アーティスト",
+    "total_votes": "総投票数",
+    "trending": "トレンド",
+    "back": "戻る"
+  },
+  "Vote": {
+    "who_fan": "お気に入りのアーティストは誰ですか？",
+    "select_artist": "アーティストを選択",
+    "success": "投票成功！",
+    "error": "投票に失敗しました。もう一度お試しください。",
+    "daily_limit": "本日の投票上限に達しました。",
+    "quota": {
+      "title": "本日の投票権",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "深夜0時にリセット",
+      "exhausted_title": "また明日お越しください！",
+      "exhausted_countdown": "{hours}時間{minutes}分後にリセット"
+    },
+    "button": {
+      "vote": "投票する",
+      "exhausted": "投票完了"
+    },
+    "vote_success": "{company}に+1パワー"
+  },
+  "Analytics": {
+    "title": "統計",
+    "subtitle": "投票データ分析",
+    "period": {
+      "today": "今日",
+      "week": "7日間",
+      "month": "30日間",
+      "all": "全期間"
+    },
+    "charts": {
+      "trend": "リアルタイムトレンド",
+      "trend_desc": "時間別投票推移",
+      "market_share": "事務所別シェア",
+      "market_share_desc": "投票分布",
+      "rising": "急上昇事務所",
+      "rising_desc": "成長率Top 5"
+    },
+    "stats": {
+      "total_votes": "総投票数",
+      "active_companies": "参加事務所",
+      "top_company": "1位事務所"
+    },
+    "last_updated": "最終更新",
+    "minutes_ago": "{minutes}分前",
+    "votes": "票",
+    "rank_up": "順位上昇",
+    "no_data": "データがありません"
+  },
+  "League": {
+    "season": {
+      "title": "{year}年{month}月シーズン",
+      "days_remaining": "残り{days}日",
+      "ends_today": "本日終了！",
+      "current_leader": "現在1位",
+      "realtime": "リアルタイム更新"
+    },
+    "tabs": {
+      "premier": "1部リーグ",
+      "challengers": "2部リーグ",
+      "swipe_hint": "スワイプでリーグ切替"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "1部リーグ",
+      "relegation_zone": "降格危機",
+      "relegation_warning": "11位と{count}票差"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "2部リーグ",
+      "promotion_zone": "昇格チャンス",
+      "votes_to_promotion": "昇格まで{count}票！",
+      "promotion_cta": "今すぐ応援を！",
+      "show_more": "もっと見る"
+    },
+    "promotion_battle": {
+      "title": "昇降格戦",
+      "button": "投票する",
+      "gap": "票差",
+      "gap_message": "昇格までわずか{count}票！",
+      "cta": "今すぐ逆転を！"
+    },
+    "vote": {
+      "button": "投票",
+      "hourly": "時間あたり+{count}"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "詳細を見る"
+  }
+}

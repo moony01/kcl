@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "当前最高火力",
+    "ranking": "实时排名",
+    "support": "支持",
+    "search_placeholder": "搜索艺人或公司...",
+    "vote_button": "立即投票",
+    "firepower": "火力"
+  },
+  "HallOfFame": {
+    "title": "名人堂",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "大奖",
+    "annual_champion": "年度冠军",
+    "victories": "次夺冠",
+    "current_race": "当前排名",
+    "monthly_champions": "月度冠军",
+    "archives": "历史记录",
+    "no_champion_yet": "暂无冠军",
+    "loading": "加载中...",
+    "months": {
+      "1": "1月",
+      "2": "2月",
+      "3": "3月",
+      "4": "4月",
+      "5": "5月",
+      "6": "6月",
+      "7": "7月",
+      "8": "8月",
+      "9": "9月",
+      "10": "10月",
+      "11": "11月",
+      "12": "12月"
+    }
+  },
+  "Common": {
+    "unofficial": "这是一个非官方粉丝应用。与任何娱乐公司无关。",
+    "fan_app": "粉丝制作应用",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "coming_soon": "即将推出..."
+  },
+  "Nav": {
+    "home": "首页",
+    "ranking": "排名",
+    "support": "支持",
+    "my": "我的",
+    "create": "创建",
+    "theme": "主题",
+    "report": "反馈/联系",
+    "analytics": "统计",
+    "settings": "设置",
+    "logout": "退出登录",
+    "login": "登录",
+    "switch_account": "切换账号",
+    "mode_switch": "切换模式",
+    "hall_of_fame": "名人堂",
+    "news": "新闻"
+  },
+  "News": {
+    "title": "新闻与洞察",
+    "subtitle": "K-Pop行业最新趋势与分析报告",
+    "backToList": "← 返回列表",
+    "noArticles": "暂无文章。",
+    "readMore": "阅读更多"
+  },
+  "Company": {
+    "detail": "公司详情",
+    "artists": "艺人",
+    "total_votes": "总投票数",
+    "trending": "热门",
+    "back": "返回"
+  },
+  "Vote": {
+    "who_fan": "您最喜欢的艺人是谁？",
+    "select_artist": "选择艺人",
+    "success": "投票成功！",
+    "error": "投票失败。请重试。",
+    "daily_limit": "您已达到每日投票限制。",
+    "quota": {
+      "title": "今日投票券",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "午夜刷新",
+      "exhausted_title": "明天再来！",
+      "exhausted_countdown": "{hours}小时{minutes}分钟后刷新"
+    },
+    "button": {
+      "vote": "投票",
+      "exhausted": "已投票"
+    },
+    "vote_success": "{company} +1火力"
+  },
+  "Analytics": {
+    "title": "统计",
+    "subtitle": "投票数据分析",
+    "period": {
+      "today": "今日",
+      "week": "7天",
+      "month": "30天",
+      "all": "全部"
+    },
+    "charts": {
+      "trend": "实时趋势",
+      "trend_desc": "每小时投票趋势",
+      "market_share": "公司份额",
+      "market_share_desc": "投票分布",
+      "rising": "急速上升公司",
+      "rising_desc": "增长率Top 5"
+    },
+    "stats": {
+      "total_votes": "总投票数",
+      "active_companies": "参与公司",
+      "top_company": "第一名公司"
+    },
+    "last_updated": "最后更新",
+    "minutes_ago": "{minutes}分钟前",
+    "votes": "票",
+    "rank_up": "排名上升",
+    "no_data": "暂无数据"
+  },
+  "League": {
+    "season": {
+      "title": "{year}年{month}月赛季",
+      "days_remaining": "还剩{days}天",
+      "ends_today": "今日截止！",
+      "current_leader": "当前第一",
+      "realtime": "实时更新"
+    },
+    "tabs": {
+      "premier": "甲级联赛",
+      "challengers": "乙级联赛",
+      "swipe_hint": "滑动切换联赛"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "甲级联赛",
+      "relegation_zone": "降级危机",
+      "relegation_warning": "与第11名相差{count}票"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "乙级联赛",
+      "promotion_zone": "升级机会",
+      "votes_to_promotion": "距离升级还需{count}票！",
+      "promotion_cta": "立即支持！",
+      "show_more": "查看更多"
+    },
+    "promotion_battle": {
+      "title": "升降级战",
+      "button": "立即投票",
+      "gap": "差距",
+      "gap_message": "距离升级仅需{count}票！",
+      "cta": "立即逆转！"
+    },
+    "vote": {
+      "button": "投票",
+      "hourly": "每小时+{count}"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "查看详情"
+  }
+}

@@ -1,0 +1,148 @@
+/**
+ * SearchBar.module.scss
+ * 
+ * 아티스트/소속사 통합 검색 스타일
+ * 상단 고정 및 자동완성 드롭다운 스타일링
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  z-index: 50;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include mix.glass-panel;
+  border-radius: 16px;
+  padding: 0 16px;
+  transition: all 0.2s ease;
+
+  &:focus-within {
+    border-color: rgba($color-primary, 0.5);
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+.searchIcon {
+  color: $color-text-dim;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  padding: 14px 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: $color-text;
+
+  &::placeholder {
+    color: rgba($color-text, 0.4);
+  }
+}
+
+.clearButton {
+  padding: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba($color-text, 0.1);
+  color: $color-text-dim;
+  cursor: pointer;
+  @include mix.flex-center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($color-text, 0.2);
+    color: $color-text;
+  }
+}
+
+// 자동완성 드롭다운
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  @include mix.glass-panel;
+  border-radius: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover,
+  &.highlighted {
+    background: rgba($color-primary, 0.1);
+  }
+}
+
+.resultAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  @include mix.flex-center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.resultInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.artistName {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: $color-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.companyLabel {
+  font-size: 0.75rem;
+  color: $color-text-dim;
+}
+
+.companyName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: $color-text;
+}
+
+.resultType {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-text-dim;
+  background: rgba($color-text, 0.05);
+  padding: 4px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}

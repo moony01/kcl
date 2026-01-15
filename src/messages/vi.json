@@ -1,0 +1,166 @@
+{
+  "Home": {
+    "title": "Sức Mạnh Hàng Đầu Hiện Tại",
+    "ranking": "Xếp Hạng Thời Gian Thực",
+    "support": "Ủng Hộ",
+    "search_placeholder": "Tìm kiếm nghệ sĩ hoặc công ty...",
+    "vote_button": "Bình Chọn Ngay",
+    "firepower": "Sức Mạnh"
+  },
+  "HallOfFame": {
+    "title": "Đại Sảnh Danh Vọng",
+    "subtitle": "Legends of KCL",
+    "grand_champion": "Nhà Vô Địch",
+    "annual_champion": "Nhà Vô Địch Năm",
+    "victories": "Chiến Thắng",
+    "current_race": "Xếp Hạng Hiện Tại",
+    "monthly_champions": "Nhà Vô Địch Tháng",
+    "archives": "Lưu Trữ",
+    "no_champion_yet": "Chưa có nhà vô địch",
+    "loading": "Đang tải...",
+    "months": {
+      "1": "Th1",
+      "2": "Th2",
+      "3": "Th3",
+      "4": "Th4",
+      "5": "Th5",
+      "6": "Th6",
+      "7": "Th7",
+      "8": "Th8",
+      "9": "Th9",
+      "10": "Th10",
+      "11": "Th11",
+      "12": "Th12"
+    }
+  },
+  "Common": {
+    "unofficial": "Đây là Ứng Dụng Fan Không Chính Thức. Không liên kết với bất kỳ công ty giải trí nào.",
+    "fan_app": "Ứng Dụng Do Fan Tạo",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "coming_soon": "Sắp Ra Mắt..."
+  },
+  "Nav": {
+    "home": "Trang Chủ",
+    "ranking": "Xếp Hạng",
+    "support": "Ủng Hộ",
+    "my": "Hồ Sơ Của Tôi",
+    "create": "Tạo",
+    "theme": "Chủ Đề",
+    "report": "Báo cáo/Liên hệ",
+    "analytics": "Thống kê",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "login": "Đăng nhập",
+    "switch_account": "Chuyển tài khoản",
+    "mode_switch": "Chuyển chế độ",
+    "hall_of_fame": "Đại Sảnh Danh Vọng",
+    "news": "Tin Tức"
+  },
+  "News": {
+    "title": "Tin Tức & Phân Tích",
+    "subtitle": "Xu hướng mới nhất và báo cáo phân tích ngành K-Pop",
+    "backToList": "← Quay lại danh sách",
+    "noArticles": "Không có bài viết nào.",
+    "readMore": "Đọc thêm"
+  },
+  "Company": {
+    "detail": "Chi Tiết Công Ty",
+    "artists": "Nghệ Sĩ",
+    "total_votes": "Tổng Số Phiếu",
+    "trending": "Xu Hướng",
+    "back": "Quay Lại"
+  },
+  "Vote": {
+    "who_fan": "Nghệ sĩ yêu thích của bạn là ai?",
+    "select_artist": "Chọn một nghệ sĩ",
+    "success": "Bình chọn thành công!",
+    "error": "Bình chọn thất bại. Vui lòng thử lại.",
+    "daily_limit": "Bạn đã đạt giới hạn bình chọn hàng ngày.",
+    "quota": {
+      "title": "Phiếu Bầu Hôm Nay",
+      "remaining": "{remaining}/{max}",
+      "reset_hint": "Làm mới vào nửa đêm",
+      "exhausted_title": "Hẹn gặp lại ngày mai!",
+      "exhausted_countdown": "Làm mới sau {hours}g {minutes}p"
+    },
+    "button": {
+      "vote": "Bình Chọn",
+      "exhausted": "Đã Bình Chọn"
+    },
+    "vote_success": "+1 Sức Mạnh cho {company}"
+  },
+  "Analytics": {
+    "title": "Thống Kê",
+    "subtitle": "Phân Tích Dữ Liệu Bình Chọn",
+    "period": {
+      "today": "Hôm Nay",
+      "week": "7 Ngày",
+      "month": "30 Ngày",
+      "all": "Tất Cả"
+    },
+    "charts": {
+      "trend": "Xu Hướng Thời Gian Thực",
+      "trend_desc": "Xu hướng bình chọn theo giờ",
+      "market_share": "Thị Phần",
+      "market_share_desc": "Phân bổ phiếu bầu",
+      "rising": "Công Ty Đang Lên",
+      "rising_desc": "Top 5 theo tăng trưởng"
+    },
+    "stats": {
+      "total_votes": "Tổng Phiếu Bầu",
+      "active_companies": "Công Ty Hoạt Động",
+      "top_company": "Công Ty #1"
+    },
+    "last_updated": "Cập Nhật Lần Cuối",
+    "minutes_ago": "{minutes} phút trước",
+    "votes": "phiếu",
+    "rank_up": "Tăng Hạng",
+    "no_data": "Không có dữ liệu"
+  },
+  "League": {
+    "season": {
+      "title": "Mùa giải tháng {month} năm {year}",
+      "days_remaining": "Còn {days} ngày",
+      "ends_today": "Kết thúc hôm nay!",
+      "current_leader": "Hiện đang #1",
+      "realtime": "Cập nhật thời gian thực"
+    },
+    "tabs": {
+      "premier": "Giải Hạng Nhất",
+      "challengers": "Giải Hạng Hai",
+      "swipe_hint": "Vuốt để chuyển giải"
+    },
+    "premier": {
+      "title": "Premier League",
+      "subtitle": "Giải Hạng Nhất",
+      "relegation_zone": "Vùng xuống hạng",
+      "relegation_warning": "Kém vị trí 11 {count} phiếu"
+    },
+    "challengers": {
+      "title": "Challengers",
+      "subtitle": "Giải Hạng Hai",
+      "promotion_zone": "Vùng thăng hạng",
+      "votes_to_promotion": "Còn {count} phiếu để thăng hạng!",
+      "promotion_cta": "Ủng hộ ngay!",
+      "show_more": "Xem thêm"
+    },
+    "promotion_battle": {
+      "title": "Trận Tranh Thăng Hạng",
+      "button": "Bình chọn ngay",
+      "gap": "Khoảng cách",
+      "gap_message": "Chỉ còn {count} phiếu để thăng hạng!",
+      "cta": "Lật ngược tình thế ngay!"
+    },
+    "vote": {
+      "button": "Bình chọn",
+      "hourly": "+{count}/giờ"
+    },
+    "rank_change": {
+      "up": "▲ {count}",
+      "down": "▼ {count}",
+      "same": "-"
+    },
+    "view_details": "Xem chi tiết"
+  }
+}

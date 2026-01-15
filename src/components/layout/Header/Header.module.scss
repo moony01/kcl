@@ -1,0 +1,118 @@
+/**
+ * Header.module.scss
+ * 
+ * 헤더 컴포넌트 스타일
+ * 
+ * 구조:
+ * - Mobile: 상단 고정, 로고 + 언어 선택기
+ * - Desktop: 언어 선택기만 우측 상단에 플로팅 (사이드바에 로고 있음)
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: calc($z-nav - 1); // 사이드바보다 낮게
+  background: rgba($color-bg, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($color-text, 0.08);
+
+  // 태블릿+: 플로팅 언어 선택기만 표시
+  @media (min-width: 768px) {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    left: auto;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    border-bottom: none;
+    backdrop-filter: none;
+    z-index: calc($z-nav + 1);
+  }
+}
+
+// 로고 (모바일에서만 표시)
+.logo {
+  font-family: $font-display;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+
+  // 데스크탑: 사이드바에 로고가 있으므로 숨김
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// 컨트롤 영역 (테마 토글, 언어 선택기 등)
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// 테마 토글 버튼
+.themeToggle {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba($color-bg, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($color-text, 0.08);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($color-text, 0.1);
+    border-color: rgba($color-primary, 0.3);
+  }
+
+  // 태블릿+: 사이드바에 이미 있으므로 숨김 처리 가능
+  // 하지만 우측 상단에서도 접근성을 위해 표시 유지
+  @media (min-width: 768px) {
+    background: rgba($color-bg, 0.8);
+  }
+}
+
+// 언어 선택 드롭다운
+.langSelect {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba($color-text, 0.15);
+  background: rgba($color-bg, 0.8);
+  color: $color-text-dim;
+  font-size: 0.8rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($color-text, 0.1);
+    color: $color-text;
+    border-color: rgba($color-primary, 0.3);
+  }
+
+  &:focus {
+    border-color: rgba($color-primary, 0.5);
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.1);
+  }
+
+  option {
+    background-color: $color-bg;
+    color: $color-text;
+    padding: 8px;
+  }
+}

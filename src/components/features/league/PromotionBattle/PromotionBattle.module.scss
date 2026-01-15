@@ -1,0 +1,283 @@
+/**
+ * PromotionBattle.module.scss
+ *
+ * 승강전 영역 스타일
+ * - 강렬한 대결 구도
+ * - 강등(빨강) vs 승격(초록) 색상 대비
+ * - 펄스 애니메이션
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+// 컬러 변수
+$color-relegation: #dc3545; // 빨강 - 강등 위기
+$color-promotion: #28a745; // 초록 - 승격 기회
+$color-gold: #d4af37;
+
+.battleSection {
+  @include mix.glass-panel;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba($color-relegation, 0.05) 0%,
+    rgba($color-promotion, 0.05) 100%
+  );
+  border: 1px solid rgba($color-gold, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  // 배경 그라데이션 효과
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba($color-gold, 0.05) 0%, transparent 60%);
+    animation: rotate 20s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    padding: 24px 32px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.swordsIcon {
+  color: $color-gold;
+}
+
+.title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $color-text;
+  font-family: $font-display;
+}
+
+.subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $color-gold;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.battleArena {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
+}
+
+.companyCard {
+  flex: 1;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  border-radius: 16px;
+  background: $color-panel-bg;
+  border: 1px solid $color-border;
+  transition: all 0.2s ease;
+
+  &[data-zone='relegation'] {
+    border-color: rgba($color-relegation, 0.3);
+    box-shadow: 0 0 20px rgba($color-relegation, 0.1);
+  }
+
+  &[data-zone='promotion'] {
+    border-color: rgba($color-promotion, 0.3);
+    box-shadow: 0 0 20px rgba($color-promotion, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    max-width: 200px;
+    padding: 20px 16px;
+  }
+}
+
+.zoneTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+
+  [data-zone='relegation'] & {
+    background: rgba($color-relegation, 0.15);
+    color: $color-relegation;
+  }
+
+  [data-zone='promotion'] & {
+    background: rgba($color-promotion, 0.15);
+    color: $color-promotion;
+  }
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    width: 64px;
+    height: 64px;
+    font-size: 1.75rem;
+  }
+}
+
+.companyName {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $color-text;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 0.95rem;
+  }
+}
+
+.voteCount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-dim;
+
+  svg {
+    color: #ff6b35;
+  }
+}
+
+.voteButton {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  [data-zone='relegation'] & {
+    background: linear-gradient(135deg, $color-relegation 0%, darken($color-relegation, 10%) 100%);
+    color: white;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($color-relegation, 0.4);
+    }
+  }
+
+  [data-zone='promotion'] & {
+    background: linear-gradient(135deg, $color-promotion 0%, darken($color-promotion, 10%) 100%);
+    color: white;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($color-promotion, 0.4);
+    }
+  }
+}
+
+.gapSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 8px;
+}
+
+.gapBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba($color-gold, 0.15);
+  border: 1px solid rgba($color-gold, 0.3);
+}
+
+.gapLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: $color-gold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gapValue {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: $color-gold;
+  font-family: $font-display;
+
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+  }
+}
+
+.vsIcon {
+  color: $color-gold;
+  opacity: 0.6;
+}
+
+.ctaMessage {
+  text-align: center;
+  margin: 16px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-primary;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    font-size: 0.95rem;
+    margin-top: 20px;
+  }
+}

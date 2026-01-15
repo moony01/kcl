@@ -1,0 +1,26 @@
+// 모바일 앱 컨테이너 (PC 대응)
+@mixin mobile-container {
+  width: 100%;
+  max-width: 480px; // 모바일 최대 너비
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); // PC 화면에서의 깊이감
+  background-color: var(--color-bg); // 앱 배경
+  overflow-x: hidden;
+}
+
+// 유리 질감 효과 (Glassmorphism)
+@mixin glass-panel {
+  background: var(--color-panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+// Flex 중앙 정렬
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
