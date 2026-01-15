@@ -55,7 +55,8 @@
     "switch_account": "切换账号",
     "mode_switch": "切换模式",
     "hall_of_fame": "名人堂",
-    "news": "新闻"
+    "news": "新闻",
+    "community": "社区"
   },
   "News": {
     "title": "新闻与洞察",
@@ -163,28 +164,124 @@
     },
     "view_details": "查看详情"
   },
+
   "Community": {
     "title": "社区",
-    "subtitle": "自由分享您的想法",
+    "subtitle": "粉丝自由讨论区",
     "write": "发帖",
-    "nickname": "昵称",
-    "title_label": "标题",
-    "content": "内容",
-    "submit": "发布",
-    "cancel": "取消",
-    "comments": "评论",
-    "comment_placeholder": "写评论",
-    "report": "举报",
-    "report_reason": "举报原因",
-    "report_success": "举报已提交",
-    "report_duplicate": "您已举报过此内容",
-    "no_posts": "暂无帖子",
+    "back_to_list": "← 返回列表",
+    "no_posts": "暂无帖子。",
     "loading": "加载中...",
-    "view_count": "浏览",
-    "created_at": "发布时间",
-    "back_to_list": "返回列表",
-    "post_success": "帖子发布成功",
-    "comment_success": "评论发布成功",
-    "error": "发生错误"
+    "table": {
+      "number": "编号",
+      "title": "标题",
+      "author": "作者",
+      "date": "日期",
+      "views": "浏览",
+      "comments": "评论"
+    },
+    "post": {
+      "views": "{count}次浏览",
+      "comments": "{count}条评论",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "昵称",
+      "nickname_placeholder": "请输入昵称（最多20字）",
+      "title": "标题",
+      "title_placeholder": "请输入标题（最多100字）",
+      "content": "内容",
+      "content_placeholder": "请输入内容",
+      "submit": "发布",
+      "cancel": "取消",
+      "submitting": "发布中..."
+    },
+    "validation": {
+      "nickname_required": "请输入昵称",
+      "nickname_max": "昵称最多20个字符",
+      "title_required": "请输入标题",
+      "title_max": "标题最多100个字符",
+      "content_required": "请输入内容"
+    },
+    "detail": {
+      "report": "举报",
+      "delete": "删除",
+      "edit": "编辑"
+    },
+    "comment": {
+      "title": "评论",
+      "placeholder": "写评论（最多200字）",
+      "submit": "发表",
+      "no_comments": "成为第一个评论的人！",
+      "delete_confirm": "确定删除此评论？"
+    },
+    "report": {
+      "title": "举报",
+      "reason": "举报原因",
+      "reasons": {
+        "spam": "垃圾信息/广告",
+        "inappropriate": "不当内容",
+        "harassment": "骚扰/仇恨",
+        "other": "其他"
+      },
+      "detail": "详情（可选）",
+      "detail_placeholder": "请详细描述问题",
+      "submit": "提交举报",
+      "cancel": "取消",
+      "success": "举报已提交",
+      "submitting": "提交中..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "这是一个非官方的粉丝制作应用。所有公司标志和艺人信息均为各权利方所有。本应用与任何娱乐公司无关。",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "copyright": "© 2026 KCL. All rights reserved."
+  },
+  "Legal": {
+    "last_updated": "最后更新",
+    "legal_review_notice": "本文件可能在法律审查后更新。请定期查看变更。",
+    "contact_title": "联系我们",
+    "contact_content": "如有任何关于本政策的问题，请发送邮件至 contact@kcl.fan",
+    "terms_title": "服务条款",
+    "terms_description": "KCL服务条款和使用协议",
+    "terms_section1_title": "简介",
+    "terms_section1_content": "欢迎使用KCL（K-pop Company League）。访问或使用我们的服务即表示您同意受这些服务条款的约束。这是一个非官方的粉丝制作应用，与任何娱乐公司无关。",
+    "terms_section2_title": "服务使用",
+    "terms_section2_content": "使用KCL即表示您同意：",
+    "terms_section2_item1": "仅将服务用于个人、非商业目的",
+    "terms_section2_item2": "不从事任何干扰或中断服务的活动",
+    "terms_section2_item3": "不尝试操纵投票或排名系统",
+    "terms_section3_title": "知识产权",
+    "terms_section3_content": "KCL上显示的所有公司标志、艺人图片和相关内容均归各版权所有者所有。KCL不主张任何第三方知识产权的所有权。此类内容的使用仅用于信息和粉丝参与目的。",
+    "terms_section4_title": "免责声明",
+    "terms_section4_content": "KCL按\"原样\"提供，不提供任何形式的保证。我们不保证任何内容的准确性、完整性或可靠性。使用本服务的风险由您自行承担。",
+    "terms_section5_title": "服务变更",
+    "terms_section5_content": "我们保留随时修改、暂停或终止服务的权利，恕不另行通知。",
+    "terms_section6_title": "适用法律",
+    "terms_section6_content": "这些条款应受韩国法律管辖并据其解释。",
+    "privacy_title": "隐私政策",
+    "privacy_description": "KCL隐私政策和数据保护",
+    "privacy_section1_title": "概述",
+    "privacy_section1_content": "KCL尊重您的隐私，并致力于保护您的个人数据。",
+    "privacy_section2_title": "我们收集的信息",
+    "privacy_section2_content": "我们仅收集提供服务所需的最少信息：",
+    "privacy_section2_item1": "IP哈希：我们存储匿名化的IP地址用于速率限制和防止滥用。",
+    "privacy_section2_item2": "投票记录：记录您的投票活动以维护准确的排名。",
+    "privacy_section2_item3": "设备信息：用于服务优化的基本设备类型和浏览器信息。",
+    "privacy_section3_title": "信息使用目的",
+    "privacy_section3_content": "您的信息用于：",
+    "privacy_section3_item1": "服务运营：提供和维护投票和排名功能",
+    "privacy_section3_item2": "防止滥用：防止投票操纵并确保公平参与",
+    "privacy_section3_item3": "服务改进：分析使用模式并改善用户体验",
+    "privacy_section4_title": "Cookie",
+    "privacy_section4_content": "KCL使用必要的Cookie来维护您的会话并记住您的偏好设置。",
+    "privacy_section5_title": "数据安全",
+    "privacy_section5_content": "我们采取适当的安全措施保护您的数据，包括加密、安全连接（HTTPS）和访问控制。",
+    "privacy_section6_title": "第三方共享",
+    "privacy_section6_content": "我们不会出售、交易或以其他方式将您的个人信息转让给第三方。",
+    "privacy_section7_title": "您的权利",
+    "privacy_section7_content": "您有权访问、更正或删除您的个人数据。"
+
   }
 }

@@ -1,0 +1,101 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+/**
+ * CommentForm 컴포넌트 스타일
+ * 댓글 작성 폼
+ */
+
+.form {
+  @include mix.glass-panel;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.inputRow {
+  margin-bottom: 12px;
+}
+
+.nicknameInput {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 12px;
+  background: rgba($color-bg, 0.5);
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: $color-text;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-text-dim;
+  }
+}
+
+.textareaRow {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.textarea {
+  flex: 1;
+  padding: 12px;
+  background: rgba($color-bg, 0.5);
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: $color-text;
+  resize: none;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-text-dim;
+  }
+}
+
+.submitBtn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  @include mix.flex-center;
+  background: $color-primary;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba($color-primary, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  svg {
+    transform: translateX(1px);
+  }
+}
+
+.charCount {
+  margin-top: 8px;
+  text-align: right;
+  font-size: 0.75rem;
+  color: $color-text-dim;
+}

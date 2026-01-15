@@ -1,0 +1,90 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+/**
+ * PostDetail 컴포넌트 스타일
+ * 게시글 상세 보기
+ */
+
+.container {
+  @include mix.glass-panel;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.header {
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid $color-border;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0 0 16px;
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: $color-text-dim;
+
+  svg {
+    opacity: 0.7;
+  }
+}
+
+.content {
+  padding: 24px;
+  min-height: 200px;
+}
+
+.body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: $color-text;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-top: 1px solid $color-border;
+  background: rgba($color-bg, 0.3);
+}
+
+.reportBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  color: $color-text-dim;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $color-danger;
+    border-color: $color-danger;
+    background: rgba($color-danger, 0.05);
+  }
+}

@@ -25,8 +25,6 @@ import ArchivesCarousel from '@/components/features/hall-of-fame/ArchivesCarouse
 
 import styles from './page.module.scss';
 
-export const runtime = 'edge';
-
 export default function HallOfFamePage() {
   const t = useTranslations('HallOfFame');
   const { data, isLoading, error, getMonthlyChampions, getYearlyRace } = useHallOfFame();

@@ -55,7 +55,8 @@
     "switch_account": "สลับบัญชี",
     "mode_switch": "สลับโหมด",
     "hall_of_fame": "หอเกียรติยศ",
-    "news": "ข่าวสาร"
+    "news": "ข่าวสาร",
+    "community": "ชุมชน"
   },
   "News": {
     "title": "ข่าวสารและบทวิเคราะห์",
@@ -163,28 +164,124 @@
     },
     "view_details": "ดูรายละเอียด"
   },
+
   "Community": {
     "title": "ชุมชน",
-    "subtitle": "แบ่งปันความคิดของคุณอย่างเสรี",
+    "subtitle": "กระดานสนทนาแฟนคลับ",
     "write": "เขียน",
-    "nickname": "ชื่อเล่น",
-    "title_label": "หัวข้อ",
-    "content": "เนื้อหา",
-    "submit": "โพสต์",
-    "cancel": "ยกเลิก",
-    "comments": "ความคิดเห็น",
-    "comment_placeholder": "เขียนความคิดเห็น",
-    "report": "รายงาน",
-    "report_reason": "เหตุผลในการรายงาน",
-    "report_success": "ส่งรายงานแล้ว",
-    "report_duplicate": "คุณได้รายงานสิ่งนี้แล้ว",
+    "back_to_list": "← กลับไปยังรายการ",
     "no_posts": "ยังไม่มีโพสต์",
     "loading": "กำลังโหลด...",
-    "view_count": "เข้าชม",
-    "created_at": "โพสต์เมื่อ",
-    "back_to_list": "กลับไปยังรายการ",
-    "post_success": "สร้างโพสต์แล้ว",
-    "comment_success": "โพสต์ความคิดเห็นแล้ว",
-    "error": "เกิดข้อผิดพลาด"
+    "table": {
+      "number": "ลำดับ",
+      "title": "หัวข้อ",
+      "author": "ผู้เขียน",
+      "date": "วันที่",
+      "views": "ดู",
+      "comments": "ความคิดเห็น"
+    },
+    "post": {
+      "views": "ดู {count} ครั้ง",
+      "comments": "{count} ความคิดเห็น",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "ชื่อเล่น",
+      "nickname_placeholder": "ใส่ชื่อเล่น (สูงสุด 20 ตัวอักษร)",
+      "title": "หัวข้อ",
+      "title_placeholder": "ใส่หัวข้อ (สูงสุด 100 ตัวอักษร)",
+      "content": "เนื้อหา",
+      "content_placeholder": "ใส่เนื้อหา",
+      "submit": "โพสต์",
+      "cancel": "ยกเลิก",
+      "submitting": "กำลังโพสต์..."
+    },
+    "validation": {
+      "nickname_required": "กรุณาใส่ชื่อเล่น",
+      "nickname_max": "ชื่อเล่นต้องไม่เกิน 20 ตัวอักษร",
+      "title_required": "กรุณาใส่หัวข้อ",
+      "title_max": "หัวข้อต้องไม่เกิน 100 ตัวอักษร",
+      "content_required": "กรุณาใส่เนื้อหา"
+    },
+    "detail": {
+      "report": "รายงาน",
+      "delete": "ลบ",
+      "edit": "แก้ไข"
+    },
+    "comment": {
+      "title": "ความคิดเห็น",
+      "placeholder": "เขียนความคิดเห็น (สูงสุด 200 ตัวอักษร)",
+      "submit": "โพสต์",
+      "no_comments": "เป็นคนแรกที่แสดงความคิดเห็น!",
+      "delete_confirm": "ลบความคิดเห็นนี้?"
+    },
+    "report": {
+      "title": "รายงาน",
+      "reason": "เหตุผล",
+      "reasons": {
+        "spam": "สแปม/โฆษณา",
+        "inappropriate": "เนื้อหาไม่เหมาะสม",
+        "harassment": "การคุกคาม/ความเกลียดชัง",
+        "other": "อื่นๆ"
+      },
+      "detail": "รายละเอียด (ไม่บังคับ)",
+      "detail_placeholder": "กรุณาอธิบายปัญหา",
+      "submit": "ส่งรายงาน",
+      "cancel": "ยกเลิก",
+      "success": "ส่งรายงานแล้ว",
+      "submitting": "กำลังส่ง..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "นี่คือแอปพลิเคชันที่ไม่เป็นทางการที่สร้างโดยแฟนๆ โลโก้บริษัทและข้อมูลศิลปินทั้งหมดเป็นทรัพย์สินของเจ้าของ แอปนี้ไม่ได้เกี่ยวข้องกับบริษัทบันเทิงใดๆ",
+    "terms": "ข้อกำหนดการใช้บริการ",
+    "privacy": "นโยบายความเป็นส่วนตัว",
+    "copyright": "© 2026 KCL. สงวนลิขสิทธิ์"
+  },
+  "Legal": {
+    "last_updated": "อัปเดตล่าสุด",
+    "legal_review_notice": "เอกสารนี้อาจมีการอัปเดตหลังการตรวจสอบทางกฎหมาย",
+    "contact_title": "ติดต่อเรา",
+    "contact_content": "หากมีคำถามเกี่ยวกับนโยบายนี้ กรุณาติดต่อ contact@kcl.fan",
+    "terms_title": "ข้อกำหนดการใช้บริการ",
+    "terms_description": "ข้อกำหนดการใช้บริการและข้อตกลงการใช้งาน KCL",
+    "terms_section1_title": "บทนำ",
+    "terms_section1_content": "ยินดีต้อนรับสู่ KCL (K-pop Company League) การเข้าถึงบริการของเราถือว่าคุณยอมรับข้อกำหนดเหล่านี้ นี่คือแอปที่ไม่เป็นทางการที่สร้างโดยแฟนๆ",
+    "terms_section2_title": "การใช้บริการ",
+    "terms_section2_content": "การใช้ KCL ถือว่าคุณยอมรับที่จะ:",
+    "terms_section2_item1": "ใช้บริการเพื่อวัตถุประสงค์ส่วนตัวและไม่ใช่เชิงพาณิชย์เท่านั้น",
+    "terms_section2_item2": "ไม่รบกวนบริการ",
+    "terms_section2_item3": "ไม่พยายามจัดการระบบการโหวต",
+    "terms_section3_title": "ทรัพย์สินทางปัญญา",
+    "terms_section3_content": "โลโก้และรูปภาพศิลปินทั้งหมดเป็นของเจ้าของตามกฎหมาย",
+    "terms_section4_title": "ข้อจำกัดความรับผิดชอบ",
+    "terms_section4_content": "KCL ให้บริการ \"ตามสภาพ\" โดยไม่มีการรับประกันใดๆ",
+    "terms_section5_title": "การเปลี่ยนแปลงบริการ",
+    "terms_section5_content": "เราขอสงวนสิทธิ์ในการเปลี่ยนแปลงหรือยุติบริการได้ตลอดเวลา",
+    "terms_section6_title": "กฎหมายที่ใช้บังคับ",
+    "terms_section6_content": "ข้อกำหนดเหล่านี้อยู่ภายใต้กฎหมายของสาธารณรัฐเกาหลี",
+    "privacy_title": "นโยบายความเป็นส่วนตัว",
+    "privacy_description": "นโยบายความเป็นส่วนตัวและการปกป้องข้อมูล KCL",
+    "privacy_section1_title": "ภาพรวม",
+    "privacy_section1_content": "KCL เคารพความเป็นส่วนตัวของคุณและปกป้องข้อมูลส่วนบุคคลของคุณ",
+    "privacy_section2_title": "ข้อมูลที่เก็บรวบรวม",
+    "privacy_section2_content": "เราเก็บเฉพาะข้อมูลที่จำเป็นขั้นต่ำ:",
+    "privacy_section2_item1": "แฮช IP: เราเก็บ IP ที่ไม่ระบุตัวตน",
+    "privacy_section2_item2": "บันทึกการโหวต: กิจกรรมการโหวตของคุณถูกบันทึก",
+    "privacy_section2_item3": "ข้อมูลอุปกรณ์: ประเภทอุปกรณ์และเบราว์เซอร์พื้นฐาน",
+    "privacy_section3_title": "การใช้ข้อมูล",
+    "privacy_section3_content": "ข้อมูลของคุณใช้สำหรับ:",
+    "privacy_section3_item1": "การดำเนินบริการ: ให้บริการฟีเจอร์การโหวต",
+    "privacy_section3_item2": "ป้องกันการละเมิด: ป้องกันการปั่นโหวต",
+    "privacy_section3_item3": "ปรับปรุงบริการ: วิเคราะห์รูปแบบการใช้งาน",
+    "privacy_section4_title": "คุกกี้",
+    "privacy_section4_content": "KCL ใช้คุกกี้ที่จำเป็นสำหรับเซสชันและการตั้งค่า",
+    "privacy_section5_title": "ความปลอดภัยของข้อมูล",
+    "privacy_section5_content": "เราใช้มาตรการความปลอดภัยที่เหมาะสมรวมถึงการเข้ารหัส",
+    "privacy_section6_title": "การแบ่งปันกับบุคคลที่สาม",
+    "privacy_section6_content": "เราไม่ขายข้อมูลส่วนบุคคลของคุณให้บุคคลที่สาม",
+    "privacy_section7_title": "สิทธิ์ของคุณ",
+    "privacy_section7_content": "คุณมีสิทธิ์เข้าถึง แก้ไข หรือลบข้อมูลของคุณ"
+
   }
 }

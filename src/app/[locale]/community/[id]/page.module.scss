@@ -1,0 +1,30 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+/**
+ * 게시글 상세 페이지 스타일
+ */
+
+.container {
+  padding: 24px 16px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: $color-text-dim;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-text;
+  }
+}

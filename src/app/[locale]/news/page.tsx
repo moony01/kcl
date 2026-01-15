@@ -18,7 +18,6 @@ interface NewsPageProps {
  * 페이지 메타데이터 생성
  * SEO를 위한 title, description 설정
  */
-export const runtime = 'edge';
 
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -73,7 +72,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
               excerpt={post.excerpt}
               date={post.date}
               category={post.category}
-              thumbnail={post.thumbnail}
+              thumbnail={post.thumbnail ?? undefined}
               locale={locale}
             />
           ))}

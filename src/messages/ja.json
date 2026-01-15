@@ -55,7 +55,8 @@
     "switch_account": "アカウント切替",
     "mode_switch": "モード切替",
     "hall_of_fame": "殿堂入り",
-    "news": "ニュース"
+    "news": "ニュース",
+    "community": "コミュニティ"
   },
   "News": {
     "title": "ニュース＆インサイト",
@@ -163,28 +164,124 @@
     },
     "view_details": "詳細を見る"
   },
+
   "Community": {
     "title": "コミュニティ",
-    "subtitle": "自由に話し合いましょう",
-    "write": "投稿する",
-    "nickname": "ニックネーム",
-    "title_label": "タイトル",
-    "content": "内容",
-    "submit": "投稿",
-    "cancel": "キャンセル",
-    "comments": "コメント",
-    "comment_placeholder": "コメントを入力",
-    "report": "報告",
-    "report_reason": "報告理由",
-    "report_success": "報告が受け付けられました",
-    "report_duplicate": "すでに報告済みです",
-    "no_posts": "投稿がありません",
+    "subtitle": "ファン自由掲示板",
+    "write": "書く",
+    "back_to_list": "← 一覧に戻る",
+    "no_posts": "投稿がありません。",
     "loading": "読み込み中...",
-    "view_count": "閲覧数",
-    "created_at": "投稿日",
-    "back_to_list": "一覧に戻る",
-    "post_success": "投稿が完了しました",
-    "comment_success": "コメントを投稿しました",
-    "error": "エラーが発生しました"
+    "table": {
+      "number": "番号",
+      "title": "タイトル",
+      "author": "作成者",
+      "date": "日付",
+      "views": "閲覧数",
+      "comments": "コメント"
+    },
+    "post": {
+      "views": "{count}回閲覧",
+      "comments": "コメント{count}件",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "ニックネーム",
+      "nickname_placeholder": "ニックネームを入力（最大20文字）",
+      "title": "タイトル",
+      "title_placeholder": "タイトルを入力（最大100文字）",
+      "content": "内容",
+      "content_placeholder": "内容を入力してください",
+      "submit": "投稿",
+      "cancel": "キャンセル",
+      "submitting": "投稿中..."
+    },
+    "validation": {
+      "nickname_required": "ニックネームを入力してください",
+      "nickname_max": "ニックネームは20文字以内です",
+      "title_required": "タイトルを入力してください",
+      "title_max": "タイトルは100文字以内です",
+      "content_required": "内容を入力してください"
+    },
+    "detail": {
+      "report": "報告",
+      "delete": "削除",
+      "edit": "編集"
+    },
+    "comment": {
+      "title": "コメント",
+      "placeholder": "コメントを入力（最大200文字）",
+      "submit": "投稿",
+      "no_comments": "最初のコメントを残しましょう！",
+      "delete_confirm": "このコメントを削除しますか？"
+    },
+    "report": {
+      "title": "報告する",
+      "reason": "報告理由",
+      "reasons": {
+        "spam": "スパム/広告",
+        "inappropriate": "不適切なコンテンツ",
+        "harassment": "ハラスメント/ヘイト",
+        "other": "その他"
+      },
+      "detail": "詳細（任意）",
+      "detail_placeholder": "詳しく説明してください",
+      "submit": "報告を送信",
+      "cancel": "キャンセル",
+      "success": "報告が受付けられました",
+      "submitting": "送信中..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "これは非公式のファンメイドアプリです。すべての会社ロゴとアーティスト情報は各権利者に帰属します。いかなるエンターテイメント会社とも提携していません。",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "copyright": "© 2026 KCL. All rights reserved."
+  },
+  "Legal": {
+    "last_updated": "最終更新日",
+    "legal_review_notice": "この文書は法律審査後に更新される場合があります。変更を確認するために定期的にご確認ください。",
+    "contact_title": "お問い合わせ",
+    "contact_content": "このポリシーに関するご質問はcontact@kcl.fanまでご連絡ください。",
+    "terms_title": "利用規約",
+    "terms_description": "KCL利用規約およびサービス利用同意",
+    "terms_section1_title": "はじめに",
+    "terms_section1_content": "KCL（K-pop Company League）へようこそ。本サービスにアクセスまたは利用することで、この利用規約に同意したものとみなされます。これは非公式のファンメイドアプリであり、いかなるエンターテイメント会社とも提携していません。",
+    "terms_section2_title": "サービスの利用",
+    "terms_section2_content": "KCLを利用することで、以下に同意します：",
+    "terms_section2_item1": "個人的かつ非営利目的でのみサービスを利用すること",
+    "terms_section2_item2": "サービスの妨害や中断を行う活動に参加しないこと",
+    "terms_section2_item3": "投票やランキングシステムを操作しようとしないこと",
+    "terms_section3_title": "知的財産権",
+    "terms_section3_content": "KCLに表示されるすべての会社ロゴ、アーティスト画像、関連コンテンツは各著作権者に帰属します。KCLは第三者の知的財産権について所有権を主張しません。これらのコンテンツの使用は情報提供およびファン参加目的のみです。",
+    "terms_section4_title": "免責事項",
+    "terms_section4_content": "KCLはいかなる保証もなく「現状のまま」提供されます。コンテンツの正確性、完全性、信頼性を保証しません。本サービスの利用は完全にお客様の責任です。",
+    "terms_section5_title": "サービスの変更",
+    "terms_section5_content": "当社は事前通知なしにいつでもサービスを変更、停止、または終了する権利を有します。",
+    "terms_section6_title": "準拠法",
+    "terms_section6_content": "この規約は大韓民国の法律に準拠します。",
+    "privacy_title": "プライバシーポリシー",
+    "privacy_description": "KCLプライバシーポリシーおよびデータ保護",
+    "privacy_section1_title": "概要",
+    "privacy_section1_content": "KCLはお客様のプライバシーを尊重し、個人データの保護に努めています。",
+    "privacy_section2_title": "収集する情報",
+    "privacy_section2_content": "サービス提供に必要な最小限の情報のみを収集します：",
+    "privacy_section2_item1": "IPハッシュ：レート制限と不正防止のために匿名化されたIP アドレスを保存します。",
+    "privacy_section2_item2": "投票記録：正確なランキング維持のために投票活動を記録します。",
+    "privacy_section2_item3": "デバイス情報：サービス最適化のための基本的なデバイス情報。",
+    "privacy_section3_title": "情報の使用目的",
+    "privacy_section3_content": "収集した情報は以下の目的で使用されます：",
+    "privacy_section3_item1": "サービス運営：投票とランキング機能の提供・維持",
+    "privacy_section3_item2": "不正防止：投票操作の防止と公正な参加の確保",
+    "privacy_section3_item3": "サービス改善：利用パターンの分析とユーザー体験の向上",
+    "privacy_section4_title": "クッキー",
+    "privacy_section4_content": "KCLはセッション維持と設定の記憶のために必要なクッキーを使用します。",
+    "privacy_section5_title": "データセキュリティ",
+    "privacy_section5_content": "暗号化、安全な接続（HTTPS）、アクセス制御などの適切なセキュリティ対策を実施しています。",
+    "privacy_section6_title": "第三者への提供",
+    "privacy_section6_content": "お客様の個人情報を第三者に販売、取引、または譲渡することはありません。",
+    "privacy_section7_title": "お客様の権利",
+    "privacy_section7_content": "お客様は個人データへのアクセス、修正、または削除の権利を有します。"
+
   }
 }

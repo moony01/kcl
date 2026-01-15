@@ -1,0 +1,74 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as mix;
+
+/**
+ * 커뮤니티 목록 페이지 스타일
+ */
+
+.container {
+  padding: 24px 16px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.icon {
+  color: $color-primary;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: $color-text-dim;
+  margin: 0;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.writeBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: $color-primary;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba($color-primary, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

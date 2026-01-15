@@ -51,6 +51,7 @@
     "analytics": "Analytics",
     "hall_of_fame": "Hall of Fame",
     "news": "News",
+    "community": "Community",
     "settings": "Settings",
     "logout": "Logout",
     "login": "Login",
@@ -163,28 +164,124 @@
     },
     "view_details": "View Details"
   },
+
   "Community": {
     "title": "Community",
-    "subtitle": "Share your thoughts freely",
-    "write": "Write Post",
-    "nickname": "Nickname",
-    "title_label": "Title",
-    "content": "Content",
-    "submit": "Submit",
-    "cancel": "Cancel",
-    "comments": "Comments",
-    "comment_placeholder": "Write a comment",
-    "report": "Report",
-    "report_reason": "Report Reason",
-    "report_success": "Report submitted successfully",
-    "report_duplicate": "You have already reported this",
-    "no_posts": "No posts yet",
+    "subtitle": "Fan Free Board",
+    "write": "Write",
+    "back_to_list": "← Back to List",
+    "no_posts": "No posts yet.",
     "loading": "Loading...",
-    "view_count": "Views",
-    "created_at": "Posted",
-    "back_to_list": "Back to List",
-    "post_success": "Post created successfully",
-    "comment_success": "Comment posted successfully",
-    "error": "An error occurred"
+    "table": {
+      "number": "No.",
+      "title": "Title",
+      "author": "Author",
+      "date": "Date",
+      "views": "Views",
+      "comments": "Comments"
+    },
+    "post": {
+      "views": "{count} views",
+      "comments": "{count} comments",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "Nickname",
+      "nickname_placeholder": "Enter nickname (max 20 chars)",
+      "title": "Title",
+      "title_placeholder": "Enter title (max 100 chars)",
+      "content": "Content",
+      "content_placeholder": "Enter content",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "submitting": "Submitting..."
+    },
+    "validation": {
+      "nickname_required": "Please enter a nickname",
+      "nickname_max": "Nickname must be 20 characters or less",
+      "title_required": "Please enter a title",
+      "title_max": "Title must be 100 characters or less",
+      "content_required": "Please enter content"
+    },
+    "detail": {
+      "report": "Report",
+      "delete": "Delete",
+      "edit": "Edit"
+    },
+    "comment": {
+      "title": "Comments",
+      "placeholder": "Write a comment (max 200 chars)",
+      "submit": "Post",
+      "no_comments": "Be the first to comment!",
+      "delete_confirm": "Delete this comment?"
+    },
+    "report": {
+      "title": "Report",
+      "reason": "Reason",
+      "reasons": {
+        "spam": "Spam/Advertising",
+        "inappropriate": "Inappropriate Content",
+        "harassment": "Harassment/Hate",
+        "other": "Other"
+      },
+      "detail": "Details (optional)",
+      "detail_placeholder": "Please describe the issue",
+      "submit": "Submit Report",
+      "cancel": "Cancel",
+      "success": "Report submitted",
+      "submitting": "Submitting..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "This is an unofficial fan-made application. All company logos and artist information are property of their respective owners. This app is not affiliated with any entertainment company.",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2026 KCL. All rights reserved."
+  },
+  "Legal": {
+    "last_updated": "Last Updated",
+    "legal_review_notice": "This document is subject to legal review and may be updated. Please check back periodically for changes.",
+    "contact_title": "Contact Us",
+    "contact_content": "If you have any questions about this policy, please contact us at contact@kcl.fan",
+    "terms_title": "Terms of Service",
+    "terms_description": "KCL Terms of Service and Usage Agreement",
+    "terms_section1_title": "Introduction",
+    "terms_section1_content": "Welcome to KCL (K-pop Company League). By accessing or using our service, you agree to be bound by these Terms of Service. This is an unofficial fan-made application and is not affiliated with any entertainment company.",
+    "terms_section2_title": "Service Usage",
+    "terms_section2_content": "By using KCL, you agree to:",
+    "terms_section2_item1": "Use the service for personal, non-commercial purposes only",
+    "terms_section2_item2": "Not engage in any activity that interferes with or disrupts the service",
+    "terms_section2_item3": "Not attempt to manipulate voting or ranking systems",
+    "terms_section3_title": "Intellectual Property",
+    "terms_section3_content": "All company logos, artist images, and related content displayed on KCL belong to their respective copyright holders. KCL does not claim ownership of any third-party intellectual property. Use of such content is for informational and fan engagement purposes only.",
+    "terms_section4_title": "Disclaimer",
+    "terms_section4_content": "KCL is provided \"as is\" without warranties of any kind. We do not guarantee the accuracy, completeness, or reliability of any content. Use of this service is at your own risk. We are not responsible for any decisions made based on information provided through this service.",
+    "terms_section5_title": "Service Changes",
+    "terms_section5_content": "We reserve the right to modify, suspend, or discontinue the service at any time without prior notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of the service.",
+    "terms_section6_title": "Governing Law",
+    "terms_section6_content": "These Terms shall be governed by and construed in accordance with the laws of the Republic of Korea, without regard to its conflict of law provisions.",
+    "privacy_title": "Privacy Policy",
+    "privacy_description": "KCL Privacy Policy and Data Protection",
+    "privacy_section1_title": "Overview",
+    "privacy_section1_content": "KCL respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our service.",
+    "privacy_section2_title": "Information We Collect",
+    "privacy_section2_content": "We collect minimal information necessary to provide our service:",
+    "privacy_section2_item1": "IP Address Hash: We store a hashed (anonymized) version of your IP address for rate limiting and abuse prevention. Your actual IP address is never stored.",
+    "privacy_section2_item2": "Vote Records: Your voting activity is recorded to maintain accurate rankings and prevent manipulation.",
+    "privacy_section2_item3": "Device Information: Basic device type (mobile/desktop) and browser information for service optimization.",
+    "privacy_section3_title": "How We Use Your Information",
+    "privacy_section3_content": "Your information is used for:",
+    "privacy_section3_item1": "Service Operation: To provide and maintain the voting and ranking features",
+    "privacy_section3_item2": "Abuse Prevention: To prevent voting manipulation and ensure fair participation",
+    "privacy_section3_item3": "Service Improvement: To analyze usage patterns and improve user experience",
+    "privacy_section4_title": "Cookies",
+    "privacy_section4_content": "KCL uses essential cookies to maintain your session and remember your preferences (such as language and theme settings). These cookies are necessary for the proper functioning of the service and do not track you across other websites.",
+    "privacy_section5_title": "Data Security",
+    "privacy_section5_content": "We implement appropriate security measures to protect your data, including encryption, secure connections (HTTPS), and access controls. However, no method of transmission over the Internet is 100% secure.",
+    "privacy_section6_title": "Third-Party Sharing",
+    "privacy_section6_content": "We do not sell, trade, or otherwise transfer your personal information to third parties. Your data may only be disclosed if required by law or to protect our rights.",
+    "privacy_section7_title": "Your Rights",
+    "privacy_section7_content": "You have the right to access, correct, or delete your personal data. Since we collect minimal data and most is anonymized, you may contact us if you have specific concerns about your data."
+
   }
 }

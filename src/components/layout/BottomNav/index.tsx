@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, BarChart3, Trophy, Newspaper } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import styles from './BottomNav.module.scss';
@@ -19,6 +19,7 @@ export default function BottomNav() {
     { label: t('analytics'), href: '/analytics', icon: BarChart3 },
     { label: t('hall_of_fame'), href: '/hall-of-fame', icon: Trophy },
     { label: t('news'), href: '/news', icon: Newspaper },
+    { label: t('community'), href: '/community', icon: MessageSquare },
     // { label: 'Ranking', href: '/ranking', icon: Trophy },
     // { label: 'Support', href: '/support', icon: HeartHandshake }, // Vote -> Support Mapping
     // { label: 'My', href: '/my', icon: User },

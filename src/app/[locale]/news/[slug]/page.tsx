@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getAllNews, getNewsBySlug } from '@/lib/news';
+import { getAllNewsParams, getNewsBySlug } from '@/lib/news';
 import styles from './page.module.scss';
 
 /** 지원 언어 목록 */
@@ -25,20 +25,8 @@ interface NewsDetailPageProps {
  * 정적 경로 생성
  * 빌드 타임에 모든 뉴스 상세 페이지 생성
  */
-export const runtime = 'edge';
-
 export async function generateStaticParams() {
-  const params: { locale: string; slug: string }[] = [];
-
-  // 모든 로케일에 대해 뉴스 슬러그 생성
-  for (const locale of locales) {
-    const posts = getAllNews(locale);
-    for (const post of posts) {
-      params.push({ locale, slug: post.slug });
-    }
-  }
-
-  return params;
+  return getAllNewsParams(locales);
 }
 
 /**
@@ -47,7 +35,7 @@ export async function generateStaticParams() {
  */
 export async function generateMetadata({ params }: NewsDetailPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = getNewsBySlug(slug, locale);
+  const post = await getNewsBySlug(slug, locale);
 
   if (!post) {
     return {
@@ -81,8 +69,8 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   // 번역 가져오기
   const t = await getTranslations({ locale, namespace: 'News' });
 
-  // 뉴스 데이터 가져오기
-  const post = getNewsBySlug(slug, locale);
+  // 뉴스 데이터 가져오기 (async 함수)
+  const post = await getNewsBySlug(slug, locale);
 
   // 뉴스가 없으면 404
   if (!post) {

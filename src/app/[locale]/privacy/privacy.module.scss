@@ -1,0 +1,109 @@
+/**
+ * Privacy Policy 페이지 스타일
+ * CSS 변수를 사용하므로 별도의 SCSS import 불필요
+ */
+
+.legalPage {
+  min-height: 100vh;
+  padding: 24px 16px;
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+  }
+
+  .lastUpdated {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+}
+
+.content {
+  .section {
+    margin-bottom: 32px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 12px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin: 0 0 12px;
+    }
+
+    ul {
+      margin: 8px 0;
+      padding-left: 20px;
+
+      li {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+.legalNotice {
+  margin-top: 40px;
+  padding: 16px;
+  background: var(--surface-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+// 반응형
+@media (max-width: 768px) {
+  .legalPage {
+    padding: 16px 12px;
+    padding-bottom: 100px; // BottomNav 공간
+  }
+
+  .header {
+    .title {
+      font-size: 24px;
+    }
+  }
+
+  .content {
+    .section {
+      h2 {
+        font-size: 16px;
+      }
+
+      p,
+      ul li {
+        font-size: 13px;
+      }
+    }
+  }
+}

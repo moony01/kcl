@@ -1,0 +1,181 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+/**
+ * PostForm 컴포넌트 스타일
+ * 글쓰기 폼 스타일링
+ */
+
+.form {
+  @include mix.glass-panel;
+  padding: 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 입력 그룹 (텍스트 필드) */
+.inputGroup {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 14px 8px;
+  background: rgba($color-bg, 0.5);
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: $color-text;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+.floatingLabel {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: $color-text-dim;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/* Floating label 활성화 */
+.input:focus + .floatingLabel,
+.hasValue .floatingLabel {
+  top: 8px;
+  transform: translateY(0);
+  font-size: 0.75rem;
+  color: $color-primary;
+}
+
+.charCount {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: $color-text-dim;
+}
+
+/* 에러 상태 */
+.hasError .input {
+  border-color: $color-danger;
+}
+
+.hasError .floatingLabel {
+  color: $color-danger;
+}
+
+.errorMsg {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: $color-danger;
+}
+
+/* 텍스트 영역 그룹 */
+.textareaGroup {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 14px;
+  background: rgba($color-bg, 0.5);
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: $color-text;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.6;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-text-dim;
+  }
+}
+
+.hasError .textarea {
+  border-color: $color-danger;
+}
+
+/* 전역 에러 메시지 */
+.globalError {
+  padding: 12px 16px;
+  background: rgba($color-danger, 0.1);
+  border: 1px solid rgba($color-danger, 0.3);
+  border-radius: 8px;
+  color: $color-danger;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* 버튼 영역 */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.cancelBtn {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  color: $color-text;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-text, 0.05);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.submitBtn {
+  padding: 12px 32px;
+  background: $color-primary;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 16px rgba($color-primary, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "prebuild": "node scripts/generate-news-json.js",
+    "build": "pnpm prebuild && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
-    "pages:build": "npx @cloudflare/next-on-pages@1"
+    "pages:build": "pnpm prebuild && npx @cloudflare/next-on-pages@1"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

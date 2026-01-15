@@ -1,6 +1,11 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+/**
+ * 뉴스 데이터 접근 레이어
+ *
+ * Edge Runtime 호환을 위해 fs/path 대신 prebuild 단계에서 생성된 JSON 사용
+ * @see scripts/generate-news-json.js
+ */
+
+import newsMeta from '@/generated/news-meta.json';
 
 /**
  * 뉴스 게시글 타입 정의
@@ -18,7 +23,7 @@ export interface NewsPost {
   /** 마크다운 본문 */
   content: string;
   /** 썸네일 이미지 경로 */
-  thumbnail?: string;
+  thumbnail?: string | null;
   /** 카테고리 */
   category?: string;
   /** 언어 코드 */
@@ -26,102 +31,65 @@ export interface NewsPost {
 }
 
 /**
- * 뉴스 콘텐츠가 저장된 기본 경로
- * packages/kcl/src/content/news/
+ * 뉴스 메타데이터 타입 (목록용 - content 미포함)
  */
-const getContentDirectory = () => {
-  return path.join(process.cwd(), 'src/content/news');
-};
+export interface NewsMeta {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  thumbnail?: string | null;
+  category?: string;
+  locale: string;
+}
 
 /**
  * 특정 언어(locale)의 모든 뉴스 게시글을 가져옵니다.
  * 날짜순(최신순)으로 정렬하여 반환합니다.
  *
  * @param locale - 언어 코드 (기본값: 'ko')
- * @returns 뉴스 게시글 배열
+ * @returns 뉴스 메타데이터 배열
  */
-export function getAllNews(locale: string = 'ko'): NewsPost[] {
-  const contentDirectory = getContentDirectory();
-  const targetDirectory = path.join(contentDirectory, locale);
+export function getAllNews(locale: string = 'ko'): NewsMeta[] {
+  // 해당 로케일의 뉴스만 필터링
+  let posts = (newsMeta as NewsMeta[]).filter((post) => post.locale === locale);
 
-  // 디렉토리가 없으면 빈 배열 반환 (에러 방지)
-  if (!fs.existsSync(targetDirectory)) {
-    // 해당 언어 콘텐츠가 없으면 영어로 fallback
-    const fallbackDirectory = path.join(contentDirectory, 'en');
-    if (locale !== 'en' && fs.existsSync(fallbackDirectory)) {
-      return getAllNews('en');
-    }
-    return [];
+  // 해당 언어 콘텐츠가 없으면 영어로 fallback
+  if (posts.length === 0 && locale !== 'en') {
+    posts = (newsMeta as NewsMeta[]).filter((post) => post.locale === 'en');
   }
 
-  const fileNames = fs.readdirSync(targetDirectory);
-  const allNewsData = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
-    .map((fileName) => {
-      // 파일명에서 ".md" 확장자 제거하여 slug 생성
-      const slug = fileName.replace(/\.md$/, '');
-
-      // 마크다운 파일 읽기
-      const fullPath = path.join(targetDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-      // gray-matter로 메타데이터(frontmatter)와 본문 파싱
-      const { data, content } = matter(fileContents);
-
-      return {
-        slug,
-        content,
-        title: data.title || '제목 없음',
-        excerpt: data.excerpt || '',
-        date: data.date || new Date().toISOString().split('T')[0],
-        thumbnail: data.thumbnail || null,
-        category: data.category || 'General',
-        locale,
-      } as NewsPost;
-    });
-
-  // 날짜 내림차순(최신순) 정렬
-  return allNewsData.sort((a, b) => {
+  // 날짜 내림차순 정렬 (이미 정렬되어 있지만 안전하게 재정렬)
+  return posts.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 }
 
 /**
  * 슬러그(URL ID)로 특정 뉴스 상세 정보를 가져옵니다.
+ * 동적 import를 사용하여 해당 뉴스의 JSON 파일 로드
  *
  * @param slug - 뉴스 식별자
  * @param locale - 언어 코드 (기본값: 'ko')
  * @returns 뉴스 게시글 또는 null
  */
-export function getNewsBySlug(slug: string, locale: string = 'ko'): NewsPost | null {
-  const contentDirectory = getContentDirectory();
-  let fullPath = path.join(contentDirectory, locale, `${slug}.md`);
-
-  // 해당 언어 파일이 없으면 영어로 fallback
-  if (!fs.existsSync(fullPath)) {
+export async function getNewsBySlug(slug: string, locale: string = 'ko'): Promise<NewsPost | null> {
+  try {
+    // 동적 import로 해당 뉴스 JSON 로드
+    const newsModule = await import(`@/generated/news-content/${locale}/${slug}.json`);
+    return newsModule.default as NewsPost;
+  } catch {
+    // 해당 언어 파일이 없으면 영어로 fallback
     if (locale !== 'en') {
-      fullPath = path.join(contentDirectory, 'en', `${slug}.md`);
-      if (!fs.existsSync(fullPath)) {
+      try {
+        const fallbackModule = await import(`@/generated/news-content/en/${slug}.json`);
+        return fallbackModule.default as NewsPost;
+      } catch {
         return null;
       }
-    } else {
-      return null;
     }
+    return null;
   }
-
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
-  return {
-    slug,
-    content,
-    title: data.title || '제목 없음',
-    excerpt: data.excerpt || '',
-    date: data.date || new Date().toISOString().split('T')[0],
-    thumbnail: data.thumbnail || null,
-    category: data.category || 'General',
-    locale,
-  } as NewsPost;
 }
 
 /**
@@ -134,4 +102,24 @@ export function getNewsBySlug(slug: string, locale: string = 'ko'): NewsPost | n
 export function getAllNewsSlugs(locale: string = 'ko'): string[] {
   const posts = getAllNews(locale);
   return posts.map((post) => post.slug);
+}
+
+/**
+ * 모든 로케일에 대한 뉴스 슬러그 조합 반환
+ * generateStaticParams에서 정적 경로 생성용
+ *
+ * @param locales - 지원 로케일 배열
+ * @returns {locale, slug}[] 배열
+ */
+export function getAllNewsParams(locales: string[]): { locale: string; slug: string }[] {
+  const params: { locale: string; slug: string }[] = [];
+
+  for (const locale of locales) {
+    const posts = getAllNews(locale);
+    for (const post of posts) {
+      params.push({ locale, slug: post.slug });
+    }
+  }
+
+  return params;
 }

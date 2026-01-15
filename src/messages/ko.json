@@ -51,6 +51,7 @@
     "analytics": "통계",
     "hall_of_fame": "명예의 전당",
     "news": "뉴스",
+    "community": "커뮤니티",
     "settings": "설정",
     "logout": "로그아웃",
     "login": "로그인",
@@ -163,28 +164,124 @@
     },
     "view_details": "상세보기"
   },
+
   "Community": {
     "title": "커뮤니티",
-    "subtitle": "자유롭게 이야기를 나눠보세요",
+    "subtitle": "팬들의 자유 게시판",
     "write": "글쓰기",
-    "nickname": "닉네임",
-    "title_label": "제목",
-    "content": "내용",
-    "submit": "등록",
-    "cancel": "취소",
-    "comments": "댓글",
-    "comment_placeholder": "댓글을 입력하세요",
-    "report": "신고",
-    "report_reason": "신고 사유",
-    "report_success": "신고가 접수되었습니다",
-    "report_duplicate": "이미 신고한 게시물입니다",
-    "no_posts": "게시글이 없습니다",
+    "back_to_list": "← 목록으로",
+    "no_posts": "등록된 글이 없습니다.",
     "loading": "로딩 중...",
-    "view_count": "조회",
-    "created_at": "작성일",
-    "back_to_list": "목록으로",
-    "post_success": "게시글이 등록되었습니다",
-    "comment_success": "댓글이 등록되었습니다",
-    "error": "오류가 발생했습니다"
+    "table": {
+      "number": "번호",
+      "title": "제목",
+      "author": "작성자",
+      "date": "작성일",
+      "views": "조회수",
+      "comments": "댓글"
+    },
+    "post": {
+      "views": "조회 {count}",
+      "comments": "댓글 {count}",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "닉네임",
+      "nickname_placeholder": "닉네임을 입력하세요 (최대 20자)",
+      "title": "제목",
+      "title_placeholder": "제목을 입력하세요 (최대 100자)",
+      "content": "내용",
+      "content_placeholder": "내용을 입력하세요",
+      "submit": "등록",
+      "cancel": "취소",
+      "submitting": "등록 중..."
+    },
+    "validation": {
+      "nickname_required": "닉네임을 입력해주세요",
+      "nickname_max": "닉네임은 최대 20자입니다",
+      "title_required": "제목을 입력해주세요",
+      "title_max": "제목은 최대 100자입니다",
+      "content_required": "내용을 입력해주세요"
+    },
+    "detail": {
+      "report": "신고",
+      "delete": "삭제",
+      "edit": "수정"
+    },
+    "comment": {
+      "title": "댓글",
+      "placeholder": "댓글을 입력하세요 (최대 200자)",
+      "submit": "등록",
+      "no_comments": "첫 댓글을 남겨보세요!",
+      "delete_confirm": "댓글을 삭제하시겠습니까?"
+    },
+    "report": {
+      "title": "신고하기",
+      "reason": "신고 사유",
+      "reasons": {
+        "spam": "스팸/광고",
+        "inappropriate": "부적절한 내용",
+        "harassment": "괴롭힘/혐오",
+        "other": "기타"
+      },
+      "detail": "상세 내용 (선택)",
+      "detail_placeholder": "신고 사유를 자세히 적어주세요",
+      "submit": "신고하기",
+      "cancel": "취소",
+      "success": "신고가 접수되었습니다",
+      "submitting": "처리 중..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "이 앱은 비공식 팬 제작 앱입니다. 모든 소속사 로고 및 아티스트 정보는 각 권리자의 소유이며, 어떤 엔터테인먼트 회사와도 제휴 관계에 있지 않습니다.",
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "copyright": "© 2026 KCL. All rights reserved."
+  },
+  "Legal": {
+    "last_updated": "최종 수정일",
+    "legal_review_notice": "이 문서는 법률 검토 후 업데이트될 수 있습니다. 변경 사항을 확인하려면 정기적으로 방문해 주세요.",
+    "contact_title": "문의",
+    "contact_content": "이 정책에 대한 문의사항은 contact@kcl.fan으로 연락해 주세요.",
+    "terms_title": "이용약관",
+    "terms_description": "KCL 이용약관 및 서비스 이용 동의",
+    "terms_section1_title": "소개",
+    "terms_section1_content": "KCL(K-pop Company League)에 오신 것을 환영합니다. 본 서비스에 접속하거나 이용함으로써 귀하는 본 이용약관에 동의하게 됩니다. 이 앱은 비공식 팬 제작 앱이며, 어떤 엔터테인먼트 회사와도 제휴 관계에 있지 않습니다.",
+    "terms_section2_title": "서비스 이용",
+    "terms_section2_content": "KCL을 이용함으로써 귀하는 다음에 동의합니다:",
+    "terms_section2_item1": "개인적이고 비상업적인 목적으로만 서비스를 이용합니다",
+    "terms_section2_item2": "서비스를 방해하거나 중단시키는 활동에 참여하지 않습니다",
+    "terms_section2_item3": "투표 또는 순위 시스템을 조작하려고 시도하지 않습니다",
+    "terms_section3_title": "지적재산권",
+    "terms_section3_content": "KCL에 표시되는 모든 소속사 로고, 아티스트 이미지 및 관련 콘텐츠는 각 저작권자의 소유입니다. KCL은 제3자의 지적재산권에 대한 소유권을 주장하지 않습니다. 해당 콘텐츠의 사용은 정보 제공 및 팬 참여 목적으로만 이루어집니다.",
+    "terms_section4_title": "면책조항",
+    "terms_section4_content": "KCL은 어떠한 종류의 보증 없이 \"있는 그대로\" 제공됩니다. 당사는 콘텐츠의 정확성, 완전성 또는 신뢰성을 보장하지 않습니다. 본 서비스의 이용은 전적으로 귀하의 책임입니다. 당사는 본 서비스를 통해 제공되는 정보에 기반한 결정에 대해 책임지지 않습니다.",
+    "terms_section5_title": "서비스 변경",
+    "terms_section5_content": "당사는 사전 통보 없이 언제든지 서비스를 수정, 중단 또는 종료할 권리를 보유합니다. 서비스의 수정, 중단 또는 종료로 인해 귀하 또는 제3자에게 발생하는 손해에 대해 책임지지 않습니다.",
+    "terms_section6_title": "준거법",
+    "terms_section6_content": "본 약관은 법률 충돌 조항에 관계없이 대한민국 법률에 따라 해석됩니다.",
+    "privacy_title": "개인정보처리방침",
+    "privacy_description": "KCL 개인정보처리방침 및 데이터 보호",
+    "privacy_section1_title": "개요",
+    "privacy_section1_content": "KCL은 귀하의 개인정보를 존중하며 보호에 최선을 다하고 있습니다. 이 개인정보처리방침은 귀하가 서비스를 이용할 때 당사가 어떻게 정보를 수집, 사용 및 보호하는지 설명합니다.",
+    "privacy_section2_title": "수집하는 정보",
+    "privacy_section2_content": "서비스 제공에 필요한 최소한의 정보만 수집합니다:",
+    "privacy_section2_item1": "IP 해시: 속도 제한 및 어뷰징 방지를 위해 해시(익명화)된 IP 주소를 저장합니다. 실제 IP 주소는 저장되지 않습니다.",
+    "privacy_section2_item2": "투표 기록: 정확한 순위 유지 및 조작 방지를 위해 투표 활동이 기록됩니다.",
+    "privacy_section2_item3": "기기 정보: 서비스 최적화를 위한 기본적인 기기 유형(모바일/데스크톱) 및 브라우저 정보.",
+    "privacy_section3_title": "정보 사용 목적",
+    "privacy_section3_content": "수집된 정보는 다음 목적으로 사용됩니다:",
+    "privacy_section3_item1": "서비스 운영: 투표 및 순위 기능 제공 및 유지",
+    "privacy_section3_item2": "어뷰징 방지: 투표 조작 방지 및 공정한 참여 보장",
+    "privacy_section3_item3": "서비스 개선: 사용 패턴 분석 및 사용자 경험 개선",
+    "privacy_section4_title": "쿠키",
+    "privacy_section4_content": "KCL은 세션 유지 및 설정 기억(언어, 테마 등)을 위해 필수 쿠키를 사용합니다. 이 쿠키는 서비스의 정상적인 작동에 필요하며 다른 웹사이트에서 귀하를 추적하지 않습니다.",
+    "privacy_section5_title": "데이터 보안",
+    "privacy_section5_content": "암호화, 보안 연결(HTTPS), 접근 제어 등 적절한 보안 조치를 통해 귀하의 데이터를 보호합니다. 그러나 인터넷을 통한 전송 방법은 100% 안전하지 않습니다.",
+    "privacy_section6_title": "제3자 공유",
+    "privacy_section6_content": "당사는 귀하의 개인정보를 제3자에게 판매, 거래 또는 양도하지 않습니다. 법률에 의해 요구되거나 당사의 권리를 보호하기 위해 필요한 경우에만 공개될 수 있습니다.",
+    "privacy_section7_title": "귀하의 권리",
+    "privacy_section7_content": "귀하는 개인 데이터에 대한 접근, 수정 또는 삭제 권리가 있습니다. 대부분의 데이터가 익명화되어 수집되므로 특정 우려 사항이 있으시면 문의해 주세요."
+
   }
 }

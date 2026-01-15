@@ -55,7 +55,8 @@
     "switch_account": "Chuyển tài khoản",
     "mode_switch": "Chuyển chế độ",
     "hall_of_fame": "Đại Sảnh Danh Vọng",
-    "news": "Tin Tức"
+    "news": "Tin Tức",
+    "community": "Cộng đồng"
   },
   "News": {
     "title": "Tin Tức & Phân Tích",
@@ -163,28 +164,124 @@
     },
     "view_details": "Xem chi tiết"
   },
+
   "Community": {
     "title": "Cộng đồng",
-    "subtitle": "Chia sẻ suy nghĩ của bạn tự do",
+    "subtitle": "Diễn đàn tự do của Fan",
     "write": "Viết bài",
-    "nickname": "Biệt danh",
-    "title_label": "Tiêu đề",
-    "content": "Nội dung",
-    "submit": "Đăng",
-    "cancel": "Hủy",
-    "comments": "Bình luận",
-    "comment_placeholder": "Viết bình luận",
-    "report": "Báo cáo",
-    "report_reason": "Lý do báo cáo",
-    "report_success": "Đã gửi báo cáo",
-    "report_duplicate": "Bạn đã báo cáo nội dung này",
-    "no_posts": "Chưa có bài viết",
+    "back_to_list": "← Quay lại danh sách",
+    "no_posts": "Chưa có bài viết nào.",
     "loading": "Đang tải...",
-    "view_count": "Lượt xem",
-    "created_at": "Đăng lúc",
-    "back_to_list": "Quay lại danh sách",
-    "post_success": "Đã tạo bài viết",
-    "comment_success": "Đã đăng bình luận",
-    "error": "Đã xảy ra lỗi"
+    "table": {
+      "number": "STT",
+      "title": "Tiêu đề",
+      "author": "Tác giả",
+      "date": "Ngày",
+      "views": "Lượt xem",
+      "comments": "Bình luận"
+    },
+    "post": {
+      "views": "{count} lượt xem",
+      "comments": "{count} bình luận",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "Biệt danh",
+      "nickname_placeholder": "Nhập biệt danh (tối đa 20 ký tự)",
+      "title": "Tiêu đề",
+      "title_placeholder": "Nhập tiêu đề (tối đa 100 ký tự)",
+      "content": "Nội dung",
+      "content_placeholder": "Nhập nội dung",
+      "submit": "Đăng",
+      "cancel": "Hủy",
+      "submitting": "Đang đăng..."
+    },
+    "validation": {
+      "nickname_required": "Vui lòng nhập biệt danh",
+      "nickname_max": "Biệt danh tối đa 20 ký tự",
+      "title_required": "Vui lòng nhập tiêu đề",
+      "title_max": "Tiêu đề tối đa 100 ký tự",
+      "content_required": "Vui lòng nhập nội dung"
+    },
+    "detail": {
+      "report": "Báo cáo",
+      "delete": "Xóa",
+      "edit": "Sửa"
+    },
+    "comment": {
+      "title": "Bình luận",
+      "placeholder": "Viết bình luận (tối đa 200 ký tự)",
+      "submit": "Đăng",
+      "no_comments": "Hãy là người đầu tiên bình luận!",
+      "delete_confirm": "Xóa bình luận này?"
+    },
+    "report": {
+      "title": "Báo cáo",
+      "reason": "Lý do",
+      "reasons": {
+        "spam": "Spam/Quảng cáo",
+        "inappropriate": "Nội dung không phù hợp",
+        "harassment": "Quấy rối/Thù ghét",
+        "other": "Khác"
+      },
+      "detail": "Chi tiết (tùy chọn)",
+      "detail_placeholder": "Vui lòng mô tả vấn đề",
+      "submit": "Gửi báo cáo",
+      "cancel": "Hủy",
+      "success": "Đã gửi báo cáo",
+      "submitting": "Đang gửi..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "Đây là ứng dụng không chính thức do fan tạo ra. Tất cả logo công ty và thông tin nghệ sĩ thuộc về chủ sở hữu tương ứng. Ứng dụng này không liên kết với bất kỳ công ty giải trí nào.",
+    "terms": "Điều khoản Dịch vụ",
+    "privacy": "Chính sách Bảo mật",
+    "copyright": "© 2026 KCL. Bảo lưu mọi quyền."
+  },
+  "Legal": {
+    "last_updated": "Cập nhật lần cuối",
+    "legal_review_notice": "Tài liệu này có thể được cập nhật sau khi xem xét pháp lý.",
+    "contact_title": "Liên hệ",
+    "contact_content": "Nếu có câu hỏi về chính sách này, liên hệ contact@kcl.fan",
+    "terms_title": "Điều khoản Dịch vụ",
+    "terms_description": "Điều khoản Dịch vụ và Thỏa thuận Sử dụng KCL",
+    "terms_section1_title": "Giới thiệu",
+    "terms_section1_content": "Chào mừng đến với KCL (K-pop Company League). Bằng cách truy cập dịch vụ, bạn đồng ý với các Điều khoản này. Đây là ứng dụng không chính thức do fan tạo ra.",
+    "terms_section2_title": "Sử dụng Dịch vụ",
+    "terms_section2_content": "Khi sử dụng KCL, bạn đồng ý:",
+    "terms_section2_item1": "Chỉ sử dụng dịch vụ cho mục đích cá nhân và phi thương mại",
+    "terms_section2_item2": "Không can thiệp vào dịch vụ",
+    "terms_section2_item3": "Không cố gắng thao túng hệ thống bình chọn",
+    "terms_section3_title": "Sở hữu Trí tuệ",
+    "terms_section3_content": "Tất cả logo và hình ảnh nghệ sĩ thuộc về chủ sở hữu hợp pháp.",
+    "terms_section4_title": "Miễn trừ Trách nhiệm",
+    "terms_section4_content": "KCL được cung cấp \"nguyên trạng\" mà không có bảo đảm nào.",
+    "terms_section5_title": "Thay đổi Dịch vụ",
+    "terms_section5_content": "Chúng tôi có quyền thay đổi hoặc ngừng dịch vụ bất cứ lúc nào.",
+    "terms_section6_title": "Luật Áp dụng",
+    "terms_section6_content": "Các Điều khoản này chịu sự điều chỉnh của pháp luật Hàn Quốc.",
+    "privacy_title": "Chính sách Bảo mật",
+    "privacy_description": "Chính sách Bảo mật và Bảo vệ Dữ liệu KCL",
+    "privacy_section1_title": "Tổng quan",
+    "privacy_section1_content": "KCL tôn trọng quyền riêng tư và bảo vệ dữ liệu cá nhân của bạn.",
+    "privacy_section2_title": "Thông tin Thu thập",
+    "privacy_section2_content": "Chúng tôi chỉ thu thập thông tin tối thiểu cần thiết:",
+    "privacy_section2_item1": "Hash IP: Chúng tôi lưu trữ phiên bản ẩn danh của địa chỉ IP.",
+    "privacy_section2_item2": "Bản ghi Bình chọn: Hoạt động bình chọn của bạn được ghi lại.",
+    "privacy_section2_item3": "Thông tin Thiết bị: Loại thiết bị và trình duyệt cơ bản.",
+    "privacy_section3_title": "Sử dụng Thông tin",
+    "privacy_section3_content": "Thông tin của bạn được sử dụng cho:",
+    "privacy_section3_item1": "Vận hành Dịch vụ: Cung cấp tính năng bình chọn",
+    "privacy_section3_item2": "Ngăn ngừa Lạm dụng: Ngăn chặn thao túng bình chọn",
+    "privacy_section3_item3": "Cải thiện Dịch vụ: Phân tích mẫu sử dụng",
+    "privacy_section4_title": "Cookie",
+    "privacy_section4_content": "KCL sử dụng cookie cần thiết cho phiên và tùy chọn.",
+    "privacy_section5_title": "Bảo mật Dữ liệu",
+    "privacy_section5_content": "Chúng tôi áp dụng các biện pháp bảo mật thích hợp bao gồm mã hóa.",
+    "privacy_section6_title": "Chia sẻ với Bên thứ ba",
+    "privacy_section6_content": "Chúng tôi không bán thông tin cá nhân của bạn cho bên thứ ba.",
+    "privacy_section7_title": "Quyền của Bạn",
+    "privacy_section7_content": "Bạn có quyền truy cập, sửa chữa hoặc xóa dữ liệu của mình."
+
   }
 }

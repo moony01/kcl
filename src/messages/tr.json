@@ -55,7 +55,8 @@
     "switch_account": "Hesap Değiştir",
     "mode_switch": "Mod Değiştir",
     "hall_of_fame": "Şöhret Salonu",
-    "news": "Haberler"
+    "news": "Haberler",
+    "community": "Topluluk"
   },
   "News": {
     "title": "Haberler ve Analizler",
@@ -163,28 +164,124 @@
     },
     "view_details": "Detayları Görüntüle"
   },
+
   "Community": {
     "title": "Topluluk",
-    "subtitle": "Düşüncelerinizi özgürce paylaşın",
+    "subtitle": "Hayran Serbest Forumu",
     "write": "Yaz",
-    "nickname": "Takma ad",
-    "title_label": "Başlık",
-    "content": "İçerik",
-    "submit": "Gönder",
-    "cancel": "İptal",
-    "comments": "Yorumlar",
-    "comment_placeholder": "Yorum yaz",
-    "report": "Bildir",
-    "report_reason": "Bildirme nedeni",
-    "report_success": "Bildirim gönderildi",
-    "report_duplicate": "Bunu zaten bildirdiniz",
-    "no_posts": "Henüz gönderi yok",
+    "back_to_list": "← Listeye dön",
+    "no_posts": "Henüz gönderi yok.",
     "loading": "Yükleniyor...",
-    "view_count": "Görüntüleme",
-    "created_at": "Yayınlandı",
-    "back_to_list": "Listeye dön",
-    "post_success": "Gönderi oluşturuldu",
-    "comment_success": "Yorum gönderildi",
-    "error": "Bir hata oluştu"
+    "table": {
+      "number": "No.",
+      "title": "Başlık",
+      "author": "Yazar",
+      "date": "Tarih",
+      "views": "Görüntüleme",
+      "comments": "Yorumlar"
+    },
+    "post": {
+      "views": "{count} görüntüleme",
+      "comments": "{count} yorum",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "Takma ad",
+      "nickname_placeholder": "Takma ad girin (maks. 20 karakter)",
+      "title": "Başlık",
+      "title_placeholder": "Başlık girin (maks. 100 karakter)",
+      "content": "İçerik",
+      "content_placeholder": "İçerik girin",
+      "submit": "Gönder",
+      "cancel": "İptal",
+      "submitting": "Gönderiliyor..."
+    },
+    "validation": {
+      "nickname_required": "Lütfen bir takma ad girin",
+      "nickname_max": "Takma ad en fazla 20 karakter olmalı",
+      "title_required": "Lütfen bir başlık girin",
+      "title_max": "Başlık en fazla 100 karakter olmalı",
+      "content_required": "Lütfen içerik girin"
+    },
+    "detail": {
+      "report": "Bildir",
+      "delete": "Sil",
+      "edit": "Düzenle"
+    },
+    "comment": {
+      "title": "Yorumlar",
+      "placeholder": "Yorum yaz (maks. 200 karakter)",
+      "submit": "Gönder",
+      "no_comments": "İlk yorumu siz yazın!",
+      "delete_confirm": "Bu yorum silinsin mi?"
+    },
+    "report": {
+      "title": "Bildir",
+      "reason": "Sebep",
+      "reasons": {
+        "spam": "Spam/Reklam",
+        "inappropriate": "Uygunsuz içerik",
+        "harassment": "Taciz/Nefret",
+        "other": "Diğer"
+      },
+      "detail": "Detaylar (isteğe bağlı)",
+      "detail_placeholder": "Sorunu açıklayın",
+      "submit": "Rapor gönder",
+      "cancel": "İptal",
+      "success": "Rapor gönderildi",
+      "submitting": "Gönderiliyor..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "Bu, hayranlar tarafından oluşturulan resmi olmayan bir uygulamadır. Tüm şirket logoları ve sanatçı bilgileri ilgili sahiplerine aittir. Bu uygulama herhangi bir eğlence şirketiyle bağlantılı değildir.",
+    "terms": "Kullanım Koşulları",
+    "privacy": "Gizlilik Politikası",
+    "copyright": "© 2026 KCL. Tüm hakları saklıdır."
+  },
+  "Legal": {
+    "last_updated": "Son Güncelleme",
+    "legal_review_notice": "Bu belge hukuki incelemeden sonra güncellenebilir.",
+    "contact_title": "İletişim",
+    "contact_content": "Bu politika hakkında sorularınız için contact@kcl.fan adresinden bize ulaşın",
+    "terms_title": "Kullanım Koşulları",
+    "terms_description": "KCL Kullanım Koşulları ve Hizmet Sözleşmesi",
+    "terms_section1_title": "Giriş",
+    "terms_section1_content": "KCL'ye (K-pop Company League) hoş geldiniz. Hizmetimize erişerek bu Koşulları kabul etmiş olursunuz. Bu, hayranlar tarafından oluşturulan resmi olmayan bir uygulamadır.",
+    "terms_section2_title": "Hizmet Kullanımı",
+    "terms_section2_content": "KCL'yi kullanarak şunları kabul edersiniz:",
+    "terms_section2_item1": "Hizmeti yalnızca kişisel ve ticari olmayan amaçlarla kullanmak",
+    "terms_section2_item2": "Hizmeti aksatmamak",
+    "terms_section2_item3": "Oylama sistemlerini manipüle etmeye çalışmamak",
+    "terms_section3_title": "Fikri Mülkiyet",
+    "terms_section3_content": "Tüm logolar ve sanatçı görselleri ilgili sahiplerine aittir.",
+    "terms_section4_title": "Sorumluluk Reddi",
+    "terms_section4_content": "KCL herhangi bir garanti olmaksızın \"olduğu gibi\" sağlanmaktadır.",
+    "terms_section5_title": "Hizmet Değişiklikleri",
+    "terms_section5_content": "Hizmeti istediğimiz zaman değiştirme veya sonlandırma hakkını saklı tutarız.",
+    "terms_section6_title": "Geçerli Hukuk",
+    "terms_section6_content": "Bu Koşullar Kore Cumhuriyeti yasalarına tabidir.",
+    "privacy_title": "Gizlilik Politikası",
+    "privacy_description": "KCL Gizlilik Politikası ve Veri Koruma",
+    "privacy_section1_title": "Genel Bakış",
+    "privacy_section1_content": "KCL gizliliğinize saygı duyar ve kişisel verilerinizi korur.",
+    "privacy_section2_title": "Toplanan Bilgiler",
+    "privacy_section2_content": "Yalnızca minimum gerekli bilgileri topluyoruz:",
+    "privacy_section2_item1": "IP Hash: Anonimleştirilmiş IP adresinizi saklıyoruz.",
+    "privacy_section2_item2": "Oylama Kayıtları: Oylama aktiviteniz kaydedilir.",
+    "privacy_section2_item3": "Cihaz Bilgileri: Temel cihaz türü ve tarayıcı bilgileri.",
+    "privacy_section3_title": "Bilgi Kullanımı",
+    "privacy_section3_content": "Bilgileriniz şunlar için kullanılır:",
+    "privacy_section3_item1": "Hizmet İşletimi: Oylama özelliklerini sağlamak",
+    "privacy_section3_item2": "Kötüye Kullanımı Önleme: Oy manipülasyonunu önlemek",
+    "privacy_section3_item3": "Hizmet İyileştirme: Kullanım kalıplarını analiz etmek",
+    "privacy_section4_title": "Çerezler",
+    "privacy_section4_content": "KCL oturumlar ve tercihler için gerekli çerezleri kullanır.",
+    "privacy_section5_title": "Veri Güvenliği",
+    "privacy_section5_content": "Şifreleme dahil uygun güvenlik önlemlerini uyguluyoruz.",
+    "privacy_section6_title": "Üçüncü Taraflarla Paylaşım",
+    "privacy_section6_content": "Kişisel bilgilerinizi üçüncü taraflara satmıyoruz.",
+    "privacy_section7_title": "Haklarınız",
+    "privacy_section7_content": "Verilerinize erişme, düzeltme veya silme hakkınız vardır."
+
   }
 }

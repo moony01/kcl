@@ -55,7 +55,8 @@
     "switch_account": "Ganti Akun",
     "mode_switch": "Ganti Mode",
     "hall_of_fame": "Hall of Fame",
-    "news": "Berita"
+    "news": "Berita",
+    "community": "Komunitas"
   },
   "News": {
     "title": "Berita & Wawasan",
@@ -163,28 +164,124 @@
     },
     "view_details": "Lihat Detail"
   },
+
   "Community": {
     "title": "Komunitas",
-    "subtitle": "Bagikan pemikiran Anda dengan bebas",
+    "subtitle": "Forum Bebas Penggemar",
     "write": "Tulis",
-    "nickname": "Nama panggilan",
-    "title_label": "Judul",
-    "content": "Konten",
-    "submit": "Kirim",
-    "cancel": "Batal",
-    "comments": "Komentar",
-    "comment_placeholder": "Tulis komentar",
-    "report": "Laporkan",
-    "report_reason": "Alasan pelaporan",
-    "report_success": "Laporan terkirim",
-    "report_duplicate": "Anda sudah melaporkan ini",
-    "no_posts": "Belum ada postingan",
+    "back_to_list": "← Kembali ke daftar",
+    "no_posts": "Belum ada postingan.",
     "loading": "Memuat...",
-    "view_count": "Dilihat",
-    "created_at": "Diposting",
-    "back_to_list": "Kembali ke daftar",
-    "post_success": "Postingan dibuat",
-    "comment_success": "Komentar diposting",
-    "error": "Terjadi kesalahan"
+    "table": {
+      "number": "No.",
+      "title": "Judul",
+      "author": "Penulis",
+      "date": "Tanggal",
+      "views": "Dilihat",
+      "comments": "Komentar"
+    },
+    "post": {
+      "views": "{count} dilihat",
+      "comments": "{count} komentar",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "Nama panggilan",
+      "nickname_placeholder": "Masukkan nama panggilan (maks. 20 karakter)",
+      "title": "Judul",
+      "title_placeholder": "Masukkan judul (maks. 100 karakter)",
+      "content": "Konten",
+      "content_placeholder": "Masukkan konten",
+      "submit": "Kirim",
+      "cancel": "Batal",
+      "submitting": "Mengirim..."
+    },
+    "validation": {
+      "nickname_required": "Harap masukkan nama panggilan",
+      "nickname_max": "Nama panggilan maksimal 20 karakter",
+      "title_required": "Harap masukkan judul",
+      "title_max": "Judul maksimal 100 karakter",
+      "content_required": "Harap masukkan konten"
+    },
+    "detail": {
+      "report": "Laporkan",
+      "delete": "Hapus",
+      "edit": "Edit"
+    },
+    "comment": {
+      "title": "Komentar",
+      "placeholder": "Tulis komentar (maks. 200 karakter)",
+      "submit": "Kirim",
+      "no_comments": "Jadilah yang pertama berkomentar!",
+      "delete_confirm": "Hapus komentar ini?"
+    },
+    "report": {
+      "title": "Laporkan",
+      "reason": "Alasan",
+      "reasons": {
+        "spam": "Spam/Iklan",
+        "inappropriate": "Konten tidak pantas",
+        "harassment": "Pelecehan/Kebencian",
+        "other": "Lainnya"
+      },
+      "detail": "Detail (opsional)",
+      "detail_placeholder": "Jelaskan masalahnya",
+      "submit": "Kirim laporan",
+      "cancel": "Batal",
+      "success": "Laporan terkirim",
+      "submitting": "Mengirim..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "Ini adalah aplikasi tidak resmi yang dibuat oleh penggemar. Semua logo perusahaan dan informasi artis adalah milik pemiliknya masing-masing. Aplikasi ini tidak berafiliasi dengan perusahaan hiburan manapun.",
+    "terms": "Ketentuan Layanan",
+    "privacy": "Kebijakan Privasi",
+    "copyright": "© 2026 KCL. Hak cipta dilindungi."
+  },
+  "Legal": {
+    "last_updated": "Terakhir Diperbarui",
+    "legal_review_notice": "Dokumen ini dapat diperbarui setelah tinjauan hukum.",
+    "contact_title": "Hubungi Kami",
+    "contact_content": "Jika ada pertanyaan tentang kebijakan ini, hubungi kami di contact@kcl.fan",
+    "terms_title": "Ketentuan Layanan",
+    "terms_description": "Ketentuan Layanan dan Perjanjian Penggunaan KCL",
+    "terms_section1_title": "Pendahuluan",
+    "terms_section1_content": "Selamat datang di KCL (K-pop Company League). Dengan mengakses layanan kami, Anda menyetujui Ketentuan ini. Ini adalah aplikasi tidak resmi yang dibuat oleh penggemar.",
+    "terms_section2_title": "Penggunaan Layanan",
+    "terms_section2_content": "Dengan menggunakan KCL, Anda setuju untuk:",
+    "terms_section2_item1": "Menggunakan layanan hanya untuk tujuan pribadi dan non-komersial",
+    "terms_section2_item2": "Tidak mengganggu layanan",
+    "terms_section2_item3": "Tidak mencoba memanipulasi sistem voting",
+    "terms_section3_title": "Hak Kekayaan Intelektual",
+    "terms_section3_content": "Semua logo dan gambar artis adalah milik pemiliknya masing-masing.",
+    "terms_section4_title": "Penafian",
+    "terms_section4_content": "KCL disediakan \"sebagaimana adanya\" tanpa jaminan apapun.",
+    "terms_section5_title": "Perubahan Layanan",
+    "terms_section5_content": "Kami berhak mengubah atau menghentikan layanan kapan saja.",
+    "terms_section6_title": "Hukum yang Berlaku",
+    "terms_section6_content": "Ketentuan ini diatur oleh hukum Republik Korea.",
+    "privacy_title": "Kebijakan Privasi",
+    "privacy_description": "Kebijakan Privasi dan Perlindungan Data KCL",
+    "privacy_section1_title": "Ikhtisar",
+    "privacy_section1_content": "KCL menghormati privasi Anda dan melindungi data pribadi Anda.",
+    "privacy_section2_title": "Informasi yang Dikumpulkan",
+    "privacy_section2_content": "Kami hanya mengumpulkan informasi minimum yang diperlukan:",
+    "privacy_section2_item1": "Hash IP: Kami menyimpan versi anonim dari alamat IP Anda.",
+    "privacy_section2_item2": "Catatan Voting: Aktivitas voting Anda dicatat.",
+    "privacy_section2_item3": "Informasi Perangkat: Jenis perangkat dan browser dasar.",
+    "privacy_section3_title": "Penggunaan Informasi",
+    "privacy_section3_content": "Informasi Anda digunakan untuk:",
+    "privacy_section3_item1": "Operasi Layanan: Menyediakan fitur voting",
+    "privacy_section3_item2": "Pencegahan Penyalahgunaan: Mencegah manipulasi voting",
+    "privacy_section3_item3": "Peningkatan Layanan: Menganalisis pola penggunaan",
+    "privacy_section4_title": "Cookie",
+    "privacy_section4_content": "KCL menggunakan cookie penting untuk sesi dan preferensi.",
+    "privacy_section5_title": "Keamanan Data",
+    "privacy_section5_content": "Kami menerapkan langkah keamanan yang tepat termasuk enkripsi.",
+    "privacy_section6_title": "Berbagi dengan Pihak Ketiga",
+    "privacy_section6_content": "Kami tidak menjual informasi pribadi Anda kepada pihak ketiga.",
+    "privacy_section7_title": "Hak Anda",
+    "privacy_section7_content": "Anda memiliki hak untuk mengakses, memperbaiki, atau menghapus data Anda."
+
   }
 }

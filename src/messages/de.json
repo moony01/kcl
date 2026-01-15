@@ -55,7 +55,8 @@
     "switch_account": "Konto wechseln",
     "mode_switch": "Modus wechseln",
     "hall_of_fame": "Ruhmeshalle",
-    "news": "Nachrichten"
+    "news": "Nachrichten",
+    "community": "Community"
   },
   "News": {
     "title": "Nachrichten & Einblicke",
@@ -163,28 +164,124 @@
     },
     "view_details": "Details ansehen"
   },
+
   "Community": {
     "title": "Community",
-    "subtitle": "Teilen Sie Ihre Gedanken frei",
-    "write": "Beitrag schreiben",
-    "nickname": "Nickname",
-    "title_label": "Titel",
-    "content": "Inhalt",
-    "submit": "Absenden",
-    "cancel": "Abbrechen",
-    "comments": "Kommentare",
-    "comment_placeholder": "Kommentar schreiben",
-    "report": "Melden",
-    "report_reason": "Meldegrund",
-    "report_success": "Meldung wurde gesendet",
-    "report_duplicate": "Sie haben dies bereits gemeldet",
-    "no_posts": "Keine Beiträge",
+    "subtitle": "Freies Fan-Forum",
+    "write": "Schreiben",
+    "back_to_list": "← Zurück zur Liste",
+    "no_posts": "Noch keine Beiträge.",
     "loading": "Laden...",
-    "view_count": "Aufrufe",
-    "created_at": "Veröffentlicht",
-    "back_to_list": "Zurück zur Liste",
-    "post_success": "Beitrag erstellt",
-    "comment_success": "Kommentar gepostet",
-    "error": "Ein Fehler ist aufgetreten"
+    "table": {
+      "number": "Nr.",
+      "title": "Titel",
+      "author": "Autor",
+      "date": "Datum",
+      "views": "Aufrufe",
+      "comments": "Kommentare"
+    },
+    "post": {
+      "views": "{count} Aufrufe",
+      "comments": "{count} Kommentare",
+      "created_at": "{date}"
+    },
+    "form": {
+      "nickname": "Spitzname",
+      "nickname_placeholder": "Spitzname eingeben (max. 20 Zeichen)",
+      "title": "Titel",
+      "title_placeholder": "Titel eingeben (max. 100 Zeichen)",
+      "content": "Inhalt",
+      "content_placeholder": "Inhalt eingeben",
+      "submit": "Veröffentlichen",
+      "cancel": "Abbrechen",
+      "submitting": "Wird gesendet..."
+    },
+    "validation": {
+      "nickname_required": "Bitte gib einen Spitznamen ein",
+      "nickname_max": "Spitzname darf maximal 20 Zeichen haben",
+      "title_required": "Bitte gib einen Titel ein",
+      "title_max": "Titel darf maximal 100 Zeichen haben",
+      "content_required": "Bitte gib Inhalt ein"
+    },
+    "detail": {
+      "report": "Melden",
+      "delete": "Löschen",
+      "edit": "Bearbeiten"
+    },
+    "comment": {
+      "title": "Kommentare",
+      "placeholder": "Kommentar schreiben (max. 200 Zeichen)",
+      "submit": "Posten",
+      "no_comments": "Sei der Erste, der kommentiert!",
+      "delete_confirm": "Diesen Kommentar löschen?"
+    },
+    "report": {
+      "title": "Melden",
+      "reason": "Grund",
+      "reasons": {
+        "spam": "Spam/Werbung",
+        "inappropriate": "Unangemessener Inhalt",
+        "harassment": "Belästigung/Hass",
+        "other": "Sonstiges"
+      },
+      "detail": "Details (optional)",
+      "detail_placeholder": "Bitte beschreibe das Problem",
+      "submit": "Meldung senden",
+      "cancel": "Abbrechen",
+      "success": "Meldung gesendet",
+      "submitting": "Wird gesendet..."
+    }
+  },
+  "Disclaimer": {
+    "banner": "Dies ist eine inoffizielle Fan-App. Alle Firmenlogos und Künstlerinformationen sind Eigentum ihrer jeweiligen Inhaber. Diese App ist mit keinem Unterhaltungsunternehmen verbunden.",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzrichtlinie",
+    "copyright": "© 2026 KCL. Alle Rechte vorbehalten."
+  },
+  "Legal": {
+    "last_updated": "Zuletzt aktualisiert",
+    "legal_review_notice": "Dieses Dokument unterliegt einer rechtlichen Prüfung und kann aktualisiert werden.",
+    "contact_title": "Kontakt",
+    "contact_content": "Bei Fragen zu dieser Richtlinie kontaktieren Sie uns unter contact@kcl.fan",
+    "terms_title": "Nutzungsbedingungen",
+    "terms_description": "KCL Nutzungsbedingungen und Nutzungsvereinbarung",
+    "terms_section1_title": "Einleitung",
+    "terms_section1_content": "Willkommen bei KCL (K-pop Company League). Durch den Zugriff auf unseren Dienst stimmen Sie diesen Nutzungsbedingungen zu. Dies ist eine inoffizielle Fan-App.",
+    "terms_section2_title": "Nutzung des Dienstes",
+    "terms_section2_content": "Durch die Nutzung von KCL stimmen Sie zu:",
+    "terms_section2_item1": "Den Dienst nur für persönliche, nicht-kommerzielle Zwecke zu nutzen",
+    "terms_section2_item2": "Keine Aktivitäten durchzuführen, die den Dienst stören",
+    "terms_section2_item3": "Nicht zu versuchen, Abstimmungssysteme zu manipulieren",
+    "terms_section3_title": "Geistiges Eigentum",
+    "terms_section3_content": "Alle Firmenlogos und Künstlerbilder gehören ihren jeweiligen Eigentümern.",
+    "terms_section4_title": "Haftungsausschluss",
+    "terms_section4_content": "KCL wird \"wie besehen\" ohne jegliche Garantie bereitgestellt.",
+    "terms_section5_title": "Änderungen am Dienst",
+    "terms_section5_content": "Wir behalten uns das Recht vor, den Dienst jederzeit zu ändern oder einzustellen.",
+    "terms_section6_title": "Anwendbares Recht",
+    "terms_section6_content": "Diese Bedingungen unterliegen den Gesetzen der Republik Korea.",
+    "privacy_title": "Datenschutzrichtlinie",
+    "privacy_description": "KCL Datenschutzrichtlinie und Datenschutz",
+    "privacy_section1_title": "Übersicht",
+    "privacy_section1_content": "KCL respektiert Ihre Privatsphäre und schützt Ihre persönlichen Daten.",
+    "privacy_section2_title": "Gesammelte Informationen",
+    "privacy_section2_content": "Wir sammeln nur die minimal notwendigen Informationen:",
+    "privacy_section2_item1": "IP-Hash: Wir speichern eine anonymisierte Version Ihrer IP-Adresse.",
+    "privacy_section2_item2": "Abstimmungsaufzeichnungen: Ihre Abstimmungsaktivität wird aufgezeichnet.",
+    "privacy_section2_item3": "Geräteinformationen: Grundlegende Geräte- und Browserinformationen.",
+    "privacy_section3_title": "Verwendung der Informationen",
+    "privacy_section3_content": "Ihre Informationen werden verwendet für:",
+    "privacy_section3_item1": "Dienstbetrieb: Bereitstellung von Abstimmungsfunktionen",
+    "privacy_section3_item2": "Missbrauchsprävention: Verhinderung von Manipulation",
+    "privacy_section3_item3": "Dienstverbesserung: Analyse von Nutzungsmustern",
+    "privacy_section4_title": "Cookies",
+    "privacy_section4_content": "KCL verwendet notwendige Cookies für Sitzungen und Einstellungen.",
+    "privacy_section5_title": "Datensicherheit",
+    "privacy_section5_content": "Wir implementieren angemessene Sicherheitsmaßnahmen einschließlich Verschlüsselung.",
+    "privacy_section6_title": "Weitergabe an Dritte",
+    "privacy_section6_content": "Wir verkaufen Ihre persönlichen Daten nicht an Dritte.",
+    "privacy_section7_title": "Ihre Rechte",
+    "privacy_section7_content": "Sie haben das Recht auf Zugang, Berichtigung oder Löschung Ihrer Daten."
+
   }
 }

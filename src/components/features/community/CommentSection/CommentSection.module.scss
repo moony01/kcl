@@ -1,0 +1,93 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+/**
+ * CommentSection 컴포넌트 스타일
+ * 댓글 영역
+ */
+
+.container {
+  margin-top: 32px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.empty {
+  text-align: center;
+  padding: 32px;
+  color: $color-text-dim;
+  font-size: 0.9rem;
+}
+
+.commentItem {
+  @include mix.glass-panel;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border-left: 3px solid $color-primary;
+  position: relative;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.nickname {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: $color-text;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: $color-text-dim;
+}
+
+.content {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba($color-text, 0.9);
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+}
+
+.actionBtn {
+  padding: 6px;
+  background: none;
+  border: none;
+  color: $color-text-dim;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $color-danger;
+    background: rgba($color-danger, 0.1);
+  }
+}
