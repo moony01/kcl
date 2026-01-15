@@ -4,8 +4,6 @@
  * GET: 게시글 상세 조회 + 조회수 증가
  */
 
-export const runtime = 'edge';
-
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/server';
 import type { PostDetailResponse, Post, PostComment } from '@/types/community';

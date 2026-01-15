@@ -13,7 +13,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-export const runtime = 'edge';
 import { createServerClient } from '@/lib/supabase/server';
 import { MOCK_COMPANIES } from '@/lib/mock-data';
 

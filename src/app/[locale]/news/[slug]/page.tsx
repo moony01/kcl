@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';

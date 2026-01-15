@@ -1,7 +1,0 @@
-# KCL Cloudflare Workers 설정
-name = "kcl"
-compatibility_date = "2026-01-15"
-compatibility_flags = ["nodejs_compat"]
-
-# Pages 배포 설정 (next-on-pages 사용)
-pages_build_output_dir = ".vercel/output/static"

@@ -1,14 +1,12 @@
 /**
- * HomePage (리그 시스템) - Edge Runtime
+ * HomePage (리그 시스템)
  *
  * KCL 리그 시스템 메인 페이지
  * - Server Component로 동작
  * - 초기 데이터 Fetching 후 Client Component(HomeClient)로 전달
  *
- * @updated Cloudflare Edge Runtime 적용
+ * @updated OpenNext Cloudflare 배포용 (Node.js 런타임)
  */
-
-export const runtime = 'edge';
 
 import { HomeClient } from './HomeClient';
 import type { CompaniesResponse } from '@/types/api';

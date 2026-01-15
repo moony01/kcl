@@ -11,7 +11,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-export const runtime = 'edge';
 import { Redis } from '@upstash/redis';
 import { checkVoteRateLimit } from '@/lib/rate-limit';
 import { createServerClient } from '@/lib/supabase/server';

@@ -12,8 +12,6 @@
 
 'use client';
 
-export const runtime = 'edge';
-
 import { useState, useMemo, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { BarChart3, Clock } from 'lucide-react';

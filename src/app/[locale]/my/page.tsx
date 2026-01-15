@@ -1,7 +1,5 @@
 'use client';
 
-export const runtime = 'edge';
-
 import { useTranslations } from 'next-intl';
 import Header from '@/components/layout/Header';
 import styles from './page.module.scss';

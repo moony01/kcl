@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Generated files (prebuild)
 src/generated/
+
+# OpenNext build output
+.open-next/
