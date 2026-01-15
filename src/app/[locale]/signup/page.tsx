@@ -2,10 +2,11 @@ import AuthLayout from '@/components/features/auth/AuthLayout';
 import SignupForm from '@/components/features/auth/SignupForm';
 import Link from 'next/link';
 
-export function generateStaticParams() {
-  const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
-  return locales.map((locale) => ({ locale }));
-}
+/**
+ * 회원가입 페이지 - 동적 렌더링
+ * Phase 1에서는 회원가입 기능이 비활성화되어 있습니다.
+ */
+export const dynamic = 'force-dynamic';
 
 export default function SignupPage() {
   const footerLink = (
