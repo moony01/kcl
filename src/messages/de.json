@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "Details ansehen"
+  },
+  "Community": {
+    "title": "Community",
+    "subtitle": "Teilen Sie Ihre Gedanken frei",
+    "write": "Beitrag schreiben",
+    "nickname": "Nickname",
+    "title_label": "Titel",
+    "content": "Inhalt",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "comments": "Kommentare",
+    "comment_placeholder": "Kommentar schreiben",
+    "report": "Melden",
+    "report_reason": "Meldegrund",
+    "report_success": "Meldung wurde gesendet",
+    "report_duplicate": "Sie haben dies bereits gemeldet",
+    "no_posts": "Keine Beiträge",
+    "loading": "Laden...",
+    "view_count": "Aufrufe",
+    "created_at": "Veröffentlicht",
+    "back_to_list": "Zurück zur Liste",
+    "post_success": "Beitrag erstellt",
+    "comment_success": "Kommentar gepostet",
+    "error": "Ein Fehler ist aufgetreten"
   }
 }

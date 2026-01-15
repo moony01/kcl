@@ -11,6 +11,8 @@
 import { HomeClient } from './HomeClient';
 import type { CompaniesResponse } from '@/types/api';
 
+export const runtime = 'edge';
+
 /**
  * 리그 데이터 서버 사이드 Fetching
  * 30초마다 Revalidation (ISR)

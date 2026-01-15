@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "查看详情"
+  },
+  "Community": {
+    "title": "社区",
+    "subtitle": "自由分享您的想法",
+    "write": "发帖",
+    "nickname": "昵称",
+    "title_label": "标题",
+    "content": "内容",
+    "submit": "发布",
+    "cancel": "取消",
+    "comments": "评论",
+    "comment_placeholder": "写评论",
+    "report": "举报",
+    "report_reason": "举报原因",
+    "report_success": "举报已提交",
+    "report_duplicate": "您已举报过此内容",
+    "no_posts": "暂无帖子",
+    "loading": "加载中...",
+    "view_count": "浏览",
+    "created_at": "发布时间",
+    "back_to_list": "返回列表",
+    "post_success": "帖子发布成功",
+    "comment_success": "评论发布成功",
+    "error": "发生错误"
   }
 }

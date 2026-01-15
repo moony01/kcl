@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "Lihat Detail"
+  },
+  "Community": {
+    "title": "Komunitas",
+    "subtitle": "Bagikan pemikiran Anda dengan bebas",
+    "write": "Tulis",
+    "nickname": "Nama panggilan",
+    "title_label": "Judul",
+    "content": "Konten",
+    "submit": "Kirim",
+    "cancel": "Batal",
+    "comments": "Komentar",
+    "comment_placeholder": "Tulis komentar",
+    "report": "Laporkan",
+    "report_reason": "Alasan pelaporan",
+    "report_success": "Laporan terkirim",
+    "report_duplicate": "Anda sudah melaporkan ini",
+    "no_posts": "Belum ada postingan",
+    "loading": "Memuat...",
+    "view_count": "Dilihat",
+    "created_at": "Diposting",
+    "back_to_list": "Kembali ke daftar",
+    "post_success": "Postingan dibuat",
+    "comment_success": "Komentar diposting",
+    "error": "Terjadi kesalahan"
   }
 }

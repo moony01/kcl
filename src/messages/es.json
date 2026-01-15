@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "Ver detalles"
+  },
+  "Community": {
+    "title": "Comunidad",
+    "subtitle": "Comparte tus pensamientos libremente",
+    "write": "Escribir",
+    "nickname": "Apodo",
+    "title_label": "Título",
+    "content": "Contenido",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "comments": "Comentarios",
+    "comment_placeholder": "Escribe un comentario",
+    "report": "Reportar",
+    "report_reason": "Motivo del reporte",
+    "report_success": "Reporte enviado",
+    "report_duplicate": "Ya has reportado esto",
+    "no_posts": "No hay publicaciones",
+    "loading": "Cargando...",
+    "view_count": "Vistas",
+    "created_at": "Publicado",
+    "back_to_list": "Volver a la lista",
+    "post_success": "Publicación creada",
+    "comment_success": "Comentario publicado",
+    "error": "Ocurrió un error"
   }
 }

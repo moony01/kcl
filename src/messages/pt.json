@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "Ver detalhes"
+  },
+  "Community": {
+    "title": "Comunidade",
+    "subtitle": "Compartilhe seus pensamentos livremente",
+    "write": "Escrever",
+    "nickname": "Apelido",
+    "title_label": "Título",
+    "content": "Conteúdo",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "comments": "Comentários",
+    "comment_placeholder": "Escreva um comentário",
+    "report": "Denunciar",
+    "report_reason": "Motivo da denúncia",
+    "report_success": "Denúncia enviada",
+    "report_duplicate": "Você já denunciou isso",
+    "no_posts": "Nenhuma publicação",
+    "loading": "Carregando...",
+    "view_count": "Visualizações",
+    "created_at": "Publicado",
+    "back_to_list": "Voltar para a lista",
+    "post_success": "Publicação criada",
+    "comment_success": "Comentário publicado",
+    "error": "Ocorreu um erro"
   }
 }

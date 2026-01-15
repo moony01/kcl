@@ -18,6 +18,8 @@ interface NewsPageProps {
  * 페이지 메타데이터 생성
  * SEO를 위한 title, description 설정
  */
+export const runtime = 'edge';
+
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'News' });

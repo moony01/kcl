@@ -25,9 +25,13 @@ const IP_HASH_SALT = process.env.IP_HASH_SALT || 'kcl-default-salt-2024';
  * @example
  * hashIp('192.168.1.1') // 'a1b2c3d4e5f6...'
  */
-export function hashIp(ip: string): string {
-  return createHash('sha256')
-    .update(ip + IP_HASH_SALT)
-    .digest('hex')
-    .substring(0, 32); // 32자로 truncate (저장 공간 효율)
+export async function hashIp(ip: string): Promise<string> {
+  const salt = process.env.IP_HASH_SALT || 'kcl-default-salt-2024';
+  const data = new TextEncoder().encode(ip + salt);
+  
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  
+  return hashHex;
 }

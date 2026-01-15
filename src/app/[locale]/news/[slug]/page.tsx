@@ -25,6 +25,8 @@ interface NewsDetailPageProps {
  * 정적 경로 생성
  * 빌드 타임에 모든 뉴스 상세 페이지 생성
  */
+export const runtime = 'edge';
+
 export async function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
 

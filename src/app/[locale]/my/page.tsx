@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 import Header from '@/components/layout/Header';
 import styles from './page.module.scss';
 
+export const runtime = 'edge';
+
 export default function MyPage() {
   const t = useTranslations('Nav');
 

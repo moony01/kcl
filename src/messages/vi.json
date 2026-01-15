@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "Xem chi tiết"
+  },
+  "Community": {
+    "title": "Cộng đồng",
+    "subtitle": "Chia sẻ suy nghĩ của bạn tự do",
+    "write": "Viết bài",
+    "nickname": "Biệt danh",
+    "title_label": "Tiêu đề",
+    "content": "Nội dung",
+    "submit": "Đăng",
+    "cancel": "Hủy",
+    "comments": "Bình luận",
+    "comment_placeholder": "Viết bình luận",
+    "report": "Báo cáo",
+    "report_reason": "Lý do báo cáo",
+    "report_success": "Đã gửi báo cáo",
+    "report_duplicate": "Bạn đã báo cáo nội dung này",
+    "no_posts": "Chưa có bài viết",
+    "loading": "Đang tải...",
+    "view_count": "Lượt xem",
+    "created_at": "Đăng lúc",
+    "back_to_list": "Quay lại danh sách",
+    "post_success": "Đã tạo bài viết",
+    "comment_success": "Đã đăng bình luận",
+    "error": "Đã xảy ra lỗi"
   }
 }

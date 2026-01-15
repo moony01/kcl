@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "Detayları Görüntüle"
+  },
+  "Community": {
+    "title": "Topluluk",
+    "subtitle": "Düşüncelerinizi özgürce paylaşın",
+    "write": "Yaz",
+    "nickname": "Takma ad",
+    "title_label": "Başlık",
+    "content": "İçerik",
+    "submit": "Gönder",
+    "cancel": "İptal",
+    "comments": "Yorumlar",
+    "comment_placeholder": "Yorum yaz",
+    "report": "Bildir",
+    "report_reason": "Bildirme nedeni",
+    "report_success": "Bildirim gönderildi",
+    "report_duplicate": "Bunu zaten bildirdiniz",
+    "no_posts": "Henüz gönderi yok",
+    "loading": "Yükleniyor...",
+    "view_count": "Görüntüleme",
+    "created_at": "Yayınlandı",
+    "back_to_list": "Listeye dön",
+    "post_success": "Gönderi oluşturuldu",
+    "comment_success": "Yorum gönderildi",
+    "error": "Bir hata oluştu"
   }
 }

@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "ดูรายละเอียด"
+  },
+  "Community": {
+    "title": "ชุมชน",
+    "subtitle": "แบ่งปันความคิดของคุณอย่างเสรี",
+    "write": "เขียน",
+    "nickname": "ชื่อเล่น",
+    "title_label": "หัวข้อ",
+    "content": "เนื้อหา",
+    "submit": "โพสต์",
+    "cancel": "ยกเลิก",
+    "comments": "ความคิดเห็น",
+    "comment_placeholder": "เขียนความคิดเห็น",
+    "report": "รายงาน",
+    "report_reason": "เหตุผลในการรายงาน",
+    "report_success": "ส่งรายงานแล้ว",
+    "report_duplicate": "คุณได้รายงานสิ่งนี้แล้ว",
+    "no_posts": "ยังไม่มีโพสต์",
+    "loading": "กำลังโหลด...",
+    "view_count": "เข้าชม",
+    "created_at": "โพสต์เมื่อ",
+    "back_to_list": "กลับไปยังรายการ",
+    "post_success": "สร้างโพสต์แล้ว",
+    "comment_success": "โพสต์ความคิดเห็นแล้ว",
+    "error": "เกิดข้อผิดพลาด"
   }
 }

@@ -7,6 +7,7 @@ import Link from 'next/link';
  * Phase 1에서는 회원가입 기능이 비활성화되어 있습니다.
  */
 export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
 
 export default function SignupPage() {
   const footerLink = (

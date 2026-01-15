@@ -34,6 +34,8 @@ import {
 
 import styles from './page.module.scss';
 
+export const runtime = 'edge';
+
 export default function AnalyticsPage() {
   const t = useTranslations('Analytics');
 

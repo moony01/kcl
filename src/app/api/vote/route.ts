@@ -11,6 +11,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+export const runtime = 'edge';
 import { Redis } from '@upstash/redis';
 import { checkVoteRateLimit } from '@/lib/rate-limit';
 import { createServerClient } from '@/lib/supabase/server';
@@ -111,7 +112,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Supabase에 투표 기록 영속화 (비동기, 실패해도 응답에 영향 없음)
-    const ipHash = hashIp(clientIP);
+    const ipHash = await hashIp(clientIP);
     persistVote(companyId, groupId || null, ipHash).catch((err) => {
       console.error('[Vote] Unexpected error in persistVote:', err);
     });

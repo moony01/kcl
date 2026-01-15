@@ -162,5 +162,29 @@
       "same": "-"
     },
     "view_details": "상세보기"
+  },
+  "Community": {
+    "title": "커뮤니티",
+    "subtitle": "자유롭게 이야기를 나눠보세요",
+    "write": "글쓰기",
+    "nickname": "닉네임",
+    "title_label": "제목",
+    "content": "내용",
+    "submit": "등록",
+    "cancel": "취소",
+    "comments": "댓글",
+    "comment_placeholder": "댓글을 입력하세요",
+    "report": "신고",
+    "report_reason": "신고 사유",
+    "report_success": "신고가 접수되었습니다",
+    "report_duplicate": "이미 신고한 게시물입니다",
+    "no_posts": "게시글이 없습니다",
+    "loading": "로딩 중...",
+    "view_count": "조회",
+    "created_at": "작성일",
+    "back_to_list": "목록으로",
+    "post_success": "게시글이 등록되었습니다",
+    "comment_success": "댓글이 등록되었습니다",
+    "error": "오류가 발생했습니다"
   }
 }
