@@ -13,6 +13,8 @@
 
 'use client';
 
+export const runtime = 'edge';
+
 import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { useHallOfFame } from '@/hooks/useHallOfFame';

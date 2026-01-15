@@ -4,6 +4,8 @@
  * POST: 댓글 작성
  */
 
+export const runtime = 'edge';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/server';
 import { hashIp } from '@/lib/hash';

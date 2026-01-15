@@ -5,8 +5,6 @@
  * IP 주소 등 민감한 정보를 해싱하여 저장합니다.
  */
 
-import { createHash } from 'crypto';
-
 /**
  * IP 해싱용 Salt (환경변수에서 가져오거나 기본값 사용)
  * 보안을 위해 프로덕션에서는 반드시 환경변수로 설정해야 합니다.
@@ -28,10 +26,10 @@ const IP_HASH_SALT = process.env.IP_HASH_SALT || 'kcl-default-salt-2024';
 export async function hashIp(ip: string): Promise<string> {
   const salt = process.env.IP_HASH_SALT || 'kcl-default-salt-2024';
   const data = new TextEncoder().encode(ip + salt);
-  
+
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+
   return hashHex;
 }
