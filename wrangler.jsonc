@@ -1,7 +1,10 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "kcl",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2026-01-15",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "pages_build_output_dir": ".open-next/assets"
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets"
+  }
 }

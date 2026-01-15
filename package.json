@@ -10,7 +10,9 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
-    "pages:build": "pnpm prebuild && npx opennextjs-cloudflare build"
+    "cf:build": "pnpm prebuild && npx opennextjs-cloudflare build",
+    "cf:deploy": "pnpm cf:build && wrangler deploy",
+    "cf:preview": "npx opennextjs-cloudflare preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -52,6 +54,7 @@
     "eslint-config-next": "16.1.1",
     "jsdom": "^27.4.0",
     "typescript": "^5",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.17",
+    "wrangler": "^4.59.2"
   }
 }
