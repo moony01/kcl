@@ -1,8 +1,7 @@
 /**
- * @file proxy.ts
- * @description Next.js Proxy for i18n routing (Cloudflare Workers 호환)
+ * @file middleware.ts
+ * @description Next.js Middleware for i18n routing (Cloudflare Workers 호환)
  *
- * Next.js 16부터 middleware → proxy로 컨벤션이 변경되었습니다.
  * next-intl을 사용한 국제화(i18n) 라우팅을 처리합니다.
  *
  * @see https://next-intl.dev/docs/routing/middleware
@@ -22,25 +21,28 @@ const handleI18nRouting = createMiddleware({
 });
 
 /**
- * Proxy 함수
+ * Middleware 함수
  *
  * 모든 요청에 대해 국제화 라우팅을 적용합니다.
  *
  * @param request - Next.js의 NextRequest 객체
  * @returns 국제화 라우팅이 적용된 Response
  */
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   return handleI18nRouting(request);
 }
 
 /**
- * Proxy 설정
+ * Middleware 설정
  * - matcher: 국제화 라우팅이 적용될 경로 패턴
  * - 정적 파일(api, _next, _vercel 등)은 제외됩니다.
- *
- * @note Next.js 16.1+에서 Proxy는 항상 Node.js 런타임에서 실행됩니다.
- *       runtime 설정은 Proxy 파일에서 허용되지 않습니다.
  */
 export const config = {
   matcher: ['/', '/(ko|en|id|tr|ja|zh|es|pt|th|vi|fr|de)/:path*'],
 };
+
+/**
+ * Cloudflare Workers/Pages 호환성을 위해 Edge Runtime 사용
+ * middleware.ts는 Edge Runtime을 지원합니다.
+ */
+export const runtime = 'experimental-edge';
