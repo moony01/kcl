@@ -6,6 +6,7 @@
  * - 강등/승격 강조 스타일
  */
 
+@use 'sass:color';
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
@@ -129,7 +130,11 @@ $color-promotion: #28a745;
 
     // 버튼 스타일 강화
     .voteButton {
-      background: linear-gradient(135deg, $color-promotion 0%, darken($color-promotion, 10%) 100%);
+      background: linear-gradient(
+        135deg,
+        $color-promotion 0%,
+        color.adjust($color-promotion, $lightness: -10%) 100%
+      );
       padding: 10px 16px;
       font-size: 0.85rem;
       box-shadow: 0 2px 8px rgba($color-promotion, 0.3);

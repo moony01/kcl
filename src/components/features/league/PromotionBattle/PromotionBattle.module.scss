@@ -7,6 +7,7 @@
  * - 펄스 애니메이션
  */
 
+@use 'sass:color';
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
@@ -204,7 +205,11 @@ $color-gold: #d4af37;
   transition: all 0.2s ease;
 
   [data-zone='relegation'] & {
-    background: linear-gradient(135deg, $color-relegation 0%, darken($color-relegation, 10%) 100%);
+    background: linear-gradient(
+      135deg,
+      $color-relegation 0%,
+      color.adjust($color-relegation, $lightness: -10%) 100%
+    );
     color: white;
 
     &:hover {
@@ -214,7 +219,11 @@ $color-gold: #d4af37;
   }
 
   [data-zone='promotion'] & {
-    background: linear-gradient(135deg, $color-promotion 0%, darken($color-promotion, 10%) 100%);
+    background: linear-gradient(
+      135deg,
+      $color-promotion 0%,
+      color.adjust($color-promotion, $lightness: -10%) 100%
+    );
     color: white;
 
     &:hover {
