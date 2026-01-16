@@ -41,3 +41,9 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: ['/', '/(ko|en|id|tr|ja|zh|es|pt|th|vi|fr|de)/:path*'],
 };
+
+/**
+ * Cloudflare Workers/Pages 호환성을 위해 Edge Runtime 강제 지정
+ * Next.js 16에서는 'experimental-edge'를 사용해야 함
+ */
+export const runtime = 'experimental-edge';
