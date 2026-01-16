@@ -5,6 +5,8 @@
  * - 4-10위 (Premier), 12위~ (Challengers)용 컴팩트 디자인
  * - 강등 위기/승격 기회 강조 스타일
  * - 호버 시 투표 버튼 표시
+ *
+ * @updated T1.28 - 11위(승격 존) 특별 강조 스타일 추가, i18n 텍스트 적용
  */
 
 'use client';
@@ -60,13 +62,17 @@ export default function LeagueRankingItem({
     );
   };
 
+  // T1.28: 11위(2부 리그 1위)인지 확인하여 특별 강조 스타일 적용
+  const isPromotionHero = company.isPromotionZone && company.rank === 11;
+
   return (
     <motion.article
       className={classNames(styles.item, {
         [styles.relegation]: company.isRelegationZone,
-        [styles.promotion]: company.isPromotionZone,
+        [styles.promotion]: company.isPromotionZone && !isPromotionHero,
+        [styles.promotionHero]: isPromotionHero,
       })}
-      whileHover={{ x: 4 }}
+      whileHover={isPromotionHero ? { y: -4, scale: 1.01 } : { x: 4 }}
       transition={{ duration: 0.15 }}
       onClick={() => _onVote?.(company.companyId)}
     >
@@ -83,17 +89,17 @@ export default function LeagueRankingItem({
         </div>
         <div className={styles.textInfo}>
           <h4 className={styles.companyName}>{company.nameEn}</h4>
-          {/* 강등/승격 경고 메시지 */}
+          {/* 강등/승격 경고 메시지 - T1.28: i18n 적용 */}
           {company.isRelegationZone && (
             <span className={styles.warningTag}>
               <AlertTriangle size={10} />
-              강등 위기
+              {t('premier.relegation_zone')}
             </span>
           )}
           {company.isPromotionZone && (
             <span className={styles.promotionTag}>
               <ArrowUp size={10} />
-              승격 기회
+              {t('challengers.promotion_zone')}
             </span>
           )}
         </div>

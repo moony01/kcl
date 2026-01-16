@@ -58,6 +58,7 @@ $color-promotion: #28a745;
 }
 
 // 11위~ 리스트
+// T1.28: 1부 리그와 동일하게 1열 세로 리스트로 통일
 .rankingList {
   display: flex;
   flex-direction: column;
@@ -67,10 +68,8 @@ $color-promotion: #28a745;
     gap: 10px;
   }
 
-  // 데스크탑 2열 그리드 옵션
+  // T1.28: 데스크탑에서도 1열 유지 (2열 그리드 제거 - 1부 리그와 일관성)
   @media (min-width: 1024px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 }

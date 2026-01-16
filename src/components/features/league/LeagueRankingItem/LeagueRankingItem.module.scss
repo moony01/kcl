@@ -47,6 +47,108 @@ $color-promotion: #28a745;
     }
   }
 
+  // ===== T1.28: 11위(2부 리그 1위) 특별 강조 스타일 =====
+  // 1부 리그 Top 3와 유사한 시각적 임팩트를 제공합니다.
+  &.promotionHero {
+    position: relative;
+    padding: 16px 20px;
+    border: 2px solid rgba($color-promotion, 0.6);
+    border-radius: 16px;
+    background: linear-gradient(
+      135deg,
+      rgba($color-promotion, 0.12) 0%,
+      rgba($color-promotion, 0.04) 50%,
+      transparent 100%
+    );
+    box-shadow:
+      0 4px 16px rgba($color-promotion, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    // 글로우 효과 (호버 시 강화)
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      background: radial-gradient(
+        ellipse at top left,
+        rgba($color-promotion, 0.15) 0%,
+        transparent 50%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    &:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow:
+        0 8px 24px rgba($color-promotion, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    // 순위 숫자 특별 강조
+    .rank .rankNumber {
+      font-size: 1.3rem;
+      color: $color-promotion;
+      text-shadow: 0 0 8px rgba($color-promotion, 0.4);
+
+      @media (min-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    // 로고 크기 확대
+    .logo {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+      @media (min-width: 768px) {
+        width: 52px;
+        height: 52px;
+        font-size: 1.4rem;
+      }
+    }
+
+    // 회사명 강조
+    .companyName {
+      font-size: 1rem;
+      font-weight: 700;
+
+      @media (min-width: 768px) {
+        font-size: 1.1rem;
+      }
+    }
+
+    // 버튼 스타일 강화
+    .voteButton {
+      background: linear-gradient(135deg, $color-promotion 0%, darken($color-promotion, 10%) 100%);
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 8px rgba($color-promotion, 0.3);
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba($color-promotion, 0.4);
+      }
+
+      @media (max-width: 767px) {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding: 20px 24px;
+    }
+  }
+
   @media (min-width: 768px) {
     padding: 14px 20px;
     gap: 16px;
