@@ -1,8 +1,8 @@
 /**
- * @file middleware.ts
- * @description Next.js Middleware for i18n routing (Cloudflare Pages 호환)
+ * @file proxy.ts
+ * @description Next.js Proxy for i18n routing (Cloudflare Workers 호환)
  *
- * Cloudflare Pages는 middleware.ts 컨벤션을 사용합니다.
+ * Next.js 16부터 middleware → proxy로 컨벤션이 변경되었습니다.
  * next-intl을 사용한 국제화(i18n) 라우팅을 처리합니다.
  *
  * @see https://next-intl.dev/docs/routing/middleware
@@ -22,19 +22,19 @@ const handleI18nRouting = createMiddleware({
 });
 
 /**
- * Middleware 함수
+ * Proxy 함수
  *
  * 모든 요청에 대해 국제화 라우팅을 적용합니다.
  *
  * @param request - Next.js의 NextRequest 객체
  * @returns 국제화 라우팅이 적용된 Response
  */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   return handleI18nRouting(request);
 }
 
 /**
- * Middleware 설정
+ * Proxy 설정
  * - matcher: 국제화 라우팅이 적용될 경로 패턴
  * - 정적 파일(api, _next, _vercel 등)은 제외됩니다.
  */
