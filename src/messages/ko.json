@@ -125,7 +125,9 @@
       "days_remaining": "D-{days} 남음",
       "ends_today": "오늘 마감!",
       "current_leader": "현재 1위",
-      "realtime": "실시간 업데이트"
+      "realtime": "실시간 업데이트",
+      "countdown": "{seconds}초",
+      "refreshing": "갱신 중..."
     },
     "tabs": {
       "premier": "1부 리그",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "당사는 귀하의 개인정보를 제3자에게 판매, 거래 또는 양도하지 않습니다. 법률에 의해 요구되거나 당사의 권리를 보호하기 위해 필요한 경우에만 공개될 수 있습니다.",
     "privacy_section7_title": "귀하의 권리",
     "privacy_section7_content": "귀하는 개인 데이터에 대한 접근, 수정 또는 삭제 권리가 있습니다. 대부분의 데이터가 익명화되어 수집되므로 특정 우려 사항이 있으시면 문의해 주세요."
-
   }
 }

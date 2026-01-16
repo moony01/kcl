@@ -57,8 +57,9 @@ export function HomeClient({ initialData }: HomeClientProps) {
   // 탭 상태 (1부 리그 기본)
   const [activeTab, setActiveTab] = useState<LeagueTabType>('premier');
 
-  // 선택된 회사 상태 (투표용) - 레거시 타입 유지
-  const [selectedCompany, setSelectedCompany] = useState<CompanyType | null>(null);
+  // T1.29: 선택된 회사 ID만 상태로 관리 (실제 데이터는 allCompanies에서 파생)
+  // 기존 문제: selectedCompany가 투표 시점의 스냅샷을 유지하여 firepower 갱신 안 됨
+  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
 
   // BottomSheet 열림 상태 (모바일)
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -105,32 +106,43 @@ export function HomeClient({ initialData }: HomeClientProps) {
     return challengersLimit < allChallengers.length;
   }, [allChallengers, challengersLimit]);
 
-  // 투표 핸들러 - DB 데이터를 레거시 타입으로 변환
+  // T1.29: 선택된 회사 데이터를 allCompanies에서 파생 (항상 최신 데이터 반영)
+  // 기존: selectedCompany state가 투표 시점 스냅샷 유지 → firepower 갱신 안 됨
+  // 수정: selectedCompanyId만 state로 관리, 실제 데이터는 useMemo로 파생
+  const selectedCompany = useMemo((): CompanyType | null => {
+    if (!selectedCompanyId) return null;
+
+    const companyRanking = allCompanies.find((c) => c.companyId === selectedCompanyId);
+    if (!companyRanking) return null;
+
+    // CompanyRanking → CompanyType 변환 (최신 firepower 포함)
+    return {
+      id: companyRanking.companyId,
+      name: {
+        en: companyRanking.nameEn,
+        ko: companyRanking.nameKo,
+      },
+      representative: companyRanking.artists,
+      firepower: companyRanking.voteCount, // ← 이제 항상 최신 값!
+      rank: companyRanking.rank,
+      change:
+        companyRanking.rankChange > 0 ? 'up' : companyRanking.rankChange < 0 ? 'down' : 'same',
+      image: companyRanking.gradientColor.startsWith('linear-gradient')
+        ? companyRanking.gradientColor
+        : `linear-gradient(135deg, ${companyRanking.gradientColor} 0%, #1A1A1A 100%)`,
+      stockHistory: [],
+    };
+  }, [selectedCompanyId, allCompanies]);
+
+  // 투표 핸들러 - 회사 ID만 상태로 설정
   const handleVote = useCallback(
     (companyId: string) => {
-      // allCompanies에서 해당 회사 찾기
-      const companyRanking = allCompanies.find((c) => c.companyId === companyId);
-      if (!companyRanking) return;
+      // 회사 존재 확인
+      const exists = allCompanies.some((c) => c.companyId === companyId);
+      if (!exists) return;
 
-      // CompanyRanking → CompanyType 변환
-      const legacyCompany: CompanyType = {
-        id: companyRanking.companyId,
-        name: {
-          en: companyRanking.nameEn,
-          ko: companyRanking.nameKo,
-        },
-        representative: companyRanking.artists,
-        firepower: companyRanking.voteCount,
-        rank: companyRanking.rank,
-        change:
-          companyRanking.rankChange > 0 ? 'up' : companyRanking.rankChange < 0 ? 'down' : 'same',
-        image: companyRanking.gradientColor.startsWith('linear-gradient')
-          ? companyRanking.gradientColor
-          : `linear-gradient(135deg, ${companyRanking.gradientColor} 0%, #1A1A1A 100%)`,
-        stockHistory: [],
-      };
-
-      setSelectedCompany(legacyCompany);
+      // T1.29: ID만 설정 (실제 데이터는 useMemo에서 파생)
+      setSelectedCompanyId(companyId);
 
       if (isMobile) {
         setIsSheetOpen(true);

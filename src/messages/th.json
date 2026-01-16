@@ -125,7 +125,9 @@
       "days_remaining": "เหลืออีก {days} วัน",
       "ends_today": "สิ้นสุดวันนี้!",
       "current_leader": "อันดับ 1 ปัจจุบัน",
-      "realtime": "อัพเดทแบบเรียลไทม์"
+      "realtime": "อัพเดทแบบเรียลไทม์",
+      "countdown": "{seconds}ว",
+      "refreshing": "กำลังอัพเดท..."
     },
     "tabs": {
       "premier": "ดิวิชั่น 1",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "เราไม่ขายข้อมูลส่วนบุคคลของคุณให้บุคคลที่สาม",
     "privacy_section7_title": "สิทธิ์ของคุณ",
     "privacy_section7_content": "คุณมีสิทธิ์เข้าถึง แก้ไข หรือลบข้อมูลของคุณ"
-
   }
 }

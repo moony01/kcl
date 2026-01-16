@@ -6,17 +6,19 @@
  * - D-day 카운트다운
  * - 현재 1위 소속사 표시
  * - ⭐ 승강전 정보 (10위 vs 11위 + GAP)
- * - 실시간 업데이트 인디케이터
+ * - 실시간 업데이트 인디케이터 + 20초 카운트다운 (T1.31)
  *
  * @updated T1.16 - 승강전 정보를 SeasonHeader에 통합
+ * @updated T1.31 - 실시간 업데이트 카운트다운 UI 추가
  */
 
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { Trophy, RefreshCw, Flame, Swords, TrendingDown, TrendingUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Trophy, RefreshCw, Flame, Swords, TrendingDown, TrendingUp, Loader2 } from 'lucide-react';
 import type { SeasonInfo, CompanyRanking, PromotionBattle } from '@/types/league';
+import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
 import styles from './SeasonHeader.module.scss';
 
 interface SeasonHeaderProps {
@@ -38,6 +40,12 @@ export default function SeasonHeader({
 }: SeasonHeaderProps) {
   const t = useTranslations('League.season');
   const tBattle = useTranslations('League.promotion_battle');
+
+  // T1.31: 데이터 갱신 카운트다운 (20초 주기, SWR refreshInterval과 동기화)
+  const { countdown, isRefreshing } = useRefreshCountdown({
+    intervalMs: 20000, // 20초
+    refreshingDurationMs: 1500, // 갱신 중 표시 1.5초
+  });
 
   /** D-day 표시 포맷 */
   const formatDaysRemaining = () => {
@@ -186,15 +194,50 @@ export default function SeasonHeader({
         )}
       </div>
 
-      {/* 실시간 업데이트 인디케이터 */}
+      {/* 실시간 업데이트 인디케이터 + 카운트다운 (T1.31) */}
       <div className={styles.realtimeIndicator}>
-        <motion.span
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 3, ease: 'linear' }}
-        >
-          <RefreshCw size={14} />
-        </motion.span>
-        <span>{t('realtime')}</span>
+        <AnimatePresence mode="wait">
+          {isRefreshing ? (
+            // 갱신 중 상태: 로딩 스피너 + "갱신 중..." 텍스트
+            <motion.div
+              key="refreshing"
+              className={styles.refreshingState}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
+              >
+                <Loader2 size={14} />
+              </motion.span>
+              <span className={styles.refreshingText}>{t('refreshing')}</span>
+            </motion.div>
+          ) : (
+            // 카운트다운 상태: 회전 아이콘 + "실시간 업데이트 Xs"
+            <motion.div
+              key="countdown"
+              className={styles.countdownState}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 3, ease: 'linear' }}
+              >
+                <RefreshCw size={14} />
+              </motion.span>
+              <span>{t('realtime')}</span>
+              <span className={styles.countdownBadge}>
+                {t('countdown', { seconds: countdown })}
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

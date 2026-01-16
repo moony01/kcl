@@ -125,7 +125,9 @@
       "days_remaining": "D-{days} left",
       "ends_today": "Ends Today!",
       "current_leader": "Current #1",
-      "realtime": "Real-time Updates"
+      "realtime": "Real-time Updates",
+      "countdown": "{seconds}s",
+      "refreshing": "Updating..."
     },
     "tabs": {
       "premier": "Premier League",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "We do not sell, trade, or otherwise transfer your personal information to third parties. Your data may only be disclosed if required by law or to protect our rights.",
     "privacy_section7_title": "Your Rights",
     "privacy_section7_content": "You have the right to access, correct, or delete your personal data. Since we collect minimal data and most is anonymized, you may contact us if you have specific concerns about your data."
-
   }
 }

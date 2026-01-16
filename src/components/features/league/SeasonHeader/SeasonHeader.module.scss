@@ -374,7 +374,7 @@ $color-promotion: #28a745; // 초록 - 승격 기회
   font-family: $font-display;
 }
 
-// 실시간 표시기
+// 실시간 표시기 (T1.31: 카운트다운 UI 추가)
 .realtimeIndicator {
   position: absolute;
   top: 8px;
@@ -384,16 +384,73 @@ $color-promotion: #28a745; // 초록 - 승격 기회
   gap: 4px;
   font-size: 0.65rem;
   color: $color-text-dim;
-  opacity: 0.6;
-
-  svg {
-    color: $color-promotion;
-  }
 
   @media (min-width: 768px) {
     top: 12px;
     right: 16px;
     font-size: 0.7rem;
+  }
+}
+
+// 갱신 중 상태
+.refreshingState {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    color: $color-gold;
+  }
+}
+
+.refreshingText {
+  color: $color-gold;
+  font-weight: 600;
+  animation: textPulse 1s infinite;
+}
+
+@keyframes textPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+// 카운트다운 상태
+.countdownState {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.7;
+
+  svg {
+    color: $color-promotion;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// 카운트다운 배지
+.countdownBadge {
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba($color-promotion, 0.15);
+  color: $color-promotion;
+  font-weight: 600;
+  font-size: 0.6rem;
+  font-variant-numeric: tabular-nums; // 숫자 너비 고정
+  min-width: 28px;
+  text-align: center;
+  transition: all 0.2s ease;
+
+  @media (min-width: 768px) {
+    font-size: 0.65rem;
+    min-width: 32px;
   }
 }
 

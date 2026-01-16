@@ -125,7 +125,9 @@
       "days_remaining": "还剩{days}天",
       "ends_today": "今日截止！",
       "current_leader": "当前第一",
-      "realtime": "实时更新"
+      "realtime": "实时更新",
+      "countdown": "{seconds}秒",
+      "refreshing": "更新中..."
     },
     "tabs": {
       "premier": "甲级联赛",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "我们不会出售、交易或以其他方式将您的个人信息转让给第三方。",
     "privacy_section7_title": "您的权利",
     "privacy_section7_content": "您有权访问、更正或删除您的个人数据。"
-
   }
 }

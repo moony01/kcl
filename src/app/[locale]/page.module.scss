@@ -4,6 +4,8 @@
  * 홈 페이지 스타일 (탭 기반 리그 UI)
  * - 반응형 레이아웃 (Grid/Flex)
  * - 시즌 헤더 + 탭 + 콘텐츠 구조
+ *
+ * @updated T1.26 - 레이아웃 비율 조정 (리그 확대, 배틀 스테이션 축소)
  */
 
 @use '../../styles/abstracts/variables' as *;
@@ -70,13 +72,14 @@
 }
 
 // 우측 패널 컬럼 (데스크톱 전용) - Battle Station
+// T1.26: 너비 축소 (320px → 280px / 360px → 320px)
 .panelColumn {
   display: none;
 
   @media (min-width: 1024px) {
     display: flex;
     flex-direction: column;
-    width: 320px;
+    width: 280px; // T1.26: 320px → 280px (리그 영역 확대)
     flex-shrink: 0; // 줄어들지 않음
     position: sticky;
     top: 24px; // 헤더 아래에 고정
@@ -97,7 +100,11 @@
   }
 
   @media (min-width: 1200px) {
-    width: 360px;
+    width: 320px; // T1.26: 360px → 320px (리그 영역 확대)
+  }
+
+  @media (min-width: 1400px) {
+    width: 340px; // T1.26: 대형 화면에서 약간 확대
   }
 }
 

@@ -125,7 +125,9 @@
       "days_remaining": "D-{days} restantes",
       "ends_today": "¡Termina hoy!",
       "current_leader": "Actual #1",
-      "realtime": "Actualización en tiempo real"
+      "realtime": "Actualización en tiempo real",
+      "countdown": "{seconds}s",
+      "refreshing": "Actualizando..."
     },
     "tabs": {
       "premier": "Primera División",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "No vendemos, comercializamos ni transferimos su información personal a terceros.",
     "privacy_section7_title": "Sus Derechos",
     "privacy_section7_content": "Tiene derecho a acceder, corregir o eliminar sus datos personales."
-
   }
 }

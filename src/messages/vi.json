@@ -125,7 +125,9 @@
       "days_remaining": "Còn {days} ngày",
       "ends_today": "Kết thúc hôm nay!",
       "current_leader": "Hiện đang #1",
-      "realtime": "Cập nhật thời gian thực"
+      "realtime": "Cập nhật thời gian thực",
+      "countdown": "{seconds}s",
+      "refreshing": "Đang cập nhật..."
     },
     "tabs": {
       "premier": "Giải Hạng Nhất",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "Chúng tôi không bán thông tin cá nhân của bạn cho bên thứ ba.",
     "privacy_section7_title": "Quyền của Bạn",
     "privacy_section7_content": "Bạn có quyền truy cập, sửa chữa hoặc xóa dữ liệu của mình."
-
   }
 }

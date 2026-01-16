@@ -125,7 +125,9 @@
       "days_remaining": "{days} gün kaldı",
       "ends_today": "Bugün sona eriyor!",
       "current_leader": "Şu an #1",
-      "realtime": "Gerçek zamanlı güncelleme"
+      "realtime": "Gerçek zamanlı güncelleme",
+      "countdown": "{seconds}s",
+      "refreshing": "Güncelleniyor..."
     },
     "tabs": {
       "premier": "Birinci Lig",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "Kişisel bilgilerinizi üçüncü taraflara satmıyoruz.",
     "privacy_section7_title": "Haklarınız",
     "privacy_section7_content": "Verilerinize erişme, düzeltme veya silme hakkınız vardır."
-
   }
 }

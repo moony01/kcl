@@ -125,7 +125,9 @@
       "days_remaining": "D-{days} tersisa",
       "ends_today": "Berakhir hari ini!",
       "current_leader": "Saat ini #1",
-      "realtime": "Update real-time"
+      "realtime": "Update real-time",
+      "countdown": "{seconds}d",
+      "refreshing": "Memperbarui..."
     },
     "tabs": {
       "premier": "Divisi Utama",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "Kami tidak menjual informasi pribadi Anda kepada pihak ketiga.",
     "privacy_section7_title": "Hak Anda",
     "privacy_section7_content": "Anda memiliki hak untuk mengakses, memperbaiki, atau menghapus data Anda."
-
   }
 }

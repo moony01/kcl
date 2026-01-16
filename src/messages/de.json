@@ -125,7 +125,9 @@
       "days_remaining": "Noch {days} Tage",
       "ends_today": "Endet heute!",
       "current_leader": "Aktuell #1",
-      "realtime": "Echtzeit-Updates"
+      "realtime": "Echtzeit-Updates",
+      "countdown": "{seconds}s",
+      "refreshing": "Aktualisiere..."
     },
     "tabs": {
       "premier": "Erste Liga",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "Wir verkaufen Ihre persönlichen Daten nicht an Dritte.",
     "privacy_section7_title": "Ihre Rechte",
     "privacy_section7_content": "Sie haben das Recht auf Zugang, Berichtigung oder Löschung Ihrer Daten."
-
   }
 }

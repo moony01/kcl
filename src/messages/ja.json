@@ -125,7 +125,9 @@
       "days_remaining": "残り{days}日",
       "ends_today": "本日終了！",
       "current_leader": "現在1位",
-      "realtime": "リアルタイム更新"
+      "realtime": "リアルタイム更新",
+      "countdown": "{seconds}秒",
+      "refreshing": "更新中..."
     },
     "tabs": {
       "premier": "1部リーグ",
@@ -282,6 +284,5 @@
     "privacy_section6_content": "お客様の個人情報を第三者に販売、取引、または譲渡することはありません。",
     "privacy_section7_title": "お客様の権利",
     "privacy_section7_content": "お客様は個人データへのアクセス、修正、または削除の権利を有します。"
-
   }
 }
