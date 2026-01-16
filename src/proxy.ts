@@ -37,13 +37,10 @@ export function proxy(request: NextRequest) {
  * Proxy 설정
  * - matcher: 국제화 라우팅이 적용될 경로 패턴
  * - 정적 파일(api, _next, _vercel 등)은 제외됩니다.
+ *
+ * @note Next.js 16.1+에서 Proxy는 항상 Node.js 런타임에서 실행됩니다.
+ *       runtime 설정은 Proxy 파일에서 허용되지 않습니다.
  */
 export const config = {
   matcher: ['/', '/(ko|en|id|tr|ja|zh|es|pt|th|vi|fr|de)/:path*'],
 };
-
-/**
- * Cloudflare Workers/Pages 호환성을 위해 Edge Runtime 강제 지정
- * Next.js 16에서는 'experimental-edge'를 사용해야 함
- */
-export const runtime = 'experimental-edge';
