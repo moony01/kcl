@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Inter, Montserrat } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { SWRProvider } from '@/components/providers/SWRProvider';
 import AppShell from '@/components/layout/AppShell';
 import '@/styles/main.scss';
 import '@/styles/layout/_app-shell.scss';
@@ -98,11 +99,11 @@ export default async function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider messages={messages}>
-            <AppShell>
-              {children}
-            </AppShell>
-          </NextIntlClientProvider>
+          <SWRProvider>
+            <NextIntlClientProvider messages={messages}>
+              <AppShell>{children}</AppShell>
+            </NextIntlClientProvider>
+          </SWRProvider>
         </ThemeProvider>
       </body>
     </html>

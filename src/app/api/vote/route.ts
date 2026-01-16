@@ -8,21 +8,20 @@
  * - IP 기반 Rate Limit (1시간당 30회)
  * - 클라이언트에 남은 투표권 정보 반환
  * - Redis 카운터 + Supabase 영속성 이중 저장
+ *
+ * T1.30: 투표 성공 후 캐시 무효화
+ * - 소속사 순위 캐시(kcl:companies:ranking) 무효화
+ * - 다음 polling 시 최신 데이터 반영
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { Redis } from '@upstash/redis';
 import { checkVoteRateLimit } from '@/lib/rate-limit';
 import { createServerClient } from '@/lib/supabase/server';
 import { hashIp } from '@/lib/hash';
+import { redis, invalidateCompaniesCache, CACHE_KEYS } from '@/lib/redis';
 
 /** 1회 투표당 점수 */
 const VOTE_SCORE = 1;
-
-const redis =
-  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
-    ? Redis.fromEnv()
-    : null;
 
 /**
  * 클라이언트 IP 추출
@@ -101,9 +100,15 @@ export async function POST(req: NextRequest) {
 
     if (redis) {
       // 1점 증가 (기존 100점에서 변경)
-      newScore = await redis.incrby(`company:${companyId}:score`, VOTE_SCORE);
+      newScore = await redis.incrby(CACHE_KEYS.COMPANY_SCORE(companyId), VOTE_SCORE);
       // 전체 투표 수 카운트
-      await redis.incrby('global:total_votes', 1);
+      await redis.incrby(CACHE_KEYS.GLOBAL_TOTAL_VOTES, 1);
+
+      // T1.30: 투표 성공 후 소속사 순위 캐시 무효화
+      // 비동기로 실행하여 응답 지연 방지
+      invalidateCompaniesCache().catch((err) => {
+        console.error('[Vote] Failed to invalidate cache:', err);
+      });
     } else {
       // 개발 환경 Mock
       console.log(`[MOCK REDIS /vote] Voted Company ${companyId}, +${VOTE_SCORE} point`);

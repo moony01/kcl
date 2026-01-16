@@ -11,13 +11,15 @@ const __dirname = path.dirname(__filename);
 
 const isGithubPages = process.env.DEPLOY_TARGET === 'gh-pages';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig = {
   output: isGithubPages ? 'export' : undefined,
   basePath: isGithubPages ? '/plolux/kcl' : undefined,
   images: {
-    unoptimized: true,
+    unoptimized: isGithubPages, // GitHub Pages일 때만 비활성화
   },
-  reactCompiler: true,
+  reactCompiler: !isDev, // 개발 모드에서 비활성화 (HMR 속도 개선)
   sassOptions: {
     includePaths: [
       path.join(__dirname, 'src/styles'),

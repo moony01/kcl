@@ -14,8 +14,15 @@ import type { CompaniesResponse } from '@/types/api';
 /**
  * 리그 데이터 서버 사이드 Fetching
  * Edge Runtime에서 동적 렌더링 (캐시 없음)
+ *
+ * 개발 모드에서는 SSR fetch를 스킵하여 API 중복 호출 방지
  */
 async function getLeagueData(): Promise<CompaniesResponse | null> {
+  // 개발 모드에서는 SSR fetch 스킵 (클라이언트 SWR만 사용)
+  if (process.env.NODE_ENV === 'development') {
+    return null;
+  }
+
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
     // 내부 API 호출 (절대 경로 필요)

@@ -6,9 +6,14 @@
  *
  * 기능:
  * - 1부 리그 (1-10위) / 2부 리그 (11위~) 분리
- * - 30초마다 자동 갱신
+ * - 20초마다 자동 갱신 (T1.30: Redis 캐시 TTL 25초와 조화)
  * - 에러 처리 및 로딩 상태
  * - 수동 새로고침 (mutate)
+ *
+ * T1.30: Redis 캐싱 전략
+ * - 서버: Redis 캐시 TTL 25초
+ * - 클라이언트: SWR polling 20초
+ * - 이를 통해 대부분의 요청이 캐시에서 즉시 응답 (< 50ms)
  */
 
 'use client';
@@ -133,12 +138,19 @@ interface UseLeagueDataReturn {
  * ```
  */
 export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueDataReturn {
-  const { refreshInterval = 30000, revalidateOnFocus = true, fallbackData } = options;
+  // T1.30: 기본 polling 주기를 20초로 변경 (Redis 캐시 TTL 25초와 조화)
+  const { refreshInterval = 20000, revalidateOnFocus = true, fallbackData } = options;
+
+  // 개발 환경에서 불필요한 API 호출 방지
+  const isDev = process.env.NODE_ENV === 'development';
+  const hasFallback = !!fallbackData;
 
   const { data, error, isLoading, mutate } = useSWR<CompaniesResponse>('/api/companies', fetcher, {
     refreshInterval,
-    revalidateOnFocus,
-    dedupingInterval: 5000, // 5초간 중복 요청 방지
+    revalidateOnFocus: isDev ? false : revalidateOnFocus, // 개발 모드: 포커스 재검증 비활성화
+    revalidateOnReconnect: !isDev, // 개발 모드: 네트워크 복구 시 재검증 비활성화
+    revalidateOnMount: !hasFallback, // fallbackData 있으면 마운트 시 재검증 안 함
+    dedupingInterval: isDev ? 10000 : 5000, // 개발 모드: 10초, 프로덕션: 5초
     fallbackData: fallbackData || undefined, // SSR 초기 데이터 전달
   });
 

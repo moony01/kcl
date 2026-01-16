@@ -45,11 +45,12 @@ export default function SearchBar({ onSelect, placeholder }: SearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
-  // 🔥 API에서 로드된 소속사 데이터 사용
+  // 🔥 API에서 로드된 소속사 데이터 사용 (SWR 캐시 공유)
   const { allCompanies, isLoading } = useLeagueData({
     refreshInterval: 0, // 검색용은 자동 새로고침 불필요
     revalidateOnFocus: false,
   });
+  // Note: HomeClient에서 이미 데이터를 로드했으므로 SWR 캐시 사용
 
   // 검색 결과 생성 (아티스트 + 소속사 통합)
   const searchResults = useMemo((): SearchResult[] => {
