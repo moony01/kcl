@@ -10,6 +10,8 @@
  *
  * @updated T1.16 - 승강전 정보를 SeasonHeader에 통합
  * @updated T1.31 - 실시간 업데이트 카운트다운 UI 추가
+ * @updated T1.34 - Header 드롭다운 겹침 해결 (SCSS에서 상단 여백 조정)
+ * @updated T1.35 - 1위/승강전 세로 중앙 정렬 + 사이즈 확대
  */
 
 'use client';

@@ -85,12 +85,16 @@ async function persistVote(
  * @returns 업데이트된 firepower 값 (실패 시 null)
  */
 async function updateCompanyFirepower(companyId: string): Promise<number | null> {
+  console.log('[Vote] updateCompanyFirepower called for:', companyId);
+
   const supabase = createServerClient();
 
   if (!supabase) {
-    console.warn('[Vote] Supabase client not available, skipping firepower update');
+    console.error('[Vote] ❌ Supabase client is NULL! Check environment variables.');
     return null;
   }
+
+  console.log('[Vote] ✅ Supabase client created successfully');
 
   // RPC 호출로 atomic increment 수행 (동시성 안전)
   // Supabase는 기본적으로 increment RPC를 제공하지 않으므로 직접 쿼리
@@ -101,7 +105,7 @@ async function updateCompanyFirepower(companyId: string): Promise<number | null>
 
   if (error) {
     // RPC가 없을 경우 fallback: SELECT 후 UPDATE (race condition 가능성 있음)
-    console.warn('[Vote] RPC increment_firepower not available, using fallback:', error.message);
+    console.log('[Vote] RPC not available, using fallback. Error:', error.message);
 
     const { data: company, error: selectError } = await supabase
       .from('kcl_companies')
@@ -110,25 +114,31 @@ async function updateCompanyFirepower(companyId: string): Promise<number | null>
       .single();
 
     if (selectError || !company) {
-      console.error('[Vote] Failed to get current firepower:', selectError?.message);
+      console.error('[Vote] ❌ Failed to SELECT firepower:', selectError?.message);
       return null;
     }
 
+    console.log('[Vote] Current firepower:', company.firepower);
     const newFirepower = (company.firepower || 0) + VOTE_SCORE;
 
-    const { error: updateError } = await supabase
+    const { error: updateError, data: updateData } = await supabase
       .from('kcl_companies')
       .update({ firepower: newFirepower })
-      .eq('id', companyId);
+      .eq('id', companyId)
+      .select('firepower')
+      .single();
 
     if (updateError) {
-      console.error('[Vote] Failed to update firepower:', updateError.message);
+      console.error('[Vote] ❌ Failed to UPDATE firepower:', updateError.message);
+      console.error('[Vote] ❌ This might be RLS policy blocking UPDATE!');
       return null;
     }
 
-    return newFirepower;
+    console.log('[Vote] ✅ Firepower updated to:', updateData?.firepower || newFirepower);
+    return updateData?.firepower || newFirepower;
   }
 
+  console.log('[Vote] ✅ RPC returned:', data);
   return data as number;
 }
 
