@@ -30,16 +30,22 @@ import {
 
 /**
  * Mock 데이터를 API 응답 형식으로 변환
+ *
+ * T1.42: firepower 기준 정렬 및 동적 rank 할당
  */
 function getMockCompaniesResponse(tier?: string | null, limit?: string | null) {
-  let companies = MOCK_COMPANIES.map((c) => ({
+  // T1.42: firepower 기준 내림차순 정렬
+  const sortedMock = [...MOCK_COMPANIES].sort((a, b) => b.firepower - a.firepower);
+
+  // T1.42: 동적 rank 할당
+  let companies = sortedMock.map((c, index) => ({
     id: c.id,
     name_ko: c.name.ko,
     name_en: c.name.en,
     slug: c.id.replace('co-', ''),
     logo_url: null,
     gradient_color: c.image,
-    rank: c.rank,
+    rank: index + 1, // T1.42: 동적 rank
     firepower: c.firepower,
     // T1.21: Mock 데이터 그룹 매핑
     groups: c.representative.en.map((name, idx) => ({
@@ -50,7 +56,7 @@ function getMockCompaniesResponse(tier?: string | null, limit?: string | null) {
     })),
   }));
 
-  // 리그 필터
+  // T1.42: 리그 필터 (동적 rank 기준)
   if (tier === 'premier') {
     companies = companies.filter((c) => c.rank <= 10);
   } else if (tier === 'challengers') {
@@ -75,6 +81,10 @@ function getMockCompaniesResponse(tier?: string | null, limit?: string | null) {
 
 /**
  * Supabase에서 소속사 데이터 조회
+ *
+ * T1.42: firepower 기준 동적 정렬 및 rank 재계산
+ * - 기존: ORDER BY rank (정적, 투표 후 갱신 안 됨)
+ * - 변경: ORDER BY firepower DESC (동적, 투표 즉시 반영)
  */
 async function fetchFromSupabase(
   tier?: string | null,
@@ -86,9 +96,9 @@ async function fetchFromSupabase(
     return null;
   }
 
-  // 기본 쿼리: 순위순 정렬
+  // T1.42: firepower 기준 내림차순 정렬 (동적 순위)
   // T1.21: 그룹 정보(kcl_groups) 추가 조회
-  let query = supabase
+  const query = supabase
     .from('kcl_companies')
     .select(
       `
@@ -108,22 +118,7 @@ async function fetchFromSupabase(
       )
     `,
     )
-    .order('rank', { ascending: true });
-
-  // 리그 필터 적용
-  if (tier === 'premier') {
-    query = query.lte('rank', 10);
-  } else if (tier === 'challengers') {
-    query = query.gt('rank', 10);
-  }
-
-  // 개수 제한 적용
-  if (limit) {
-    const limitNum = parseInt(limit, 10);
-    if (!isNaN(limitNum) && limitNum > 0) {
-      query = query.limit(limitNum);
-    }
-  }
+    .order('firepower', { ascending: false }); // T1.42: rank → firepower
 
   const { data: rawCompanies, error } = await query;
 
@@ -132,8 +127,9 @@ async function fetchFromSupabase(
     return null;
   }
 
+  // T1.42: firepower 기준 정렬 후 동적 rank 할당
   // T1.21: 그룹별 vote_count 상위 4개 추출
-  const companies = (rawCompanies || []).map((company) => {
+  let companies = (rawCompanies || []).map((company, index) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const groups = (company as any).groups as Array<{ vote_count?: number }> | undefined;
     const sortedGroups = Array.isArray(groups)
@@ -142,9 +138,25 @@ async function fetchFromSupabase(
 
     return {
       ...company,
+      rank: index + 1, // T1.42: 동적 rank 할당 (1부터 시작)
       groups: sortedGroups,
     };
   }) as CachedCompaniesData['companies'];
+
+  // T1.42: 리그 필터 적용 (동적 rank 기준)
+  if (tier === 'premier') {
+    companies = companies.filter((c) => c.rank <= 10);
+  } else if (tier === 'challengers') {
+    companies = companies.filter((c) => c.rank > 10);
+  }
+
+  // 개수 제한 적용
+  if (limit) {
+    const limitNum = parseInt(limit, 10);
+    if (!isNaN(limitNum) && limitNum > 0) {
+      companies = companies.slice(0, limitNum);
+    }
+  }
 
   return {
     companies,
