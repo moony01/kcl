@@ -12,9 +12,35 @@
  * - kcl:companies:ranking - 전체 소속사 순위 데이터
  * - company:{id}:score - 개별 소속사 점수 (기존)
  * - global:total_votes - 전체 투표 수 (기존)
+ *
+ * ===========================================
+ * [DEV-CACHE] 개발 단계 캐시 비활성화
+ * ===========================================
+ * 환경 변수: CACHE_ENABLED=false
+ * - 개발 중에는 캐시를 끄고 DB 직접 조회
+ * - Redis/Supabase 리소스 절약
+ * - 데이터 변경 즉시 확인 가능
+ *
+ * 런칭 시: CACHE_ENABLED=true 로 변경!
+ * ===========================================
  */
 
 import { Redis } from '@upstash/redis';
+
+/**
+ * [DEV-CACHE] 캐시 활성화 여부 확인
+ *
+ * 환경 변수 CACHE_ENABLED로 제어
+ * - 'true': 캐시 활성화 (프로덕션)
+ * - 'false' 또는 미설정: 캐시 비활성화 (개발)
+ *
+ * @returns 캐시 사용 여부
+ */
+export function isCacheEnabled(): boolean {
+  const enabled = process.env.CACHE_ENABLED;
+  // 명시적으로 'true'일 때만 캐시 활성화
+  return enabled === 'true';
+}
 
 /**
  * 캐시 키 상수
@@ -76,9 +102,17 @@ export interface CachedCompaniesData {
 /**
  * 소속사 순위 데이터 캐시 조회
  *
+ * [DEV-CACHE] CACHE_ENABLED=false 시 항상 null 반환 (DB 직접 조회)
+ *
  * @returns 캐시된 데이터 또는 null (캐시 miss)
  */
 export async function getCachedCompanies(): Promise<CachedCompaniesData | null> {
+  // [DEV-CACHE] 캐시 비활성화 시 바로 null 반환 → DB 직접 조회
+  if (!isCacheEnabled()) {
+    console.log('[Redis] [DEV-CACHE] 캐시 비활성화 상태 - DB 직접 조회');
+    return null;
+  }
+
   if (!redis) {
     return null;
   }
@@ -102,6 +136,8 @@ export async function getCachedCompanies(): Promise<CachedCompaniesData | null> 
 /**
  * 소속사 순위 데이터 캐시 저장
  *
+ * [DEV-CACHE] CACHE_ENABLED=false 시 저장하지 않음
+ *
  * @param data - 저장할 소속사 데이터
  * @param ttl - TTL (초), 기본값: CACHE_TTL.COMPANIES_RANKING
  */
@@ -109,6 +145,11 @@ export async function setCachedCompanies(
   data: Omit<CachedCompaniesData, 'source'>,
   ttl: number = CACHE_TTL.COMPANIES_RANKING,
 ): Promise<void> {
+  // [DEV-CACHE] 캐시 비활성화 시 저장 스킵
+  if (!isCacheEnabled()) {
+    return;
+  }
+
   if (!redis) {
     return;
   }
