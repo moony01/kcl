@@ -26,16 +26,17 @@
 
   // 태블릿+: 플로팅 언어 선택기만 표시
   @media (min-width: 768px) {
-    position: fixed;
-    top: 16px;
-    right: 16px;
+    position: relative; // T1.34: fixed -> relative 변경하여 문서 흐름에 포함
+    top: auto;
+    right: auto;
     left: auto;
-    width: auto;
-    padding: 0;
+    width: 100%; // 전체 너비 사용하여 우측 정렬
+    padding: 16px 24px; // 적절한 패딩
     background: transparent;
     border-bottom: none;
     backdrop-filter: none;
     z-index: calc($z-nav + 1);
+    justify-content: flex-end; // 우측 정렬
   }
 }
 

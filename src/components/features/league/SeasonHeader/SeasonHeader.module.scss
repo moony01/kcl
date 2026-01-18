@@ -7,6 +7,8 @@
  * - 승강전 섹션 스타일 추가
  *
  * @updated T1.16
+ * @updated T1.34 - Header 드롭다운 겹침 해결 (상단 여백 추가)
+ * @updated T1.35 - 1위/승강전 세로 중앙 정렬, 승강전 사이즈 확대
  */
 
 @use '../../../../styles/abstracts/variables' as *;
@@ -28,6 +30,11 @@ $color-promotion: #28a745; // 초록 - 승격 기회
   position: relative;
   overflow: hidden;
 
+  // T1.34: Header 드롭다운 겹침 해결
+  // 모바일에서는 Header가 sticky로 동작하므로 상단 여백 불필요
+  // 데스크톱(768px+)에서는 Header 드롭다운 영역(약 50px) 확보를 위해 상단 여백 추가
+  margin-top: 0;
+
   // 골드 그라디언트 오버레이
   &::before {
     content: '';
@@ -42,6 +49,8 @@ $color-promotion: #28a745; // 초록 - 승격 기회
 
   @media (min-width: 768px) {
     padding: 20px 24px;
+    // T1.34: Header가 relative로 변경되어 상단 여백 불필요
+    padding-top: 20px;
   }
 }
 
@@ -136,33 +145,38 @@ $color-promotion: #28a745; // 초록 - 승격 기회
 }
 
 // 하단 행: 1위 정보 + 승강전
+// T1.35: 세로 배치 + 가운데 정렬 (1위 위, 승강전 아래)
 .bottomRow {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center; // T1.35: 가운데 정렬
+  gap: 20px; // T1.35: 간격 확대 (16px → 20px)
   z-index: 1;
 
+  // T1.35: 데스크톱에서도 세로 배치 유지 (기존: row → column)
   @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column; // T1.35: row → column 변경
+    align-items: center; // T1.35: 가운데 정렬
     gap: 24px;
   }
 }
 
 // 1위 정보 (클릭 가능)
+// T1.35: 가운데 정렬 강화
 .leaderInfo {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center; // T1.35: 가운데 정렬
+  gap: 6px; // T1.35: 간격 약간 확대 (4px → 6px)
   cursor: pointer;
-  padding: 8px;
-  margin: -8px;
+  padding: 12px 16px; // T1.35: 패딩 확대 (8px → 12px 16px)
+  margin: 0; // T1.35: 네거티브 마진 제거
   border-radius: 12px;
   transition: background 0.2s ease;
+  background: rgba($color-gold, 0.05); // T1.35: 기본 배경 추가
 
   &:hover {
-    background: rgba($color-gold, 0.08);
+    background: rgba($color-gold, 0.12); // T1.35: 호버 강화
   }
 
   &:focus {
@@ -171,14 +185,15 @@ $color-promotion: #28a745; // 초록 - 승격 기회
   }
 
   @media (min-width: 768px) {
-    align-items: flex-start;
+    align-items: center; // T1.35: 데스크톱도 가운데 정렬
+    padding: 16px 24px; // T1.35: 데스크톱 패딩 확대
   }
 }
 
 .leaderLabel {
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: $color-text-dim;
+  font-size: 0.75rem; // T1.35: 사이즈 확대 (0.7rem → 0.75rem)
+  font-weight: 600; // T1.35: 두께 증가 (500 → 600)
+  color: $color-gold; // T1.35: 골드 컬러로 변경
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -190,16 +205,22 @@ $color-promotion: #28a745; // 초록 - 승격 기회
 }
 
 .companyLogo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 44px; // T1.35: 사이즈 확대 (36px → 44px)
+  height: 44px;
+  border-radius: 12px; // T1.35: 라운드 확대 (10px → 12px)
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.2rem; // T1.35: 폰트 확대 (1rem → 1.2rem)
   color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); // T1.35: 그림자 강화
+
+  @media (min-width: 768px) {
+    width: 52px; // T1.35: 데스크톱 더 크게
+    height: 52px;
+    font-size: 1.4rem;
+  }
 }
 
 .companyDetails {
@@ -210,79 +231,117 @@ $color-promotion: #28a745; // 초록 - 승격 기회
 
 .companyName {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem; // T1.35: 사이즈 확대 (0.95rem → 1rem)
   color: $color-text;
+
+  @media (min-width: 768px) {
+    font-size: 1.1rem; // T1.35: 데스크톱 더 크게
+  }
 }
 
 .voteCount {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.75rem;
+  font-size: 0.85rem; // T1.35: 사이즈 확대 (0.75rem → 0.85rem)
   color: $color-primary;
   font-weight: 600;
 
   svg {
     color: #ff6b35;
   }
+
+  @media (min-width: 768px) {
+    font-size: 0.95rem; // T1.35: 데스크톱 더 크게
+  }
 }
 
-// ===== 승강전 섹션 (T1.16 추가) =====
+// ===== 승강전 섹션 (T1.16 추가, T1.35 확대) =====
 
 .promotionBattleSection {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex: 1;
+  align-items: center; // T1.35: 가운데 정렬
+  gap: 10px; // T1.35: 간격 확대 (8px → 10px)
+  width: 100%; // T1.35: 전체 너비
+  padding: 12px 16px; // T1.35: 패딩 추가
+  background: rgba($color-gold, 0.03); // T1.35: 배경 추가
+  border-radius: 12px; // T1.35: 라운드 추가
+  border: 1px solid rgba($color-gold, 0.1); // T1.35: 테두리 추가
 
   @media (min-width: 768px) {
-    align-items: flex-end;
+    align-items: center; // T1.35: 데스크톱도 가운데 정렬
+    padding: 16px 24px;
+    max-width: 600px; // T1.35: 최대 너비 제한
   }
 }
 
 .battleHeader {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px; // T1.35: 간격 확대 (6px → 8px)
 }
 
 .swordsIcon {
   color: $color-gold;
+  width: 18px; // T1.35: 아이콘 사이즈 확대 (기본 14px → 18px)
+  height: 18px;
+
+  @media (min-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .battleTitle {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.85rem; // T1.35: 사이즈 확대 (0.7rem → 0.85rem)
+  font-weight: 700; // T1.35: 두께 증가 (600 → 700)
   color: $color-gold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+
+  @media (min-width: 768px) {
+    font-size: 0.95rem; // T1.35: 데스크톱 더 크게
+  }
 }
 
 .battleContent {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center; // T1.35: 가운데 정렬
+  gap: 12px; // T1.35: 간격 확대 (8px → 12px)
   flex-wrap: wrap;
+  width: 100%; // T1.35: 전체 너비
 
   @media (min-width: 768px) {
     flex-wrap: nowrap;
+    gap: 16px; // T1.35: 데스크톱 간격 더 확대
   }
 }
 
 // 10위/11위 개별 카드
+// T1.35: 사이즈 전체적으로 확대
 .battleCompany {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 8px;
+  gap: 8px; // T1.35: 간격 확대 (6px → 8px)
+  padding: 10px 14px; // T1.35: 패딩 확대 (6px 10px → 10px 14px)
+  border-radius: 10px; // T1.35: 라운드 확대 (8px → 10px)
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 0.75rem;
+  font-size: 0.85rem; // T1.35: 폰트 확대 (0.75rem → 0.85rem)
+  min-width: 140px; // T1.35: 최소 너비 설정
+
+  @media (min-width: 768px) {
+    padding: 12px 18px; // T1.35: 데스크톱 패딩 더 확대
+    font-size: 0.9rem;
+    min-width: 180px; // T1.35: 데스크톱 최소 너비 확대
+    gap: 10px;
+  }
 
   &[data-zone='relegation'] {
     background: rgba($color-relegation, 0.1);
-    border: 1px solid rgba($color-relegation, 0.2);
+    border: 1px solid rgba($color-relegation, 0.25); // T1.35: 테두리 강화 (0.2 → 0.25)
 
     .zoneIcon {
       color: $color-relegation;
@@ -293,14 +352,15 @@ $color-promotion: #28a745; // 초록 - 승격 기회
     }
 
     &:hover {
-      background: rgba($color-relegation, 0.15);
-      border-color: rgba($color-relegation, 0.4);
+      background: rgba($color-relegation, 0.18); // T1.35: 호버 강화
+      border-color: rgba($color-relegation, 0.5);
+      transform: translateY(-1px); // T1.35: 호버 시 살짝 위로
     }
   }
 
   &[data-zone='promotion'] {
     background: rgba($color-promotion, 0.1);
-    border: 1px solid rgba($color-promotion, 0.2);
+    border: 1px solid rgba($color-promotion, 0.25); // T1.35: 테두리 강화
 
     .zoneIcon {
       color: $color-promotion;
@@ -311,8 +371,9 @@ $color-promotion: #28a745; // 초록 - 승격 기회
     }
 
     &:hover {
-      background: rgba($color-promotion, 0.15);
-      border-color: rgba($color-promotion, 0.4);
+      background: rgba($color-promotion, 0.18); // T1.35: 호버 강화
+      border-color: rgba($color-promotion, 0.5);
+      transform: translateY(-1px); // T1.35: 호버 시 살짝 위로
     }
   }
 
@@ -324,54 +385,85 @@ $color-promotion: #28a745; // 초록 - 승격 기회
 
 .zoneIcon {
   flex-shrink: 0;
+  width: 14px; // T1.35: 아이콘 사이즈 지정
+  height: 14px;
+
+  @media (min-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .battleRank {
   font-weight: 700;
-  font-size: 0.65rem;
+  font-size: 0.75rem; // T1.35: 사이즈 확대 (0.65rem → 0.75rem)
+
+  @media (min-width: 768px) {
+    font-size: 0.8rem;
+  }
 }
 
 .battleName {
   font-weight: 600;
   color: $color-text;
-  max-width: 80px;
+  max-width: 100px; // T1.35: 최대 너비 확대 (80px → 100px)
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
   @media (min-width: 768px) {
-    max-width: 100px;
+    max-width: 140px; // T1.35: 데스크톱 더 확대 (100px → 140px)
   }
 }
 
 .battleVotes {
   font-weight: 600;
   color: $color-text-dim;
-  font-size: 0.7rem;
+  font-size: 0.8rem; // T1.35: 사이즈 확대 (0.7rem → 0.8rem)
+  font-variant-numeric: tabular-nums; // T1.35: 숫자 너비 고정
+
+  @media (min-width: 768px) {
+    font-size: 0.85rem;
+  }
 }
 
 // GAP 표시 (중앙)
+// T1.35: GAP 배지 사이즈 확대
 .gapBadge {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  gap: 6px; // T1.35: 간격 확대 (4px → 6px)
+  padding: 8px 12px; // T1.35: 패딩 확대 (4px 8px → 8px 12px)
+  border-radius: 8px; // T1.35: 라운드 확대 (6px → 8px)
   background: rgba($color-gold, 0.15);
   border: 1px solid rgba($color-gold, 0.3);
+
+  @media (min-width: 768px) {
+    padding: 10px 16px;
+    gap: 8px;
+  }
 }
 
 .gapArrow {
-  font-size: 0.6rem;
+  font-size: 0.75rem; // T1.35: 사이즈 확대 (0.6rem → 0.75rem)
   color: $color-gold;
   opacity: 0.7;
+
+  @media (min-width: 768px) {
+    font-size: 0.85rem;
+  }
 }
 
 .gapValue {
-  font-size: 0.75rem;
+  font-size: 0.95rem; // T1.35: 사이즈 확대 (0.75rem → 0.95rem)
   font-weight: 800;
   color: $color-gold;
   font-family: $font-display;
+  font-variant-numeric: tabular-nums; // T1.35: 숫자 너비 고정
+
+  @media (min-width: 768px) {
+    font-size: 1.05rem; // T1.35: 데스크톱 더 크게
+  }
 }
 
 // 실시간 표시기 (T1.31: 카운트다운 UI 추가)
