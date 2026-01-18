@@ -5,6 +5,11 @@
   "compatibility_date": "2026-01-15",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": ".open-next/assets"
-  }
+    "directory": ".open-next/assets",
+  },
+  // 환경 변수 (NEXT_PUBLIC_* 는 공개 키이므로 Git 포함 가능)
+  "vars": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://eevckvdicfhqxywixznt.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "***REMOVED***",
+  },
 }
