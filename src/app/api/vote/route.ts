@@ -12,6 +12,10 @@
  * T1.30: 투표 성공 후 캐시 무효화
  * - 소속사 순위 캐시(kcl:companies:ranking) 무효화
  * - 다음 polling 시 최신 데이터 반영
+ *
+ * T1.29: 투표 후 점수 즉시 반영 버그 수정
+ * - kcl_companies.firepower 컬럼을 동기적으로 업데이트
+ * - /api/companies에서 Supabase를 조회하므로 firepower 동기화 필수
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -71,6 +75,63 @@ async function persistVote(
   }
 }
 
+/**
+ * T1.29: kcl_companies.firepower 업데이트
+ *
+ * 투표 성공 후 소속사의 firepower 컬럼을 증가시킵니다.
+ * /api/companies에서 Supabase를 직접 조회하므로 이 업데이트가 필수입니다.
+ *
+ * @param companyId - 소속사 ID
+ * @returns 업데이트된 firepower 값 (실패 시 null)
+ */
+async function updateCompanyFirepower(companyId: string): Promise<number | null> {
+  const supabase = createServerClient();
+
+  if (!supabase) {
+    console.warn('[Vote] Supabase client not available, skipping firepower update');
+    return null;
+  }
+
+  // RPC 호출로 atomic increment 수행 (동시성 안전)
+  // Supabase는 기본적으로 increment RPC를 제공하지 않으므로 직접 쿼리
+  const { data, error } = await supabase.rpc('increment_firepower', {
+    company_id: companyId,
+    amount: VOTE_SCORE,
+  });
+
+  if (error) {
+    // RPC가 없을 경우 fallback: SELECT 후 UPDATE (race condition 가능성 있음)
+    console.warn('[Vote] RPC increment_firepower not available, using fallback:', error.message);
+
+    const { data: company, error: selectError } = await supabase
+      .from('kcl_companies')
+      .select('firepower')
+      .eq('id', companyId)
+      .single();
+
+    if (selectError || !company) {
+      console.error('[Vote] Failed to get current firepower:', selectError?.message);
+      return null;
+    }
+
+    const newFirepower = (company.firepower || 0) + VOTE_SCORE;
+
+    const { error: updateError } = await supabase
+      .from('kcl_companies')
+      .update({ firepower: newFirepower })
+      .eq('id', companyId);
+
+    if (updateError) {
+      console.error('[Vote] Failed to update firepower:', updateError.message);
+      return null;
+    }
+
+    return newFirepower;
+  }
+
+  return data as number;
+}
+
 export async function POST(req: NextRequest) {
   try {
     // IP 기반 Rate Limit 검사
@@ -98,9 +159,25 @@ export async function POST(req: NextRequest) {
 
     let newScore = 0;
 
+    // T1.29: kcl_companies.firepower를 먼저 동기적으로 업데이트
+    // /api/companies에서 Supabase를 조회하므로 이 업데이트가 UI 반영의 핵심!
+    const updatedFirepower = await updateCompanyFirepower(companyId);
+
+    if (updatedFirepower !== null) {
+      newScore = updatedFirepower;
+      console.log(`[Vote] Company ${companyId} firepower updated to ${newScore}`);
+    }
+
     if (redis) {
-      // 1점 증가 (기존 100점에서 변경)
-      newScore = await redis.incrby(CACHE_KEYS.COMPANY_SCORE(companyId), VOTE_SCORE);
+      // Redis에도 점수 동기화 (캐시 용도)
+      // Supabase가 실패한 경우에만 Redis 값 사용
+      if (updatedFirepower === null) {
+        newScore = await redis.incrby(CACHE_KEYS.COMPANY_SCORE(companyId), VOTE_SCORE);
+      } else {
+        // Supabase 값으로 Redis 동기화 (선택적)
+        await redis.set(CACHE_KEYS.COMPANY_SCORE(companyId), newScore);
+      }
+
       // 전체 투표 수 카운트
       await redis.incrby(CACHE_KEYS.GLOBAL_TOTAL_VOTES, 1);
 
@@ -109,9 +186,9 @@ export async function POST(req: NextRequest) {
       invalidateCompaniesCache().catch((err) => {
         console.error('[Vote] Failed to invalidate cache:', err);
       });
-    } else {
-      // 개발 환경 Mock
-      console.log(`[MOCK REDIS /vote] Voted Company ${companyId}, +${VOTE_SCORE} point`);
+    } else if (updatedFirepower === null) {
+      // 개발 환경 Mock (Redis도 Supabase도 없는 경우)
+      console.log(`[MOCK /vote] Voted Company ${companyId}, +${VOTE_SCORE} point`);
       newScore = Math.floor(Math.random() * 1000000) + VOTE_SCORE;
     }
 
