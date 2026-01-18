@@ -11,5 +11,12 @@
   "vars": {
     "NEXT_PUBLIC_SUPABASE_URL": "https://eevckvdicfhqxywixznt.supabase.co",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVldmNrdmRpY2ZocXh5d2l4em50Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4NjQwMjQsImV4cCI6MjA4MjQ0MDAyNH0.idh6w8dJ-8Rjdh9aB3DuaYofnO78fNBPuSOG8QoqKqM",
+    // ===========================================
+    // [DEV-CACHE] Redis 캐시 활성화 설정
+    // - 프로덕션: true (Redis 캐싱 사용)
+    // - 로컬 개발: .env.local에서 false로 설정
+    // 검색 키워드: [DEV-CACHE]
+    // ===========================================
+    "CACHE_ENABLED": "true",
   },
 }
