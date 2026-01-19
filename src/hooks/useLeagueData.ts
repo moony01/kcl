@@ -165,7 +165,7 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
     revalidateOnFocus: isDev ? false : revalidateOnFocus, // 개발 모드: 포커스 재검증 비활성화
     revalidateOnReconnect: !isDev, // 개발 모드: 네트워크 복구 시 재검증 비활성화
     revalidateOnMount: !hasFallback, // fallbackData 있으면 마운트 시 재검증 안 함
-    dedupingInterval: isDev ? 10000 : 5000, // 개발 모드: 10초, 프로덕션: 5초
+    dedupingInterval: isDev ? 2000 : 2000, // 투표 후 즉시 새로고침 위해 2초로 단축
     fallbackData: fallbackData || undefined, // SSR 초기 데이터 전달
   });
 
@@ -207,6 +207,11 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   // 현재 1위
   const leader = allCompanies.find((c) => c.rank === 1) || null;
 
+  // 강제 새로고침 (캐시 무시)
+  const forceRefresh = async () => {
+    return mutate(undefined, { revalidate: true });
+  };
+
   return {
     premierLeague,
     challengers,
@@ -216,7 +221,7 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
     leader,
     isLoading,
     error: error || null,
-    refresh: mutate,
+    refresh: forceRefresh,
     updatedAt: data?.updatedAt || null,
   };
 }

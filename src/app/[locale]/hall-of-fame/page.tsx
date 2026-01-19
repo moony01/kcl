@@ -15,6 +15,7 @@
 
 import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { Trophy, RefreshCw, AlertCircle } from 'lucide-react';
 import { useHallOfFame } from '@/hooks/useHallOfFame';
 
 // Feature Components
@@ -25,9 +26,107 @@ import ArchivesCarousel from '@/components/features/hall-of-fame/ArchivesCarouse
 
 import styles from './page.module.scss';
 
+/**
+ * 로딩 스켈레톤 컴포넌트
+ * 실제 레이아웃과 유사한 형태로 shimmer 애니메이션 표시
+ */
+function LoadingSkeleton() {
+  return (
+    <div className={styles.skeletonContainer}>
+      {/* 헤더 스켈레톤 */}
+      <div className={styles.skeletonHeader}>
+        <div className={styles.skeletonTitle} />
+        <div className={styles.skeletonSubtitle} />
+      </div>
+
+      {/* Grand Champion 스켈레톤 */}
+      <div className={styles.skeletonChampion}>
+        <div className={styles.skeletonBadge} />
+        <div className={styles.skeletonLogo} />
+        <div className={styles.skeletonName} />
+        <div className={styles.skeletonStats} />
+      </div>
+
+      {/* 2단 레이아웃 스켈레톤 */}
+      <div className={styles.skeletonTwoColumn}>
+        <div className={styles.skeletonRace}>
+          <div className={styles.skeletonSectionTitle} />
+          <div className={styles.skeletonBar} />
+          <div className={styles.skeletonBar} />
+          <div className={styles.skeletonBar} />
+        </div>
+        <div className={styles.skeletonTimeline}>
+          <div className={styles.skeletonSectionTitle} />
+          <div className={styles.skeletonGrid}>
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div key={i} className={styles.skeletonMonth} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Archives 스켈레톤 */}
+      <div className={styles.skeletonArchives}>
+        <div className={styles.skeletonSectionTitle} />
+        <div className={styles.skeletonCarousel}>
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className={styles.skeletonCard} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * 에러 상태 컴포넌트
+ * 재시도 버튼과 에러 메시지 표시
+ */
+interface ErrorStateProps {
+  message: string;
+  onRetry: () => void;
+}
+
+function ErrorState({ message, onRetry }: ErrorStateProps) {
+  const t = useTranslations('HallOfFame');
+  const tCommon = useTranslations('Common');
+
+  return (
+    <div className={styles.errorContainer}>
+      <div className={styles.errorContent}>
+        <AlertCircle className={styles.errorIcon} size={48} />
+        <h2 className={styles.errorTitle}>{tCommon('error')}</h2>
+        <p className={styles.errorMessage}>{message}</p>
+        <button className={styles.retryButton} onClick={onRetry}>
+          <RefreshCw size={18} />
+          <span>재시도</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * 빈 상태 컴포넌트
+ * 데이터가 없을 때 안내 메시지 표시
+ */
+function EmptyState() {
+  const t = useTranslations('HallOfFame');
+
+  return (
+    <div className={styles.emptyContainer}>
+      <div className={styles.emptyContent}>
+        <Trophy className={styles.emptyIcon} size={64} />
+        <h2 className={styles.emptyTitle}>{t('no_champion_yet')}</h2>
+        <p className={styles.emptyMessage}>첫 번째 챔피언이 탄생할 때까지 기다려주세요!</p>
+      </div>
+    </div>
+  );
+}
+
 export default function HallOfFamePage() {
   const t = useTranslations('HallOfFame');
-  const { data, isLoading, error, getMonthlyChampions, getYearlyRace } = useHallOfFame();
+  const { data, isLoading, error, getMonthlyChampions, getYearlyRace, refresh } = useHallOfFame();
 
   // 현재 선택된 연도 (Monthly Timeline용)
   const [selectedYear, setSelectedYear] = useState<number>(2026);
@@ -41,31 +140,30 @@ export default function HallOfFamePage() {
     setSelectedYear((prev) => prev + 1);
   }, []);
 
-  // 로딩 상태
+  // 로딩 상태 - 스켈레톤 UI 표시
   if (isLoading) {
     return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.spinner} />
-        <p>{t('loading') || 'Loading...'}</p>
-      </div>
+      <main className={styles.container}>
+        <LoadingSkeleton />
+      </main>
     );
   }
 
-  // 에러 상태
+  // 에러 상태 - 재시도 버튼 포함
   if (error) {
     return (
-      <div className={styles.errorContainer}>
-        <p>{error}</p>
-      </div>
+      <main className={styles.container}>
+        <ErrorState message={error} onRetry={refresh} />
+      </main>
     );
   }
 
   // 데이터가 없는 경우
   if (!data) {
     return (
-      <div className={styles.emptyContainer}>
-        <p>{t('no_champion_yet')}</p>
-      </div>
+      <main className={styles.container}>
+        <EmptyState />
+      </main>
     );
   }
 
