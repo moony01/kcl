@@ -17,6 +17,7 @@
 
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -28,20 +29,23 @@ import {
   TrendingUp,
   Loader2,
   Zap,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import Image from 'next/image';
 import type { SeasonInfo, CompanyRanking, PromotionBattle } from '@/types/league';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
 import styles from './SeasonHeader.module.scss';
+import classNames from 'classnames';
 
 interface SeasonHeaderProps {
   /** 시즌 정보 */
   season: SeasonInfo;
   /** 현재 1위 소속사 */
   leader: CompanyRanking | null;
-  /** 승강전 정보 (10위 vs 11위) - T1.16 추가 */
+  /** 승강전 정보 (10위 vs 11위) */
   promotionBattle?: PromotionBattle | null;
-  /** 투표 핸들러 (1위/10위/11위 클릭 시) - T1.16 추가 */
+  /** 투표 핸들러 */
   onVote?: (companyId: string) => void;
 }
 
@@ -54,32 +58,64 @@ export default function SeasonHeader({
   const t = useTranslations('League.season');
   const tBattle = useTranslations('League.promotion_battle');
 
-  // T1.31: 데이터 갱신 카운트다운 (20초 주기, SWR refreshInterval과 동기화)
+  // 슬라이드 상태 (0: 1위, 1: 승강전)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  // 승강전 정보가 있을 때만 슬라이드 가능
+  const hasPromotionBattle = !!promotionBattle;
+  const totalSlides = hasPromotionBattle ? 2 : 1;
+
+  // T1.31: 데이터 갱신 카운트다운
   const { countdown, isRefreshing } = useRefreshCountdown({
-    intervalMs: 20000, // 20초
-    refreshingDurationMs: 1500, // 갱신 중 표시 1.5초
+    intervalMs: 20000,
+    refreshingDurationMs: 1500,
   });
 
-  /** D-day 표시 포맷 */
   const formatDaysRemaining = () => {
-    if (season.daysRemaining === 0) {
-      return t('ends_today');
-    }
+    if (season.daysRemaining === 0) return t('ends_today');
     return t('days_remaining', { days: season.daysRemaining });
   };
 
-  /** 1위 클릭 핸들러 */
   const handleLeaderClick = () => {
-    if (leader && onVote) {
-      onVote(leader.companyId);
-    }
+    if (leader && onVote) onVote(leader.companyId);
   };
 
-  /** 10위/11위 클릭 핸들러 */
   const handleBattleClick = (companyId: string) => {
-    if (onVote) {
-      onVote(companyId);
-    }
+    if (onVote) onVote(companyId);
+  };
+
+  // 슬라이드 이동
+  const paginate = (newDirection: number) => {
+    if (!hasPromotionBattle) return;
+    setDirection(newDirection);
+    setCurrentIndex((prev) => {
+      let next = prev + newDirection;
+      if (next < 0) next = totalSlides - 1;
+      if (next >= totalSlides) next = 0;
+      return next;
+    });
+  };
+
+  // 슬라이드 애니메이션 설정
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9,
+    }),
   };
 
   return (
@@ -108,157 +144,10 @@ export default function SeasonHeader({
         </motion.div>
       </div>
 
-      {/* 구분선 */}
-      <div className={styles.divider} />
-
-      {/* 하단 행: 1위 정보 + 승강전 */}
-      <div className={styles.bottomRow}>
-        {/* 현재 1위 표시 (클릭 가능) */}
-        {leader && (
-          <motion.div
-            className={styles.leaderInfo}
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            onClick={handleLeaderClick}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleLeaderClick()}
-          >
-            <span className={styles.leaderLabel}>{t('current_leader')}</span>
-            <div className={styles.leaderCompany}>
-              <div className={styles.companyLogo} style={{ background: leader.gradientColor }}>
-                {leader.nameEn.charAt(0)}
-              </div>
-              <div className={styles.companyDetails}>
-                <span className={styles.companyName}>{leader.nameEn}</span>
-                <span className={styles.voteCount}>
-                  <Flame size={12} />
-                  {leader.voteCount.toLocaleString()}
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* 승강전 정보 (10위 vs 11위) - T1.16 추가 */}
-        {promotionBattle && (
-          <motion.div
-            className={styles.promotionBattleSection}
-            initial={{ x: 20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            <div className={styles.battleHeader}>
-              <Swords size={14} className={styles.swordsIcon} />
-              <span className={styles.battleTitle}>{tBattle('title')}</span>
-            </div>
-
-            <div className={styles.battleContent}>
-              {/* 10위 (강등 위기) */}
-              <div
-                className={styles.battleCompany}
-                data-zone="relegation"
-                onClick={() => handleBattleClick(promotionBattle.relegationCompany.companyId)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) =>
-                  e.key === 'Enter' &&
-                  handleBattleClick(promotionBattle.relegationCompany.companyId)
-                }
-              >
-                {/* T1.49: 회사 로고 추가 */}
-                <div className={styles.battleLogo}>
-                  {promotionBattle.relegationCompany.logoUrl ? (
-                    <Image
-                      src={promotionBattle.relegationCompany.logoUrl}
-                      alt={promotionBattle.relegationCompany.nameEn}
-                      width={28}
-                      height={28}
-                      className={styles.logoImage}
-                    />
-                  ) : (
-                    <span className={styles.logoFallback}>
-                      {promotionBattle.relegationCompany.nameEn.charAt(0)}
-                    </span>
-                  )}
-                </div>
-                <div className={styles.battleInfo}>
-                  <div className={styles.battleRankRow}>
-                    <TrendingDown size={12} className={styles.zoneIcon} />
-                    <span className={styles.battleRank}>#10</span>
-                  </div>
-                  <span className={styles.battleName}>
-                    {promotionBattle.relegationCompany.nameEn}
-                  </span>
-                  <span className={styles.battleVotes}>
-                    {promotionBattle.relegationCompany.voteCount.toLocaleString()}
-                  </span>
-                </div>
-              </div>
-
-              {/* VS 표시 (GAP 포함) */}
-              <div className={styles.vsSection}>
-                <div className={styles.vsBadge}>
-                  <Zap size={14} className={styles.vsIcon} />
-                  <span className={styles.vsText}>VS</span>
-                </div>
-                <div className={styles.gapBadge}>
-                  <span className={styles.gapLabel}>GAP</span>
-                  <span className={styles.gapValue}>{promotionBattle.gap.toLocaleString()}</span>
-                </div>
-              </div>
-
-              {/* 11위 (승격 기회) */}
-              <div
-                className={styles.battleCompany}
-                data-zone="promotion"
-                onClick={() => handleBattleClick(promotionBattle.promotionCompany.companyId)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) =>
-                  e.key === 'Enter' && handleBattleClick(promotionBattle.promotionCompany.companyId)
-                }
-              >
-                {/* T1.49: 회사 로고 추가 */}
-                <div className={styles.battleLogo}>
-                  {promotionBattle.promotionCompany.logoUrl ? (
-                    <Image
-                      src={promotionBattle.promotionCompany.logoUrl}
-                      alt={promotionBattle.promotionCompany.nameEn}
-                      width={28}
-                      height={28}
-                      className={styles.logoImage}
-                    />
-                  ) : (
-                    <span className={styles.logoFallback}>
-                      {promotionBattle.promotionCompany.nameEn.charAt(0)}
-                    </span>
-                  )}
-                </div>
-                <div className={styles.battleInfo}>
-                  <div className={styles.battleRankRow}>
-                    <TrendingUp size={12} className={styles.zoneIcon} />
-                    <span className={styles.battleRank}>#11</span>
-                  </div>
-                  <span className={styles.battleName}>
-                    {promotionBattle.promotionCompany.nameEn}
-                  </span>
-                  <span className={styles.battleVotes}>
-                    {promotionBattle.promotionCompany.voteCount.toLocaleString()}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </div>
-
-      {/* 실시간 업데이트 인디케이터 + 카운트다운 (T1.31) */}
+      {/* 실시간 업데이트 인디케이터 (우상단 절대 위치) */}
       <div className={styles.realtimeIndicator}>
         <AnimatePresence mode="wait">
           {isRefreshing ? (
-            // 갱신 중 상태: 로딩 스피너 + "갱신 중..." 텍스트
             <motion.div
               key="refreshing"
               className={styles.refreshingState}
@@ -276,7 +165,6 @@ export default function SeasonHeader({
               <span className={styles.refreshingText}>{t('refreshing')}</span>
             </motion.div>
           ) : (
-            // 카운트다운 상태: 회전 아이콘 + "실시간 업데이트 Xs"
             <motion.div
               key="countdown"
               className={styles.countdownState}
@@ -299,6 +187,191 @@ export default function SeasonHeader({
           )}
         </AnimatePresence>
       </div>
+
+      {/* 메인 슬라이드 영역 */}
+      <div className={styles.sliderContainer}>
+        {/* 왼쪽 화살표 */}
+        {hasPromotionBattle && (
+          <button
+            className={classNames(styles.arrowBtn, styles.prev)}
+            onClick={() => paginate(-1)}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+        )}
+
+        <div className={styles.slideTrack}>
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            {currentIndex === 0 && leader && (
+              <motion.div
+                key="leader"
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className={styles.slideItem}
+              >
+                {/* 1위 카드 디자인 */}
+                <div className={styles.leaderCard} onClick={handleLeaderClick} role="button">
+                  <div className={styles.leaderBg} />
+                  <div className={styles.leaderContent}>
+                    <div className={styles.crownBadge}>
+                      <Trophy size={14} fill="#FFD700" color="#B8860B" />
+                      <span>CURRENT #1</span>
+                    </div>
+
+                    <div className={styles.leaderMain}>
+                      <div
+                        className={styles.leaderLogo}
+                        style={{ background: leader.gradientColor }}
+                      >
+                        {leader.nameEn.charAt(0)}
+                      </div>
+                      <div className={styles.leaderText}>
+                        <h2 className={styles.leaderName}>{leader.nameEn}</h2>
+                        <div className={styles.leaderScore}>
+                          <Flame size={16} className={styles.flameIcon} />
+                          <span>{leader.voteCount.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {currentIndex === 1 && promotionBattle && (
+              <motion.div
+                key="battle"
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className={styles.slideItem}
+              >
+                {/* 승강전 카드 디자인 */}
+                <div className={styles.battleCard}>
+                  <div className={styles.battleHeader}>
+                    <Swords size={14} className={styles.swordsIcon} />
+                    <span className={styles.battleTitle}>{tBattle('title')}</span>
+                  </div>
+
+                  <div className={styles.battleContent}>
+                    {/* 10위 */}
+                    <div
+                      className={styles.battleCompany}
+                      data-zone="relegation"
+                      onClick={() => handleBattleClick(promotionBattle.relegationCompany.companyId)}
+                    >
+                      <div className={styles.battleLogo}>
+                        {promotionBattle.relegationCompany.logoUrl ? (
+                          <Image
+                            src={promotionBattle.relegationCompany.logoUrl}
+                            alt={promotionBattle.relegationCompany.nameEn}
+                            width={32}
+                            height={32}
+                            className={styles.logoImage}
+                          />
+                        ) : (
+                          <span className={styles.logoFallback}>
+                            {promotionBattle.relegationCompany.nameEn.charAt(0)}
+                          </span>
+                        )}
+                      </div>
+                      <div className={styles.battleInfo}>
+                        <span className={styles.battleRank}>#10</span>
+                        <span className={styles.battleName}>
+                          {promotionBattle.relegationCompany.nameEn}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* GAP */}
+                    <div className={styles.vsSection}>
+                      <span className={styles.vsText}>VS</span>
+                      <div className={styles.gapBadge}>
+                        <span className={styles.gapLabel}>GAP</span>
+                        <span className={styles.gapValue}>
+                          {promotionBattle.gap.toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 11위 */}
+                    <div
+                      className={styles.battleCompany}
+                      data-zone="promotion"
+                      onClick={() => handleBattleClick(promotionBattle.promotionCompany.companyId)}
+                    >
+                      <div className={styles.battleLogo}>
+                        {promotionBattle.promotionCompany.logoUrl ? (
+                          <Image
+                            src={promotionBattle.promotionCompany.logoUrl}
+                            alt={promotionBattle.promotionCompany.nameEn}
+                            width={32}
+                            height={32}
+                            className={styles.logoImage}
+                          />
+                        ) : (
+                          <span className={styles.logoFallback}>
+                            {promotionBattle.promotionCompany.nameEn.charAt(0)}
+                          </span>
+                        )}
+                      </div>
+                      <div className={styles.battleInfo}>
+                        <span className={styles.battleRank}>#11</span>
+                        <span className={styles.battleName}>
+                          {promotionBattle.promotionCompany.nameEn}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* 오른쪽 화살표 */}
+        {hasPromotionBattle && (
+          <button
+            className={classNames(styles.arrowBtn, styles.next)}
+            onClick={() => paginate(1)}
+            aria-label="Next slide"
+          >
+            <ChevronRight size={24} />
+          </button>
+        )}
+      </div>
+
+      {/* 인디케이터 */}
+      {hasPromotionBattle && (
+        <div className={styles.indicators}>
+          {[0, 1].map((idx) => (
+            <button
+              key={idx}
+              className={classNames(styles.dot, { [styles.active]: idx === currentIndex })}
+              onClick={() => {
+                const newDir = idx > currentIndex ? 1 : -1;
+                setDirection(newDir);
+                setCurrentIndex(idx);
+              }}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </header>
   );
 }
