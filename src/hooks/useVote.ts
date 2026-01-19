@@ -3,13 +3,18 @@
  *
  * 투표 제출 및 UI 효과를 처리합니다.
  *
+ * SSG/CSR 마이그레이션:
+ * - 기존: fetch('/api/vote') → API Routes 경유
+ * - 변경: submitVote() → Supabase 직접 호출
+ *
  * T1.29: 투표 성공 후 SWR 캐시 갱신 추가
- * - mutate('/api/companies')를 호출하여 즉시 UI 반영
+ * - mutate('companies')를 호출하여 즉시 UI 반영
  */
 
 import { useState } from 'react';
 import { useSWRConfig } from 'swr';
 import confetti from 'canvas-confetti';
+import { submitVote as submitVoteApi } from '@/lib/api';
 
 export function useVote() {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +23,7 @@ export function useVote() {
 
   const triggerGameEffects = (colorString: string) => {
     // Parse color or use default
-    const color = '#FFD700'; // Default Gold
+    const color = colorString || '#FFD700'; // Default Gold
 
     // Confetti from bottom center
     confetti({
@@ -38,21 +43,20 @@ export function useVote() {
     if (isLoading) return false;
     setIsLoading(true);
     try {
-      const res = await fetch('/api/vote', {
-        method: 'POST',
-        body: JSON.stringify({ companyId }),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      // SSG/CSR 마이그레이션: Supabase 직접 호출
+      const result = await submitVoteApi({ companyId });
 
-      if (res.ok) {
+      if (result.success) {
         setLastVotedCompanyId(companyId);
         triggerGameEffects(companyColor || '#FFD700');
 
-        // T1.29: 투표 성공 후 SWR 캐시 갱신하여 UI 즉시 반영
-        // revalidate: true로 서버에서 최신 데이터를 다시 가져옴
-        await mutate('/api/companies');
+        // 투표 성공 후 SWR 캐시 갱신하여 UI 즉시 반영
+        // SSG/CSR 마이그레이션: key가 'companies'로 변경됨
+        await mutate('companies');
 
         return true;
+      } else {
+        console.warn('[useVote] Vote failed:', result.message);
       }
     } catch (e) {
       console.error('[useVote] Error:', e);

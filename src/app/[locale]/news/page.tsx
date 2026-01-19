@@ -5,6 +5,13 @@ import { getAllNews } from '@/lib/news';
 import NewsCard from '@/components/news/NewsCard';
 import styles from './page.module.scss';
 
+/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 /**
  * 뉴스 목록 페이지 Props
  */

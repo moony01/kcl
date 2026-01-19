@@ -2,8 +2,11 @@
  * useHallOfFame 훅
  *
  * 명예의 전당 데이터를 가져오는 커스텀 훅입니다.
- * T1.58: /api/hall-of-fame API 연동, Mock 폴백 지원
- * 환경변수 또는 API 가용성에 따라 Mock/API 데이터를 자동 전환합니다.
+ * Mock 폴백 지원으로 안정적인 데이터 제공
+ *
+ * SSG/CSR 마이그레이션:
+ * - 기존: fetch('/api/hall-of-fame') → API Routes 경유
+ * - 변경: getHallOfFame() → Supabase 직접 호출
  *
  * @example
  * ```tsx
@@ -18,6 +21,7 @@ import {
   getMockMonthlyChampions,
   getMockYearlyRace,
 } from '@/lib/mock-hall-of-fame';
+import { getHallOfFame as getHallOfFameApi } from '@/lib/api';
 
 /**
  * 월간 챔피언 목록에서 연간 우승 횟수 집계
@@ -71,9 +75,6 @@ interface UseHallOfFameReturn {
   dataSource: 'mock' | 'api';
 }
 
-/** API 엔드포인트 */
-const API_ENDPOINT = '/api/hall-of-fame';
-
 /** Mock 모드 강제 사용 여부 (환경변수로 제어) */
 const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true';
 
@@ -97,17 +98,21 @@ export function useHallOfFame(): UseHallOfFameReturn {
   const allChampionsRef = useRef<MonthlyChampion[]>([]);
 
   /**
-   * API에서 데이터 가져오기 시도
+   * Supabase에서 데이터 가져오기 시도
+   * SSG/CSR 마이그레이션: API Routes 대신 Supabase 직접 호출
    */
   const fetchFromApi = useCallback(async (): Promise<HallOfFameData | null> => {
     try {
-      const response = await fetch(API_ENDPOINT);
+      const apiData = await getHallOfFameApi();
 
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
+      // 데이터가 비어있으면 실패로 처리 (Mock 폴백)
+      if (!apiData.currentYearMonthly || apiData.currentYearMonthly.length === 0) {
+        // 빈 데이터도 유효한 응답일 수 있으므로, 일단 반환
+        // archives나 currentYearRace가 있으면 유효한 데이터
+        if (apiData.archives.length === 0 && apiData.currentYearRace.length === 0) {
+          console.warn('[useHallOfFame] Supabase returned empty data');
+        }
       }
-
-      const apiData: HallOfFameData = await response.json();
 
       // 월간 챔피언 데이터 캐시
       if (apiData.currentYearMonthly && apiData.currentYearMonthly.length > 0) {
@@ -120,7 +125,7 @@ export function useHallOfFame(): UseHallOfFameReturn {
       setDataSource('api');
       return apiData;
     } catch (err) {
-      console.warn('[useHallOfFame] API 호출 실패, Mock 데이터로 폴백합니다.', err);
+      console.warn('[useHallOfFame] Supabase 호출 실패, Mock 데이터로 폴백합니다.', err);
       return null;
     }
   }, []);

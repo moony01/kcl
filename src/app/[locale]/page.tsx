@@ -2,50 +2,25 @@
  * HomePage (리그 시스템)
  *
  * KCL 리그 시스템 메인 페이지
- * - Server Component로 동작
- * - 초기 데이터 Fetching 후 Client Component(HomeClient)로 전달
+ * SSG 빌드 시 정적 셸 생성, 데이터는 CSR(SWR)로 로드
  *
- * @updated OpenNext Cloudflare 배포용 (Node.js 런타임)
+ * @updated Phase 5 - SSG/CSR 마이그레이션
  */
 
 import { HomeClient } from './HomeClient';
-import type { CompaniesResponse } from '@/types/api';
 
-/**
- * 리그 데이터 서버 사이드 Fetching
- * Edge Runtime에서 동적 렌더링 (캐시 없음)
- *
- * 개발 모드에서는 SSR fetch를 스킵하여 API 중복 호출 방지
- */
-async function getLeagueData(): Promise<CompaniesResponse | null> {
-  // 개발 모드에서는 SSR fetch 스킵 (클라이언트 SWR만 사용)
-  if (process.env.NODE_ENV === 'development') {
-    return null;
-  }
+/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
 
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    // 내부 API 호출 (절대 경로 필요)
-    const res = await fetch(`${baseUrl}/api/companies`, {
-      cache: 'no-store', // Edge에서 동적 fetch
-    });
-
-    if (!res.ok) {
-      console.error('[HomePage] Failed to fetch league data:', res.status);
-      return null;
-    }
-
-    return res.json();
-  } catch (error) {
-    console.error('[HomePage] Error fetching league data:', error);
-    return null;
-  }
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
 
-export default async function HomePage() {
-  // 서버 사이드 데이터 Fetching
-  const initialData = await getLeagueData();
-
-  // Client Component 렌더링 (초기 데이터 전달)
-  return <HomeClient initialData={initialData} />;
+/**
+ * 홈페이지 (정적 셸)
+ * 서버에서 데이터를 fetching하지 않음
+ * HomeClient가 SWR로 클라이언트에서 데이터 로드
+ */
+export default function HomePage() {
+  return <HomeClient />;
 }

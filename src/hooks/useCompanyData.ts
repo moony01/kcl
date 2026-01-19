@@ -3,21 +3,63 @@
  *
  * 개별 소속사 상세 정보를 가져오는 커스텀 훅입니다.
  * SWR을 사용하여 캐싱과 자동 갱신을 지원합니다.
+ *
+ * SSG/CSR 마이그레이션:
+ * - 기존: fetch('/api/companies/[id]') → API Routes 경유
+ * - 변경: getCompanyById() → Supabase 직접 호출
  */
 
 'use client';
 
 import useSWR from 'swr';
-import type { CompanyDetailResponse, GroupsResponse } from '@/types/api';
+import type { GroupsResponse } from '@/types/api';
+import {
+  getCompanyById,
+  getCompanyGroups,
+  type CompanyDetail,
+  type GroupDetail,
+  type CompanyDetailResult,
+  type CompanyGroupsResult,
+} from '@/lib/api';
 
-/** SWR fetcher 함수 */
-const fetcher = async <T>(url: string): Promise<T> => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    const error = await res.json();
-    throw new Error(error.error || 'Failed to fetch data');
+/** 내부용 소속사 상세 응답 타입 */
+interface InternalCompanyDetailResponse {
+  company: CompanyDetail;
+  groups: GroupDetail[];
+  groupCount: number;
+}
+
+/** SWR fetcher 함수: 소속사 상세 조회 */
+const companyFetcher = async (companyId: string): Promise<InternalCompanyDetailResponse> => {
+  const result: CompanyDetailResult = await getCompanyById(companyId);
+  if (result.error || !result.company) {
+    throw new Error(result.error || 'Failed to fetch company');
   }
-  return res.json();
+  return {
+    company: result.company,
+    groups: result.groups,
+    groupCount: result.groupCount,
+  };
+};
+
+/** SWR fetcher 함수: 그룹 목록 조회 */
+const groupsFetcher = async (args: {
+  companyId: string;
+  activeOnly: boolean;
+  groupType?: string;
+}): Promise<GroupsResponse> => {
+  const result: CompanyGroupsResult = await getCompanyGroups(args.companyId, {
+    activeOnly: args.activeOnly,
+    groupType: args.groupType as 'boy' | 'girl' | 'solo' | 'co-ed' | undefined,
+  });
+  if (result.error) {
+    throw new Error(result.error);
+  }
+  return {
+    groups: result.groups,
+    totalCount: result.totalCount,
+    companyId: result.companyId,
+  };
 };
 
 interface UseCompanyDataOptions {
@@ -27,15 +69,15 @@ interface UseCompanyDataOptions {
 
 interface UseCompanyDataReturn {
   /** 소속사 정보 */
-  company: CompanyDetailResponse['company'] | null;
+  company: CompanyDetail | null;
   /** 소속 그룹 목록 */
-  groups: CompanyDetailResponse['groups'];
+  groups: GroupDetail[];
   /** 로딩 상태 */
   isLoading: boolean;
   /** 에러 객체 */
   error: Error | null;
   /** 데이터 새로고침 */
-  refresh: () => Promise<CompanyDetailResponse | undefined>;
+  refresh: () => Promise<InternalCompanyDetailResponse | undefined>;
 }
 
 /**
@@ -67,9 +109,11 @@ export function useCompanyData(
 ): UseCompanyDataReturn {
   const { refreshInterval = 0 } = options;
 
-  const { data, error, isLoading, mutate } = useSWR<CompanyDetailResponse>(
-    companyId ? `/api/companies/${companyId}` : null,
-    fetcher,
+  // SSG/CSR 마이그레이션: Supabase 직접 호출
+  // SWR key를 'company:{id}'로 변경 (URL 대신 키 문자열)
+  const { data, error, isLoading, mutate } = useSWR<InternalCompanyDetailResponse>(
+    companyId ? `company:${companyId}` : null,
+    () => companyFetcher(companyId!),
     {
       refreshInterval,
       dedupingInterval: 10000, // 10초간 중복 요청 방지
@@ -118,19 +162,17 @@ export function useCompanyGroups(
 ): UseCompanyGroupsReturn {
   const { activeOnly = true, groupType } = options;
 
-  // URL 쿼리 파라미터 생성
-  const params = new URLSearchParams();
-  if (!activeOnly) params.set('active_only', 'false');
-  if (groupType) params.set('group_type', groupType);
-  const queryString = params.toString();
+  // SSG/CSR 마이그레이션: Supabase 직접 호출
+  // SWR key를 'company-groups:{id}:{options}'로 변경
+  const swrKey = companyId ? `company-groups:${companyId}:${activeOnly}:${groupType || ''}` : null;
 
-  const url = companyId
-    ? `/api/companies/${companyId}/groups${queryString ? `?${queryString}` : ''}`
-    : null;
-
-  const { data, error, isLoading, mutate } = useSWR<GroupsResponse>(url, fetcher, {
-    dedupingInterval: 10000,
-  });
+  const { data, error, isLoading, mutate } = useSWR<GroupsResponse>(
+    swrKey,
+    () => groupsFetcher({ companyId: companyId!, activeOnly, groupType }),
+    {
+      dedupingInterval: 10000,
+    },
+  );
 
   return {
     groups: data?.groups || [],
