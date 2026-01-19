@@ -76,6 +76,8 @@ export const redis =
 
 /**
  * 캐시된 소속사 데이터 타입
+ *
+ * T1.53: league_tier 필드 추가 (리그 고정용)
  */
 export interface CachedCompaniesData {
   companies: Array<{
@@ -87,6 +89,8 @@ export interface CachedCompaniesData {
     gradient_color: string;
     rank: number;
     firepower: number;
+    /** T1.53: DB에서 관리되는 리그 티어 (시즌 중 고정) */
+    league_tier: 'premier' | 'challengers';
     groups: Array<{
       id: string;
       name_ko: string;
