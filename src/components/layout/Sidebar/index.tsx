@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Home, BarChart3, Trophy, Newspaper, MessageSquare } from 'lucide-react';
-import styles from './Sidebar.module.scss';
 import classNames from 'classnames';
+import { FEATURES } from '@/config/features';
+import styles from './Sidebar.module.scss';
 
 export default function Sidebar() {
   const t = useTranslations('Nav');
@@ -19,22 +20,29 @@ export default function Sidebar() {
     return pathname?.startsWith(`/${locale}${path}`);
   };
 
+  // Feature Flags 기반 네비게이션 메뉴
   const navItems = [
-    { label: t('home'), icon: Home, path: '/' },
-    { label: t('analytics'), icon: BarChart3, path: '/analytics' },
-    { label: t('hall_of_fame'), icon: Trophy, path: '/hall-of-fame' },
-    { label: t('news'), icon: Newspaper, path: '/news' },
-    { label: t('community'), icon: MessageSquare, path: '/community' },
-    // { label: t('ranking'), icon: Trophy, path: '/ranking' },
-    // { label: '만들기', icon: PlusSquare, path: '#' },
-    /*
-    { 
-      label: t('my'), 
-      icon: UserCircle, 
-      path: isLoggedIn ? '/profile' : '/login' 
+    { label: t('home'), icon: Home, path: '/', enabled: true },
+    {
+      label: t('analytics'),
+      icon: BarChart3,
+      path: '/analytics',
+      enabled: FEATURES.ANALYTICS_PAGE,
     },
-    */
-  ];
+    {
+      label: t('hall_of_fame'),
+      icon: Trophy,
+      path: '/hall-of-fame',
+      enabled: FEATURES.HALL_OF_FAME_PAGE,
+    },
+    { label: t('news'), icon: Newspaper, path: '/news', enabled: FEATURES.NEWS_PAGE },
+    {
+      label: t('community'),
+      icon: MessageSquare,
+      path: '/community',
+      enabled: FEATURES.COMMUNITY_PAGE,
+    },
+  ].filter((item) => item.enabled);
 
   return (
     <aside className={styles.sidebar}>

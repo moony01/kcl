@@ -8,13 +8,17 @@
  * - 실시간 트렌드 차트 (LineChart)
  * - 소속사별 점유율 (DonutChart)
  * - 급상승 소속사 Top 5
+ *
+ * @note Feature Flag로 비활성화 시 홈으로 리다이렉트
  */
 
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { BarChart3, Clock } from 'lucide-react';
+import { FEATURES } from '@/config/features';
 
 // Feature Components
 import {
@@ -36,9 +40,23 @@ import styles from './page.module.scss';
 
 export default function AnalyticsPage() {
   const t = useTranslations('Analytics');
+  const router = useRouter();
+  const locale = useLocale();
+
+  // Feature Flag 체크: 비활성화 시 홈으로 리다이렉트
+  useEffect(() => {
+    if (!FEATURES.ANALYTICS_PAGE) {
+      router.replace(`/${locale}`);
+    }
+  }, [router, locale]);
 
   // 기간 필터 상태
   const [selectedPeriod, setSelectedPeriod] = useState<PeriodType>('week');
+
+  // Feature 비활성화 시 로딩 표시 (리다이렉트 전)
+  if (!FEATURES.ANALYTICS_PAGE) {
+    return null;
+  }
 
   // 기간 변경 핸들러
   const handlePeriodChange = useCallback((period: PeriodType) => {
