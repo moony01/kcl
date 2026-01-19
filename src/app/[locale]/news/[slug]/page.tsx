@@ -5,8 +5,19 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getNewsBySlug } from '@/lib/news';
+import { getNewsBySlug, getAllNewsParams } from '@/lib/news';
 import styles from './page.module.scss';
+
+/** 지원하는 12개 언어 */
+const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
+
+/**
+ * 정적 경로 생성
+ * 12개 언어 × 모든 뉴스 slug 조합
+ */
+export function generateStaticParams() {
+  return getAllNewsParams(locales);
+}
 
 /**
  * 뉴스 상세 페이지 Props

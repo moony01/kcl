@@ -2,13 +2,13 @@
  * HomeClient (클라이언트 컴포넌트)
  *
  * KCL 리그 시스템 메인 페이지의 클라이언트 사이드 로직
- * 서버에서 미리 fetch한 데이터(initialData)를 받아 Hydration 수행
+ * SSG 정적 셸에서 렌더링되고, SWR로 클라이언트에서 데이터 로드
  *
- * SSR 구조:
- * - page.tsx (서버 컴포넌트) → 데이터 fetch + SEO용 HTML 생성
- * - HomeClient.tsx (클라이언트) → 인터랙션 + SWR 자동 갱신
+ * SSG/CSR 구조:
+ * - page.tsx (서버 컴포넌트) → 정적 셸 생성 (빌드 타임)
+ * - HomeClient.tsx (클라이언트) → SWR로 데이터 fetching + 인터랙션
  *
- * @updated T1.19 - SSR 적용 (page.tsx에서 분리)
+ * @updated Phase 5 - SSG/CSR 마이그레이션
  */
 
 'use client';
@@ -44,16 +44,16 @@ const Challengers = dynamic(() => import('@/components/features/league/Challenge
 import styles from './page.module.scss';
 
 interface HomeClientProps {
-  /** 서버에서 미리 fetch한 초기 데이터 (SSR용) */
-  initialData: CompaniesResponse | null;
+  /** 서버에서 미리 fetch한 초기 데이터 (옵셔널, SSG에서는 사용 안 함) */
+  initialData?: CompaniesResponse | null;
 }
 
 /**
  * 홈페이지 클라이언트 컴포넌트
  *
- * @param initialData - 서버에서 미리 fetch한 리그 데이터
+ * @param initialData - 서버에서 미리 fetch한 리그 데이터 (옵셔널)
  */
-export function HomeClient({ initialData }: HomeClientProps) {
+export function HomeClient({ initialData }: HomeClientProps = {}) {
   // 탭 상태 (1부 리그 기본)
   const [activeTab, setActiveTab] = useState<LeagueTabType>('premier');
 
@@ -79,8 +79,8 @@ export function HomeClient({ initialData }: HomeClientProps) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // 🔥 Supabase API에서 데이터 가져오기 (SSR 초기 데이터 전달)
-  // T1.30: polling 주기를 20초로 변경 (Redis 캐시 TTL 25초와 조화)
+  // 🔥 Supabase에서 직접 데이터 가져오기 (CSR)
+  // Phase 5: API Route 대신 Supabase 직접 호출
   const {
     premierLeague,
     challengers: allChallengers,
@@ -92,8 +92,8 @@ export function HomeClient({ initialData }: HomeClientProps) {
     error,
     refresh,
   } = useLeagueData({
-    refreshInterval: 20000, // T1.30: Redis 캐시 TTL(25초)보다 짧게 설정하여 캐시 hit 극대화
-    fallbackData: initialData, // SSR 초기 데이터 전달
+    refreshInterval: 20000, // SWR 자동 갱신 주기
+    fallbackData: initialData ?? undefined, // SSG에서는 undefined
   });
 
   // 2부 리그 페이지네이션
@@ -169,8 +169,8 @@ export function HomeClient({ initialData }: HomeClientProps) {
     [handleVote],
   );
 
-  // 로딩 상태 (initialData가 있으면 로딩 화면 표시 안 함)
-  if (isLoading && allCompanies.length === 0 && !initialData) {
+  // 로딩 상태 (SSG에서는 initialData 없이 시작)
+  if (isLoading && allCompanies.length === 0) {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.spinner} />

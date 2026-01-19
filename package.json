@@ -9,18 +9,13 @@
     "build": "pnpm prebuild && next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest",
-    "cf:build": "pnpm prebuild && npx opennextjs-cloudflare build",
-    "cf:deploy": "pnpm cf:build && wrangler deploy",
-    "cf:preview": "npx opennextjs-cloudflare preview"
+    "test": "vitest"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.90.1",
     "@types/canvas-confetti": "^1.9.0",
-    "@upstash/ratelimit": "^2.0.8",
-    "@upstash/redis": "^1.36.1",
     "canvas-confetti": "^1.9.4",
     "classnames": "^2.5.1",
     "framer-motion": "^12.24.12",
@@ -41,7 +36,6 @@
     "zod": "^4.3.5"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.14.8",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.1",
     "@types/node": "^20",
@@ -54,7 +48,6 @@
     "eslint-config-next": "16.1.1",
     "jsdom": "^27.4.0",
     "typescript": "^5",
-    "vitest": "^4.0.17",
-    "wrangler": "^4.59.2"
+    "vitest": "^4.0.17"
   }
 }

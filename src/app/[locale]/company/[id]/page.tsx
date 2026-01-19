@@ -1,11 +1,11 @@
 /**
  * Company Detail Page (Server Component)
  *
- * 소속사 상세 페이지 서버 컴포넌트
- * 동적 렌더링으로 변경하여 실시간 DB 데이터 반영
+ * 소속사 상세 페이지 - SSG 정적 셸 + CSR 데이터 로드
  *
- * @updated T1.10 - 정적 생성 → 동적 렌더링 (Supabase 연동)
+ * @note 동적 라우트 [id]는 알려진 회사 slug로 정적 생성
  * @note Feature Flag로 비활성화 시 홈으로 리다이렉트
+ * @updated Phase 5 - SSG/CSR 마이그레이션
  */
 
 import { redirect } from 'next/navigation';
@@ -14,11 +14,32 @@ import { setRequestLocale } from 'next-intl/server';
 import { FEATURES } from '@/config/features';
 import CompanyDetailClient from './CompanyDetailClient';
 
+/** 지원하는 12개 언어 */
+const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
+
+/** 알려진 회사 slug 목록 (정적 생성 대상) */
+const knownCompanySlugs = [
+  'hybe',
+  'sm',
+  'jyp',
+  'yg',
+  'starship',
+  'cube',
+  'fnc',
+  'pledis',
+  'rbw',
+  'woollim',
+  'kakao',
+  'cj-enm',
+];
+
 /**
- * 동적 렌더링 강제 (실시간 DB 데이터 반영)
- * generateStaticParams 제거하고 SSR로 전환
+ * 정적 경로 생성
+ * 12개 언어 × 알려진 회사 slug 조합
  */
-export const dynamic = 'force-dynamic';
+export function generateStaticParams() {
+  return locales.flatMap((locale) => knownCompanySlugs.map((id) => ({ locale, id })));
+}
 
 export default function CompanyDetailPage({
   params,

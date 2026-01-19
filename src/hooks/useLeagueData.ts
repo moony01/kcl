@@ -6,14 +6,13 @@
  *
  * 기능:
  * - 1부 리그 (1-10위) / 2부 리그 (11위~) 분리
- * - 20초마다 자동 갱신 (T1.30: Redis 캐시 TTL 25초와 조화)
+ * - 20초마다 자동 갱신
  * - 에러 처리 및 로딩 상태
  * - 수동 새로고침 (mutate)
  *
- * T1.30: Redis 캐싱 전략
- * - 서버: Redis 캐시 TTL 25초
- * - 클라이언트: SWR polling 20초
- * - 이를 통해 대부분의 요청이 캐시에서 즉시 응답 (< 50ms)
+ * SSG/CSR 마이그레이션:
+ * - 기존: fetch('/api/companies') → API Routes 경유
+ * - 변경: getCompanies() → Supabase 직접 호출
  */
 
 'use client';
@@ -21,15 +20,15 @@
 import useSWR from 'swr';
 import type { CompanyRanking, LeagueTier, PromotionBattle, SeasonInfo } from '@/types/league';
 import type { CompaniesResponse } from '@/types/api';
+import { getCompanies } from '@/lib/api';
 
-/** SWR fetcher 함수 */
-const fetcher = async (url: string): Promise<CompaniesResponse> => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    const error = await res.json();
-    throw new Error(error.error || 'Failed to fetch data');
+/** SWR fetcher 함수: Supabase 직접 호출 */
+const fetcher = async (): Promise<CompaniesResponse> => {
+  const result = await getCompanies();
+  if (result.source === 'error') {
+    throw new Error('Failed to fetch data');
   }
-  return res.json();
+  return result;
 };
 
 /**
@@ -159,7 +158,9 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   // 프로덕션: 전달된 값 또는 기본값(20초) 사용
   const actualRefreshInterval = isDev ? 0 : refreshInterval;
 
-  const { data, error, isLoading, mutate } = useSWR<CompaniesResponse>('/api/companies', fetcher, {
+  // SSG/CSR 마이그레이션: API Routes 대신 Supabase 직접 호출
+  // SWR key를 'companies'로 변경 (URL 대신 키 문자열)
+  const { data, error, isLoading, mutate } = useSWR<CompaniesResponse>('companies', fetcher, {
     refreshInterval: actualRefreshInterval,
     revalidateOnFocus: isDev ? false : revalidateOnFocus, // 개발 모드: 포커스 재검증 비활성화
     revalidateOnReconnect: !isDev, // 개발 모드: 네트워크 복구 시 재검증 비활성화
