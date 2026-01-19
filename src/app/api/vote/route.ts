@@ -9,9 +9,10 @@
  * - 클라이언트에 남은 투표권 정보 반환
  * - Redis 카운터 + Supabase 영속성 이중 저장
  *
- * T1.30: 투표 성공 후 캐시 무효화
- * - 소속사 순위 캐시(kcl:companies:ranking) 무효화
- * - 다음 polling 시 최신 데이터 반영
+ * T1.44: TTL 자연 만료 정책으로 캐시 갱신 (Cache Stampede 방지)
+ * - 소속사 순위 캐시(kcl:companies:ranking)는 TTL(25초) 자연 만료에 의존
+ * - 투표마다 캐시 무효화 시 트래픽 폭주 → DB 동시 쿼리 폭주 (Cache Stampede) 발생
+ * - 최대 25초 지연은 실시간 랭킹 특성상 허용 가능한 수준
  *
  * T1.29: 투표 후 점수 즉시 반영 버그 수정
  * - kcl_companies.firepower 컬럼을 동기적으로 업데이트
@@ -22,7 +23,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { checkVoteRateLimit } from '@/lib/rate-limit';
 import { createServerClient } from '@/lib/supabase/server';
 import { hashIp } from '@/lib/hash';
-import { redis, invalidateCompaniesCache, CACHE_KEYS } from '@/lib/redis';
+import { redis, CACHE_KEYS } from '@/lib/redis';
 
 /** 1회 투표당 점수 */
 const VOTE_SCORE = 1;
@@ -191,11 +192,9 @@ export async function POST(req: NextRequest) {
       // 전체 투표 수 카운트
       await redis.incrby(CACHE_KEYS.GLOBAL_TOTAL_VOTES, 1);
 
-      // T1.30: 투표 성공 후 소속사 순위 캐시 무효화
-      // 비동기로 실행하여 응답 지연 방지
-      invalidateCompaniesCache().catch((err) => {
-        console.error('[Vote] Failed to invalidate cache:', err);
-      });
+      // T1.44: 캐시 무효화 제거 - TTL(25초) 자연 만료에 의존
+      // 투표마다 invalidateCompaniesCache() 호출 시 Cache Stampede 발생 위험
+      // → 모든 사용자 투표가 동시에 캐시 무효화 → DB 동시 쿼리 폭주
     } else if (updatedFirepower === null) {
       // 개발 환경 Mock (Redis도 Supabase도 없는 경우)
       console.log(`[MOCK /vote] Voted Company ${companyId}, +${VOTE_SCORE} point`);

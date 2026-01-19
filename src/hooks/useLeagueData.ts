@@ -178,6 +178,16 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
         }
       : null;
 
+  // T1.51: 개발 모드 디버그 로그 - 승강전 데이터 누락 시 경고
+  if (isDev && allCompanies.length > 0 && !promotionBattle) {
+    console.warn('[useLeagueData] promotionBattle is null!', {
+      totalCompanies: allCompanies.length,
+      rank10: rank10 ? `${rank10.nameEn} (${rank10.voteCount})` : 'NOT FOUND',
+      rank11: rank11 ? `${rank11.nameEn} (${rank11.voteCount})` : 'NOT FOUND',
+      ranks: allCompanies.slice(8, 14).map((c) => `${c.rank}: ${c.nameEn}`),
+    });
+  }
+
   // 현재 1위
   const leader = allCompanies.find((c) => c.rank === 1) || null;
 
