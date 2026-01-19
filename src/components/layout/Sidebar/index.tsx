@@ -48,12 +48,12 @@ export default function Sidebar() {
     <aside className={styles.sidebar}>
       {/* Logo Area */}
       <div className={styles.logoArea}>
-        <div className={styles.brand}>
+        <Link href={`/${locale}`} className={styles.brand}>
           <div className={styles.logoWrapper}>
             <img src="/logo.svg" alt="KCL" className={styles.logoImage} />
           </div>
           <span className={styles.logoText}>KCL</span>
-        </div>
+        </Link>
       </div>
 
       {/* Navigation */}
