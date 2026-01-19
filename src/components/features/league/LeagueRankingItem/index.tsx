@@ -29,6 +29,8 @@ interface LeagueRankingItemProps {
   onDetail?: (companyId: string) => void;
   /** UI에 표시할 순위 (2부 리그 독립 순위 등) - 없으면 company.rank 사용 */
   displayRank?: number;
+  /** 배틀스테이션에 선택된 상태인지 */
+  isSelected?: boolean;
 }
 
 export default function LeagueRankingItem({
@@ -36,6 +38,7 @@ export default function LeagueRankingItem({
   onVote: _onVote,
   onDetail: _onDetail,
   displayRank,
+  isSelected = false,
 }: LeagueRankingItemProps) {
   const router = useRouter();
   const t = useTranslations('League');
@@ -75,6 +78,7 @@ export default function LeagueRankingItem({
         [styles.relegation]: company.isRelegationZone,
         [styles.promotion]: company.isPromotionZone && !isPromotionHero,
         [styles.promotionHero]: isPromotionHero,
+        [styles.selected]: isSelected,
       })}
       whileHover={isPromotionHero ? { y: -4, scale: 1.01 } : { x: 4 }}
       transition={{ duration: 0.15 }}

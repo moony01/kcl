@@ -45,11 +45,10 @@ function transformToCompanyRanking(
   // T1.53: DB의 league_tier 값을 직접 사용 (rank 기반 계산 제거)
   const tier: LeagueTier = company.league_tier;
 
-  // T1.53: 1부 10위 = 강등 위기, 2부 1위(전체 11위) = 승격 기회
-  // 1부 내 마지막 순위 = 강등 위기
-  // 2부 내 첫 순위 = 승격 기회
-  const isRelegationZone = tier === 'premier' && company.rank === 10;
-  const isPromotionZone = tier === 'challengers' && company.rank === 11;
+  // T1.XX: isRelegationZone, isPromotionZone은 useLeagueData에서 리그 분리 후 설정
+  // (transformToCompanyRanking 시점에서는 리그 내 순위를 알 수 없음)
+  const isRelegationZone = false;
+  const isPromotionZone = false;
 
   return {
     companyId: company.id,
@@ -174,23 +173,37 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
 
   // T1.53: DB의 league_tier 기준으로 리그 분리 (rank 기준 X)
   // 1부 리그 (league_tier === 'premier')
-  const premierLeague = allCompanies.filter((c) => c.tier === 'premier');
+  const premierLeagueRaw = allCompanies.filter((c) => c.tier === 'premier');
 
   // 2부 리그 (league_tier === 'challengers')
-  const challengers = allCompanies.filter((c) => c.tier === 'challengers');
+  const challengersRaw = allCompanies.filter((c) => c.tier === 'challengers');
+
+  // T1.XX: 리그 내 순위 기준으로 강등/승격 존 설정
+  // 1부 리그 마지막 = 강등 위기, 2부 리그 첫 번째 = 승격 기회
+  const premierLeague = premierLeagueRaw.map((c, index) => ({
+    ...c,
+    isRelegationZone: index === premierLeagueRaw.length - 1, // 1부 마지막 = 강등 위기
+  }));
+
+  const challengers = challengersRaw.map((c, index) => ({
+    ...c,
+    isPromotionZone: index === 0, // 2부 첫 번째 = 승격 기회
+  }));
 
   // 시즌 정보
   const season = getCurrentSeason();
 
-  // 승강전 정보 (10위 vs 11위)
-  const rank10 = allCompanies.find((c) => c.rank === 10);
-  const rank11 = allCompanies.find((c) => c.rank === 11);
+  // T1.XX: 승강전 정보 (1부 마지막 vs 2부 첫 번째)
+  // 기존: rank === 10, 11 기준 → 변경: 리그 내 위치 기준
+  const relegationCompany =
+    premierLeague.length > 0 ? premierLeague[premierLeague.length - 1] : null;
+  const promotionCompany = challengers.length > 0 ? challengers[0] : null;
   const promotionBattle: PromotionBattle | null =
-    rank10 && rank11
+    relegationCompany && promotionCompany
       ? {
-          relegationCompany: rank10,
-          promotionCompany: rank11,
-          gap: rank10.voteCount - rank11.voteCount,
+          relegationCompany,
+          promotionCompany,
+          gap: relegationCompany.voteCount - promotionCompany.voteCount,
         }
       : null;
 
@@ -198,9 +211,8 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   if (isDev && allCompanies.length > 0 && !promotionBattle) {
     console.warn('[useLeagueData] promotionBattle is null!', {
       totalCompanies: allCompanies.length,
-      rank10: rank10 ? `${rank10.nameEn} (${rank10.voteCount})` : 'NOT FOUND',
-      rank11: rank11 ? `${rank11.nameEn} (${rank11.voteCount})` : 'NOT FOUND',
-      ranks: allCompanies.slice(8, 14).map((c) => `${c.rank}: ${c.nameEn}`),
+      premierCount: premierLeague.length,
+      challengersCount: challengers.length,
     });
   }
 
@@ -209,7 +221,8 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
 
   // 강제 새로고침 (캐시 무시)
   const forceRefresh = async () => {
-    return mutate(undefined, { revalidate: true });
+    // SWR 캐시 revalidate (페이지 리로드 없이 비동기 갱신)
+    return mutate();
   };
 
   return {

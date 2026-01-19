@@ -172,6 +172,8 @@ export function useHallOfFame(): UseHallOfFameReturn {
 
   /**
    * 특정 연도의 월간 챔피언 가져오기
+   * - 현재 연도: API 데이터만 사용 (Mock 폴백 안함)
+   * - 과거 연도: Mock 폴백 허용
    */
   const getMonthlyChampions = useCallback((year: number): MonthlyChampion[] => {
     // 캐시 확인
@@ -186,7 +188,14 @@ export function useHallOfFame(): UseHallOfFameReturn {
       return sorted;
     }
 
-    // Fallback: Mock 데이터
+    // 현재 연도는 Mock 폴백하지 않음 (DB 데이터만 신뢰)
+    const currentYear = new Date().getFullYear();
+    if (year >= currentYear) {
+      monthlyCache.current.set(year, []);
+      return [];
+    }
+
+    // 과거 연도만 Fallback: Mock 데이터
     const fromMock = getMockMonthlyChampions(year);
     monthlyCache.current.set(year, fromMock);
     return fromMock;
@@ -194,6 +203,8 @@ export function useHallOfFame(): UseHallOfFameReturn {
 
   /**
    * 특정 연도의 경쟁 현황 가져오기
+   * - 현재 연도: API 데이터만 사용 (Mock 폴백 안함)
+   * - 과거 연도: Mock 폴백 허용
    */
   const getYearlyRace = useCallback(
     (year: number): YearlyWinCount[] => {
@@ -202,7 +213,7 @@ export function useHallOfFame(): UseHallOfFameReturn {
       if (cached) return cached;
 
       // 현재 데이터의 연도와 일치하면 API 데이터 사용
-      if (data && data.currentYear === year && data.currentYearRace.length > 0) {
+      if (data && data.currentYear === year) {
         raceCache.current.set(year, data.currentYearRace);
         return data.currentYearRace;
       }
@@ -215,7 +226,14 @@ export function useHallOfFame(): UseHallOfFameReturn {
         return calculated;
       }
 
-      // Fallback: Mock 데이터
+      // 현재 연도는 Mock 폴백하지 않음 (DB 데이터만 신뢰)
+      const currentYear = new Date().getFullYear();
+      if (year >= currentYear) {
+        raceCache.current.set(year, []);
+        return [];
+      }
+
+      // 과거 연도만 Fallback: Mock 데이터
       const fromMock = getMockYearlyRace(year);
       raceCache.current.set(year, fromMock);
       return fromMock;

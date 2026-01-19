@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { Medal, Flame, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
+import classNames from 'classnames';
 import type { CompanyRanking } from '@/types/league';
 import styles from './TopThreeCard.module.scss';
 
@@ -23,6 +24,8 @@ interface TopThreeCardProps {
   rank: 1 | 2 | 3;
   /** 투표 핸들러 (Deprecated) */
   onVote?: () => void;
+  /** 배틀스테이션에 선택된 상태인지 */
+  isSelected?: boolean;
 }
 
 /** 순위별 메달 색상 */
@@ -39,7 +42,12 @@ const MEDAL_EMOJI: Record<1 | 2 | 3, string> = {
   3: '🥉',
 };
 
-export default function TopThreeCard({ company, rank, onVote: _onVote }: TopThreeCardProps) {
+export default function TopThreeCard({
+  company,
+  rank,
+  onVote: _onVote,
+  isSelected = false,
+}: TopThreeCardProps) {
   const router = useRouter();
   const t = useTranslations('League');
   const locale = useLocale();
@@ -72,7 +80,7 @@ export default function TopThreeCard({ company, rank, onVote: _onVote }: TopThre
 
   return (
     <motion.article
-      className={styles.card}
+      className={classNames(styles.card, { [styles.selected]: isSelected })}
       data-rank={rank}
       whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.98 }}

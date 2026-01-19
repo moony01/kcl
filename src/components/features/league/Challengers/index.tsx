@@ -27,9 +27,17 @@ interface ChallengersProps {
   onLoadMore: () => void;
   /** 더 불러올 데이터 있는지 */
   hasMore: boolean;
+  /** 선택된 회사 ID (배틀스테이션에 표시 중인 회사) */
+  selectedCompanyId?: string | null;
 }
 
-export default function Challengers({ companies, onVote, onLoadMore, hasMore }: ChallengersProps) {
+export default function Challengers({
+  companies,
+  onVote,
+  onLoadMore,
+  hasMore,
+  selectedCompanyId,
+}: ChallengersProps) {
   const t = useTranslations('League.challengers');
 
   return (
@@ -51,7 +59,12 @@ export default function Challengers({ companies, onVote, onLoadMore, hasMore }: 
       <div className={styles.rankingList}>
         {companies.map((company, index) => (
           <div key={company.companyId}>
-            <LeagueRankingItem company={company} onVote={onVote} displayRank={index + 1} />
+            <LeagueRankingItem
+              company={company}
+              onVote={onVote}
+              displayRank={index + 1}
+              isSelected={selectedCompanyId === company.companyId}
+            />
           </div>
         ))}
       </div>

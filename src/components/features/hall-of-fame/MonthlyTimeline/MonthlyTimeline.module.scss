@@ -15,6 +15,7 @@ $timeline-border: rgba(255, 255, 255, 0.08);
   background: $timeline-bg;
   border: 1px solid $timeline-border;
   border-radius: 16px;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     padding: 24px;
@@ -83,11 +84,11 @@ $timeline-border: rgba(255, 255, 255, 0.08);
   text-align: center;
 }
 
-// 월별 그리드
+// 월별 그리드 (4x3 레이아웃 = 12개월)
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
 
   @media (min-width: 480px) {
     grid-template-columns: repeat(3, 1fr);
@@ -95,11 +96,12 @@ $timeline-border: rgba(255, 255, 255, 0.08);
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 12px;
   }
 
+  // 2단 레이아웃 내에서 4열 유지 (6열은 overflow 발생)
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
