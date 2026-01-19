@@ -47,7 +47,13 @@ import {
  */
 function getMockCompaniesResponse(tier?: string | null, limit?: string | null) {
   // T1.42: firepower 기준 내림차순 정렬
-  const sortedMock = [...MOCK_COMPANIES].sort((a, b) => b.firepower - a.firepower);
+  // T1.51: 동점 시 id 기준 정렬 (안정적 순서 보장)
+  const sortedMock = [...MOCK_COMPANIES].sort((a, b) => {
+    if (b.firepower !== a.firepower) {
+      return b.firepower - a.firepower;
+    }
+    return a.id.localeCompare(b.id);
+  });
 
   // T1.42: 동적 rank 할당
   let companies = sortedMock.map((c, index) => ({
@@ -130,7 +136,8 @@ async function fetchFromSupabase(
       )
     `,
     )
-    .order('firepower', { ascending: false }); // T1.42: rank → firepower
+    .order('firepower', { ascending: false }) // T1.42: rank → firepower
+    .order('id', { ascending: true }); // T1.51: 동점 시 id 기준 정렬 (안정적 순서 보장)
 
   const { data: rawCompanies, error } = await query;
 
