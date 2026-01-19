@@ -145,8 +145,12 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   const isDev = process.env.NODE_ENV === 'development';
   const hasFallback = !!fallbackData;
 
+  // [DEV] 개발 환경: 옵션으로 전달된 refreshInterval도 무시하고 0으로 강제 (DB 부하 방지)
+  // 프로덕션: 전달된 값 또는 기본값(20초) 사용
+  const actualRefreshInterval = isDev ? 0 : refreshInterval;
+
   const { data, error, isLoading, mutate } = useSWR<CompaniesResponse>('/api/companies', fetcher, {
-    refreshInterval,
+    refreshInterval: actualRefreshInterval,
     revalidateOnFocus: isDev ? false : revalidateOnFocus, // 개발 모드: 포커스 재검증 비활성화
     revalidateOnReconnect: !isDev, // 개발 모드: 네트워크 복구 시 재검증 비활성화
     revalidateOnMount: !hasFallback, // fallbackData 있으면 마운트 시 재검증 안 함
