@@ -5,11 +5,14 @@
  * 동적 렌더링으로 변경하여 실시간 DB 데이터 반영
  *
  * @updated T1.10 - 정적 생성 → 동적 렌더링 (Supabase 연동)
+ * @note Feature Flag로 비활성화 시 홈으로 리다이렉트
  */
 
-import CompanyDetailClient from './CompanyDetailClient';
+import { redirect } from 'next/navigation';
 import { use } from 'react';
 import { setRequestLocale } from 'next-intl/server';
+import { FEATURES } from '@/config/features';
+import CompanyDetailClient from './CompanyDetailClient';
 
 /**
  * 동적 렌더링 강제 (실시간 DB 데이터 반영)
@@ -24,6 +27,11 @@ export default function CompanyDetailPage({
 }) {
   // Next.js 15+ params 비동기 처리
   const { locale, id } = use(params);
+
+  // Feature Flag 체크: 비활성화 시 홈으로 리다이렉트
+  if (!FEATURES.COMPANY_DETAIL_PAGE) {
+    redirect(`/${locale}`);
+  }
 
   // Enable static rendering for locale
   setRequestLocale(locale);

@@ -301,7 +301,6 @@ $color-promotion: #28a745;
 .leaderBg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba($color-gold, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 

@@ -17,6 +17,7 @@ import { Flame, TrendingUp, TrendingDown, Minus, AlertTriangle, ArrowUp } from '
 import classNames from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
+import { FEATURES } from '@/config/features';
 import type { CompanyRanking } from '@/types/league';
 import styles from './LeagueRankingItem.module.scss';
 
@@ -121,16 +122,18 @@ export default function LeagueRankingItem({
         </span>
       </div>
 
-      {/* 투표 버튼 -> 상세 보기 버튼 */}
-      <button
-        className={styles.voteButton}
-        onClick={(e) => {
-          e.stopPropagation();
-          router.push(`/${locale}/company/${company.companyId}`);
-        }}
-      >
-        {t('view_details')}
-      </button>
+      {/* 상세 보기 버튼 (Feature Flag로 제어) */}
+      {FEATURES.COMPANY_DETAIL_PAGE && (
+        <button
+          className={styles.voteButton}
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push(`/${locale}/company/${company.companyId}`);
+          }}
+        >
+          {t('view_details')}
+        </button>
+      )}
     </motion.article>
   );
 }

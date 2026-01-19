@@ -14,6 +14,7 @@ import { Medal, Flame, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import classNames from 'classnames';
+import { FEATURES } from '@/config/features';
 import type { CompanyRanking } from '@/types/league';
 import styles from './TopThreeCard.module.scss';
 
@@ -121,19 +122,21 @@ export default function TopThreeCard({
         )}
       </div>
 
-      {/* 투표 버튼 -> 상세 보기 버튼 */}
-      <button
-        className={styles.voteButton}
-        onClick={(e) => {
-          e.stopPropagation();
-          router.push(`/${locale}/company/${company.companyId}`);
-        }}
-        style={{
-          background: `linear-gradient(135deg, ${medalColor}dd 0%, ${medalColor}99 100%)`,
-        }}
-      >
-        <span>{t('view_details')}</span>
-      </button>
+      {/* 상세 보기 버튼 (Feature Flag로 제어) */}
+      {FEATURES.COMPANY_DETAIL_PAGE && (
+        <button
+          className={styles.voteButton}
+          onClick={(e) => {
+            e.stopPropagation();
+            router.push(`/${locale}/company/${company.companyId}`);
+          }}
+          style={{
+            background: `linear-gradient(135deg, ${medalColor}dd 0%, ${medalColor}99 100%)`,
+          }}
+        >
+          <span>{t('view_details')}</span>
+        </button>
+      )}
     </motion.article>
   );
 }
