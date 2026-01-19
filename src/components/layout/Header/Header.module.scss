@@ -40,8 +40,24 @@
   }
 }
 
-// 로고 (모바일에서만 표시)
-.logo {
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  // 데스크탑: 사이드바에 로고가 있으므로 숨김
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.logoIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.logoText {
   font-family: $font-display;
   font-weight: 900;
   font-size: 1.5rem;
@@ -51,11 +67,6 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-
-  // 데스크탑: 사이드바에 로고가 있으므로 숨김
-  @media (min-width: 768px) {
-    display: none;
-  }
 }
 
 // 컨트롤 영역 (테마 토글, 언어 선택기 등)

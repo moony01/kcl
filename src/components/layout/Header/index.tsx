@@ -28,11 +28,22 @@ export default function Header() {
         Instagram has a top bar on mobile with kcl logo.
         So let's keep logo but remove Theme Toggle as requested.
       */}
-      <h1 className={styles.logo}>KCL</h1>
+      <div className={styles.logoWrapper}>
+        <img
+          src="/plolux/kcl/logo-symbol.svg"
+          alt="KCL Logo"
+          className={styles.logoIcon}
+          width={28}
+          height={28}
+        />
+        <h1 className={styles.logoText}>KCL</h1>
+      </div>
 
       <div className={styles.controls}>
-        {/* 테마 토글 버튼 - 모바일/데스크탑 모두 우측 상단에 배치 */}
-        <ThemeToggle compact className={styles.themeToggle} />
+        {/* 테마 토글 버튼 - 개발 환경에서만 표시 (추후 정식 오픈 시 활성화) */}
+        {process.env.NODE_ENV === 'development' && (
+          <ThemeToggle compact className={styles.themeToggle} />
+        )}
 
         <select value={locale} onChange={changeLang} className={styles.langSelect}>
           <option value="ko">한국어</option>
