@@ -7,6 +7,7 @@
  * - 호버 시 투표 버튼 표시
  *
  * @updated T1.28 - 11위(승격 존) 특별 강조 스타일 추가, i18n 텍스트 적용
+ * @updated T1.56 - displayRank prop 추가 (2부 리그 독립 순위 표기)
  */
 
 'use client';
@@ -26,12 +27,15 @@ interface LeagueRankingItemProps {
   onVote?: (companyId: string) => void;
   /** 상세 페이지 이동 핸들러 (Deprecated) */
   onDetail?: (companyId: string) => void;
+  /** UI에 표시할 순위 (2부 리그 독립 순위 등) - 없으면 company.rank 사용 */
+  displayRank?: number;
 }
 
 export default function LeagueRankingItem({
   company,
   onVote: _onVote,
   onDetail: _onDetail,
+  displayRank,
 }: LeagueRankingItemProps) {
   const router = useRouter();
   const t = useTranslations('League');
@@ -76,9 +80,9 @@ export default function LeagueRankingItem({
       transition={{ duration: 0.15 }}
       onClick={() => _onVote?.(company.companyId)}
     >
-      {/* 순위 */}
+      {/* 순위 - T1.56: displayRank가 있으면 우선 사용 (2부 리그 독립 순위) */}
       <div className={styles.rank}>
-        <span className={styles.rankNumber}>{company.rank}</span>
+        <span className={styles.rankNumber}>{displayRank ?? company.rank}</span>
         {renderRankChange()}
       </div>
 

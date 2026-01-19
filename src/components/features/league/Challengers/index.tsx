@@ -6,12 +6,13 @@
  * - 더 보기 버튼 (페이지네이션)
  *
  * @updated T1.16 - 11위 승격 기회 강조 제거 (SeasonHeader로 통합)
+ * @updated T1.56 - 2부 리그 독립 순위 표기 (11위→1위, 12위→2위...)
+ * @updated T1.57 - 순위 변동 시 렌더링 버그 수정 (Framer Motion 애니메이션 제거)
  */
 
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { Flame, ChevronDown } from 'lucide-react';
 import type { CompanyRanking } from '@/types/league';
 import LeagueRankingItem from '../LeagueRankingItem';
@@ -45,42 +46,22 @@ export default function Challengers({ companies, onVote, onLoadMore, hasMore }: 
       {/* T1.16: 11위 승격 기회 강조 제거 - SeasonHeader의 승강전 영역으로 통합 */}
 
       {/* 11위~ 리스트 - T1.16: 11위도 일반 표시 */}
-      <motion.div
-        className={styles.rankingList}
-        initial="hidden"
-        animate="show"
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: { staggerChildren: 0.05, delayChildren: 0.2 },
-          },
-        }}
-      >
-        {companies.map((company) => (
-          <motion.div
-            key={company.companyId}
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              show: { opacity: 1, y: 0 },
-            }}
-          >
-            <LeagueRankingItem company={company} onVote={onVote} />
-          </motion.div>
+      {/* T1.56: 2부 리그 독립 순위 (index + 1 = 리그 내 순위) */}
+      {/* T1.57 FIX: Framer Motion 애니메이션 제거 - 순위 변동 시 렌더링 버그 해결 */}
+      <div className={styles.rankingList}>
+        {companies.map((company, index) => (
+          <div key={company.companyId}>
+            <LeagueRankingItem company={company} onVote={onVote} displayRank={index + 1} />
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* 더 보기 버튼 */}
       {hasMore && (
-        <motion.button
-          className={styles.loadMoreButton}
-          onClick={onLoadMore}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
+        <button className={styles.loadMoreButton} onClick={onLoadMore}>
           <span>{t('show_more')}</span>
           <ChevronDown size={18} />
-        </motion.button>
+        </button>
       )}
     </section>
   );
