@@ -12,13 +12,24 @@
  * @updated T1.31 - 실시간 업데이트 카운트다운 UI 추가
  * @updated T1.34 - Header 드롭다운 겹침 해결 (SCSS에서 상단 여백 조정)
  * @updated T1.35 - 1위/승강전 세로 중앙 정렬 + 사이즈 확대
+ * @updated T1.49 - 승강전 로고 추가 + 반응형 레이아웃 개선 (PC: 1줄, 모바일: 2줄)
  */
 
 'use client';
 
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, RefreshCw, Flame, Swords, TrendingDown, TrendingUp, Loader2 } from 'lucide-react';
+import {
+  Trophy,
+  RefreshCw,
+  Flame,
+  Swords,
+  TrendingDown,
+  TrendingUp,
+  Loader2,
+  Zap,
+} from 'lucide-react';
+import Image from 'next/image';
 import type { SeasonInfo, CompanyRanking, PromotionBattle } from '@/types/league';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
 import styles from './SeasonHeader.module.scss';
@@ -156,21 +167,46 @@ export default function SeasonHeader({
                   handleBattleClick(promotionBattle.relegationCompany.companyId)
                 }
               >
-                <TrendingDown size={10} className={styles.zoneIcon} />
-                <span className={styles.battleRank}>10위</span>
-                <span className={styles.battleName}>
-                  {promotionBattle.relegationCompany.nameEn}
-                </span>
-                <span className={styles.battleVotes}>
-                  {promotionBattle.relegationCompany.voteCount.toLocaleString()}
-                </span>
+                {/* T1.49: 회사 로고 추가 */}
+                <div className={styles.battleLogo}>
+                  {promotionBattle.relegationCompany.logoUrl ? (
+                    <Image
+                      src={promotionBattle.relegationCompany.logoUrl}
+                      alt={promotionBattle.relegationCompany.nameEn}
+                      width={28}
+                      height={28}
+                      className={styles.logoImage}
+                    />
+                  ) : (
+                    <span className={styles.logoFallback}>
+                      {promotionBattle.relegationCompany.nameEn.charAt(0)}
+                    </span>
+                  )}
+                </div>
+                <div className={styles.battleInfo}>
+                  <div className={styles.battleRankRow}>
+                    <TrendingDown size={12} className={styles.zoneIcon} />
+                    <span className={styles.battleRank}>#10</span>
+                  </div>
+                  <span className={styles.battleName}>
+                    {promotionBattle.relegationCompany.nameEn}
+                  </span>
+                  <span className={styles.battleVotes}>
+                    {promotionBattle.relegationCompany.voteCount.toLocaleString()}
+                  </span>
+                </div>
               </div>
 
-              {/* GAP 표시 */}
-              <div className={styles.gapBadge}>
-                <span className={styles.gapArrow}>←</span>
-                <span className={styles.gapValue}>{promotionBattle.gap.toLocaleString()}</span>
-                <span className={styles.gapArrow}>→</span>
+              {/* VS 표시 (GAP 포함) */}
+              <div className={styles.vsSection}>
+                <div className={styles.vsBadge}>
+                  <Zap size={14} className={styles.vsIcon} />
+                  <span className={styles.vsText}>VS</span>
+                </div>
+                <div className={styles.gapBadge}>
+                  <span className={styles.gapLabel}>GAP</span>
+                  <span className={styles.gapValue}>{promotionBattle.gap.toLocaleString()}</span>
+                </div>
               </div>
 
               {/* 11위 (승격 기회) */}
@@ -184,12 +220,34 @@ export default function SeasonHeader({
                   e.key === 'Enter' && handleBattleClick(promotionBattle.promotionCompany.companyId)
                 }
               >
-                <TrendingUp size={10} className={styles.zoneIcon} />
-                <span className={styles.battleRank}>11위</span>
-                <span className={styles.battleName}>{promotionBattle.promotionCompany.nameEn}</span>
-                <span className={styles.battleVotes}>
-                  {promotionBattle.promotionCompany.voteCount.toLocaleString()}
-                </span>
+                {/* T1.49: 회사 로고 추가 */}
+                <div className={styles.battleLogo}>
+                  {promotionBattle.promotionCompany.logoUrl ? (
+                    <Image
+                      src={promotionBattle.promotionCompany.logoUrl}
+                      alt={promotionBattle.promotionCompany.nameEn}
+                      width={28}
+                      height={28}
+                      className={styles.logoImage}
+                    />
+                  ) : (
+                    <span className={styles.logoFallback}>
+                      {promotionBattle.promotionCompany.nameEn.charAt(0)}
+                    </span>
+                  )}
+                </div>
+                <div className={styles.battleInfo}>
+                  <div className={styles.battleRankRow}>
+                    <TrendingUp size={12} className={styles.zoneIcon} />
+                    <span className={styles.battleRank}>#11</span>
+                  </div>
+                  <span className={styles.battleName}>
+                    {promotionBattle.promotionCompany.nameEn}
+                  </span>
+                  <span className={styles.battleVotes}>
+                    {promotionBattle.promotionCompany.voteCount.toLocaleString()}
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>

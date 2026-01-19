@@ -44,41 +44,69 @@ import {
  * Mock 데이터를 API 응답 형식으로 변환
  *
  * T1.42: firepower 기준 정렬 및 동적 rank 할당
+ * T1.53: league_tier 기반 리그 분리 (리그 내 순위 부여)
  */
 function getMockCompaniesResponse(tier?: string | null, limit?: string | null) {
-  // T1.42: firepower 기준 내림차순 정렬
-  // T1.51: 동점 시 id 기준 정렬 (안정적 순서 보장)
-  const sortedMock = [...MOCK_COMPANIES].sort((a, b) => {
-    if (b.firepower !== a.firepower) {
-      return b.firepower - a.firepower;
-    }
-    return a.id.localeCompare(b.id);
-  });
+  // T1.53: Mock 데이터에 league_tier 할당 (상위 10개 = premier)
+  // 먼저 firepower 기준으로 정렬하여 상위 10개 판별
+  const sortedForTier = [...MOCK_COMPANIES].sort((a, b) => b.firepower - a.firepower);
+  const premierIds = new Set(sortedForTier.slice(0, 10).map((c) => c.id));
 
-  // T1.42: 동적 rank 할당
-  let companies = sortedMock.map((c, index) => ({
-    id: c.id,
-    name_ko: c.name.ko,
-    name_en: c.name.en,
-    slug: c.id.replace('co-', ''),
-    logo_url: null,
-    gradient_color: c.image,
-    rank: index + 1, // T1.42: 동적 rank
-    firepower: c.firepower,
-    // T1.21: Mock 데이터 그룹 매핑
-    groups: c.representative.en.map((name, idx) => ({
-      id: `group-${c.id}-${idx}`,
-      name_en: name,
-      name_ko: c.representative.ko[idx] || name,
-      vote_count: 0,
-    })),
-  }));
+  // T1.53: 리그별로 분리하여 각각 정렬 및 rank 할당
+  const premierCompanies = MOCK_COMPANIES.filter((c) => premierIds.has(c.id))
+    .sort((a, b) => {
+      if (b.firepower !== a.firepower) return b.firepower - a.firepower;
+      return a.id.localeCompare(b.id);
+    })
+    .map((c, index) => ({
+      id: c.id,
+      name_ko: c.name.ko,
+      name_en: c.name.en,
+      slug: c.id.replace('co-', ''),
+      logo_url: null,
+      gradient_color: c.image,
+      rank: index + 1, // 1부: 1-10
+      firepower: c.firepower,
+      league_tier: 'premier' as const,
+      groups: c.representative.en.map((name, idx) => ({
+        id: `group-${c.id}-${idx}`,
+        name_en: name,
+        name_ko: c.representative.ko[idx] || name,
+        vote_count: 0,
+      })),
+    }));
 
-  // T1.42: 리그 필터 (동적 rank 기준)
+  const challengersCompanies = MOCK_COMPANIES.filter((c) => !premierIds.has(c.id))
+    .sort((a, b) => {
+      if (b.firepower !== a.firepower) return b.firepower - a.firepower;
+      return a.id.localeCompare(b.id);
+    })
+    .map((c, index) => ({
+      id: c.id,
+      name_ko: c.name.ko,
+      name_en: c.name.en,
+      slug: c.id.replace('co-', ''),
+      logo_url: null,
+      gradient_color: c.image,
+      rank: 11 + index, // 2부: 11부터 시작
+      firepower: c.firepower,
+      league_tier: 'challengers' as const,
+      groups: c.representative.en.map((name, idx) => ({
+        id: `group-${c.id}-${idx}`,
+        name_en: name,
+        name_ko: c.representative.ko[idx] || name,
+        vote_count: 0,
+      })),
+    }));
+
+  // 전체 목록 (1부 → 2부 순서)
+  let companies = [...premierCompanies, ...challengersCompanies];
+
+  // T1.53: 리그 필터 (DB의 league_tier 기준)
   if (tier === 'premier') {
-    companies = companies.filter((c) => c.rank <= 10);
+    companies = premierCompanies;
   } else if (tier === 'challengers') {
-    companies = companies.filter((c) => c.rank > 10);
+    companies = challengersCompanies;
   }
 
   // 개수 제한
@@ -100,9 +128,13 @@ function getMockCompaniesResponse(tier?: string | null, limit?: string | null) {
 /**
  * Supabase에서 소속사 데이터 조회
  *
- * T1.42: firepower 기준 동적 정렬 및 rank 재계산
- * - 기존: ORDER BY rank (정적, 투표 후 갱신 안 됨)
- * - 변경: ORDER BY firepower DESC (동적, 투표 즉시 반영)
+ * T1.53: league_tier 기반 리그 분리 및 리그 내 독립 순위 부여
+ * - 변경: DB의 league_tier 컬럼으로 리그 결정 (시즌 중 고정)
+ * - 1부(premier): league_tier='premier'인 회사들끼리 firepower 순 → rank 1~N
+ * - 2부(challengers): league_tier='challengers'인 회사들끼리 firepower 순 → rank (1부 수)+1부터
+ *
+ * T1.42: firepower 기준 동적 정렬
+ * T1.51: 동점 시 id 기준 정렬 (안정적 순서 보장)
  */
 async function fetchFromSupabase(
   tier?: string | null,
@@ -114,7 +146,7 @@ async function fetchFromSupabase(
     return null;
   }
 
-  // T1.42: firepower 기준 내림차순 정렬 (동적 순위)
+  // T1.53: league_tier 컬럼 추가 조회
   // T1.21: 그룹 정보(kcl_groups) 추가 조회
   const query = supabase
     .from('kcl_companies')
@@ -128,6 +160,7 @@ async function fetchFromSupabase(
       gradient_color,
       rank,
       firepower,
+      league_tier,
       groups:kcl_groups (
         id,
         name_ko,
@@ -136,8 +169,8 @@ async function fetchFromSupabase(
       )
     `,
     )
-    .order('firepower', { ascending: false }) // T1.42: rank → firepower
-    .order('id', { ascending: true }); // T1.51: 동점 시 id 기준 정렬 (안정적 순서 보장)
+    .order('firepower', { ascending: false })
+    .order('id', { ascending: true });
 
   const { data: rawCompanies, error } = await query;
 
@@ -146,27 +179,71 @@ async function fetchFromSupabase(
     return null;
   }
 
-  // T1.42: firepower 기준 정렬 후 동적 rank 할당
-  // T1.21: 그룹별 vote_count 상위 4개 추출
-  let companies = (rawCompanies || []).map((company, index) => {
+  // T1.53: 리그별 분리 및 각 리그 내에서 독립 순위 부여
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const allCompanies = rawCompanies || [];
+
+  // 1부 리그 회사들 (이미 firepower 순 정렬됨)
+  const premierCompanies = allCompanies
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const groups = (company as any).groups as Array<{ vote_count?: number }> | undefined;
-    const sortedGroups = Array.isArray(groups)
-      ? [...groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0)).slice(0, 4)
-      : [];
+    .filter((c: any) => c.league_tier === 'premier')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((company: any, index: number) => {
+      const groups = company.groups as Array<{ vote_count?: number }> | undefined;
+      const sortedGroups = Array.isArray(groups)
+        ? [...groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0)).slice(0, 4)
+        : [];
 
-    return {
-      ...company,
-      rank: index + 1, // T1.42: 동적 rank 할당 (1부터 시작)
-      groups: sortedGroups,
-    };
-  }) as CachedCompaniesData['companies'];
+      return {
+        id: company.id,
+        name_ko: company.name_ko,
+        name_en: company.name_en,
+        slug: company.slug,
+        logo_url: company.logo_url,
+        gradient_color: company.gradient_color,
+        firepower: company.firepower,
+        league_tier: 'premier' as const,
+        rank: index + 1, // 1부 내 순위: 1부터 시작
+        groups: sortedGroups,
+      };
+    });
 
-  // T1.42: 리그 필터 적용 (동적 rank 기준)
+  // 2부 리그 회사들 (이미 firepower 순 정렬됨)
+  const challengersCompanies = allCompanies
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .filter((c: any) => c.league_tier === 'challengers')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .map((company: any, index: number) => {
+      const groups = company.groups as Array<{ vote_count?: number }> | undefined;
+      const sortedGroups = Array.isArray(groups)
+        ? [...groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0)).slice(0, 4)
+        : [];
+
+      return {
+        id: company.id,
+        name_ko: company.name_ko,
+        name_en: company.name_en,
+        slug: company.slug,
+        logo_url: company.logo_url,
+        gradient_color: company.gradient_color,
+        firepower: company.firepower,
+        league_tier: 'challengers' as const,
+        rank: premierCompanies.length + index + 1, // 2부 순위: 1부 수 + 1부터
+        groups: sortedGroups,
+      };
+    });
+
+  // 전체 목록 (1부 → 2부 순서)
+  let companies = [
+    ...premierCompanies,
+    ...challengersCompanies,
+  ] as CachedCompaniesData['companies'];
+
+  // T1.53: 리그 필터 적용 (DB의 league_tier 기준)
   if (tier === 'premier') {
-    companies = companies.filter((c) => c.rank <= 10);
+    companies = premierCompanies as CachedCompaniesData['companies'];
   } else if (tier === 'challengers') {
-    companies = companies.filter((c) => c.rank > 10);
+    companies = challengersCompanies as CachedCompaniesData['companies'];
   }
 
   // 개수 제한 적용

@@ -34,11 +34,22 @@ const fetcher = async (url: string): Promise<CompaniesResponse> => {
 
 /**
  * DB 응답을 CompanyRanking 형식으로 변환
+ *
+ * T1.53: DB의 league_tier 값을 직접 사용 (시즌 중 고정)
+ * - 기존: rank 기준으로 tier 계산 (투표 시 즉시 리그 변경 문제)
+ * - 변경: DB에서 관리되는 league_tier 값 사용
  */
 function transformToCompanyRanking(
   company: CompaniesResponse['companies'][number],
 ): CompanyRanking {
-  const tier: LeagueTier = company.rank <= 10 ? 'premier' : 'challengers';
+  // T1.53: DB의 league_tier 값을 직접 사용 (rank 기반 계산 제거)
+  const tier: LeagueTier = company.league_tier;
+
+  // T1.53: 1부 10위 = 강등 위기, 2부 1위(전체 11위) = 승격 기회
+  // 1부 내 마지막 순위 = 강등 위기
+  // 2부 내 첫 순위 = 승격 기회
+  const isRelegationZone = tier === 'premier' && company.rank === 10;
+  const isPromotionZone = tier === 'challengers' && company.rank === 11;
 
   return {
     companyId: company.id,
@@ -53,8 +64,8 @@ function transformToCompanyRanking(
     voteCount: company.firepower,
     voteCountHourly: 0, // TODO: 시간당 투표 수 계산 기능 추가
     tier,
-    isRelegationZone: company.rank === 10,
-    isPromotionZone: company.rank === 11,
+    isRelegationZone,
+    isPromotionZone,
     artists: {
       en: company.groups?.map((g) => g.name_en) || [],
       ko: company.groups?.map((g) => g.name_ko) || [],
@@ -161,11 +172,12 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   // 전체 소속사 변환
   const allCompanies = (data?.companies || []).map(transformToCompanyRanking);
 
-  // 1부 리그 (1-10위)
-  const premierLeague = allCompanies.filter((c) => c.rank <= 10);
+  // T1.53: DB의 league_tier 기준으로 리그 분리 (rank 기준 X)
+  // 1부 리그 (league_tier === 'premier')
+  const premierLeague = allCompanies.filter((c) => c.tier === 'premier');
 
-  // 2부 리그 (11위~)
-  const challengers = allCompanies.filter((c) => c.rank > 10);
+  // 2부 리그 (league_tier === 'challengers')
+  const challengers = allCompanies.filter((c) => c.tier === 'challengers');
 
   // 시즌 정보
   const season = getCurrentSeason();

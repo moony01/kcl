@@ -6,27 +6,37 @@
 
 ```
 packages/kcl/supabase/
-├── README.md          # 이 문서
-└── policies.sql       # RLS (Row Level Security) 정책
+├── README.md                           # 이 문서
+├── policies.sql                        # RLS (Row Level Security) 정책
+└── migrations/
+    └── 20260119_add_league_tier.sql   # T1.53: 리그 티어 컬럼 추가
 ```
 
 ## 테이블 스키마 개요
 
 ### 1. kcl_companies (소속사)
 
-| 컬럼           | 타입        | 설명            |
-| -------------- | ----------- | --------------- |
-| id             | uuid        | PK              |
-| name_ko        | text        | 한글명          |
-| name_en        | text        | 영문명          |
-| slug           | text        | URL용 식별자    |
-| logo_url       | text        | 로고 이미지 URL |
-| gradient_color | text        | 브랜드 컬러     |
-| rank           | integer     | 현재 순위       |
-| firepower      | bigint      | 누적 투표 점수  |
-| created_at     | timestamptz | 생성일          |
+| 컬럼           | 타입        | 설명                                             |
+| -------------- | ----------- | ------------------------------------------------ |
+| id             | uuid        | PK                                               |
+| name_ko        | text        | 한글명                                           |
+| name_en        | text        | 영문명                                           |
+| slug           | text        | URL용 식별자                                     |
+| logo_url       | text        | 로고 이미지 URL                                  |
+| gradient_color | text        | 브랜드 컬러                                      |
+| rank           | integer     | 현재 순위                                        |
+| firepower      | bigint      | 누적 투표 점수                                   |
+| league_tier    | text        | 리그 티어 ('premier'/'challengers') - T1.53 추가 |
+| created_at     | timestamptz | 생성일                                           |
 
 **RLS 정책**: SELECT만 허용 (공개 읽기)
+
+**league_tier 설명** (T1.53):
+
+- `premier`: 1부 리그 (상위 10개 소속사)
+- `challengers`: 2부 리그 (나머지 소속사)
+- 시즌 중 고정, 월초에만 승강 적용
+- 투표로 firepower가 변해도 리그는 유지됨
 
 ### 2. kcl_groups (아티스트 그룹)
 

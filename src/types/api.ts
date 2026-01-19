@@ -4,6 +4,9 @@
  * Supabase 테이블 스키마와 매핑되는 타입들입니다.
  */
 
+/** 리그 구분 타입 (DB 컬럼 값) */
+export type DBLeagueTier = 'premier' | 'challengers';
+
 /** Supabase kcl_companies 테이블 스키마 */
 export interface DBCompany {
   id: string;
@@ -15,6 +18,8 @@ export interface DBCompany {
   gradient_color: string | null;
   rank: number;
   firepower: number;
+  /** T1.53: 리그 티어 (시즌 중 고정, 월초 승강) */
+  league_tier: DBLeagueTier;
   created_at: string;
   updated_at: string;
 }
@@ -39,7 +44,15 @@ export interface DBGroup {
 export interface CompaniesResponse {
   companies: (Pick<
     DBCompany,
-    'id' | 'name_ko' | 'name_en' | 'slug' | 'logo_url' | 'gradient_color' | 'rank' | 'firepower'
+    | 'id'
+    | 'name_ko'
+    | 'name_en'
+    | 'slug'
+    | 'logo_url'
+    | 'gradient_color'
+    | 'rank'
+    | 'firepower'
+    | 'league_tier'
   > & {
     groups: Pick<DBGroup, 'id' | 'name_ko' | 'name_en' | 'vote_count'>[];
   })[];
