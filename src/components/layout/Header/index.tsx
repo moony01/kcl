@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
 
@@ -28,16 +29,10 @@ export default function Header() {
         Instagram has a top bar on mobile with kcl logo.
         So let's keep logo but remove Theme Toggle as requested.
       */}
-      <div className={styles.logoWrapper}>
-        <img
-          src="/plolux/kcl/logo-symbol.svg"
-          alt="KCL Logo"
-          className={styles.logoIcon}
-          width={28}
-          height={28}
-        />
-        <h1 className={styles.logoText}>KCL</h1>
-      </div>
+      <Link href="/" className={styles.logoWrapper}>
+        <img src="/logo.svg" alt="KCL Logo" className={styles.logoIcon} width={28} height={28} />
+        <span className={styles.logoText}>KCL</span>
+      </Link>
 
       <div className={styles.controls}>
         {/* 테마 토글 버튼 - 개발 환경에서만 표시 (추후 정식 오픈 시 활성화) */}

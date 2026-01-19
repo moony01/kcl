@@ -4,8 +4,8 @@
  * 헤더 컴포넌트 스타일
  * 
  * 구조:
- * - Mobile: 상단 고정, 로고 + 언어 선택기
- * - Desktop: 언어 선택기만 우측 상단에 플로팅 (사이드바에 로고 있음)
+ * - Mobile: 로고 + 언어 선택기 (좌우 배치)
+ * - Desktop: 언어 선택기만 우측 상단 (사이드바에 로고 있음)
  */
 
 @use '../../../styles/abstracts/variables' as *;
@@ -24,19 +24,13 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba($color-text, 0.08);
 
-  // 태블릿+: 플로팅 언어 선택기만 표시
+  // 태블릿+: 로고 숨김되므로 우측 정렬
   @media (min-width: 768px) {
-    position: relative; // T1.34: fixed -> relative 변경하여 문서 흐름에 포함
-    top: auto;
-    right: auto;
-    left: auto;
-    width: 100%; // 전체 너비 사용하여 우측 정렬
-    padding: 16px 24px; // 적절한 패딩
+    padding: 16px 24px;
     background: transparent;
     border-bottom: none;
     backdrop-filter: none;
-    z-index: calc($z-nav + 1);
-    justify-content: flex-end; // 우측 정렬
+    justify-content: flex-end;
   }
 }
 
@@ -44,6 +38,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  text-decoration: none;
 
   // 데스크탑: 사이드바에 로고가 있으므로 숨김
   @media (min-width: 768px) {

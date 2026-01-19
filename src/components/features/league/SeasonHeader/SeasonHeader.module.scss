@@ -1,33 +1,40 @@
 /**
  * SeasonHeader.module.scss
  *
- * 시즌 대시보드 스타일 (슬라이드형 레이아웃)
- * - 원래 상단 디자인 복원 (D-day + 실시간 카운트다운)
- * - 슬라이더 전체 너비 + 화살표 오버레이
+ * ✨ 프리미엄 시즌 대시보드 스타일 (Luna 디자인 업그레이드)
+ * - 글래스모피즘 강화 + 골드 프리미엄 테마
+ * - shimmer, glow, particle 애니메이션
+ * - 드라마틱 VS 대결 구도
+ * - 반응형 레이아웃 유지
  */
 
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
-// 컬러 변수
+// ===== 디자인 토큰 (프리미엄) =====
 $color-gold: #d4af37;
 $color-gold-light: #f5e4a1;
 $color-gold-dark: #b8860b;
+$color-gold-champagne: #f7e7ce;
 $color-relegation: #dc3545;
+$color-relegation-glow: rgba(220, 53, 69, 0.4);
 $color-promotion: #28a745;
+$color-promotion-glow: rgba(40, 167, 69, 0.4);
 
+// ===== 메인 컨테이너 =====
 .seasonHeader {
   @include mix.glass-panel;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px 20px;
-  border-radius: 16px;
+  padding: 20px;
+  border-radius: 20px;
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba($color-gold, 0.15);
 
-  // 골드 그라디언트 오버레이
+  // 프리미엄 골드 그라디언트 오버레이
   &::before {
     content: '';
     position: absolute;
@@ -35,22 +42,68 @@ $color-promotion: #28a745;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba($color-gold, 0.08) 0%, rgba($color-gold, 0.02) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba($color-gold, 0.08) 0%,
+      rgba($color-gold, 0.02) 30%,
+      transparent 60%,
+      rgba($color-gold, 0.03) 100%
+    );
     pointer-events: none;
   }
 
+  // 파티클 배경 (CSS 기반)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba($color-gold, 0.06) 1px, transparent 1px),
+      radial-gradient(circle at 85% 15%, rgba($color-gold, 0.04) 1px, transparent 1px),
+      radial-gradient(circle at 45% 45%, rgba($color-gold, 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 75% 65%, rgba($color-gold, 0.05) 1px, transparent 1px);
+    background-size:
+      80px 80px,
+      100px 100px,
+      120px 120px,
+      60px 60px;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: particleFloat 20s ease-in-out infinite;
+  }
+
   @media (min-width: 768px) {
-    padding: 20px 24px;
+    padding: 24px 28px;
+    border-radius: 24px;
+    gap: 20px;
   }
 }
 
-// 상단 행: 시즌 정보 + D-day
+@keyframes particleFloat {
+  0%,
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+  50% {
+    background-position:
+      10px 10px,
+      -5px -5px,
+      8px -8px,
+      -3px 3px;
+  }
+}
+
+// ===== 상단 행: 시즌 정보 + D-day =====
 .topRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .seasonTitle {
@@ -61,84 +114,147 @@ $color-promotion: #28a745;
 
 .trophyIcon {
   color: $color-gold;
+  filter: drop-shadow(0 0 6px rgba($color-gold, 0.5));
+  animation: trophyGlow 2s ease-in-out infinite;
+}
+
+@keyframes trophyGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba($color-gold, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba($color-gold, 0.8));
+  }
 }
 
 .title {
   display: flex;
   flex-direction: column;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .brand {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: $color-text;
+  font-size: 1.15rem;
+  font-weight: 900;
   font-family: $font-display;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #ffffff 0%, #c0c0c0 100%);
+  letter-spacing: 1px;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    $color-gold-light 40%,
+    $color-gold 60%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: brandShimmer 4s ease-in-out infinite;
+  text-shadow: none;
 
   @media (min-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@keyframes brandShimmer {
+  0%,
+  100% {
+    background-position: 200% center;
+  }
+  50% {
+    background-position: -200% center;
   }
 }
 
 .seasonInfo {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: $color-text-dim;
   font-weight: 500;
+  margin-top: 2px;
 
   @media (min-width: 768px) {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
 
+// D-day 뱃지 (프리미엄 스타일)
 .daysRemaining {
+  z-index: 2;
+
   span {
-    display: inline-block;
-    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
     border-radius: 20px;
-    background: rgba($color-text, 0.08);
+    background: rgba($color-text, 0.06);
+    border: 1px solid rgba($color-text, 0.1);
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     color: $color-text-dim;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
 
     &.urgent {
-      background: rgba($color-relegation, 0.15);
+      background: linear-gradient(
+        135deg,
+        rgba($color-relegation, 0.2),
+        rgba($color-relegation, 0.1)
+      );
+      border-color: rgba($color-relegation, 0.4);
       color: $color-relegation;
-      animation: pulse 1.5s infinite;
+      box-shadow:
+        0 0 16px rgba($color-relegation, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      animation: urgentPulse 1s ease-in-out infinite;
+
+      &::before {
+        content: '🔥 ';
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding: 8px 18px;
+      font-size: 0.85rem;
     }
   }
 }
 
-@keyframes pulse {
+@keyframes urgentPulse {
   0%,
   100% {
-    opacity: 1;
+    box-shadow:
+      0 0 16px rgba($color-relegation, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: scale(1);
   }
   50% {
-    opacity: 0.7;
+    box-shadow:
+      0 0 24px rgba($color-relegation, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
   }
 }
 
-// ===== 실시간 업데이트 인디케이터 (우상단 절대 위치) =====
+// ===== 실시간 업데이트 인디케이터 =====
 .realtimeIndicator {
   position: absolute;
-  top: 8px;
-  right: 12px;
+  top: 10px;
+  right: 14px;
   display: flex;
   align-items: center;
   gap: 4px;
   font-size: 0.65rem;
   color: $color-text-dim;
-  z-index: 2;
+  z-index: 3;
 
   @media (min-width: 768px) {
-    top: 12px;
-    right: 16px;
+    top: 14px;
+    right: 18px;
     font-size: 0.7rem;
   }
 }
@@ -146,7 +262,11 @@ $color-promotion: #28a745;
 .refreshingState {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba($color-gold, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba($color-gold, 0.25);
 
   svg {
     color: $color-gold;
@@ -155,8 +275,8 @@ $color-promotion: #28a745;
 
 .refreshingText {
   color: $color-gold;
-  font-weight: 600;
-  animation: textPulse 1s infinite;
+  font-weight: 700;
+  animation: textPulse 0.8s infinite;
 }
 
 @keyframes textPulse {
@@ -165,15 +285,20 @@ $color-promotion: #28a745;
     opacity: 1;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.5;
   }
 }
 
 .countdownState {
   display: flex;
   align-items: center;
-  gap: 4px;
-  opacity: 0.7;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba($color-promotion, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba($color-promotion, 0.15);
+  opacity: 0.85;
+  transition: all 0.2s ease;
 
   svg {
     color: $color-promotion;
@@ -181,35 +306,36 @@ $color-promotion: #28a745;
 
   &:hover {
     opacity: 1;
+    background: rgba($color-promotion, 0.12);
   }
 }
 
 .countdownBadge {
-  padding: 2px 6px;
-  border-radius: 10px;
-  background: rgba($color-promotion, 0.15);
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba($color-promotion, 0.2);
   color: $color-promotion;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.6rem;
   font-variant-numeric: tabular-nums;
-  min-width: 28px;
+  min-width: 30px;
   text-align: center;
 
   @media (min-width: 768px) {
     font-size: 0.65rem;
-    min-width: 32px;
+    min-width: 34px;
   }
 }
 
-// ===== 슬라이드 컨테이너 (전체 너비 + 화살표 오버레이) =====
+// ===== 슬라이드 컨테이너 =====
 .sliderContainer {
   position: relative;
   width: 100%;
-  min-height: 180px;
-  z-index: 1;
+  min-height: 200px;
+  z-index: 2;
 
   @media (min-width: 768px) {
-    min-height: 200px;
+    min-height: 220px;
   }
 }
 
@@ -219,10 +345,21 @@ $color-promotion: #28a745;
   height: 100%;
   min-height: inherit;
   overflow: hidden;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba($color-gold, 0.06) 0%, rgba(0, 0, 0, 0.2) 100%);
-  border: 1px solid rgba($color-gold, 0.12);
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba($color-gold, 0.04) 50%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  border: 1px solid rgba($color-gold, 0.15);
+  box-shadow:
+    inset 0 2px 10px rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 768px) {
+    border-radius: 20px;
+  }
 }
 
 .slideItem {
@@ -231,58 +368,64 @@ $color-promotion: #28a745;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px 60px;
+  padding: 24px 50px;
 
   @media (min-width: 768px) {
-    padding: 28px 80px;
+    padding: 28px 70px;
   }
 }
 
-// 화살표 버튼 (슬라이더 위에 오버레이)
+// 화살표 버튼 (프리미엄 스타일)
 .arrowBtn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  border: 1px solid rgba($color-gold, 0.2);
+  color: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(4px);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
 
   &:hover {
-    background: rgba($color-gold, 0.3);
+    background: linear-gradient(145deg, rgba($color-gold, 0.3), rgba($color-gold, 0.15));
     border-color: rgba($color-gold, 0.5);
-    scale: 1.1;
+    color: white;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 4px 16px rgba($color-gold, 0.3);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
   }
 
   &.prev {
-    left: 12px;
+    left: 8px;
   }
   &.next {
-    right: 12px;
+    right: 8px;
   }
 
   @media (min-width: 768px) {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     &.prev {
-      left: 16px;
+      left: 12px;
     }
     &.next {
-      right: 16px;
+      right: 12px;
     }
   }
 }
 
-// ===== 1위 카드 디자인 =====
+// ===== 1위 카드 디자인 (프리미엄) =====
 .leaderCard {
   width: 100%;
   height: 100%;
@@ -290,11 +433,28 @@ $color-promotion: #28a745;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
 
   &:hover {
     transform: scale(1.02);
+
+    .leaderBg::after {
+      opacity: 0.6;
+    }
+
+    .crownBadge {
+      transform: scale(1.05);
+      box-shadow:
+        0 4px 16px rgba($color-gold, 0.4),
+        0 0 30px rgba($color-gold, 0.3);
+    }
+
+    .leaderLogo {
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba($color-gold, 0.3);
+    }
   }
 }
 
@@ -302,6 +462,67 @@ $color-promotion: #28a745;
   position: absolute;
   inset: 0;
   pointer-events: none;
+  border-radius: 12px;
+  overflow: hidden;
+
+  // 골드 글로우 효과
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba($color-gold, 0.15) 0%,
+      rgba($color-gold, 0.05) 40%,
+      transparent 70%
+    );
+    animation: leaderGlow 3s ease-in-out infinite;
+  }
+
+  // shimmer 효과
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba($color-gold, 0.1) 40%,
+      rgba($color-gold, 0.2) 50%,
+      rgba($color-gold, 0.1) 60%,
+      transparent 100%
+    );
+    animation: shimmer 4s ease-in-out infinite;
+    opacity: 0.4;
+  }
+}
+
+@keyframes leaderGlow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 
 .leaderContent {
@@ -310,89 +531,159 @@ $color-promotion: #28a745;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .crownBadge {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: linear-gradient(135deg, rgba($color-gold, 0.2), rgba($color-gold-dark, 0.1));
-  padding: 4px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba($color-gold, 0.3);
+  gap: 8px;
+  background: linear-gradient(135deg, $color-gold 0%, $color-gold-light 50%, $color-gold 100%);
+  padding: 6px 16px;
+  border-radius: 24px;
+  border: 1px solid rgba($color-gold-champagne, 0.5);
+  box-shadow:
+    0 2px 12px rgba($color-gold, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 
   span {
     font-size: 0.7rem;
-    font-weight: 800;
-    color: $color-gold;
-    letter-spacing: 1px;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  svg {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  }
+
+  @media (min-width: 768px) {
+    padding: 8px 20px;
+    span {
+      font-size: 0.75rem;
+    }
   }
 }
 
 .leaderMain {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
 }
 
 .leaderLogo {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.6rem;
+  font-weight: 900;
   color: white;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba($color-gold, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba($color-gold, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  // 로고 내부 shimmer
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.15) 50%,
+      transparent 60%
+    );
+    animation: logoShine 3s ease-in-out infinite;
+  }
 
   @media (min-width: 768px) {
-    width: 72px;
-    height: 72px;
-    font-size: 2rem;
+    width: 80px;
+    height: 80px;
+    font-size: 2.2rem;
+    border-radius: 18px;
+  }
+}
+
+@keyframes logoShine {
+  0%,
+  100% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) rotate(45deg);
   }
 }
 
 .leaderText {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .leaderName {
   margin: 0;
-  font-size: 1.3rem;
-  font-weight: 800;
+  font-size: 1.4rem;
+  font-weight: 900;
   color: white;
+  font-family: $font-display;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
 
   @media (min-width: 768px) {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
 .leaderScore {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: $color-primary;
-  font-size: 1rem;
-  font-weight: 700;
+  gap: 8px;
+  color: $color-gold-light;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
 
   .flameIcon {
     color: #ff6b35;
     fill: #ff6b35;
-    filter: drop-shadow(0 0 6px rgba(255, 107, 53, 0.4));
+    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
+    animation: flameFlicker 0.8s ease-in-out infinite alternate;
   }
 
   @media (min-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
   }
 }
 
-// ===== 승강전 카드 디자인 =====
+@keyframes flameFlicker {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
+  }
+  100% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 107, 53, 0.9));
+  }
+}
+
+// ===== 승강전 카드 디자인 (드라마틱) =====
 .battleCard {
   width: 100%;
   height: 100%;
@@ -401,59 +692,78 @@ $color-promotion: #28a745;
   align-items: center;
   justify-content: center;
   gap: 16px;
+  position: relative;
 }
 
 .battleHeader {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background: linear-gradient(135deg, rgba($color-gold, 0.15), rgba($color-gold, 0.05));
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba($color-gold, 0.2), rgba($color-gold, 0.08));
   border-radius: 20px;
-  border: 1px solid rgba($color-gold, 0.2);
+  border: 1px solid rgba($color-gold, 0.25);
+  box-shadow: 0 2px 10px rgba($color-gold, 0.15);
 }
 
 .swordsIcon {
   color: $color-gold;
   width: 16px;
   height: 16px;
-  animation: pulse 2s infinite;
+  animation: swordCross 2s ease-in-out infinite;
+}
+
+@keyframes swordCross {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 0 4px rgba($color-gold, 0.5));
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba($color-gold, 0.9));
+  }
 }
 
 .battleTitle {
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 900;
   color: $color-gold;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
 .battleContent {
   display: flex;
-  align-items: stretch; // 높이 맞추기
+  align-items: stretch;
   justify-content: center;
-  gap: 0; // gap 제거, 카드가 VS를 감싸도록
+  gap: 0;
   width: 100%;
 }
 
-// 승강전 회사 카드 (동일 사이즈)
+// 승강전 회사 카드
 .battleCompany {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  width: 120px; // 고정 너비
-  height: 100px; // 고정 높이
-  padding: 12px;
-  border-radius: 12px;
+  gap: 10px;
+  width: 120px;
+  height: 110px;
+  padding: 14px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.02);
   position: relative;
   overflow: hidden;
 
-  // 미세한 광택 효과
+  // 상단 광택 라인
   &::before {
     content: '';
     position: absolute;
@@ -461,67 +771,142 @@ $color-promotion: #28a745;
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   }
 
-  &:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
-
+  // 강등 위험 존 (10위)
   &[data-zone='relegation'] {
-    border: 1px solid rgba($color-relegation, 0.3);
-    background: linear-gradient(180deg, rgba($color-relegation, 0.08) 0%, transparent 100%);
+    border: 1px solid rgba($color-relegation, 0.35);
+    background: linear-gradient(
+      180deg,
+      rgba($color-relegation, 0.12) 0%,
+      rgba($color-relegation, 0.04) 50%,
+      transparent 100%
+    );
+    box-shadow: inset 0 0 20px rgba($color-relegation, 0.1);
 
     .battleRank {
       color: $color-relegation;
-      text-shadow: 0 0 8px rgba($color-relegation, 0.5);
+      text-shadow: 0 0 12px $color-relegation-glow;
+    }
+
+    .battleLogo {
+      border-color: rgba($color-relegation, 0.4);
+      box-shadow: 0 4px 16px rgba($color-relegation, 0.2);
     }
 
     &:hover {
-      border-color: rgba($color-relegation, 0.5);
-      box-shadow: 0 8px 24px rgba($color-relegation, 0.2);
+      transform: translateY(-4px) scale(1.03);
+      border-color: rgba($color-relegation, 0.6);
+      box-shadow:
+        0 8px 32px rgba($color-relegation, 0.3),
+        inset 0 0 30px rgba($color-relegation, 0.15);
+
+      .battleLogo {
+        box-shadow: 0 6px 24px rgba($color-relegation, 0.4);
+      }
+    }
+
+    // 위험 펄스 애니메이션
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: transparent;
+      animation: dangerPulse 2s ease-in-out infinite;
+      pointer-events: none;
     }
   }
 
+  // 승격 기회 존 (11위)
   &[data-zone='promotion'] {
-    border: 1px solid rgba($color-promotion, 0.3);
-    background: linear-gradient(180deg, rgba($color-promotion, 0.08) 0%, transparent 100%);
+    border: 1px solid rgba($color-promotion, 0.35);
+    background: linear-gradient(
+      180deg,
+      rgba($color-promotion, 0.12) 0%,
+      rgba($color-promotion, 0.04) 50%,
+      transparent 100%
+    );
+    box-shadow: inset 0 0 20px rgba($color-promotion, 0.1);
 
     .battleRank {
       color: $color-promotion;
-      text-shadow: 0 0 8px rgba($color-promotion, 0.5);
+      text-shadow: 0 0 12px $color-promotion-glow;
+    }
+
+    .battleLogo {
+      border-color: rgba($color-promotion, 0.4);
+      box-shadow: 0 4px 16px rgba($color-promotion, 0.2);
     }
 
     &:hover {
-      border-color: rgba($color-promotion, 0.5);
-      box-shadow: 0 8px 24px rgba($color-promotion, 0.2);
+      transform: translateY(-4px) scale(1.03);
+      border-color: rgba($color-promotion, 0.6);
+      box-shadow:
+        0 8px 32px rgba($color-promotion, 0.3),
+        inset 0 0 30px rgba($color-promotion, 0.15);
+
+      .battleLogo {
+        box-shadow: 0 6px 24px rgba($color-promotion, 0.4);
+      }
+    }
+
+    // 희망 펄스 애니메이션
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: transparent;
+      animation: hopePulse 2.5s ease-in-out infinite;
+      pointer-events: none;
     }
   }
 
   @media (min-width: 768px) {
     width: 140px;
-    height: 110px;
-    padding: 14px;
+    height: 120px;
+    padding: 16px;
+  }
+}
+
+@keyframes dangerPulse {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: inset 0 0 20px rgba($color-relegation, 0.1);
+  }
+}
+
+@keyframes hopePulse {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: inset 0 0 20px rgba($color-promotion, 0.1);
   }
 }
 
 .battleLogo {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 
   @media (min-width: 768px) {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
   }
 }
 
@@ -532,12 +917,13 @@ $color-promotion: #28a745;
 }
 
 .logoFallback {
-  font-weight: 800;
-  font-size: 1rem;
+  font-weight: 900;
+  font-size: 1.1rem;
   color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 
   @media (min-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -545,19 +931,20 @@ $color-promotion: #28a745;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   width: 100%;
 }
 
 .battleRank {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .battleName {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   color: $color-text;
   white-space: nowrap;
   overflow: hidden;
@@ -570,247 +957,136 @@ $color-promotion: #28a745;
   }
 }
 
-// VS 섹션 (정확히 가운데)
+// VS 섹션 (드라마틱)
 .vsSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0 16px;
-  min-width: 70px;
+  gap: 8px;
+  padding: 0 14px;
+  min-width: 80px;
+  position: relative;
+
+  // 전투 라인 효과
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 60%;
+    top: 20%;
+    background: linear-gradient(to bottom, transparent, rgba($color-gold, 0.3), transparent);
+  }
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
 
   @media (min-width: 768px) {
-    padding: 0 24px;
-    min-width: 90px;
+    padding: 0 20px;
+    min-width: 100px;
+    gap: 10px;
   }
 }
 
 .vsText {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 900;
   color: $color-gold;
-  text-shadow: 0 0 12px rgba($color-gold, 0.5);
-  letter-spacing: 2px;
+  font-family: $font-display;
+  text-shadow:
+    0 0 20px rgba($color-gold, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+  animation: vsGlow 1.5s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+  }
+}
+
+@keyframes vsGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 20px rgba($color-gold, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba($color-gold, 0.9),
+      0 0 60px rgba($color-gold, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+}
+
+.gapBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(145deg, rgba($color-gold, 0.18), rgba($color-gold, 0.06));
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba($color-gold, 0.25);
+  box-shadow: 0 2px 8px rgba($color-gold, 0.15);
+}
+
+.gapLabel {
+  font-size: 0.6rem;
+  color: $color-text-dim;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gapValue {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: $color-gold;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 10px rgba($color-gold, 0.4);
 
   @media (min-width: 768px) {
     font-size: 1.2rem;
   }
 }
 
-.gapBadge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(135deg, rgba($color-gold, 0.15), rgba($color-gold, 0.05));
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba($color-gold, 0.2);
-}
-
-.gapLabel {
-  font-size: 0.6rem;
-  color: $color-text-dim;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.gapValue {
-  font-size: 1rem;
-  font-weight: 800;
-  color: $color-gold;
-  font-variant-numeric: tabular-nums;
-  text-shadow: 0 0 8px rgba($color-gold, 0.3);
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-  }
-}
-
-.battleHeader {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  background: rgba($color-gold, 0.1);
-  border-radius: 20px;
-}
-
-.swordsIcon {
-  color: $color-gold;
-  width: 14px;
-  height: 14px;
-}
-
-.battleTitle {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: $color-gold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.battleContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  width: 100%;
-
-  @media (min-width: 768px) {
-    gap: 24px;
-  }
-}
-
-.battleCompany {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: rgba(255, 255, 255, 0.03);
-
-  &:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.06);
-  }
-
-  &[data-zone='relegation'] {
-    border: 1px solid rgba($color-relegation, 0.25);
-    .battleRank {
-      color: $color-relegation;
-    }
-  }
-
-  &[data-zone='promotion'] {
-    border: 1px solid rgba($color-promotion, 0.25);
-    .battleRank {
-      color: $color-promotion;
-    }
-  }
-}
-
-.battleLogo {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  flex-shrink: 0;
-
-  @media (min-width: 768px) {
-    width: 44px;
-    height: 44px;
-  }
-}
-
-.logoImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.logoFallback {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: white;
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-  }
-}
-
-.battleInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.battleRank {
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-
-.battleName {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: $color-text;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 80px;
-
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-    max-width: 120px;
-  }
-}
-
-// VS 섹션
-.vsSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.vsText {
-  font-size: 0.85rem;
-  font-weight: 900;
-  color: $color-gold;
-  font-style: italic;
-}
-
-.gapBadge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgba($color-gold, 0.1);
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-
-.gapLabel {
-  font-size: 0.55rem;
-  color: $color-text-dim;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.gapValue {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: $color-gold;
-  font-variant-numeric: tabular-nums;
-}
-
-// 인디케이터
+// ===== 인디케이터 (프리미엄) =====
 .indicators {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 10px;
+  margin-top: 12px;
+  z-index: 2;
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba($color-gold, 0.3);
+    border-color: rgba($color-gold, 0.4);
+    transform: scale(1.2);
+  }
 
   &.active {
-    width: 20px;
-    border-radius: 4px;
-    background: $color-gold;
+    width: 28px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, $color-gold, $color-gold-light);
+    border-color: rgba($color-gold-champagne, 0.5);
+    box-shadow: 0 2px 8px rgba($color-gold, 0.4);
   }
 }

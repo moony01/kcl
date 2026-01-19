@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Home, BarChart3, Trophy, Newspaper, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
+import { FEATURES } from '@/config/features';
 import styles from './BottomNav.module.scss';
 
 export default function BottomNav() {
@@ -14,16 +15,29 @@ export default function BottomNav() {
   // 현재 locale 추출 (예: /en/ranking -> 'en')
   const currentLocale = pathname.split('/')[1] || 'en';
 
+  // Feature Flags 기반 네비게이션 메뉴 (Sidebar와 동기화)
   const NAV_ITEMS = [
-    { label: t('home'), href: '/', icon: Home },
-    { label: t('analytics'), href: '/analytics', icon: BarChart3 },
-    { label: t('hall_of_fame'), href: '/hall-of-fame', icon: Trophy },
-    { label: t('news'), href: '/news', icon: Newspaper },
-    { label: t('community'), href: '/community', icon: MessageSquare },
-    // { label: 'Ranking', href: '/ranking', icon: Trophy },
-    // { label: 'Support', href: '/support', icon: HeartHandshake }, // Vote -> Support Mapping
-    // { label: 'My', href: '/my', icon: User },
-  ];
+    { label: t('home'), href: '/', icon: Home, enabled: true },
+    {
+      label: t('analytics'),
+      href: '/analytics',
+      icon: BarChart3,
+      enabled: FEATURES.ANALYTICS_PAGE,
+    },
+    {
+      label: t('hall_of_fame'),
+      href: '/hall-of-fame',
+      icon: Trophy,
+      enabled: FEATURES.HALL_OF_FAME_PAGE,
+    },
+    { label: t('news'), href: '/news', icon: Newspaper, enabled: FEATURES.NEWS_PAGE },
+    {
+      label: t('community'),
+      href: '/community',
+      icon: MessageSquare,
+      enabled: FEATURES.COMMUNITY_PAGE,
+    },
+  ].filter((item) => item.enabled);
 
   return (
     <nav className={styles.navContainer}>

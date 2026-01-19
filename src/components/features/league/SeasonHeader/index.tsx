@@ -1,18 +1,18 @@
 /**
  * SeasonHeader
  *
- * 시즌 대시보드 컴포넌트 (T1.16 승강전 통합)
- * - 현재 시즌 (2026년 1월 시즌)
- * - D-day 카운트다운
- * - 현재 1위 소속사 표시
- * - ⭐ 승강전 정보 (10위 vs 11위 + GAP)
- * - 실시간 업데이트 인디케이터 + 20초 카운트다운 (T1.31)
+ * ✨ 프리미엄 시즌 대시보드 컴포넌트 (Luna 디자인 업그레이드)
+ * - 현재 시즌 정보 + D-day 카운트다운
+ * - 현재 1위 소속사 (골드 프리미엄 효과)
+ * - 승강전 정보 (드라마틱 VS 대결 구도)
+ * - 실시간 업데이트 인디케이터 + 20초 카운트다운
  *
  * @updated T1.16 - 승강전 정보를 SeasonHeader에 통합
  * @updated T1.31 - 실시간 업데이트 카운트다운 UI 추가
- * @updated T1.34 - Header 드롭다운 겹침 해결 (SCSS에서 상단 여백 조정)
+ * @updated T1.34 - Header 드롭다운 겹침 해결
  * @updated T1.35 - 1위/승강전 세로 중앙 정렬 + 사이즈 확대
- * @updated T1.49 - 승강전 로고 추가 + 반응형 레이아웃 개선 (PC: 1줄, 모바일: 2줄)
+ * @updated T1.49 - 승강전 로고 추가 + 반응형 레이아웃 개선
+ * @updated Luna - 프리미엄 UI/UX 디자인 업그레이드 (글로우, shimmer, 드라마틱 애니메이션)
  */
 
 'use client';
@@ -25,12 +25,10 @@ import {
   RefreshCw,
   Flame,
   Swords,
-  TrendingDown,
-  TrendingUp,
   Loader2,
-  Zap,
   ChevronLeft,
   ChevronRight,
+  Crown,
 } from 'lucide-react';
 import Image from 'next/image';
 import type { SeasonInfo, CompanyRanking, PromotionBattle } from '@/types/league';
@@ -97,46 +95,86 @@ export default function SeasonHeader({
     });
   };
 
-  // 슬라이드 애니메이션 설정
+  // 슬라이드 애니메이션 설정 (더 부드럽게)
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 350 : -350,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.85,
+      rotateY: direction > 0 ? 15 : -15,
     }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
       scale: 1,
+      rotateY: 0,
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 350 : -350,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.85,
+      rotateY: direction < 0 ? 15 : -15,
     }),
   };
 
+  // 카드 호버 애니메이션 설정
+  const cardHoverVariants = {
+    rest: { scale: 1, y: 0 },
+    hover: { scale: 1.02, y: -4 },
+    tap: { scale: 0.98 },
+  };
+
+  // 배틀 카드 호버 애니메이션 설정
+  const battleCompanyVariants = {
+    rest: { scale: 1, y: 0 },
+    hover: { scale: 1.04, y: -5 },
+    tap: { scale: 0.97 },
+  };
+
   return (
-    <header className={styles.seasonHeader}>
+    <motion.header
+      className={styles.seasonHeader}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       {/* 상단 행: 시즌 정보 + D-day */}
       <div className={styles.topRow}>
-        <div className={styles.seasonTitle}>
-          <Trophy className={styles.trophyIcon} size={20} />
+        <motion.div
+          className={styles.seasonTitle}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.1, duration: 0.4 }}
+        >
+          <motion.div
+            animate={{
+              rotate: [0, -10, 10, -5, 5, 0],
+              scale: [1, 1.1, 1.1, 1.05, 1.05, 1],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatDelay: 5,
+            }}
+          >
+            <Trophy className={styles.trophyIcon} size={22} />
+          </motion.div>
           <h1 className={styles.title}>
             <span className={styles.brand}>KPOP COMPANY LEAGUE</span>
             <span className={styles.seasonInfo}>
               {t('title', { year: season.year, month: season.month })}
             </span>
           </h1>
-        </div>
+        </motion.div>
 
         <motion.div
           className={styles.daysRemaining}
-          initial={{ scale: 0.9, opacity: 0 }}
+          initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+          whileHover={{ scale: 1.05 }}
         >
           <span className={season.daysRemaining <= 3 ? styles.urgent : ''}>
             {formatDaysRemaining()}
@@ -151,14 +189,14 @@ export default function SeasonHeader({
             <motion.div
               key="refreshing"
               className={styles.refreshingState}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, scale: 0.8, y: -5 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 5 }}
+              transition={{ duration: 0.25 }}
             >
               <motion.span
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 0.6, ease: 'linear' }}
               >
                 <Loader2 size={14} />
               </motion.span>
@@ -168,37 +206,50 @@ export default function SeasonHeader({
             <motion.div
               key="countdown"
               className={styles.countdownState}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, scale: 0.8, y: -5 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 5 }}
+              transition={{ duration: 0.25 }}
             >
               <motion.span
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 3, ease: 'linear' }}
+                transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
               >
                 <RefreshCw size={14} />
               </motion.span>
               <span>{t('realtime')}</span>
-              <span className={styles.countdownBadge}>
+              <motion.span
+                className={styles.countdownBadge}
+                key={countdown}
+                initial={{ scale: 1.2, opacity: 0.5 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
                 {t('countdown', { seconds: countdown })}
-              </span>
+              </motion.span>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
       {/* 메인 슬라이드 영역 */}
-      <div className={styles.sliderContainer}>
+      <motion.div
+        className={styles.sliderContainer}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3, duration: 0.4 }}
+      >
         {/* 왼쪽 화살표 */}
         {hasPromotionBattle && (
-          <button
+          <motion.button
             className={classNames(styles.arrowBtn, styles.prev)}
             onClick={() => paginate(-1)}
             aria-label="Previous slide"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
           >
             <ChevronLeft size={24} />
-          </button>
+          </motion.button>
         )}
 
         <div className={styles.slideTrack}>
@@ -212,37 +263,66 @@ export default function SeasonHeader({
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: 'spring', stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
+                  x: { type: 'spring', stiffness: 250, damping: 28 },
+                  opacity: { duration: 0.25 },
+                  scale: { duration: 0.3 },
+                  rotateY: { duration: 0.4 },
                 }}
                 className={styles.slideItem}
               >
-                {/* 1위 카드 디자인 */}
-                <div className={styles.leaderCard} onClick={handleLeaderClick} role="button">
+                {/* 1위 카드 디자인 (프리미엄) */}
+                <motion.div
+                  className={styles.leaderCard}
+                  onClick={handleLeaderClick}
+                  role="button"
+                  tabIndex={0}
+                  variants={cardHoverVariants}
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="tap"
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
                   <div className={styles.leaderBg} />
                   <div className={styles.leaderContent}>
-                    <div className={styles.crownBadge}>
-                      <Trophy size={14} fill="#FFD700" color="#B8860B" />
+                    <motion.div
+                      className={styles.crownBadge}
+                      initial={{ y: -10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.2, type: 'spring' }}
+                    >
+                      <Crown size={14} fill="#FFD700" color="#B8860B" />
                       <span>CURRENT #1</span>
-                    </div>
+                    </motion.div>
 
                     <div className={styles.leaderMain}>
-                      <div
+                      <motion.div
                         className={styles.leaderLogo}
                         style={{ background: leader.gradientColor }}
+                        whileHover={{ scale: 1.08, rotate: 3 }}
+                        transition={{ type: 'spring', stiffness: 400 }}
                       >
                         {leader.nameEn.charAt(0)}
-                      </div>
+                      </motion.div>
                       <div className={styles.leaderText}>
                         <h2 className={styles.leaderName}>{leader.nameEn}</h2>
-                        <div className={styles.leaderScore}>
-                          <Flame size={16} className={styles.flameIcon} />
+                        <motion.div
+                          className={styles.leaderScore}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          <motion.span
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}
+                          >
+                            <Flame size={18} className={styles.flameIcon} />
+                          </motion.span>
                           <span>{leader.voteCount.toLocaleString()}</span>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             )}
 
@@ -255,32 +335,49 @@ export default function SeasonHeader({
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: 'spring', stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
+                  x: { type: 'spring', stiffness: 250, damping: 28 },
+                  opacity: { duration: 0.25 },
+                  scale: { duration: 0.3 },
+                  rotateY: { duration: 0.4 },
                 }}
                 className={styles.slideItem}
               >
-                {/* 승강전 카드 디자인 */}
+                {/* 승강전 카드 디자인 (드라마틱) */}
                 <div className={styles.battleCard}>
-                  <div className={styles.battleHeader}>
-                    <Swords size={14} className={styles.swordsIcon} />
+                  <motion.div
+                    className={styles.battleHeader}
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <motion.span
+                      animate={{ rotate: [0, -15, 15, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+                    >
+                      <Swords size={16} className={styles.swordsIcon} />
+                    </motion.span>
                     <span className={styles.battleTitle}>{tBattle('title')}</span>
-                  </div>
+                  </motion.div>
 
                   <div className={styles.battleContent}>
-                    {/* 10위 */}
-                    <div
+                    {/* 10위 (강등 위험) */}
+                    <motion.div
                       className={styles.battleCompany}
                       data-zone="relegation"
                       onClick={() => handleBattleClick(promotionBattle.relegationCompany.companyId)}
+                      variants={battleCompanyVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                     >
                       <div className={styles.battleLogo}>
                         {promotionBattle.relegationCompany.logoUrl ? (
                           <Image
                             src={promotionBattle.relegationCompany.logoUrl}
                             alt={promotionBattle.relegationCompany.nameEn}
-                            width={32}
-                            height={32}
+                            width={44}
+                            height={44}
                             className={styles.logoImage}
                           />
                         ) : (
@@ -295,32 +392,60 @@ export default function SeasonHeader({
                           {promotionBattle.relegationCompany.nameEn}
                         </span>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    {/* GAP */}
-                    <div className={styles.vsSection}>
-                      <span className={styles.vsText}>VS</span>
-                      <div className={styles.gapBadge}>
+                    {/* VS + GAP */}
+                    <motion.div
+                      className={styles.vsSection}
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.2, type: 'spring' }}
+                    >
+                      <motion.span
+                        className={styles.vsText}
+                        animate={{
+                          textShadow: [
+                            '0 0 20px rgba(212, 175, 55, 0.6)',
+                            '0 0 40px rgba(212, 175, 55, 0.9)',
+                            '0 0 20px rgba(212, 175, 55, 0.6)',
+                          ],
+                        }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        VS
+                      </motion.span>
+                      <motion.div className={styles.gapBadge} whileHover={{ scale: 1.08 }}>
                         <span className={styles.gapLabel}>GAP</span>
-                        <span className={styles.gapValue}>
+                        <motion.span
+                          className={styles.gapValue}
+                          key={promotionBattle.gap}
+                          initial={{ scale: 1.3, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: 'spring' }}
+                        >
                           {promotionBattle.gap.toLocaleString()}
-                        </span>
-                      </div>
-                    </div>
+                        </motion.span>
+                      </motion.div>
+                    </motion.div>
 
-                    {/* 11위 */}
-                    <div
+                    {/* 11위 (승격 기회) */}
+                    <motion.div
                       className={styles.battleCompany}
                       data-zone="promotion"
                       onClick={() => handleBattleClick(promotionBattle.promotionCompany.companyId)}
+                      variants={battleCompanyVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                     >
                       <div className={styles.battleLogo}>
                         {promotionBattle.promotionCompany.logoUrl ? (
                           <Image
                             src={promotionBattle.promotionCompany.logoUrl}
                             alt={promotionBattle.promotionCompany.nameEn}
-                            width={32}
-                            height={32}
+                            width={44}
+                            height={44}
                             className={styles.logoImage}
                           />
                         ) : (
@@ -335,7 +460,7 @@ export default function SeasonHeader({
                           {promotionBattle.promotionCompany.nameEn}
                         </span>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -345,21 +470,28 @@ export default function SeasonHeader({
 
         {/* 오른쪽 화살표 */}
         {hasPromotionBattle && (
-          <button
+          <motion.button
             className={classNames(styles.arrowBtn, styles.next)}
             onClick={() => paginate(1)}
             aria-label="Next slide"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
           >
             <ChevronRight size={24} />
-          </button>
+          </motion.button>
         )}
-      </div>
+      </motion.div>
 
       {/* 인디케이터 */}
       {hasPromotionBattle && (
-        <div className={styles.indicators}>
+        <motion.div
+          className={styles.indicators}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
           {[0, 1].map((idx) => (
-            <button
+            <motion.button
               key={idx}
               className={classNames(styles.dot, { [styles.active]: idx === currentIndex })}
               onClick={() => {
@@ -368,10 +500,13 @@ export default function SeasonHeader({
                 setCurrentIndex(idx);
               }}
               aria-label={`Go to slide ${idx + 1}`}
+              whileHover={{ scale: 1.3 }}
+              whileTap={{ scale: 0.9 }}
+              layout
             />
           ))}
-        </div>
+        </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 }
