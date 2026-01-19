@@ -57,8 +57,32 @@ $bronze: #cd7f32;
     }
   }
 
+  // 선택된 상태 (배틀스테이션에 표시 중)
+  &.selected {
+    border: 2px solid $color-primary !important;
+    box-shadow:
+      0 0 0 3px rgba($color-primary, 0.2),
+      0 8px 32px rgba($color-primary, 0.3) !important;
+    animation: selected-pulse 2s ease-in-out infinite;
+  }
+
   @media (min-width: 768px) {
     padding: 24px 20px;
+  }
+}
+
+// 선택 상태 펄스 애니메이션
+@keyframes selected-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba($color-primary, 0.2),
+      0 8px 32px rgba($color-primary, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 5px rgba($color-primary, 0.3),
+      0 8px 40px rgba($color-primary, 0.4);
   }
 }
 

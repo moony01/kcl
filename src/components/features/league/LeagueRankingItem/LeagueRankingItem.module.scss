@@ -48,6 +48,16 @@ $color-promotion: #28a745;
     }
   }
 
+  // 선택된 상태 (배틀스테이션에 표시 중)
+  &.selected {
+    border: 2px solid $color-primary;
+    box-shadow:
+      0 0 0 3px rgba($color-primary, 0.15),
+      0 4px 16px rgba($color-primary, 0.2);
+    background: linear-gradient(135deg, rgba($color-primary, 0.08) 0%, transparent 50%);
+    animation: selected-pulse-item 2s ease-in-out infinite;
+  }
+
   // ===== T1.28: 11위(2부 리그 1위) 특별 강조 스타일 =====
   // 1부 리그 Top 3와 유사한 시각적 임팩트를 제공합니다.
   &.promotionHero {
@@ -338,5 +348,20 @@ $color-promotion: #28a745;
   &:hover {
     background: rgba($color-text, 0.05);
     color: $color-text;
+  }
+}
+
+// 선택 상태 펄스 애니메이션
+@keyframes selected-pulse-item {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba($color-primary, 0.15),
+      0 4px 16px rgba($color-primary, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px rgba($color-primary, 0.25),
+      0 6px 20px rgba($color-primary, 0.3);
   }
 }

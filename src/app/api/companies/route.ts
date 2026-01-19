@@ -180,9 +180,11 @@ async function fetchFromSupabase(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const allCompanies = rawCompanies || [];
 
-  // firepower 기준 실시간 리그 분리 (상위 10개 = 1부)
+  // T1.XX: DB의 league_tier 값을 그대로 사용 (시즌 중 리그 고정)
+  // - 리그 구분: DB의 league_tier 값 (시즌 종료 시에만 변경)
+  // - 순위(rank): firepower 기준 전체 순위
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const transformCompany = (company: any, index: number, isPremier: boolean) => {
+  const transformCompany = (company: any, index: number) => {
     const groups = company.groups as Array<{ vote_count?: number }> | undefined;
     const sortedGroups = Array.isArray(groups)
       ? [...groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0)).slice(0, 4)
@@ -196,22 +198,20 @@ async function fetchFromSupabase(
       logo_url: company.logo_url,
       gradient_color: company.gradient_color,
       firepower: company.firepower,
-      league_tier: isPremier ? ('premier' as const) : ('challengers' as const),
-      rank: index + 1, // 전체 순위 (1부터)
+      league_tier: company.league_tier as 'premier' | 'challengers', // DB 값 그대로 사용
+      rank: index + 1, // 전체 firepower 순위 (1부터)
       groups: sortedGroups,
     };
   };
 
   // 전체 회사를 firepower 순으로 정렬 후 순위 부여
-  const rankedCompanies = allCompanies.map(
-    (company, index) => transformCompany(company, index, index < 10), // 상위 10개 = premier
-  );
+  const rankedCompanies = allCompanies.map((company, index) => transformCompany(company, index));
 
-  // 1부 리그 (rank 1-10)
-  const premierCompanies = rankedCompanies.filter((c) => c.rank <= 10);
+  // 1부 리그 (DB의 league_tier === 'premier')
+  const premierCompanies = rankedCompanies.filter((c) => c.league_tier === 'premier');
 
-  // 2부 리그 (rank 11~)
-  const challengersCompanies = rankedCompanies.filter((c) => c.rank > 10);
+  // 2부 리그 (DB의 league_tier === 'challengers')
+  const challengersCompanies = rankedCompanies.filter((c) => c.league_tier === 'challengers');
 
   // 전체 목록 (1부 → 2부 순서)
   let companies = rankedCompanies as CachedCompaniesData['companies'];

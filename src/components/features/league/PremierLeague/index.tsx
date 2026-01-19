@@ -11,7 +11,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Crown } from 'lucide-react';
 import type { CompanyRanking } from '@/types/league';
 import TopThreeCard from '../TopThreeCard';
@@ -23,14 +23,21 @@ interface PremierLeagueProps {
   companies: CompanyRanking[];
   /** 투표 핸들러 */
   onVote: (companyId: string) => void;
+  /** 선택된 회사 ID (배틀스테이션에 표시 중인 회사) */
+  selectedCompanyId?: string | null;
 }
 
-export default function PremierLeague({ companies, onVote }: PremierLeagueProps) {
+export default function PremierLeague({
+  companies,
+  onVote,
+  selectedCompanyId,
+}: PremierLeagueProps) {
   const t = useTranslations('League.premier');
 
-  // 순위별 분류 - T1.16: 10위를 4-9위와 함께 일반 리스트로 표시
-  const top3 = companies.filter((c) => c.rank <= 3);
-  const rank4to10 = companies.filter((c) => c.rank >= 4 && c.rank <= 10);
+  // T1.XX: 배열 index 기준으로 분류 (rank는 전체 firepower 순위라서 사용 불가)
+  // companies는 이미 firepower 순으로 정렬되어 있음
+  const top3 = companies.slice(0, 3); // 처음 3개 = 1, 2, 3위
+  const rank4to10 = companies.slice(3, 10); // 나머지 = 4~10위
 
   return (
     <section className={styles.premierLeague}>
@@ -45,41 +52,40 @@ export default function PremierLeague({ companies, onVote }: PremierLeagueProps)
 
       {/* Top 3 대형 카드 */}
       <div className={styles.topThreeGrid}>
-        {top3.map((company) => (
+        {top3.map((company, index) => (
           <TopThreeCard
             key={company.companyId}
             company={company}
-            rank={company.rank as 1 | 2 | 3}
+            rank={(index + 1) as 1 | 2 | 3}
             onVote={() => onVote(company.companyId)}
+            isSelected={selectedCompanyId === company.companyId}
           />
         ))}
       </div>
 
       {/* 4-10위 리스트 - T1.16: 10위도 일반 표시 */}
-      <motion.div
-        className={styles.rankingList}
-        initial="hidden"
-        animate="show"
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: { staggerChildren: 0.05, delayChildren: 0.2 },
-          },
-        }}
-      >
-        {rank4to10.map((company) => (
-          <motion.div
-            key={company.companyId}
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              show: { opacity: 1, y: 0 },
-            }}
-          >
-            <LeagueRankingItem company={company} onVote={onVote} />
-          </motion.div>
-        ))}
-      </motion.div>
+      {/* T1.XX: AnimatePresence 추가 - 순위 변동 시 새 아이템 애니메이션 처리 */}
+      <div className={styles.rankingList}>
+        <AnimatePresence mode="popLayout" initial={false}>
+          {rank4to10.map((company, index) => (
+            <motion.div
+              key={company.companyId}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              layout
+            >
+              <LeagueRankingItem
+                company={company}
+                onVote={onVote}
+                displayRank={index + 4}
+                isSelected={selectedCompanyId === company.companyId}
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
 
       {/* T1.16: 10위 강등 위기 강조 제거 - SeasonHeader의 승강전 영역으로 통합 */}
     </section>

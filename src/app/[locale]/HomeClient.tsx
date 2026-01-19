@@ -228,7 +228,11 @@ export function HomeClient({ initialData }: HomeClientProps) {
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.2 }}
               >
-                <PremierLeague companies={premierLeague} onVote={handleVote} />
+                <PremierLeague
+                  companies={premierLeague}
+                  onVote={handleVote}
+                  selectedCompanyId={selectedCompanyId}
+                />
               </motion.div>
             ) : (
               <motion.div
@@ -243,6 +247,7 @@ export function HomeClient({ initialData }: HomeClientProps) {
                   onVote={handleVote}
                   onLoadMore={handleLoadMore}
                   hasMore={hasMoreChallengers}
+                  selectedCompanyId={selectedCompanyId}
                 />
               </motion.div>
             )}
