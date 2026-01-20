@@ -30,7 +30,13 @@ export default function Header() {
         So let's keep logo but remove Theme Toggle as requested.
       */}
       <Link href="/" className={styles.logoWrapper}>
-        <img src="/logo.svg" alt="KCL Logo" className={styles.logoIcon} width={28} height={28} />
+        <img
+          src="/kcl-logo.svg"
+          alt="KCL Logo"
+          className={styles.logoIcon}
+          width={28}
+          height={28}
+        />
         <span className={styles.logoText}>KCL</span>
       </Link>
 
