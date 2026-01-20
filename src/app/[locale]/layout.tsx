@@ -93,18 +93,19 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.variable} ${montserrat.variable}`}>
+      <head>
         {/* ============================================
             Google AdSense - 사이트 소유권 확인 및 광고 게재
             Publisher ID: ca-pub-8955182453510440
             등록일: 2026-01-20
+            주의: beforeInteractive로 HTML 소스에 직접 삽입
             ============================================ */}
         <Script
-          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8955182453510440"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
+      </head>
+      <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="dark"
