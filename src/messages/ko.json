@@ -61,7 +61,7 @@
   "News": {
     "title": "뉴스 & 인사이트",
     "subtitle": "K-Pop 산업의 최신 트렌드와 분석 리포트",
-    "backToList": "← 목록으로",
+    "backToList": "목록으로",
     "noArticles": "등록된 기사가 없습니다.",
     "readMore": "더 보기"
   },
@@ -171,7 +171,7 @@
     "title": "커뮤니티",
     "subtitle": "팬들의 자유 게시판",
     "write": "글쓰기",
-    "back_to_list": "← 목록으로",
+    "back_to_list": "목록으로",
     "no_posts": "등록된 글이 없습니다.",
     "loading": "로딩 중...",
     "table": {

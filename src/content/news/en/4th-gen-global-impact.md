@@ -1,0 +1,27 @@
+---
+title: '4th Gen Idols Taking Over Global Charts: From Billboard to Spotify'
+excerpt: 'Analyzing the incredible global achievements of 4th generation groups like Stray Kids, NewJeans, and IVE, and the new expansion of K-POP.'
+date: '2025-01-20'
+category: 'Market Trend'
+thumbnail: '/images/news/4th-gen-global-impact.jpg'
+---
+
+## Faster and Wider: The Rise of the 4th Generation
+
+The growth trajectory of 4th generation idol groups is frighteningly fast. Achievements that took their predecessors years to accomplish are being reached within 1-2 years of debut, elevating K-POP's status to a new dimension.
+
+### 1. Regulars on Billboard Main Charts
+
+Stray Kids has proven themselves as a global top-tier group by recording four consecutive No. 1s on the Billboard 200, from 'ODDINARY' to 'ROCK-STAR'. NewJeans also achieved the remarkable feat of topping the Billboard 200 within just a year of their debut. This suggests that K-POP is no longer a subculture of a specific region but a core genre in the mainstream US pop market.
+
+### 2. Explosive Growth in Spotify Streaming
+
+Achievements on the global music platform Spotify are even more notable. Following Jung Kook's solo track 'Seven' reaching 1 billion streams in record time, songs by 4th generation groups are also recording hundreds of millions of streams, evolving into "listener-type idols." Viral marketing through short-form platforms like TikTok has been particularly effective.
+
+### 3. Expansion of World Tour Scales
+
+The scale of world tours, which gauges the size of a fandom, is also expanding. 4th generation girl groups like IVE and LE SSERAFIM are showing off their strong ticket power by selling out arena-sized venues from their very first world tours.
+
+## Impact on KCL Rankings
+
+These global achievements act as crucial variables in the KCL (K-pop Company League) ranking calculations. We plan to continuously increase the weight of global data, such as Spotify streaming indices and Billboard chart entries, rather than relying solely on domestic album sales.
