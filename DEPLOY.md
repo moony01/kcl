@@ -49,16 +49,35 @@
 
 Cloudflare Pages 대시보드에서 설정:
 
-| 변수명                          | 설명                  | 예시                      |
-| ------------------------------- | --------------------- | ------------------------- |
-| `NEXT_PUBLIC_SUPABASE_URL`      | Supabase 프로젝트 URL | `https://xxx.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase 공개 키      | `eyJhbGci...`             |
-| `NEXT_PUBLIC_BASE_URL`          | 사이트 기본 URL       | `https://kcl.plozen.com`  |
+| 변수명                          | 설명                  | 예시                      | SEO 영향 |
+| ------------------------------- | --------------------- | ------------------------- | -------- |
+| `NEXT_PUBLIC_SITE_URL`          | 사이트 기본 URL       | `https://www.kclhq.com`   | **필수** |
+| `NEXT_PUBLIC_SUPABASE_URL`      | Supabase 프로젝트 URL | `https://xxx.supabase.co` | -        |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase 공개 키      | `eyJhbGci...`             | -        |
+
+> ⚠️ **중요**: `NEXT_PUBLIC_SITE_URL`이 설정되지 않으면 sitemap.xml과 robots.txt에 `localhost:3000`이 들어가 Google Search Console 등록이 불가능합니다!
+
+### SEO 파일 (자동 생성)
+
+빌드 시 다음 파일이 자동 생성됩니다:
+
+| 파일            | 경로             | 설명                                     |
+| --------------- | ---------------- | ---------------------------------------- |
+| `sitemap.xml`   | `/sitemap.xml`   | 12개 언어 전체 URL + hreflang alternates |
+| `robots.txt`    | `/robots.txt`    | 크롤러 규칙 + sitemap 위치               |
+| `manifest.json` | `/manifest.json` | PWA 설정                                 |
+
+### Google Search Console 등록
+
+1. [Google Search Console](https://search.google.com/search-console) 접속
+2. 속성 추가: `https://www.kclhq.com`
+3. Sitemaps → `https://www.kclhq.com/sitemap.xml` 제출
 
 ### 제거된 환경 변수 (SSG 마이그레이션 후 불필요)
 
 다음 변수들은 더 이상 필요하지 않습니다:
 
+- ~~`NEXT_PUBLIC_BASE_URL`~~ → `NEXT_PUBLIC_SITE_URL`로 변경됨
 - ~~`UPSTASH_REDIS_REST_URL`~~ (Redis 캐시 제거)
 - ~~`UPSTASH_REDIS_REST_TOKEN`~~ (Redis 캐시 제거)
 - ~~`CACHE_ENABLED`~~ (서버사이드 캐시 불필요)
@@ -142,12 +161,14 @@ SSG 빌드에서는 빌드 시점에만 환경 변수가 주입됩니다.
 
 ## 마이그레이션 히스토리
 
-| 날짜       | 변경사항                                    |
-| ---------- | ------------------------------------------- |
-| 2025-01-19 | SSR → SSG/CSR 마이그레이션 완료             |
-| 2025-01-19 | Cloudflare Workers → Cloudflare Pages 전환  |
-| 2025-01-19 | Redis 캐시 제거, Supabase 직접 호출         |
-| 2025-01-19 | API Routes 제거, 클라이언트 SWR 데이터 페칭 |
+| 날짜       | 변경사항                                               |
+| ---------- | ------------------------------------------------------ |
+| 2026-01-21 | SEO 개선: sitemap 12개 언어 지원 + hreflang alternates |
+| 2026-01-21 | 환경 변수 정리: NEXT_PUBLIC_SITE_URL 표준화            |
+| 2025-01-19 | SSR → SSG/CSR 마이그레이션 완료                        |
+| 2025-01-19 | Cloudflare Workers → Cloudflare Pages 전환             |
+| 2025-01-19 | Redis 캐시 제거, Supabase 직접 호출                    |
+| 2025-01-19 | API Routes 제거, 클라이언트 SWR 데이터 페칭            |
 
 ---
 

@@ -1,3 +1,38 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+/**
+ * 사이트 URL 상수
+ *
+ * 환경 변수 우선순위:
+ * 1. NEXT_PUBLIC_SITE_URL (권장)
+ * 2. 프로덕션 기본값: https://www.kclhq.com
+ *
+ * Cloudflare Pages 환경 변수 설정 필수!
+ */
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kclhq.com';
+
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const FULL_URL = `${SITE_URL}${BASE_PATH}`;
+
+/**
+ * 지원 언어 목록 (12개)
+ * sitemap, i18n 등에서 공통 사용
+ */
+export const SUPPORTED_LOCALES = [
+  'ko',
+  'en',
+  'ja',
+  'zh',
+  'es',
+  'pt',
+  'fr',
+  'de',
+  'id',
+  'tr',
+  'th',
+  'vi',
+] as const;
+
+export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
+
+/** 기본 언어 */
+export const DEFAULT_LOCALE: SupportedLocale = 'en';
