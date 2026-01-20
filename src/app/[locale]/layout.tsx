@@ -93,7 +93,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
+      <body className={`${inter.variable} ${montserrat.variable}`}>
         {/* ============================================
             Google AdSense - 사이트 소유권 확인 및 광고 게재
             Publisher ID: ca-pub-8955182453510440
@@ -105,8 +105,6 @@ export default async function LocaleLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-      </head>
-      <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="dark"
