@@ -2,11 +2,15 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Inter, Montserrat } from 'next/font/google';
+import Script from 'next/script';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { SWRProvider } from '@/components/providers/SWRProvider';
 import AppShell from '@/components/layout/AppShell';
 import '@/styles/main.scss';
 import '@/styles/layout/_app-shell.scss';
+
+/** Google Analytics 측정 ID */
+const GA_MEASUREMENT_ID = 'G-LWCB5XG3S9';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -92,6 +96,19 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+      </Script>
       <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="data-theme"
