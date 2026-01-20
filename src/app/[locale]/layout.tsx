@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Inter, Montserrat } from 'next/font/google';
+import Script from 'next/script';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { SWRProvider } from '@/components/providers/SWRProvider';
 import AppShell from '@/components/layout/AppShell';
@@ -92,6 +93,19 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        {/* ============================================
+            Google AdSense - 사이트 소유권 확인 및 광고 게재
+            Publisher ID: ca-pub-8955182453510440
+            등록일: 2026-01-20
+            ============================================ */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8955182453510440"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="data-theme"

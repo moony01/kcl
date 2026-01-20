@@ -50,7 +50,7 @@ export default function Sidebar() {
       <div className={styles.logoArea}>
         <Link href={`/${locale}`} className={styles.brand}>
           <div className={styles.logoWrapper}>
-            <img src="/logo.svg" alt="KCL" className={styles.logoImage} />
+            <img src="/kcl-logo.svg" alt="KCL" className={styles.logoImage} />
           </div>
           <span className={styles.logoText}>KCL</span>
         </Link>
