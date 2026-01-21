@@ -56,14 +56,13 @@ export const metadata: Metadata = {
     siteName: 'Kpop Company League',
     type: 'website',
     url: FULL_URL,
-    images: [
-      {
-        url: `${BASE_PATH}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: 'KCL - Kpop Company League',
-      },
-    ],
+    // images는 opengraph-image.tsx에서 동적 생성됨
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KCL - Kpop Company League',
+    description: "Prove your fandom's firepower. Support your artist in the global ranking battle.",
+    // images는 opengraph-image.tsx에서 동적 생성됨
   },
 };
 
