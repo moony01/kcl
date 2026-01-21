@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import ExportedImage from 'next-image-export-optimizer';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -97,7 +98,14 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         {/* 히어로 이미지 (썸네일 또는 placeholder) */}
         <div className={styles.heroImage}>
           {post.thumbnail ? (
-            <img src={post.thumbnail} alt={post.title} />
+            <ExportedImage
+              src={post.thumbnail}
+              alt={post.title}
+              width={1200}
+              height={630}
+              priority
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
           ) : (
             <div className={styles.heroPlaceholder}>
               <span>📰</span>
@@ -123,7 +131,32 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
       {/* 기사 본문 */}
       <article className={styles.content}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            // 마크다운 이미지를 ExportedImage로 최적화 (빌드 시 WebP 변환)
+            img: ({ src, alt }) => {
+              // src가 string인 경우에만 ExportedImage 사용
+              if (typeof src === 'string' && src) {
+                return (
+                  <span className={styles.contentImage}>
+                    <ExportedImage
+                      src={src}
+                      alt={alt || ''}
+                      width={800}
+                      height={450}
+                      sizes="(max-width: 768px) 100vw, 800px"
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                  </span>
+                );
+              }
+              return null;
+            },
+          }}
+        >
+          {post.content}
+        </ReactMarkdown>
       </article>
 
       {/* 광고 플레이스홀더 (향후 AdSense 삽입 위치) */}
