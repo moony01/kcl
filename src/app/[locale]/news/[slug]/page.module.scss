@@ -203,6 +203,27 @@
     margin: 1.5rem 0;
   }
 
+  /* 본문 내 Next.js Image 컨테이너 */
+  em {
+    display: block;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* 본문 이미지 (Next.js Image 컴포넌트) */
+.contentImage {
+  display: block;
+  margin: 1.5rem 0;
+
+  img {
+    border-radius: 8px;
+    margin: 0;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;

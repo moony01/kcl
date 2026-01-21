@@ -45,3 +45,5 @@ src/generated/
 
 # OpenNext build output
 .open-next/
+nextImageExportOptimizer/
+next-image-export-optimizer-hashes.json

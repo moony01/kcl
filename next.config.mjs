@@ -28,8 +28,11 @@ const isDev = process.env.NODE_ENV === 'development';
 const nextConfig = {
   output: 'export', // SSG: 정적 사이트 빌드
   images: {
-    unoptimized: true, // SSG 모드: Next.js Image Optimization 비활성화
+    loader: 'custom', // next-image-export-optimizer 사용
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
+  transpilePackages: ['next-image-export-optimizer'], // 이미지 최적화 패키지
   reactCompiler: !isDev, // 개발 모드에서 비활성화 (HMR 속도 개선)
   sassOptions: {
     includePaths: [
@@ -39,6 +42,14 @@ const nextConfig = {
   },
   env: {
     NEXT_PUBLIC_BASE_PATH: '', // SSG: Cloudflare Pages 기본 경로
+    // next-image-export-optimizer 설정
+    nextImageExportOptimizer_imageFolderPath: 'public/images',
+    nextImageExportOptimizer_exportFolderPath: 'out',
+    nextImageExportOptimizer_quality: '75',
+    nextImageExportOptimizer_storePicturesInWEBP: 'true',
+    nextImageExportOptimizer_exportFolderName: 'nextImageExportOptimizer',
+    nextImageExportOptimizer_generateAndUseBlurImages: 'true',
+    nextImageExportOptimizer_remoteImageCacheTTL: '0',
   },
   /**
    * 보안 헤더 설정 (SSG 모드)
