@@ -76,7 +76,7 @@ const MOCK_POSTS: Post[] = [
 
 /**
  * 페이지 메타데이터 생성
- * SEO를 위한 title, description, canonical, hreflang 설정
+ * SEO를 위한 title, description, OG 태그, canonical, hreflang 설정
  */
 export async function generateMetadata({ params }: CommunityPageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -86,9 +86,17 @@ export async function generateMetadata({ params }: CommunityPageProps): Promise<
     title: t('title'),
     description: t('subtitle'),
     openGraph: {
-      title: t('title'),
-      description: t('subtitle'),
+      title: 'KCL Community - K-pop Fan Free Board',
+      description:
+        'Join the K-pop fan community. Share your thoughts, discuss with fellow fans, and connect with the global K-pop fandom.',
+      url: `https://www.kclhq.com/${locale}/community`,
       type: 'website',
+      images: ['/images/og/og-image.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'KCL Community - K-pop Fan Free Board',
+      description: 'Join the K-pop fan community and connect with fans worldwide.',
     },
     alternates: generateAlternates(locale, '/community'),
   };
