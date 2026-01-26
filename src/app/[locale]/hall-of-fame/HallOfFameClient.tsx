@@ -10,9 +10,10 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Trophy, RefreshCw, AlertCircle } from 'lucide-react';
 import { useHallOfFame } from '@/hooks/useHallOfFame';
+import ShareButtons from '@/components/common/ShareButtons';
 
 // Feature Components
 import GrandChampionCard from '@/components/features/hall-of-fame/GrandChampionCard';
@@ -125,6 +126,7 @@ function EmptyState() {
  */
 export default function HallOfFameClient() {
   const t = useTranslations('HallOfFame');
+  const locale = useLocale();
   const { data, isLoading, error, getMonthlyChampions, getYearlyRace, refresh } = useHallOfFame();
 
   // 현재 선택된 연도 (Monthly Timeline용)
@@ -176,6 +178,15 @@ export default function HallOfFameClient() {
       <header className={styles.pageHeader}>
         <h1 className={styles.title}>{t('title')}</h1>
         <p className={styles.subtitle}>{t('subtitle')}</p>
+
+        {/* 공유 버튼 */}
+        <div className={styles.shareWrapper}>
+          <ShareButtons
+            title="KCL Hall of Fame - K-pop Champions"
+            url={`https://www.kclhq.com/${locale}/hall-of-fame`}
+            size="sm"
+          />
+        </div>
       </header>
 
       {/* Grand Champion 섹션 */}

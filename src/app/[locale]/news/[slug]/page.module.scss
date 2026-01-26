@@ -92,6 +92,20 @@
   }
 }
 
+/* 메타 정보 (날짜 + 공유) */
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .date {
   display: flex;
   align-items: center;
@@ -240,6 +254,27 @@
       background: var(--bg-secondary);
       font-weight: 600;
     }
+  }
+}
+
+/* 기사 하단 공유 섹션 */
+.shareSection {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  text-align: center;
+
+  .sharePrompt {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  // 공유 버튼 중앙 정렬
+  > div {
+    justify-content: center;
   }
 }
 

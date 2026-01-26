@@ -169,7 +169,7 @@
 
   "Community": {
     "title": "社区",
-    "subtitle": "粉丝自由讨论区",
+    "subtitle": "加入KCL社区！分享想法、讨论K-pop新闻、与全球粉丝交流。您的声音在K-pop粉丝圈中很重要。",
     "write": "发帖",
     "back_to_list": "← 返回列表",
     "no_posts": "暂无帖子。",
@@ -246,7 +246,7 @@
     "contact_title": "联系我们",
     "contact_content": "如有任何关于本政策的问题，请发送邮件至 contact@kcl.fan",
     "terms_title": "服务条款",
-    "terms_description": "KCL服务条款和使用协议",
+    "terms_description": "请阅读KCL服务条款。使用K-pop Company League即表示您同意这些关于投票、社区参与和内容使用的条款。",
     "terms_section1_title": "简介",
     "terms_section1_content": "欢迎使用KCL（K-pop Company League）。访问或使用我们的服务即表示您同意受这些服务条款的约束。这是一个非官方的粉丝制作应用，与任何娱乐公司无关。",
     "terms_section2_title": "服务使用",
@@ -263,7 +263,7 @@
     "terms_section6_title": "适用法律",
     "terms_section6_content": "这些条款应受韩国法律管辖并据其解释。",
     "privacy_title": "隐私政策",
-    "privacy_description": "KCL隐私政策和数据保护",
+    "privacy_description": "KCL隐私政策说明我们如何收集、使用和保护您的个人数据。了解Cookie、分析以及作为K-pop粉丝的权利。",
     "privacy_section1_title": "概述",
     "privacy_section1_content": "KCL尊重您的隐私，并致力于保护您的个人数据。",
     "privacy_section2_title": "我们收集的信息",

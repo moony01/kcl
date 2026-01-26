@@ -114,6 +114,24 @@ $hof-bg-dark: #0a0a0a;
   }
 }
 
+// 공유 버튼 래퍼
+.shareWrapper {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+
+  // 골드 테마에 맞게 버튼 스타일 오버라이드
+  :global(.shareButtons) {
+    button {
+      border-color: rgba($hof-gold, 0.3);
+
+      &:hover {
+        border-color: $hof-gold;
+      }
+    }
+  }
+}
+
 // ========================================
 // 섹션 레이아웃
 // ========================================
