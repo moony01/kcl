@@ -8,14 +8,14 @@
  * @updated Phase 5 - SSG/CSR 마이그레이션
  */
 
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { use } from 'react';
 import { setRequestLocale } from 'next-intl/server';
 import { FEATURES } from '@/config/features';
 import CompanyDetailClient from './CompanyDetailClient';
-
-/** 지원하는 12개 언어 */
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
+import { generateDynamicAlternates } from '@/lib/seo';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
 
 /** 알려진 회사 slug 목록 (정적 생성 대상) */
 const knownCompanySlugs = [
@@ -38,14 +38,30 @@ const knownCompanySlugs = [
  * 12개 언어 × 알려진 회사 slug 조합
  */
 export function generateStaticParams() {
-  return locales.flatMap((locale) => knownCompanySlugs.map((id) => ({ locale, id })));
+  return SUPPORTED_LOCALES.flatMap((locale) => knownCompanySlugs.map((id) => ({ locale, id })));
 }
 
-export default function CompanyDetailPage({
-  params,
-}: {
+/**
+ * Company Detail 페이지 Props
+ */
+interface CompanyDetailPageProps {
   params: Promise<{ locale: string; id: string }>;
-}) {
+}
+
+/**
+ * 페이지 메타데이터 생성
+ * SEO를 위한 canonical 및 hreflang 설정
+ */
+export async function generateMetadata({ params }: CompanyDetailPageProps): Promise<Metadata> {
+  const { locale, id } = await params;
+
+  return {
+    title: `${id.toUpperCase()} | KCL`,
+    alternates: generateDynamicAlternates(locale, '/company', id),
+  };
+}
+
+export default function CompanyDetailPage({ params }: CompanyDetailPageProps) {
   // Next.js 15+ params 비동기 처리
   const { locale, id } = use(params);
 
