@@ -9,6 +9,7 @@ import remarkGfm from 'remark-gfm';
 import { getNewsBySlug, getAllNewsParams } from '@/lib/news';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
 import styles from './page.module.scss';
 
 /**
@@ -164,25 +165,28 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         {/* AdSense 코드 삽입 예정 */}
       </div>
 
-      {/* JSON-LD 구조화 데이터 */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: post.title,
-            description: post.excerpt,
-            datePublished: post.date,
-            author: {
-              '@type': 'Organization',
-              name: 'KCL',
+      {/* JSON-LD 구조화 데이터 (Article 스키마) */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: post.title,
+          description: post.excerpt,
+          url: `https://www.kclhq.com/${locale}/news/${slug}`,
+          datePublished: post.date,
+          image: post.thumbnail || 'https://www.kclhq.com/images/logo.png',
+          author: {
+            '@type': 'Organization',
+            name: 'KCL',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'KCL - K-pop Company League',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://www.kclhq.com/images/logo.png',
             },
-            publisher: {
-              '@type': 'Organization',
-              name: 'KCL - K-pop Company League',
-            },
-          }),
+          },
         }}
       />
     </main>

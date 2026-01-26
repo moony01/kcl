@@ -5,6 +5,7 @@ import { getAllNews } from '@/lib/news';
 import NewsCard from '@/components/news/NewsCard';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
 import styles from './page.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -23,7 +24,7 @@ interface NewsPageProps {
 
 /**
  * 페이지 메타데이터 생성
- * SEO를 위한 title, description, canonical, hreflang 설정
+ * SEO를 위한 title, description, OG 태그, canonical, hreflang 설정
  */
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -33,9 +34,16 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
     title: t('title'),
     description: t('subtitle'),
     openGraph: {
-      title: t('title'),
-      description: t('subtitle'),
+      title: 'KCL News - K-pop Industry Insights',
+      description:
+        'Latest news and analysis from the K-pop entertainment industry. Stay updated with company updates and trends.',
+      url: `https://www.kclhq.com/${locale}/news`,
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'KCL News - K-pop Industry Insights',
+      description: 'Latest news and analysis from the K-pop entertainment industry.',
     },
     alternates: generateAlternates(locale, '/news'),
   };
@@ -57,8 +65,25 @@ export default async function NewsPage({ params }: NewsPageProps) {
   // 뉴스 데이터 가져오기
   const posts = getAllNews(locale);
 
+  // ItemList JSON-LD 스키마 생성
+  const newsListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'KCL News',
+    description: 'Latest news and analysis from the K-pop entertainment industry',
+    url: `https://www.kclhq.com/${locale}/news`,
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://www.kclhq.com/${locale}/news/${post.slug}`,
+      name: post.title,
+    })),
+  };
+
   return (
     <main className={styles.container}>
+      <JsonLd data={newsListJsonLd} />
       {/* 페이지 헤더 */}
       <header className={styles.header}>
         <div className={styles.titleWrapper}>

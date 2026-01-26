@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 import HallOfFameClient from './HallOfFameClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
@@ -25,19 +26,48 @@ interface HallOfFamePageProps {
 
 /**
  * 페이지 메타데이터 생성
- * SEO를 위한 canonical 및 hreflang 설정
+ * SEO를 위한 title, description, OG 태그, canonical, hreflang 설정
  */
 export async function generateMetadata({ params }: HallOfFamePageProps): Promise<Metadata> {
   const { locale } = await params;
 
   return {
+    title: 'Hall of Fame - K-pop Champions',
+    description:
+      'See the legendary champions who topped the K-pop Company League. Hall of fame featuring all-time winners and their achievements.',
+    openGraph: {
+      title: 'KCL Hall of Fame - K-pop Champions',
+      description:
+        'See the legendary champions who topped the K-pop Company League. All-time winners and achievements.',
+      url: `https://www.kclhq.com/${locale}/hall-of-fame`,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'KCL Hall of Fame - K-pop Champions',
+      description: 'The legendary champions of the K-pop Company League.',
+    },
     alternates: generateAlternates(locale, '/hall-of-fame'),
   };
 }
+
+/** Hall of Fame ItemList JSON-LD 스키마 */
+const hallOfFameJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'KCL Hall of Fame',
+  description: 'K-pop company champions history - legendary winners of the K-pop Company League',
+  url: 'https://www.kclhq.com/hall-of-fame',
+};
 
 /**
  * 명예의 전당 페이지 (정적 셸)
  */
 export default function HallOfFamePage() {
-  return <HallOfFameClient />;
+  return (
+    <>
+      <JsonLd data={hallOfFameJsonLd} />
+      <HallOfFameClient />
+    </>
+  );
 }
