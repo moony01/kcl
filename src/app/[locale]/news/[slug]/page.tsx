@@ -10,7 +10,17 @@ import { getNewsBySlug, getAllNewsParams } from '@/lib/news';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
+import ShareButtons from '@/components/common/ShareButtons';
 import styles from './page.module.scss';
+
+/**
+ * 제목을 지정된 최대 길이로 truncate
+ * SEO 권장: title 태그는 55자 이내
+ */
+function truncateTitle(title: string, maxLength: number = 55): string {
+  if (title.length <= maxLength) return title;
+  return title.slice(0, maxLength - 3) + '...';
+}
 
 /**
  * 정적 경로 생성
@@ -44,11 +54,14 @@ export async function generateMetadata({ params }: NewsDetailPageProps): Promise
     };
   }
 
+  // SEO 최적화: title은 55자, og:title은 전체 제목 사용
+  const truncatedTitle = truncateTitle(post.title, 55);
+
   return {
-    title: `${post.title} | KCL News`,
+    title: `${truncatedTitle} | KCL News`,
     description: post.excerpt,
     openGraph: {
-      title: post.title,
+      title: post.title, // OG 태그는 전체 제목 허용 (70자까지)
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
@@ -123,10 +136,17 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         {/* 제목 */}
         <h1 className={styles.title}>{post.title}</h1>
 
-        {/* 날짜 */}
-        <div className={styles.date}>
-          <Calendar size={16} />
-          <time dateTime={post.date}>{formattedDate}</time>
+        {/* 메타 정보 (날짜 + 공유 버튼) */}
+        <div className={styles.meta}>
+          <div className={styles.date}>
+            <Calendar size={16} />
+            <time dateTime={post.date}>{formattedDate}</time>
+          </div>
+          <ShareButtons
+            title={post.title}
+            url={`https://www.kclhq.com/${locale}/news/${slug}`}
+            size="sm"
+          />
         </div>
       </header>
 
@@ -159,6 +179,18 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           {post.content}
         </ReactMarkdown>
       </article>
+
+      {/* 기사 하단 공유 버튼 */}
+      <div className={styles.shareSection}>
+        <p className={styles.sharePrompt}>
+          Did you enjoy this article? Share it with fellow K-pop fans!
+        </p>
+        <ShareButtons
+          title={post.title}
+          url={`https://www.kclhq.com/${locale}/news/${slug}`}
+          size="md"
+        />
+      </div>
 
       {/* 광고 플레이스홀더 (향후 AdSense 삽입 위치) */}
       <div className={styles.adPlaceholder} data-ad-slot="news-detail-bottom">

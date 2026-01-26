@@ -169,7 +169,7 @@
 
   "Community": {
     "title": "Communauté",
-    "subtitle": "Forum Libre des Fans",
+    "subtitle": "Rejoignez la Communauté KCL ! Partagez vos pensées, discutez des actualités K-pop et connectez-vous avec des fans du monde entier. Votre voix compte dans le fandom K-pop.",
     "write": "Écrire",
     "back_to_list": "← Retour à la liste",
     "no_posts": "Aucune publication.",
@@ -246,7 +246,7 @@
     "contact_title": "Nous contacter",
     "contact_content": "Pour toute question sur cette politique, contactez-nous à contact@kcl.fan",
     "terms_title": "Conditions d'utilisation",
-    "terms_description": "Conditions d'utilisation et accord de service KCL",
+    "terms_description": "Lisez les Conditions d'utilisation de KCL. En utilisant K-pop Company League, vous acceptez ces conditions relatives au vote, à la participation communautaire et à l'utilisation du contenu.",
     "terms_section1_title": "Introduction",
     "terms_section1_content": "Bienvenue sur KCL (K-pop Company League). En accédant à notre service, vous acceptez ces Conditions. Ceci est une application non officielle créée par des fans.",
     "terms_section2_title": "Utilisation du service",
@@ -263,7 +263,7 @@
     "terms_section6_title": "Droit applicable",
     "terms_section6_content": "Ces Conditions sont régies par les lois de la République de Corée.",
     "privacy_title": "Politique de confidentialité",
-    "privacy_description": "Politique de confidentialité et protection des données KCL",
+    "privacy_description": "La Politique de confidentialité de KCL explique comment nous collectons, utilisons et protégeons vos données personnelles. Découvrez les cookies, l'analytique et vos droits en tant que fan de K-pop.",
     "privacy_section1_title": "Aperçu",
     "privacy_section1_content": "KCL respecte votre vie privée et protège vos données personnelles.",
     "privacy_section2_title": "Informations collectées",
