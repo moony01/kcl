@@ -1,16 +1,17 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { generateAlternates } from '@/lib/seo';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
 import styles from './privacy.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
-
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
 
 /**
  * Privacy 페이지 메타데이터
+ * SEO를 위한 title, description, canonical, hreflang 설정
  */
 export async function generateMetadata({
   params,
@@ -23,6 +24,7 @@ export async function generateMetadata({
   return {
     title: t('privacy_title'),
     description: t('privacy_description'),
+    alternates: generateAlternates(locale, '/privacy'),
   };
 }
 

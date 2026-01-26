@@ -9,6 +9,10 @@ import { FULL_URL } from '@/lib/constants';
  * - 비공개 페이지 크롤링 차단
  * - sitemap 위치 명시
  *
+ * 참고: AI 크롤러 차단(GPTBot, ChatGPT-User, CCBot, Google-Extended)은
+ * Cloudflare에서 관리하므로 여기서는 제외합니다.
+ * Cloudflare Dashboard > Security > Bots에서 설정 확인 가능.
+ *
  * SSG 모드에서 빌드 시점에 정적 생성됩니다.
  */
 
@@ -39,23 +43,6 @@ export default function robots(): MetadataRoute.Robots {
           // API 경로 (SSG에서는 없지만 방어적으로)
           '/api/',
         ],
-      },
-      // AI 크롤러 제한 (선택적)
-      {
-        userAgent: 'GPTBot',
-        disallow: ['/'],
-      },
-      {
-        userAgent: 'ChatGPT-User',
-        disallow: ['/'],
-      },
-      {
-        userAgent: 'CCBot',
-        disallow: ['/'],
-      },
-      {
-        userAgent: 'Google-Extended',
-        disallow: ['/'],
       },
     ],
     sitemap: `${FULL_URL}/sitemap.xml`,

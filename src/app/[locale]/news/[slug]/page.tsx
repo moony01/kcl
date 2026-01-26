@@ -7,17 +7,16 @@ import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getNewsBySlug, getAllNewsParams } from '@/lib/news';
+import { generateDynamicAlternates } from '@/lib/seo';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
 import styles from './page.module.scss';
-
-/** 지원하는 12개 언어 */
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
 
 /**
  * 정적 경로 생성
  * 12개 언어 × 모든 뉴스 slug 조합
  */
 export function generateStaticParams() {
-  return getAllNewsParams(locales);
+  return getAllNewsParams(SUPPORTED_LOCALES as unknown as string[]);
 }
 
 /**
@@ -32,7 +31,7 @@ interface NewsDetailPageProps {
 
 /**
  * 페이지 메타데이터 생성
- * SEO를 위한 동적 title, description 설정
+ * SEO를 위한 동적 title, description, canonical, hreflang 설정
  */
 export async function generateMetadata({ params }: NewsDetailPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -54,6 +53,7 @@ export async function generateMetadata({ params }: NewsDetailPageProps): Promise
       publishedTime: post.date,
       images: post.thumbnail ? [post.thumbnail] : [],
     },
+    alternates: generateDynamicAlternates(locale, '/news', slug),
   };
 }
 

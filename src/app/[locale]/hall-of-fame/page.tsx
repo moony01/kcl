@@ -6,13 +6,33 @@
  * @updated Phase 5 - SSG/CSR 마이그레이션
  */
 
+import { Metadata } from 'next';
 import HallOfFameClient from './HallOfFameClient';
+import { generateAlternates } from '@/lib/seo';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
-
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
+}
+
+/**
+ * Hall of Fame 페이지 Props
+ */
+interface HallOfFamePageProps {
+  params: Promise<{ locale: string }>;
+}
+
+/**
+ * 페이지 메타데이터 생성
+ * SEO를 위한 canonical 및 hreflang 설정
+ */
+export async function generateMetadata({ params }: HallOfFamePageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    alternates: generateAlternates(locale, '/hall-of-fame'),
+  };
 }
 
 /**
