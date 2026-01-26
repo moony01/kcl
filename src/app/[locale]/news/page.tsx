@@ -3,13 +3,13 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Newspaper } from 'lucide-react';
 import { getAllNews } from '@/lib/news';
 import NewsCard from '@/components/news/NewsCard';
+import { generateAlternates } from '@/lib/seo';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
 import styles from './page.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
-
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
 
 /**
@@ -23,9 +23,8 @@ interface NewsPageProps {
 
 /**
  * 페이지 메타데이터 생성
- * SEO를 위한 title, description 설정
+ * SEO를 위한 title, description, canonical, hreflang 설정
  */
-
 export async function generateMetadata({ params }: NewsPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'News' });
@@ -38,6 +37,7 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
       description: t('subtitle'),
       type: 'website',
     },
+    alternates: generateAlternates(locale, '/news'),
   };
 }
 
