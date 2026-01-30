@@ -140,7 +140,7 @@ export default function SeasonHeader({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      {/* 상단 행: 시즌 정보 + D-day */}
+      {/* 상단 행: 시즌 정보 + 우측 정보 (실시간 업데이트 + D-day) */}
       <div className={styles.topRow}>
         <motion.div
           className={styles.seasonTitle}
@@ -169,67 +169,73 @@ export default function SeasonHeader({
           </h1>
         </motion.div>
 
+        {/* 우측 정보 그룹: 실시간 업데이트 + D-day */}
         <motion.div
-          className={styles.daysRemaining}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-          whileHover={{ scale: 1.05 }}
+          className={styles.rightInfo}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.15, duration: 0.4 }}
         >
-          <span className={season.daysRemaining <= 3 ? styles.urgent : ''}>
-            {formatDaysRemaining()}
-          </span>
-        </motion.div>
-      </div>
+          {/* 실시간 업데이트 인디케이터 */}
+          <div className={styles.realtimeIndicator}>
+            <AnimatePresence mode="wait">
+              {isRefreshing ? (
+                <motion.div
+                  key="refreshing"
+                  className={styles.refreshingState}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.span
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 0.6, ease: 'linear' }}
+                  >
+                    <Loader2 size={12} />
+                  </motion.span>
+                  <span className={styles.refreshingText}>{t('refreshing')}</span>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="countdown"
+                  className={styles.countdownState}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <motion.span
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
+                  >
+                    <RefreshCw size={12} />
+                  </motion.span>
+                  <span>{t('realtime')}</span>
+                  <motion.span
+                    className={styles.countdownBadge}
+                    key={countdown}
+                    initial={{ scale: 1.1, opacity: 0.6 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {t('countdown', { seconds: countdown })}
+                  </motion.span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
-      {/* 실시간 업데이트 인디케이터 (우상단 절대 위치) */}
-      <div className={styles.realtimeIndicator}>
-        <AnimatePresence mode="wait">
-          {isRefreshing ? (
-            <motion.div
-              key="refreshing"
-              className={styles.refreshingState}
-              initial={{ opacity: 0, scale: 0.8, y: -5 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 5 }}
-              transition={{ duration: 0.25 }}
-            >
-              <motion.span
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 0.6, ease: 'linear' }}
-              >
-                <Loader2 size={14} />
-              </motion.span>
-              <span className={styles.refreshingText}>{t('refreshing')}</span>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="countdown"
-              className={styles.countdownState}
-              initial={{ opacity: 0, scale: 0.8, y: -5 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 5 }}
-              transition={{ duration: 0.25 }}
-            >
-              <motion.span
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
-              >
-                <RefreshCw size={14} />
-              </motion.span>
-              <span>{t('realtime')}</span>
-              <motion.span
-                className={styles.countdownBadge}
-                key={countdown}
-                initial={{ scale: 1.2, opacity: 0.5 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                {t('countdown', { seconds: countdown })}
-              </motion.span>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          {/* D-day 배지 */}
+          <motion.div
+            className={styles.daysRemaining}
+            whileHover={{ scale: 1.03 }}
+          >
+            <span className={season.daysRemaining <= 3 ? styles.urgent : ''}>
+              {formatDaysRemaining()}
+            </span>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* 메인 슬라이드 영역 */}
