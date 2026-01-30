@@ -97,13 +97,32 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   }
 }
 
-// ===== 상단 행: 시즌 정보 + D-day =====
+// ===== 상단 행: 시즌 정보 + 우측 정보 =====
 .topRow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
   z-index: 2;
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+}
+
+// 우측 정보 그룹 (실시간 업데이트 + D-day)
+.rightInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .seasonTitle {
@@ -241,20 +260,15 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 }
 
 // ===== 실시간 업데이트 인디케이터 =====
+// Flexbox 레이아웃 내부로 이동 (absolute positioning 제거)
 .realtimeIndicator {
-  position: absolute;
-  top: 10px;
-  right: 14px;
   display: flex;
   align-items: center;
   gap: 4px;
   font-size: 0.65rem;
   color: $color-text-dim;
-  z-index: 3;
 
   @media (min-width: 768px) {
-    top: 14px;
-    right: 18px;
     font-size: 0.7rem;
   }
 }
