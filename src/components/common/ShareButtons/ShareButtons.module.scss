@@ -126,6 +126,29 @@
   font-weight: 500;
 }
 
+// 카카오톡 버튼
+.kakao {
+  &:hover {
+    background: #fee500;
+    color: #391b1b;
+    border-color: #fee500;
+    box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.03);
+      color: $color-text;
+      border-color: $color-border;
+      box-shadow: none;
+      transform: none;
+    }
+  }
+}
+
 // X(Twitter) 버튼
 .twitter {
   &:hover {

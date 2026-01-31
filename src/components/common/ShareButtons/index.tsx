@@ -4,12 +4,13 @@
  * ShareButtons - 소셜 공유 버튼 컴포넌트
  *
  * K-pop 팬덤의 "자랑과 공유" 문화에 맞춘 공유 기능 제공
- * X(Twitter), Facebook, 링크 복사 기능 지원
+ * 카카오톡, X(Twitter), Facebook, 링크 복사 기능 지원
  *
  * @author Luna - Lead Frontend Engineer
+ * @updated 2026-01-31 - 카카오톡 공유 추가
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import styles from './ShareButtons.module.scss';
@@ -52,6 +53,15 @@ function LinkIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+/** 카카오톡 아이콘 SVG */
+function KakaoIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 3C6.48 3 2 6.58 2 11c0 2.83 1.89 5.29 4.67 6.67l-.97 3.56c-.1.36.3.66.62.46l4.26-2.82c.47.05.94.13 1.42.13 5.52 0 10-3.58 10-8s-4.48-8-10-8z" />
+    </svg>
+  );
+}
+
 /** 체크 아이콘 SVG */
 function CheckIcon({ size = 18 }: { size?: number }) {
   return (
@@ -81,6 +91,8 @@ interface ShareButtonsProps {
   url?: string;
   /** 공유할 설명 (일부 플랫폼에서 사용) */
   description?: string;
+  /** 공유할 이미지 URL (카카오톡 공유 시 사용) */
+  imageUrl?: string;
   /** 컴포넌트 방향 */
   direction?: 'horizontal' | 'vertical';
   /** 레이블 표시 여부 */
@@ -104,17 +116,85 @@ export default function ShareButtons({
   title,
   url,
   description,
+  imageUrl,
   direction = 'horizontal',
   showLabel = true,
   size = 'md',
   className,
 }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
+  const [kakaoReady, setKakaoReady] = useState(false);
+
+  // 카카오 SDK 초기화
+  useEffect(() => {
+    // 이미 로드되었는지 확인
+    if (typeof window !== 'undefined' && window.Kakao) {
+      if (!window.Kakao.isInitialized()) {
+        // 카카오 JavaScript 키 (공개 키)
+        window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY || '');
+      }
+      setKakaoReady(true);
+      return;
+    }
+
+    // 카카오 SDK 동적 로드
+    const script = document.createElement('script');
+    script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+    script.integrity = 'sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4';
+    script.crossOrigin = 'anonymous';
+    script.async = true;
+    script.onload = () => {
+      if (window.Kakao && !window.Kakao.isInitialized()) {
+        window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY || '');
+      }
+      setKakaoReady(true);
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      // cleanup은 하지 않음 (SDK는 한 번 로드되면 유지)
+    };
+  }, []);
 
   // 공유 URL 결정 (SSR 안전하게 처리)
   const getShareUrl = useCallback(() => {
     return url || (typeof window !== 'undefined' ? window.location.href : '');
   }, [url]);
+
+  /**
+   * 카카오톡 공유
+   * 카카오 SDK를 사용하여 카카오톡으로 공유
+   */
+  const shareToKakao = useCallback(() => {
+    if (!kakaoReady || !window.Kakao) {
+      console.warn('Kakao SDK not ready');
+      return;
+    }
+
+    const shareUrl = getShareUrl();
+
+    window.Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: title,
+        description: description || 'KCL - K-pop Company League',
+        imageUrl: imageUrl || 'https://www.kclhq.com/images/og-default.png',
+        link: {
+          mobileWebUrl: shareUrl,
+          webUrl: shareUrl,
+        },
+      },
+      buttons: [
+        {
+          title: '자세히 보기',
+          link: {
+            mobileWebUrl: shareUrl,
+            webUrl: shareUrl,
+          },
+        },
+      ],
+    });
+  }, [title, description, imageUrl, getShareUrl, kakaoReady]);
 
   /**
    * X(Twitter) 공유
@@ -159,6 +239,20 @@ export default function ShareButtons({
       {showLabel && <span className={styles.label}>Share</span>}
 
       <div className={styles.buttons}>
+        {/* 카카오톡 공유 버튼 */}
+        <motion.button
+          type="button"
+          onClick={shareToKakao}
+          className={classNames(styles.shareBtn, styles.kakao)}
+          aria-label="카카오톡으로 공유"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          disabled={!kakaoReady}
+        >
+          <KakaoIcon size={size === 'sm' ? 14 : size === 'lg' ? 20 : 16} />
+          {size !== 'sm' && <span className={styles.btnText}>카카오톡</span>}
+        </motion.button>
+
         {/* X(Twitter) 공유 버튼 */}
         <motion.button
           type="button"
