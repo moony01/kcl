@@ -17,7 +17,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -29,6 +29,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Crown,
+  Pause,
+  Play,
 } from 'lucide-react';
 import Image from 'next/image';
 import type { SeasonInfo, CompanyRanking, PromotionBattle } from '@/types/league';
@@ -59,6 +61,8 @@ export default function SeasonHeader({
   // 슬라이드 상태 (0: 1위, 1: 승강전)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  // 자동 슬라이드 일시정지 상태
+  const [isPaused, setIsPaused] = useState(false);
 
   // 승강전 정보가 있을 때만 슬라이드 가능
   const hasPromotionBattle = !!promotionBattle;
@@ -83,17 +87,36 @@ export default function SeasonHeader({
     if (onVote) onVote(companyId);
   };
 
-  // 슬라이드 이동
-  const paginate = (newDirection: number) => {
-    if (!hasPromotionBattle) return;
-    setDirection(newDirection);
-    setCurrentIndex((prev) => {
-      let next = prev + newDirection;
-      if (next < 0) next = totalSlides - 1;
-      if (next >= totalSlides) next = 0;
-      return next;
-    });
-  };
+  // 슬라이드 이동 (useCallback으로 메모이제이션하여 useEffect 의존성 안정화)
+  const paginate = useCallback(
+    (newDirection: number) => {
+      if (!hasPromotionBattle) return;
+      setDirection(newDirection);
+      setCurrentIndex((prev) => {
+        let next = prev + newDirection;
+        if (next < 0) next = totalSlides - 1;
+        if (next >= totalSlides) next = 0;
+        return next;
+      });
+    },
+    [hasPromotionBattle, totalSlides]
+  );
+
+  // 5초마다 자동 슬라이드 (승강전 정보가 있고, 일시정지 상태가 아닐 때만 동작)
+  useEffect(() => {
+    if (!hasPromotionBattle || isPaused) return;
+
+    const autoSlideInterval = setInterval(() => {
+      paginate(1);
+    }, 5000);
+
+    return () => clearInterval(autoSlideInterval);
+  }, [hasPromotionBattle, isPaused, paginate]);
+
+  // 자동 슬라이드 멈춤/재생 토글
+  const togglePause = useCallback(() => {
+    setIsPaused((prev) => !prev);
+  }, []);
 
   // 슬라이드 애니메이션 설정 (더 부드럽게)
   const slideVariants = {
@@ -488,7 +511,7 @@ export default function SeasonHeader({
         )}
       </motion.div>
 
-      {/* 인디케이터 */}
+      {/* 인디케이터 + 멈춤/재생 버튼 */}
       {hasPromotionBattle && (
         <motion.div
           className={styles.indicators}
@@ -511,6 +534,38 @@ export default function SeasonHeader({
               layout
             />
           ))}
+          {/* 멈춤/재생 버튼 */}
+          <motion.button
+            className={classNames(styles.pauseBtn, { [styles.paused]: isPaused })}
+            onClick={togglePause}
+            aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <AnimatePresence mode="wait">
+              {isPaused ? (
+                <motion.span
+                  key="play"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Play size={12} fill="currentColor" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="pause"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Pause size={12} fill="currentColor" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </motion.div>
       )}
     </motion.header>
