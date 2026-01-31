@@ -17,9 +17,7 @@ const samplePostIds = ['1', '2', '3', '4', '5'];
 
 /**
  * 정적 경로 생성
- * 게시글 ID는 동적이므로 언어별 기본 페이지만 생성
- * SSG export에서는 알려진 ID가 없으므로 빈 배열 반환 불가
- * → 샘플 ID들로 정적 생성
+ * 빌드 시점에는 샘플 ID만 생성, 나머지는 CSR로 처리
  */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.flatMap((locale) => samplePostIds.map((id) => ({ locale, id })));

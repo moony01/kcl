@@ -13,11 +13,14 @@
 }
 
 .inputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 12px;
 }
 
 .nicknameInput {
-  width: 100%;
+  flex: 1;
   max-width: 200px;
   padding: 10px 12px;
   background: rgba($color-bg, 0.5);
@@ -35,6 +38,12 @@
   &::placeholder {
     color: $color-text-dim;
   }
+}
+
+.nicknameCount {
+  font-size: 0.75rem;
+  color: $color-text-dim;
+  white-space: nowrap;
 }
 
 .textareaRow {

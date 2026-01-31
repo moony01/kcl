@@ -22,7 +22,7 @@
 
 .input {
   width: 100%;
-  padding: 16px 14px 8px;
+  padding: 20px 14px 10px;
   background: rgba($color-bg, 0.5);
   border: 1px solid $color-border;
   border-radius: 8px;
@@ -45,19 +45,23 @@
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: $color-text-dim;
   pointer-events: none;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
+  z-index: 1;
 }
 
-/* Floating label 활성화 */
-.input:focus + .floatingLabel,
-.hasValue .floatingLabel {
-  top: 8px;
+/* Floating label 활성화 - 값이 있거나 포커스 시 라벨을 위로 이동 */
+.input:focus ~ .floatingLabel,
+.inputGroup.hasValue .floatingLabel {
+  top: -8px;
   transform: translateY(0);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: $color-primary;
+  background: $color-panel-bg;
+  padding: 0 6px;
+  left: 10px;
 }
 
 .charCount {

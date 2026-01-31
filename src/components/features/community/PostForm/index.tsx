@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import classNames from 'classnames';
+import { createPost } from '@/lib/api/community';
 import type { PostFormData } from '@/types/community';
 import styles from './PostForm.module.scss';
 
@@ -16,13 +17,14 @@ import styles from './PostForm.module.scss';
 interface PostFormProps {
   /** 현재 locale */
   locale: string;
-  /** 폼 제출 핸들러 (옵션, API 연동 전 Mock) */
+  /** 폼 제출 핸들러 (옵션, 커스텀 핸들러 사용 시) */
   onSubmit?: (data: PostFormData) => Promise<void>;
 }
 
 /**
  * 글쓰기 폼 컴포넌트
  * react-hook-form + Zod 유효성 검증
+ * Supabase에 게시글을 저장합니다.
  */
 export default function PostForm({ locale, onSubmit }: PostFormProps) {
   const t = useTranslations('Community');
@@ -34,10 +36,10 @@ export default function PostForm({ locale, onSubmit }: PostFormProps) {
   const schema = z.object({
     nickname: z
       .string()
-      .min(1, t('validation.nickname_required'))
+      .min(2, t('validation.nickname_required'))
       .max(20, t('validation.nickname_max')),
-    title: z.string().min(1, t('validation.title_required')).max(100, t('validation.title_max')),
-    content: z.string().min(1, t('validation.content_required')),
+    title: z.string().min(2, t('validation.title_required')).max(100, t('validation.title_max')),
+    content: z.string().min(10, t('validation.content_required')),
   });
 
   const {
@@ -58,22 +60,28 @@ export default function PostForm({ locale, onSubmit }: PostFormProps) {
   const titleValue = watch('title');
   const contentValue = watch('content');
 
-  /** 폼 제출 */
+  /** 폼 제출 - Supabase에 게시글 저장 */
   const handleFormSubmit = async (data: PostFormData) => {
     setIsSubmitting(true);
     setError(null);
 
     try {
       if (onSubmit) {
+        // 커스텀 핸들러가 있으면 사용
         await onSubmit(data);
       } else {
-        // Mock: API 연동 전 임시 처리
-        console.log('Post submitted:', data);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        // Supabase에 게시글 저장
+        const result = await createPost(data);
+
+        if (!result.success) {
+          throw new Error(result.message || t('error.submit_failed'));
+        }
       }
+      // 성공 시 목록 페이지로 이동
       router.push(`/${locale}/community`);
-    } catch (_err) {
-      setError('Failed to submit. Please try again.');
+    } catch (err) {
+      const message = err instanceof Error ? err.message : t('error.submit_failed');
+      setError(message);
       setIsSubmitting(false);
     }
   };
