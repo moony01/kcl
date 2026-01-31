@@ -145,6 +145,8 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           <ShareButtons
             title={post.title}
             url={`https://www.kclhq.com/${locale}/news/${slug}`}
+            description={post.excerpt}
+            imageUrl={post.thumbnail ? `https://www.kclhq.com${post.thumbnail}` : undefined}
             size="sm"
           />
         </div>
@@ -188,6 +190,8 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         <ShareButtons
           title={post.title}
           url={`https://www.kclhq.com/${locale}/news/${slug}`}
+          description={post.excerpt}
+          imageUrl={post.thumbnail ? `https://www.kclhq.com${post.thumbnail}` : undefined}
           size="md"
         />
       </div>
