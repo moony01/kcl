@@ -1,11 +1,12 @@
 /**
  * 게시글 상세 페이지 (Server Component)
  *
- * 동적 라우트 [id]에 대해 SSG 정적 셸 생성
- * 실제 게시글 ID는 동적이므로 빈 배열 반환 (CSR fallback)
+ * 동적 라우트 [id]에 대해 SSG 정적 생성
+ * 빌드 시점에 DB에서 모든 게시글 ID를 가져와 정적 페이지 생성
  *
  * @updated Phase 5 - SSG/CSR 마이그레이션
  * @fixed setRequestLocale 호출 추가 (next-intl 정적 생성 지원)
+ * @fixed 빌드 시 DB에서 모든 게시글 ID 조회 (정적 생성)
  */
 
 import { Metadata } from 'next';
@@ -13,16 +14,17 @@ import { setRequestLocale } from 'next-intl/server';
 import PostDetailClient from './PostDetailClient';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
-
-/** 커뮤니티 게시글은 동적으로 생성되므로 샘플 ID만 정적 생성 */
-const samplePostIds = ['1', '2', '3', '4', '5'];
+import { getAllPostIds } from '@/lib/api/community';
 
 /**
  * 정적 경로 생성
- * 빌드 시점에는 샘플 ID만 생성, 나머지는 CSR로 처리
+ * 빌드 시점에 DB에서 모든 게시글 ID를 조회하여 정적 페이지 생성
  */
-export function generateStaticParams() {
-  return SUPPORTED_LOCALES.flatMap((locale) => samplePostIds.map((id) => ({ locale, id })));
+export async function generateStaticParams() {
+  const postIds = await getAllPostIds();
+
+  // 각 로케일 × 각 게시글 ID 조합으로 정적 페이지 생성
+  return SUPPORTED_LOCALES.flatMap((locale) => postIds.map((id) => ({ locale, id })));
 }
 
 /**

@@ -24,6 +24,36 @@ const DEFAULT_LIMIT = 20;
 /** 최대 페이지 크기 */
 const MAX_LIMIT = 50;
 
+/**
+ * 모든 게시글 ID 조회 (정적 생성용)
+ *
+ * SSG 빌드 시 generateStaticParams()에서 호출하여
+ * 모든 게시글 경로를 정적으로 생성합니다.
+ *
+ * @returns 게시글 ID 배열
+ */
+export async function getAllPostIds(): Promise<string[]> {
+  const supabase = getSupabase();
+
+  try {
+    const { data: posts, error } = await supabase
+      .from('kcl_posts')
+      .select('id')
+      .eq('is_hidden', false)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('[getAllPostIds] Failed to fetch post IDs:', error.message);
+      return [];
+    }
+
+    return (posts || []).map((post) => post.id);
+  } catch (error) {
+    console.error('[getAllPostIds] Unexpected error:', error);
+    return [];
+  }
+}
+
 // ============================================
 // 게시글 관련 함수
 // ============================================
