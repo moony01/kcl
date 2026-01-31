@@ -67,6 +67,12 @@ export async function generateMetadata({ params }: NewsDetailPageProps): Promise
       publishedTime: post.date,
       images: post.thumbnail ? [post.thumbnail] : [],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.thumbnail ? [post.thumbnail] : [],
+    },
     alternates: generateDynamicAlternates(locale, '/news', slug),
   };
 }
@@ -184,9 +190,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
       {/* 기사 하단 공유 버튼 */}
       <div className={styles.shareSection}>
-        <p className={styles.sharePrompt}>
-          Did you enjoy this article? Share it with fellow K-pop fans!
-        </p>
+        <p className={styles.sharePrompt}>{t('sharePrompt')}</p>
         <ShareButtons
           title={post.title}
           url={`https://www.kclhq.com/${locale}/news/${slug}`}

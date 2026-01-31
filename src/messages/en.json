@@ -63,7 +63,8 @@
     "subtitle": "Latest trends and analysis reports on the K-Pop industry",
     "backToList": "Back to News",
     "noArticles": "No articles available.",
-    "readMore": "Read More"
+    "readMore": "Read More",
+    "sharePrompt": "Did you enjoy this article? Share it with fellow K-pop fans!"
   },
   "Company": {
     "detail": "Company Details",
@@ -216,6 +217,15 @@
       "submit": "Post",
       "no_comments": "Be the first to comment!",
       "delete_confirm": "Delete this comment?"
+    },
+    "total_posts": "{count} posts",
+    "refresh": "Refresh",
+    "retry": "Retry",
+    "load_more": "Load More",
+    "error": {
+      "load_failed": "Failed to load posts",
+      "post_not_found": "Post not found",
+      "submit_failed": "Failed to submit. Please try again"
     },
     "report": {
       "title": "Report",

@@ -63,7 +63,8 @@
     "subtitle": "Xu hướng mới nhất và báo cáo phân tích ngành K-Pop",
     "backToList": "Quay lại danh sách",
     "noArticles": "Không có bài viết nào.",
-    "readMore": "Đọc thêm"
+    "readMore": "Đọc thêm",
+    "sharePrompt": "Bạn thích bài viết này? Chia sẻ với fan K-pop khác nhé!"
   },
   "Company": {
     "detail": "Chi Tiết Công Ty",
@@ -216,6 +217,15 @@
       "submit": "Đăng",
       "no_comments": "Hãy là người đầu tiên bình luận!",
       "delete_confirm": "Xóa bình luận này?"
+    },
+    "total_posts": "{count} bài viết",
+    "refresh": "Làm mới",
+    "retry": "Thử lại",
+    "load_more": "Tải thêm",
+    "error": {
+      "load_failed": "Không thể tải bài viết",
+      "post_not_found": "Không tìm thấy bài viết",
+      "submit_failed": "Gửi thất bại. Vui lòng thử lại"
     },
     "report": {
       "title": "Báo cáo",

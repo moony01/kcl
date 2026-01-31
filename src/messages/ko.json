@@ -63,7 +63,8 @@
     "subtitle": "K-Pop 산업의 최신 트렌드와 분석 리포트",
     "backToList": "목록으로",
     "noArticles": "등록된 기사가 없습니다.",
-    "readMore": "더 보기"
+    "readMore": "더 보기",
+    "sharePrompt": "기사가 마음에 드셨나요? K-pop 팬들과 공유해주세요!"
   },
   "Company": {
     "detail": "회사 상세",
@@ -216,6 +217,15 @@
       "submit": "등록",
       "no_comments": "첫 댓글을 남겨보세요!",
       "delete_confirm": "댓글을 삭제하시겠습니까?"
+    },
+    "total_posts": "총 {count}개의 글",
+    "refresh": "새로고침",
+    "retry": "다시 시도",
+    "load_more": "더 보기",
+    "error": {
+      "load_failed": "게시글을 불러오는데 실패했습니다",
+      "post_not_found": "게시글을 찾을 수 없습니다",
+      "submit_failed": "등록에 실패했습니다. 다시 시도해주세요"
     },
     "report": {
       "title": "신고하기",

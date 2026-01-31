@@ -63,7 +63,8 @@
     "subtitle": "Dernières tendances et analyses de l'industrie K-Pop",
     "backToList": "Retour à la liste",
     "noArticles": "Aucun article disponible.",
-    "readMore": "Lire la suite"
+    "readMore": "Lire la suite",
+    "sharePrompt": "Cet article vous a plu ? Partagez-le avec les fans de K-pop !"
   },
   "Company": {
     "detail": "Détails de l'Entreprise",
@@ -216,6 +217,15 @@
       "submit": "Publier",
       "no_comments": "Soyez le premier à commenter!",
       "delete_confirm": "Supprimer ce commentaire?"
+    },
+    "total_posts": "{count} publications",
+    "refresh": "Actualiser",
+    "retry": "Réessayer",
+    "load_more": "Charger plus",
+    "error": {
+      "load_failed": "Échec du chargement des publications",
+      "post_not_found": "Publication introuvable",
+      "submit_failed": "Échec de l'envoi. Veuillez réessayer"
     },
     "report": {
       "title": "Signaler",
