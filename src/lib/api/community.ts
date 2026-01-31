@@ -47,7 +47,7 @@ export async function getAllPostIds(): Promise<string[]> {
       return [];
     }
 
-    return (posts || []).map((post) => post.id);
+    return (posts || []).map((post: { id: string }) => post.id);
   } catch (error) {
     console.error('[getAllPostIds] Unexpected error:', error);
     return [];
