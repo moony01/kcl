@@ -342,20 +342,28 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 }
 
 // ===== 슬라이드 컨테이너 =====
+// 개선: Flexbox 레이아웃으로 화살표와 슬라이드 영역의 정렬 최적화
 .sliderContainer {
   position: relative;
   width: 100%;
   min-height: 200px;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 4px;
 
   @media (min-width: 768px) {
     min-height: 220px;
+    gap: 12px;
+    padding: 0 8px;
   }
 }
 
 .slideTrack {
   position: relative;
-  width: 100%;
+  flex: 1;
   height: 100%;
   min-height: inherit;
   overflow: hidden;
@@ -377,26 +385,21 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 }
 
 .slideItem {
+  // 개선: padding 제거, 자식 요소가 전체 영역을 채우도록 설정
   position: absolute;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 50px;
-
-  @media (min-width: 768px) {
-    padding: 28px 70px;
-  }
+  display: block;
+  padding: 0;
 }
 
 // 화살표 버튼 (프리미엄 스타일)
+// 개선: 절대 위치에서 Flexbox 내 상대 위치로 변경하여 정렬 개선
 .arrowBtn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  flex-shrink: 0;
   z-index: 10;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
   border: 1px solid rgba($color-gold, 0.2);
@@ -412,35 +415,25 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
     background: linear-gradient(145deg, rgba($color-gold, 0.3), rgba($color-gold, 0.15));
     border-color: rgba($color-gold, 0.5);
     color: white;
-    transform: translateY(-50%) scale(1.08);
+    transform: scale(1.08);
     box-shadow: 0 4px 16px rgba($color-gold, 0.3);
   }
 
   &:active {
-    transform: translateY(-50%) scale(0.95);
-  }
-
-  &.prev {
-    left: 8px;
-  }
-  &.next {
-    right: 8px;
+    transform: scale(0.95);
   }
 
   @media (min-width: 768px) {
-    width: 46px;
-    height: 46px;
-    &.prev {
-      left: 12px;
-    }
-    &.next {
-      right: 12px;
-    }
+    width: 44px;
+    height: 44px;
   }
 }
 
 // ===== 1위 카드 디자인 (프리미엄) =====
 .leaderCard {
+  // 개선: 절대 위치로 slideItem 전체를 채우도록 설정
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -448,7 +441,6 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
 
   &:hover {
     transform: scale(1.02);
@@ -473,31 +465,33 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 }
 
 .leaderBg {
+  // 개선: inset: 0으로 부모 요소를 100% 채우도록 설정
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   border-radius: 12px;
   overflow: hidden;
 
-  // 골드 글로우 효과
+  // 골드 글로우 효과 - 전체 영역 커버
   &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150%;
+    inset: 0;
+    width: 100%;
     height: 100%;
     background: radial-gradient(
-      ellipse at center,
-      rgba($color-gold, 0.15) 0%,
-      rgba($color-gold, 0.05) 40%,
-      transparent 70%
+      ellipse at center top,
+      rgba($color-gold, 0.18) 0%,
+      rgba($color-gold, 0.08) 35%,
+      rgba($color-gold, 0.02) 60%,
+      transparent 100%
     );
     animation: leaderGlow 3s ease-in-out infinite;
   }
 
-  // shimmer 효과
+  // shimmer 효과 - 100% 높이로 전체 영역 커버
   &::after {
     content: '';
     position: absolute;
@@ -508,25 +502,26 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba($color-gold, 0.1) 40%,
-      rgba($color-gold, 0.2) 50%,
-      rgba($color-gold, 0.1) 60%,
+      rgba($color-gold, 0.08) 30%,
+      rgba($color-gold, 0.15) 45%,
+      rgba($color-gold, 0.25) 50%,
+      rgba($color-gold, 0.15) 55%,
+      rgba($color-gold, 0.08) 70%,
       transparent 100%
     );
     animation: shimmer 4s ease-in-out infinite;
-    opacity: 0.4;
   }
 }
 
 @keyframes leaderGlow {
   0%,
   100% {
-    opacity: 0.6;
-    transform: translateX(-50%) scale(1);
+    opacity: 0.7;
+    transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: translateX(-50%) scale(1.05);
+    transform: scale(1.02);
   }
 }
 
@@ -699,6 +694,9 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 
 // ===== 승강전 카드 디자인 (드라마틱) =====
 .battleCard {
+  // 개선: 절대 위치로 slideItem 전체를 채우도록 설정
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -706,7 +704,6 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   align-items: center;
   justify-content: center;
   gap: 16px;
-  position: relative;
 }
 
 .battleHeader {
@@ -1075,7 +1072,8 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 .indicators {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   margin-top: 12px;
   z-index: 2;
 }
@@ -1102,5 +1100,62 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
     background: linear-gradient(90deg, $color-gold, $color-gold-light);
     border-color: rgba($color-gold-champagne, 0.5);
     box-shadow: 0 2px 8px rgba($color-gold, 0.4);
+  }
+}
+
+// 멈춤/재생 버튼
+.pauseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  &:hover {
+    background: rgba($color-gold, 0.2);
+    border-color: rgba($color-gold, 0.4);
+    color: $color-gold;
+  }
+
+  // 일시정지 상태일 때 (재생 아이콘 표시 중)
+  &.paused {
+    background: rgba($color-gold, 0.12);
+    border-color: rgba($color-gold, 0.25);
+    color: $color-gold;
+    animation: pausedPulse 2s ease-in-out infinite;
+
+    &:hover {
+      background: rgba($color-gold, 0.25);
+      border-color: rgba($color-gold, 0.4);
+    }
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@keyframes pausedPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-gold, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba($color-gold, 0.2);
   }
 }

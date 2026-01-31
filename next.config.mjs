@@ -24,9 +24,13 @@ const isDev = process.env.NODE_ENV === 'development';
  * 배포 아키텍처: Cloudflare Pages (정적 호스팅)
  * - 빌드 출력: out/ 디렉토리
  * - 환경 변수: NEXT_PUBLIC_* 만 사용
+ *
+ * 개발 모드에서는 output: export 비활성화 (동적 라우트 지원)
  */
 const nextConfig = {
-  output: 'export', // SSG: 정적 사이트 빌드
+  // 프로덕션 빌드에서만 정적 export 활성화
+  // 개발 모드에서는 동적 라우트(커뮤니티 게시글 등) 지원을 위해 비활성화
+  ...(isDev ? {} : { output: 'export' }),
   images: {
     loader: 'custom', // next-image-export-optimizer 사용
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
