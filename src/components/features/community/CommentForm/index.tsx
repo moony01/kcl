@@ -49,6 +49,7 @@ export default function CommentForm({ onSubmit }: CommentFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      {/* 닉네임 입력 */}
       <div className={styles.inputRow}>
         <input
           type="text"
@@ -58,7 +59,10 @@ export default function CommentForm({ onSubmit }: CommentFormProps) {
           placeholder={t('form.nickname')}
           maxLength={20}
         />
+        <span className={styles.nicknameCount}>{nickname.length}/20</span>
       </div>
+
+      {/* 내용 입력 */}
       <div className={styles.textareaRow}>
         <textarea
           className={styles.textarea}

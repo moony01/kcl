@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { MessageSquare, Trash2, Flag } from 'lucide-react';
+import { MessageSquare, Flag } from 'lucide-react';
 import type { Comment, CommentFormData } from '@/types/community';
 import CommentForm from '../CommentForm';
 import styles from './CommentSection.module.scss';
@@ -105,6 +105,7 @@ export default function CommentSection({
               </div>
               <p className={styles.content}>{comment.content}</p>
               <div className={styles.actions}>
+                {/* 신고 버튼만 표시 - 익명 게시판에서는 삭제 권한 검증이 불가능 */}
                 <button
                   type="button"
                   className={styles.actionBtn}
@@ -112,14 +113,6 @@ export default function CommentSection({
                   aria-label="Report comment"
                 >
                   <Flag size={14} />
-                </button>
-                <button
-                  type="button"
-                  className={styles.actionBtn}
-                  onClick={() => handleDelete(comment.id)}
-                  aria-label="Delete comment"
-                >
-                  <Trash2 size={14} />
                 </button>
               </div>
             </div>
