@@ -191,6 +191,9 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   return (
     <div className={styles.dashboardContainer}>
+      {/* SEO용 H1 태그 (시각적으로 숨김) */}
+      <h1 className="sr-only">KCL - K-pop Company League 실시간 랭킹</h1>
+
       {/* 상단 영역: 시즌 헤더 + 검색 + 탭 (전체 너비) */}
       <header className={styles.headerSection}>
         {/* 시즌 대시보드 */}
