@@ -17,7 +17,7 @@
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -31,12 +31,77 @@ import {
   Crown,
   Pause,
   Play,
+  Clock,
 } from 'lucide-react';
 import Image from 'next/image';
 import type { SeasonInfo, CompanyRanking, PromotionBattle } from '@/types/league';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
 import styles from './SeasonHeader.module.scss';
 import classNames from 'classnames';
+
+/**
+ * 시즌 결산까지 남은 시간 계산
+ *
+ * 결산 기준: 매월 1일 KST 09:00 (= UTC 00:00)
+ * - GitHub Actions cron: `0 0 1 * *` (UTC 00:00)
+ * - 한국 시간으로 매월 1일 오전 9시에 결산
+ *
+ * @returns 남은 밀리초
+ */
+function getTimeUntilSeasonEnd(): number {
+  const now = new Date();
+
+  // 현재 시간을 KST로 계산 (UTC + 9시간)
+  const kstOffset = 9 * 60 * 60 * 1000;
+  const kstNow = new Date(now.getTime() + kstOffset + now.getTimezoneOffset() * 60 * 1000);
+
+  // 이번 달 1일 KST 09:00 (결산 시간)
+  const thisMonthSettlement = new Date(
+    kstNow.getFullYear(),
+    kstNow.getMonth(),
+    1,
+    9, 0, 0, 0
+  );
+
+  // 다음 달 1일 KST 09:00 (다음 결산 시간)
+  const nextMonthSettlement = new Date(
+    kstNow.getFullYear(),
+    kstNow.getMonth() + 1,
+    1,
+    9, 0, 0, 0
+  );
+
+  // KST 기준 현재 시간이 이번 달 결산 시간 이전이면 → 이번 달 결산까지
+  // 이미 지났으면 → 다음 달 결산까지
+  const targetSettlement = kstNow < thisMonthSettlement ? thisMonthSettlement : nextMonthSettlement;
+
+  // KST 목표 시간을 로컬 시간으로 변환하여 차이 계산
+  const targetLocal = new Date(
+    targetSettlement.getTime() - kstOffset - now.getTimezoneOffset() * 60 * 1000
+  );
+
+  return targetLocal.getTime() - now.getTime();
+}
+
+/**
+ * 남은 시간을 일/시/분/초로 분해
+ */
+interface TimeRemaining {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  totalMs: number;
+}
+
+function parseTimeRemaining(ms: number): TimeRemaining {
+  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  return { days, hours, minutes, seconds, totalMs: ms };
+}
 
 interface SeasonHeaderProps {
   /** 시즌 정보 */
@@ -64,6 +129,20 @@ export default function SeasonHeader({
   // 자동 슬라이드 일시정지 상태
   const [isPaused, setIsPaused] = useState(false);
 
+  // 시즌 결산까지 남은 시간 (실시간 카운트다운)
+  const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>(() =>
+    parseTimeRemaining(getTimeUntilSeasonEnd())
+  );
+
+  // 1초마다 남은 시간 업데이트
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeRemaining(parseTimeRemaining(getTimeUntilSeasonEnd()));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   // 승강전 정보가 있을 때만 슬라이드 가능
   const hasPromotionBattle = !!promotionBattle;
   const totalSlides = hasPromotionBattle ? 2 : 1;
@@ -74,10 +153,36 @@ export default function SeasonHeader({
     refreshingDurationMs: 1500,
   });
 
-  const formatDaysRemaining = () => {
-    if (season.daysRemaining === 0) return t('ends_today');
-    return t('days_remaining', { days: season.daysRemaining });
-  };
+  // 마지막 날 여부 (D-0: 24시간 미만)
+  const isLastDay = timeRemaining.days === 0;
+  // 임박 여부 (D-1 이하)
+  const isUrgent = timeRemaining.days <= 1;
+
+  /**
+   * 남은 시간 포맷팅
+   * - D-2 이상: "D-27일 남음"
+   * - D-1: "D-1 임박!" (urgent 스타일)
+   * - D-0: "23:59:59" 실시간 카운트다운
+   */
+  const formatDaysRemaining = useCallback(() => {
+    const { days, hours, minutes, seconds } = timeRemaining;
+
+    // 마지막 날: 시:분:초 카운트다운
+    if (days === 0) {
+      const hh = String(hours).padStart(2, '0');
+      const mm = String(minutes).padStart(2, '0');
+      const ss = String(seconds).padStart(2, '0');
+      return `${hh}:${mm}:${ss}`;
+    }
+
+    // D-1: 임박 표시
+    if (days === 1) {
+      return t('days_remaining_urgent', { days: 1 });
+    }
+
+    // D-2 이상: 일반 표시
+    return t('days_remaining', { days });
+  }, [timeRemaining, t]);
 
   const handleLeaderClick = () => {
     if (leader && onVote) onVote(leader.companyId);
@@ -251,12 +356,22 @@ export default function SeasonHeader({
 
           {/* D-day 배지 */}
           <motion.div
-            className={styles.daysRemaining}
+            className={classNames(styles.daysRemaining, {
+              [styles.lastDay]: isLastDay,
+              [styles.urgent]: isUrgent,
+            })}
             whileHover={{ scale: 1.03 }}
           >
-            <span className={season.daysRemaining <= 3 ? styles.urgent : ''}>
-              {formatDaysRemaining()}
-            </span>
+            {/* 마지막 날: 시계 아이콘 + 카운트다운 */}
+            {isLastDay && (
+              <motion.span
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                <Clock size={14} className={styles.clockIcon} />
+              </motion.span>
+            )}
+            <span>{formatDaysRemaining()}</span>
           </motion.div>
         </motion.div>
       </div>

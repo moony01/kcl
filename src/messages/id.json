@@ -124,6 +124,7 @@
     "season": {
       "title": "Musim {month} {year}",
       "days_remaining": "D-{days} tersisa",
+      "days_remaining_urgent": "D-{days} Segera!",
       "ends_today": "Berakhir hari ini!",
       "current_leader": "Saat ini #1",
       "realtime": "Update real-time",

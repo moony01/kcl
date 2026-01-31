@@ -124,6 +124,7 @@
     "season": {
       "title": "{year}年{month}月赛季",
       "days_remaining": "还剩{days}天",
+      "days_remaining_urgent": "D-{days} 即将结束！",
       "ends_today": "今日截止！",
       "current_leader": "当前第一",
       "realtime": "实时更新",

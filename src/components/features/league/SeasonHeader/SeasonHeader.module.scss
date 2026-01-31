@@ -204,43 +204,71 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
 // D-day 뱃지 (프리미엄 스타일)
 .daysRemaining {
   z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba($color-text, 0.06);
+  border: 1px solid rgba($color-text, 0.1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-text-dim;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
 
-  span {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: rgba($color-text, 0.06);
-    border: 1px solid rgba($color-text, 0.1);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: $color-text-dim;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
+  // D-1 임박 상태
+  &.urgent {
+    background: linear-gradient(
+      135deg,
+      rgba($color-relegation, 0.2),
+      rgba($color-relegation, 0.1)
+    );
+    border-color: rgba($color-relegation, 0.4);
+    color: $color-relegation;
+    box-shadow:
+      0 0 16px rgba($color-relegation, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: urgentPulse 1s ease-in-out infinite;
 
-    &.urgent {
-      background: linear-gradient(
-        135deg,
-        rgba($color-relegation, 0.2),
-        rgba($color-relegation, 0.1)
-      );
-      border-color: rgba($color-relegation, 0.4);
-      color: $color-relegation;
-      box-shadow:
-        0 0 16px rgba($color-relegation, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      animation: urgentPulse 1s ease-in-out infinite;
-
-      &::before {
-        content: '🔥 ';
-      }
-    }
-
-    @media (min-width: 768px) {
-      padding: 8px 18px;
-      font-size: 0.85rem;
+    span::before {
+      content: '🔥 ';
     }
   }
+
+  // 마지막 날 (시:분:초 카운트다운)
+  &.lastDay {
+    background: linear-gradient(
+      135deg,
+      rgba($color-relegation, 0.25),
+      rgba($color-relegation, 0.15)
+    );
+    border-color: rgba($color-relegation, 0.5);
+    color: $color-relegation;
+    box-shadow:
+      0 0 20px rgba($color-relegation, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: finalCountdownPulse 0.5s ease-in-out infinite;
+    font-variant-numeric: tabular-nums;
+    font-family: $font-display;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+
+    &.lastDay {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// 시계 아이콘 (마지막 날)
+.clockIcon {
+  color: $color-relegation;
+  filter: drop-shadow(0 0 4px rgba($color-relegation, 0.6));
 }
 
 @keyframes urgentPulse {
@@ -256,6 +284,20 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
       0 0 24px rgba($color-relegation, 0.5),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
     transform: scale(1.02);
+  }
+}
+
+@keyframes finalCountdownPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba($color-relegation, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba($color-relegation, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 }
 

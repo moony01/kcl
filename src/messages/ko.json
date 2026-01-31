@@ -124,6 +124,7 @@
     "season": {
       "title": "{year}년 {month}월 시즌",
       "days_remaining": "D-{days} 남음",
+      "days_remaining_urgent": "D-{days} 임박!",
       "ends_today": "오늘 마감!",
       "current_leader": "현재 1위",
       "realtime": "실시간 업데이트",
