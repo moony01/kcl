@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Eye, MessageCircle } from 'lucide-react';
-import type { Post } from '@/types/community';
+import type { PostListItem } from '@/types/community';
 import styles from './PostCard.module.scss';
 
 /**
@@ -11,7 +11,7 @@ import styles from './PostCard.module.scss';
  */
 interface PostCardProps {
   /** 게시글 데이터 */
-  post: Post;
+  post: PostListItem;
   /** 현재 locale */
   locale: string;
 }

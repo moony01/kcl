@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { FileText } from 'lucide-react';
-import type { Post } from '@/types/community';
+import type { PostListItem } from '@/types/community';
 import PostCard from '../PostCard';
 import styles from './PostList.module.scss';
 
@@ -13,7 +13,7 @@ import styles from './PostList.module.scss';
  */
 interface PostListProps {
   /** 게시글 목록 */
-  posts: Post[];
+  posts: PostListItem[];
   /** 로딩 상태 */
   isLoading?: boolean;
 }
