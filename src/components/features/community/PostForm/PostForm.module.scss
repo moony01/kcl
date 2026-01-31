@@ -59,9 +59,14 @@
   transform: translateY(0);
   font-size: 0.7rem;
   color: $color-primary;
-  background: $color-panel-bg;
+  /*
+   * 배경색을 불투명한 $color-bg로 변경하여 input border를 완전히 가림
+   * $color-panel-bg는 반투명(5% 불투명도)이라 border가 비침
+   */
+  background: $color-bg;
   padding: 0 6px;
   left: 10px;
+  z-index: 2;
 }
 
 .charCount {
