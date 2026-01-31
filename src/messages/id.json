@@ -175,6 +175,9 @@
     "back_to_list": "← Kembali ke daftar",
     "no_posts": "Belum ada postingan.",
     "loading": "Memuat...",
+    "notice": {
+      "write_disabled": "Pembuatan postingan baru sementara dinonaktifkan. Silakan gunakan fitur komentar di postingan yang ada."
+    },
     "table": {
       "number": "No.",
       "title": "Judul",

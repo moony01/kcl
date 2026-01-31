@@ -175,6 +175,9 @@
     "back_to_list": "← Zurück zur Liste",
     "no_posts": "Noch keine Beiträge.",
     "loading": "Laden...",
+    "notice": {
+      "write_disabled": "Das Erstellen neuer Beiträge ist vorübergehend deaktiviert. Bitte nutze die Kommentarfunktion in bestehenden Beiträgen."
+    },
     "table": {
       "number": "Nr.",
       "title": "Titel",

@@ -175,6 +175,9 @@
     "back_to_list": "← Quay lại danh sách",
     "no_posts": "Chưa có bài viết nào.",
     "loading": "Đang tải...",
+    "notice": {
+      "write_disabled": "Tính năng tạo bài viết mới tạm thời bị vô hiệu hóa. Vui lòng sử dụng tính năng bình luận trong các bài viết hiện có."
+    },
     "table": {
       "number": "STT",
       "title": "Tiêu đề",

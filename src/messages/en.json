@@ -175,6 +175,9 @@
     "back_to_list": "← Back to List",
     "no_posts": "No posts yet.",
     "loading": "Loading...",
+    "notice": {
+      "write_disabled": "New post creation is temporarily disabled. Please use the comment feature in existing posts."
+    },
     "table": {
       "number": "No.",
       "title": "Title",
