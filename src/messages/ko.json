@@ -175,6 +175,9 @@
     "back_to_list": "목록으로",
     "no_posts": "등록된 글이 없습니다.",
     "loading": "로딩 중...",
+    "notice": {
+      "write_disabled": "현재 새 글 작성 기능이 일시적으로 중단되었습니다. 기존 게시글의 댓글 기능을 이용해 주세요."
+    },
     "table": {
       "number": "번호",
       "title": "제목",

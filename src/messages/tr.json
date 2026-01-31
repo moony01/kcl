@@ -175,6 +175,9 @@
     "back_to_list": "← Listeye dön",
     "no_posts": "Henüz gönderi yok.",
     "loading": "Yükleniyor...",
+    "notice": {
+      "write_disabled": "Yeni gönderi oluşturma geçici olarak devre dışı bırakıldı. Lütfen mevcut gönderilerdeki yorum özelliğini kullanın."
+    },
     "table": {
       "number": "No.",
       "title": "Başlık",

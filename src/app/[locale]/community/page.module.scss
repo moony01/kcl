@@ -43,6 +43,31 @@
   margin: 0;
 }
 
+/* 글쓰기 임시 중단 안내 박스 */
+.noticeBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba($color-primary, 0.08);
+  border: 1px solid rgba($color-primary, 0.2);
+  border-radius: 10px;
+  margin-bottom: 16px;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: $color-text;
+    line-height: 1.5;
+  }
+}
+
+.noticeIcon {
+  color: $color-primary;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 .actionBar {
   display: flex;
   justify-content: space-between;
@@ -120,6 +145,22 @@
   &:active {
     transform: translateY(0);
   }
+}
+
+/* 비활성화된 글쓰기 버튼 */
+.writeBtnDisabled {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: $color-text-dim;
+  border: none;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 /* 에러 박스 */

@@ -175,6 +175,9 @@
     "back_to_list": "← Retour à la liste",
     "no_posts": "Aucune publication.",
     "loading": "Chargement...",
+    "notice": {
+      "write_disabled": "La création de nouvelles publications est temporairement désactivée. Veuillez utiliser les commentaires dans les publications existantes."
+    },
     "table": {
       "number": "N°",
       "title": "Titre",

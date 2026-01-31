@@ -10,9 +10,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { MessageSquare, PenSquare, RefreshCw } from 'lucide-react';
+import { MessageSquare, PenSquare, RefreshCw, Info } from 'lucide-react';
 import { PostList } from '@/components/features/community';
 import { getPosts } from '@/lib/api/community';
 import type { PostListItem } from '@/types/community';
@@ -98,6 +97,12 @@ export default function CommunityClient({ locale }: CommunityClientProps) {
         <p className={styles.subtitle}>{t('subtitle')}</p>
       </header>
 
+      {/* 글쓰기 임시 중단 안내 */}
+      <div className={styles.noticeBox}>
+        <Info size={18} className={styles.noticeIcon} />
+        <p>{t('notice.write_disabled')}</p>
+      </div>
+
       {/* 액션 바 */}
       <div className={styles.actionBar}>
         <div className={styles.leftActions}>
@@ -116,10 +121,11 @@ export default function CommunityClient({ locale }: CommunityClientProps) {
             </span>
           )}
         </div>
-        <Link href={`/${locale}/community/write`} className={styles.writeBtn}>
+        {/* 글쓰기 버튼 비활성화 */}
+        <button type="button" className={styles.writeBtnDisabled} disabled>
           <PenSquare size={18} />
           <span>{t('write')}</span>
-        </Link>
+        </button>
       </div>
 
       {/* 에러 메시지 */}

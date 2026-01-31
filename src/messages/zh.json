@@ -175,6 +175,9 @@
     "back_to_list": "← 返回列表",
     "no_posts": "暂无帖子。",
     "loading": "加载中...",
+    "notice": {
+      "write_disabled": "新帖发布功能暂时关闭。请使用现有帖子的评论功能。"
+    },
     "table": {
       "number": "编号",
       "title": "标题",

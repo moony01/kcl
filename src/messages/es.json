@@ -175,6 +175,9 @@
     "back_to_list": "← Volver a la lista",
     "no_posts": "No hay publicaciones.",
     "loading": "Cargando...",
+    "notice": {
+      "write_disabled": "La función de crear publicaciones está temporalmente deshabilitada. Por favor, usa los comentarios en las publicaciones existentes."
+    },
     "table": {
       "number": "N°",
       "title": "Título",
