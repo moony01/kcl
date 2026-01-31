@@ -63,7 +63,8 @@
     "subtitle": "K-Pop業界の最新トレンドと分析レポート",
     "backToList": "一覧に戻る",
     "noArticles": "記事がありません。",
-    "readMore": "続きを読む"
+    "readMore": "続きを読む",
+    "sharePrompt": "この記事はいかがでしたか？K-popファンにシェアしよう！"
   },
   "Company": {
     "detail": "会社詳細",
@@ -216,6 +217,15 @@
       "submit": "投稿",
       "no_comments": "最初のコメントを残しましょう！",
       "delete_confirm": "このコメントを削除しますか？"
+    },
+    "total_posts": "全{count}件",
+    "refresh": "更新",
+    "retry": "再試行",
+    "load_more": "もっと見る",
+    "error": {
+      "load_failed": "投稿の読み込みに失敗しました",
+      "post_not_found": "投稿が見つかりません",
+      "submit_failed": "投稿に失敗しました。もう一度お試しください"
     },
     "report": {
       "title": "報告する",

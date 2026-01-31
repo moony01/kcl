@@ -63,7 +63,8 @@
     "subtitle": "Tren terbaru dan laporan analisis industri K-Pop",
     "backToList": "Kembali ke daftar",
     "noArticles": "Tidak ada artikel tersedia.",
-    "readMore": "Baca selengkapnya"
+    "readMore": "Baca selengkapnya",
+    "sharePrompt": "Suka artikel ini? Bagikan dengan penggemar K-pop lainnya!"
   },
   "Company": {
     "detail": "Detail Perusahaan",
@@ -216,6 +217,15 @@
       "submit": "Kirim",
       "no_comments": "Jadilah yang pertama berkomentar!",
       "delete_confirm": "Hapus komentar ini?"
+    },
+    "total_posts": "{count} postingan",
+    "refresh": "Muat ulang",
+    "retry": "Coba lagi",
+    "load_more": "Muat lebih banyak",
+    "error": {
+      "load_failed": "Gagal memuat postingan",
+      "post_not_found": "Postingan tidak ditemukan",
+      "submit_failed": "Gagal mengirim. Silakan coba lagi"
     },
     "report": {
       "title": "Laporkan",

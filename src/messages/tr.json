@@ -63,7 +63,8 @@
     "subtitle": "K-Pop endüstrisinin en son trendleri ve analiz raporları",
     "backToList": "Listeye Dön",
     "noArticles": "Makale bulunamadı.",
-    "readMore": "Devamını Oku"
+    "readMore": "Devamını Oku",
+    "sharePrompt": "Bu makaleyi beğendiniz mi? K-pop hayranlarıyla paylaşın!"
   },
   "Company": {
     "detail": "Şirket Detayları",
@@ -216,6 +217,15 @@
       "submit": "Gönder",
       "no_comments": "İlk yorumu siz yazın!",
       "delete_confirm": "Bu yorum silinsin mi?"
+    },
+    "total_posts": "{count} gönderi",
+    "refresh": "Yenile",
+    "retry": "Tekrar dene",
+    "load_more": "Daha fazla yükle",
+    "error": {
+      "load_failed": "Gönderiler yüklenemedi",
+      "post_not_found": "Gönderi bulunamadı",
+      "submit_failed": "Gönderme başarısız. Lütfen tekrar deneyin"
     },
     "report": {
       "title": "Bildir",

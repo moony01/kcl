@@ -63,7 +63,8 @@
     "subtitle": "Neueste Trends und Analysen der K-Pop-Branche",
     "backToList": "Zurück zur Liste",
     "noArticles": "Keine Artikel verfügbar.",
-    "readMore": "Weiterlesen"
+    "readMore": "Weiterlesen",
+    "sharePrompt": "Hat dir dieser Artikel gefallen? Teile ihn mit K-pop Fans!"
   },
   "Company": {
     "detail": "Firmendetails",
@@ -216,6 +217,15 @@
       "submit": "Posten",
       "no_comments": "Sei der Erste, der kommentiert!",
       "delete_confirm": "Diesen Kommentar löschen?"
+    },
+    "total_posts": "{count} Beiträge",
+    "refresh": "Aktualisieren",
+    "retry": "Erneut versuchen",
+    "load_more": "Mehr laden",
+    "error": {
+      "load_failed": "Beiträge konnten nicht geladen werden",
+      "post_not_found": "Beitrag nicht gefunden",
+      "submit_failed": "Senden fehlgeschlagen. Bitte erneut versuchen"
     },
     "report": {
       "title": "Melden",

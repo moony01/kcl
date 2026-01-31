@@ -63,7 +63,8 @@
     "subtitle": "K-Pop行业最新趋势与分析报告",
     "backToList": "返回列表",
     "noArticles": "暂无文章。",
-    "readMore": "阅读更多"
+    "readMore": "阅读更多",
+    "sharePrompt": "喜欢这篇文章吗？分享给K-pop粉丝们吧！"
   },
   "Company": {
     "detail": "公司详情",
@@ -216,6 +217,15 @@
       "submit": "发表",
       "no_comments": "成为第一个评论的人！",
       "delete_confirm": "确定删除此评论？"
+    },
+    "total_posts": "共{count}篇帖子",
+    "refresh": "刷新",
+    "retry": "重试",
+    "load_more": "加载更多",
+    "error": {
+      "load_failed": "加载帖子失败",
+      "post_not_found": "帖子不存在",
+      "submit_failed": "提交失败，请重试"
     },
     "report": {
       "title": "举报",
