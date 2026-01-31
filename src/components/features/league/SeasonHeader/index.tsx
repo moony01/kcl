@@ -155,8 +155,8 @@ export default function SeasonHeader({
 
   // 마지막 날 여부 (D-0: 24시간 미만)
   const isLastDay = timeRemaining.days === 0;
-  // 임박 여부 (D-1 이하)
-  const isUrgent = timeRemaining.days <= 1;
+  // 임박 여부 (D-1만 해당, D-0은 lastDay로 처리)
+  const isUrgent = timeRemaining.days === 1;
 
   /**
    * 남은 시간 포맷팅
