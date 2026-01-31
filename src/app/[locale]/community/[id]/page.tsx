@@ -5,9 +5,11 @@
  * 실제 게시글 ID는 동적이므로 빈 배열 반환 (CSR fallback)
  *
  * @updated Phase 5 - SSG/CSR 마이그레이션
+ * @fixed setRequestLocale 호출 추가 (next-intl 정적 생성 지원)
  */
 
 import { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 import PostDetailClient from './PostDetailClient';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
@@ -45,7 +47,13 @@ export async function generateMetadata({ params }: PostDetailPageProps): Promise
 
 /**
  * 게시글 상세 페이지 (정적 셸)
+ * next-intl 정적 생성을 위해 setRequestLocale 호출 필수
  */
-export default function PostDetailPage() {
+export default async function PostDetailPage({ params }: PostDetailPageProps) {
+  const { locale } = await params;
+
+  // next-intl 정적 생성 지원 - 이 호출이 없으면 404 발생 가능
+  setRequestLocale(locale);
+
   return <PostDetailClient />;
 }

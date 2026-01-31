@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { MessageSquare, Flag } from 'lucide-react';
 import type { Comment, CommentFormData } from '@/types/community';
@@ -36,6 +36,14 @@ export default function CommentSection({
 }: CommentSectionProps) {
   const t = useTranslations('Community');
   const [localComments, setLocalComments] = useState<Comment[]>(comments);
+
+  /**
+   * 부모 컴포넌트에서 comments가 변경되면 로컬 상태 동기화
+   * (예: API에서 새 댓글 추가 성공 후 반영)
+   */
+  useEffect(() => {
+    setLocalComments(comments);
+  }, [comments]);
 
   /** 날짜 포맷 */
   const formatDate = (dateString: string) => {
