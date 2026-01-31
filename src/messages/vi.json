@@ -124,6 +124,7 @@
     "season": {
       "title": "Mùa giải tháng {month} năm {year}",
       "days_remaining": "Còn {days} ngày",
+      "days_remaining_urgent": "D-{days} Sắp hết!",
       "ends_today": "Kết thúc hôm nay!",
       "current_leader": "Hiện đang #1",
       "realtime": "Cập nhật thời gian thực",

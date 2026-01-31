@@ -124,6 +124,7 @@
     "season": {
       "title": "{year}年{month}月シーズン",
       "days_remaining": "残り{days}日",
+      "days_remaining_urgent": "D-{days} 間近！",
       "ends_today": "本日終了！",
       "current_leader": "現在1位",
       "realtime": "リアルタイム更新",

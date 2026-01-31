@@ -124,6 +124,7 @@
     "season": {
       "title": "Temporada {month} {year}",
       "days_remaining": "D-{days} restantes",
+      "days_remaining_urgent": "D-{days} Em breve!",
       "ends_today": "Termina hoje!",
       "current_leader": "Atual #1",
       "realtime": "Atualização em tempo real",

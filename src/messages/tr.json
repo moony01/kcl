@@ -124,6 +124,7 @@
     "season": {
       "title": "{month} {year} Sezonu",
       "days_remaining": "{days} gün kaldı",
+      "days_remaining_urgent": "D-{days} Yakında!",
       "ends_today": "Bugün sona eriyor!",
       "current_leader": "Şu an #1",
       "realtime": "Gerçek zamanlı güncelleme",
