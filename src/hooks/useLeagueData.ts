@@ -18,7 +18,15 @@
 'use client';
 
 import useSWR from 'swr';
-import type { CompanyRanking, LeagueTier, PromotionBattle, SeasonInfo } from '@/types/league';
+import type {
+  CompanyRanking,
+  LeagueTier,
+  PlayoffBattle,
+  PromotionBattle,
+  PromotionBattles,
+  PromotionStatus,
+  SeasonInfo,
+} from '@/types/league';
 import type { CompaniesResponse } from '@/types/api';
 import { getCompanies } from '@/lib/api';
 
@@ -157,6 +165,7 @@ function transformToCompanyRanking(
     tier,
     isRelegationZone,
     isPromotionZone,
+    promotionStatus: 'safe' as const, // 초기값, 리그 분리 후 재계산
     artists: {
       en: company.groups?.map((g) => g.name_en) || [],
       ko: company.groups?.map((g) => g.name_ko) || [],
@@ -191,6 +200,46 @@ function calculateLeagueRankChanges(
       rankChange,
     };
   });
+}
+
+/**
+ * 승강 상태 결정
+ *
+ * 2026년 개편된 승강 규칙에 따라 각 소속사의 승강 상태를 결정합니다.
+ * - 1부 10위: relegation_direct (강등 직행)
+ * - 1부 9위: relegation_danger (강등 위기)
+ * - 2부 1위: promotion_direct (승격 직행)
+ * - 2부 2위: promotion_chance (승격 기회)
+ * - 그 외: safe
+ *
+ * @param tier - 소속 리그 (premier/challengers)
+ * @param leagueRank - 리그 내 순위 (1-based index)
+ * @param leagueSize - 해당 리그의 총 소속사 수
+ * @returns 승강 상태
+ */
+function determinePromotionStatus(
+  tier: LeagueTier,
+  leagueRank: number,
+  leagueSize: number,
+): PromotionStatus {
+  if (tier === 'premier') {
+    // 1부 리그: 마지막(10위) = 강등 직행, 끝에서 두 번째(9위) = 강등 위기
+    if (leagueRank === leagueSize) {
+      return 'relegation_direct';
+    }
+    if (leagueRank === leagueSize - 1 && leagueSize >= 2) {
+      return 'relegation_danger';
+    }
+  } else {
+    // 2부 리그: 1위 = 승격 직행, 2위 = 승격 기회
+    if (leagueRank === 1) {
+      return 'promotion_direct';
+    }
+    if (leagueRank === 2 && leagueSize >= 2) {
+      return 'promotion_chance';
+    }
+  }
+  return 'safe';
 }
 
 /**
@@ -233,8 +282,10 @@ interface UseLeagueDataReturn {
   allCompanies: CompanyRanking[];
   /** 시즌 정보 */
   season: SeasonInfo;
-  /** 승강전 정보 */
+  /** 승강전 정보 (기존 호환성 유지: 10위 vs 11위) */
   promotionBattle: PromotionBattle | null;
+  /** 전체 승강전 정보 (직행 + 플레이오프) */
+  promotionBattles: PromotionBattles | null;
   /** 현재 1위 */
   leader: CompanyRanking | null;
   /** 로딩 상태 */
@@ -318,17 +369,32 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
     previousLeagueRanks?.challengers || {},
   );
 
-  // T1.XX: 리그 내 순위 기준으로 강등/승격 존 설정
-  // 1부 리그 마지막 = 강등 위기, 2부 리그 첫 번째 = 승격 기회
-  const premierLeague = premierWithRankChange.map((c, index) => ({
-    ...c,
-    isRelegationZone: index === premierWithRankChange.length - 1, // 1부 마지막 = 강등 위기
-  }));
+  // T1.XX: 리그 내 순위 기준으로 승강 상태 설정
+  // 2026년 개편: 4가지 상태 (강등 직행, 강등 위기, 승격 직행, 승격 기회)
+  const premierLeagueSize = premierWithRankChange.length;
+  const challengersSize = challengersWithRankChange.length;
 
-  const challengers = challengersWithRankChange.map((c, index) => ({
-    ...c,
-    isPromotionZone: index === 0, // 2부 첫 번째 = 승격 기회
-  }));
+  const premierLeague = premierWithRankChange.map((c, index) => {
+    const leagueRank = index + 1;
+    const promotionStatus = determinePromotionStatus('premier', leagueRank, premierLeagueSize);
+    return {
+      ...c,
+      // 기존 호환성 유지: 10위만 강등 위기로 표시 (deprecated)
+      isRelegationZone: promotionStatus === 'relegation_direct',
+      promotionStatus,
+    };
+  });
+
+  const challengers = challengersWithRankChange.map((c, index) => {
+    const leagueRank = index + 1;
+    const promotionStatus = determinePromotionStatus('challengers', leagueRank, challengersSize);
+    return {
+      ...c,
+      // 기존 호환성 유지: 1위만 승격 기회로 표시 (deprecated)
+      isPromotionZone: promotionStatus === 'promotion_direct',
+      promotionStatus,
+    };
+  });
 
   // 현재 리그 순위를 localStorage에 저장 (기준점 설정)
   if (premierLeague.length > 0 || challengers.length > 0) {
@@ -341,17 +407,44 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   // 시즌 정보
   const season = getCurrentSeason();
 
-  // T1.XX: 승강전 정보 (1부 마지막 vs 2부 첫 번째)
-  // 기존: rank === 10, 11 기준 → 변경: 리그 내 위치 기준
-  const relegationCompany =
+  // 2026년 개편: 직행 승강전 + 플레이오프 정보
+  // 직행 승강전: 1부 10위 vs 2부 1위
+  const relegationDirectCompany =
     premierLeague.length > 0 ? premierLeague[premierLeague.length - 1] : null;
-  const promotionCompany = challengers.length > 0 ? challengers[0] : null;
+  const promotionDirectCompany = challengers.length > 0 ? challengers[0] : null;
+
+  // 플레이오프: 1부 9위 vs 2부 2위
+  const relegationDangerCompany =
+    premierLeague.length >= 2 ? premierLeague[premierLeague.length - 2] : null;
+  const promotionChanceCompany = challengers.length >= 2 ? challengers[1] : null;
+
+  // 기존 호환성 유지: promotionBattle (10위 vs 11위)
   const promotionBattle: PromotionBattle | null =
-    relegationCompany && promotionCompany
+    relegationDirectCompany && promotionDirectCompany
       ? {
-          relegationCompany,
-          promotionCompany,
-          gap: relegationCompany.voteCount - promotionCompany.voteCount,
+          relegationCompany: relegationDirectCompany,
+          promotionCompany: promotionDirectCompany,
+          gap: relegationDirectCompany.voteCount - promotionDirectCompany.voteCount,
+        }
+      : null;
+
+  // 플레이오프 정보 (9위 vs 2위)
+  const playoffBattle: PlayoffBattle | null =
+    relegationDangerCompany && promotionChanceCompany
+      ? {
+          dangerCompany: relegationDangerCompany,
+          chanceCompany: promotionChanceCompany,
+          gap: relegationDangerCompany.voteCount - promotionChanceCompany.voteCount,
+          isChanceWinning: promotionChanceCompany.voteCount > relegationDangerCompany.voteCount,
+        }
+      : null;
+
+  // 전체 승강전 정보
+  const promotionBattles: PromotionBattles | null =
+    promotionBattle && playoffBattle
+      ? {
+          direct: promotionBattle,
+          playoff: playoffBattle,
         }
       : null;
 
@@ -379,6 +472,7 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
     allCompanies,
     season,
     promotionBattle,
+    promotionBattles,
     leader,
     isLoading,
     error: error || null,

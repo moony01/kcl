@@ -10,8 +10,15 @@
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
+// 기존 호환성 유지
 $color-relegation: #dc3545;
 $color-promotion: #28a745;
+
+// 2026년 개편: 4가지 승강 상태 색상
+$color-relegation-direct: #dc3545;    // 강등 직행 (1부 10위) - 빨간색
+$color-relegation-danger: #f97316;    // 강등 위기 (1부 9위) - 오렌지색
+$color-promotion-direct: #28a745;     // 승격 직행 (2부 1위) - 초록색
+$color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 
 .item {
   display: flex;
@@ -38,13 +45,57 @@ $color-promotion: #28a745;
     }
   }
 
-  // 승격 기회 스타일
+  // 승격 기회 스타일 (기존 호환성)
   &.promotion {
     border-color: rgba($color-promotion, 0.4);
     background: linear-gradient(135deg, rgba($color-promotion, 0.08) 0%, transparent 50%);
 
     .rank .rankNumber {
       color: $color-promotion;
+    }
+  }
+
+  // ===== 2026년 개편: 4가지 승강 상태 스타일 =====
+
+  // 강등 직행 (1부 10위) - 빨간색
+  &.relegationDirect {
+    border-color: rgba($color-relegation-direct, 0.5);
+    background: linear-gradient(135deg, rgba($color-relegation-direct, 0.12) 0%, transparent 50%);
+    box-shadow: inset 0 0 20px rgba($color-relegation-direct, 0.08);
+
+    .rank .rankNumber {
+      color: $color-relegation-direct;
+      text-shadow: 0 0 8px rgba($color-relegation-direct, 0.3);
+    }
+  }
+
+  // 강등 위기 (1부 9위) - 오렌지색
+  &.relegationDanger {
+    border-color: rgba($color-relegation-danger, 0.4);
+    background: linear-gradient(135deg, rgba($color-relegation-danger, 0.1) 0%, transparent 50%);
+
+    .rank .rankNumber {
+      color: $color-relegation-danger;
+    }
+  }
+
+  // 승격 직행 (2부 1위) - 초록색 (promotionHero와 동일)
+  &.promotionDirect {
+    // promotionHero 스타일 재사용
+  }
+
+  // 승격 기회 (2부 2위) - 골드색
+  &.promotionChance {
+    border-color: rgba($color-promotion-chance, 0.4);
+    background: linear-gradient(135deg, rgba($color-promotion-chance, 0.1) 0%, transparent 50%);
+
+    .rank .rankNumber {
+      color: $color-promotion-chance;
+    }
+
+    // 희망적인 글로우 효과
+    &:hover {
+      box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.2);
     }
   }
 
@@ -283,6 +334,52 @@ $color-promotion: #28a745;
   font-size: 0.6rem;
   font-weight: 600;
   width: fit-content;
+}
+
+// ===== 2026년 개편: 승강 상태 태그 스타일 =====
+.statusTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+// 강등 직행 태그 (빨간색)
+.relegationDirectTag {
+  background: rgba($color-relegation-direct, 0.15);
+  color: $color-relegation-direct;
+  animation: dangerPulse 1.5s ease-in-out infinite;
+}
+
+// 강등 위기 태그 (오렌지색)
+.relegationDangerTag {
+  background: rgba($color-relegation-danger, 0.15);
+  color: $color-relegation-danger;
+}
+
+// 승격 직행 태그 (초록색)
+.promotionDirectTag {
+  background: rgba($color-promotion-direct, 0.15);
+  color: $color-promotion-direct;
+}
+
+// 승격 기회 태그 (골드색)
+.promotionChanceTag {
+  background: rgba($color-promotion-chance, 0.15);
+  color: $color-promotion-chance;
+}
+
+@keyframes dangerPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .voteInfo {

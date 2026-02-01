@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "Divisi Utama",
       "relegation_zone": "Zona degradasi",
-      "relegation_warning": "{count} suara di belakang peringkat 11"
+      "relegation_warning": "{count} suara di belakang peringkat 11",
+      "relegation_direct": "Terdegradasi",
+      "relegation_danger": "Berisiko"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "Zona promosi",
       "votes_to_promotion": "{count} suara untuk naik!",
       "promotion_cta": "Dukung sekarang!",
-      "show_more": "Lihat lebih"
+      "show_more": "Lihat lebih",
+      "promotion_direct": "Dipromosikan",
+      "promotion_chance": "Penantang"
     },
     "promotion_battle": {
       "title": "Pertarungan Promosi",
+      "direct_title": "Pertukaran Langsung",
+      "playoff_title": "Playoff",
       "button": "Vote sekarang",
       "gap": "Selisih",
       "gap_message": "Hanya {count} suara untuk naik!",
-      "cta": "Balikkan keadaan sekarang!"
+      "cta": "Balikkan keadaan sekarang!",
+      "relegation_direct": "Turun",
+      "relegation_danger": "Risiko",
+      "promotion_direct": "Naik",
+      "promotion_chance": "Lawan"
     },
     "vote": {
       "button": "Vote",

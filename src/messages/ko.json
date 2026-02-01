@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "1부 리그",
       "relegation_zone": "강등 위기",
-      "relegation_warning": "11위와 {count}표 차이"
+      "relegation_warning": "11위와 {count}표 차이",
+      "relegation_direct": "강등 직행",
+      "relegation_danger": "강등 위기"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "승격 기회",
       "votes_to_promotion": "승격까지 {count}표!",
       "promotion_cta": "지금 밀어주세요!",
-      "show_more": "더 보기"
+      "show_more": "더 보기",
+      "promotion_direct": "승격 직행",
+      "promotion_chance": "승격 기회"
     },
     "promotion_battle": {
       "title": "승강전",
+      "direct_title": "직행 승강",
+      "playoff_title": "승강 플레이오프",
       "button": "투표하기",
       "gap": "격차",
       "gap_message": "승격까지 단 {count}표!",
-      "cta": "지금 역전하세요!"
+      "cta": "지금 역전하세요!",
+      "relegation_direct": "강등",
+      "relegation_danger": "위기",
+      "promotion_direct": "승격",
+      "promotion_chance": "도전"
     },
     "vote": {
       "button": "투표하기",

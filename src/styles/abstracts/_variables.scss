@@ -12,6 +12,13 @@ $color-panel-bg: var(--color-panel-bg);
 $color-border: var(--color-border);
 $color-danger: var(--color-danger);
 
+// 승강 시스템 색상 (2026년 개편)
+// 4가지 상태: 강등 직행, 강등 위기, 승격 직행, 승격 기회
+$color-relegation-direct: #dc3545;    // 강등 직행 (1부 10위) - 빨간색
+$color-relegation-danger: #f97316;    // 강등 위기 (1부 9위) - 오렌지색
+$color-promotion-direct: #28a745;     // 승격 직행 (2부 1위) - 초록색
+$color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
+
 // Fonts (from layout variables)
 $font-stack: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 $font-display: var(--font-montserrat), sans-serif;

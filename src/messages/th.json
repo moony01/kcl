@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "ดิวิชั่น 1",
       "relegation_zone": "โซนตกชั้น",
-      "relegation_warning": "ตามหลังอันดับ 11 อยู่ {count} โหวต"
+      "relegation_warning": "ตามหลังอันดับ 11 อยู่ {count} โหวต",
+      "relegation_direct": "ตกชั้น",
+      "relegation_danger": "เสี่ยง"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "โซนเลื่อนชั้น",
       "votes_to_promotion": "อีก {count} โหวตเพื่อเลื่อนชั้น!",
       "promotion_cta": "สนับสนุนเลย!",
-      "show_more": "ดูเพิ่มเติม"
+      "show_more": "ดูเพิ่มเติม",
+      "promotion_direct": "เลื่อนชั้น",
+      "promotion_chance": "ผู้ท้าชิง"
     },
     "promotion_battle": {
       "title": "ศึกเพลย์ออฟ",
+      "direct_title": "แลกเปลี่ยนโดยตรง",
+      "playoff_title": "เพลย์ออฟ",
       "button": "โหวตเลย",
       "gap": "ส่วนต่าง",
       "gap_message": "อีกแค่ {count} โหวตเพื่อเลื่อนชั้น!",
-      "cta": "พลิกสถานการณ์เลย!"
+      "cta": "พลิกสถานการณ์เลย!",
+      "relegation_direct": "ตก",
+      "relegation_danger": "เสี่ยง",
+      "promotion_direct": "ขึ้น",
+      "promotion_chance": "สู้"
     },
     "vote": {
       "button": "โหวต",

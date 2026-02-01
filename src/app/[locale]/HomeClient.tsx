@@ -87,6 +87,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     allCompanies,
     season,
     promotionBattle,
+    promotionBattles,
     leader,
     isLoading,
     error,
@@ -201,6 +202,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
           season={season}
           leader={leader}
           promotionBattle={promotionBattle}
+          promotionBattles={promotionBattles}
           onVote={handleVote}
         />
 

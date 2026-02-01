@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "1部リーグ",
       "relegation_zone": "降格危機",
-      "relegation_warning": "11位と{count}票差"
+      "relegation_warning": "11位と{count}票差",
+      "relegation_direct": "降格確定",
+      "relegation_danger": "降格危機"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "昇格チャンス",
       "votes_to_promotion": "昇格まで{count}票！",
       "promotion_cta": "今すぐ応援を！",
-      "show_more": "もっと見る"
+      "show_more": "もっと見る",
+      "promotion_direct": "昇格確定",
+      "promotion_chance": "昇格挑戦"
     },
     "promotion_battle": {
       "title": "昇降格戦",
+      "direct_title": "直接昇降格",
+      "playoff_title": "プレーオフ",
       "button": "投票する",
       "gap": "票差",
       "gap_message": "昇格までわずか{count}票！",
-      "cta": "今すぐ逆転を！"
+      "cta": "今すぐ逆転を！",
+      "relegation_direct": "降格",
+      "relegation_danger": "危機",
+      "promotion_direct": "昇格",
+      "promotion_chance": "挑戦"
     },
     "vote": {
       "button": "投票",
