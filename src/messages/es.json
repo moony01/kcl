@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "Primera División",
       "relegation_zone": "Zona de descenso",
-      "relegation_warning": "{count} votos detrás del 11°"
+      "relegation_warning": "{count} votos detrás del 11°",
+      "relegation_direct": "Descendido",
+      "relegation_danger": "En riesgo"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "Zona de ascenso",
       "votes_to_promotion": "¡{count} votos para ascender!",
       "promotion_cta": "¡Apoya ahora!",
-      "show_more": "Ver más"
+      "show_more": "Ver más",
+      "promotion_direct": "Ascendido",
+      "promotion_chance": "Aspirante"
     },
     "promotion_battle": {
       "title": "Batalla de Ascenso",
+      "direct_title": "Cambio directo",
+      "playoff_title": "Playoff",
       "button": "Votar ahora",
       "gap": "Diferencia",
       "gap_message": "¡Solo {count} votos para ascender!",
-      "cta": "¡Cambia el rumbo ahora!"
+      "cta": "¡Cambia el rumbo ahora!",
+      "relegation_direct": "Baja",
+      "relegation_danger": "Riesgo",
+      "promotion_direct": "Sube",
+      "promotion_chance": "Lucha"
     },
     "vote": {
       "button": "Votar",

@@ -13,7 +13,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Flame, TrendingUp, TrendingDown, Minus, AlertTriangle, ArrowUp } from 'lucide-react';
+import {
+  Flame,
+  TrendingUp,
+  TrendingDown,
+  Minus,
+  AlertTriangle,
+  ArrowUp,
+  ArrowDown,
+  Sparkles,
+} from 'lucide-react';
 import classNames from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
@@ -70,14 +79,62 @@ export default function LeagueRankingItem({
     );
   };
 
-  // T1.28: 11위(2부 리그 1위)인지 확인하여 특별 강조 스타일 적용
-  const isPromotionHero = company.isPromotionZone && company.rank === 11;
+  // 2026년 개편: 승강 상태별 스타일 분기
+  const promotionStatus = company.promotionStatus;
+  const isPromotionHero = promotionStatus === 'promotion_direct';
+
+  /**
+   * 승강 상태별 태그 렌더링
+   * - relegation_direct: 강등 직행 (빨간색)
+   * - relegation_danger: 강등 위기 (오렌지색)
+   * - promotion_direct: 승격 직행 (초록색)
+   * - promotion_chance: 승격 기회 (골드색)
+   */
+  const renderPromotionTag = () => {
+    switch (promotionStatus) {
+      case 'relegation_direct':
+        return (
+          <span className={classNames(styles.statusTag, styles.relegationDirectTag)}>
+            <ArrowDown size={10} />
+            {t('premier.relegation_direct')}
+          </span>
+        );
+      case 'relegation_danger':
+        return (
+          <span className={classNames(styles.statusTag, styles.relegationDangerTag)}>
+            <AlertTriangle size={10} />
+            {t('premier.relegation_danger')}
+          </span>
+        );
+      case 'promotion_direct':
+        return (
+          <span className={classNames(styles.statusTag, styles.promotionDirectTag)}>
+            <ArrowUp size={10} />
+            {t('challengers.promotion_direct')}
+          </span>
+        );
+      case 'promotion_chance':
+        return (
+          <span className={classNames(styles.statusTag, styles.promotionChanceTag)}>
+            <Sparkles size={10} />
+            {t('challengers.promotion_chance')}
+          </span>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <motion.article
       className={classNames(styles.item, {
-        [styles.relegation]: company.isRelegationZone,
-        [styles.promotion]: company.isPromotionZone && !isPromotionHero,
+        [styles.relegationDirect]: promotionStatus === 'relegation_direct',
+        [styles.relegationDanger]: promotionStatus === 'relegation_danger',
+        [styles.promotionDirect]: promotionStatus === 'promotion_direct',
+        [styles.promotionChance]: promotionStatus === 'promotion_chance',
+        // 기존 스타일 호환성 유지
+        [styles.relegation]: promotionStatus === 'relegation_direct',
+        [styles.promotion]: promotionStatus === 'promotion_direct' && !isPromotionHero,
         [styles.promotionHero]: isPromotionHero,
         [styles.selected]: isSelected,
       })}
@@ -98,19 +155,8 @@ export default function LeagueRankingItem({
         </div>
         <div className={styles.textInfo}>
           <h4 className={styles.companyName}>{company.nameEn}</h4>
-          {/* 강등/승격 경고 메시지 - T1.28: i18n 적용 */}
-          {company.isRelegationZone && (
-            <span className={styles.warningTag}>
-              <AlertTriangle size={10} />
-              {t('premier.relegation_zone')}
-            </span>
-          )}
-          {company.isPromotionZone && (
-            <span className={styles.promotionTag}>
-              <ArrowUp size={10} />
-              {t('challengers.promotion_zone')}
-            </span>
-          )}
+          {/* 2026년 개편: 승강 상태별 태그 표시 */}
+          {renderPromotionTag()}
         </div>
       </div>
 

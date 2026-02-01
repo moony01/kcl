@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "Giải Hạng Nhất",
       "relegation_zone": "Vùng xuống hạng",
-      "relegation_warning": "Kém vị trí 11 {count} phiếu"
+      "relegation_warning": "Kém vị trí 11 {count} phiếu",
+      "relegation_direct": "Xuống hạng",
+      "relegation_danger": "Nguy hiểm"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "Vùng thăng hạng",
       "votes_to_promotion": "Còn {count} phiếu để thăng hạng!",
       "promotion_cta": "Ủng hộ ngay!",
-      "show_more": "Xem thêm"
+      "show_more": "Xem thêm",
+      "promotion_direct": "Thăng hạng",
+      "promotion_chance": "Ứng viên"
     },
     "promotion_battle": {
       "title": "Trận Tranh Thăng Hạng",
+      "direct_title": "Trao đổi trực tiếp",
+      "playoff_title": "Playoff",
       "button": "Bình chọn ngay",
       "gap": "Khoảng cách",
       "gap_message": "Chỉ còn {count} phiếu để thăng hạng!",
-      "cta": "Lật ngược tình thế ngay!"
+      "cta": "Lật ngược tình thế ngay!",
+      "relegation_direct": "Xuống",
+      "relegation_danger": "Nguy",
+      "promotion_direct": "Lên",
+      "promotion_chance": "Đấu"
     },
     "vote": {
       "button": "Bình chọn",

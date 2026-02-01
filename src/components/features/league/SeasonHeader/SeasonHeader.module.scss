@@ -16,10 +16,18 @@ $color-gold: #d4af37;
 $color-gold-light: #f5e4a1;
 $color-gold-dark: #b8860b;
 $color-gold-champagne: #f7e7ce;
+
+// 기존 호환성
 $color-relegation: #dc3545;
 $color-relegation-glow: rgba(220, 53, 69, 0.4);
 $color-promotion: #28a745;
 $color-promotion-glow: rgba(40, 167, 69, 0.4);
+
+// 2026년 개편: 4가지 승강 상태 색상
+$color-relegation-direct: #dc3545;    // 강등 직행 (1부 10위) - 빨간색
+$color-relegation-danger: #f97316;    // 강등 위기 (1부 9위) - 오렌지색
+$color-promotion-direct: #28a745;     // 승격 직행 (2부 1위) - 초록색
+$color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 
 // ===== 메인 컨테이너 =====
 .seasonHeader {
@@ -748,6 +756,14 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   gap: 16px;
 }
 
+// 직행 승강 카드 (VS 없음)
+.battleCard[data-type='direct'] {
+  .battleHeader {
+    background: linear-gradient(135deg, rgba($color-relegation, 0.15), rgba($color-promotion, 0.15));
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
 .battleHeader {
   display: flex;
   align-items: center;
@@ -757,6 +773,183 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   border-radius: 20px;
   border: 1px solid rgba($color-gold, 0.25);
   box-shadow: 0 2px 10px rgba($color-gold, 0.15);
+}
+
+// ===== 직행 승강 레이아웃 (VS 없음) =====
+.directContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0 16px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+    padding: 0 24px;
+  }
+}
+
+.directCompany {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 180px;
+
+  // 강등 (10위 → 2부)
+  &[data-zone='relegation'] {
+    background: linear-gradient(135deg, rgba($color-relegation, 0.12), rgba($color-relegation, 0.04));
+    border: 1px solid rgba($color-relegation, 0.3);
+
+    .directRank {
+      color: $color-relegation;
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, rgba($color-relegation, 0.18), rgba($color-relegation, 0.08));
+      border-color: rgba($color-relegation, 0.5);
+      transform: translateY(-2px);
+    }
+  }
+
+  // 승격 (1위 → 1부)
+  &[data-zone='promotion'] {
+    background: linear-gradient(135deg, rgba($color-promotion, 0.12), rgba($color-promotion, 0.04));
+    border: 1px solid rgba($color-promotion, 0.3);
+
+    .directRank {
+      color: $color-promotion;
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, rgba($color-promotion, 0.18), rgba($color-promotion, 0.08));
+      border-color: rgba($color-promotion, 0.5);
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+}
+
+.directLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.directInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.directRank {
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+  }
+}
+
+.directName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $color-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+  }
+}
+
+.directArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+
+  svg {
+    opacity: 0.9;
+  }
+
+  span {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  // 강등 방향 (아래)
+  &[data-direction='down'] {
+    color: $color-relegation;
+  }
+
+  // 승격 방향 (위)
+  &[data-direction='up'] {
+    color: $color-promotion;
+  }
+
+  @media (min-width: 768px) {
+    span {
+      font-size: 0.6rem;
+    }
+  }
+}
+
+.directDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.swapIcon {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.4);
+  animation: swapPulse 2s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
+}
+
+@keyframes swapPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
 }
 
 .swordsIcon {
@@ -789,6 +982,23 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   color: $color-gold;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+// 플레이오프 헤더 스타일
+.battleHeader[data-type='playoff'] {
+  background: linear-gradient(135deg, rgba($color-promotion-chance, 0.2), rgba($color-relegation-danger, 0.15));
+  border-color: rgba($color-promotion-chance, 0.3);
+
+  .swordsIcon {
+    color: $color-promotion-chance;
+  }
+
+  .battleTitle {
+    background: linear-gradient(90deg, $color-relegation-danger, $color-promotion-chance);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 .battleContent {
@@ -917,10 +1127,102 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
     }
   }
 
+  // ===== 2026년 개편: 4가지 승강 상태 스타일 =====
+
+  // 강등 위기 존 (9위) - 오렌지색
+  &[data-zone='relegation-danger'] {
+    border: 1px solid rgba($color-relegation-danger, 0.35);
+    background: linear-gradient(
+      180deg,
+      rgba($color-relegation-danger, 0.12) 0%,
+      rgba($color-relegation-danger, 0.04) 50%,
+      transparent 100%
+    );
+    box-shadow: inset 0 0 20px rgba($color-relegation-danger, 0.1);
+
+    .battleRank {
+      color: $color-relegation-danger;
+      text-shadow: 0 0 12px rgba($color-relegation-danger, 0.4);
+    }
+
+    .battleLogo {
+      border-color: rgba($color-relegation-danger, 0.4);
+      box-shadow: 0 4px 16px rgba($color-relegation-danger, 0.2);
+    }
+
+    &:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: rgba($color-relegation-danger, 0.6);
+      box-shadow:
+        0 8px 32px rgba($color-relegation-danger, 0.3),
+        inset 0 0 30px rgba($color-relegation-danger, 0.15);
+
+      .battleLogo {
+        box-shadow: 0 6px 24px rgba($color-relegation-danger, 0.4);
+      }
+    }
+  }
+
+  // 승격 기회 존 (2위) - 골드색
+  &[data-zone='promotion-chance'] {
+    border: 1px solid rgba($color-promotion-chance, 0.35);
+    background: linear-gradient(
+      180deg,
+      rgba($color-promotion-chance, 0.12) 0%,
+      rgba($color-promotion-chance, 0.04) 50%,
+      transparent 100%
+    );
+    box-shadow: inset 0 0 20px rgba($color-promotion-chance, 0.1);
+
+    .battleRank {
+      color: $color-promotion-chance;
+      text-shadow: 0 0 12px rgba($color-promotion-chance, 0.4);
+    }
+
+    .battleLogo {
+      border-color: rgba($color-promotion-chance, 0.4);
+      box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.2);
+    }
+
+    &:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: rgba($color-promotion-chance, 0.6);
+      box-shadow:
+        0 8px 32px rgba($color-promotion-chance, 0.3),
+        inset 0 0 30px rgba($color-promotion-chance, 0.15);
+
+      .battleLogo {
+        box-shadow: 0 6px 24px rgba($color-promotion-chance, 0.4);
+      }
+    }
+
+    // 희망 글로우 애니메이션
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: transparent;
+      animation: chanceGlow 2s ease-in-out infinite;
+      pointer-events: none;
+    }
+  }
+
   @media (min-width: 768px) {
     width: 140px;
     height: 120px;
     padding: 16px;
+  }
+}
+
+// 승격 기회 글로우 애니메이션
+@keyframes chanceGlow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: inset 0 0 20px rgba($color-promotion-chance, 0.1);
   }
 }
 
@@ -1010,6 +1312,44 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   }
 }
 
+// 승강 상태 라벨
+.statusLabel {
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  // 강등 직행
+  &[data-status='relegation-direct'] {
+    background: rgba($color-relegation-direct, 0.15);
+    color: $color-relegation-direct;
+  }
+
+  // 강등 위기
+  &[data-status='relegation-danger'] {
+    background: rgba($color-relegation-danger, 0.15);
+    color: $color-relegation-danger;
+  }
+
+  // 승격 직행
+  &[data-status='promotion-direct'] {
+    background: rgba($color-promotion-direct, 0.15);
+    color: $color-promotion-direct;
+  }
+
+  // 승격 기회
+  &[data-status='promotion-chance'] {
+    background: rgba($color-promotion-chance, 0.15);
+    color: $color-promotion-chance;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.6rem;
+  }
+}
+
 // VS 섹션 (드라마틱)
 .vsSection {
   display: flex;
@@ -1088,6 +1428,28 @@ $color-promotion-glow: rgba(40, 167, 69, 0.4);
   border-radius: 10px;
   border: 1px solid rgba($color-gold, 0.25);
   box-shadow: 0 2px 8px rgba($color-gold, 0.15);
+  transition: all 0.3s ease;
+
+  // 2부 2위가 이기고 있을 때 강조
+  &.chanceWinning {
+    background: linear-gradient(145deg, rgba($color-promotion-chance, 0.25), rgba($color-promotion-chance, 0.1));
+    border-color: rgba($color-promotion-chance, 0.4);
+    box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.25);
+    animation: winningPulse 1.5s ease-in-out infinite;
+
+    .gapValue {
+      color: $color-promotion-chance;
+    }
+  }
+}
+
+@keyframes winningPulse {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.25);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba($color-promotion-chance, 0.4);
+  }
 }
 
 .gapLabel {

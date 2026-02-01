@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "Birinci Lig",
       "relegation_zone": "Düşme hattı",
-      "relegation_warning": "11. sıranın {count} oy gerisinde"
+      "relegation_warning": "11. sıranın {count} oy gerisinde",
+      "relegation_direct": "Düştü",
+      "relegation_danger": "Tehlikede"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "Yükselme bölgesi",
       "votes_to_promotion": "Yükselmek için {count} oy!",
       "promotion_cta": "Şimdi destekle!",
-      "show_more": "Daha fazla göster"
+      "show_more": "Daha fazla göster",
+      "promotion_direct": "Yükseldi",
+      "promotion_chance": "Aday"
     },
     "promotion_battle": {
       "title": "Play-off Maçı",
+      "direct_title": "Doğrudan Değişim",
+      "playoff_title": "Play-off",
       "button": "Şimdi oy ver",
       "gap": "Fark",
       "gap_message": "Yükselmek için sadece {count} oy!",
-      "cta": "Durumu tersine çevir!"
+      "cta": "Durumu tersine çevir!",
+      "relegation_direct": "Düş",
+      "relegation_danger": "Risk",
+      "promotion_direct": "Yüksel",
+      "promotion_chance": "Savaş"
     },
     "vote": {
       "button": "Oy Ver",

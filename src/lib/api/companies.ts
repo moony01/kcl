@@ -89,8 +89,10 @@ export async function getCompanies(
         )
       `,
       )
+      // 정렬: firepower 내림차순, 동점 시 전 시즌 순위 오름차순
+      // 시즌 초기화 후에도 전 시즌 순위 순서가 유지됨
       .order('firepower', { ascending: false })
-      .order('id', { ascending: true });
+      .order('previous_season_rank', { ascending: true });
 
     const { data: rawCompanies, error } = await query;
 

@@ -140,7 +140,9 @@
       "title": "Premier League",
       "subtitle": "甲级联赛",
       "relegation_zone": "降级危机",
-      "relegation_warning": "与第11名相差{count}票"
+      "relegation_warning": "与第11名相差{count}票",
+      "relegation_direct": "确定降级",
+      "relegation_danger": "降级危机"
     },
     "challengers": {
       "title": "Challengers",
@@ -148,14 +150,22 @@
       "promotion_zone": "升级机会",
       "votes_to_promotion": "距离升级还需{count}票！",
       "promotion_cta": "立即支持！",
-      "show_more": "查看更多"
+      "show_more": "查看更多",
+      "promotion_direct": "确定升级",
+      "promotion_chance": "升级挑战"
     },
     "promotion_battle": {
       "title": "升降级战",
+      "direct_title": "直接交换",
+      "playoff_title": "附加赛",
       "button": "立即投票",
       "gap": "差距",
       "gap_message": "距离升级仅需{count}票！",
-      "cta": "立即逆转！"
+      "cta": "立即逆转！",
+      "relegation_direct": "降级",
+      "relegation_danger": "危机",
+      "promotion_direct": "升级",
+      "promotion_chance": "挑战"
     },
     "vote": {
       "button": "投票",
