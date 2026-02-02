@@ -179,11 +179,13 @@ export default function HallOfFameClient() {
         <h1 className={styles.title}>{t('title')}</h1>
         <p className={styles.subtitle}>{t('subtitle')}</p>
 
-        {/* 공유 버튼 */}
+        {/* 공유 버튼 - 카카오톡 공유 시 동적 OG 이미지 사용 */}
         <div className={styles.shareWrapper}>
           <ShareButtons
             title="KCL Hall of Fame - K-pop Champions"
+            description={t('subtitle')}
             url={`https://www.kclhq.com/${locale}/hall-of-fame`}
+            imageUrl={`https://www.kclhq.com/${locale}/hall-of-fame/opengraph-image`}
             size="sm"
           />
         </div>

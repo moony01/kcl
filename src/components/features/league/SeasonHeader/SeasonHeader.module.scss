@@ -1563,3 +1563,251 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     box-shadow: 0 0 8px 2px rgba($color-gold, 0.2);
   }
 }
+
+// ===== 라이트 모드 스타일 오버라이드 =====
+// 흰색 배경 + 로고 색상(보라색) 기반 디자인
+// 다크 모드가 기본이므로, 라이트 모드에서만 적용되는 스타일
+
+// 라이트 모드용 보라색 테마 변수
+$light-primary: #8B5CF6;            // 로고 메인 컬러
+$light-primary-light: #A78BFA;      // 밝은 보라
+$light-primary-dark: #7C3AED;       // 진한 보라
+$light-primary-glow: rgba(139, 92, 246, 0.3);
+
+:global(:root:not([data-theme='dark'])) {
+  // 메인 컨테이너 - 깔끔한 흰색 배경 + 보라색 테두리
+  .seasonHeader {
+    background: linear-gradient(
+      145deg,
+      #FFFFFF 0%,
+      #FAFAFF 50%,
+      #F5F3FF 100%
+    ) !important;
+    border: 1px solid rgba($light-primary, 0.2) !important;
+    box-shadow:
+      0 4px 24px rgba($light-primary, 0.08),
+      0 1px 3px rgba(0, 0, 0, 0.04) !important;
+
+    // 그라디언트 오버레이 - 은은한 보라빛
+    &::before {
+      background: linear-gradient(
+        135deg,
+        rgba($light-primary, 0.03) 0%,
+        transparent 40%,
+        rgba($light-primary, 0.02) 100%
+      ) !important;
+    }
+
+    // 파티클 배경 - 보라색 계열
+    &::after {
+      background-image:
+        radial-gradient(circle at 15% 85%, rgba($light-primary, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 85% 15%, rgba($light-primary, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 45% 45%, rgba($light-primary, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 75% 65%, rgba($light-primary, 0.06) 1px, transparent 1px) !important;
+      opacity: 1 !important;
+    }
+  }
+
+  // 브랜드 타이틀 - 보라색 그라디언트
+  .brand {
+    background: linear-gradient(
+      135deg,
+      $light-primary-dark 0%,
+      $light-primary 40%,
+      $light-primary-light 70%,
+      $light-primary 100%
+    ) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    filter: drop-shadow(0 1px 2px rgba($light-primary, 0.3)) !important;
+  }
+
+  // 시즌 정보 텍스트
+  .seasonInfo {
+    color: #4B5563 !important;
+  }
+
+  // 슬라이드 트랙 - 흰색 배경 + 보라색 테두리
+  .slideTrack {
+    background: linear-gradient(
+      145deg,
+      #FFFFFF 0%,
+      #FAFAFF 100%
+    ) !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+    box-shadow:
+      inset 0 2px 8px rgba($light-primary, 0.04),
+      0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  // 화살표 버튼 - 보라색 강조
+  .arrowBtn {
+    background: #FFFFFF !important;
+    border: 1px solid rgba($light-primary, 0.2) !important;
+    color: $light-primary !important;
+    box-shadow: 0 2px 8px rgba($light-primary, 0.1) !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.08) !important;
+      border-color: $light-primary !important;
+      color: $light-primary-dark !important;
+      box-shadow: 0 4px 16px rgba($light-primary, 0.2) !important;
+    }
+  }
+
+  // 슬라이드 헤더 뱃지
+  .slideHeader {
+    .badge {
+      background: rgba($light-primary, 0.1) !important;
+      border-color: rgba($light-primary, 0.2) !important;
+      color: $light-primary-dark !important;
+    }
+  }
+
+  // 1위 카드 - 텍스트 색상 조정
+  .leaderName {
+    color: #1F2937 !important;
+    text-shadow: none !important;
+  }
+
+  .leaderScore {
+    color: $light-primary !important;
+  }
+
+  // 회사 순위 태그
+  .companyRank {
+    color: $light-primary !important;
+  }
+
+  // 승강전/직행 회사 이름 - 진한 텍스트
+  .battleName,
+  .directName {
+    color: #1F2937 !important;
+  }
+
+  // 회사 카드 배경
+  .companyCard {
+    background: rgba($light-primary, 0.04) !important;
+    border: 1px solid rgba($light-primary, 0.1) !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.08) !important;
+      border-color: rgba($light-primary, 0.2) !important;
+    }
+  }
+
+  // 로고 폴백 텍스트
+  .logoFallback {
+    color: #374151 !important;
+    text-shadow: none !important;
+  }
+
+  // VS 텍스트 - 보라색
+  .vsText {
+    color: $light-primary !important;
+    text-shadow: 0 0 12px $light-primary-glow !important;
+  }
+
+  // 직행 승강 교환 아이콘
+  .swapIcon {
+    color: $light-primary !important;
+  }
+
+  // GAP 뱃지 - 보라색 스타일
+  .gapBadge {
+    background: rgba($light-primary, 0.08) !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+  }
+
+  .gapLabel {
+    color: #6B7280 !important;
+  }
+
+  .gapValue {
+    color: $light-primary-dark !important;
+    text-shadow: none !important;
+  }
+
+  // 승강 상태 뱃지 - 색상 유지하되 배경 밝게
+  .statusBadge {
+    &[data-status='relegation'] {
+      background: rgba($color-relegation, 0.1) !important;
+      color: $color-relegation !important;
+    }
+    &[data-status='promotion'] {
+      background: rgba($color-promotion, 0.1) !important;
+      color: $color-promotion !important;
+    }
+    &[data-status='danger'] {
+      background: rgba($color-relegation-danger, 0.1) !important;
+      color: $color-relegation-danger !important;
+    }
+    &[data-status='chance'] {
+      background: rgba($color-promotion-chance, 0.1) !important;
+      color: darken($color-promotion-chance, 10%) !important;
+    }
+  }
+
+  // 인디케이터 닷 - 보라색 스타일
+  .dot {
+    background: rgba($light-primary, 0.15) !important;
+    border: 1px solid rgba($light-primary, 0.1) !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.3) !important;
+      border-color: rgba($light-primary, 0.25) !important;
+    }
+
+    &.active {
+      background: linear-gradient(90deg, $light-primary-dark, $light-primary) !important;
+      border-color: rgba($light-primary, 0.4) !important;
+    }
+  }
+
+  // 멈춤 버튼 - 보라색 스타일
+  .pauseBtn {
+    background: rgba($light-primary, 0.08) !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+    color: $light-primary !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.15) !important;
+      border-color: $light-primary !important;
+    }
+
+    &.paused {
+      background: rgba($light-primary, 0.12) !important;
+      border-color: rgba($light-primary, 0.25) !important;
+    }
+  }
+
+  // D-day 뱃지 - 보라색 강조
+  .daysRemaining {
+    background: rgba($light-primary, 0.1) !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+    color: $light-primary-dark !important;
+  }
+
+  // 실시간 업데이트 인디케이터 - 초록색 유지
+  .countdownState {
+    background: rgba($color-promotion, 0.08) !important;
+    border: 1px solid rgba($color-promotion, 0.15) !important;
+  }
+
+  .countdownLabel {
+    color: #4B5563 !important;
+  }
+
+  .countdownBadge {
+    background: rgba($color-promotion, 0.15) !important;
+    color: darken($color-promotion, 10%) !important;
+  }
+
+  // 프리미엄 왕관/트로피는 골드 유지
+  .trophy,
+  .crown {
+    color: $color-gold !important;
+  }
+}

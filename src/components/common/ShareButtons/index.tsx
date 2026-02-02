@@ -178,7 +178,7 @@ export default function ShareButtons({
       content: {
         title: title,
         description: description || 'KCL - K-pop Company League',
-        imageUrl: imageUrl || 'https://www.kclhq.com/images/og-default.png',
+        imageUrl: imageUrl || 'https://www.kclhq.com/en/opengraph-image',
         link: {
           mobileWebUrl: shareUrl,
           webUrl: shareUrl,

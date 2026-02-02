@@ -18,7 +18,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy,
@@ -125,6 +125,26 @@ export default function SeasonHeader({
 }: SeasonHeaderProps) {
   const t = useTranslations('League.season');
   const tBattle = useTranslations('League.promotion_battle');
+  const locale = useLocale();
+
+  /**
+   * 월 번호를 해당 로케일에 맞는 월 이름으로 변환
+   * - 한국어: 1, 2, 3... (숫자 그대로)
+   * - 영어/기타: January, February, March... (월 이름)
+   */
+  const formatMonth = useCallback(
+    (month: number): string => {
+      // 한국어, 일본어, 중국어는 숫자+월 형식 사용
+      const numericLocales = ['ko', 'ja', 'zh'];
+      if (numericLocales.includes(locale)) {
+        return String(month);
+      }
+      // 그 외 언어는 월 이름 사용
+      const date = new Date(2026, month - 1, 1);
+      return new Intl.DateTimeFormat(locale, { month: 'long' }).format(date);
+    },
+    [locale]
+  );
 
   // 슬라이드 상태 (0: 1위, 1: 승강전)
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -298,7 +318,7 @@ export default function SeasonHeader({
           <h1 className={styles.title}>
             <span className={styles.brand}>KPOP COMPANY LEAGUE</span>
             <span className={styles.seasonInfo}>
-              {t('title', { year: season.year, month: season.month })}
+              {t('title', { year: season.year, month: formatMonth(season.month) })}
             </span>
           </h1>
         </motion.div>
