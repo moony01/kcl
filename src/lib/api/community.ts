@@ -164,16 +164,15 @@ export async function getPostById(
       };
     }
 
-    // 조회수 증가 (비동기, 실패해도 무시)
-    supabase
-      .from('kcl_posts')
-      .update({ view_count: post.view_count + 1 })
-      .eq('id', postId)
-      .then((result: { error: { message: string } | null }) => {
+    // 조회수 증가 (RPC 함수 호출, 비동기 fire-and-forget)
+    // RPC 함수는 SECURITY DEFINER로 RLS 우회 + atomic 연산으로 레이스 컨디션 방지
+    supabase.rpc('increment_post_view_count', { post_id: postId }).then(
+      (result: { error: { message: string } | null }) => {
         if (result.error) {
           console.warn('[getPostById] Failed to increment view count:', result.error.message);
         }
-      });
+      },
+    );
 
     // 댓글 목록 조회
     const { data: comments, error: commentsError } = await supabase
