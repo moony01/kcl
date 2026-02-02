@@ -146,3 +146,68 @@
   border-radius: 6px;
   flex-shrink: 0;
 }
+
+// ===== 라이트 모드 스타일 오버라이드 =====
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .inputContainer {
+    background: #FFFFFF !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+
+    &:focus-within {
+      border-color: rgba($light-primary, 0.4) !important;
+      box-shadow: 0 0 0 3px rgba($light-primary, 0.1) !important;
+    }
+  }
+
+  .searchIcon {
+    color: #9CA3AF !important;
+  }
+
+  .input {
+    color: #1F2937 !important;
+
+    &::placeholder {
+      color: #9CA3AF !important;
+    }
+  }
+
+  .clearButton {
+    background: rgba($light-primary, 0.08) !important;
+    color: #6B7280 !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.15) !important;
+      color: $light-primary !important;
+    }
+  }
+
+  .dropdown {
+    background: #FFFFFF !important;
+    border: 1px solid rgba($light-primary, 0.1) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .resultItem {
+    &:hover,
+    &.highlighted {
+      background: rgba($light-primary, 0.08) !important;
+    }
+  }
+
+  .artistName,
+  .companyName {
+    color: #1F2937 !important;
+  }
+
+  .companyLabel {
+    color: #6B7280 !important;
+  }
+
+  .resultType {
+    color: #6B7280 !important;
+    background: rgba($light-primary, 0.08) !important;
+  }
+}

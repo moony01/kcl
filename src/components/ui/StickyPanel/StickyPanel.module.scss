@@ -98,3 +98,60 @@
     }
   }
 }
+
+// 빈 상태 스타일
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: $color-text-dim;
+}
+
+// ===== 라이트 모드 스타일 오버라이드 =====
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .stickyPanel {
+    background: #FFFFFF !important;
+    border: 1px solid rgba($light-primary, 0.1) !important;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba($light-primary, 0.08) !important;
+  }
+
+  .panelHeader {
+    border-bottom: 1px solid rgba($light-primary, 0.1) !important;
+    background: rgba($light-primary, 0.02) !important;
+  }
+
+  .panelTitle {
+    color: #1F2937 !important;
+  }
+
+  .closeButton {
+    background: rgba($light-primary, 0.08) !important;
+    color: #6B7280 !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.15) !important;
+      color: $light-primary !important;
+    }
+  }
+
+  .panelContent {
+    &::-webkit-scrollbar-thumb {
+      background: rgba($light-primary, 0.15) !important;
+
+      &:hover {
+        background: rgba($light-primary, 0.25) !important;
+      }
+    }
+  }
+
+  .emptyState {
+    color: #9CA3AF !important;
+  }
+}

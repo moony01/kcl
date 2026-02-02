@@ -462,3 +462,102 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
       0 6px 20px rgba($color-primary, 0.3);
   }
 }
+
+// ===== 라이트 모드 스타일 오버라이드 =====
+// 흰색 배경 + 보라색(로고 색상) 테마
+$light-primary: #8B5CF6;
+$light-primary-light: #A78BFA;
+$light-primary-dark: #7C3AED;
+
+:global(:root:not([data-theme='dark'])) {
+  .item {
+    background: #FFFFFF !important;
+    border: 1px solid rgba($light-primary, 0.1) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.03) !important;
+      border-color: rgba($light-primary, 0.2) !important;
+      box-shadow: 0 4px 12px rgba($light-primary, 0.1) !important;
+    }
+
+    // 강등 위기 스타일 - 색상 유지
+    &.relegation,
+    &.relegationDirect,
+    &.relegationDanger {
+      background: #FFFFFF !important;
+    }
+
+    // 승격 기회 스타일 - 색상 유지
+    &.promotion,
+    &.promotionDirect,
+    &.promotionChance,
+    &.promotionHero {
+      background: #FFFFFF !important;
+    }
+
+    // 선택된 상태
+    &.selected {
+      background: rgba($light-primary, 0.04) !important;
+    }
+  }
+
+  .rankNumber {
+    color: #1F2937 !important;
+  }
+
+  .rankUp {
+    color: $color-promotion !important;
+  }
+
+  .rankDown {
+    color: $color-relegation !important;
+  }
+
+  .rankSame {
+    color: #9CA3AF !important;
+  }
+
+  .companyName {
+    color: #1F2937 !important;
+  }
+
+  .voteCount {
+    color: #6B7280 !important;
+  }
+
+  .voteButton {
+    background: linear-gradient(135deg, $light-primary 0%, $light-primary-dark 100%) !important;
+    box-shadow: 0 2px 8px rgba($light-primary, 0.25) !important;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba($light-primary, 0.35) !important;
+    }
+  }
+
+  .detailButton {
+    color: #9CA3AF !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.08) !important;
+      color: $light-primary !important;
+    }
+  }
+
+  // 승강 상태 태그 - 라이트 모드에서 더 선명하게
+  .warningTag,
+  .relegationDirectTag,
+  .relegationDangerTag {
+    background: rgba($color-relegation, 0.1) !important;
+  }
+
+  .promotionTag,
+  .promotionDirectTag {
+    background: rgba($color-promotion, 0.1) !important;
+  }
+
+  .promotionChanceTag {
+    background: rgba($color-promotion-chance, 0.12) !important;
+    color: darken($color-promotion-chance, 15%) !important;
+  }
+}

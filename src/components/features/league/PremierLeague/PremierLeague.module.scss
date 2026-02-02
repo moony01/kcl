@@ -99,3 +99,20 @@ $color-relegation: #dc3545;
 .relegationZone {
   display: none; // T1.16: 사용 중단
 }
+
+// ===== 라이트 모드 스타일 오버라이드 =====
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .title {
+    color: #1F2937 !important;
+  }
+
+  .subtitle {
+    color: #B8860B !important; // 골드 유지 (리그 테마)
+  }
+
+  .icon {
+    color: #D4AF37 !important; // 골드 유지
+  }
+}

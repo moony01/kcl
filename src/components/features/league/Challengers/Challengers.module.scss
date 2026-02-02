@@ -106,3 +106,32 @@ $color-promotion: #28a745;
     transform: translateY(2px);
   }
 }
+
+// ===== 라이트 모드 스타일 오버라이드 =====
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .title {
+    color: #1F2937 !important;
+  }
+
+  .subtitle {
+    color: #6B7280 !important; // 실버 → 그레이 (라이트 모드에서 가시성 개선)
+  }
+
+  .icon {
+    color: #9CA3AF !important; // 실버 → 그레이
+  }
+
+  .loadMoreButton {
+    background: #FFFFFF !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+    color: #374151 !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.06) !important;
+      border-color: $light-primary !important;
+      color: $light-primary !important;
+    }
+  }
+}
