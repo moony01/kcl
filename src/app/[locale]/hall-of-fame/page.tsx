@@ -67,6 +67,8 @@ export default function HallOfFamePage() {
   return (
     <>
       <JsonLd data={hallOfFameJsonLd} />
+      {/* SEO용 h1 태그 - 시각적으로 숨김 처리하여 스크린 리더와 검색 엔진에만 노출 */}
+      <h1 className="sr-only">Hall of Fame - K-pop Champions</h1>
       <HallOfFameClient />
     </>
   );

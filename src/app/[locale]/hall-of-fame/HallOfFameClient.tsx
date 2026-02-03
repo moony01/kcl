@@ -174,9 +174,9 @@ export default function HallOfFameClient() {
 
   return (
     <main className={styles.container}>
-      {/* 페이지 헤더 */}
+      {/* 페이지 헤더 - sr-only h1은 page.tsx에 있음 */}
       <header className={styles.pageHeader}>
-        <h1 className={styles.title}>{t('title')}</h1>
+        <h2 className={styles.title}>{t('title')}</h2>
         <p className={styles.subtitle}>{t('subtitle')}</p>
 
         {/* 공유 버튼 - 카카오톡 공유 시 동적 OG 이미지 사용 */}

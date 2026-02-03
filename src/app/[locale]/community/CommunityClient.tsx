@@ -92,7 +92,8 @@ export default function CommunityClient({ locale }: CommunityClientProps) {
       <header className={styles.header}>
         <div className={styles.titleWrapper}>
           <MessageSquare size={28} className={styles.icon} />
-          <h1 className={styles.title}>{t('title')}</h1>
+          {/* 페이지 레벨에서 sr-only h1이 있으므로 시각적 제목은 h2로 변경 */}
+          <h2 className={styles.title}>{t('title')}</h2>
         </div>
         <p className={styles.subtitle}>{t('subtitle')}</p>
       </header>

@@ -78,6 +78,8 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={websiteJsonLd} />
+      {/* SEO용 h1 태그 - 시각적으로 숨김 처리하여 스크린 리더와 검색 엔진에만 노출 */}
+      <h1 className="sr-only">KCL - K-pop Company League 실시간 랭킹</h1>
       <HomeClient />
     </>
   );
