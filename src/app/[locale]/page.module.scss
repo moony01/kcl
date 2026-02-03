@@ -69,6 +69,19 @@
   flex: 1;
   min-width: 0; // flex item overflow 방지
   width: 100%;
+  overflow: hidden; // 스와이프 시 넘침 방지
+}
+
+// 스와이프 컨테이너 (1부/2부 리그 전환)
+.swipeContainer {
+  width: 100%;
+  user-select: none; // 드래그 시 텍스트 선택 방지
+  -webkit-user-select: none;
+
+  // 터치 디바이스에서 부드러운 스와이프
+  @media (hover: none) and (pointer: coarse) {
+    touch-action: pan-y; // 세로 스크롤은 유지, 가로는 스와이프
+  }
 }
 
 // 우측 패널 컬럼 (데스크톱 전용) - Battle Station

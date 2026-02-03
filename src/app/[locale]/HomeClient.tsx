@@ -222,41 +222,67 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
       {/* 하단 영역: 탭 콘텐츠 + Battle Station (2열 레이아웃) */}
       <div className={styles.contentLayout}>
-        {/* 좌측: 탭 콘텐츠 영역 */}
+        {/* 좌측: 탭 콘텐츠 영역 (스와이프 지원) */}
         <section className={styles.leagueListSection}>
-          <AnimatePresence mode="wait">
-            {activeTab === 'premier' ? (
-              <motion.div
-                key="premier"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.2 }}
-              >
-                <PremierLeague
-                  companies={premierLeague}
-                  onVote={handleVote}
-                  selectedCompanyId={selectedCompanyId}
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="challengers"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Challengers
-                  companies={challengers}
-                  onVote={handleVote}
-                  onLoadMore={handleLoadMore}
-                  hasMore={hasMoreChallengers}
-                  selectedCompanyId={selectedCompanyId}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <motion.div
+            className={styles.swipeContainer}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              // 스와이프 임계값: 50px 이상 또는 빠른 스와이프 (velocity 500 이상)
+              const swipeThreshold = 50;
+              const velocityThreshold = 500;
+
+              if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
+                // 왼쪽으로 스와이프 → 2부리그로 이동
+                if (activeTab === 'premier') {
+                  setActiveTab('challengers');
+                }
+              } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
+                // 오른쪽으로 스와이프 → 1부리그로 이동
+                if (activeTab === 'challengers') {
+                  setActiveTab('premier');
+                }
+              }
+            }}
+            style={{ cursor: 'grab', touchAction: 'pan-y' }}
+            whileDrag={{ cursor: 'grabbing' }}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {activeTab === 'premier' ? (
+                <motion.div
+                  key="premier"
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 30 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                >
+                  <PremierLeague
+                    companies={premierLeague}
+                    onVote={handleVote}
+                    selectedCompanyId={selectedCompanyId}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="challengers"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                >
+                  <Challengers
+                    companies={challengers}
+                    onVote={handleVote}
+                    onLoadMore={handleLoadMore}
+                    hasMore={hasMoreChallengers}
+                    selectedCompanyId={selectedCompanyId}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </section>
 
         {/* 우측: Battle Station 패널 (데스크톱 전용) */}

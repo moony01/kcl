@@ -418,6 +418,9 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   min-height: inherit;
   overflow: hidden;
   border-radius: 16px;
+  user-select: none; // 드래그 시 텍스트 선택 방지
+  -webkit-user-select: none;
+  touch-action: pan-y; // 세로 스크롤 유지, 가로는 스와이프
   background: linear-gradient(
     145deg,
     rgba(0, 0, 0, 0.3) 0%,
