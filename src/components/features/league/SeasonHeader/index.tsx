@@ -402,7 +402,7 @@ export default function SeasonHeader({
         </motion.div>
       </div>
 
-      {/* 메인 슬라이드 영역 */}
+      {/* 메인 슬라이드 영역 (스와이프 지원) */}
       <motion.div
         className={styles.sliderContainer}
         initial={{ opacity: 0, scale: 0.95 }}
@@ -422,7 +422,26 @@ export default function SeasonHeader({
           </motion.button>
         )}
 
-        <div className={styles.slideTrack}>
+        <motion.div
+          className={styles.slideTrack}
+          drag={hasMultipleSlides ? 'x' : false}
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.15}
+          onDragEnd={(_, info) => {
+            if (!hasMultipleSlides) return;
+            // 스와이프 임계값: 40px 이상 또는 빠른 스와이프
+            const swipeThreshold = 40;
+            const velocityThreshold = 400;
+
+            if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
+              paginate(1); // 다음 슬라이드
+            } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
+              paginate(-1); // 이전 슬라이드
+            }
+          }}
+          style={{ cursor: hasMultipleSlides ? 'grab' : 'default', touchAction: 'pan-y' }}
+          whileDrag={{ cursor: 'grabbing' }}
+        >
           <AnimatePresence initial={false} custom={direction} mode="wait">
             {currentIndex === 0 && leader && (
               <motion.div
@@ -779,7 +798,7 @@ export default function SeasonHeader({
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* 오른쪽 화살표 */}
         {hasMultipleSlides && (
