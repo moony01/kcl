@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
 import CommunityClient from './CommunityClient';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -54,6 +55,23 @@ export async function generateMetadata({ params }: CommunityPageProps): Promise<
   };
 }
 
+/** Community DiscussionForumPosting JSON-LD 스키마 */
+const communityJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'DiscussionForumPosting',
+  headline: 'KCL Community - K-pop Fan Free Board',
+  description: 'Join the K-pop fan community. Share your thoughts and connect with fans worldwide.',
+  url: 'https://www.kclhq.com/community',
+  publisher: {
+    '@type': 'Organization',
+    name: 'KCL',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.kclhq.com/images/logo.png',
+    },
+  },
+};
+
 /**
  * 커뮤니티 목록 페이지
  * Server Component 셸 + Client Component 조합
@@ -64,5 +82,12 @@ export default async function CommunityPage({ params }: CommunityPageProps) {
   // next-intl 정적 생성 지원
   setRequestLocale(locale);
 
-  return <CommunityClient locale={locale} />;
+  return (
+    <>
+      <JsonLd data={communityJsonLd} />
+      {/* SEO용 h1 태그 - 시각적으로 숨김 처리하여 스크린 리더와 검색 엔진에만 노출 */}
+      <h1 className="sr-only">KCL Community - K-pop Fan Free Board</h1>
+      <CommunityClient locale={locale} />
+    </>
+  );
 }
