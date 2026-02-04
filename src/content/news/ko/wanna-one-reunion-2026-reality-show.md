@@ -4,6 +4,7 @@ excerpt: "2017년 대한민국을 뒤흔든 국민 프로듀스 그룹 Wanna One
 date: '2026-02-04'
 category: 'Artist'
 thumbnail: '/images/news/wanna-one-reunion-2026-reality-show-thumbnail.png'
+active: false
 ---
 
 "2026, 다시 만나자."

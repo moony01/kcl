@@ -4,6 +4,7 @@ excerpt: "Netflix 영화 'KPop Demon Hunters'의 수록곡 'Golden'이 제68회 
 date: '2026-02-04'
 category: 'Tech & Culture'
 thumbnail: '/images/news/kpop-demon-hunters-grammy-first-win-thumbnail.png'
+active: false
 ---
 
 "한국인이라는 게 너무, 너무 자랑스럽습니다."
