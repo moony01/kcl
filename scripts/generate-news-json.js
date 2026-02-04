@@ -53,7 +53,7 @@ function parseNewsFile(filePath, locale) {
   // 파일명에서 slug 추출 (확장자 제거)
   const slug = path.basename(filePath, '.md');
 
-  return {
+  const result = {
     slug,
     locale,
     title: data.title || '제목 없음',
@@ -63,6 +63,13 @@ function parseNewsFile(filePath, locale) {
     thumbnail: data.thumbnail || null,
     content,
   };
+
+  // active 필드가 명시적으로 false인 경우만 포함 (비활성화 뉴스)
+  if (data.active === false) {
+    result.active = false;
+  }
+
+  return result;
 }
 
 /**

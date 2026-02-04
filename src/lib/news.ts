@@ -41,6 +41,8 @@ export interface NewsMeta {
   thumbnail?: string | null;
   category?: string;
   locale: string;
+  /** 활성 여부 (false면 목록에서 숨김, 기본값: true) */
+  active?: boolean;
 }
 
 /**
@@ -51,12 +53,16 @@ export interface NewsMeta {
  * @returns 뉴스 메타데이터 배열
  */
 export function getAllNews(locale: string = 'ko'): NewsMeta[] {
-  // 해당 로케일의 뉴스만 필터링
-  let posts = (newsMeta as NewsMeta[]).filter((post) => post.locale === locale);
+  // 해당 로케일의 뉴스만 필터링 (active가 false인 항목은 제외)
+  let posts = (newsMeta as NewsMeta[]).filter(
+    (post) => post.locale === locale && post.active !== false,
+  );
 
   // 해당 언어 콘텐츠가 없으면 영어로 fallback
   if (posts.length === 0 && locale !== 'en') {
-    posts = (newsMeta as NewsMeta[]).filter((post) => post.locale === 'en');
+    posts = (newsMeta as NewsMeta[]).filter(
+      (post) => post.locale === 'en' && post.active !== false,
+    );
   }
 
   // 날짜 내림차순 정렬 (이미 정렬되어 있지만 안전하게 재정렬)
