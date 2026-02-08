@@ -4,7 +4,7 @@ excerpt: "Wanna One, the national produce group that shook Korea in 2017, breaks
 date: '2026-02-04'
 category: 'Artist'
 thumbnail: '/images/news/wanna-one-reunion-2026-reality-show-thumbnail.png'
-active: false
+active: true
 ---
 
 "2026. Let's meet again."
