@@ -4,7 +4,7 @@ excerpt: "'Golden' from Netflix's 'KPop Demon Hunters' won at the 68th Grammy Aw
 date: '2026-02-04'
 category: 'Tech & Culture'
 thumbnail: '/images/news/kpop-demon-hunters-grammy-first-win-thumbnail.png'
-active: false
+active: true
 ---
 
 "I'm so, so proud to be Korean."
