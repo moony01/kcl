@@ -41,10 +41,8 @@ export default function Header() {
       </Link>
 
       <div className={styles.controls}>
-        {/* 테마 토글 버튼 - 개발 환경에서만 표시 (추후 정식 오픈 시 활성화) */}
-        {process.env.NODE_ENV === 'development' && (
-          <ThemeToggle compact className={styles.themeToggle} />
-        )}
+        {/* 테마 토글 버튼 (다크/라이트 모드 전환) */}
+        <ThemeToggle compact className={styles.themeToggle} />
 
         <select value={locale} onChange={changeLang} className={styles.langSelect}>
           <option value="ko">한국어</option>
