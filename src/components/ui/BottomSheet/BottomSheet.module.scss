@@ -36,11 +36,11 @@
   @include mix.glass-panel;
 
   // 가독성을 위한 배경 및 효과 강화
-  background-color: var(--color-bg-secondary, #1a1a1a);
+  background-color: var(--color-surface);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.6);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
   z-index: 100;
 
   border-radius: 24px 24px 0 0;

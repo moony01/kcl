@@ -94,8 +94,12 @@ const STATIC_PAGES: StaticPage[] = [
   // 뉴스 목록 - 활성화됨
   { path: '/news', priority: 0.8, changeFrequency: 'daily' },
 
-  // 커뮤니티 - 활성화됨
-  { path: '/community', priority: 0.7, changeFrequency: 'hourly' },
+  // 공지사항 - 커뮤니티 대체
+  { path: '/notice', priority: 0.7, changeFrequency: 'daily' },
+
+  // About & FAQ - AdSense 필수 페이지
+  { path: '/about', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/faq', priority: 0.6, changeFrequency: 'monthly' },
 
   // 법적 페이지 - 필수
   { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },

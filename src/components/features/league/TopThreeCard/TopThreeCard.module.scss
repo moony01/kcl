@@ -331,6 +331,11 @@ $light-primary: #8B5CF6;
     color: #6B7280 !important;
   }
 
+  // 라이트모드에서 글로우/반짝임 효과 제거
+  .glow {
+    display: none !important;
+  }
+
   .voteButton {
     box-shadow: 0 2px 8px rgba($light-primary, 0.25) !important;
 

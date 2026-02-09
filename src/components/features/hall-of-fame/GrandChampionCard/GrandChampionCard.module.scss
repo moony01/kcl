@@ -224,3 +224,62 @@ $champion-border: rgba(212, 175, 55, 0.3);
   height: 40px;
   background: linear-gradient(to bottom, transparent, $champion-border, transparent);
 }
+
+// ========================================
+// 라이트 모드 오버라이드
+// Black & Gold → 화이트 & 보라색 프리미엄 테마
+// ========================================
+$light-primary: #8B5CF6;
+$light-primary-dark: #7C3AED;
+
+:global(:root:not([data-theme='dark'])) {
+  .card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F7FF 100%) !important;
+    border-color: rgba($light-primary, 0.15) !important;
+    box-shadow: 0 8px 32px rgba($light-primary, 0.08) !important;
+  }
+
+  // 라이트 모드에서 글로우/파티클 효과 제거
+  .glowEffect {
+    display: none !important;
+  }
+
+  .particles {
+    display: none !important;
+  }
+
+  .titleBadge {
+    background: linear-gradient(135deg, $light-primary 0%, $light-primary-dark 100%) !important;
+
+    span {
+      color: #FFFFFF !important;
+    }
+  }
+
+  .trophyIcon {
+    color: #FFFFFF !important;
+  }
+
+  // 라이트 모드: 글로우 없이 깔끔한 테두리만
+  .logoWrapper {
+    box-shadow:
+      0 0 0 3px rgba($light-primary, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .companyName {
+    color: #1F2937 !important;
+  }
+
+  .subtitle {
+    color: $light-primary !important;
+  }
+
+  .statValue {
+    color: $light-primary !important;
+  }
+
+  .statDivider {
+    background: linear-gradient(to bottom, transparent, rgba($light-primary, 0.2), transparent) !important;
+  }
+}

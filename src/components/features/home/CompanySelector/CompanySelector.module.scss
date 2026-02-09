@@ -42,24 +42,37 @@
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background: var(--bg-secondary); // Fallback
+  background: var(--color-surface);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: var(--shadow-lg);
   transition: box-shadow 0.3s ease;
-  
+
   // Glassmorphism base
   @include mix.glass-panel;
-  background: rgba(20, 20, 20, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
+
+  // 다크 모드에서만 어두운 배경
+  [data-theme='dark'] & {
+    background: rgba(20, 20, 20, 0.8);
+  }
 
   &.active {
-    box-shadow: 0 0 30px var(--glow-color), 0 0 10px var(--glow-color);
-    border-color: rgba(255, 255, 255, 0.5);
+    // 다크 모드: 글로우 효과
+    [data-theme='dark'] & {
+      box-shadow: 0 0 30px var(--glow-color), 0 0 10px var(--glow-color);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    // 라이트 모드: 깔끔한 테두리 강조만
+    :root:not([data-theme='dark']) & {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
   }
 }
 

@@ -113,3 +113,26 @@ $badge-border: rgba(212, 175, 55, 0.3);
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+// 라이트 모드 오버라이드
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .badge {
+    background: rgba($light-primary, 0.06) !important;
+    border-color: rgba($light-primary, 0.15) !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.1) !important;
+      border-color: $light-primary !important;
+    }
+  }
+
+  .monthLabel {
+    color: $light-primary !important;
+  }
+
+  .logoWrapper {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+}

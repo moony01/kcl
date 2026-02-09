@@ -1,0 +1,75 @@
+/**
+ * 공지사항 페이지 스타일
+ */
+
+.noticePage {
+  min-height: 100vh;
+  padding: 24px 16px;
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+}
+
+.statusMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+
+  p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+  }
+}
+
+.retryButton {
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  background: none;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--primary);
+    color: white;
+  }
+}
+
+// 반응형
+@media (max-width: 768px) {
+  .noticePage {
+    padding: 16px 12px;
+    padding-bottom: 100px;
+  }
+
+  .header .title {
+    font-size: 20px;
+  }
+}

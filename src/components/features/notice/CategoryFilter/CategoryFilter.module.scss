@@ -1,0 +1,43 @@
+/**
+ * 카테고리 필터 스타일
+ */
+
+.categoryFilter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  // 스크롤바 숨김
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.filterButton {
+  flex-shrink: 0;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--text-muted);
+  }
+
+  &.active {
+    color: white;
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+}

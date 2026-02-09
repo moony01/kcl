@@ -29,6 +29,13 @@ $z-nav: 100;
 $z-modal: 1000;
 $z-overlay: 999;
 
+// 새로운 CSS 변수 매핑
+$color-surface: var(--color-surface);
+$color-accent: var(--color-accent);
+$shadow-sm: var(--shadow-sm);
+$shadow-md: var(--shadow-md);
+$shadow-lg: var(--shadow-lg);
+
 // Gradients
 $gradient-primary: linear-gradient(135deg, $color-primary 0%, #7C3AED 100%);
 $gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);

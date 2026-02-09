@@ -160,3 +160,17 @@ $chart-border: rgba(255, 255, 255, 0.08);
     margin: 0;
   }
 }
+
+// 라이트 모드 오버라이드
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .container {
+    background: rgba($light-primary, 0.03) !important;
+    border-color: rgba($light-primary, 0.1) !important;
+  }
+
+  .barWrapper {
+    background: rgba($light-primary, 0.06) !important;
+  }
+}

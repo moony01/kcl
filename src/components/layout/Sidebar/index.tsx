@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Home, BarChart3, Trophy, Newspaper, MessageSquare } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, Bell } from 'lucide-react';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
 import styles from './Sidebar.module.scss';
@@ -37,10 +37,10 @@ export default function Sidebar() {
     },
     { label: t('news'), icon: Newspaper, path: '/news', enabled: FEATURES.NEWS_PAGE },
     {
-      label: t('community'),
-      icon: MessageSquare,
-      path: '/community',
-      enabled: FEATURES.COMMUNITY_PAGE,
+      label: t('notice'),
+      icon: Bell,
+      path: '/notice',
+      enabled: FEATURES.NOTICE_PAGE,
     },
   ].filter((item) => item.enabled);
 

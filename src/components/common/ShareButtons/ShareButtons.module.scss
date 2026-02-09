@@ -66,7 +66,7 @@
   padding: 0.5rem 0.875rem;
   border-radius: 8px;
   border: 1px solid $color-border;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--color-panel-bg);
   color: $color-text;
   font-size: 0.8125rem;
   font-weight: 500;
@@ -140,7 +140,7 @@
     cursor: not-allowed;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--color-panel-bg);
       color: $color-text;
       border-color: $color-border;
       box-shadow: none;
