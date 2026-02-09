@@ -8,19 +8,20 @@
   gap: 12px;
 }
 
+// 입력 필드 그룹 - 라이트/다크 모드 대응
 .inputGroup {
   position: relative;
   width: 100%;
   height: 38px;
-  background-color: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
-  
+
   &:focus-within {
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: $color-primary;
     .floatingLabel {
       transform: translateY(-8px) scale(0.85);
-      color: rgba(255, 255, 255, 0.7);
+      color: $color-primary;
     }
   }
 
@@ -28,13 +29,14 @@
     .floatingLabel {
       transform: translateY(-8px) scale(0.85);
     }
-    
+
     .input {
-      padding: 14px 0 2px 8px; // Push text down
+      padding: 14px 0 2px 8px; // 텍스트 아래로 밀기
     }
   }
 }
 
+// 입력 필드 - 테마 변수 사용
 .input {
   width: 100%;
   height: 100%;
@@ -42,31 +44,47 @@
   background: transparent;
   border: none;
   border-radius: 4px;
-  color: #fff;
+  color: var(--color-text);
   font-size: 0.8rem;
   outline: none;
-  
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover, 
-  &:-webkit-autofill:focus {
-    -webkit-text-fill-color: #fff;
-    -webkit-box-shadow: 0 0 0px 1000px #121212 inset;
-    transition: background-color 5000s ease-in-out 0s;
+
+  // 다크 모드 자동완성 스타일
+  [data-theme='dark'] & {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: #fff;
+      -webkit-box-shadow: 0 0 0px 1000px #121212 inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  // 라이트 모드 자동완성 스타일
+  :root:not([data-theme='dark']) & {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--color-text);
+      -webkit-box-shadow: 0 0 0px 1000px var(--color-surface) inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 }
 
+// 플로팅 라벨
 .floatingLabel {
   position: absolute;
   left: 8px;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-dim);
   font-size: 0.8rem;
   pointer-events: none;
   transition: all 0.1s ease-out;
   transform-origin: left center;
 }
 
+// 로그인 버튼 - primary 색상 위에는 흰색 텍스트 유지
 .loginBtn {
   margin-top: 8px;
   width: 100%;
@@ -78,69 +96,71 @@
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: default;
   }
-  
+
   &:hover:not(:disabled) {
     filter: brightness(0.9);
   }
 }
 
+// 구분선 - 테마 변수 사용
 .separator {
   margin: 16px 0 18px;
   display: flex;
   align-items: center;
   width: 100%;
   gap: 16px;
-  
+
   &::before, &::after {
     content: '';
     flex: 1;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--color-border);
   }
-  
+
   span {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--color-text-dim);
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
   }
 }
 
+// 소셜 로그인 버튼
 .socialLogin {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #385185; // Facebook blue standard (or create KCL var)
-  color: #fff; 
+  color: var(--color-text);
   font-weight: 600;
   font-size: 0.9rem;
   background: none;
   border: none;
   cursor: pointer;
   margin-bottom: 12px;
-  
+
   img {
     width: 16px;
     height: 16px;
   }
 
   span {
-     color: #0095f6; // Instagram link blue
+     color: #0095f6; // Instagram 링크 블루 (브랜드 색상)
   }
 }
 
+// 비밀번호 찾기 링크
 .forgotPassword {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-dim);
   font-size: 0.75rem;
   text-decoration: none;
   margin-top: 12px;
-  
+
   &:hover {
     text-decoration: underline;
   }

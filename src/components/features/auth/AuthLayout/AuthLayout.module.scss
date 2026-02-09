@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg);
-  padding-bottom: 60px; // Footer space
+  padding-bottom: 60px; // 푸터 공간
 }
 
 .contentWrapper {
@@ -20,19 +20,18 @@
 }
 
 .leftPanel {
-  display: none; // Hidden on mobile
-  
-  // Instagram shows visual on wider screens
+  display: none; // 모바일에서 숨김
+
+  // 넓은 화면에서 비주얼 표시
   @media (min-width: 876px) {
     display: block;
     width: 380px;
     height: 580px;
-    // background: url(...) or component
     position: relative;
     border-radius: 32px;
     overflow: hidden;
-    
-    // Add a nice glass/gradient bg for the 3D element
+
+    // 3D 요소를 위한 글래스/그래디언트 배경
     background: radial-gradient(circle at center, rgba($color-primary, 0.1), transparent 70%);
   }
 }
@@ -45,15 +44,23 @@
   gap: 12px;
 }
 
+// 인증 박스 - 라이트/다크 모드 대응
 .authBox {
-  background: rgba(20, 20, 20, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px; // Slightly less rounded than Insta (usually 1px solid dbdbdb)
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
   padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+
+  // 다크 모드에서 반투명 배경
+  [data-theme='dark'] & {
+    background: rgba(20, 20, 20, 0.6);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
 }
 
 .subBox {
@@ -62,26 +69,33 @@
   flex-direction: row;
   justify-content: center;
   font-size: 0.9rem;
-  
+
   a {
     color: $color-primary;
     font-weight: 600;
     margin-left: 4px;
     text-decoration: none;
-    
+
     &:hover {
       text-decoration: underline;
     }
   }
 }
 
-// Logo inside AuthForm
+// 로고 - 라이트 모드에서는 primary 기반 그래디언트
 .logo {
   font-family: $font-display;
   font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 32px;
-  background: linear-gradient(135deg, #fff 0%, $color-primary 100%);
+  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  // 다크 모드에서는 흰색→primary 그래디언트
+  [data-theme='dark'] & {
+    background: linear-gradient(135deg, #fff 0%, $color-primary 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

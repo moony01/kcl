@@ -22,8 +22,9 @@
   max-width: 320px; // Compact modal
   padding: 24px;
   border-radius: 20px;
-  border: 1px solid rgba($color-primary, 0.3); // Primary border
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba($color-primary, 0.3);
+  box-shadow: $shadow-lg;
+  background: $color-surface;
   position: relative;
   overflow: hidden;
   display: flex;

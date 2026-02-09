@@ -14,6 +14,7 @@ $hof-gold: #d4af37;
 $hof-gold-light: #f5d061;
 $hof-gold-dim: rgba(212, 175, 55, 0.3);
 $hof-bg-dark: #0a0a0a;
+$hof-primary: #8B5CF6;
 
 // ========================================
 // Shimmer 애니메이션
@@ -489,4 +490,55 @@ $hof-bg-dark: #0a0a0a;
   color: $color-text-dim;
   margin: 0;
   line-height: 1.5;
+}
+
+// ========================================
+// 라이트 모드 오버라이드
+// 골드 테마 → 보라색 프리미엄 테마로 전환
+// ========================================
+:global(:root:not([data-theme='dark'])) {
+  .title {
+    color: $hof-primary !important;
+    font-family: $font-display !important;
+  }
+
+  .skeletonChampion {
+    background: linear-gradient(135deg, rgba($hof-primary, 0.04) 0%, rgba($hof-primary, 0.01) 100%) !important;
+    border-color: rgba($hof-primary, 0.1) !important;
+  }
+
+  .skeletonRace,
+  .skeletonTimeline {
+    background: rgba($hof-primary, 0.03) !important;
+  }
+
+  .errorContent {
+    background: #FFFFFF !important;
+    border-color: rgba($color-danger, 0.15) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .retryButton {
+    background: linear-gradient(135deg, $hof-primary 0%, darken($hof-primary, 10%) 100%) !important;
+    color: #FFFFFF !important;
+  }
+
+  .emptyContent {
+    background: linear-gradient(135deg, rgba($hof-primary, 0.04) 0%, #FFFFFF 100%) !important;
+    border-color: rgba($hof-primary, 0.1) !important;
+  }
+
+  .emptyIcon {
+    color: $hof-primary !important;
+  }
+
+  .emptyTitle {
+    color: $hof-primary !important;
+    font-family: $font-display !important;
+  }
+
+  .spinner {
+    border-color: rgba($hof-primary, 0.2) !important;
+    border-top-color: $hof-primary !important;
+  }
 }

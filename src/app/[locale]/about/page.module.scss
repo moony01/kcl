@@ -1,0 +1,159 @@
+/**
+ * About 페이지 스타일
+ * terms.module.scss 패턴을 기반으로 확장
+ */
+
+.aboutPage {
+  min-height: 100vh;
+  padding: 24px 16px;
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+
+  .title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 8px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+}
+
+.intro {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 8px;
+}
+
+.stepList {
+  margin: 0;
+  padding-left: 24px;
+  counter-reset: step;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 8px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    counter-increment: step;
+
+    &::before {
+      content: counter(step) '.';
+      position: absolute;
+      left: -24px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+  }
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.featureCard {
+  padding: 20px;
+  background: var(--surface-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--primary);
+  }
+}
+
+.featureTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.featureDesc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.contactEmail {
+  font-size: 14px;
+  color: var(--primary);
+  margin: 8px 0 0;
+  font-weight: 500;
+}
+
+.disclaimerNotice {
+  margin-top: 40px;
+  padding: 16px;
+  background: var(--surface-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+// 반응형
+@media (max-width: 768px) {
+  .aboutPage {
+    padding: 16px 12px;
+    padding-bottom: 100px; // BottomNav 공간
+  }
+
+  .header .title {
+    font-size: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}

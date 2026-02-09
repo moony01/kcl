@@ -45,7 +45,11 @@ $sidebar-wide: 244px;
     // 호버 시 확장
     &:hover {
       width: $sidebar-wide;
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 4px 0 20px rgba(139, 92, 246, 0.08);
+
+      [data-theme='dark'] & {
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+      }
 
       // 확장 시 텍스트 표시
       .logoText {

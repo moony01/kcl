@@ -2,6 +2,7 @@
  * TrendChart 스타일
  *
  * 라인 차트 컨테이너 및 커스텀 UI 요소 스타일
+ * 라이트/다크 모드 대응
  */
 
 @use '../../../../styles/abstracts/variables' as *;
@@ -51,22 +52,28 @@
   }
 }
 
-// 커스텀 툴팁
+// 커스텀 툴팁 - 라이트/다크 모드 대응
 .tooltip {
-  background: rgba(20, 20, 20, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-lg);
+
+  // 다크 모드에서 더 어두운 반투명 배경
+  [data-theme='dark'] & {
+    background: rgba(20, 20, 20, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
 .tooltipLabel {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text);
   margin: 0 0 8px;
   padding-bottom: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .tooltipItem {
@@ -85,14 +92,14 @@
 
 .tooltipName {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-dim);
   flex: 1;
 }
 
 .tooltipValue {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text);
 }
 
 // 커스텀 범례

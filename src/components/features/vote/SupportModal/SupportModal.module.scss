@@ -9,23 +9,25 @@
   gap: 20px;
 }
 
+// 지원 대상 정보 영역
 .targetInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  
+
+  // 아바타 - 동적 배경색이므로 흰색 텍스트 유지
   .avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     margin-bottom: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-lg);
     @include mix.flex-center;
     font-size: 2rem;
     font-weight: 700;
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
 
   .message {
@@ -40,6 +42,7 @@
   }
 }
 
+// 액션 버튼 영역
 .actions {
   display: flex;
   gap: 12px;
@@ -65,10 +68,11 @@
       }
     }
 
+    // 확인 버튼 - primary 배경 위에 흰색 텍스트
     &.confirm {
       background: $color-primary;
       border: none;
-      color: #000; // Contrast
+      color: #fff;
       font-weight: 700;
 
       &:hover {
@@ -85,6 +89,7 @@
   }
 }
 
+// 성공 콘텐츠
 .successContent {
   composes: content;
   padding: 20px 0;

@@ -50,7 +50,14 @@ export const FEATURES = {
    * - 경로: /[locale]/community
    * - 상태: Phase 1에서 활성화
    */
-  COMMUNITY_PAGE: true,
+  COMMUNITY_PAGE: false,
+
+  /**
+   * 공지사항 (Notice)
+   * - 경로: /[locale]/notice
+   * - 상태: 커뮤니티를 대체하여 활성화
+   */
+  NOTICE_PAGE: true,
 
   /**
    * 프로필/로그인 (Profile/Auth)

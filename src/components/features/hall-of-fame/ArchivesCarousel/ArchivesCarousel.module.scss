@@ -210,3 +210,56 @@ $archive-border: rgba(255, 255, 255, 0.08);
     margin: 0;
   }
 }
+
+// 라이트 모드 오버라이드
+$light-primary: #8B5CF6;
+$light-primary-dark: #7C3AED;
+
+:global(:root:not([data-theme='dark'])) {
+  .container {
+    background: rgba($light-primary, 0.03) !important;
+    border-color: rgba($light-primary, 0.1) !important;
+  }
+
+  .scrollButton {
+    background: rgba($light-primary, 0.06) !important;
+    border-color: rgba($light-primary, 0.12) !important;
+
+    &:hover {
+      background: rgba($light-primary, 0.12) !important;
+      border-color: $light-primary !important;
+      color: $light-primary !important;
+    }
+  }
+
+  .card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F7FF 100%) !important;
+    border-color: rgba($light-primary, 0.15) !important;
+    box-shadow: 0 2px 12px rgba($light-primary, 0.06) !important;
+
+    &:hover {
+      border-color: $light-primary !important;
+      box-shadow: 0 8px 24px rgba($light-primary, 0.12) !important;
+    }
+  }
+
+  .yearBadge {
+    background: linear-gradient(135deg, $light-primary 0%, $light-primary-dark 100%) !important;
+
+    svg, span {
+      color: #FFFFFF !important;
+    }
+  }
+
+  .logo {
+    box-shadow: 0 0 20px rgba($light-primary, 0.12) !important;
+  }
+
+  .companyName {
+    color: #1F2937 !important;
+  }
+
+  .winCount {
+    color: $light-primary !important;
+  }
+}

@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, BarChart3, Trophy, Newspaper, MessageSquare } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, Bell } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
@@ -32,10 +32,10 @@ export default function BottomNav() {
     },
     { label: t('news'), href: '/news', icon: Newspaper, enabled: FEATURES.NEWS_PAGE },
     {
-      label: t('community'),
-      href: '/community',
-      icon: MessageSquare,
-      enabled: FEATURES.COMMUNITY_PAGE,
+      label: t('notice'),
+      href: '/notice',
+      icon: Bell,
+      enabled: FEATURES.NOTICE_PAGE,
     },
   ].filter((item) => item.enabled);
 

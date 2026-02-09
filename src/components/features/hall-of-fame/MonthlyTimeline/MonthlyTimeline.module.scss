@@ -137,3 +137,37 @@ $timeline-border: rgba(255, 255, 255, 0.08);
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.2);
 }
+
+// 라이트 모드 오버라이드
+$light-primary: #8B5CF6;
+
+:global(:root:not([data-theme='dark'])) {
+  .container {
+    background: rgba($light-primary, 0.03) !important;
+    border-color: rgba($light-primary, 0.1) !important;
+  }
+
+  .navButton {
+    background: rgba($light-primary, 0.06) !important;
+    border-color: rgba($light-primary, 0.12) !important;
+
+    &:hover:not(:disabled) {
+      background: rgba($light-primary, 0.12) !important;
+      border-color: $light-primary !important;
+      color: $light-primary !important;
+    }
+  }
+
+  .yearLabel {
+    color: $light-primary !important;
+  }
+
+  .emptySlot {
+    background: rgba($light-primary, 0.02) !important;
+    border-color: rgba($light-primary, 0.1) !important;
+  }
+
+  .emptyLabel {
+    color: rgba($light-primary, 0.2) !important;
+  }
+}

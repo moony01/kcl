@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  background: linear-gradient(135deg, var(--color-bg) 0%, rgba(139, 92, 246, 0.05) 100%);
   overflow: hidden;
 }
 
@@ -55,17 +55,18 @@
   }
 }
 
+// 404 메시지 텍스트
 .message {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text);
   margin: 20px 0 10px;
   letter-spacing: 2px;
 }
 
 .description {
   font-size: 1rem;
-  color: #a0a0a0;
+  color: var(--color-text-dim);
   margin-bottom: 40px;
 }
 
