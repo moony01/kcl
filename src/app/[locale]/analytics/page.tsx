@@ -103,6 +103,14 @@ export default async function AnalyticsPage({ params }: AnalyticsPageProps) {
             <h2>{t('seo_discover_title')}</h2>
             <p>{t('seo_discover_desc')}</p>
           </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_realtime_title')}</h2>
+            <p>{t('seo_realtime_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_compare_title')}</h2>
+            <p>{t('seo_compare_desc')}</p>
+          </div>
         </div>
       </section>
     </>

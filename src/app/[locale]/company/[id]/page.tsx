@@ -11,11 +11,13 @@
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { use } from 'react';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { FEATURES } from '@/config/features';
 import CompanyDetailClient from './CompanyDetailClient';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
+import styles from './company-seo.module.scss';
 
 /** 알려진 회사 slug 목록 (정적 생성 대상) */
 const knownCompanySlugs = [
@@ -54,26 +56,69 @@ interface CompanyDetailPageProps {
  */
 export async function generateMetadata({ params }: CompanyDetailPageProps): Promise<Metadata> {
   const { locale, id } = await params;
+  const companyName = id.toUpperCase();
 
   return {
-    title: `${id.toUpperCase()} | KCL`,
+    title: `${companyName} | KCL`,
+    description: `View ${companyName}'s profile, real-time voting statistics, artist roster, and rankings on KCL (K-pop Company League).`,
     alternates: generateDynamicAlternates(locale, '/company', id),
   };
 }
 
+/**
+ * Company Detail 페이지 (정적 셸 + SEO 콘텐츠)
+ * 서버에서 회사명 기반 SEO 텍스트 렌더링 + CSR로 상세 데이터 로드
+ */
 export default function CompanyDetailPage({ params }: CompanyDetailPageProps) {
-  // Next.js 15+ params 비동기 처리
   const { locale, id } = use(params);
 
-  // Feature Flag 체크: 비활성화 시 홈으로 리다이렉트
   if (!FEATURES.COMPANY_DETAIL_PAGE) {
     redirect(`/${locale}`);
   }
 
-  // Enable static rendering for locale
   setRequestLocale(locale);
 
-  // 클라이언트 컴포넌트에서 데이터 로딩 처리
-  // (SWR을 통한 클라이언트 사이드 데이터 페칭)
-  return <CompanyDetailClient locale={locale} id={id} />;
+  const companyName = id.toUpperCase();
+
+  /** Company JSON-LD 구조화 데이터 */
+  const companyJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: companyName,
+    url: `https://www.kclhq.com/${locale}/company/${id}`,
+    description: `${companyName} K-pop entertainment company profile on KCL`,
+  };
+
+  return (
+    <>
+      <JsonLd data={companyJsonLd} />
+      <CompanyDetailClient locale={locale} id={id} />
+
+      {/* SEO 콘텐츠 하단 섹션 - 서버 렌더링 */}
+      <CompanySeoSection locale={locale} companyName={companyName} />
+    </>
+  );
+}
+
+/** 회사 상세 페이지 SEO 섹션 (서버 컴포넌트) */
+async function CompanySeoSection({ locale, companyName }: { locale: string; companyName: string }) {
+  const t = await getTranslations({ locale, namespace: 'Company' });
+
+  return (
+    <section className={styles.seoSection}>
+      <h2 className={styles.seoTitle}>{t('seo_title', { company: companyName })}</h2>
+      <p className={styles.seoIntro}>{t('seo_intro', { company: companyName })}</p>
+
+      <div className={styles.seoGrid}>
+        <div className={styles.seoCard}>
+          <h3>{t('seo_vote_title', { company: companyName })}</h3>
+          <p>{t('seo_vote_desc', { company: companyName })}</p>
+        </div>
+        <div className={styles.seoCard}>
+          <h3>{t('seo_stats_title')}</h3>
+          <p>{t('seo_stats_desc', { company: companyName })}</p>
+        </div>
+      </div>
+    </section>
+  );
 }

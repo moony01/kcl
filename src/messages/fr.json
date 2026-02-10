@@ -40,6 +40,8 @@
     "seo_history_desc": "Parcourez l'historique complet des champions KCL, depuis la toute premiere saison jusqu'a aujourd'hui. Decouvrez quelles entreprises ont domine, lesquelles ont cree la surprise en atteignant le sommet et comment le paysage concurrentiel a evolue au fil du temps. Le palmares de chaque champion inclut le nombre total de votes, l'ecart de victoire et la saison durant laquelle le titre a ete remporte.",
     "seo_legacy_title": "Batir un heritage",
     "seo_legacy_desc": "Le Temple de la Renommee est bien plus qu'un simple registre de gagnants — c'est un temoignage de la puissance des fandoms K-pop a travers le monde. Chaque vote exprime au cours d'une saison contribue a l'histoire racontee ici. Votre entreprise favorite sera-t-elle la prochaine a integrer le Temple de la Renommee ? Votez maintenant et contribuez a ecrire l'histoire du K-pop.",
+    "seo_system_title": "Le systeme de championnat",
+    "seo_system_desc": "Le systeme de championnat de KCL fonctionne sur un cycle mensuel. Chaque saison debute le premier jour du mois, et chaque entreprise commence avec zero vote. Tout au long du mois, des fans du monde entier votent pour propulser leurs entreprises favorites dans le classement. Le dernier jour, l'entreprise en tete de la Premier League est inscrite de maniere permanente au Temple de la Renommee. Les Grands Champions sont determines par le nombre total de victoires mensuelles toutes saisons confondues — une veritable mesure de la devotion soutenue des fandoms.",
     "months": {
       "1": "Jan",
       "2": "Fév",
@@ -141,7 +143,13 @@
     "artists": "Artistes",
     "total_votes": "Votes Totaux",
     "trending": "Tendance",
-    "back": "Retour"
+    "back": "Retour",
+    "seo_title": "{company} — Profil d'entreprise K-pop sur KCL",
+    "seo_intro": "Explorez le profil detaille de {company} sur KCL (K-pop Company League). Consultez les statistiques de vote en temps reel, suivez les tendances de soutien des fans, decouvrez la liste des artistes talentueux et voyez comment {company} se classe parmi les plus grandes entreprises de divertissement K-pop au monde.",
+    "seo_vote_title": "Soutenez {company} avec vos votes",
+    "seo_vote_desc": "Votez chaque jour pour aider {company} a grimper dans le classement KCL. Chaque vote compte pour le classement en temps reel. Rejoignez des millions de fans du monde entier qui soutiennent {company} et ses artistes chaque jour.",
+    "seo_stats_title": "Performances et statistiques",
+    "seo_stats_desc": "Suivez les performances de vote de {company} au fil des saisons, surveillez les tendances quotidiennes des votes et comparez son classement avec d'autres grandes entreprises de divertissement K-pop. KCL fournit des donnees completes pour aider les fans a comprendre comment leurs entreprises favorites se comportent dans le paysage mondial du vote des fans."
   },
   "Vote": {
     "who_fan": "Qui est votre artiste préféré?",
@@ -199,7 +207,11 @@
     "seo_insights_title": "Analyses basees sur les donnees",
     "seo_insights_desc": "Les Statistiques KCL transforment les donnees de vote brutes en informations significatives. Decouvrez les entreprises en vogue, identifiez les tendances de vote et suivez la progression et le recul des entreprises au fil des saisons. Que vous soyez un fan occasionnel ou un analyste de l'industrie K-pop, nos outils d'analyse vous fournissent les donnees completes dont vous avez besoin.",
     "seo_discover_title": "Ce que vous pouvez decouvrir",
-    "seo_discover_desc": "Explorez les entreprises les plus votees par heure, analysez les tendances de performance saisonniere, comparez les taux de croissance des entreprises et identifiez les confrontations les plus competitives dans les divisions Premier League et Challengers. Chaque point de donnees provient de votes reels de fans, faisant des Statistiques KCL une fenetre unique sur le fandom K-pop mondial."
+    "seo_discover_desc": "Explorez les entreprises les plus votees par heure, analysez les tendances de performance saisonniere, comparez les taux de croissance des entreprises et identifiez les confrontations les plus competitives dans les divisions Premier League et Challengers. Chaque point de donnees provient de votes reels de fans, faisant des Statistiques KCL une fenetre unique sur le fandom K-pop mondial.",
+    "seo_realtime_title": "Mises a jour en temps reel",
+    "seo_realtime_desc": "Toutes les donnees statistiques se mettent a jour automatiquement lorsque de nouveaux votes sont enregistres. Pas besoin de rafraichir la page — observez les chiffres evoluer en temps reel tandis que des fans du monde entier font entendre leur voix. Le tableau de bord statistique est votre fenetre sur le pouls de la communaute mondiale du K-pop, refletant les dernieres evolutions de l'engagement des fans heure apres heure.",
+    "seo_compare_title": "Comparez et rivalisez",
+    "seo_compare_desc": "Utilisez les Statistiques KCL pour comparer les performances de votre entreprise favorite face a ses rivales. Suivez la dynamique de vote lors d'evenements speciaux comme les saisons de comeback, les ceremonies de recompenses musicales et les moments viraux sur les reseaux sociaux. Decouvrez comment l'activite des fandoms s'intensifie et identifiez quelles entreprises profitent le plus des tendances mondiales du K-pop."
   },
   "League": {
     "season": {
@@ -453,6 +465,8 @@
     "seo_categories_desc": "Parcourez les annonces par categorie pour trouver ce qui vous interesse. Les annonces officielles couvrent les politiques de la plateforme et les communications importantes. Les annonces de mise a jour vous informent des nouvelles fonctionnalites et ameliorations de KCL. Les annonces d'evenements mettent en lumiere les activites speciales, les competitions et les opportunites d'engagement que vous ne voudrez pas manquer.",
     "seo_stay_title": "Restez connecte avec KCL",
     "seo_stay_desc": "KCL evolue constamment pour offrir la meilleure experience possible aux fans de K-pop du monde entier. Revenez regulierement pour les dernieres actualites, ou suivez nos annonces pour ne jamais manquer une information importante. Vos retours et votre participation contribuent a faconner l'avenir de KCL.",
+    "seo_why_title": "Pourquoi les annonces sont importantes",
+    "seo_why_desc": "Rester informe des mises a jour de KCL vous garantit de ne jamais manquer de changements importants pouvant affecter votre strategie de vote. Les transitions de saison, les changements de regles, les evenements speciaux et les lancements de nouvelles fonctionnalites sont tous annonces ici en premier. En suivant nos annonces, vous gagnez un avantage pour comprendre quand les nouvelles saisons debutent, comment le systeme de promotion et relegation evolue, et quelles opportunites passionnantes attendent les fans de K-pop du monde entier.",
     "no_notices": "Aucune annonce disponible.",
     "loading": "Chargement...",
     "error": "Échec du chargement des annonces.",

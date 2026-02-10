@@ -102,6 +102,10 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
           <h2>{t('seo_legacy_title')}</h2>
           <p>{t('seo_legacy_desc')}</p>
         </div>
+        <div className={styles.seoFullCard}>
+          <h2>{t('seo_system_title')}</h2>
+          <p>{t('seo_system_desc')}</p>
+        </div>
       </section>
     </>
   );
