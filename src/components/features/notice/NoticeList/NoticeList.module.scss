@@ -1,38 +1,50 @@
 /**
- * 공지사항 목록 스타일
+ * 공지사항 목록 카드 스타일
+ * 라이트모드 기반, 카드 UI 고도화
  */
 
 .noticeList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .noticeItem {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 16px;
-  background: var(--surface-secondary);
-  border: 1px solid var(--border-subtle);
+  padding: 18px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
   width: 100%;
   transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 
   &:hover {
-    border-color: var(--primary);
-  }
-
-  &.selected {
-    border-color: var(--primary);
-    background: var(--surface-primary, var(--surface-secondary));
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
   }
 
   &.pinned {
-    background: var(--surface-secondary);
-    border-left: 3px solid var(--primary);
+    background: var(--color-panel-bg);
+    border-left: 3px solid var(--color-primary);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, transparent 50%, rgba(139, 92, 246, 0.06) 50%);
+      border-radius: 0 12px 0 0;
+    }
   }
 }
 
@@ -50,40 +62,40 @@
   padding: 2px 8px;
   font-size: 11px;
   font-weight: 600;
-  color: var(--primary);
-  background: rgba(var(--primary-rgb, 59, 130, 246), 0.1);
+  color: var(--color-primary);
+  background: rgba(139, 92, 246, 0.08);
   border-radius: 4px;
 }
 
 .categoryBadge {
   display: inline-flex;
-  padding: 2px 8px;
+  padding: 2px 10px;
   font-size: 11px;
   font-weight: 500;
   border-radius: 4px;
 
   &.notice {
-    color: #3b82f6;
-    background: rgba(59, 130, 246, 0.1);
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.08);
   }
 
   &.update {
     color: #10b981;
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(16, 185, 129, 0.08);
   }
 
   &.event {
     color: #f59e0b;
-    background: rgba(245, 158, 11, 0.1);
+    background: rgba(245, 158, 11, 0.08);
   }
 }
 
 .itemTitle {
   font-size: 15px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .itemMeta {
@@ -91,12 +103,12 @@
   align-items: center;
   gap: 12px;
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--color-text-dim);
 }
 
 @media (max-width: 768px) {
   .noticeItem {
-    padding: 14px;
+    padding: 14px 16px;
   }
 
   .itemTitle {

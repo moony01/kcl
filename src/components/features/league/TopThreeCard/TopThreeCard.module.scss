@@ -57,6 +57,30 @@ $bronze: #cd7f32;
     }
   }
 
+  // T1.45: 순위 상승 글로우 오버레이
+  &.rankUpGlow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 10;
+    background: radial-gradient(ellipse at center, rgba(#28a745, 0.12) 0%, transparent 70%);
+    animation: glowFade 2s ease-out forwards;
+  }
+
+  // T1.45: 순위 하락 글로우 오버레이
+  &.rankDownGlow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 10;
+    background: radial-gradient(ellipse at center, rgba(#dc3545, 0.12) 0%, transparent 70%);
+    animation: glowFade 2s ease-out forwards;
+  }
+
   // 선택된 상태 (배틀스테이션에 표시 중)
   &.selected {
     border: 2px solid $color-primary !important;
@@ -168,6 +192,16 @@ $bronze: #cd7f32;
   50% {
     opacity: 0.6;
     transform: scale(1.1);
+  }
+}
+
+// T1.45: 순위 변동 글로우 페이드 아웃
+@keyframes glowFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

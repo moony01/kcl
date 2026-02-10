@@ -13,6 +13,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 import { Flame, ChevronDown } from 'lucide-react';
 import type { CompanyRanking } from '@/types/league';
 import LeagueRankingItem from '../LeagueRankingItem';
@@ -55,17 +56,26 @@ export default function Challengers({
 
       {/* 11위~ 리스트 - T1.16: 11위도 일반 표시 */}
       {/* T1.56: 2부 리그 독립 순위 (index + 1 = 리그 내 순위) */}
-      {/* T1.57 FIX: Framer Motion 애니메이션 제거 - 순위 변동 시 렌더링 버그 해결 */}
+      {/* T1.45: layout 애니메이션 재도입 (AnimatePresence 없이 - T1.57 렌더링 버그 방지) */}
       <div className={styles.rankingList}>
         {companies.map((company, index) => (
-          <div key={company.companyId}>
+          <motion.div
+            key={company.companyId}
+            layout
+            transition={{
+              layout: {
+                duration: 0.4,
+                ease: [0.4, 0, 0.2, 1],
+              },
+            }}
+          >
             <LeagueRankingItem
               company={company}
               onVote={onVote}
               displayRank={index + 1}
               isSelected={selectedCompanyId === company.companyId}
             />
-          </div>
+          </motion.div>
         ))}
       </div>
 

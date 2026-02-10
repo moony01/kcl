@@ -81,13 +81,24 @@ export default function TopThreeCard({
 
   return (
     <motion.article
-      className={classNames(styles.card, { [styles.selected]: isSelected })}
+      className={classNames(styles.card, {
+        [styles.selected]: isSelected,
+        [styles.rankUpGlow]: company.rankChange > 0,
+        [styles.rankDownGlow]: company.rankChange < 0,
+      })}
       data-rank={rank}
+      layout
       whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: (rank - 1) * 0.1 }}
+      transition={{
+        delay: (rank - 1) * 0.1,
+        layout: {
+          duration: 0.4,
+          ease: [0.4, 0, 0.2, 1],
+        },
+      }}
       onClick={_onVote}
     >
       {/* 메달 뱃지 */}

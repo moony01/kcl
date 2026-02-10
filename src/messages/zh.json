@@ -65,7 +65,31 @@
     "backToList": "返回列表",
     "noArticles": "暂无文章。",
     "readMore": "阅读更多",
-    "sharePrompt": "喜欢这篇文章吗？分享给K-pop粉丝们吧！"
+    "sharePrompt": "喜欢这篇文章吗？分享给K-pop粉丝们吧！",
+    "views": "{count} 次浏览"
+  },
+  "NewsComments": {
+    "title": "评论",
+    "loading": "加载评论中...",
+    "no_comments": "成为第一个评论的人！",
+    "placeholder_name": "昵称",
+    "placeholder_password": "密码",
+    "placeholder_content": "写评论...",
+    "submit": "发表",
+    "delete": "删除",
+    "delete_title": "删除评论",
+    "delete_message": "请输入创建时使用的密码以删除。",
+    "deleting": "删除中...",
+    "cancel": "取消",
+    "error_name_required": "请输入昵称。",
+    "error_password_required": "请输入密码。",
+    "error_password_min": "密码至少需要4个字符。",
+    "error_content_required": "请输入评论内容。",
+    "error_content_min": "评论至少需要2个字符。",
+    "error_too_fast": "请稍后再试。",
+    "error_submit_failed": "评论发表失败。",
+    "error_wrong_password": "密码不正确。",
+    "error_delete_failed": "删除失败。"
   },
   "Company": {
     "detail": "公司详情",

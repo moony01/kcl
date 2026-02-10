@@ -65,7 +65,31 @@
     "backToList": "Back to News",
     "noArticles": "No articles available.",
     "readMore": "Read More",
-    "sharePrompt": "Did you enjoy this article? Share it with fellow K-pop fans!"
+    "sharePrompt": "Did you enjoy this article? Share it with fellow K-pop fans!",
+    "views": "{count} views"
+  },
+  "NewsComments": {
+    "title": "Comments",
+    "loading": "Loading comments...",
+    "no_comments": "Be the first to comment!",
+    "placeholder_name": "Nickname",
+    "placeholder_password": "Password",
+    "placeholder_content": "Write a comment...",
+    "submit": "Post",
+    "delete": "Delete",
+    "delete_title": "Delete Comment",
+    "delete_message": "Enter the password you used when writing.",
+    "deleting": "Deleting...",
+    "cancel": "Cancel",
+    "error_name_required": "Please enter a nickname.",
+    "error_password_required": "Please enter a password.",
+    "error_password_min": "Password must be at least 4 characters.",
+    "error_content_required": "Please enter a comment.",
+    "error_content_min": "Comment must be at least 2 characters.",
+    "error_too_fast": "Please wait a moment before posting again.",
+    "error_submit_failed": "Failed to post comment.",
+    "error_wrong_password": "Incorrect password.",
+    "error_delete_failed": "Failed to delete comment."
   },
   "Company": {
     "detail": "Company Details",

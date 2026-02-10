@@ -1,0 +1,15 @@
+/**
+ * 뉴스 조회수 카운터 스타일
+ */
+
+.viewCounter {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+
+  svg {
+    opacity: 0.7;
+  }
+}

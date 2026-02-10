@@ -1,11 +1,12 @@
 /**
- * 공지사항 페이지 스타일
+ * 공지사항 목록 페이지 스타일
+ * 라이트모드 기반, --color-* 테마 변수 사용
  */
 
 .noticePage {
   min-height: 100vh;
-  padding: 24px 16px;
-  background: var(--bg-primary);
+  padding: 32px 16px;
+  background: var(--color-bg);
 }
 
 .container {
@@ -14,18 +15,19 @@
 }
 
 .header {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 
   .title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-text);
     margin: 0 0 6px;
+    letter-spacing: -0.3px;
   }
 
   .subtitle {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--color-text-dim);
     margin: 0;
   }
 }
@@ -35,12 +37,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 
   p {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--color-text-dim);
     margin: 0 0 16px;
   }
 }
@@ -49,15 +51,15 @@
   padding: 8px 20px;
   font-size: 13px;
   font-weight: 500;
-  color: var(--primary);
+  color: var(--color-primary);
   background: none;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--color-primary);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background: var(--primary);
+    background: var(--color-primary);
     color: white;
   }
 }
@@ -65,11 +67,11 @@
 // 반응형
 @media (max-width: 768px) {
   .noticePage {
-    padding: 16px 12px;
+    padding: 20px 12px;
     padding-bottom: 100px;
   }
 
   .header .title {
-    font-size: 20px;
+    font-size: 22px;
   }
 }

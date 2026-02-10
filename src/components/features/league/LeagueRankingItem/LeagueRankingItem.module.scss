@@ -21,6 +21,7 @@ $color-promotion-direct: #28a745;     // 승격 직행 (2부 1위) - 초록색
 $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 
 .item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -445,6 +446,40 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   &:hover {
     background: rgba($color-text, 0.05);
     color: $color-text;
+  }
+}
+
+// ===== T1.45: 순위 변동 글로우 효과 =====
+// 순위 상승 시 초록색 글로우 오버레이
+.rankUpGlow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, rgba($color-promotion, 0.12) 0%, transparent 70%);
+  animation: glowFade 2s ease-out forwards;
+}
+
+// 순위 하락 시 빨간색 글로우 오버레이
+.rankDownGlow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, rgba($color-relegation, 0.12) 0%, transparent 70%);
+  animation: glowFade 2s ease-out forwards;
+}
+
+@keyframes glowFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
