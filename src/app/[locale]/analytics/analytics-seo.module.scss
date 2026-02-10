@@ -1,0 +1,90 @@
+/**
+ * Analytics SEO 콘텐츠 섹션 스타일
+ * AdSense 승인을 위한 서버 렌더링 텍스트 콘텐츠
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+
+.seoHeader {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 24px;
+  padding: 24px 16px 16px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    padding: 32px 24px 20px;
+  }
+}
+
+.seoHeaderTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-text;
+  margin-bottom: 8px;
+  font-family: $font-display;
+
+  @media (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.seoHeaderSubtitle {
+  font-size: 0.9375rem;
+  color: $color-text-dim;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.seoDivider {
+  width: 60px;
+  height: 3px;
+  background: $color-primary;
+  border-radius: 2px;
+  margin: 12px auto;
+  opacity: 0.6;
+}
+
+.seoSection {
+  width: 100%;
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding: 24px 16px;
+
+  @media (min-width: 768px) {
+    padding: 32px 24px;
+    margin-top: 48px;
+  }
+}
+
+.seoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.seoCard {
+  padding: 16px;
+  border-radius: 12px;
+  background: $color-panel-bg;
+  border: 1px solid $color-border;
+
+  h2 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.8125rem;
+    line-height: 1.7;
+    color: $color-text-dim;
+    margin: 0;
+  }
+}

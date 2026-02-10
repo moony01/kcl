@@ -1,15 +1,19 @@
 /**
  * Analytics 페이지 (Server Component)
  *
- * SSG 빌드 시 정적 셸 생성, 데이터는 CSR로 로드
+ * SSG 빌드 시 정적 셸 + SEO 콘텐츠 생성, 데이터는 CSR로 로드
  *
  * @updated Phase 5 - SSG/CSR 마이그레이션
+ * @updated AdSense - SEO 콘텐츠 섹션 추가 (thin content 해소)
  */
 
 import { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import AnalyticsClient from './AnalyticsClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
+import styles from './analytics-seo.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
@@ -50,9 +54,57 @@ export async function generateMetadata({ params }: AnalyticsPageProps): Promise<
   };
 }
 
+/** Analytics 페이지 JSON-LD */
+const analyticsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'KCL Analytics - Vote Trends & Market Share',
+  description: 'Real-time K-pop company voting analytics, market share analysis, and trend tracking.',
+  url: 'https://www.kclhq.com/analytics',
+};
+
 /**
- * Analytics 페이지 (정적 셸)
+ * Analytics 페이지 (정적 셸 + SEO 콘텐츠)
+ * 상단에 서버 렌더링 설명 텍스트 + 하단에 CSR 차트/데이터
  */
-export default function AnalyticsPage() {
-  return <AnalyticsClient />;
+export default async function AnalyticsPage({ params }: AnalyticsPageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Analytics' });
+
+  return (
+    <>
+      <JsonLd data={analyticsJsonLd} />
+
+      {/* SEO 인트로 섹션 - 서버 렌더링 (AnalyticsClient가 자체 h1 보유) */}
+      <div className={styles.seoHeader}>
+        <p className={styles.seoHeaderSubtitle}>{t('seo_intro')}</p>
+      </div>
+
+      {/* CSR 차트/데이터 영역 */}
+      <AnalyticsClient />
+
+      {/* SEO 콘텐츠 하단 섹션 */}
+      <section className={styles.seoSection}>
+        <div className={styles.seoGrid}>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_trends_title')}</h2>
+            <p>{t('seo_trends_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_market_title')}</h2>
+            <p>{t('seo_market_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_insights_title')}</h2>
+            <p>{t('seo_insights_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_discover_title')}</h2>
+            <p>{t('seo_discover_desc')}</p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

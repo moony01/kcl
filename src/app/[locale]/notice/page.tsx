@@ -2,7 +2,9 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { JsonLd } from '@/components/common/JsonLd';
 import NoticeClient from './NoticeClient';
+import styles from './notice-seo.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
@@ -25,19 +27,51 @@ export async function generateMetadata({
   };
 }
 
+/** Notice 페이지 JSON-LD */
+const noticeJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'KCL Notices & Announcements',
+  description: 'Official announcements, updates, and events from K-pop Company League.',
+  url: 'https://www.kclhq.com/notice',
+};
+
 /**
  * 공지사항 페이지
- * SSG 셸 + CSR 클라이언트 컴포넌트 조합
- * Supabase 데이터는 클라이언트에서 페칭
+ * SSG 셸 + SEO 콘텐츠 + CSR 클라이언트 컴포넌트 조합
  */
 export default async function NoticePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Notice' });
 
   return (
     <>
-      <h1 className="sr-only">KCL Notices</h1>
+      <JsonLd data={noticeJsonLd} />
+
+      {/* SEO 헤더 - 서버 렌더링 */}
+      <header className={styles.seoHeader}>
+        <h1 className={styles.seoHeaderTitle}>{t('title')}</h1>
+        <div className={styles.seoDivider} />
+        <p className={styles.seoHeaderSubtitle}>{t('seo_intro')}</p>
+      </header>
+
+      {/* CSR 공지사항 목록 */}
       <NoticeClient locale={locale} />
+
+      {/* SEO 콘텐츠 하단 섹션 */}
+      <section className={styles.seoSection}>
+        <div className={styles.seoGrid}>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_categories_title')}</h2>
+            <p>{t('seo_categories_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_stay_title')}</h2>
+            <p>{t('seo_stay_desc')}</p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
