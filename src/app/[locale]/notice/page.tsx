@@ -70,6 +70,10 @@ export default async function NoticePage({ params }: { params: Promise<{ locale:
             <h2>{t('seo_stay_title')}</h2>
             <p>{t('seo_stay_desc')}</p>
           </div>
+          <div className={styles.seoCard}>
+            <h2>{t('seo_why_title')}</h2>
+            <p>{t('seo_why_desc')}</p>
+          </div>
         </div>
       </section>
     </>

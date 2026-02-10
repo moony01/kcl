@@ -40,6 +40,8 @@
     "seo_history_desc": "Duyệt qua toàn bộ lịch sử các nhà vô địch KCL, từ mùa giải đầu tiên đến hiện tại. Xem công ty nào đã thống trị, công ty nào tạo bất ngờ khi vươn lên đỉnh cao, và bối cảnh cạnh tranh đã thay đổi như thế nào theo thời gian. Hồ sơ mỗi nhà vô địch bao gồm tổng số phiếu bầu, biên độ chiến thắng và mùa giải mà họ giành được danh hiệu.",
     "seo_legacy_title": "Xây Dựng Di Sản",
     "seo_legacy_desc": "Đại Sảnh Danh Vọng không chỉ là bản ghi những người chiến thắng — đó là minh chứng cho sức mạnh của fandom K-pop trên toàn thế giới. Mỗi phiếu bầu được bỏ trong suốt mùa giải đều góp phần vào câu chuyện được kể ở đây. Công ty yêu thích của bạn có phải là công ty tiếp theo gia nhập Đại Sảnh Danh Vọng không? Hãy bình chọn ngay và cùng viết nên lịch sử K-pop.",
+    "seo_system_title": "Hệ Thống Vô Địch",
+    "seo_system_desc": "Hệ thống vô địch của KCL vận hành theo chu kỳ hàng tháng. Mỗi mùa giải bắt đầu vào ngày đầu tiên của tháng, và mọi công ty đều khởi đầu với số phiếu bằng không. Trong suốt tháng, fan từ khắp nơi trên thế giới bỏ phiếu để đẩy công ty yêu thích lên bảng xếp hạng. Vào ngày cuối cùng, công ty đứng đầu Premier League được ghi danh vĩnh viễn trong Đại Sảnh Danh Vọng. Nhà Vô Địch Tối Cao được xác định bởi tổng số chiến thắng hàng tháng qua tất cả các mùa giải — thước đo thực sự của sự cống hiến bền bỉ từ fandom.",
     "months": {
       "1": "Th1",
       "2": "Th2",
@@ -141,7 +143,13 @@
     "artists": "Nghệ Sĩ",
     "total_votes": "Tổng Số Phiếu",
     "trending": "Xu Hướng",
-    "back": "Quay Lại"
+    "back": "Quay Lại",
+    "seo_title": "{company} — Hồ Sơ Công Ty K-pop trên KCL",
+    "seo_intro": "Khám phá hồ sơ chi tiết của {company} trên KCL (K-pop Company League). Xem thống kê bình chọn thời gian thực, theo dõi xu hướng ủng hộ của fan, khám phá đội ngũ nghệ sĩ tài năng và xem {company} xếp hạng như thế nào trong số các công ty giải trí K-pop hàng đầu thế giới.",
+    "seo_vote_title": "Ủng Hộ {company} Bằng Phiếu Bầu Của Bạn",
+    "seo_vote_desc": "Bỏ phiếu hàng ngày để giúp {company} leo lên bảng xếp hạng KCL. Mỗi phiếu bầu đều có giá trị trên bảng xếp hạng thời gian thực. Tham gia cùng hàng triệu fan từ khắp nơi trên thế giới ủng hộ {company} và các nghệ sĩ mỗi ngày.",
+    "seo_stats_title": "Hiệu Suất & Thống Kê",
+    "seo_stats_desc": "Theo dõi hiệu suất bình chọn của {company} qua các mùa giải, giám sát xu hướng phiếu bầu hàng ngày và so sánh thứ hạng với các công ty giải trí K-pop lớn khác. KCL cung cấp dữ liệu toàn diện để giúp fan hiểu công ty yêu thích của họ đang hoạt động như thế nào trong bối cảnh bình chọn fan toàn cầu."
   },
   "Vote": {
     "who_fan": "Nghệ sĩ yêu thích của bạn là ai?",
@@ -199,7 +207,11 @@
     "seo_insights_title": "Phân Tích Dựa Trên Dữ Liệu",
     "seo_insights_desc": "Thống Kê KCL biến đổi dữ liệu bình chọn thô thành những phân tích có ý nghĩa. Khám phá các công ty đang thịnh hành, nhận diện mẫu hình bình chọn và theo dõi sự thăng trầm của các công ty qua các mùa giải. Dù bạn là fan bình thường hay nhà phân tích ngành K-pop, công cụ phân tích của chúng tôi cung cấp dữ liệu toàn diện mà bạn cần.",
     "seo_discover_title": "Những Gì Bạn Có Thể Khám Phá",
-    "seo_discover_desc": "Khám phá các công ty được bình chọn nhiều nhất theo giờ, phân tích xu hướng hiệu suất theo mùa, so sánh tốc độ tăng trưởng của các công ty và xác định những cuộc đua cạnh tranh nhất ở cả Premier League và Challengers. Mọi điểm dữ liệu đều đến từ phiếu bầu thực tế của fan, biến Thống Kê KCL thành cửa sổ độc đáo nhìn vào fandom K-pop toàn cầu."
+    "seo_discover_desc": "Khám phá các công ty được bình chọn nhiều nhất theo giờ, phân tích xu hướng hiệu suất theo mùa, so sánh tốc độ tăng trưởng của các công ty và xác định những cuộc đua cạnh tranh nhất ở cả Premier League và Challengers. Mọi điểm dữ liệu đều đến từ phiếu bầu thực tế của fan, biến Thống Kê KCL thành cửa sổ độc đáo nhìn vào fandom K-pop toàn cầu.",
+    "seo_realtime_title": "Cập Nhật Thời Gian Thực",
+    "seo_realtime_desc": "Tất cả dữ liệu thống kê được cập nhật tự động khi có phiếu bầu mới. Không cần làm mới trang — hãy theo dõi các con số thay đổi theo thời gian thực khi fan trên khắp thế giới cất lên tiếng nói của họ. Bảng điều khiển thống kê là cửa sổ của bạn để cảm nhận nhịp đập của cộng đồng K-pop toàn cầu, phản ánh những thay đổi mới nhất trong mức độ tương tác của fan mỗi giờ.",
+    "seo_compare_title": "So Sánh & Cạnh Tranh",
+    "seo_compare_desc": "Sử dụng Thống Kê KCL để so sánh hiệu suất của công ty yêu thích với các đối thủ. Theo dõi đà bình chọn trong các sự kiện đặc biệt như mùa comeback, lễ trao giải âm nhạc và các khoảnh khắc viral trên mạng xã hội. Xem hoạt động fandom tăng vọt như thế nào và khám phá công ty nào hưởng lợi nhiều nhất từ các xu hướng K-pop toàn cầu."
   },
   "League": {
     "season": {
@@ -453,6 +465,8 @@
     "seo_categories_desc": "Duyệt thông báo theo danh mục để tìm những gì quan trọng với bạn. Thông báo chính thức bao gồm chính sách nền tảng và các công bố quan trọng. Thông báo cập nhật cho bạn biết về tính năng mới và cải tiến của KCL. Thông báo sự kiện nêu bật các hoạt động đặc biệt, cuộc thi và cơ hội tương tác dành cho fan mà bạn không muốn bỏ lỡ.",
     "seo_stay_title": "Kết Nối Với KCL",
     "seo_stay_desc": "KCL không ngừng phát triển để mang đến trải nghiệm tốt nhất cho fan K-pop trên toàn thế giới. Hãy quay lại thường xuyên để cập nhật tin mới nhất, hoặc theo dõi các thông báo của chúng tôi để không bỏ lỡ bất kỳ thông tin quan trọng nào. Phản hồi và sự tham gia của bạn giúp định hình tương lai của KCL.",
+    "seo_why_title": "Tại Sao Thông Báo Quan Trọng",
+    "seo_why_desc": "Cập nhật thông tin về KCL đảm bảo bạn không bỏ lỡ những thay đổi quan trọng có thể ảnh hưởng đến chiến lược bình chọn của bạn. Chuyển giao mùa giải, thay đổi quy tắc, sự kiện đặc biệt và ra mắt tính năng mới đều được công bố tại đây trước tiên. Bằng cách theo dõi thông báo của chúng tôi, bạn có lợi thế trong việc hiểu khi nào mùa giải mới bắt đầu, hệ thống thăng hạng và xuống hạng phát triển ra sao, và những cơ hội thú vị nào đang chờ đợi fan K-pop trên toàn thế giới.",
     "no_notices": "Không có thông báo.",
     "loading": "Đang tải...",
     "error": "Không thể tải thông báo.",

@@ -40,6 +40,8 @@
     "seo_history_desc": "Browse through the complete history of KCL champions, from the very first season to the present day. See which companies have dominated, which have made surprise appearances at the top, and how the competitive landscape has evolved over time. Each champion's record includes their total vote count, winning margin, and the season during which they earned their title.",
     "seo_legacy_title": "Building a Legacy",
     "seo_legacy_desc": "The Hall of Fame is more than just a record of winners — it's a testament to the power of K-pop fandoms worldwide. Every vote cast throughout a season contributes to the story told here. Will your favorite company be the next to join the Hall of Fame? Vote now and help write K-pop history.",
+    "seo_system_title": "The Championship System",
+    "seo_system_desc": "KCL's championship system operates on a monthly cycle. Each season begins on the first day of the month, and every company starts with zero votes. Throughout the month, fans from around the world cast their votes to push their favorite companies up the rankings. On the final day, the company at the top of the Premier League is permanently enshrined in the Hall of Fame. Grand Champions are determined by total monthly victories across all seasons — a true measure of sustained fandom dedication.",
     "months": {
       "1": "Jan",
       "2": "Feb",
@@ -141,7 +143,13 @@
     "artists": "Artists",
     "total_votes": "Total Votes",
     "trending": "Trending",
-    "back": "Back"
+    "back": "Back",
+    "seo_title": "{company} — K-pop Company Profile on KCL",
+    "seo_intro": "Explore the detailed profile of {company} on KCL (K-pop Company League). View real-time voting statistics, track fan support trends, discover the roster of talented artists, and see how {company} ranks among the top K-pop entertainment companies in the world.",
+    "seo_vote_title": "Support {company} with Your Votes",
+    "seo_vote_desc": "Cast your daily votes to help {company} climb the KCL rankings. Every vote counts toward the real-time leaderboard. Join millions of fans from around the world who support {company} and its artists every day.",
+    "seo_stats_title": "Performance & Statistics",
+    "seo_stats_desc": "Track {company}'s voting performance across seasons, monitor daily vote trends, and compare its ranking against other major K-pop entertainment companies. KCL provides comprehensive data to help fans understand how their favorite companies are performing in the global fan voting landscape."
   },
   "Vote": {
     "who_fan": "Who is your favorite artist?",
@@ -199,7 +207,11 @@
     "seo_insights_title": "Data-Driven Insights",
     "seo_insights_desc": "KCL Analytics transforms raw voting data into meaningful insights. Discover trending companies, identify voting patterns, and track the rise and fall of companies across seasons. Whether you're a casual fan or a K-pop industry analyst, our analytics tools give you the comprehensive data you need.",
     "seo_discover_title": "What You Can Discover",
-    "seo_discover_desc": "Explore top-voted companies by hour, analyze seasonal performance trends, compare company growth rates, and identify the most competitive battles in both the Premier League and Challengers divisions. Every data point is sourced from actual fan votes, making KCL Analytics a unique window into the global K-pop fandom."
+    "seo_discover_desc": "Explore top-voted companies by hour, analyze seasonal performance trends, compare company growth rates, and identify the most competitive battles in both the Premier League and Challengers divisions. Every data point is sourced from actual fan votes, making KCL Analytics a unique window into the global K-pop fandom.",
+    "seo_realtime_title": "Real-Time Updates",
+    "seo_realtime_desc": "All analytics data updates automatically as new votes are cast. There is no need to refresh the page — watch the numbers change in real-time as fans around the world make their voices heard. The analytics dashboard is your window into the pulse of the global K-pop community, reflecting the latest shifts in fan engagement every hour.",
+    "seo_compare_title": "Compare & Compete",
+    "seo_compare_desc": "Use KCL Analytics to compare your favorite company's performance against rivals. Track voting momentum during special events like comeback seasons, music award shows, and viral social media moments. See how fandom activity spikes and discover which companies benefit most from global K-pop trends."
   },
   "League": {
     "season": {
@@ -453,6 +465,8 @@
     "seo_categories_desc": "Browse notices by category to find what matters to you. Official notices cover platform policies and important announcements. Update notices inform you about new features and improvements to KCL. Event notices highlight special activities, competitions, and fan engagement opportunities that you won't want to miss.",
     "seo_stay_title": "Stay Connected with KCL",
     "seo_stay_desc": "KCL is constantly evolving to provide the best experience for K-pop fans worldwide. Check back regularly for the latest updates, or follow our announcements to never miss an important notice. Your feedback and participation help shape the future of KCL.",
+    "seo_why_title": "Why Notices Matter",
+    "seo_why_desc": "Staying informed about KCL updates ensures you never miss important changes that could affect your voting strategy. Season transitions, rule changes, special events, and new feature launches are all announced here first. By following our notices, you gain an edge in understanding when new seasons begin, how the promotion and relegation system evolves, and what exciting opportunities lie ahead for K-pop fans worldwide.",
     "no_notices": "No notices available.",
     "loading": "Loading...",
     "error": "Failed to load notices.",

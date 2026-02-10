@@ -40,6 +40,8 @@
     "seo_history_desc": "Stoebern Sie durch die vollstaendige Geschichte der KCL-Champions, von der allerersten Saison bis heute. Erfahren Sie, welche Unternehmen dominiert haben, welche ueberraschend an der Spitze aufgetaucht sind und wie sich die Wettbewerbslandschaft im Laufe der Zeit entwickelt hat. Der Rekord jedes Champions umfasst die Gesamtstimmenzahl, den Siegesvorsprung und die Saison, in der der Titel errungen wurde.",
     "seo_legacy_title": "Ein Vermaechtnis aufbauen",
     "seo_legacy_desc": "Die Ruhmeshalle ist mehr als nur ein Verzeichnis der Gewinner — sie ist ein Zeugnis der Kraft der K-pop-Fandoms weltweit. Jede waehrend einer Saison abgegebene Stimme traegt zur hier erzaehlten Geschichte bei. Wird Ihr Lieblingsunternehmen das naechste sein, das in die Ruhmeshalle einzieht? Stimmen Sie jetzt ab und helfen Sie, K-pop-Geschichte zu schreiben.",
+    "seo_system_title": "Das Meisterschaftssystem",
+    "seo_system_desc": "Das Meisterschaftssystem von KCL funktioniert in einem monatlichen Zyklus. Jede Saison beginnt am ersten Tag des Monats, und jedes Unternehmen startet mit null Stimmen. Im Laufe des Monats stimmen Fans aus aller Welt ab, um ihre Lieblingsunternehmen in der Rangliste nach oben zu bringen. Am letzten Tag wird das Unternehmen an der Spitze der Premier League dauerhaft in der Ruhmeshalle verewigt. Grosse Champions werden anhand der Gesamtzahl monatlicher Siege ueber alle Saisons hinweg bestimmt — ein wahres Mass fuer nachhaltige Fandom-Hingabe.",
     "months": {
       "1": "Jan",
       "2": "Feb",
@@ -141,7 +143,13 @@
     "artists": "Künstler",
     "total_votes": "Gesamtstimmen",
     "trending": "Im Trend",
-    "back": "Zurück"
+    "back": "Zurück",
+    "seo_title": "{company} — K-pop-Unternehmensprofil auf KCL",
+    "seo_intro": "Entdecken Sie das detaillierte Profil von {company} auf KCL (K-pop Company League). Sehen Sie Echtzeit-Abstimmungsstatistiken, verfolgen Sie Trends der Fan-Unterstuetzung, entdecken Sie die Liste talentierter Kuenstler und erfahren Sie, wie {company} unter den fuehrenden K-pop-Unterhaltungsunternehmen der Welt abschneidet.",
+    "seo_vote_title": "Unterstuetzen Sie {company} mit Ihren Stimmen",
+    "seo_vote_desc": "Stimmen Sie taeglich ab, um {company} in der KCL-Rangliste nach oben zu bringen. Jede Stimme zaehlt fuer die Echtzeit-Bestenliste. Schliessen Sie sich Millionen von Fans aus aller Welt an, die {company} und seine Kuenstler jeden Tag unterstuetzen.",
+    "seo_stats_title": "Leistung und Statistiken",
+    "seo_stats_desc": "Verfolgen Sie die Abstimmungsleistung von {company} ueber die Saisons hinweg, beobachten Sie taegliche Stimmentrends und vergleichen Sie die Platzierung mit anderen grossen K-pop-Unterhaltungsunternehmen. KCL liefert umfassende Daten, um Fans zu helfen zu verstehen, wie ihre Lieblingsunternehmen in der globalen Fan-Abstimmungslandschaft abschneiden."
   },
   "Vote": {
     "who_fan": "Wer ist Ihr Lieblingskünstler?",
@@ -199,7 +207,11 @@
     "seo_insights_title": "Datenbasierte Einblicke",
     "seo_insights_desc": "KCL Statistiken verwandeln rohe Abstimmungsdaten in aussagekraeftige Erkenntnisse. Entdecken Sie Trend-Unternehmen, identifizieren Sie Abstimmungsmuster und verfolgen Sie den Aufstieg und Abstieg von Unternehmen ueber die Saisons hinweg. Ob Sie ein Gelegenheitsfan oder ein K-pop-Branchenanalyst sind — unsere Analysetools liefern Ihnen die umfassenden Daten, die Sie benoetigen.",
     "seo_discover_title": "Was Sie entdecken koennen",
-    "seo_discover_desc": "Erkunden Sie die meistgewaehlten Unternehmen pro Stunde, analysieren Sie saisonale Leistungstrends, vergleichen Sie Wachstumsraten von Unternehmen und identifizieren Sie die haertesten Wettkampfe in den Divisionen Premier League und Challengers. Jeder Datenpunkt stammt aus echten Fan-Abstimmungen, was KCL Statistiken zu einem einzigartigen Fenster in das globale K-pop-Fandom macht."
+    "seo_discover_desc": "Erkunden Sie die meistgewaehlten Unternehmen pro Stunde, analysieren Sie saisonale Leistungstrends, vergleichen Sie Wachstumsraten von Unternehmen und identifizieren Sie die haertesten Wettkampfe in den Divisionen Premier League und Challengers. Jeder Datenpunkt stammt aus echten Fan-Abstimmungen, was KCL Statistiken zu einem einzigartigen Fenster in das globale K-pop-Fandom macht.",
+    "seo_realtime_title": "Echtzeit-Aktualisierungen",
+    "seo_realtime_desc": "Alle Statistikdaten werden automatisch aktualisiert, sobald neue Stimmen abgegeben werden. Es ist nicht noetig, die Seite neu zu laden — beobachten Sie, wie sich die Zahlen in Echtzeit aendern, waehrend Fans auf der ganzen Welt ihre Stimme erheben. Das Statistik-Dashboard ist Ihr Fenster zum Puls der globalen K-pop-Community und spiegelt die neuesten Veraenderungen im Fan-Engagement stuendlich wider.",
+    "seo_compare_title": "Vergleichen und konkurrieren",
+    "seo_compare_desc": "Nutzen Sie KCL Statistiken, um die Leistung Ihres Lieblingsunternehmens mit den Konkurrenten zu vergleichen. Verfolgen Sie die Abstimmungsdynamik waehrend besonderer Events wie Comeback-Saisons, Musikpreisverleihungen und viraler Social-Media-Momente. Sehen Sie, wie die Fandom-Aktivitaet ansteigt, und entdecken Sie, welche Unternehmen am meisten von den globalen K-pop-Trends profitieren."
   },
   "League": {
     "season": {
@@ -453,6 +465,8 @@
     "seo_categories_desc": "Durchsuchen Sie Ankuendigungen nach Kategorien, um das zu finden, was Sie interessiert. Offizielle Ankuendigungen behandeln Plattformrichtlinien und wichtige Mitteilungen. Update-Ankuendigungen informieren Sie ueber neue Funktionen und Verbesserungen bei KCL. Event-Ankuendigungen heben besondere Aktivitaeten, Wettbewerbe und Fan-Engagement-Moeglichkeiten hervor, die Sie nicht verpassen sollten.",
     "seo_stay_title": "Bleiben Sie mit KCL verbunden",
     "seo_stay_desc": "KCL entwickelt sich staendig weiter, um K-pop-Fans weltweit das beste Erlebnis zu bieten. Schauen Sie regelmaessig vorbei fuer die neuesten Updates oder folgen Sie unseren Ankuendigungen, um keine wichtige Nachricht zu verpassen. Ihr Feedback und Ihre Beteiligung helfen, die Zukunft von KCL zu gestalten.",
+    "seo_why_title": "Warum Ankuendigungen wichtig sind",
+    "seo_why_desc": "Ueber KCL-Updates informiert zu bleiben stellt sicher, dass Sie keine wichtigen Aenderungen verpassen, die Ihre Abstimmungsstrategie beeinflussen koennten. Saisonuebergaenge, Regelaenderungen, Sonderveranstaltungen und neue Funktionen werden alle hier zuerst angekuendigt. Indem Sie unseren Ankuendigungen folgen, verschaffen Sie sich einen Vorteil beim Verstaendnis, wann neue Saisons beginnen, wie sich das Aufstiegs- und Abstiegssystem weiterentwickelt und welche spannenden Moeglichkeiten K-pop-Fans weltweit erwarten.",
     "no_notices": "Keine Ankündigungen verfügbar.",
     "loading": "Laden...",
     "error": "Fehler beim Laden der Ankündigungen.",
