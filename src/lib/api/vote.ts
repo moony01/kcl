@@ -6,16 +6,13 @@
  *
  * 테이블: kcl_votes, kcl_companies
  *
- * 주의:
- * - Rate Limit은 클라이언트의 useVoteQuota에서 처리
- * - 서버 사이드 Rate Limit(Redis)은 제거됨
- * - RLS 정책으로 보안 처리
+ * 보안:
+ * - 서버 사이드 Rate Limit: submit_vote_secure RPC에서 fingerprint 기반 일일 30회 제한
+ * - 클라이언트 사이드 Rate Limit: useVoteQuota 훅 (UX용 보조)
+ * - RLS 정책으로 데이터 접근 보안
  */
 
 import { getSupabase } from '@/lib/supabase/client';
-
-/** 1회 투표당 점수 */
-const VOTE_SCORE = 1;
 
 /** 투표 요청 파라미터 */
 export interface SubmitVoteParams {
@@ -36,29 +33,46 @@ export interface VoteResult {
   /** 에러 메시지 */
   message: string;
   /** 에러 코드 */
-  errorCode?: 'INVALID_COMPANY' | 'SUPABASE_ERROR' | 'RPC_FAILED' | 'UNKNOWN';
+  errorCode?: 'INVALID_COMPANY' | 'SUPABASE_ERROR' | 'RATE_LIMITED' | 'UNKNOWN';
+  /** 오늘 남은 투표 수 */
+  remaining?: number;
 }
 
 /**
- * 투표 제출 (Supabase 직접 호출)
+ * 브라우저 fingerprint 생성
+ * User-Agent, 화면 크기, 타임존, 언어 등을 조합한 해시
+ * 완벽하지 않지만 localStorage 우회 공격을 방어
+ */
+function generateFingerprint(): string {
+  if (typeof window === 'undefined') return '';
+
+  const components = [
+    navigator.userAgent,
+    `${screen.width}x${screen.height}x${screen.colorDepth}`,
+    Intl.DateTimeFormat().resolvedOptions().timeZone,
+    navigator.language,
+    navigator.hardwareConcurrency?.toString() || '',
+    navigator.maxTouchPoints?.toString() || '',
+  ];
+
+  // 간단한 해시 (djb2 알고리즘)
+  const str = components.join('|');
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash + str.charCodeAt(i)) & 0xffffffff;
+  }
+  return `fp_${(hash >>> 0).toString(36)}`;
+}
+
+/**
+ * 투표 제출 (서버 사이드 Rate Limiting 적용)
  *
- * 기존 /api/vote의 로직을 클라이언트에서 직접 실행합니다.
- *
- * 주의:
- * - Rate Limit은 useVoteQuota 훅에서 클라이언트 사이드로 처리
- * - 서버 사이드 IP 해싱은 RLS 정책으로 대체
- * - increment_firepower RPC 사용 (동시성 안전)
+ * submit_vote_secure RPC를 통해 서버에서 fingerprint 기반 일일 제한을 검증합니다.
+ * - 서버 사이드: fingerprint 기반 일일 30회 제한 (RPC 내부)
+ * - 클라이언트 사이드: useVoteQuota 훅으로 UX 보조
  *
  * @param params - 투표 파라미터
  * @returns 투표 결과
- *
- * @example
- * ```typescript
- * const result = await submitVote({ companyId: 'uuid-here' });
- * if (result.success) {
- *   console.log('투표 성공! 현재 점수:', result.currentScore);
- * }
- * ```
  */
 export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> {
   const { companyId, groupId } = params;
@@ -73,77 +87,48 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
   }
 
   try {
-    // 1. kcl_companies.firepower 업데이트 (RPC 사용)
-    let newScore = 0;
+    const fingerprint = generateFingerprint();
 
-    // increment_firepower RPC 호출 시도
-    const { data: rpcData, error: rpcError } = await supabase.rpc('increment_firepower', {
-      company_id: companyId,
-      amount: VOTE_SCORE,
+    // submit_vote_secure RPC: 서버에서 rate limit + firepower 증가 + 투표 기록을 원자적으로 처리
+    const { data, error } = await supabase.rpc('submit_vote_secure', {
+      p_company_id: companyId,
+      p_group_id: groupId || null,
+      p_fingerprint: fingerprint || null,
     });
 
-    if (rpcError) {
-      // RPC가 없을 경우 fallback: SELECT 후 UPDATE (race condition 가능성 있음)
-      console.warn('[submitVote] RPC not available, using fallback. Error:', rpcError.message);
-
-      const { data: company, error: selectError } = await supabase
-        .from('kcl_companies')
-        .select('firepower')
-        .eq('id', companyId)
-        .single();
-
-      if (selectError || !company) {
-        console.error('[submitVote] Failed to SELECT firepower:', selectError?.message);
-        return {
-          success: false,
-          message: 'Company not found',
-          errorCode: 'INVALID_COMPANY',
-        };
-      }
-
-      newScore = (company.firepower || 0) + VOTE_SCORE;
-
-      const { error: updateError } = await supabase
-        .from('kcl_companies')
-        .update({ firepower: newScore })
-        .eq('id', companyId);
-
-      if (updateError) {
-        console.error('[submitVote] Failed to UPDATE firepower:', updateError.message);
-        return {
-          success: false,
-          message: 'Failed to update vote count',
-          errorCode: 'SUPABASE_ERROR',
-        };
-      }
-    } else {
-      newScore = rpcData as number;
+    if (error) {
+      console.error('[submitVote] RPC error:', error.message);
+      return {
+        success: false,
+        message: 'Failed to submit vote',
+        errorCode: 'SUPABASE_ERROR',
+      };
     }
 
-    // 2. kcl_votes 테이블에 투표 기록 저장 (비동기, 실패해도 무시)
-    // SSG/CSR 환경: ip_hash는 NULL (서버 없음)
-    // 스키마: vote_power (integer), ip_hash (nullable)
-    supabase
-      .from('kcl_votes')
-      .insert({
-        company_id: companyId,
-        group_id: groupId || null,
-        vote_power: VOTE_SCORE,
-        ip_hash: null, // SSG 환경에서는 IP 해시 불가
-        vote_source: 'web',
-      })
-      .then((result: { error: { message: string } | null }) => {
-        if (result.error) {
-          // 투표 기록 실패는 로깅만 (firepower는 이미 증가됨)
-          console.warn('[submitVote] Failed to persist vote record:', result.error.message);
-        }
-      });
+    const result = data as {
+      success: boolean;
+      message: string;
+      error_code?: string;
+      current_score?: number;
+      vote_score?: number;
+      remaining?: number;
+    };
+
+    if (!result.success) {
+      return {
+        success: false,
+        message: result.message,
+        errorCode: (result.error_code as VoteResult['errorCode']) || 'UNKNOWN',
+        remaining: result.remaining,
+      };
+    }
 
     return {
       success: true,
-      currentScore: newScore,
-      voteScore: VOTE_SCORE,
-      message: 'Vote successful',
+      currentScore: result.current_score,
+      voteScore: result.vote_score,
+      message: result.message,
+      remaining: result.remaining,
     };
   } catch (error) {
     console.error('[submitVote] Unexpected error:', error);

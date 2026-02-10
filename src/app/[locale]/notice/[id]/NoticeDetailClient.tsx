@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { ArrowLeft } from 'lucide-react';
+import DOMPurify from 'isomorphic-dompurify';
 import { getAnnouncementById, incrementAnnouncementView } from '@/lib/api/announcements';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeComments from '@/components/features/notice/NoticeComments';
@@ -108,10 +109,11 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
             </div>
 
             {/* 본문 (Quill HTML 콘텐츠) */}
+            {/* XSS 방지: DOMPurify로 HTML sanitize 처리 */}
             <div
               className={`${styles.detailContent} ql-editor`}
               dangerouslySetInnerHTML={{
-                __html: notice.content,
+                __html: DOMPurify.sanitize(notice.content),
               }}
             />
 
