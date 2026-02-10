@@ -8,10 +8,12 @@
  */
 
 import { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { HomeClient } from './HomeClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
+import styles from './seo-content.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
@@ -70,17 +72,46 @@ const websiteJsonLd = {
 };
 
 /**
- * 홈페이지 (정적 셸)
- * 서버에서 데이터를 fetching하지 않음
+ * 홈페이지 (정적 셸 + SEO 콘텐츠)
  * HomeClient가 SWR로 클라이언트에서 데이터 로드
+ * 하단에 서버 렌더링 SEO 텍스트 섹션 포함 (AdSense 승인용)
  */
-export default function HomePage() {
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'Home' });
+
   return (
     <>
       <JsonLd data={websiteJsonLd} />
       {/* SEO용 h1 태그 - 시각적으로 숨김 처리하여 스크린 리더와 검색 엔진에만 노출 */}
       <h1 className="sr-only">KCL - K-pop Company League 실시간 랭킹</h1>
       <HomeClient />
+
+      {/* SEO 콘텐츠 섹션 - 서버 렌더링, 크롤러에 노출되는 정적 텍스트 */}
+      <section className={styles.seoSection}>
+        <h2 className={styles.seoTitle}>{t('seo_title')}</h2>
+        <p className={styles.seoIntro}>{t('seo_intro')}</p>
+
+        <div className={styles.seoGrid}>
+          <div className={styles.seoCard}>
+            <h3>{t('seo_how_title')}</h3>
+            <p>{t('seo_how_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h3>{t('seo_vote_title')}</h3>
+            <p>{t('seo_vote_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h3>{t('seo_season_title')}</h3>
+            <p>{t('seo_season_desc')}</p>
+          </div>
+          <div className={styles.seoCard}>
+            <h3>{t('seo_global_title')}</h3>
+            <p>{t('seo_global_desc')}</p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
