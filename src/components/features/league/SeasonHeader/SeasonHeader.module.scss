@@ -360,10 +360,11 @@ $banner-height-desktop: 320px;
 }
 
 // ============================================================
-// 오버레이 컨트롤: 화살표 (좌/우)
+// 오버레이: 좌우 화살표 (현재 숨김 처리, 필요 시 display: flex 로 복원)
 // ============================================================
 .arrowLeft,
 .arrowRight {
+  display: none; // 숨김 처리
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -374,7 +375,6 @@ $banner-height-desktop: 320px;
   width: 36px;
   height: 36px;
   color: white;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -384,11 +384,6 @@ $banner-height-desktop: 320px;
   &:hover {
     background: rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  }
-
-  &:active {
-    transform: translateY(-50%) scale(0.95);
   }
 
   @media (min-width: 768px) {
@@ -406,49 +401,36 @@ $banner-height-desktop: 320px;
 }
 
 // ============================================================
-// 오버레이 컨트롤: 인디케이터 + 일시정지 (하단 중앙 필)
+// 컨트롤: 인디케이터 + 일시정지 (배너 바깥 하단)
 // ============================================================
 .controls {
-  position: absolute;
-  bottom: 12px;
-  // 가운데 정렬: left/right 0 + margin auto 방식 (transform보다 안정적)
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: fit-content;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(4px);
-  border-radius: 20px;
-  padding: 6px 12px;
+  padding: 8px 0 0;
 }
 
 // 인디케이터 닷
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: $color-border;
+  border: none;
   padding: 0;
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.5);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: $color-text-dim;
     transform: scale(1.2);
   }
 
   &.active {
-    width: 24px;
+    width: 28px;
     border-radius: 6px;
-    background: white;
-    border-color: rgba(255, 255, 255, 0.8);
+    background: $color-primary;
   }
 }
 
@@ -461,9 +443,9 @@ $banner-height-desktop: 320px;
   height: 20px;
   margin-left: 4px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
+  background: rgba($color-text, 0.15);
+  border: 1px solid rgba($color-text, 0.2);
+  color: $color-text-dim;
   cursor: pointer;
   transition: all 0.25s ease;
   flex-shrink: 0;
@@ -474,15 +456,14 @@ $banner-height-desktop: 320px;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.25);
-    color: white;
+    background: rgba($color-text, 0.25);
+    color: $color-text;
   }
 
-  // 일시정지 중 (재생 아이콘 표시)
   &.paused {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
-    color: white;
+    background: rgba($color-primary, 0.15);
+    border-color: rgba($color-primary, 0.25);
+    color: $color-primary;
   }
 
   span {
@@ -503,6 +484,7 @@ $banner-height-desktop: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -568,22 +550,22 @@ $banner-height-desktop: 320px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
 
   @media (min-width: 768px) {
-    gap: 10px;
+    gap: 8px;
   }
 }
 
-// 왕관 아이콘 (40-48px)
+// 왕관 아이콘 (32-48px)
 .crownIcon {
   display: flex;
   align-items: center;
   justify-content: center;
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     filter: drop-shadow(0 2px 8px rgba($color-gold, 0.5));
   }
 
@@ -612,13 +594,13 @@ $banner-height-desktop: 320px;
 
 // 대형 소속사 로고 (80-100px, 라운드)
 .championLogo {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 900;
   color: white;
   box-shadow:
@@ -1264,12 +1246,11 @@ $banner-height-desktop: 320px;
     }
   }
 
-  // ===== 오버레이 컨트롤 =====
+  // ===== 컨트롤 (배너 하단) =====
   .controls {
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(4px) !important;
-    border: 1px solid rgba(0, 0, 0, 0.06) !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .dot {

@@ -35,14 +35,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 16px;
+  gap: 6px;
+  padding: 12px 10px;
   border: none;
   background: transparent;
   border-radius: 12px;
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
+  min-width: 0;
 
   &:hover:not(.active) {
     background: rgba($color-text, 0.05);
@@ -69,10 +70,11 @@
 }
 
 .tabLabel {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: $color-text-dim;
   transition: color 0.2s ease;
+  white-space: nowrap;
 
   .active & {
     color: $color-text;
