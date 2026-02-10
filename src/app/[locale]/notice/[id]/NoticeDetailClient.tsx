@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { ArrowLeft } from 'lucide-react';
 import { getAnnouncementById, incrementAnnouncementView } from '@/lib/api/announcements';
 import { JsonLd } from '@/components/common/JsonLd';
+import NoticeComments from '@/components/features/notice/NoticeComments';
 import type { Announcement } from '@/types/announcement';
 import styles from './page.module.scss';
 
@@ -137,6 +138,9 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
                 },
               }}
             />
+
+            {/* 공지사항 댓글 섹션 */}
+            <NoticeComments announcementId={noticeId} />
           </>
         )}
       </div>
