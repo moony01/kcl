@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import ExportedImage from 'next-image-export-optimizer';
 import { Calendar, Tag } from 'lucide-react';
+import NewsViewCounter from '@/components/news/NewsViewCounter';
 import styles from './NewsCard.module.scss';
 
 /**
@@ -79,10 +80,13 @@ export default function NewsCard({
         {/* 요약문 */}
         <p className={styles.excerpt}>{excerpt}</p>
 
-        {/* 날짜 */}
-        <div className={styles.date}>
-          <Calendar size={14} />
-          <span>{formattedDate}</span>
+        {/* 날짜 + 조회수 */}
+        <div className={styles.metaRow}>
+          <div className={styles.date}>
+            <Calendar size={14} />
+            <span>{formattedDate}</span>
+          </div>
+          <NewsViewCounter slug={slug} iconSize={12} />
         </div>
       </div>
     </Link>

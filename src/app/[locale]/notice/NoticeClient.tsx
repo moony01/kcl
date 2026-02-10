@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { getAnnouncements, getAnnouncementById, incrementAnnouncementView } from '@/lib/api/announcements';
-import type { Announcement, AnnouncementCategory, AnnouncementListItem } from '@/types/announcement';
+import { getAnnouncements } from '@/lib/api/announcements';
+import type { AnnouncementCategory, AnnouncementListItem } from '@/types/announcement';
 import NoticeList from '@/components/features/notice/NoticeList';
-import NoticeDetail from '@/components/features/notice/NoticeDetail';
 import CategoryFilter from '@/components/features/notice/CategoryFilter';
 import styles from './page.module.scss';
 
@@ -14,17 +13,16 @@ interface NoticeClientProps {
 }
 
 /**
- * 공지사항 클라이언트 컴포넌트
- * 목록 조회 + 인라인 상세보기 (SSG 제약으로 별도 라우트 대신 인라인)
+ * 공지사항 목록 클라이언트 컴포넌트
+ * 목록 조회 + 카테고리 필터링
+ * 상세보기는 /notice/[id] 페이지로 이동
  */
 export default function NoticeClient({ locale }: NoticeClientProps) {
   const t = useTranslations('Notice');
 
   const [notices, setNotices] = useState<AnnouncementListItem[]>([]);
-  const [selectedNotice, setSelectedNotice] = useState<Announcement | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<AnnouncementCategory | undefined>(undefined);
   const [loading, setLoading] = useState(true);
-  const [detailLoading, setDetailLoading] = useState(false);
   const [error, setError] = useState(false);
 
   /** 공지사항 목록 조회 */
@@ -45,38 +43,9 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
     fetchNotices();
   }, [fetchNotices]);
 
-  /** 공지사항 상세 조회 (인라인 펼침) */
-  const handleSelectNotice = async (id: string) => {
-    // 이미 선택된 공지를 다시 클릭하면 닫기
-    if (selectedNotice?.id === id) {
-      setSelectedNotice(null);
-      return;
-    }
-
-    try {
-      setDetailLoading(true);
-      const detail = await getAnnouncementById(id);
-      if (detail) {
-        setSelectedNotice(detail);
-        // 조회수 증가 (fire-and-forget)
-        incrementAnnouncementView(id);
-      }
-    } catch {
-      // 상세 조회 실패 시 무시
-    } finally {
-      setDetailLoading(false);
-    }
-  };
-
-  /** 목록으로 돌아가기 */
-  const handleBackToList = () => {
-    setSelectedNotice(null);
-  };
-
   /** 카테고리 필터 변경 */
   const handleCategoryChange = (category?: AnnouncementCategory) => {
     setSelectedCategory(category);
-    setSelectedNotice(null);
   };
 
   return (
@@ -121,20 +90,10 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
             ) : (
               <NoticeList
                 notices={notices}
-                selectedId={selectedNotice?.id}
-                onSelect={handleSelectNotice}
+                locale={locale}
               />
             )}
           </>
-        )}
-
-        {/* 인라인 상세보기 */}
-        {selectedNotice && (
-          <NoticeDetail
-            notice={selectedNotice}
-            loading={detailLoading}
-            onBack={handleBackToList}
-          />
         )}
       </div>
     </div>

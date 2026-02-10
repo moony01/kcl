@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Pin } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
@@ -8,15 +9,14 @@ import styles from './NoticeList.module.scss';
 
 interface NoticeListProps {
   notices: AnnouncementListItem[];
-  selectedId?: string;
-  onSelect: (id: string) => void;
+  locale: string;
 }
 
 /**
  * 공지사항 목록 컴포넌트
- * 클릭 시 상세보기를 인라인으로 펼침
+ * 클릭 시 /notice/[id] 상세 페이지로 이동
  */
-export default function NoticeList({ notices, selectedId, onSelect }: NoticeListProps) {
+export default function NoticeList({ notices, locale }: NoticeListProps) {
   const t = useTranslations('Notice');
 
   /** 카테고리 라벨 매핑 */
@@ -38,13 +38,12 @@ export default function NoticeList({ notices, selectedId, onSelect }: NoticeList
   return (
     <div className={styles.noticeList}>
       {notices.map((notice) => (
-        <button
+        <Link
           key={notice.id}
+          href={`/${locale}/notice/${notice.id}`}
           className={classNames(styles.noticeItem, {
-            [styles.selected]: selectedId === notice.id,
             [styles.pinned]: notice.is_pinned,
           })}
-          onClick={() => onSelect(notice.id)}
         >
           <div className={styles.itemHeader}>
             {notice.is_pinned && (
@@ -62,7 +61,7 @@ export default function NoticeList({ notices, selectedId, onSelect }: NoticeList
             <span>{formatDate(notice.created_at)}</span>
             <span>{t('views', { count: notice.view_count })}</span>
           </div>
-        </button>
+        </Link>
       ))}
     </div>
   );

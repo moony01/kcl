@@ -11,6 +11,8 @@ import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
 import ShareButtons from '@/components/common/ShareButtons';
+import NewsViewCounter from '@/components/news/NewsViewCounter';
+import NewsComments from '@/components/news/NewsComments';
 import styles from './page.module.scss';
 
 /**
@@ -142,11 +144,14 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         {/* 제목 */}
         <h1 className={styles.title}>{post.title}</h1>
 
-        {/* 메타 정보 (날짜 + 공유 버튼) */}
+        {/* 메타 정보 (날짜 + 조회수 + 공유 버튼) */}
         <div className={styles.meta}>
-          <div className={styles.date}>
-            <Calendar size={16} />
-            <time dateTime={post.date}>{formattedDate}</time>
+          <div className={styles.metaLeft}>
+            <div className={styles.date}>
+              <Calendar size={16} />
+              <time dateTime={post.date}>{formattedDate}</time>
+            </div>
+            <NewsViewCounter slug={slug} incrementOnMount />
           </div>
           <ShareButtons
             title={post.title}
@@ -199,6 +204,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           size="md"
         />
       </div>
+
+      {/* 댓글 섹션 */}
+      <NewsComments slug={slug} />
 
       {/* 광고 플레이스홀더 (향후 AdSense 삽입 위치) */}
       <div className={styles.adPlaceholder} data-ad-slot="news-detail-bottom">

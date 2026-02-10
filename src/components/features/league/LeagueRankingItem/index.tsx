@@ -137,6 +137,9 @@ export default function LeagueRankingItem({
         [styles.promotion]: promotionStatus === 'promotion_direct' && !isPromotionHero,
         [styles.promotionHero]: isPromotionHero,
         [styles.selected]: isSelected,
+        // T1.45: 순위 변동 글로우 효과
+        [styles.rankUpGlow]: company.rankChange > 0,
+        [styles.rankDownGlow]: company.rankChange < 0,
       })}
       whileHover={isPromotionHero ? { y: -4, scale: 1.01 } : { x: 4 }}
       transition={{ duration: 0.15 }}

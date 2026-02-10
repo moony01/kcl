@@ -1,6 +1,7 @@
 /**
  * KCL 공지사항 Supabase API 레이어
  * 클라이언트 사이드에서 Supabase를 통해 공지사항 데이터 조회
+ * 빌드 타임에서는 서버 클라이언트를 통해 정적 페이지 생성용 데이터 조회
  */
 
 import { createClient } from '@/lib/supabase/client';
@@ -55,4 +56,31 @@ export async function incrementAnnouncementView(id: string): Promise<void> {
   const supabase = createClient();
 
   await supabase.rpc('increment_kcl_announcement_view', { p_id: id });
+}
+
+/**
+ * 공개된 공지사항 ID 전체 조회 (빌드 타임 전용)
+ * generateStaticParams()에서 사용하여 정적 페이지 생성
+ * 서버 환경에서만 호출됨 (createServerClient 사용)
+ */
+export async function getPublishedAnnouncementIds(): Promise<string[]> {
+  const { createServerClient } = await import('@/lib/supabase/server');
+  const supabase = createServerClient();
+
+  if (!supabase) {
+    console.warn('[announcements] 서버 클라이언트 생성 실패, 빈 배열 반환');
+    return [];
+  }
+
+  const { data, error } = await supabase
+    .from('kcl_announcements')
+    .select('id')
+    .eq('is_published', true);
+
+  if (error) {
+    console.error('[announcements] ID 목록 조회 실패:', error);
+    return [];
+  }
+
+  return (data || []).map((row: { id: string }) => row.id);
 }

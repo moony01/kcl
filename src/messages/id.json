@@ -65,7 +65,31 @@
     "backToList": "Kembali ke daftar",
     "noArticles": "Tidak ada artikel tersedia.",
     "readMore": "Baca selengkapnya",
-    "sharePrompt": "Suka artikel ini? Bagikan dengan penggemar K-pop lainnya!"
+    "sharePrompt": "Suka artikel ini? Bagikan dengan penggemar K-pop lainnya!",
+    "views": "{count} dilihat"
+  },
+  "NewsComments": {
+    "title": "Komentar",
+    "loading": "Memuat komentar...",
+    "no_comments": "Jadilah yang pertama berkomentar!",
+    "placeholder_name": "Nama panggilan",
+    "placeholder_password": "Kata sandi",
+    "placeholder_content": "Tulis komentar...",
+    "submit": "Kirim",
+    "delete": "Hapus",
+    "delete_title": "Hapus Komentar",
+    "delete_message": "Masukkan kata sandi yang Anda gunakan saat menulis.",
+    "deleting": "Menghapus...",
+    "cancel": "Batal",
+    "error_name_required": "Harap masukkan nama panggilan.",
+    "error_password_required": "Harap masukkan kata sandi.",
+    "error_password_min": "Kata sandi harus minimal 4 karakter.",
+    "error_content_required": "Harap masukkan komentar.",
+    "error_content_min": "Komentar harus minimal 2 karakter.",
+    "error_too_fast": "Harap tunggu sebentar sebelum memposting lagi.",
+    "error_submit_failed": "Gagal memposting komentar.",
+    "error_wrong_password": "Kata sandi salah.",
+    "error_delete_failed": "Gagal menghapus komentar."
   },
   "Company": {
     "detail": "Detail Perusahaan",

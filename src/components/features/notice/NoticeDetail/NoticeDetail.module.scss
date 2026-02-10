@@ -1,11 +1,12 @@
 /**
- * 공지사항 상세보기 스타일
+ * 공지사항 상세보기 컴포넌트 스타일 (레거시)
+ * 현재 사용되지 않음 - 상세 페이지가 /notice/[id]로 분리됨
  */
 
 .noticeDetail {
   margin-top: 24px;
   padding-top: 24px;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--color-border);
 }
 
 .loading {
@@ -15,7 +16,7 @@
 
   p {
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--color-text-dim);
   }
 }
 
@@ -26,27 +27,27 @@
   padding: 8px 0;
   margin-bottom: 16px;
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--color-text-dim);
   background: none;
   border: none;
   cursor: pointer;
   transition: color 0.2s ease;
 
   &:hover {
-    color: var(--primary);
+    color: var(--color-primary);
   }
 }
 
 .detailHeader {
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .detailTitle {
   font-size: 22px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color-text);
   margin: 0 0 8px;
   line-height: 1.4;
 }
@@ -56,25 +57,25 @@
   align-items: center;
   gap: 12px;
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--color-text-dim);
 }
 
 .detailContent {
   font-size: 14px;
   line-height: 1.8;
-  color: var(--text-secondary);
+  color: var(--color-text);
 
   h2 {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-text);
     margin: 24px 0 12px;
   }
 
   h3 {
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-text);
     margin: 20px 0 10px;
   }
 
@@ -93,7 +94,7 @@
 
   strong {
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-text);
   }
 }
 

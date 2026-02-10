@@ -65,7 +65,31 @@
     "backToList": "一覧に戻る",
     "noArticles": "記事がありません。",
     "readMore": "続きを読む",
-    "sharePrompt": "この記事はいかがでしたか？K-popファンにシェアしよう！"
+    "sharePrompt": "この記事はいかがでしたか？K-popファンにシェアしよう！",
+    "views": "{count} 回閲覧"
+  },
+  "NewsComments": {
+    "title": "コメント",
+    "loading": "コメントを読み込み中...",
+    "no_comments": "最初のコメントを残しましょう！",
+    "placeholder_name": "ニックネーム",
+    "placeholder_password": "パスワード",
+    "placeholder_content": "コメントを入力...",
+    "submit": "投稿",
+    "delete": "削除",
+    "delete_title": "コメント削除",
+    "delete_message": "削除するには作成時に入力したパスワードを入力してください。",
+    "deleting": "削除中...",
+    "cancel": "キャンセル",
+    "error_name_required": "ニックネームを入力してください。",
+    "error_password_required": "パスワードを入力してください。",
+    "error_password_min": "パスワードは4文字以上である必要があります。",
+    "error_content_required": "コメント内容を入力してください。",
+    "error_content_min": "コメントは2文字以上である必要があります。",
+    "error_too_fast": "しばらくしてから再度お試しください。",
+    "error_submit_failed": "コメントの投稿に失敗しました。",
+    "error_wrong_password": "パスワードが一致しません。",
+    "error_delete_failed": "削除に失敗しました。"
   },
   "Company": {
     "detail": "会社詳細",

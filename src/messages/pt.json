@@ -65,7 +65,31 @@
     "backToList": "Voltar para a lista",
     "noArticles": "Nenhum artigo disponível.",
     "readMore": "Ler mais",
-    "sharePrompt": "Gostou deste artigo? Compartilhe com outros fãs de K-pop!"
+    "sharePrompt": "Gostou deste artigo? Compartilhe com outros fãs de K-pop!",
+    "views": "{count} visualizações"
+  },
+  "NewsComments": {
+    "title": "Comentários",
+    "loading": "Carregando comentários...",
+    "no_comments": "Seja o primeiro a comentar!",
+    "placeholder_name": "Apelido",
+    "placeholder_password": "Senha",
+    "placeholder_content": "Escreva um comentário...",
+    "submit": "Publicar",
+    "delete": "Excluir",
+    "delete_title": "Excluir Comentário",
+    "delete_message": "Digite a senha que você usou ao escrever.",
+    "deleting": "Excluindo...",
+    "cancel": "Cancelar",
+    "error_name_required": "Por favor, digite um apelido.",
+    "error_password_required": "Por favor, digite uma senha.",
+    "error_password_min": "A senha deve ter pelo menos 4 caracteres.",
+    "error_content_required": "Por favor, digite um comentário.",
+    "error_content_min": "O comentário deve ter pelo menos 2 caracteres.",
+    "error_too_fast": "Por favor, aguarde um momento antes de publicar novamente.",
+    "error_submit_failed": "Falha ao publicar comentário.",
+    "error_wrong_password": "Senha incorreta.",
+    "error_delete_failed": "Falha ao excluir comentário."
   },
   "Company": {
     "detail": "Detalhes da Empresa",
