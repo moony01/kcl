@@ -241,7 +241,7 @@ export default function SeasonHeader({
 
     const autoSlideInterval = setInterval(() => {
       paginate(1);
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(autoSlideInterval);
   }, [hasMultipleSlides, isPaused, paginate]);
@@ -796,7 +796,7 @@ export default function SeasonHeader({
           )}
         </AnimatePresence>
 
-        {/* ===== 오버레이: 왼쪽 화살표 ===== */}
+        {/* ===== 오버레이: 좌우 화살표 (현재 숨김, 필요 시 SCSS에서 display 복원) ===== */}
         {hasMultipleSlides && (
           <motion.button
             className={styles.arrowLeft}
@@ -808,8 +808,6 @@ export default function SeasonHeader({
             <ChevronLeft size={20} />
           </motion.button>
         )}
-
-        {/* ===== 오버레이: 오른쪽 화살표 ===== */}
         {hasMultipleSlides && (
           <motion.button
             className={styles.arrowRight}
@@ -821,65 +819,65 @@ export default function SeasonHeader({
             <ChevronRight size={20} />
           </motion.button>
         )}
-
-        {/* ===== 오버레이: 인디케이터 + 일시정지 (하단 중앙 필) ===== */}
-        {hasMultipleSlides && (
-          <motion.div
-            className={styles.controls}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            {Array.from({ length: totalSlides }, (_, idx) => (
-              <motion.button
-                key={idx}
-                className={classNames(styles.dot, { [styles.active]: idx === currentIndex })}
-                onClick={() => {
-                  const newDir = idx > currentIndex ? 1 : -1;
-                  setDirection(newDir);
-                  setCurrentIndex(idx);
-                }}
-                aria-label={`Go to slide ${idx + 1}`}
-                whileHover={{ scale: 1.3 }}
-                whileTap={{ scale: 0.9 }}
-                layout
-              />
-            ))}
-            {/* 일시정지/재생 버튼 */}
-            <motion.button
-              className={classNames(styles.pauseBtn, { [styles.paused]: isPaused })}
-              onClick={togglePause}
-              aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <AnimatePresence mode="wait">
-                {isPaused ? (
-                  <motion.span
-                    key="play"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <Play size={12} fill="currentColor" />
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="pause"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <Pause size={12} fill="currentColor" />
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </motion.button>
-          </motion.div>
-        )}
       </motion.div>
+
+      {/* ===== 배너 하단: 인디케이터 + 일시정지 ===== */}
+      {hasMultipleSlides && (
+        <motion.div
+          className={styles.controls}
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          {Array.from({ length: totalSlides }, (_, idx) => (
+            <motion.button
+              key={idx}
+              className={classNames(styles.dot, { [styles.active]: idx === currentIndex })}
+              onClick={() => {
+                const newDir = idx > currentIndex ? 1 : -1;
+                setDirection(newDir);
+                setCurrentIndex(idx);
+              }}
+              aria-label={`Go to slide ${idx + 1}`}
+              whileHover={{ scale: 1.3 }}
+              whileTap={{ scale: 0.9 }}
+              layout
+            />
+          ))}
+          {/* 일시정지/재생 버튼 */}
+          <motion.button
+            className={classNames(styles.pauseBtn, { [styles.paused]: isPaused })}
+            onClick={togglePause}
+            aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <AnimatePresence mode="wait">
+              {isPaused ? (
+                <motion.span
+                  key="play"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Play size={12} fill="currentColor" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="pause"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Pause size={12} fill="currentColor" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
