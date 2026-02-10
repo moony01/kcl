@@ -23,7 +23,7 @@ export async function getNewsViewCount(slug: string): Promise<number> {
     .from('kcl_news_views')
     .select('view_count')
     .eq('slug', slug)
-    .single();
+    .maybeSingle();
 
   if (error || !data) {
     return 0;

@@ -2,6 +2,7 @@
 
 import { ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import DOMPurify from 'isomorphic-dompurify';
 import type { Announcement } from '@/types/announcement';
 import styles from './NoticeDetail.module.scss';
 
@@ -49,11 +50,11 @@ export default function NoticeDetail({ notice, loading, onBack }: NoticeDetailPr
         </div>
       </div>
 
-      {/* 본문 (Quill HTML 콘텐츠) */}
+      {/* 본문 (Quill HTML 콘텐츠) - XSS 방지: DOMPurify 적용 */}
       <div
         className={`${styles.detailContent} ql-editor`}
         dangerouslySetInnerHTML={{
-          __html: notice.content,
+          __html: DOMPurify.sanitize(notice.content),
         }}
       />
     </div>
