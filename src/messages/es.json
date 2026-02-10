@@ -5,7 +5,11 @@
     "support": "Apoyar",
     "search_placeholder": "Buscar artista o empresa...",
     "vote_button": "Votar Ahora",
-    "firepower": "Potencia"
+    "firepower": "Potencia",
+    "search_popular": "Popular",
+    "search_no_results": "No se encontraron resultados",
+    "search_companies": "Empresas",
+    "search_artists": "Artistas"
   },
   "HallOfFame": {
     "title": "Salón de la Fama",

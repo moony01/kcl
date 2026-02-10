@@ -5,7 +5,11 @@
     "support": "Ủng Hộ",
     "search_placeholder": "Tìm kiếm nghệ sĩ hoặc công ty...",
     "vote_button": "Bình Chọn Ngay",
-    "firepower": "Sức Mạnh"
+    "firepower": "Sức Mạnh",
+    "search_popular": "Phổ biến",
+    "search_no_results": "Không tìm thấy kết quả",
+    "search_companies": "Công ty",
+    "search_artists": "Nghệ sĩ"
   },
   "HallOfFame": {
     "title": "Đại Sảnh Danh Vọng",

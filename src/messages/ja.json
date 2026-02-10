@@ -5,7 +5,11 @@
     "support": "応援",
     "search_placeholder": "アーティストまたは会社を検索...",
     "vote_button": "投票する",
-    "firepower": "ファイアパワー"
+    "firepower": "ファイアパワー",
+    "search_popular": "人気",
+    "search_no_results": "検索結果がありません",
+    "search_companies": "会社",
+    "search_artists": "アーティスト"
   },
   "HallOfFame": {
     "title": "殿堂入り",

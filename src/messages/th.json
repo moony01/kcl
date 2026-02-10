@@ -5,7 +5,11 @@
     "support": "สนับสนุน",
     "search_placeholder": "ค้นหาศิลปินหรือบริษัท...",
     "vote_button": "โหวตเลย",
-    "firepower": "พลังไฟ"
+    "firepower": "พลังไฟ",
+    "search_popular": "ยอดนิยม",
+    "search_no_results": "ไม่พบผลลัพธ์",
+    "search_companies": "บริษัท",
+    "search_artists": "ศิลปิน"
   },
   "HallOfFame": {
     "title": "หอเกียรติยศ",

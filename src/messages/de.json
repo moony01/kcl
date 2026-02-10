@@ -5,7 +5,11 @@
     "support": "Unterstützen",
     "search_placeholder": "Künstler oder Firma suchen...",
     "vote_button": "Jetzt Abstimmen",
-    "firepower": "Feuerkraft"
+    "firepower": "Feuerkraft",
+    "search_popular": "Beliebt",
+    "search_no_results": "Keine Ergebnisse gefunden",
+    "search_companies": "Unternehmen",
+    "search_artists": "Künstler"
   },
   "HallOfFame": {
     "title": "Ruhmeshalle",

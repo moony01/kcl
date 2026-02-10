@@ -4,6 +4,10 @@
     "ranking": "실시간 랭킹",
     "support": "총공하기",
     "search_placeholder": "아티스트 또는 회사 검색...",
+    "search_no_results": "검색 결과가 없습니다",
+    "search_companies": "회사",
+    "search_artists": "아티스트",
+    "search_popular": "인기",
     "vote_button": "투표하기",
     "firepower": "화력"
   },

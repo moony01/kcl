@@ -5,7 +5,11 @@
     "support": "Soutenir",
     "search_placeholder": "Rechercher artiste ou entreprise...",
     "vote_button": "Voter Maintenant",
-    "firepower": "Puissance"
+    "firepower": "Puissance",
+    "search_popular": "Populaire",
+    "search_no_results": "Aucun résultat trouvé",
+    "search_companies": "Entreprises",
+    "search_artists": "Artistes"
   },
   "HallOfFame": {
     "title": "Temple de la Renommée",

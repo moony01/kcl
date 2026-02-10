@@ -5,7 +5,11 @@
     "support": "Dukung",
     "search_placeholder": "Cari artis atau perusahaan...",
     "vote_button": "Vote Sekarang",
-    "firepower": "Firepower"
+    "firepower": "Firepower",
+    "search_popular": "Populer",
+    "search_no_results": "Hasil tidak ditemukan",
+    "search_companies": "Perusahaan",
+    "search_artists": "Artis"
   },
   "HallOfFame": {
     "title": "Hall of Fame",

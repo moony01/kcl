@@ -5,7 +5,11 @@
     "support": "支持",
     "search_placeholder": "搜索艺人或公司...",
     "vote_button": "立即投票",
-    "firepower": "火力"
+    "firepower": "火力",
+    "search_popular": "热门",
+    "search_no_results": "未找到搜索结果",
+    "search_companies": "公司",
+    "search_artists": "艺人"
   },
   "HallOfFame": {
     "title": "名人堂",
