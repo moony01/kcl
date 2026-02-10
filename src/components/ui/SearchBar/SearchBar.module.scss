@@ -1,13 +1,17 @@
 /**
  * SearchBar.module.scss
- * 
+ *
  * 아티스트/소속사 통합 검색 스타일
- * 상단 고정 및 자동완성 드롭다운 스타일링
+ * T1.68: 인기 키워드 칩 + 카테고리별 드롭다운 + 빈 결과 상태
+ * T1.69: 라이트 모드 스타일 개선 (깔끔한 솔리드 디자인)
  */
 
 @use '../../../styles/abstracts/variables' as *;
 @use '../../../styles/abstracts/mixins' as mix;
 
+// =============================================
+// 검색바 래퍼
+// =============================================
 .searchWrapper {
   position: relative;
   width: 100%;
@@ -15,6 +19,9 @@
   z-index: 50;
 }
 
+// =============================================
+// 입력 컨테이너 (검색 아이콘 + 인풋 + 클리어 버튼)
+// =============================================
 .inputContainer {
   position: relative;
   display: flex;
@@ -22,19 +29,34 @@
   @include mix.glass-panel;
   border-radius: 16px;
   padding: 0 16px;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
+  // 포커스 상태: 보라색 보더 + 미세한 글로우 링
+  &.focused,
   &:focus-within {
     border-color: rgba($color-primary, 0.5);
     box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
   }
 }
 
+// 검색 아이콘
 .searchIcon {
   color: $color-text-dim;
   flex-shrink: 0;
+  transition: color 0.2s ease;
 }
 
+// 로딩 스피너 애니메이션
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// 검색 인풋
 .input {
   flex: 1;
   padding: 14px 12px;
@@ -46,9 +68,16 @@
 
   &::placeholder {
     color: rgba($color-text, 0.4);
+    transition: color 0.2s ease;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
 
+// 클리어(X) 버튼
 .clearButton {
   padding: 6px;
   border-radius: 50%;
@@ -57,15 +86,104 @@
   color: $color-text-dim;
   cursor: pointer;
   @include mix.flex-center;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 
   &:hover {
     background: rgba($color-text, 0.2);
     color: $color-text;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
 
-// 자동완성 드롭다운
+// =============================================
+// 인기 키워드 칩 영역
+// =============================================
+.chipsContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 0 4px;
+  flex-wrap: wrap;
+}
+
+// "인기" 라벨
+.chipsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: $color-text-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+// 라벨 불꽃 아이콘
+.chipsLabelIcon {
+  color: #f97316;
+}
+
+// 칩 리스트 (가로 스크롤)
+.chipsList {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+// 개별 칩 버튼
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 8px;
+  border-radius: 20px;
+  border: 1px solid $color-border;
+  background: $color-panel-bg;
+  color: $color-text;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.4);
+    background: rgba($color-primary, 0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
+
+// 칩 왼쪽 그라디언트 악센트 바
+.chipAccent {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+// 칩 텍스트
+.chipName {
+  line-height: 1;
+}
+
+// =============================================
+// 자동완성 드롭다운 (카테고리별)
+// =============================================
 .dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -73,14 +191,74 @@
   right: 0;
   @include mix.glass-panel;
   border-radius: 16px;
-  list-style: none;
   margin: 0;
-  padding: 8px;
-  max-height: 320px;
+  padding: 6px;
+  max-height: 380px;
   overflow-y: auto;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+  // 스크롤바 스타일링
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-text, 0.15);
+    border-radius: 4px;
+  }
 }
 
+// =============================================
+// 빈 결과 상태
+// =============================================
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  color: $color-text-dim;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.emptyIcon {
+  opacity: 0.4;
+}
+
+// =============================================
+// 결과 섹션 (회사 / 아티스트)
+// =============================================
+.resultSection {
+  padding: 2px 0;
+}
+
+// 섹션 헤더 ("회사" / "아티스트")
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $color-text-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// 섹션 구분선
+.sectionDivider {
+  height: 1px;
+  margin: 4px 12px;
+  background: $color-border;
+  opacity: 0.5;
+}
+
+// =============================================
+// 결과 아이템 (공통)
+// =============================================
 .resultItem {
   display: flex;
   align-items: center;
@@ -96,6 +274,7 @@
   }
 }
 
+// 소속사 아바타 (gradient 배경 + 이니셜)
 .resultAvatar {
   width: 36px;
   height: 36px;
@@ -108,14 +287,17 @@
   flex-shrink: 0;
 }
 
+// 결과 정보 컨테이너
 .resultInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
   overflow: hidden;
+  min-width: 0;
 }
 
+// 아티스트 이름 (강조)
 .artistName {
   font-weight: 700;
   font-size: 0.95rem;
@@ -125,89 +307,187 @@
   text-overflow: ellipsis;
 }
 
+// 소속사 라벨 (아티스트 -> 소속사 매핑 표시)
 .companyLabel {
   font-size: 0.75rem;
   color: $color-text-dim;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
+// 화살표 기호
+.arrow {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+// 소속사 이름 (회사 결과)
 .companyName {
   font-weight: 600;
   font-size: 0.95rem;
   color: $color-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.resultType {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: $color-text-dim;
-  background: rgba($color-text, 0.05);
-  padding: 4px 8px;
-  border-radius: 6px;
+// =============================================
+// 결과 메타 정보 (순위 + 화력)
+// =============================================
+.resultMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
   flex-shrink: 0;
 }
 
-// ===== 라이트 모드 스타일 오버라이드 =====
+// 순위 배지 (#1, #2 ...)
+.rankBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $color-text-dim;
+  background: rgba($color-text, 0.06);
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+// 화력 메타 (불꽃 아이콘 + 숫자)
+.voteMeta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $color-text-dim;
+}
+
+// 화력 불꽃 아이콘
+.flameIcon {
+  color: #f97316;
+}
+
+// =============================================
+// 라이트 모드 스타일 오버라이드
+// 깔끔한 솔리드 배경 + 미세한 보더 + 단일 그림자
+// backdrop-filter 제거 (라이트 모드에서 불필요)
+// =============================================
 $light-primary: #8B5CF6;
+$light-text: #1F2937;
+$light-text-dim: #6B7280;
+$light-text-muted: #9CA3AF;
+$light-border: rgba(0, 0, 0, 0.08);
+$light-bg: #FFFFFF;
+$light-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 
 :global(:root:not([data-theme='dark'])) {
+  // 입력 컨테이너: 깔끔한 화이트 배경
   .inputContainer {
-    background: #FFFFFF !important;
-    border: 1px solid rgba($light-primary, 0.15) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    background: $light-bg;
+    border: 1px solid $light-border;
+    box-shadow: $light-shadow;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 
+    // 포커스: 보라색 보더 악센트 + 미세한 링
+    &.focused,
     &:focus-within {
-      border-color: rgba($light-primary, 0.4) !important;
-      box-shadow: 0 0 0 3px rgba($light-primary, 0.1) !important;
+      border-color: rgba($light-primary, 0.5);
+      box-shadow: 0 0 0 3px rgba($light-primary, 0.08);
     }
   }
 
   .searchIcon {
-    color: #9CA3AF !important;
+    color: $light-text-muted;
   }
 
   .input {
-    color: #1F2937 !important;
+    color: $light-text;
 
     &::placeholder {
-      color: #9CA3AF !important;
+      color: $light-text-muted;
     }
   }
 
   .clearButton {
-    background: rgba($light-primary, 0.08) !important;
-    color: #6B7280 !important;
+    background: rgba($light-primary, 0.08);
+    color: $light-text-dim;
 
     &:hover {
-      background: rgba($light-primary, 0.15) !important;
-      color: $light-primary !important;
+      background: rgba($light-primary, 0.15);
+      color: $light-primary;
     }
   }
 
-  .dropdown {
-    background: #FFFFFF !important;
-    border: 1px solid rgba($light-primary, 0.1) !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+  // 인기 칩: 라이트 모드
+  .chipsLabel {
+    color: $light-text-dim;
   }
 
+  .chip {
+    background: $light-bg;
+    border-color: $light-border;
+    color: $light-text;
+
+    &:hover {
+      border-color: rgba($light-primary, 0.3);
+      background: rgba($light-primary, 0.04);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  // 드롭다운: 깔끔한 화이트 배경 + 미세한 그림자
+  .dropdown {
+    background: $light-bg;
+    border: 1px solid $light-border;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  // 빈 결과 상태
+  .emptyState {
+    color: $light-text-dim;
+  }
+
+  // 섹션 헤더
+  .sectionHeader {
+    color: $light-text-dim;
+  }
+
+  // 섹션 구분선
+  .sectionDivider {
+    background: $light-border;
+    opacity: 1;
+  }
+
+  // 결과 아이템 호버
   .resultItem {
     &:hover,
     &.highlighted {
-      background: rgba($light-primary, 0.08) !important;
+      background: rgba($light-primary, 0.06);
     }
   }
 
+  // 텍스트 색상
   .artistName,
   .companyName {
-    color: #1F2937 !important;
+    color: $light-text;
   }
 
   .companyLabel {
-    color: #6B7280 !important;
+    color: $light-text-dim;
   }
 
-  .resultType {
-    color: #6B7280 !important;
-    background: rgba($light-primary, 0.08) !important;
+  // 메타 정보
+  .rankBadge {
+    color: $light-text-dim;
+    background: rgba($light-primary, 0.06);
+  }
+
+  .voteMeta {
+    color: $light-text-dim;
   }
 }

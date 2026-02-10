@@ -4,6 +4,10 @@
     "ranking": "Real-time Ranking",
     "support": "Support",
     "search_placeholder": "Search artist or company...",
+    "search_no_results": "No results found",
+    "search_companies": "Companies",
+    "search_artists": "Artists",
+    "search_popular": "Popular",
     "vote_button": "Vote Now",
     "firepower": "Firepower"
   },

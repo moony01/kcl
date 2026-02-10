@@ -1,144 +1,92 @@
 /**
  * SeasonHeader.module.scss
  *
- * ✨ 프리미엄 시즌 대시보드 스타일 (Luna 디자인 업그레이드)
- * - 글래스모피즘 강화 + 골드 프리미엄 테마
- * - shimmer, glow, particle 애니메이션
- * - 드라마틱 VS 대결 구도
- * - 반응형 레이아웃 유지
+ * v3 대규모 리뉴얼
+ *
+ * 구조:
+ * - .seasonHeaderWrapper > .seasonInfoBar + .seasonBanner
+ * - seasonInfoBar: 배너 외부, 브랜드/시즌/실시간/D-day
+ * - seasonBanner: 풀블리드 슬라이드, 오버레이 화살표, 오버레이 컨트롤
+ *
+ * 라이트 모드 (T1.69):
+ * - ::before/::after 그라디언트/파티클 제거
+ * - @keyframes 애니메이션 제거
+ * - text-shadow, box-shadow 최소화
+ * - 깔끔한 솔리드 흰색 배경 + 얇은 보더
+ *
+ * 다크 모드: 골드 글로우, shimmer, 글래스모피즘 유지
  */
 
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
-// ===== 디자인 토큰 (프리미엄) =====
+// ===== 디자인 토큰 =====
 $color-gold: #d4af37;
 $color-gold-light: #f5e4a1;
 $color-gold-dark: #b8860b;
 $color-gold-champagne: #f7e7ce;
 
-// 기존 호환성
+// 승강 시스템 색상
 $color-relegation: #dc3545;
 $color-relegation-glow: rgba(220, 53, 69, 0.4);
 $color-promotion: #28a745;
 $color-promotion-glow: rgba(40, 167, 69, 0.4);
 
 // 2026년 개편: 4가지 승강 상태 색상
-$color-relegation-direct: #dc3545;    // 강등 직행 (1부 10위) - 빨간색
-$color-relegation-danger: #f97316;    // 강등 위기 (1부 9위) - 오렌지색
-$color-promotion-direct: #28a745;     // 승격 직행 (2부 1위) - 초록색
-$color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
+$color-relegation-direct: #dc3545;
+$color-relegation-danger: #f97316;
+$color-promotion-direct: #28a745;
+$color-promotion-chance: #eab308;
 
-// ===== 메인 컨테이너 =====
-.seasonHeader {
-  @include mix.glass-panel;
+// 라이트 모드 보라색 테마
+$light-primary: #8B5CF6;
+$light-primary-light: #A78BFA;
+$light-primary-dark: #7C3AED;
+$light-primary-glow: rgba(139, 92, 246, 0.3);
+
+// 배너 높이 (반응형)
+$banner-height-mobile: 240px;
+$banner-height-tablet: 280px;
+$banner-height-desktop: 320px;
+
+// ============================================================
+// 최상위 래퍼
+// ============================================================
+.seasonHeaderWrapper {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-  border-radius: 20px;
+  gap: 12px;
   margin-bottom: 20px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba($color-gold, 0.15);
-
-  // 프리미엄 골드 그라디언트 오버레이
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba($color-gold, 0.08) 0%,
-      rgba($color-gold, 0.02) 30%,
-      transparent 60%,
-      rgba($color-gold, 0.03) 100%
-    );
-    pointer-events: none;
-  }
-
-  // 파티클 배경 (CSS 기반)
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 15% 85%, rgba($color-gold, 0.06) 1px, transparent 1px),
-      radial-gradient(circle at 85% 15%, rgba($color-gold, 0.04) 1px, transparent 1px),
-      radial-gradient(circle at 45% 45%, rgba($color-gold, 0.03) 1px, transparent 1px),
-      radial-gradient(circle at 75% 65%, rgba($color-gold, 0.05) 1px, transparent 1px);
-    background-size:
-      80px 80px,
-      100px 100px,
-      120px 120px,
-      60px 60px;
-    pointer-events: none;
-    opacity: 0.8;
-    animation: particleFloat 20s ease-in-out infinite;
-  }
 
   @media (min-width: 768px) {
-    padding: 24px 28px;
-    border-radius: 24px;
-    gap: 20px;
+    gap: 16px;
   }
 }
 
-@keyframes particleFloat {
-  0%,
-  100% {
-    background-position:
-      0 0,
-      0 0,
-      0 0,
-      0 0;
-  }
-  50% {
-    background-position:
-      10px 10px,
-      -5px -5px,
-      8px -8px,
-      -3px 3px;
-  }
-}
-
-// ===== 상단 행: 시즌 정보 + 우측 정보 =====
-.topRow {
+// ============================================================
+// 시즌 정보 바 (배너 외부)
+// ============================================================
+.seasonInfoBar {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  z-index: 2;
+  padding: 0 4px;
 
   @media (min-width: 768px) {
     align-items: center;
+    padding: 0;
   }
 }
 
-// 우측 정보 그룹 (실시간 업데이트 + D-day)
-.rightInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  flex-shrink: 0;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
+// 좌측: 브랜드 타이틀 + 시즌
 .seasonTitle {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
+// 트로피 아이콘
 .trophyIcon {
   color: $color-gold;
   filter: drop-shadow(0 0 6px rgba($color-gold, 0.5));
@@ -146,13 +94,8 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 }
 
 @keyframes trophyGlow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 6px rgba($color-gold, 0.5));
-  }
-  50% {
-    filter: drop-shadow(0 0 12px rgba($color-gold, 0.8));
-  }
+  0%, 100% { filter: drop-shadow(0 0 6px rgba($color-gold, 0.5)); }
+  50% { filter: drop-shadow(0 0 12px rgba($color-gold, 0.8)); }
 }
 
 .title {
@@ -162,6 +105,7 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   line-height: 1.2;
 }
 
+// 브랜드 이름 (골드 shimmer)
 .brand {
   font-size: 1.15rem;
   font-weight: 900;
@@ -188,15 +132,11 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 }
 
 @keyframes brandShimmer {
-  0%,
-  100% {
-    background-position: 200% center;
-  }
-  50% {
-    background-position: -200% center;
-  }
+  0%, 100% { background-position: 200% center; }
+  50% { background-position: -200% center; }
 }
 
+// 시즌 부제
 .seasonInfo {
   display: block;
   font-size: 0.75rem;
@@ -209,108 +149,22 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   }
 }
 
-// D-day 뱃지 (프리미엄 스타일)
-.daysRemaining {
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
+// 우측 정보 그룹
+.rightInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 6px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  background: rgba($color-text, 0.06);
-  border: 1px solid rgba($color-text, 0.1);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: $color-text-dim;
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
-
-  // D-1 임박 상태
-  &.urgent {
-    background: linear-gradient(
-      135deg,
-      rgba($color-relegation, 0.2),
-      rgba($color-relegation, 0.1)
-    );
-    border-color: rgba($color-relegation, 0.4);
-    color: $color-relegation;
-    box-shadow:
-      0 0 16px rgba($color-relegation, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: urgentPulse 1s ease-in-out infinite;
-
-    span::before {
-      content: '🔥 ';
-    }
-  }
-
-  // 마지막 날 (시:분:초 카운트다운)
-  &.lastDay {
-    background: linear-gradient(
-      135deg,
-      rgba($color-relegation, 0.25),
-      rgba($color-relegation, 0.15)
-    );
-    border-color: rgba($color-relegation, 0.5);
-    color: $color-relegation;
-    box-shadow:
-      0 0 20px rgba($color-relegation, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    animation: finalCountdownPulse 0.5s ease-in-out infinite;
-    font-variant-numeric: tabular-nums;
-    font-family: $font-display;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-  }
+  flex-shrink: 0;
 
   @media (min-width: 768px) {
-    padding: 8px 18px;
-    font-size: 0.85rem;
-
-    &.lastDay {
-      font-size: 0.95rem;
-    }
-  }
-}
-
-// 시계 아이콘 (마지막 날)
-.clockIcon {
-  color: $color-relegation;
-  filter: drop-shadow(0 0 4px rgba($color-relegation, 0.6));
-}
-
-@keyframes urgentPulse {
-  0%,
-  100% {
-    box-shadow:
-      0 0 16px rgba($color-relegation, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow:
-      0 0 24px rgba($color-relegation, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transform: scale(1.02);
-  }
-}
-
-@keyframes finalCountdownPulse {
-  0%,
-  100% {
-    box-shadow:
-      0 0 20px rgba($color-relegation, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    box-shadow:
-      0 0 30px rgba($color-relegation, 0.6),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
   }
 }
 
 // ===== 실시간 업데이트 인디케이터 =====
-// Flexbox 레이아웃 내부로 이동 (absolute positioning 제거)
 .realtimeIndicator {
   display: flex;
   align-items: center;
@@ -344,13 +198,8 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 }
 
 @keyframes textPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .countdownState {
@@ -391,36 +240,96 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   }
 }
 
-// ===== 슬라이드 컨테이너 =====
-// 개선: Flexbox 레이아웃으로 화살표와 슬라이드 영역의 정렬 최적화
-.sliderContainer {
-  position: relative;
-  width: 100%;
-  min-height: 200px;
-  z-index: 2;
-  display: flex;
+// ===== D-day 배지 =====
+.daysRemaining {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 4px;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba($color-text, 0.06);
+  border: 1px solid rgba($color-text, 0.1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-text-dim;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+
+  // D-1 임박
+  &.urgent {
+    background: linear-gradient(135deg, rgba($color-relegation, 0.2), rgba($color-relegation, 0.1));
+    border-color: rgba($color-relegation, 0.4);
+    color: $color-relegation;
+    box-shadow: 0 0 16px rgba($color-relegation, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: urgentPulse 1s ease-in-out infinite;
+
+    span::before {
+      content: '\1F525 '; // 불 이모지
+    }
+  }
+
+  // 마지막 날 카운트다운
+  &.lastDay {
+    background: linear-gradient(135deg, rgba($color-relegation, 0.25), rgba($color-relegation, 0.15));
+    border-color: rgba($color-relegation, 0.5);
+    color: $color-relegation;
+    box-shadow: 0 0 20px rgba($color-relegation, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: finalCountdownPulse 0.5s ease-in-out infinite;
+    font-variant-numeric: tabular-nums;
+    font-family: $font-display;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
 
   @media (min-width: 768px) {
-    min-height: 220px;
-    gap: 12px;
-    padding: 0 8px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+
+    &.lastDay {
+      font-size: 0.95rem;
+    }
   }
 }
 
-.slideTrack {
+.clockIcon {
+  color: $color-relegation;
+  filter: drop-shadow(0 0 4px rgba($color-relegation, 0.6));
+}
+
+@keyframes urgentPulse {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba($color-relegation, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba($color-relegation, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes finalCountdownPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba($color-relegation, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba($color-relegation, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+// ============================================================
+// 시즌 배너 (슬라이드 영역)
+// ============================================================
+.seasonBanner {
   position: relative;
-  flex: 1;
-  height: 100%;
-  min-height: inherit;
-  overflow: hidden;
+  width: 100%;
+  height: $banner-height-mobile;
   border-radius: 16px;
-  user-select: none; // 드래그 시 텍스트 선택 방지
+  overflow: hidden;
+  user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-y; // 세로 스크롤 유지, 가로는 스와이프
+  touch-action: pan-y;
+
+  // 다크 모드 기본: 골드 그라디언트 배경
   background: linear-gradient(
     145deg,
     rgba(0, 0, 0, 0.3) 0%,
@@ -433,58 +342,156 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     0 4px 20px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 768px) {
+    height: $banner-height-tablet;
     border-radius: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    height: $banner-height-desktop;
   }
 }
 
+// 슬라이드 아이템 (풀블리드)
 .slideItem {
-  // 개선: padding 제거, 자식 요소가 전체 영역을 채우도록 설정
   position: absolute;
   inset: 0;
   display: block;
   padding: 0;
 }
 
-// 화살표 버튼 (프리미엄 스타일)
-// 개선: 절대 위치에서 Flexbox 내 상대 위치로 변경하여 정렬 개선
-.arrowBtn {
-  position: relative;
-  flex-shrink: 0;
+// ============================================================
+// 오버레이 컨트롤: 화살표 (좌/우)
+// ============================================================
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 10;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-  border: 1px solid rgba($color-gold, 0.2);
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
 
   &:hover {
-    background: linear-gradient(145deg, rgba($color-gold, 0.3), rgba($color-gold, 0.15));
-    border-color: rgba($color-gold, 0.5);
-    color: white;
-    transform: scale(1.08);
-    box-shadow: 0 4px 16px rgba($color-gold, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: translateY(-50%) scale(0.95);
   }
 
   @media (min-width: 768px) {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 }
 
-// ===== 1위 카드 디자인 (프리미엄) =====
-.leaderCard {
-  // 개선: 절대 위치로 slideItem 전체를 채우도록 설정
+.arrowLeft {
+  left: 12px;
+}
+
+.arrowRight {
+  right: 12px;
+}
+
+// ============================================================
+// 오버레이 컨트롤: 인디케이터 + 일시정지 (하단 중앙 필)
+// ============================================================
+.controls {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+// 인디케이터 닷
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.2);
+  }
+
+  &.active {
+    width: 24px;
+    border-radius: 6px;
+    background: white;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+// 일시정지/재생 버튼
+.pauseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+  }
+
+  // 일시정지 중 (재생 아이콘 표시)
+  &.paused {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: white;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// ============================================================
+// 슬라이드 1: 그랜드 챔피언
+// ============================================================
+.championSlide {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -494,57 +501,32 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-
-  &:hover {
-    transform: scale(1.02);
-
-    .leaderBg::after {
-      opacity: 0.6;
-    }
-
-    .crownBadge {
-      transform: scale(1.05);
-      box-shadow:
-        0 4px 16px rgba($color-gold, 0.4),
-        0 0 30px rgba($color-gold, 0.3);
-    }
-
-    .leaderLogo {
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba($color-gold, 0.3);
-    }
-  }
 }
 
-.leaderBg {
-  // 개선: inset: 0으로 부모 요소를 100% 채우도록 설정
+// 배경 글로우 (다크 모드 전용)
+.championBg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  border-radius: 12px;
   overflow: hidden;
 
-  // 골드 글로우 효과 - 전체 영역 커버
+  // 골드 라디얼 그라디언트
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
     background: radial-gradient(
-      ellipse at center top,
-      rgba($color-gold, 0.18) 0%,
-      rgba($color-gold, 0.08) 35%,
-      rgba($color-gold, 0.02) 60%,
-      transparent 100%
+      ellipse at center,
+      rgba($color-gold, 0.15) 0%,
+      rgba($color-gold, 0.06) 40%,
+      transparent 70%
     );
-    animation: leaderGlow 3s ease-in-out infinite;
+    animation: championGlow 3s ease-in-out infinite;
   }
 
-  // shimmer 효과 - 100% 높이로 전체 영역 커버
+  // shimmer 효과
   &::after {
     content: '';
     position: absolute;
@@ -555,105 +537,91 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     background: linear-gradient(
       90deg,
       transparent 0%,
-      rgba($color-gold, 0.08) 30%,
-      rgba($color-gold, 0.15) 45%,
-      rgba($color-gold, 0.25) 50%,
-      rgba($color-gold, 0.15) 55%,
-      rgba($color-gold, 0.08) 70%,
+      rgba($color-gold, 0.06) 30%,
+      rgba($color-gold, 0.12) 50%,
+      rgba($color-gold, 0.06) 70%,
       transparent 100%
     );
     animation: shimmer 4s ease-in-out infinite;
   }
 }
 
-@keyframes leaderGlow {
-  0%,
-  100% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
+@keyframes championGlow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
 }
 
 @keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 200%;
-  }
+  0% { left: -100%; }
+  100% { left: 200%; }
 }
 
-.leaderContent {
+// 중앙 정렬 콘텐츠 (세로 방향)
+.championContent {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 8px;
+
+  @media (min-width: 768px) {
+    gap: 10px;
+  }
 }
 
-.crownBadge {
+// 왕관 아이콘 (40-48px)
+.crownIcon {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, $color-gold 0%, $color-gold-light 50%, $color-gold 100%);
-  padding: 6px 16px;
-  border-radius: 24px;
-  border: 1px solid rgba($color-gold-champagne, 0.5);
-  box-shadow:
-    0 2px 12px rgba($color-gold, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-
-  span {
-    font-size: 0.7rem;
-    font-weight: 900;
-    color: #1a1a1a;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+  justify-content: center;
 
   svg {
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 2px 8px rgba($color-gold, 0.5));
   }
 
   @media (min-width: 768px) {
-    padding: 8px 20px;
-    span {
-      font-size: 0.75rem;
+    svg {
+      width: 48px;
+      height: 48px;
     }
   }
 }
 
-.leaderMain {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+// "CURRENT #1" 라벨
+.championLabel {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: $color-gold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 
   @media (min-width: 768px) {
-    gap: 24px;
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
   }
 }
 
-.leaderLogo {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+// 대형 소속사 로고 (80-100px, 라운드)
+.championLogo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 900;
   color: white;
   box-shadow:
     0 6px 24px rgba(0, 0, 0, 0.5),
     0 0 20px rgba($color-gold, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba($color-gold, 0.3);
+  border: 3px solid rgba($color-gold, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -669,69 +637,60 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     background: linear-gradient(
       45deg,
       transparent 40%,
-      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.12) 50%,
       transparent 60%
     );
     animation: logoShine 3s ease-in-out infinite;
   }
 
   @media (min-width: 768px) {
-    width: 80px;
-    height: 80px;
-    font-size: 2.2rem;
-    border-radius: 18px;
+    width: 100px;
+    height: 100px;
+    font-size: 2.6rem;
   }
 }
 
 @keyframes logoShine {
-  0%,
-  100% {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  50% {
-    transform: translateX(100%) rotate(45deg);
-  }
+  0%, 100% { transform: translateX(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) rotate(45deg); }
 }
 
-.leaderText {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.leaderName {
+// 소속사 이름 (대형 중앙)
+.championName {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: white;
   font-family: $font-display;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.5px;
+  text-align: center;
 
   @media (min-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
 
-.leaderScore {
+// 점수 + 불꽃
+.championScore {
   display: flex;
   align-items: center;
   gap: 8px;
   color: $color-gold-light;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 
-  .flameIcon {
-    color: #ff6b35;
-    fill: #ff6b35;
-    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
-    animation: flameFlicker 0.8s ease-in-out infinite alternate;
-  }
-
   @media (min-width: 768px) {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
+}
+
+.flameIcon {
+  color: #ff6b35;
+  fill: #ff6b35;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.6));
+  animation: flameFlicker 0.8s ease-in-out infinite alternate;
 }
 
 @keyframes flameFlicker {
@@ -745,9 +704,10 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   }
 }
 
-// ===== 승강전 카드 디자인 (드라마틱) =====
-.battleCard {
-  // 개선: 절대 위치로 slideItem 전체를 채우도록 설정
+// ============================================================
+// 슬라이드 2 & 3: 배틀 슬라이드 (대형 카드)
+// ============================================================
+.battleSlide {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -756,17 +716,16 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-}
+  gap: 12px;
+  padding: 16px 20px;
 
-// 직행 승강 카드 (VS 없음)
-.battleCard[data-type='direct'] {
-  .battleHeader {
-    background: linear-gradient(135deg, rgba($color-relegation, 0.15), rgba($color-promotion, 0.15));
-    border-color: rgba(255, 255, 255, 0.2);
+  @media (min-width: 768px) {
+    gap: 16px;
+    padding: 20px 32px;
   }
 }
 
+// 배틀 헤더 배지
 .battleHeader {
   display: flex;
   align-items: center;
@@ -776,182 +735,30 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   border-radius: 20px;
   border: 1px solid rgba($color-gold, 0.25);
   box-shadow: 0 2px 10px rgba($color-gold, 0.15);
-}
 
-// ===== 직행 승강 레이아웃 (VS 없음) =====
-.directContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  padding: 0 16px;
+  // 플레이오프 헤더
+  &[data-type='playoff'] {
+    background: linear-gradient(135deg, rgba($color-promotion-chance, 0.2), rgba($color-relegation-danger, 0.15));
+    border-color: rgba($color-promotion-chance, 0.3);
 
-  @media (min-width: 768px) {
-    gap: 20px;
-    padding: 0 24px;
-  }
-}
-
-.directCompany {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  flex: 1;
-  max-width: 180px;
-
-  // 강등 (10위 → 2부)
-  &[data-zone='relegation'] {
-    background: linear-gradient(135deg, rgba($color-relegation, 0.12), rgba($color-relegation, 0.04));
-    border: 1px solid rgba($color-relegation, 0.3);
-
-    .directRank {
-      color: $color-relegation;
+    .swordsIcon {
+      color: $color-promotion-chance;
     }
 
-    &:hover {
-      background: linear-gradient(135deg, rgba($color-relegation, 0.18), rgba($color-relegation, 0.08));
-      border-color: rgba($color-relegation, 0.5);
-      transform: translateY(-2px);
-    }
-  }
-
-  // 승격 (1위 → 1부)
-  &[data-zone='promotion'] {
-    background: linear-gradient(135deg, rgba($color-promotion, 0.12), rgba($color-promotion, 0.04));
-    border: 1px solid rgba($color-promotion, 0.3);
-
-    .directRank {
-      color: $color-promotion;
-    }
-
-    &:hover {
-      background: linear-gradient(135deg, rgba($color-promotion, 0.18), rgba($color-promotion, 0.08));
-      border-color: rgba($color-promotion, 0.5);
-      transform: translateY(-2px);
-    }
-  }
-
-  @media (min-width: 768px) {
-    padding: 12px 16px;
-    gap: 12px;
-  }
-}
-
-.directLogo {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  flex-shrink: 0;
-
-  @media (min-width: 768px) {
-    width: 48px;
-    height: 48px;
-  }
-}
-
-.directInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
-  min-width: 0;
-}
-
-.directRank {
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-
-  @media (min-width: 768px) {
-    font-size: 0.75rem;
-  }
-}
-
-.directName {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: $color-text;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @media (min-width: 768px) {
-    font-size: 0.9rem;
-  }
-}
-
-.directArrow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  flex-shrink: 0;
-
-  svg {
-    opacity: 0.9;
-  }
-
-  span {
-    font-size: 0.55rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-  }
-
-  // 강등 방향 (아래)
-  &[data-direction='down'] {
-    color: $color-relegation;
-  }
-
-  // 승격 방향 (위)
-  &[data-direction='up'] {
-    color: $color-promotion;
-  }
-
-  @media (min-width: 768px) {
-    span {
-      font-size: 0.6rem;
+    .battleTitle {
+      background: linear-gradient(90deg, $color-relegation-danger, $color-promotion-chance);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 }
 
-.directDivider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 8px;
-}
-
-.swapIcon {
-  font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.4);
-  animation: swapPulse 2s ease-in-out infinite;
-
-  @media (min-width: 768px) {
-    font-size: 1.6rem;
-  }
-}
-
-@keyframes swapPulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.1);
+// 직행 승강 헤더 (배틀 타입 direct)
+.battleSlide[data-type='direct'] {
+  .battleHeader {
+    background: linear-gradient(135deg, rgba($color-relegation, 0.15), rgba($color-promotion, 0.15));
+    border-color: rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -959,24 +766,6 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   color: $color-gold;
   width: 16px;
   height: 16px;
-  animation: swordCross 2s ease-in-out infinite;
-}
-
-@keyframes swordCross {
-  0%,
-  100% {
-    transform: rotate(0deg);
-    filter: drop-shadow(0 0 4px rgba($color-gold, 0.5));
-  }
-  25% {
-    transform: rotate(-5deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
-  50% {
-    filter: drop-shadow(0 0 10px rgba($color-gold, 0.9));
-  }
 }
 
 .battleTitle {
@@ -987,24 +776,8 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   letter-spacing: 2px;
 }
 
-// 플레이오프 헤더 스타일
-.battleHeader[data-type='playoff'] {
-  background: linear-gradient(135deg, rgba($color-promotion-chance, 0.2), rgba($color-relegation-danger, 0.15));
-  border-color: rgba($color-promotion-chance, 0.3);
-
-  .swordsIcon {
-    color: $color-promotion-chance;
-  }
-
-  .battleTitle {
-    background: linear-gradient(90deg, $color-relegation-danger, $color-promotion-chance);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
-
-.battleContent {
+// ===== 대형 카드 컨테이너 =====
+.battleCards {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -1012,16 +785,17 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   width: 100%;
 }
 
-// 승강전 회사 카드
-.battleCompany {
+// ===== 대형 카드 (세로 레이아웃) =====
+.bigCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 120px;
-  height: 110px;
-  padding: 14px;
+  gap: 6px;
+  flex: 1;
+  min-width: 100px;
+  max-width: 220px;
+  padding: 12px 10px;
   border-radius: 14px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1040,7 +814,7 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   }
 
-  // 강등 위험 존 (10위)
+  // 강등 직행 존 (10위)
   &[data-zone='relegation'] {
     border: 1px solid rgba($color-relegation, 0.35);
     background: linear-gradient(
@@ -1049,43 +823,19 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
       rgba($color-relegation, 0.04) 50%,
       transparent 100%
     );
-    box-shadow: inset 0 0 20px rgba($color-relegation, 0.1);
 
-    .battleRank {
+    .bigCardRank {
       color: $color-relegation;
-      text-shadow: 0 0 12px $color-relegation-glow;
-    }
-
-    .battleLogo {
-      border-color: rgba($color-relegation, 0.4);
-      box-shadow: 0 4px 16px rgba($color-relegation, 0.2);
     }
 
     &:hover {
       transform: translateY(-4px) scale(1.03);
       border-color: rgba($color-relegation, 0.6);
-      box-shadow:
-        0 8px 32px rgba($color-relegation, 0.3),
-        inset 0 0 30px rgba($color-relegation, 0.15);
-
-      .battleLogo {
-        box-shadow: 0 6px 24px rgba($color-relegation, 0.4);
-      }
-    }
-
-    // 위험 펄스 애니메이션
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      background: transparent;
-      animation: dangerPulse 2s ease-in-out infinite;
-      pointer-events: none;
+      box-shadow: 0 8px 32px rgba($color-relegation, 0.3);
     }
   }
 
-  // 승격 기회 존 (11위)
+  // 승격 직행 존 (1위)
   &[data-zone='promotion'] {
     border: 1px solid rgba($color-promotion, 0.35);
     background: linear-gradient(
@@ -1094,45 +844,19 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
       rgba($color-promotion, 0.04) 50%,
       transparent 100%
     );
-    box-shadow: inset 0 0 20px rgba($color-promotion, 0.1);
 
-    .battleRank {
+    .bigCardRank {
       color: $color-promotion;
-      text-shadow: 0 0 12px $color-promotion-glow;
-    }
-
-    .battleLogo {
-      border-color: rgba($color-promotion, 0.4);
-      box-shadow: 0 4px 16px rgba($color-promotion, 0.2);
     }
 
     &:hover {
       transform: translateY(-4px) scale(1.03);
       border-color: rgba($color-promotion, 0.6);
-      box-shadow:
-        0 8px 32px rgba($color-promotion, 0.3),
-        inset 0 0 30px rgba($color-promotion, 0.15);
-
-      .battleLogo {
-        box-shadow: 0 6px 24px rgba($color-promotion, 0.4);
-      }
-    }
-
-    // 희망 펄스 애니메이션
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      background: transparent;
-      animation: hopePulse 2.5s ease-in-out infinite;
-      pointer-events: none;
+      box-shadow: 0 8px 32px rgba($color-promotion, 0.3);
     }
   }
 
-  // ===== 2026년 개편: 4가지 승강 상태 스타일 =====
-
-  // 강등 위기 존 (9위) - 오렌지색
+  // 강등 위기 존 (9위)
   &[data-zone='relegation-danger'] {
     border: 1px solid rgba($color-relegation-danger, 0.35);
     background: linear-gradient(
@@ -1141,32 +865,19 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
       rgba($color-relegation-danger, 0.04) 50%,
       transparent 100%
     );
-    box-shadow: inset 0 0 20px rgba($color-relegation-danger, 0.1);
 
-    .battleRank {
+    .bigCardRank {
       color: $color-relegation-danger;
-      text-shadow: 0 0 12px rgba($color-relegation-danger, 0.4);
-    }
-
-    .battleLogo {
-      border-color: rgba($color-relegation-danger, 0.4);
-      box-shadow: 0 4px 16px rgba($color-relegation-danger, 0.2);
     }
 
     &:hover {
       transform: translateY(-4px) scale(1.03);
       border-color: rgba($color-relegation-danger, 0.6);
-      box-shadow:
-        0 8px 32px rgba($color-relegation-danger, 0.3),
-        inset 0 0 30px rgba($color-relegation-danger, 0.15);
-
-      .battleLogo {
-        box-shadow: 0 6px 24px rgba($color-relegation-danger, 0.4);
-      }
+      box-shadow: 0 8px 32px rgba($color-relegation-danger, 0.3);
     }
   }
 
-  // 승격 기회 존 (2위) - 골드색
+  // 승격 기회 존 (2위)
   &[data-zone='promotion-chance'] {
     border: 1px solid rgba($color-promotion-chance, 0.35);
     background: linear-gradient(
@@ -1175,83 +886,29 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
       rgba($color-promotion-chance, 0.04) 50%,
       transparent 100%
     );
-    box-shadow: inset 0 0 20px rgba($color-promotion-chance, 0.1);
 
-    .battleRank {
+    .bigCardRank {
       color: $color-promotion-chance;
-      text-shadow: 0 0 12px rgba($color-promotion-chance, 0.4);
-    }
-
-    .battleLogo {
-      border-color: rgba($color-promotion-chance, 0.4);
-      box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.2);
     }
 
     &:hover {
       transform: translateY(-4px) scale(1.03);
       border-color: rgba($color-promotion-chance, 0.6);
-      box-shadow:
-        0 8px 32px rgba($color-promotion-chance, 0.3),
-        inset 0 0 30px rgba($color-promotion-chance, 0.15);
-
-      .battleLogo {
-        box-shadow: 0 6px 24px rgba($color-promotion-chance, 0.4);
-      }
-    }
-
-    // 희망 글로우 애니메이션
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 14px;
-      background: transparent;
-      animation: chanceGlow 2s ease-in-out infinite;
-      pointer-events: none;
+      box-shadow: 0 8px 32px rgba($color-promotion-chance, 0.3);
     }
   }
 
   @media (min-width: 768px) {
-    width: 140px;
-    height: 120px;
-    padding: 16px;
+    min-width: 140px;
+    padding: 16px 14px;
+    gap: 8px;
   }
 }
 
-// 승격 기회 글로우 애니메이션
-@keyframes chanceGlow {
-  0%,
-  100% {
-    box-shadow: inset 0 0 0 0 transparent;
-  }
-  50% {
-    box-shadow: inset 0 0 20px rgba($color-promotion-chance, 0.1);
-  }
-}
-
-@keyframes dangerPulse {
-  0%,
-  100% {
-    box-shadow: inset 0 0 0 0 transparent;
-  }
-  50% {
-    box-shadow: inset 0 0 20px rgba($color-relegation, 0.1);
-  }
-}
-
-@keyframes hopePulse {
-  0%,
-  100% {
-    box-shadow: inset 0 0 0 0 transparent;
-  }
-  50% {
-    box-shadow: inset 0 0 20px rgba($color-promotion, 0.1);
-  }
-}
-
-.battleLogo {
-  width: 44px;
-  height: 44px;
+// 로고 (상단, 48-56px)
+.bigCardLogo {
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -1263,8 +920,8 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   transition: all 0.3s ease;
 
   @media (min-width: 768px) {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
   }
 }
 
@@ -1276,42 +933,94 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 
 .logoFallback {
   font-weight: 900;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: white;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 
   @media (min-width: 768px) {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
-.battleInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  width: 100%;
-}
-
-.battleRank {
+// 순위 라벨
+.bigCardRank {
   font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.battleName {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: $color-text;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  text-align: center;
 
   @media (min-width: 768px) {
     font-size: 0.85rem;
+  }
+}
+
+// 소속사 이름 (최대 2줄, 잘리지 않음)
+.bigCardName {
+  font-size: clamp(0.85rem, 3vw, 1.1rem);
+  font-weight: 700;
+  color: $color-text;
+  text-align: center;
+  max-width: 100%;
+  // 최대 2줄, 잘리지 않도록 처리
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  word-break: keep-all;
+  line-height: 1.3;
+}
+
+// 승강 방향 화살표
+.bigCardArrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+
+  svg {
+    opacity: 0.9;
+  }
+
+  span {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  // 강등 방향
+  &[data-direction='down'] {
+    color: $color-relegation;
+  }
+
+  // 승격 방향
+  &[data-direction='up'] {
+    color: $color-promotion;
+  }
+
+  @media (min-width: 768px) {
+    span {
+      font-size: 0.6rem;
+    }
+  }
+}
+
+// 교환 구분선
+.swapDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.swapIcon {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.4);
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
   }
 }
 
@@ -1324,25 +1033,21 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   text-transform: uppercase;
   letter-spacing: 0.5px;
 
-  // 강등 직행
   &[data-status='relegation-direct'] {
     background: rgba($color-relegation-direct, 0.15);
     color: $color-relegation-direct;
   }
 
-  // 강등 위기
   &[data-status='relegation-danger'] {
     background: rgba($color-relegation-danger, 0.15);
     color: $color-relegation-danger;
   }
 
-  // 승격 직행
   &[data-status='promotion-direct'] {
     background: rgba($color-promotion-direct, 0.15);
     color: $color-promotion-direct;
   }
 
-  // 승격 기회
   &[data-status='promotion-chance'] {
     background: rgba($color-promotion-chance, 0.15);
     color: $color-promotion-chance;
@@ -1353,18 +1058,18 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   }
 }
 
-// VS 섹션 (드라마틱)
+// ===== VS 섹션 =====
 .vsSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 0 14px;
-  min-width: 80px;
+  padding: 0 10px;
+  min-width: 70px;
   position: relative;
 
-  // 전투 라인 효과
+  // 세로 구분선
   &::before,
   &::after {
     content: '';
@@ -1374,16 +1079,12 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     top: 20%;
     background: linear-gradient(to bottom, transparent, rgba($color-gold, 0.3), transparent);
   }
-  &::before {
-    left: 0;
-  }
-  &::after {
-    right: 0;
-  }
+  &::before { left: 0; }
+  &::after { right: 0; }
 
   @media (min-width: 768px) {
-    padding: 0 20px;
-    min-width: 100px;
+    padding: 0 16px;
+    min-width: 90px;
     gap: 10px;
   }
 }
@@ -1397,28 +1098,10 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
     0 0 20px rgba($color-gold, 0.6),
     0 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 3px;
-  animation: vsGlow 1.5s ease-in-out infinite;
 
   @media (min-width: 768px) {
     font-size: 1.4rem;
     letter-spacing: 4px;
-  }
-}
-
-@keyframes vsGlow {
-  0%,
-  100% {
-    text-shadow:
-      0 0 20px rgba($color-gold, 0.6),
-      0 2px 4px rgba(0, 0, 0, 0.5);
-    transform: scale(1);
-  }
-  50% {
-    text-shadow:
-      0 0 30px rgba($color-gold, 0.9),
-      0 0 60px rgba($color-gold, 0.4),
-      0 2px 4px rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
   }
 }
 
@@ -1427,31 +1110,21 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   flex-direction: column;
   align-items: center;
   background: linear-gradient(145deg, rgba($color-gold, 0.18), rgba($color-gold, 0.06));
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 10px;
   border: 1px solid rgba($color-gold, 0.25);
   box-shadow: 0 2px 8px rgba($color-gold, 0.15);
   transition: all 0.3s ease;
 
-  // 2부 2위가 이기고 있을 때 강조
+  // 2부 2위 리드 시 강조
   &.chanceWinning {
     background: linear-gradient(145deg, rgba($color-promotion-chance, 0.25), rgba($color-promotion-chance, 0.1));
     border-color: rgba($color-promotion-chance, 0.4);
     box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.25);
-    animation: winningPulse 1.5s ease-in-out infinite;
 
     .gapValue {
       color: $color-promotion-chance;
     }
-  }
-}
-
-@keyframes winningPulse {
-  0%, 100% {
-    box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.25);
-  }
-  50% {
-    box-shadow: 0 6px 24px rgba($color-promotion-chance, 0.4);
   }
 }
 
@@ -1464,155 +1137,85 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 }
 
 .gapValue {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 900;
   color: $color-gold;
   font-variant-numeric: tabular-nums;
   text-shadow: 0 0 10px rgba($color-gold, 0.4);
 
   @media (min-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 }
 
-// ===== 인디케이터 (프리미엄) =====
-.indicators {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  z-index: 2;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    background: rgba($color-gold, 0.3);
-    border-color: rgba($color-gold, 0.4);
-    transform: scale(1.2);
-  }
-
-  &.active {
-    width: 28px;
-    border-radius: 6px;
-    background: linear-gradient(90deg, $color-gold, $color-gold-light);
-    border-color: rgba($color-gold-champagne, 0.5);
-    box-shadow: 0 2px 8px rgba($color-gold, 0.4);
-  }
-}
-
-// 멈춤/재생 버튼
-.pauseBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  margin-left: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  flex-shrink: 0;
-
-  svg {
-    width: 10px;
-    height: 10px;
-  }
-
-  &:hover {
-    background: rgba($color-gold, 0.2);
-    border-color: rgba($color-gold, 0.4);
-    color: $color-gold;
-  }
-
-  // 일시정지 상태일 때 (재생 아이콘 표시 중)
-  &.paused {
-    background: rgba($color-gold, 0.12);
-    border-color: rgba($color-gold, 0.25);
-    color: $color-gold;
-    animation: pausedPulse 2s ease-in-out infinite;
-
-    &:hover {
-      background: rgba($color-gold, 0.25);
-      border-color: rgba($color-gold, 0.4);
-    }
-  }
-
-  span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@keyframes pausedPulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba($color-gold, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 8px 2px rgba($color-gold, 0.2);
-  }
-}
-
-// ===== 라이트 모드 스타일 오버라이드 =====
-// 흰색 배경 + 로고 색상(보라색) 기반 디자인
-// 다크 모드가 기본이므로, 라이트 모드에서만 적용되는 스타일
-
-// 라이트 모드용 보라색 테마 변수
-$light-primary: #8B5CF6;            // 로고 메인 컬러
-$light-primary-light: #A78BFA;      // 밝은 보라
-$light-primary-dark: #7C3AED;       // 진한 보라
-$light-primary-glow: rgba(139, 92, 246, 0.3);
-
+// ============================================================
+// 라이트 모드 오버라이드 (T1.69 통합)
+//
+// 핵심 원칙:
+// - ::before/::after 그라디언트 오버레이 제거
+// - 모든 @keyframes 애니메이션 제거
+// - text-shadow, 다중 box-shadow 제거
+// - 깔끔한 흰색 배경 + 얇은 보더 + 미세 그림자
+// - 승강(빨/초) 색상 유지, hover 트랜지션 유지
+// ============================================================
 :global(:root:not([data-theme='dark'])) {
-  // 메인 컨테이너 - 깔끔한 흰색 배경 + 보라색 테두리
-  .seasonHeader {
-    background: linear-gradient(
-      145deg,
-      #FFFFFF 0%,
-      #FAFAFF 50%,
-      #F5F3FF 100%
-    ) !important;
-    border: 1px solid rgba($light-primary, 0.2) !important;
-    box-shadow:
-      0 4px 24px rgba($light-primary, 0.08),
-      0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  // ===== 배너 =====
+  .seasonBanner {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
 
-    // 그라디언트 오버레이 - 은은한 보라빛
-    &::before {
-      background: linear-gradient(
-        135deg,
-        rgba($light-primary, 0.03) 0%,
-        transparent 40%,
-        rgba($light-primary, 0.02) 100%
-      ) !important;
-    }
-
-    // 파티클 배경 - 보라색 계열
-    &::after {
-      background-image:
-        radial-gradient(circle at 15% 85%, rgba($light-primary, 0.08) 1px, transparent 1px),
-        radial-gradient(circle at 85% 15%, rgba($light-primary, 0.05) 1px, transparent 1px),
-        radial-gradient(circle at 45% 45%, rgba($light-primary, 0.04) 1px, transparent 1px),
-        radial-gradient(circle at 75% 65%, rgba($light-primary, 0.06) 1px, transparent 1px) !important;
-      opacity: 1 !important;
+    @media (min-width: 768px) {
+      border-radius: 20px !important;
     }
   }
 
-  // 브랜드 타이틀 - 보라색 그라디언트
+  // ===== 챔피언 슬라이드 =====
+  // ::before/::after 글로우/shimmer 제거
+  .championBg {
+    &::before,
+    &::after {
+      display: none !important;
+      animation: none !important;
+    }
+  }
+
+  // 챔피언 라벨
+  .championLabel {
+    color: $light-primary !important;
+    text-shadow: none !important;
+  }
+
+  // 챔피언 로고 - 그림자 최소화
+  .championLogo {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba($light-primary, 0.2) !important;
+
+    &::after {
+      display: none !important;
+      animation: none !important;
+    }
+  }
+
+  // 챔피언 이름 - 진한 텍스트
+  .championName {
+    color: #1F2937 !important;
+    text-shadow: none !important;
+  }
+
+  // 챔피언 점수
+  .championScore {
+    color: $light-primary !important;
+  }
+
+  // 불꽃 아이콘 - 애니메이션 제거
+  .flameIcon {
+    animation: none !important;
+    filter: none !important;
+  }
+
+  // ===== 브랜드 타이틀 =====
   .brand {
     background: linear-gradient(
       135deg,
@@ -1624,7 +1227,8 @@ $light-primary-glow: rgba(139, 92, 246, 0.3);
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
-    filter: drop-shadow(0 1px 2px rgba($light-primary, 0.3)) !important;
+    animation: none !important;
+    filter: none !important;
   }
 
   // 시즌 정보 텍스트
@@ -1632,128 +1236,38 @@ $light-primary-glow: rgba(139, 92, 246, 0.3);
     color: #4B5563 !important;
   }
 
-  // 슬라이드 트랙 - 흰색 배경 + 보라색 테두리
-  .slideTrack {
-    background: linear-gradient(
-      145deg,
-      #FFFFFF 0%,
-      #FAFAFF 100%
-    ) !important;
-    border: 1px solid rgba($light-primary, 0.15) !important;
-    box-shadow:
-      inset 0 2px 8px rgba($light-primary, 0.04),
-      0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  // 트로피 아이콘 - 애니메이션 제거
+  .trophyIcon {
+    animation: none !important;
+    filter: none !important;
+    color: $color-gold !important;
   }
 
-  // 화살표 버튼 - 보라색 강조
-  .arrowBtn {
-    background: #FFFFFF !important;
-    border: 1px solid rgba($light-primary, 0.2) !important;
-    color: $light-primary !important;
-    box-shadow: 0 2px 8px rgba($light-primary, 0.1) !important;
-
-    &:hover {
-      background: rgba($light-primary, 0.08) !important;
-      border-color: $light-primary !important;
-      color: $light-primary-dark !important;
-      box-shadow: 0 4px 16px rgba($light-primary, 0.2) !important;
-    }
-  }
-
-  // 슬라이드 헤더 뱃지
-  .slideHeader {
-    .badge {
-      background: rgba($light-primary, 0.1) !important;
-      border-color: rgba($light-primary, 0.2) !important;
-      color: $light-primary-dark !important;
-    }
-  }
-
-  // 1위 카드 - 텍스트 색상 조정
-  .leaderName {
-    color: #1F2937 !important;
-    text-shadow: none !important;
-  }
-
-  .leaderScore {
-    color: $light-primary !important;
-  }
-
-  // 회사 순위 태그
-  .companyRank {
-    color: $light-primary !important;
-  }
-
-  // 승강전/직행 회사 이름 - 진한 텍스트
-  .battleName,
-  .directName {
-    color: #1F2937 !important;
-  }
-
-  // 회사 카드 배경
-  .companyCard {
-    background: rgba($light-primary, 0.04) !important;
-    border: 1px solid rgba($light-primary, 0.1) !important;
-
-    &:hover {
-      background: rgba($light-primary, 0.08) !important;
-      border-color: rgba($light-primary, 0.2) !important;
-    }
-  }
-
-  // 로고 폴백 텍스트
-  .logoFallback {
+  // ===== 화살표 버튼 =====
+  .arrowLeft,
+  .arrowRight {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #374151 !important;
-    text-shadow: none !important;
-  }
+    backdrop-filter: blur(4px) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
 
-  // VS 텍스트 - 보라색
-  .vsText {
-    color: $light-primary !important;
-    text-shadow: 0 0 12px $light-primary-glow !important;
-  }
-
-  // 직행 승강 교환 아이콘
-  .swapIcon {
-    color: $light-primary !important;
-  }
-
-  // GAP 뱃지 - 보라색 스타일
-  .gapBadge {
-    background: rgba($light-primary, 0.08) !important;
-    border: 1px solid rgba($light-primary, 0.15) !important;
-  }
-
-  .gapLabel {
-    color: #6B7280 !important;
-  }
-
-  .gapValue {
-    color: $light-primary-dark !important;
-    text-shadow: none !important;
-  }
-
-  // 승강 상태 뱃지 - 색상 유지하되 배경 밝게
-  .statusBadge {
-    &[data-status='relegation'] {
-      background: rgba($color-relegation, 0.1) !important;
-      color: $color-relegation !important;
-    }
-    &[data-status='promotion'] {
-      background: rgba($color-promotion, 0.1) !important;
-      color: $color-promotion !important;
-    }
-    &[data-status='danger'] {
-      background: rgba($color-relegation-danger, 0.1) !important;
-      color: $color-relegation-danger !important;
-    }
-    &[data-status='chance'] {
-      background: rgba($color-promotion-chance, 0.1) !important;
-      color: darken($color-promotion-chance, 10%) !important;
+    &:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba($light-primary, 0.3) !important;
+      color: $light-primary !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
     }
   }
 
-  // 인디케이터 닷 - 보라색 스타일
+  // ===== 오버레이 컨트롤 =====
+  .controls {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+  }
+
   .dot {
     background: rgba($light-primary, 0.15) !important;
     border: 1px solid rgba($light-primary, 0.1) !important;
@@ -1769,7 +1283,6 @@ $light-primary-glow: rgba(139, 92, 246, 0.3);
     }
   }
 
-  // 멈춤 버튼 - 보라색 스타일
   .pauseBtn {
     background: rgba($light-primary, 0.08) !important;
     border: 1px solid rgba($light-primary, 0.15) !important;
@@ -1786,21 +1299,149 @@ $light-primary-glow: rgba(139, 92, 246, 0.3);
     }
   }
 
-  // D-day 뱃지 - 보라색 강조
+  // ===== 대형 카드 =====
+  .bigCard {
+    // 상단 광택 라인 제거
+    &::before {
+      display: none !important;
+    }
+
+    // 강등 존 (라이트 모드)
+    &[data-zone='relegation'] {
+      background: rgba($color-relegation, 0.04) !important;
+      border-color: rgba($color-relegation, 0.2) !important;
+      box-shadow: none !important;
+
+      &:hover {
+        background: rgba($color-relegation, 0.08) !important;
+        border-color: rgba($color-relegation, 0.4) !important;
+        box-shadow: 0 4px 16px rgba($color-relegation, 0.1) !important;
+      }
+    }
+
+    // 승격 존 (라이트 모드)
+    &[data-zone='promotion'] {
+      background: rgba($color-promotion, 0.04) !important;
+      border-color: rgba($color-promotion, 0.2) !important;
+      box-shadow: none !important;
+
+      &:hover {
+        background: rgba($color-promotion, 0.08) !important;
+        border-color: rgba($color-promotion, 0.4) !important;
+        box-shadow: 0 4px 16px rgba($color-promotion, 0.1) !important;
+      }
+    }
+
+    // 강등 위기 존 (라이트 모드)
+    &[data-zone='relegation-danger'] {
+      background: rgba($color-relegation-danger, 0.04) !important;
+      border-color: rgba($color-relegation-danger, 0.2) !important;
+      box-shadow: none !important;
+
+      &:hover {
+        background: rgba($color-relegation-danger, 0.08) !important;
+        border-color: rgba($color-relegation-danger, 0.4) !important;
+        box-shadow: 0 4px 16px rgba($color-relegation-danger, 0.1) !important;
+      }
+    }
+
+    // 승격 기회 존 (라이트 모드)
+    &[data-zone='promotion-chance'] {
+      background: rgba($color-promotion-chance, 0.04) !important;
+      border-color: rgba($color-promotion-chance, 0.2) !important;
+      box-shadow: none !important;
+
+      &:hover {
+        background: rgba($color-promotion-chance, 0.08) !important;
+        border-color: rgba($color-promotion-chance, 0.4) !important;
+        box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.1) !important;
+      }
+    }
+  }
+
+  // 카드 이름 - 진한 텍스트
+  .bigCardName {
+    color: #1F2937 !important;
+  }
+
+  // 로고 폴백 텍스트
+  .logoFallback {
+    color: #374151 !important;
+    text-shadow: none !important;
+  }
+
+  // ===== VS 텍스트 =====
+  .vsText {
+    color: $light-primary !important;
+    text-shadow: none !important;
+  }
+
+  // 교환 아이콘
+  .swapIcon {
+    color: $light-primary !important;
+  }
+
+  // GAP 배지
+  .gapBadge {
+    background: rgba($light-primary, 0.08) !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+    box-shadow: none !important;
+  }
+
+  .gapLabel {
+    color: #6B7280 !important;
+  }
+
+  .gapValue {
+    color: $light-primary-dark !important;
+    text-shadow: none !important;
+  }
+
+  // 배틀 헤더 배지
+  .battleHeader {
+    background: rgba($light-primary, 0.08) !important;
+    border-color: rgba($light-primary, 0.15) !important;
+    box-shadow: none !important;
+
+    &[data-type='playoff'] {
+      background: linear-gradient(
+        135deg,
+        rgba($color-promotion-chance, 0.08),
+        rgba($color-relegation-danger, 0.06)
+      ) !important;
+      border-color: rgba($color-promotion-chance, 0.15) !important;
+    }
+  }
+
+  .battleTitle {
+    color: $light-primary !important;
+  }
+
+  // 칼 아이콘
+  .swordsIcon {
+    color: $light-primary !important;
+  }
+
+  // ===== D-day 배지 =====
   .daysRemaining {
     background: rgba($light-primary, 0.1) !important;
     border: 1px solid rgba($light-primary, 0.15) !important;
     color: $light-primary-dark !important;
+
+    // urgent / lastDay 상태에서는 빨간 색상 유지 (승강 정보이므로)
+    &.urgent {
+      animation: none !important;
+    }
+
+    &.lastDay {
+      animation: none !important;
+    }
   }
 
-  // 실시간 업데이트 인디케이터 - 초록색 유지
+  // 실시간 업데이트 - 초록색 유지
   .countdownState {
     background: rgba($color-promotion, 0.08) !important;
     border: 1px solid rgba($color-promotion, 0.15) !important;
-  }
-
-  .countdownLabel {
-    color: #4B5563 !important;
   }
 
   .countdownBadge {
@@ -1808,9 +1449,40 @@ $light-primary-glow: rgba(139, 92, 246, 0.3);
     color: darken($color-promotion, 10%) !important;
   }
 
-  // 프리미엄 왕관/트로피는 골드 유지
-  .trophy,
-  .crown {
+  // 새로 고침 상태
+  .refreshingState {
+    background: rgba($light-primary, 0.08) !important;
+    border-color: rgba($light-primary, 0.15) !important;
+
+    svg {
+      color: $light-primary !important;
+    }
+  }
+
+  .refreshingText {
+    color: $light-primary !important;
+    animation: none !important;
+  }
+
+  // 시계 아이콘 - 빨간 색상 유지 (경고 정보이므로)
+  .clockIcon {
+    filter: none !important;
+  }
+
+  // 승강 상태 라벨 - 색상 유지, 배경만 밝게
+  .statusLabel {
+    &[data-status='relegation-danger'] {
+      background: rgba($color-relegation-danger, 0.1) !important;
+    }
+    &[data-status='promotion-chance'] {
+      background: rgba($color-promotion-chance, 0.1) !important;
+      color: darken($color-promotion-chance, 10%) !important;
+    }
+  }
+
+  // 왕관/트로피 골드 유지
+  .crownIcon svg {
     color: $color-gold !important;
+    filter: none !important;
   }
 }

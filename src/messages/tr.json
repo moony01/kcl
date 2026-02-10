@@ -5,7 +5,11 @@
     "support": "Destek",
     "search_placeholder": "Sanatçı veya şirket ara...",
     "vote_button": "Şimdi Oy Ver",
-    "firepower": "Güç"
+    "firepower": "Güç",
+    "search_popular": "Popüler",
+    "search_no_results": "Sonuç bulunamadı",
+    "search_companies": "Şirketler",
+    "search_artists": "Sanatçılar"
   },
   "HallOfFame": {
     "title": "Şöhret Salonu",

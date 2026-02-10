@@ -5,7 +5,11 @@
     "support": "Apoiar",
     "search_placeholder": "Pesquisar artista ou empresa...",
     "vote_button": "Votar Agora",
-    "firepower": "Potência"
+    "firepower": "Potência",
+    "search_popular": "Popular",
+    "search_no_results": "Nenhum resultado encontrado",
+    "search_companies": "Empresas",
+    "search_artists": "Artistas"
   },
   "HallOfFame": {
     "title": "Hall da Fama",

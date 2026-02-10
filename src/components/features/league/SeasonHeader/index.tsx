@@ -1,18 +1,20 @@
 /**
  * SeasonHeader
  *
- * ✨ 프리미엄 시즌 대시보드 컴포넌트 (Luna 디자인 업그레이드)
- * - 현재 시즌 정보 + D-day 카운트다운
- * - 현재 1위 소속사 (골드 프리미엄 효과)
- * - 승강전 정보 (드라마틱 VS 대결 구도)
- * - 실시간 업데이트 인디케이터 + 20초 카운트다운
+ * 시즌 대시보드 컴포넌트 (v3 대규모 리뉴얼)
  *
- * @updated T1.16 - 승강전 정보를 SeasonHeader에 통합
- * @updated T1.31 - 실시간 업데이트 카운트다운 UI 추가
- * @updated T1.34 - Header 드롭다운 겹침 해결
- * @updated T1.35 - 1위/승강전 세로 중앙 정렬 + 사이즈 확대
- * @updated T1.49 - 승강전 로고 추가 + 반응형 레이아웃 개선
- * @updated Luna - 프리미엄 UI/UX 디자인 업그레이드 (글로우, shimmer, 드라마틱 애니메이션)
+ * 구조 변경:
+ * - seasonHeaderWrapper > seasonInfoBar + seasonBanner
+ * - seasonInfoBar: 브랜드 타이틀, 시즌 정보, 실시간 인디케이터, D-day 배지 (배너 외부)
+ * - seasonBanner: 풀블리드 슬라이드 영역, 오버레이 화살표, 오버레이 컨트롤(인디케이터+일시정지)
+ *
+ * 슬라이드 1: 그랜드 챔피언 (왕관 + 대형 로고 + 중앙 정렬)
+ * 슬라이드 2: 직행 승강 (대형 카드, 세로 레이아웃)
+ * 슬라이드 3: 플레이오프 (대형 카드, 세로 레이아웃)
+ *
+ * 라이트 모드: ::before/::after 제거, 애니메이션 제거, 깔끔한 솔리드
+ *
+ * @updated v3 - 구조 대규모 리뉴얼 (기획서 v3)
  */
 
 'use client';
@@ -71,8 +73,8 @@ function getTimeUntilSeasonEnd(): number {
     9, 0, 0, 0
   );
 
-  // KST 기준 현재 시간이 이번 달 결산 시간 이전이면 → 이번 달 결산까지
-  // 이미 지났으면 → 다음 달 결산까지
+  // KST 기준 현재 시간이 이번 달 결산 시간 이전이면 이번 달 결산까지
+  // 이미 지났으면 다음 달 결산까지
   const targetSettlement = kstNow < thisMonthSettlement ? thisMonthSettlement : nextMonthSettlement;
 
   // KST 목표 시간을 로컬 시간으로 변환하여 차이 계산
@@ -146,7 +148,7 @@ export default function SeasonHeader({
     [locale]
   );
 
-  // 슬라이드 상태 (0: 1위, 1: 승강전)
+  // 슬라이드 상태 (0: 1위, 1: 직행 승강, 2: 플레이오프)
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   // 자동 슬라이드 일시정지 상태
@@ -249,7 +251,7 @@ export default function SeasonHeader({
     setIsPaused((prev) => !prev);
   }, []);
 
-  // 슬라이드 애니메이션 설정 (더 부드럽게)
+  // 슬라이드 애니메이션 설정 (부드러운 전환)
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 350 : -350,
@@ -288,14 +290,15 @@ export default function SeasonHeader({
   };
 
   return (
-    <motion.header
-      className={styles.seasonHeader}
+    <motion.div
+      className={styles.seasonHeaderWrapper}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      {/* 상단 행: 시즌 정보 + 우측 정보 (실시간 업데이트 + D-day) */}
-      <div className={styles.topRow}>
+      {/* ===== 시즌 정보 바 (배너 외부) ===== */}
+      <div className={styles.seasonInfoBar}>
+        {/* 좌측: 브랜드 타이틀 + 시즌 정보 */}
         <motion.div
           className={styles.seasonTitle}
           initial={{ opacity: 0, x: -20 }}
@@ -323,7 +326,7 @@ export default function SeasonHeader({
           </h1>
         </motion.div>
 
-        {/* 우측 정보 그룹: 실시간 업데이트 + D-day */}
+        {/* 우측: 실시간 업데이트 + D-day */}
         <motion.div
           className={styles.rightInfo}
           initial={{ opacity: 0, x: 20 }}
@@ -402,475 +405,481 @@ export default function SeasonHeader({
         </motion.div>
       </div>
 
-      {/* 메인 슬라이드 영역 (스와이프 지원) */}
+      {/* ===== 시즌 배너 (슬라이드 영역) ===== */}
       <motion.div
-        className={styles.sliderContainer}
+        className={styles.seasonBanner}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.4 }}
+        drag={hasMultipleSlides ? 'x' : false}
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.15}
+        onDragEnd={(_, info) => {
+          if (!hasMultipleSlides) return;
+          // 스와이프 임계값: 40px 이상 또는 빠른 스와이프
+          const swipeThreshold = 40;
+          const velocityThreshold = 400;
+
+          if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
+            paginate(1);
+          } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
+            paginate(-1);
+          }
+        }}
+        style={{ cursor: hasMultipleSlides ? 'grab' : 'default', touchAction: 'pan-y' }}
+        whileDrag={{ cursor: 'grabbing' }}
       >
-        {/* 왼쪽 화살표 */}
+        {/* 슬라이드 콘텐츠 (풀블리드) */}
+        <AnimatePresence initial={false} custom={direction} mode="wait">
+          {/* ===== 슬라이드 1: 그랜드 챔피언 ===== */}
+          {currentIndex === 0 && leader && (
+            <motion.div
+              key="leader"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 250, damping: 28 },
+                opacity: { duration: 0.25 },
+                scale: { duration: 0.3 },
+                rotateY: { duration: 0.4 },
+              }}
+              className={styles.slideItem}
+            >
+              <motion.div
+                className={styles.championSlide}
+                onClick={handleLeaderClick}
+                role="button"
+                tabIndex={0}
+                variants={cardHoverVariants}
+                initial="rest"
+                whileHover="hover"
+                whileTap="tap"
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              >
+                {/* 배경 글로우 (다크 모드 전용, 라이트 모드에서는 SCSS로 제거) */}
+                <div className={styles.championBg} />
+
+                {/* 중앙 정렬 콘텐츠 */}
+                <div className={styles.championContent}>
+                  {/* 왕관 아이콘 (상단 중앙) */}
+                  <motion.div
+                    className={styles.crownIcon}
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, type: 'spring' }}
+                  >
+                    <Crown size={44} fill="#FFD700" color="#B8860B" />
+                  </motion.div>
+
+                  {/* "CURRENT #1" 텍스트 */}
+                  <span className={styles.championLabel}>CURRENT #1</span>
+
+                  {/* 대형 소속사 로고 (중앙) */}
+                  <motion.div
+                    className={styles.championLogo}
+                    style={{ background: leader.gradientColor }}
+                    whileHover={{ scale: 1.08, rotate: 3 }}
+                    transition={{ type: 'spring', stiffness: 400 }}
+                  >
+                    {leader.nameEn.charAt(0)}
+                  </motion.div>
+
+                  {/* 소속사 이름 (대형 중앙) */}
+                  <h2 className={styles.championName}>{leader.nameEn}</h2>
+
+                  {/* 점수 + 불꽃 아이콘 */}
+                  <motion.div
+                    className={styles.championScore}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <motion.span
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}
+                    >
+                      <Flame size={20} className={styles.flameIcon} />
+                    </motion.span>
+                    <span>{leader.voteCount.toLocaleString()}</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+
+          {/* ===== 슬라이드 2: 직행 승강 (대형 카드) ===== */}
+          {currentIndex === 1 && promotionBattle && (
+            <motion.div
+              key="direct-battle"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 250, damping: 28 },
+                opacity: { duration: 0.25 },
+                scale: { duration: 0.3 },
+                rotateY: { duration: 0.4 },
+              }}
+              className={styles.slideItem}
+            >
+              <div className={styles.battleSlide} data-type="direct">
+                {/* 직행 승강 헤더 */}
+                <motion.div
+                  className={styles.battleHeader}
+                  initial={{ y: -10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <motion.span
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+                  >
+                    <Swords size={16} className={styles.swordsIcon} />
+                  </motion.span>
+                  <span className={styles.battleTitle}>{tBattle('direct_title')}</span>
+                </motion.div>
+
+                {/* 대형 카드 레이아웃 */}
+                <div className={styles.battleCards}>
+                  {/* 1부 10위 강등 카드 */}
+                  <motion.div
+                    className={styles.bigCard}
+                    data-zone="relegation"
+                    onClick={() => handleBattleClick(promotionBattle.relegationCompany.companyId)}
+                    variants={battleCompanyVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  >
+                    {/* 로고 (상단, 대형) */}
+                    <div className={styles.bigCardLogo}>
+                      {promotionBattle.relegationCompany.logoUrl ? (
+                        <Image
+                          src={promotionBattle.relegationCompany.logoUrl}
+                          alt={promotionBattle.relegationCompany.nameEn}
+                          width={52}
+                          height={52}
+                          className={styles.logoImage}
+                        />
+                      ) : (
+                        <span className={styles.logoFallback}>
+                          {promotionBattle.relegationCompany.nameEn.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+                    {/* 순위 라벨 */}
+                    <span className={styles.bigCardRank}>#10</span>
+                    {/* 소속사 이름 (최대 2줄) */}
+                    <span className={styles.bigCardName}>
+                      {promotionBattle.relegationCompany.nameEn}
+                    </span>
+                    {/* 강등 화살표 */}
+                    <motion.div
+                      className={styles.bigCardArrow}
+                      data-direction="down"
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    >
+                      <ChevronRight size={18} style={{ transform: 'rotate(90deg)' }} />
+                      <span>{tBattle('relegation_direct')}</span>
+                    </motion.div>
+                  </motion.div>
+
+                  {/* 교환 아이콘 구분선 */}
+                  <div className={styles.swapDivider}>
+                    <span className={styles.swapIcon}>&#8693;</span>
+                  </div>
+
+                  {/* 2부 1위 승격 카드 */}
+                  <motion.div
+                    className={styles.bigCard}
+                    data-zone="promotion"
+                    onClick={() => handleBattleClick(promotionBattle.promotionCompany.companyId)}
+                    variants={battleCompanyVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  >
+                    {/* 로고 (상단, 대형) */}
+                    <div className={styles.bigCardLogo}>
+                      {promotionBattle.promotionCompany.logoUrl ? (
+                        <Image
+                          src={promotionBattle.promotionCompany.logoUrl}
+                          alt={promotionBattle.promotionCompany.nameEn}
+                          width={52}
+                          height={52}
+                          className={styles.logoImage}
+                        />
+                      ) : (
+                        <span className={styles.logoFallback}>
+                          {promotionBattle.promotionCompany.nameEn.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+                    {/* 순위 라벨 */}
+                    <span className={styles.bigCardRank}>#1</span>
+                    {/* 소속사 이름 (최대 2줄) */}
+                    <span className={styles.bigCardName}>
+                      {promotionBattle.promotionCompany.nameEn}
+                    </span>
+                    {/* 승격 화살표 */}
+                    <motion.div
+                      className={styles.bigCardArrow}
+                      data-direction="up"
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    >
+                      <ChevronRight size={18} style={{ transform: 'rotate(-90deg)' }} />
+                      <span>{tBattle('promotion_direct')}</span>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* ===== 슬라이드 3: 플레이오프 (대형 카드) ===== */}
+          {currentIndex === 2 && promotionBattles?.playoff && (
+            <motion.div
+              key="playoff-battle"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 250, damping: 28 },
+                opacity: { duration: 0.25 },
+                scale: { duration: 0.3 },
+                rotateY: { duration: 0.4 },
+              }}
+              className={styles.slideItem}
+            >
+              <div className={styles.battleSlide} data-type="playoff">
+                {/* 플레이오프 헤더 */}
+                <motion.div
+                  className={styles.battleHeader}
+                  data-type="playoff"
+                  initial={{ y: -10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <motion.span
+                    animate={{ rotate: [0, -15, 15, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+                  >
+                    <Swords size={16} className={styles.swordsIcon} />
+                  </motion.span>
+                  <span className={styles.battleTitle}>{tBattle('playoff_title')}</span>
+                </motion.div>
+
+                {/* 대형 카드 레이아웃 */}
+                <div className={styles.battleCards}>
+                  {/* 1부 9위 (강등 위기) */}
+                  <motion.div
+                    className={styles.bigCard}
+                    data-zone="relegation-danger"
+                    onClick={() => handleBattleClick(promotionBattles.playoff.dangerCompany.companyId)}
+                    variants={battleCompanyVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  >
+                    <div className={styles.bigCardLogo}>
+                      {promotionBattles.playoff.dangerCompany.logoUrl ? (
+                        <Image
+                          src={promotionBattles.playoff.dangerCompany.logoUrl}
+                          alt={promotionBattles.playoff.dangerCompany.nameEn}
+                          width={52}
+                          height={52}
+                          className={styles.logoImage}
+                        />
+                      ) : (
+                        <span className={styles.logoFallback}>
+                          {promotionBattles.playoff.dangerCompany.nameEn.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+                    <span className={styles.bigCardRank}>#9</span>
+                    <span className={styles.bigCardName}>
+                      {promotionBattles.playoff.dangerCompany.nameEn}
+                    </span>
+                    <span className={styles.statusLabel} data-status="relegation-danger">
+                      {tBattle('relegation_danger')}
+                    </span>
+                  </motion.div>
+
+                  {/* VS + GAP 섹션 */}
+                  <motion.div
+                    className={styles.vsSection}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.2, type: 'spring' }}
+                  >
+                    <motion.span
+                      className={styles.vsText}
+                      animate={{
+                        textShadow: [
+                          '0 0 20px rgba(212, 175, 55, 0.6)',
+                          '0 0 40px rgba(212, 175, 55, 0.9)',
+                          '0 0 20px rgba(212, 175, 55, 0.6)',
+                        ],
+                      }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      VS
+                    </motion.span>
+                    <motion.div
+                      className={classNames(styles.gapBadge, {
+                        [styles.chanceWinning]: promotionBattles.playoff.isChanceWinning,
+                      })}
+                      whileHover={{ scale: 1.08 }}
+                    >
+                      <span className={styles.gapLabel}>GAP</span>
+                      <motion.span
+                        className={styles.gapValue}
+                        key={promotionBattles.playoff.gap}
+                        initial={{ scale: 1.3, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: 'spring' }}
+                      >
+                        {Math.abs(promotionBattles.playoff.gap).toLocaleString()}
+                      </motion.span>
+                    </motion.div>
+                  </motion.div>
+
+                  {/* 2부 2위 (승격 기회) */}
+                  <motion.div
+                    className={styles.bigCard}
+                    data-zone="promotion-chance"
+                    onClick={() => handleBattleClick(promotionBattles.playoff.chanceCompany.companyId)}
+                    variants={battleCompanyVariants}
+                    initial="rest"
+                    whileHover="hover"
+                    whileTap="tap"
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                  >
+                    <div className={styles.bigCardLogo}>
+                      {promotionBattles.playoff.chanceCompany.logoUrl ? (
+                        <Image
+                          src={promotionBattles.playoff.chanceCompany.logoUrl}
+                          alt={promotionBattles.playoff.chanceCompany.nameEn}
+                          width={52}
+                          height={52}
+                          className={styles.logoImage}
+                        />
+                      ) : (
+                        <span className={styles.logoFallback}>
+                          {promotionBattles.playoff.chanceCompany.nameEn.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+                    <span className={styles.bigCardRank}>#2</span>
+                    <span className={styles.bigCardName}>
+                      {promotionBattles.playoff.chanceCompany.nameEn}
+                    </span>
+                    <span className={styles.statusLabel} data-status="promotion-chance">
+                      {tBattle('promotion_chance')}
+                    </span>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* ===== 오버레이: 왼쪽 화살표 ===== */}
         {hasMultipleSlides && (
           <motion.button
-            className={classNames(styles.arrowBtn, styles.prev)}
+            className={styles.arrowLeft}
             onClick={() => paginate(-1)}
             aria-label="Previous slide"
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </motion.button>
         )}
 
-        <motion.div
-          className={styles.slideTrack}
-          drag={hasMultipleSlides ? 'x' : false}
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.15}
-          onDragEnd={(_, info) => {
-            if (!hasMultipleSlides) return;
-            // 스와이프 임계값: 40px 이상 또는 빠른 스와이프
-            const swipeThreshold = 40;
-            const velocityThreshold = 400;
-
-            if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-              paginate(1); // 다음 슬라이드
-            } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-              paginate(-1); // 이전 슬라이드
-            }
-          }}
-          style={{ cursor: hasMultipleSlides ? 'grab' : 'default', touchAction: 'pan-y' }}
-          whileDrag={{ cursor: 'grabbing' }}
-        >
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            {currentIndex === 0 && leader && (
-              <motion.div
-                key="leader"
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: 'spring', stiffness: 250, damping: 28 },
-                  opacity: { duration: 0.25 },
-                  scale: { duration: 0.3 },
-                  rotateY: { duration: 0.4 },
-                }}
-                className={styles.slideItem}
-              >
-                {/* 1위 카드 디자인 (프리미엄) */}
-                <motion.div
-                  className={styles.leaderCard}
-                  onClick={handleLeaderClick}
-                  role="button"
-                  tabIndex={0}
-                  variants={cardHoverVariants}
-                  initial="rest"
-                  whileHover="hover"
-                  whileTap="tap"
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                >
-                  <div className={styles.leaderBg} />
-                  <div className={styles.leaderContent}>
-                    <motion.div
-                      className={styles.crownBadge}
-                      initial={{ y: -10, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.2, type: 'spring' }}
-                    >
-                      <Crown size={14} fill="#FFD700" color="#B8860B" />
-                      <span>CURRENT #1</span>
-                    </motion.div>
-
-                    <div className={styles.leaderMain}>
-                      <motion.div
-                        className={styles.leaderLogo}
-                        style={{ background: leader.gradientColor }}
-                        whileHover={{ scale: 1.08, rotate: 3 }}
-                        transition={{ type: 'spring', stiffness: 400 }}
-                      >
-                        {leader.nameEn.charAt(0)}
-                      </motion.div>
-                      <div className={styles.leaderText}>
-                        <h2 className={styles.leaderName}>{leader.nameEn}</h2>
-                        <motion.div
-                          className={styles.leaderScore}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          <motion.span
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 2 }}
-                          >
-                            <Flame size={18} className={styles.flameIcon} />
-                          </motion.span>
-                          <span>{leader.voteCount.toLocaleString()}</span>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            )}
-
-            {/* 슬라이드 2: 직행 승강 (10위 강등, 1위 승격 - 점수 비교 없음) */}
-            {currentIndex === 1 && promotionBattle && (
-              <motion.div
-                key="direct-battle"
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: 'spring', stiffness: 250, damping: 28 },
-                  opacity: { duration: 0.25 },
-                  scale: { duration: 0.3 },
-                  rotateY: { duration: 0.4 },
-                }}
-                className={styles.slideItem}
-              >
-                {/* 직행 승강 카드 (VS 없음 - 무조건 교체) */}
-                <div className={styles.battleCard} data-type="direct">
-                  <motion.div
-                    className={styles.battleHeader}
-                    initial={{ y: -10, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <motion.span
-                      animate={{ y: [0, -3, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                    >
-                      <Swords size={16} className={styles.swordsIcon} />
-                    </motion.span>
-                    <span className={styles.battleTitle}>{tBattle('direct_title')}</span>
-                  </motion.div>
-
-                  <div className={styles.directContent}>
-                    {/* 1부 10위 → 2부 강등 */}
-                    <motion.div
-                      className={styles.directCompany}
-                      data-zone="relegation"
-                      onClick={() => handleBattleClick(promotionBattle.relegationCompany.companyId)}
-                      variants={battleCompanyVariants}
-                      initial="rest"
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    >
-                      <div className={styles.directLogo}>
-                        {promotionBattle.relegationCompany.logoUrl ? (
-                          <Image
-                            src={promotionBattle.relegationCompany.logoUrl}
-                            alt={promotionBattle.relegationCompany.nameEn}
-                            width={40}
-                            height={40}
-                            className={styles.logoImage}
-                          />
-                        ) : (
-                          <span className={styles.logoFallback}>
-                            {promotionBattle.relegationCompany.nameEn.charAt(0)}
-                          </span>
-                        )}
-                      </div>
-                      <div className={styles.directInfo}>
-                        <span className={styles.directRank}>#10</span>
-                        <span className={styles.directName}>
-                          {promotionBattle.relegationCompany.nameEn}
-                        </span>
-                      </div>
-                      <motion.div
-                        className={styles.directArrow}
-                        data-direction="down"
-                        animate={{ y: [0, 4, 0] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                      >
-                        <ChevronRight size={20} style={{ transform: 'rotate(90deg)' }} />
-                        <span>{tBattle('relegation_direct')}</span>
-                      </motion.div>
-                    </motion.div>
-
-                    {/* 구분선 */}
-                    <div className={styles.directDivider}>
-                      <span className={styles.swapIcon}>⇅</span>
-                    </div>
-
-                    {/* 2부 1위 → 1부 승격 */}
-                    <motion.div
-                      className={styles.directCompany}
-                      data-zone="promotion"
-                      onClick={() => handleBattleClick(promotionBattle.promotionCompany.companyId)}
-                      variants={battleCompanyVariants}
-                      initial="rest"
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    >
-                      <div className={styles.directLogo}>
-                        {promotionBattle.promotionCompany.logoUrl ? (
-                          <Image
-                            src={promotionBattle.promotionCompany.logoUrl}
-                            alt={promotionBattle.promotionCompany.nameEn}
-                            width={40}
-                            height={40}
-                            className={styles.logoImage}
-                          />
-                        ) : (
-                          <span className={styles.logoFallback}>
-                            {promotionBattle.promotionCompany.nameEn.charAt(0)}
-                          </span>
-                        )}
-                      </div>
-                      <div className={styles.directInfo}>
-                        <span className={styles.directRank}>#1</span>
-                        <span className={styles.directName}>
-                          {promotionBattle.promotionCompany.nameEn}
-                        </span>
-                      </div>
-                      <motion.div
-                        className={styles.directArrow}
-                        data-direction="up"
-                        animate={{ y: [0, -4, 0] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                      >
-                        <ChevronRight size={20} style={{ transform: 'rotate(-90deg)' }} />
-                        <span>{tBattle('promotion_direct')}</span>
-                      </motion.div>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* 슬라이드 3: 플레이오프 (9위 vs 2위) */}
-            {currentIndex === 2 && promotionBattles?.playoff && (
-              <motion.div
-                key="playoff-battle"
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: 'spring', stiffness: 250, damping: 28 },
-                  opacity: { duration: 0.25 },
-                  scale: { duration: 0.3 },
-                  rotateY: { duration: 0.4 },
-                }}
-                className={styles.slideItem}
-              >
-                {/* 플레이오프 카드 (9위 vs 2위) */}
-                <div className={styles.battleCard}>
-                  <motion.div
-                    className={styles.battleHeader}
-                    data-type="playoff"
-                    initial={{ y: -10, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <motion.span
-                      animate={{ rotate: [0, -15, 15, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
-                    >
-                      <Swords size={16} className={styles.swordsIcon} />
-                    </motion.span>
-                    <span className={styles.battleTitle}>{tBattle('playoff_title')}</span>
-                  </motion.div>
-
-                  <div className={styles.battleContent}>
-                    {/* 1부 9위 (강등 위기) */}
-                    <motion.div
-                      className={styles.battleCompany}
-                      data-zone="relegation-danger"
-                      onClick={() => handleBattleClick(promotionBattles.playoff.dangerCompany.companyId)}
-                      variants={battleCompanyVariants}
-                      initial="rest"
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    >
-                      <div className={styles.battleLogo}>
-                        {promotionBattles.playoff.dangerCompany.logoUrl ? (
-                          <Image
-                            src={promotionBattles.playoff.dangerCompany.logoUrl}
-                            alt={promotionBattles.playoff.dangerCompany.nameEn}
-                            width={44}
-                            height={44}
-                            className={styles.logoImage}
-                          />
-                        ) : (
-                          <span className={styles.logoFallback}>
-                            {promotionBattles.playoff.dangerCompany.nameEn.charAt(0)}
-                          </span>
-                        )}
-                      </div>
-                      <div className={styles.battleInfo}>
-                        <span className={styles.battleRank}>#9</span>
-                        <span className={styles.battleName}>
-                          {promotionBattles.playoff.dangerCompany.nameEn}
-                        </span>
-                        <span className={styles.statusLabel} data-status="relegation-danger">
-                          {tBattle('relegation_danger')}
-                        </span>
-                      </div>
-                    </motion.div>
-
-                    {/* VS + GAP */}
-                    <motion.div
-                      className={styles.vsSection}
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.2, type: 'spring' }}
-                    >
-                      <motion.span
-                        className={styles.vsText}
-                        animate={{
-                          textShadow: [
-                            '0 0 20px rgba(212, 175, 55, 0.6)',
-                            '0 0 40px rgba(212, 175, 55, 0.9)',
-                            '0 0 20px rgba(212, 175, 55, 0.6)',
-                          ],
-                        }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        VS
-                      </motion.span>
-                      <motion.div
-                        className={classNames(styles.gapBadge, {
-                          [styles.chanceWinning]: promotionBattles.playoff.isChanceWinning,
-                        })}
-                        whileHover={{ scale: 1.08 }}
-                      >
-                        <span className={styles.gapLabel}>GAP</span>
-                        <motion.span
-                          className={styles.gapValue}
-                          key={promotionBattles.playoff.gap}
-                          initial={{ scale: 1.3, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ type: 'spring' }}
-                        >
-                          {Math.abs(promotionBattles.playoff.gap).toLocaleString()}
-                        </motion.span>
-                      </motion.div>
-                    </motion.div>
-
-                    {/* 2부 2위 (승격 기회) */}
-                    <motion.div
-                      className={styles.battleCompany}
-                      data-zone="promotion-chance"
-                      onClick={() => handleBattleClick(promotionBattles.playoff.chanceCompany.companyId)}
-                      variants={battleCompanyVariants}
-                      initial="rest"
-                      whileHover="hover"
-                      whileTap="tap"
-                      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                    >
-                      <div className={styles.battleLogo}>
-                        {promotionBattles.playoff.chanceCompany.logoUrl ? (
-                          <Image
-                            src={promotionBattles.playoff.chanceCompany.logoUrl}
-                            alt={promotionBattles.playoff.chanceCompany.nameEn}
-                            width={44}
-                            height={44}
-                            className={styles.logoImage}
-                          />
-                        ) : (
-                          <span className={styles.logoFallback}>
-                            {promotionBattles.playoff.chanceCompany.nameEn.charAt(0)}
-                          </span>
-                        )}
-                      </div>
-                      <div className={styles.battleInfo}>
-                        <span className={styles.battleRank}>#2</span>
-                        <span className={styles.battleName}>
-                          {promotionBattles.playoff.chanceCompany.nameEn}
-                        </span>
-                        <span className={styles.statusLabel} data-status="promotion-chance">
-                          {tBattle('promotion_chance')}
-                        </span>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* 오른쪽 화살표 */}
+        {/* ===== 오버레이: 오른쪽 화살표 ===== */}
         {hasMultipleSlides && (
           <motion.button
-            className={classNames(styles.arrowBtn, styles.next)}
+            className={styles.arrowRight}
             onClick={() => paginate(1)}
             aria-label="Next slide"
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </motion.button>
         )}
-      </motion.div>
 
-      {/* 인디케이터 + 멈춤/재생 버튼 */}
-      {hasMultipleSlides && (
-        <motion.div
-          className={styles.indicators}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          {Array.from({ length: totalSlides }, (_, idx) => (
-            <motion.button
-              key={idx}
-              className={classNames(styles.dot, { [styles.active]: idx === currentIndex })}
-              onClick={() => {
-                const newDir = idx > currentIndex ? 1 : -1;
-                setDirection(newDir);
-                setCurrentIndex(idx);
-              }}
-              aria-label={`Go to slide ${idx + 1}`}
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 0.9 }}
-              layout
-            />
-          ))}
-          {/* 멈춤/재생 버튼 */}
-          <motion.button
-            className={classNames(styles.pauseBtn, { [styles.paused]: isPaused })}
-            onClick={togglePause}
-            aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
-            whileHover={{ scale: 1.15 }}
-            whileTap={{ scale: 0.9 }}
+        {/* ===== 오버레이: 인디케이터 + 일시정지 (하단 중앙 필) ===== */}
+        {hasMultipleSlides && (
+          <motion.div
+            className={styles.controls}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
           >
-            <AnimatePresence mode="wait">
-              {isPaused ? (
-                <motion.span
-                  key="play"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.5 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <Play size={12} fill="currentColor" />
-                </motion.span>
-              ) : (
-                <motion.span
-                  key="pause"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.5 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <Pause size={12} fill="currentColor" />
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        </motion.div>
-      )}
-    </motion.header>
+            {Array.from({ length: totalSlides }, (_, idx) => (
+              <motion.button
+                key={idx}
+                className={classNames(styles.dot, { [styles.active]: idx === currentIndex })}
+                onClick={() => {
+                  const newDir = idx > currentIndex ? 1 : -1;
+                  setDirection(newDir);
+                  setCurrentIndex(idx);
+                }}
+                aria-label={`Go to slide ${idx + 1}`}
+                whileHover={{ scale: 1.3 }}
+                whileTap={{ scale: 0.9 }}
+                layout
+              />
+            ))}
+            {/* 일시정지/재생 버튼 */}
+            <motion.button
+              className={classNames(styles.pauseBtn, { [styles.paused]: isPaused })}
+              onClick={togglePause}
+              aria-label={isPaused ? 'Play slideshow' : 'Pause slideshow'}
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <AnimatePresence mode="wait">
+                {isPaused ? (
+                  <motion.span
+                    key="play"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Play size={12} fill="currentColor" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="pause"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Pause size={12} fill="currentColor" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+          </motion.div>
+        )}
+      </motion.div>
+    </motion.div>
   );
 }
