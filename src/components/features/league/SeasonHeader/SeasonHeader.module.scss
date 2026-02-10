@@ -411,11 +411,15 @@ $banner-height-desktop: 320px;
 .controls {
   position: absolute;
   bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
+  // 가운데 정렬: left/right 0 + margin auto 방식 (transform보다 안정적)
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
   z-index: 10;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
@@ -1187,10 +1191,10 @@ $banner-height-desktop: 320px;
     text-shadow: none !important;
   }
 
-  // 챔피언 로고 - 그림자 최소화
+  // 챔피언 로고 - 보라색 테두리 + 그림자
   .championLogo {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    border-color: rgba($light-primary, 0.2) !important;
+    box-shadow: 0 4px 16px rgba($light-primary, 0.2) !important;
+    border: 3px solid rgba($light-primary, 0.3) !important;
 
     &::after {
       display: none !important;
@@ -1306,55 +1310,55 @@ $banner-height-desktop: 320px;
       display: none !important;
     }
 
-    // 강등 존 (라이트 모드)
+    // 강등 존 (라이트 모드) - 배경 강화
     &[data-zone='relegation'] {
-      background: rgba($color-relegation, 0.04) !important;
-      border-color: rgba($color-relegation, 0.2) !important;
-      box-shadow: none !important;
+      background: rgba($color-relegation, 0.06) !important;
+      border: 1.5px solid rgba($color-relegation, 0.25) !important;
+      box-shadow: 0 1px 4px rgba($color-relegation, 0.08) !important;
 
       &:hover {
-        background: rgba($color-relegation, 0.08) !important;
-        border-color: rgba($color-relegation, 0.4) !important;
-        box-shadow: 0 4px 16px rgba($color-relegation, 0.1) !important;
+        background: rgba($color-relegation, 0.1) !important;
+        border-color: rgba($color-relegation, 0.45) !important;
+        box-shadow: 0 4px 16px rgba($color-relegation, 0.12) !important;
       }
     }
 
-    // 승격 존 (라이트 모드)
+    // 승격 존 (라이트 모드) - 배경 강화
     &[data-zone='promotion'] {
-      background: rgba($color-promotion, 0.04) !important;
-      border-color: rgba($color-promotion, 0.2) !important;
-      box-shadow: none !important;
+      background: rgba($color-promotion, 0.06) !important;
+      border: 1.5px solid rgba($color-promotion, 0.25) !important;
+      box-shadow: 0 1px 4px rgba($color-promotion, 0.08) !important;
 
       &:hover {
-        background: rgba($color-promotion, 0.08) !important;
-        border-color: rgba($color-promotion, 0.4) !important;
-        box-shadow: 0 4px 16px rgba($color-promotion, 0.1) !important;
+        background: rgba($color-promotion, 0.1) !important;
+        border-color: rgba($color-promotion, 0.45) !important;
+        box-shadow: 0 4px 16px rgba($color-promotion, 0.12) !important;
       }
     }
 
-    // 강등 위기 존 (라이트 모드)
+    // 강등 위기 존 (라이트 모드) - 배경 강화
     &[data-zone='relegation-danger'] {
-      background: rgba($color-relegation-danger, 0.04) !important;
-      border-color: rgba($color-relegation-danger, 0.2) !important;
-      box-shadow: none !important;
+      background: rgba($color-relegation-danger, 0.06) !important;
+      border: 1.5px solid rgba($color-relegation-danger, 0.25) !important;
+      box-shadow: 0 1px 4px rgba($color-relegation-danger, 0.08) !important;
 
       &:hover {
-        background: rgba($color-relegation-danger, 0.08) !important;
-        border-color: rgba($color-relegation-danger, 0.4) !important;
-        box-shadow: 0 4px 16px rgba($color-relegation-danger, 0.1) !important;
+        background: rgba($color-relegation-danger, 0.1) !important;
+        border-color: rgba($color-relegation-danger, 0.45) !important;
+        box-shadow: 0 4px 16px rgba($color-relegation-danger, 0.12) !important;
       }
     }
 
-    // 승격 기회 존 (라이트 모드)
+    // 승격 기회 존 (라이트 모드) - 배경 강화
     &[data-zone='promotion-chance'] {
-      background: rgba($color-promotion-chance, 0.04) !important;
-      border-color: rgba($color-promotion-chance, 0.2) !important;
-      box-shadow: none !important;
+      background: rgba($color-promotion-chance, 0.06) !important;
+      border: 1.5px solid rgba($color-promotion-chance, 0.25) !important;
+      box-shadow: 0 1px 4px rgba($color-promotion-chance, 0.08) !important;
 
       &:hover {
-        background: rgba($color-promotion-chance, 0.08) !important;
-        border-color: rgba($color-promotion-chance, 0.4) !important;
-        box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.1) !important;
+        background: rgba($color-promotion-chance, 0.1) !important;
+        border-color: rgba($color-promotion-chance, 0.45) !important;
+        box-shadow: 0 4px 16px rgba($color-promotion-chance, 0.12) !important;
       }
     }
   }
@@ -1364,16 +1368,30 @@ $banner-height-desktop: 320px;
     color: #1F2937 !important;
   }
 
+  // 카드 로고 영역 - 라이트 모드에서 보이도록 배경 추가
+  .bigCardLogo {
+    background: rgba($light-primary, 0.08) !important;
+    border: 1px solid rgba($light-primary, 0.15) !important;
+  }
+
   // 로고 폴백 텍스트
   .logoFallback {
-    color: #374151 !important;
+    color: $light-primary-dark !important;
     text-shadow: none !important;
   }
 
   // ===== VS 텍스트 =====
   .vsText {
-    color: $light-primary !important;
+    color: $light-primary-dark !important;
     text-shadow: none !important;
+  }
+
+  // VS 구분선 - 보라색으로
+  .vsSection {
+    &::before,
+    &::after {
+      background: linear-gradient(to bottom, transparent, rgba($light-primary, 0.2), transparent) !important;
+    }
   }
 
   // 교환 아이콘

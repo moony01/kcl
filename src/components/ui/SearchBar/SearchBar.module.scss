@@ -16,7 +16,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
-  z-index: 50;
+  z-index: 100;
 }
 
 // =============================================
@@ -189,13 +189,16 @@
   top: calc(100% + 8px);
   left: 0;
   right: 0;
-  @include mix.glass-panel;
+  z-index: 999;
+  // 완전 불투명 배경 (다크 모드에서 뒤 콘텐츠가 절대 비치지 않도록)
+  background: #12121e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   margin: 0;
   padding: 6px;
   max-height: 380px;
   overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 
   // 스크롤바 스타일링
   &::-webkit-scrollbar {
@@ -438,13 +441,13 @@ $light-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     }
   }
 
-  // 드롭다운: 깔끔한 화이트 배경 + 미세한 그림자
+  // 드롭다운: 불투명 화이트 배경 + 미세한 그림자
   .dropdown {
-    background: $light-bg;
-    border: 1px solid $light-border;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: $light-bg !important;
+    border: 1px solid $light-border !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   // 빈 결과 상태
