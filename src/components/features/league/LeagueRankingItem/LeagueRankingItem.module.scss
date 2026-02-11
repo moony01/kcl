@@ -282,12 +282,21 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   font-weight: 700;
   color: white;
   flex-shrink: 0;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
   }
+}
+
+// 로고 이미지 (logo_url이 있을 때)
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .textInfo {

@@ -13,6 +13,7 @@ import { JsonLd } from '@/components/common/JsonLd';
 import ShareButtons from '@/components/common/ShareButtons';
 import NewsViewCounter from '@/components/news/NewsViewCounter';
 import NewsComments from '@/components/news/NewsComments';
+import RelatedNewsGrid from '@/components/news/RelatedNewsGrid';
 import styles from './page.module.scss';
 
 /**
@@ -205,51 +206,23 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         />
       </div>
 
-      {/* 관련 뉴스 (크로스 프로모션) */}
+      {/* 관련 뉴스 (크로스 프로모션) - 조회수/댓글수 포함 */}
       {(() => {
         const relatedPosts = getRelatedNews(slug, locale, 3, post.category);
         if (relatedPosts.length === 0) return null;
         return (
           <section className={styles.relatedSection}>
             <h3 className={styles.relatedTitle}>{t('relatedNews')}</h3>
-            <div className={styles.relatedGrid}>
-              {relatedPosts.map((related) => (
-                <Link
-                  key={related.slug}
-                  href={`/${locale}/news/${related.slug}`}
-                  className={styles.relatedCard}
-                >
-                  <div className={styles.relatedImage}>
-                    {related.thumbnail ? (
-                      <ExportedImage
-                        src={related.thumbnail}
-                        alt={related.title}
-                        width={400}
-                        height={210}
-                        sizes="(max-width: 768px) 100vw, 250px"
-                      />
-                    ) : (
-                      <div className={styles.relatedPlaceholder}>
-                        <span>📰</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className={styles.relatedInfo}>
-                    {related.category && (
-                      <span className={styles.relatedCategory}>{related.category}</span>
-                    )}
-                    <h4 className={styles.relatedCardTitle}>{related.title}</h4>
-                    <time className={styles.relatedDate}>
-                      {new Date(related.date).toLocaleDateString(locale, {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                      })}
-                    </time>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <RelatedNewsGrid
+              posts={relatedPosts.map((r) => ({
+                slug: r.slug,
+                title: r.title,
+                date: r.date,
+                category: r.category,
+                thumbnail: r.thumbnail ?? undefined,
+              }))}
+              locale={locale}
+            />
           </section>
         );
       })()}

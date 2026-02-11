@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- JYP 팬아트 로고: 블루 그라데이션 + 볼드 스타일 -->
+  <defs>
+    <linearGradient id="jyp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e90ff"/>
+      <stop offset="100%" stop-color="#003399"/>
+    </linearGradient>
+    <linearGradient id="jyp-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#87cefa"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="url(#jyp-bg)"/>
+  <!-- 대각선 장식 -->
+  <line x1="0" y1="120" x2="120" y2="0" stroke="white" stroke-width="0.5" opacity="0.1"/>
+  <line x1="0" y1="100" x2="100" y2="0" stroke="white" stroke-width="0.5" opacity="0.08"/>
+  <line x1="20" y1="120" x2="120" y2="20" stroke="white" stroke-width="0.5" opacity="0.08"/>
+  <!-- JYP 텍스트 -->
+  <text x="60" y="68" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="38" font-weight="900" fill="white" letter-spacing="1">JYP</text>
+  <!-- 하단 액센트 바 -->
+  <rect x="30" y="80" width="60" height="3" rx="1.5" fill="url(#jyp-accent)" opacity="0.6"/>
+</svg>

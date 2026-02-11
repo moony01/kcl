@@ -956,6 +956,22 @@ $banner-height-desktop: 320px;
   line-height: 1.3;
 }
 
+// 승강전 카드 투표수
+.bigCardVoteCount {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: -2px;
+
+  svg {
+    color: #f97316;
+    flex-shrink: 0;
+  }
+}
+
 // 승강 방향 화살표
 .bigCardArrow {
   display: flex;
@@ -1347,6 +1363,11 @@ $banner-height-desktop: 320px;
   // 카드 이름 - 진한 텍스트
   .bigCardName {
     color: #1F2937 !important;
+  }
+
+  // 투표수 - 라이트 모드
+  .bigCardVoteCount {
+    color: #6B7280 !important;
   }
 
   // 카드 로고 영역 - 라이트 모드에서 보이도록 배경 추가

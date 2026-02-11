@@ -579,6 +579,11 @@ export default function SeasonHeader({
                     <span className={styles.bigCardName}>
                       {promotionBattle.relegationCompany.nameEn}
                     </span>
+                    {/* 투표수 */}
+                    <span className={styles.bigCardVoteCount}>
+                      <Flame size={12} />
+                      {promotionBattle.relegationCompany.voteCount.toLocaleString()}
+                    </span>
                     {/* 강등 화살표 */}
                     <motion.div
                       className={styles.bigCardArrow}
@@ -628,6 +633,11 @@ export default function SeasonHeader({
                     {/* 소속사 이름 (최대 2줄) */}
                     <span className={styles.bigCardName}>
                       {promotionBattle.promotionCompany.nameEn}
+                    </span>
+                    {/* 투표수 */}
+                    <span className={styles.bigCardVoteCount}>
+                      <Flame size={12} />
+                      {promotionBattle.promotionCompany.voteCount.toLocaleString()}
                     </span>
                     {/* 승격 화살표 */}
                     <motion.div
@@ -712,6 +722,11 @@ export default function SeasonHeader({
                     <span className={styles.bigCardName}>
                       {promotionBattles.playoff.dangerCompany.nameEn}
                     </span>
+                    {/* 투표수 */}
+                    <span className={styles.bigCardVoteCount}>
+                      <Flame size={12} />
+                      {promotionBattles.playoff.dangerCompany.voteCount.toLocaleString()}
+                    </span>
                     <span className={styles.statusLabel} data-status="relegation-danger">
                       {tBattle('relegation_danger')}
                     </span>
@@ -785,6 +800,11 @@ export default function SeasonHeader({
                     <span className={styles.bigCardRank}>#2</span>
                     <span className={styles.bigCardName}>
                       {promotionBattles.playoff.chanceCompany.nameEn}
+                    </span>
+                    {/* 투표수 */}
+                    <span className={styles.bigCardVoteCount}>
+                      <Flame size={12} />
+                      {promotionBattles.playoff.chanceCompany.voteCount.toLocaleString()}
                     </span>
                     <span className={styles.statusLabel} data-status="promotion-chance">
                       {tBattle('promotion_chance')}

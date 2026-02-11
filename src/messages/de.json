@@ -91,7 +91,8 @@
     "readMore": "Weiterlesen",
     "sharePrompt": "Hat dir dieser Artikel gefallen? Teile ihn mit K-pop Fans!",
     "views": "{count} Aufrufe",
-    "relatedNews": "Weitere Nachrichten"
+    "relatedNews": "Weitere Nachrichten",
+    "category_all": "Alle"
   },
   "NewsComments": {
     "title": "Kommentare",

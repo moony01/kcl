@@ -110,7 +110,11 @@ export default function TopThreeCard({
       {/* 회사 로고 */}
       <div className={styles.logoWrapper}>
         <div className={styles.logo} style={{ background: company.gradientColor }}>
-          {company.nameEn.charAt(0)}
+          {company.logoUrl ? (
+            <img src={company.logoUrl} alt={company.nameEn} className={styles.logoImage} />
+          ) : (
+            company.nameEn.charAt(0)
+          )}
         </div>
         {/* 글로우 효과 */}
         <div className={styles.glow} style={{ background: company.gradientColor }} />
