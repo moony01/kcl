@@ -90,7 +90,8 @@
     "noArticles": "ไม่มีบทความ",
     "readMore": "อ่านเพิ่มเติม",
     "sharePrompt": "ชอบบทความนี้ไหม? แชร์ให้เพื่อนๆ แฟน K-pop เลย!",
-    "views": "{count} การดู"
+    "views": "{count} การดู",
+    "relatedNews": "ข่าวอื่นๆ"
   },
   "NewsComments": {
     "title": "ความคิดเห็น",

@@ -90,7 +90,8 @@
     "noArticles": "Makale bulunamadı.",
     "readMore": "Devamını Oku",
     "sharePrompt": "Bu makaleyi beğendiniz mi? K-pop hayranlarıyla paylaşın!",
-    "views": "{count} görüntüleme"
+    "views": "{count} görüntüleme",
+    "relatedNews": "Diğer Haberler"
   },
   "NewsComments": {
     "title": "Yorumlar",

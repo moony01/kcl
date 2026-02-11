@@ -90,7 +90,8 @@
     "noArticles": "Tidak ada artikel tersedia.",
     "readMore": "Baca selengkapnya",
     "sharePrompt": "Suka artikel ini? Bagikan dengan penggemar K-pop lainnya!",
-    "views": "{count} dilihat"
+    "views": "{count} dilihat",
+    "relatedNews": "Berita Lainnya"
   },
   "NewsComments": {
     "title": "Komentar",

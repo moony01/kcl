@@ -284,6 +284,118 @@
   }
 }
 
+/* 관련 뉴스 (크로스 프로모션) */
+.relatedSection {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.relatedTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.25rem;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.relatedCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.relatedImage {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-tertiary, var(--bg-secondary));
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 120px;
+    min-width: 120px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    margin: 0.5rem;
+  }
+}
+
+.relatedPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-light, #e0e7ff) 0%, var(--primary, #6366f1) 100%);
+
+  span {
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+}
+
+.relatedInfo {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.relatedCategory {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.relatedCardTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.relatedDate {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
 /* 광고 플레이스홀더 */
 .adPlaceholder {
   margin-top: 3rem;
