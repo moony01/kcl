@@ -42,12 +42,15 @@ export default function VoteButton({ company }: VoteButtonProps) {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}
       >
-        <div 
-          className={styles.logoWrapper} 
+        <div
+          className={styles.logoWrapper}
           style={{ background: company.image }}
         >
-          {/* Logo Placeholder */}
-          {company.name.en.charAt(0)}
+          {company.logoUrl ? (
+            <img src={company.logoUrl} alt={company.name.en} className={styles.logoImage} />
+          ) : (
+            company.name.en.charAt(0)
+          )}
         </div>
         
         {/* Score Popup Effect */}

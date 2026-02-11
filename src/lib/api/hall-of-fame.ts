@@ -42,6 +42,7 @@ function toMonthlyChampion(record: SeasonRecord): MonthlyChampion {
     companyId: record.champion_company_id,
     companyName: record.company?.name_en || 'Unknown',
     companyLogo: record.company?.gradient_color || '#8B5CF6',
+    companyLogoUrl: record.company?.logo_url || undefined,
     totalVotes: record.total_votes,
     decidedAt: record.decided_at,
   };
@@ -64,6 +65,7 @@ function calculateYearlyWinCount(champions: MonthlyChampion[], year: number): Ye
         companyId: champion.companyId,
         companyName: champion.companyName,
         companyLogo: champion.companyLogo,
+        companyLogoUrl: champion.companyLogoUrl,
         winCount: 1,
         rank: 0,
       });
@@ -95,6 +97,7 @@ function determineGrandChampion(champions: MonthlyChampion[], year: number): Gra
       companyId: string;
       companyName: string;
       companyLogo: string;
+      companyLogoUrl?: string;
       winCount: number;
       totalVotes: number;
       lastDecidedAt: string;
@@ -114,6 +117,7 @@ function determineGrandChampion(champions: MonthlyChampion[], year: number): Gra
         companyId: champion.companyId,
         companyName: champion.companyName,
         companyLogo: champion.companyLogo,
+        companyLogoUrl: champion.companyLogoUrl,
         winCount: 1,
         totalVotes: champion.totalVotes,
         lastDecidedAt: champion.decidedAt,
@@ -141,6 +145,7 @@ function determineGrandChampion(champions: MonthlyChampion[], year: number): Gra
     companyId: winner.companyId,
     companyName: winner.companyName,
     companyLogo: winner.companyLogo,
+    companyLogoUrl: winner.companyLogoUrl,
     winCount: winner.winCount,
     totalVotesInYear: winner.totalVotes,
     decidedAt,

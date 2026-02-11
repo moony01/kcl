@@ -14,6 +14,8 @@ export interface MonthlyChampion {
   companyId: string;
   companyName: string;
   companyLogo: string;
+  /** 로고 이미지 URL (DB logo_url, 없으면 첫 글자 폴백) */
+  companyLogoUrl?: string;
   totalVotes: number;
   decidedAt: string; // ISO 8601
 }
@@ -24,6 +26,8 @@ export interface YearlyWinCount {
   companyId: string;
   companyName: string;
   companyLogo: string;
+  /** 로고 이미지 URL */
+  companyLogoUrl?: string;
   winCount: number;
   rank: number;
 }
@@ -34,6 +38,8 @@ export interface GrandChampion {
   companyId: string;
   companyName: string;
   companyLogo: string;
+  /** 로고 이미지 URL */
+  companyLogoUrl?: string;
   winCount: number;
   totalVotesInYear: number;
   decidedAt: string; // ISO 8601

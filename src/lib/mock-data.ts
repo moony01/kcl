@@ -17,6 +17,8 @@ export interface CompanyType {
   change: 'up' | 'down' | 'same';
   // UI용 그라데이션 컬러
   image: string;
+  // 로고 이미지 URL (DB에서 가져옴, 없으면 첫 글자 폴백)
+  logoUrl?: string;
   // 주가 변동 데이터 (30일)
   stockHistory: { date: string; value: number }[];
   /** T1.75: 산하 레이블 목록 (HYBE, YG 등) */

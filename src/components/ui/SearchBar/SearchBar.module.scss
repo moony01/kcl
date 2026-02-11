@@ -288,6 +288,15 @@
   color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+// 검색 결과 로고 이미지
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 // 결과 정보 컨테이너

@@ -111,8 +111,11 @@ export default function CompanySelector({ companies, onSelect, selectedCompanyId
                   </div>
                   
                   <div className={styles.logoArea} style={{ background: item.image }}>
-                    {/* First letter as logo for now */}
-                    {item.name.en.charAt(0)}
+                    {item.logoUrl ? (
+                      <img src={item.logoUrl} alt={item.name.en} className={styles.logoImage} />
+                    ) : (
+                      item.name.en.charAt(0)
+                    )}
                   </div>
                   
                   <div className={styles.infoArea}>

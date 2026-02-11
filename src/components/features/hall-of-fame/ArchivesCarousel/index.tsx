@@ -81,7 +81,11 @@ export default function ArchivesCarousel({ archives }: ArchivesCarouselProps) {
 
               {/* 소속사 로고 */}
               <div className={styles.logo} style={{ background: champion.companyLogo }}>
-                <span>{champion.companyName.charAt(0)}</span>
+                {champion.companyLogoUrl ? (
+                  <img src={champion.companyLogoUrl} alt={champion.companyName} className={styles.logoImage} />
+                ) : (
+                  <span>{champion.companyName.charAt(0)}</span>
+                )}
               </div>
 
               {/* 소속사 이름 */}

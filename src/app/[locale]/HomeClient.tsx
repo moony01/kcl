@@ -131,6 +131,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
       image: companyRanking.gradientColor.startsWith('linear-gradient')
         ? companyRanking.gradientColor
         : `linear-gradient(135deg, ${companyRanking.gradientColor} 0%, #1A1A1A 100%)`,
+      // 로고 이미지 URL (DB에서 가져옴)
+      logoUrl: companyRanking.logoUrl || undefined,
       stockHistory: [],
       // T1.75: 산하 레이블 매핑
       subLabels: companyRanking.subLabels?.map((sub) => ({
