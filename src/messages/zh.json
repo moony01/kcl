@@ -90,7 +90,8 @@
     "noArticles": "暂无文章。",
     "readMore": "阅读更多",
     "sharePrompt": "喜欢这篇文章吗？分享给K-pop粉丝们吧！",
-    "views": "{count} 次浏览"
+    "views": "{count} 次浏览",
+    "relatedNews": "更多新闻"
   },
   "NewsComments": {
     "title": "评论",

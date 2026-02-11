@@ -99,6 +99,32 @@ export async function getNewsBySlug(slug: string, locale: string = 'ko'): Promis
 }
 
 /**
+ * 현재 기사와 관련된 다른 뉴스를 가져옵니다.
+ * 같은 카테고리 우선, 부족하면 최신순으로 채움
+ *
+ * @param currentSlug - 현재 기사 slug (제외용)
+ * @param locale - 언어 코드
+ * @param limit - 반환할 최대 개수 (기본값: 3)
+ * @returns 관련 뉴스 메타데이터 배열
+ */
+export function getRelatedNews(
+  currentSlug: string,
+  locale: string = 'ko',
+  limit: number = 3,
+  currentCategory?: string,
+): NewsMeta[] {
+  const allPosts = getAllNews(locale).filter((p) => p.slug !== currentSlug);
+
+  if (!currentCategory) return allPosts.slice(0, limit);
+
+  // 같은 카테고리 우선
+  const sameCategory = allPosts.filter((p) => p.category === currentCategory);
+  const others = allPosts.filter((p) => p.category !== currentCategory);
+
+  return [...sameCategory, ...others].slice(0, limit);
+}
+
+/**
  * 모든 뉴스 슬러그를 가져옵니다.
  * generateStaticParams에서 사용
  *

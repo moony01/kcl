@@ -90,7 +90,8 @@
     "noArticles": "Aucun article disponible.",
     "readMore": "Lire la suite",
     "sharePrompt": "Cet article vous a plu ? Partagez-le avec les fans de K-pop !",
-    "views": "{count} vues"
+    "views": "{count} vues",
+    "relatedNews": "Plus d'actualités"
   },
   "NewsComments": {
     "title": "Commentaires",

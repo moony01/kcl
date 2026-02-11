@@ -6,7 +6,7 @@ import ExportedImage from 'next-image-export-optimizer';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getNewsBySlug, getAllNewsParams } from '@/lib/news';
+import { getNewsBySlug, getAllNewsParams, getRelatedNews } from '@/lib/news';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
@@ -204,6 +204,55 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           size="md"
         />
       </div>
+
+      {/* 관련 뉴스 (크로스 프로모션) */}
+      {(() => {
+        const relatedPosts = getRelatedNews(slug, locale, 3, post.category);
+        if (relatedPosts.length === 0) return null;
+        return (
+          <section className={styles.relatedSection}>
+            <h3 className={styles.relatedTitle}>{t('relatedNews')}</h3>
+            <div className={styles.relatedGrid}>
+              {relatedPosts.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/${locale}/news/${related.slug}`}
+                  className={styles.relatedCard}
+                >
+                  <div className={styles.relatedImage}>
+                    {related.thumbnail ? (
+                      <ExportedImage
+                        src={related.thumbnail}
+                        alt={related.title}
+                        width={400}
+                        height={210}
+                        sizes="(max-width: 768px) 100vw, 250px"
+                      />
+                    ) : (
+                      <div className={styles.relatedPlaceholder}>
+                        <span>📰</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className={styles.relatedInfo}>
+                    {related.category && (
+                      <span className={styles.relatedCategory}>{related.category}</span>
+                    )}
+                    <h4 className={styles.relatedCardTitle}>{related.title}</h4>
+                    <time className={styles.relatedDate}>
+                      {new Date(related.date).toLocaleDateString(locale, {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </time>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
 
       {/* 댓글 섹션 */}
       <NewsComments slug={slug} />

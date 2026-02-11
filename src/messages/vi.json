@@ -90,7 +90,8 @@
     "noArticles": "Không có bài viết nào.",
     "readMore": "Đọc thêm",
     "sharePrompt": "Bạn thích bài viết này? Chia sẻ với fan K-pop khác nhé!",
-    "views": "{count} lượt xem"
+    "views": "{count} lượt xem",
+    "relatedNews": "Tin tức khác"
   },
   "NewsComments": {
     "title": "Bình luận",
