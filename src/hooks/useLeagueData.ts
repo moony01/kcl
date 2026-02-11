@@ -57,9 +57,21 @@ interface PreviousLeagueRanksData {
 }
 
 /**
+ * UTC 기준 오늘 날짜 문자열 반환 (YYYY-MM-DD)
+ * 투표권 리셋과 동일한 기준 사용
+ */
+function getTodayUTC(): string {
+  const now = new Date();
+  const year = now.getUTCFullYear();
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(now.getUTCDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+/**
  * localStorage에서 이전 리그 순위 데이터 로드
  * - 브라우저 환경에서만 동작
- * - 1시간 이상 지난 데이터는 무효화 (새 기준점으로 갱신)
+ * - UTC 자정(투표권 갱신 시점)이 지나면 무효화 (새 기준점으로 갱신)
  */
 function loadPreviousLeagueRanks(): PreviousLeagueRanksData | null {
   if (typeof window === 'undefined') return null;
@@ -69,10 +81,11 @@ function loadPreviousLeagueRanks(): PreviousLeagueRanksData | null {
     if (!stored) return null;
 
     const data: PreviousLeagueRanksData = JSON.parse(stored);
-    const ONE_HOUR = 60 * 60 * 1000;
 
-    // 1시간 이상 지난 데이터는 무효화 (새로운 기준점으로 갱신됨)
-    if (Date.now() - data.savedAt > ONE_HOUR) {
+    // UTC 자정이 지났으면 무효화 (투표권 리셋과 동일 시점)
+    const savedDate = new Date(data.savedAt);
+    const savedDateUTC = `${savedDate.getUTCFullYear()}-${String(savedDate.getUTCMonth() + 1).padStart(2, '0')}-${String(savedDate.getUTCDate()).padStart(2, '0')}`;
+    if (savedDateUTC !== getTodayUTC()) {
       return null;
     }
 
@@ -85,7 +98,7 @@ function loadPreviousLeagueRanks(): PreviousLeagueRanksData | null {
 /**
  * 현재 리그 순위를 localStorage에 저장
  * - 이전 순위가 없을 때만 저장 (기준점 설정)
- * - 이미 저장된 데이터가 있으면 유지
+ * - 같은 UTC 날짜의 데이터가 있으면 유지 (투표권 갱신까지 기준점 고정)
  *
  * @param premierCompanies - 1부 리그 회사들 (배열 순서 = 리그 내 순위)
  * @param challengersCompanies - 2부 리그 회사들 (배열 순서 = 리그 내 순위)
@@ -100,9 +113,10 @@ function savePreviousLeagueRanks(
     const existing = localStorage.getItem(PREV_LEAGUE_RANKS_KEY);
     if (existing) {
       const data: PreviousLeagueRanksData = JSON.parse(existing);
-      const ONE_HOUR = 60 * 60 * 1000;
-      // 1시간 이내 데이터가 있으면 유지
-      if (Date.now() - data.savedAt <= ONE_HOUR) {
+      // 같은 UTC 날짜의 데이터가 있으면 유지 (UTC 자정까지 기준점 고정)
+      const savedDate = new Date(data.savedAt);
+      const savedDateUTC = `${savedDate.getUTCFullYear()}-${String(savedDate.getUTCMonth() + 1).padStart(2, '0')}-${String(savedDate.getUTCDate()).padStart(2, '0')}`;
+      if (savedDateUTC === getTodayUTC()) {
         return;
       }
     }

@@ -6,7 +6,7 @@
  *
  * 기능:
  * - 선택된 소속사 정보 표시
- * - 아티스트 칩(Chips) 선택 UI
+ * - CompactSelect 기반 서브레이블/아티스트 선택 UI
  * - 대형 투표 버튼 + 파티클 효과
  * - 현재 화력 점수 표시
  * - 투표권 상태 표시 (VoteQuotaBar)
@@ -15,6 +15,10 @@
  * - 1회 투표 = 1점 (기존 100점에서 변경)
  * - 일일 투표권 30회 제한
  * - 투표권 소진 시 버튼 비활성화
+ *
+ * T2.0 변경사항:
+ * - 칩(Chips) → CompactSelect(인라인 셀렉트)로 UI 변경
+ * - HYBE 기준 세로 ~220px → ~88px (60% 공간 절감)
  */
 
 'use client';
@@ -29,6 +33,7 @@ import { FEATURES } from '@/config/features';
 import { useVote } from '@/hooks/useVote';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
 import VoteQuotaBar from '@/components/features/vote/VoteQuotaBar';
+import CompactSelect from '@/components/ui/CompactSelect';
 import styles from './VoteController.module.scss';
 
 interface VoteControllerProps {
@@ -132,70 +137,31 @@ export default function VoteController({
         </div>
       </div>
 
-      {/* T1.75: 산하 레이블 선택 칩 (서브레이블이 있는 소속사만 표시) */}
+      {/* T2.0: 서브레이블 CompactSelect (서브레이블이 있는 소속사만 표시) */}
       {hasSubLabels && company.subLabels && (
-        <div className={styles.subLabelSection}>
-          <p className={styles.subLabelTitle}>{t('sub_label_title')}</p>
-          <div className={styles.subLabelChips}>
-            {/* "전체" 칩 */}
-            <button
-              className={classNames(styles.subLabelChip, {
-                [styles.subLabelSelected]: selectedSubLabel === null,
-              })}
-              onClick={() => {
-                setSelectedSubLabel(null);
-                setChosenArtist(null);
-              }}
-            >
-              {t('sub_label_all')}
-            </button>
-            {/* 개별 서브레이블 칩 */}
-            {company.subLabels.map((sub) => (
-              <button
-                key={sub.id}
-                className={classNames(styles.subLabelChip, {
-                  [styles.subLabelSelected]: selectedSubLabel === sub.id,
-                })}
-                onClick={() => {
-                  setSelectedSubLabel(sub.id);
-                  setChosenArtist(null);
-                }}
-              >
-                {sub.nameEn}
-              </button>
-            ))}
-          </div>
-        </div>
+        <CompactSelect
+          label={t('sub_label_title')}
+          value={selectedSubLabel}
+          onChange={(val) => {
+            setSelectedSubLabel(val);
+            setChosenArtist(null);
+          }}
+          options={company.subLabels.map((sub) => ({ value: sub.id, label: sub.nameEn }))}
+          showAllOption={true}
+          allOptionLabel={t('sub_label_all')}
+        />
       )}
 
-      {/* 아티스트 질문 */}
+      {/* T2.0: 아티스트 CompactSelect */}
       <div className={styles.questionSection}>
-        <p className={styles.question}>{t('who_fan')}</p>
-
-        {/* 아티스트 칩 선택 */}
-        <div className={styles.artistChips}>
-          {artists.map((artist) => (
-            <button
-              key={artist}
-              className={classNames(styles.chip, {
-                [styles.selected]: chosenArtist === artist,
-              })}
-              onClick={() => setChosenArtist(artist)}
-            >
-              {chosenArtist === artist && (
-                <motion.span
-                  className={styles.checkIcon}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: 'spring', stiffness: 500 }}
-                >
-                  <Check size={12} />
-                </motion.span>
-              )}
-              {artist}
-            </button>
-          ))}
-        </div>
+        <CompactSelect
+          label={t('who_fan')}
+          value={chosenArtist}
+          onChange={setChosenArtist}
+          options={artists.map((a) => ({ value: a, label: a }))}
+          placeholder={t('select_artist')}
+          clearable={true}
+        />
       </div>
 
       {/* 대형 투표 버튼 */}

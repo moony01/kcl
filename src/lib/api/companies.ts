@@ -24,6 +24,8 @@ interface GroupData {
   name_ko: string;
   name_en: string;
   vote_count: number;
+  is_active: boolean;
+  debut_date: string | null;
 }
 
 /** 소속사 정보 타입 (Supabase 응답) */
@@ -88,7 +90,9 @@ export async function getCompanies(
           id,
           name_ko,
           name_en,
-          vote_count
+          vote_count,
+          is_active,
+          debut_date
         )
       `,
       )
@@ -126,20 +130,24 @@ export async function getCompanies(
     const transformedCompanies = parentCompanies
       .filter((company) => company.league_tier !== null)
       .map((company, index) => {
-        // 부모 소속사 자체 그룹
-        const ownGroups = Array.isArray(company.groups) ? company.groups : [];
+        // 부모 소속사 자체 그룹 (비활성 아티스트 제외)
+        const ownGroups = (Array.isArray(company.groups) ? company.groups : [])
+          .filter((g) => g.is_active !== false);
 
-        // T1.75: 서브레이블의 그룹도 부모에 합산
+        // T1.75: 서브레이블의 그룹도 부모에 합산 (비활성 아티스트 제외)
         const subs = subLabelsByParent.get(company.id) || [];
         const subLabelGroups = subs.flatMap((sub) =>
-          Array.isArray(sub.groups) ? sub.groups : [],
+          (Array.isArray(sub.groups) ? sub.groups : []).filter((g) => g.is_active !== false),
         );
         const allGroups = [...ownGroups, ...subLabelGroups];
 
-        // 그룹을 vote_count 기준 정렬 (전체 목록 유지 — 투표 UI에서 모든 아티스트 필요)
-        const sortedGroups = [...allGroups].sort(
-          (a, b) => (b.vote_count || 0) - (a.vote_count || 0),
-        );
+        // 그룹을 debut_date 기준 신인순 정렬 (최근 데뷔가 위로)
+        // debut_date가 없으면 맨 뒤로
+        const sortedGroups = [...allGroups].sort((a, b) => {
+          const dateA = a.debut_date ? new Date(a.debut_date).getTime() : 0;
+          const dateB = b.debut_date ? new Date(b.debut_date).getTime() : 0;
+          return dateB - dateA;
+        });
 
         // T1.75: sub_labels 배열 생성 (서브레이블이 있는 경우만)
         const subLabels: SubLabelData[] | undefined =
@@ -149,7 +157,13 @@ export async function getCompanies(
                 name_ko: sub.name_ko,
                 name_en: sub.name_en,
                 groups: Array.isArray(sub.groups)
-                  ? [...sub.groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0))
+                  ? [...sub.groups]
+                      .filter((g) => g.is_active !== false)
+                      .sort((a, b) => {
+                        const dateA = a.debut_date ? new Date(a.debut_date).getTime() : 0;
+                        const dateB = b.debut_date ? new Date(b.debut_date).getTime() : 0;
+                        return dateB - dateA;
+                      })
                   : [],
               }))
             : undefined;
