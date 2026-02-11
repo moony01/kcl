@@ -139,8 +139,8 @@ export const MOCK_COMPANIES: CompanyType[] = [
     id: 'co-blacklabel',
     name: { en: 'The Black Label', ko: '더블랙레이블' },
     representative: {
-      en: ['Rosé', 'Jeon Somi', 'Taeyang'],
-      ko: ['로제', '전소미', '태양'],
+      en: ['Jeon Somi'],
+      ko: ['전소미'],
     },
     rank: 8,
     firepower: 42000000,

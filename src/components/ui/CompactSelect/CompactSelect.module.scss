@@ -1,0 +1,311 @@
+/**
+ * CompactSelect.module.scss
+ *
+ * 인라인 확장형 셀렉트 컴포넌트 스타일 (검색 기능 포함)
+ * 다크/라이트 모드 대응, primary 색감으로 시각적 존재감 강화
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+
+.compactSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+// 셀렉트 상단 레이블
+.label {
+  font-size: 0.8rem;
+  color: $color-text-dim;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+// 트리거 버튼 — primary 색감 배경 + 테두리
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba($color-primary, 0.35);
+  background: rgba($color-primary, 0.06);
+  color: $color-text;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.6);
+    background: rgba($color-primary, 0.1);
+    box-shadow: 0 2px 8px rgba($color-primary, 0.1);
+  }
+
+  // 값이 선택된 상태 — 더 진한 강조
+  &.hasValue {
+    border-color: rgba($color-primary, 0.5);
+    background: rgba($color-primary, 0.1);
+  }
+
+  // 열린 상태: 하단 border-radius 제거 (옵션 패널과 연결)
+  &.open {
+    border-color: rgba($color-primary, 0.6);
+    background: rgba($color-primary, 0.1);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: rgba($color-border, 0.3);
+    box-shadow: 0 2px 12px rgba($color-primary, 0.12);
+  }
+}
+
+.triggerText {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.placeholder {
+    color: $color-text-dim;
+    font-weight: 500;
+  }
+
+  // 선택된 값은 primary 색상으로 강조
+  &.selected {
+    color: $color-primary;
+  }
+}
+
+.triggerIcons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  color: $color-primary;
+  opacity: 0.7;
+}
+
+// 선택 해제(X) 버튼
+.clearButton {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 50%;
+  color: $color-text-dim;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.15);
+    color: $color-primary;
+  }
+}
+
+// 옵션 패널 (인라인 확장, 최대 7개 높이 제한 + 스크롤)
+.optionPanel {
+  overflow: hidden;
+  border: 1.5px solid rgba($color-primary, 0.5);
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: $color-panel-bg;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+// 옵션 목록 스크롤 컨테이너 (최대 7개 = 44px * 7 = 308px)
+.optionList {
+  max-height: 308px;
+  overflow-y: auto;
+  // Firefox 스크롤바
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
+
+  // Webkit(Chrome, Edge, Safari) 스크롤바
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(139, 92, 246, 0.05);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.35);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba(139, 92, 246, 0.55);
+    }
+  }
+}
+
+// 검색 입력 영역
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba($color-border, 0.5);
+  background: rgba($color-primary, 0.03);
+}
+
+.searchIcon {
+  flex-shrink: 0;
+  color: $color-primary;
+  opacity: 0.6;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: $color-text;
+  font-size: 0.83rem;
+  outline: none;
+
+  &::placeholder {
+    color: $color-text-dim;
+    opacity: 0.7;
+  }
+}
+
+.searchClear {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border: none;
+  border-radius: 50%;
+  background: rgba($color-text, 0.1);
+  color: $color-text-dim;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.2);
+    color: $color-primary;
+  }
+}
+
+// 개별 옵션
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: $color-text;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+
+  &:hover {
+    background: rgba($color-primary, 0.1);
+    padding-left: 18px;
+  }
+
+  // 선택된 항목 강조
+  &.optionSelected {
+    color: $color-primary;
+    background: rgba($color-primary, 0.12);
+    font-weight: 700;
+    border-left: 3px solid $color-primary;
+    padding-left: 11px;
+  }
+}
+
+// 선택된 항목의 체크 아이콘
+.checkIcon {
+  flex-shrink: 0;
+  color: $color-primary;
+}
+
+// 하단 스크롤 인디케이터 — 아래 더 있다는 시각적 힌트
+.scrollHint {
+  position: relative;
+  height: 28px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba($color-primary, 0.06) 100%
+  );
+  pointer-events: none;
+
+  // 아래 방향 화살표 (CSS 삼각형)
+  &::after {
+    content: '···';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: $color-primary;
+    opacity: 0.5;
+  }
+}
+
+// 검색 결과 없음
+.noResults {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  color: $color-text-dim;
+  font-size: 0.83rem;
+}
+
+// ===== 라이트 모드 오버라이드 =====
+:global(:root:not([data-theme='dark'])) {
+  .trigger {
+    background: rgba(139, 92, 246, 0.05);
+    border-color: rgba(139, 92, 246, 0.25);
+
+    &:hover {
+      background: rgba(139, 92, 246, 0.08);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    &.hasValue {
+      background: rgba(139, 92, 246, 0.08);
+      border-color: rgba(139, 92, 246, 0.35);
+    }
+
+    &.open {
+      background: rgba(139, 92, 246, 0.08);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+  }
+
+  .optionPanel {
+    background: #fff;
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .option {
+    &:hover {
+      background: rgba(139, 92, 246, 0.06);
+    }
+
+    &.optionSelected {
+      background: rgba(139, 92, 246, 0.08);
+    }
+  }
+}

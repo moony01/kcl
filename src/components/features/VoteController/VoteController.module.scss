@@ -1,8 +1,8 @@
 /**
  * VoteController.module.scss
- * 
+ *
  * 투표 인터페이스 스타일
- * 아티스트 칩 선택 + 대형 투표 버튼
+ * T2.0: CompactSelect 도입으로 칩 관련 스타일 제거, 셀렉트 래퍼만 유지
  */
 
 @use '../../../styles/abstracts/variables' as *;
@@ -79,101 +79,11 @@
   }
 }
 
-// T1.75: 산하 레이블 선택 섹션
-.subLabelSection {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.subLabelTitle {
-  font-size: 0.8rem;
-  color: $color-text-dim;
-  margin: 0;
-  font-weight: 500;
-}
-
-.subLabelChips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.subLabelChip {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 12px;
-  border-radius: 16px;
-  border: 1px solid rgba($color-border, 1);
-  background: rgba($color-text, 0.03);
-  color: $color-text;
-  font-size: 0.78rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    border-color: rgba($color-primary, 0.5);
-    background: rgba($color-primary, 0.05);
-  }
-
-  &.subLabelSelected {
-    border-color: $color-primary;
-    background: rgba($color-primary, 0.15);
-    color: $color-primary;
-    font-weight: 600;
-  }
-}
-
-// 질문 섹션
+// 질문 섹션 (CompactSelect 래퍼)
 .questionSection {
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.question {
-  font-size: 0.9rem;
-  color: $color-text-dim;
-  margin: 0;
-}
-
-// 아티스트 칩
-.artistChips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba($color-border, 1);
-  background: rgba($color-text, 0.03);
-  color: $color-text;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    border-color: rgba($color-primary, 0.5);
-    background: rgba($color-primary, 0.05);
-  }
-
-  &.selected {
-    border-color: $color-primary;
-    background: rgba($color-primary, 0.15);
-    color: $color-primary;
-    font-weight: 600;
-  }
-}
-
-.checkIcon {
-  display: flex;
 }
 
 // 투표 버튼
