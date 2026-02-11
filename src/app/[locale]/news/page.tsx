@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Newspaper } from 'lucide-react';
 import { getAllNews } from '@/lib/news';
-import NewsCard from '@/components/news/NewsCard';
+import NewsGridClient from './NewsGridClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
@@ -96,18 +96,17 @@ export default async function NewsPage({ params }: NewsPageProps) {
       {/* 뉴스 그리드 */}
       {posts.length > 0 ? (
         <section className={styles.grid}>
-          {posts.map((post) => (
-            <NewsCard
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              excerpt={post.excerpt}
-              date={post.date}
-              category={post.category}
-              thumbnail={post.thumbnail ?? undefined}
-              locale={locale}
-            />
-          ))}
+          <NewsGridClient
+            posts={posts.map((post) => ({
+              slug: post.slug,
+              title: post.title,
+              excerpt: post.excerpt,
+              date: post.date,
+              category: post.category,
+              thumbnail: post.thumbnail ?? undefined,
+            }))}
+            locale={locale}
+          />
         </section>
       ) : (
         <div className={styles.empty}>

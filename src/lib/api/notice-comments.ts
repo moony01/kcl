@@ -131,3 +131,36 @@ export async function getNoticeCommentCount(announcementId: string): Promise<num
 
   return data || 0;
 }
+
+/**
+ * 여러 공지사항의 댓글 수를 한번에 배치 조회
+ * 목록 페이지에서 각 게시글의 댓글 수를 효율적으로 가져오기 위해 사용
+ * @param announcementIds - 공지사항 UUID 배열
+ * @returns id → 댓글 수 맵 (Record<string, number>)
+ */
+export async function getNoticeCommentCounts(
+  announcementIds: string[],
+): Promise<Record<string, number>> {
+  if (announcementIds.length === 0) return {};
+
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from('kcl_notice_comments')
+    .select('announcement_id')
+    .in('announcement_id', announcementIds)
+    .eq('is_deleted', false);
+
+  if (error) {
+    console.error('[notice-comments] 배치 댓글 수 조회 실패:', error);
+    return {};
+  }
+
+  // announcement_id별로 그룹 카운팅
+  const counts: Record<string, number> = {};
+  for (const row of data || []) {
+    counts[row.announcement_id] = (counts[row.announcement_id] || 0) + 1;
+  }
+
+  return counts;
+}

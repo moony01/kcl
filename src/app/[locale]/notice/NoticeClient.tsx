@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { getAnnouncements } from '@/lib/api/announcements';
+import { getNoticeCommentCounts } from '@/lib/api/notice-comments';
 import type { AnnouncementCategory, AnnouncementListItem } from '@/types/announcement';
 import NoticeList from '@/components/features/notice/NoticeList';
 import CategoryFilter from '@/components/features/notice/CategoryFilter';
@@ -21,17 +22,25 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
   const t = useTranslations('Notice');
 
   const [notices, setNotices] = useState<AnnouncementListItem[]>([]);
+  const [commentCounts, setCommentCounts] = useState<Record<string, number>>({});
   const [selectedCategory, setSelectedCategory] = useState<AnnouncementCategory | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  /** 공지사항 목록 조회 */
+  /** 공지사항 목록 조회 + 댓글 수 배치 조회 */
   const fetchNotices = useCallback(async () => {
     try {
       setLoading(true);
       setError(false);
       const data = await getAnnouncements(selectedCategory);
       setNotices(data);
+
+      // 댓글 수 배치 조회
+      if (data.length > 0) {
+        const ids = data.map((n) => n.id);
+        const counts = await getNoticeCommentCounts(ids);
+        setCommentCounts(counts);
+      }
     } catch {
       setError(true);
     } finally {
@@ -91,6 +100,7 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
               <NoticeList
                 notices={notices}
                 locale={locale}
+                commentCounts={commentCounts}
               />
             )}
           </>
