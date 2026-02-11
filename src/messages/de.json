@@ -169,7 +169,9 @@
       "vote": "Abstimmen",
       "exhausted": "Abgestimmt"
     },
-    "vote_success": "+1 Feuerkraft für {company}"
+    "vote_success": "+1 Feuerkraft für {company}",
+    "sub_label_title": "Sublabels",
+    "sub_label_all": "Alle"
   },
   "Analytics": {
     "title": "Statistiken",

@@ -1,3 +1,11 @@
+/** T1.75: 산하 레이블 UI 타입 */
+export interface SubLabelUI {
+  id: string;
+  nameEn: string;
+  nameKo: string;
+  artists: { en: string[]; ko: string[] };
+}
+
 export interface CompanyType {
   id: string;
   name: { en: string; ko: string };
@@ -11,6 +19,8 @@ export interface CompanyType {
   image: string;
   // 주가 변동 데이터 (30일)
   stockHistory: { date: string; value: number }[];
+  /** T1.75: 산하 레이블 목록 (HYBE, YG 등) */
+  subLabels?: SubLabelUI[];
 }
 
 // Helper to generate random stock history

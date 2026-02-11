@@ -19,12 +19,13 @@
 
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Flame, Check, Timer } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
+import { FEATURES } from '@/config/features';
 import { useVote } from '@/hooks/useVote';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
 import VoteQuotaBar from '@/components/features/vote/VoteQuotaBar';
@@ -55,8 +56,32 @@ export default function VoteController({
   const [chosenArtist, setChosenArtist] = useState<string | null>(selectedArtist || null);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // 아티스트 목록 (영어 기준)
-  const artists = company?.representative.en || [];
+  // T1.75: 선택된 서브레이블 상태 (null = 전체)
+  const [selectedSubLabel, setSelectedSubLabel] = useState<string | null>(null);
+
+  // T1.75: 서브레이블 유무 판단
+  const hasSubLabels = FEATURES.SUB_LABEL_VOTING && (company?.subLabels?.length ?? 0) > 0;
+
+  // T1.75: 소속사 변경 시 서브레이블/아티스트 선택 초기화
+  useEffect(() => {
+    setSelectedSubLabel(null);
+    setChosenArtist(selectedArtist || null);
+  }, [company?.id, selectedArtist]);
+
+  // T1.75: 서브레이블 선택에 따라 아티스트 필터링
+  const artists = useMemo(() => {
+    if (!company) return [];
+
+    // "전체" 모드 또는 서브레이블 없는 소속사: 전체 아티스트 표시
+    // representative.en에 부모 직속 + 서브레이블 그룹이 모두 합산되어 있음
+    if (!hasSubLabels || !selectedSubLabel) {
+      return company.representative.en;
+    }
+
+    // 선택된 서브레이블의 아티스트만 반환
+    const subLabel = company.subLabels?.find((sub) => sub.id === selectedSubLabel);
+    return subLabel?.artists.en || company.representative.en;
+  }, [company, hasSubLabels, selectedSubLabel]);
 
   // props로 전달받은 selectedArtist가 변경되면 반영
   if (selectedArtist && selectedArtist !== chosenArtist) {
@@ -106,6 +131,42 @@ export default function VoteController({
           </div>
         </div>
       </div>
+
+      {/* T1.75: 산하 레이블 선택 칩 (서브레이블이 있는 소속사만 표시) */}
+      {hasSubLabels && company.subLabels && (
+        <div className={styles.subLabelSection}>
+          <p className={styles.subLabelTitle}>{t('sub_label_title')}</p>
+          <div className={styles.subLabelChips}>
+            {/* "전체" 칩 */}
+            <button
+              className={classNames(styles.subLabelChip, {
+                [styles.subLabelSelected]: selectedSubLabel === null,
+              })}
+              onClick={() => {
+                setSelectedSubLabel(null);
+                setChosenArtist(null);
+              }}
+            >
+              {t('sub_label_all')}
+            </button>
+            {/* 개별 서브레이블 칩 */}
+            {company.subLabels.map((sub) => (
+              <button
+                key={sub.id}
+                className={classNames(styles.subLabelChip, {
+                  [styles.subLabelSelected]: selectedSubLabel === sub.id,
+                })}
+                onClick={() => {
+                  setSelectedSubLabel(sub.id);
+                  setChosenArtist(null);
+                }}
+              >
+                {sub.nameEn}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* 아티스트 질문 */}
       <div className={styles.questionSection}>

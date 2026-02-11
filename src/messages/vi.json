@@ -169,7 +169,9 @@
       "vote": "Bình Chọn",
       "exhausted": "Đã Bình Chọn"
     },
-    "vote_success": "+1 Sức Mạnh cho {company}"
+    "vote_success": "+1 Sức Mạnh cho {company}",
+    "sub_label_title": "Nhãn Phụ",
+    "sub_label_all": "Tất cả"
   },
   "Analytics": {
     "title": "Thống Kê",

@@ -8,7 +8,7 @@
  */
 
 import { getSupabase } from '@/lib/supabase/client';
-import type { CompaniesResponse, DBLeagueTier } from '@/types/api';
+import type { CompaniesResponse, DBLeagueTier, SubLabelData } from '@/types/api';
 
 /** 소속사 목록 조회 옵션 */
 export interface GetCompaniesOptions {
@@ -36,7 +36,9 @@ interface CompanyData {
   gradient_color: string | null;
   rank: number;
   firepower: number;
-  league_tier: DBLeagueTier;
+  league_tier: DBLeagueTier | null;
+  /** T1.75: 산하 레이블의 부모 소속사 ID */
+  parent_company_id: string | null;
   groups: GroupData[];
 }
 
@@ -67,7 +69,7 @@ export async function getCompanies(
   const supabase = getSupabase();
 
   try {
-    // Supabase 쿼리 구성
+    // T1.75: Supabase 쿼리 구성 (parent_company_id 포함)
     const query = supabase
       .from('kcl_companies')
       .select(
@@ -81,6 +83,7 @@ export async function getCompanies(
         rank,
         firepower,
         league_tier,
+        parent_company_id,
         groups:kcl_groups (
           id,
           name_ko,
@@ -101,29 +104,70 @@ export async function getCompanies(
       throw error;
     }
 
-    // 전체 회사를 firepower 순으로 정렬 후 순위 부여
     const allCompanies = (rawCompanies || []) as CompanyData[];
 
-    // 데이터 변환: rank 동적 계산 및 그룹 정렬
-    const transformedCompanies = allCompanies.map((company, index) => {
-      // 그룹을 vote_count 기준 정렬 후 상위 4개만
-      const sortedGroups = Array.isArray(company.groups)
-        ? [...company.groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0)).slice(0, 4)
-        : [];
+    // T1.75: 부모 소속사와 서브레이블 분리
+    const parentCompanies = allCompanies.filter((c) => c.parent_company_id === null);
+    const subLabelCompanies = allCompanies.filter((c) => c.parent_company_id !== null);
 
-      return {
-        id: company.id,
-        name_ko: company.name_ko,
-        name_en: company.name_en,
-        slug: company.slug,
-        logo_url: company.logo_url,
-        gradient_color: company.gradient_color,
-        firepower: company.firepower,
-        league_tier: company.league_tier,
-        rank: index + 1, // firepower 순위 (1부터)
-        groups: sortedGroups,
-      };
-    });
+    // T1.75: 서브레이블 그룹을 부모 소속사에 병합 + sub_labels 배열 생성
+    // HYBE 아티스트 0명 문제 해결: 서브레이블의 그룹을 부모에 합산
+    const subLabelsByParent = new Map<string, CompanyData[]>();
+    for (const sub of subLabelCompanies) {
+      const parentId = sub.parent_company_id!;
+      if (!subLabelsByParent.has(parentId)) {
+        subLabelsByParent.set(parentId, []);
+      }
+      subLabelsByParent.get(parentId)!.push(sub);
+    }
+
+    // 데이터 변환: rank 동적 계산, 그룹 정렬, 서브레이블 병합
+    // league_tier === null인 서브레이블은 최종 결과에서 제외 (부모에만 tier 설정됨)
+    const transformedCompanies = parentCompanies
+      .filter((company) => company.league_tier !== null)
+      .map((company, index) => {
+        // 부모 소속사 자체 그룹
+        const ownGroups = Array.isArray(company.groups) ? company.groups : [];
+
+        // T1.75: 서브레이블의 그룹도 부모에 합산
+        const subs = subLabelsByParent.get(company.id) || [];
+        const subLabelGroups = subs.flatMap((sub) =>
+          Array.isArray(sub.groups) ? sub.groups : [],
+        );
+        const allGroups = [...ownGroups, ...subLabelGroups];
+
+        // 그룹을 vote_count 기준 정렬 (전체 목록 유지 — 투표 UI에서 모든 아티스트 필요)
+        const sortedGroups = [...allGroups].sort(
+          (a, b) => (b.vote_count || 0) - (a.vote_count || 0),
+        );
+
+        // T1.75: sub_labels 배열 생성 (서브레이블이 있는 경우만)
+        const subLabels: SubLabelData[] | undefined =
+          subs.length > 0
+            ? subs.map((sub) => ({
+                id: sub.id,
+                name_ko: sub.name_ko,
+                name_en: sub.name_en,
+                groups: Array.isArray(sub.groups)
+                  ? [...sub.groups].sort((a, b) => (b.vote_count || 0) - (a.vote_count || 0))
+                  : [],
+              }))
+            : undefined;
+
+        return {
+          id: company.id,
+          name_ko: company.name_ko,
+          name_en: company.name_en,
+          slug: company.slug,
+          logo_url: company.logo_url,
+          gradient_color: company.gradient_color,
+          firepower: company.firepower,
+          league_tier: company.league_tier as DBLeagueTier,
+          rank: index + 1, // firepower 순위 (1부터)
+          groups: sortedGroups,
+          ...(subLabels && { sub_labels: subLabels }),
+        };
+      });
 
     // 리그 필터 적용
     let companies = transformedCompanies;

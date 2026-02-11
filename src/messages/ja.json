@@ -169,7 +169,9 @@
       "vote": "投票する",
       "exhausted": "投票完了"
     },
-    "vote_success": "{company}に+1パワー"
+    "vote_success": "{company}に+1パワー",
+    "sub_label_title": "サブレーベル",
+    "sub_label_all": "すべて"
   },
   "Analytics": {
     "title": "統計",

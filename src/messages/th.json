@@ -169,7 +169,9 @@
       "vote": "โหวต",
       "exhausted": "โหวตแล้ว"
     },
-    "vote_success": "+1 พลังไฟให้ {company}"
+    "vote_success": "+1 พลังไฟให้ {company}",
+    "sub_label_title": "ค่ายย่อย",
+    "sub_label_all": "ทั้งหมด"
   },
   "Analytics": {
     "title": "สถิติ",

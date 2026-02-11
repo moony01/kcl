@@ -26,6 +26,7 @@ import type {
   PromotionBattles,
   PromotionStatus,
   SeasonInfo,
+  SubLabelInfo,
 } from '@/types/league';
 import type { CompaniesResponse } from '@/types/api';
 import { getCompanies } from '@/lib/api';
@@ -150,6 +151,17 @@ function transformToCompanyRanking(
   const isRelegationZone = false;
   const isPromotionZone = false;
 
+  // T1.75: sub_labels → SubLabelInfo[] 변환
+  const subLabels: SubLabelInfo[] | undefined = company.sub_labels?.map((sub) => ({
+    id: sub.id,
+    nameEn: sub.name_en,
+    nameKo: sub.name_ko,
+    artists: {
+      en: sub.groups?.map((g) => g.name_en) || [],
+      ko: sub.groups?.map((g) => g.name_ko) || [],
+    },
+  }));
+
   return {
     companyId: company.id,
     companyName: company.name_en,
@@ -170,6 +182,7 @@ function transformToCompanyRanking(
       en: company.groups?.map((g) => g.name_en) || [],
       ko: company.groups?.map((g) => g.name_ko) || [],
     },
+    ...(subLabels && subLabels.length > 0 && { subLabels }),
   };
 }
 

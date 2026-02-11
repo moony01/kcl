@@ -169,7 +169,9 @@
       "vote": "투표하기",
       "exhausted": "투표 완료"
     },
-    "vote_success": "{company}에 +1 화력"
+    "vote_success": "{company}에 +1 화력",
+    "sub_label_title": "산하 레이블",
+    "sub_label_all": "전체"
   },
   "Analytics": {
     "title": "통계",

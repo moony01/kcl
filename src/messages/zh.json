@@ -169,7 +169,9 @@
       "vote": "投票",
       "exhausted": "已投票"
     },
-    "vote_success": "{company} +1火力"
+    "vote_success": "{company} +1火力",
+    "sub_label_title": "子厂牌",
+    "sub_label_all": "全部"
   },
   "Analytics": {
     "title": "统计",
