@@ -126,7 +126,11 @@ export default function VoteController({
       {/* 회사 정보 헤더 */}
       <div className={styles.companyHeader}>
         <div className={styles.companyLogo} style={{ background: company.image }}>
-          {company.name.en.charAt(0)}
+          {company.logoUrl ? (
+            <img src={company.logoUrl} alt={company.name.en} className={styles.logoImage} />
+          ) : (
+            company.name.en.charAt(0)
+          )}
         </div>
         <div className={styles.companyInfo}>
           <h3 className={styles.companyName}>{company.name.en}</h3>

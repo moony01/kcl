@@ -149,6 +149,7 @@ $archive-border: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   margin-bottom: 12px;
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  overflow: hidden;
 
   span {
     font-family: $font-display;
@@ -165,6 +166,14 @@ $archive-border: rgba(255, 255, 255, 0.08);
       font-size: 2rem;
     }
   }
+}
+
+// 로고 이미지
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 // 소속사 이름

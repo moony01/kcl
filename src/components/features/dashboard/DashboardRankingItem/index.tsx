@@ -96,7 +96,11 @@ const DashboardRankingItem = forwardRef<HTMLLIElement, DashboardRankingItemProps
           {/* 프로필 영역 */}
           <div className={styles.profile}>
             <div className={styles.avatar} style={{ background: item.image }}>
-              <span className={styles.initial}>{item.name.en.substring(0, 1)}</span>
+              {item.logoUrl ? (
+                <img src={item.logoUrl} alt={item.name.en} className={styles.logoImage} />
+              ) : (
+                <span className={styles.initial}>{item.name.en.substring(0, 1)}</span>
+              )}
             </div>
             <div className={styles.info}>
               <h3 className={styles.name}>{targetName}</h3>

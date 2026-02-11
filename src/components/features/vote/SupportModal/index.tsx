@@ -83,7 +83,11 @@ export default function SupportModal({ isOpen, onClose, companyName, companyId, 
         <div className={styles.content}>
           <div className={styles.targetInfo}>
             <div className={styles.avatar} style={{ background: companyImage }}>
-              {companyName.charAt(0)}
+              {companyImage.startsWith('/') ? (
+                <img src={companyImage} alt={companyName} className={styles.logoImage} />
+              ) : (
+                companyName.charAt(0)
+              )}
             </div>
             <p className={styles.message}>
               Do you want to send firepower to<br />

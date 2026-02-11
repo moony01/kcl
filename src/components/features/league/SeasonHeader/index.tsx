@@ -484,7 +484,11 @@ export default function SeasonHeader({
                     whileHover={{ scale: 1.08, rotate: 3 }}
                     transition={{ type: 'spring', stiffness: 400 }}
                   >
-                    {leader.nameEn.charAt(0)}
+                    {leader.logoUrl ? (
+                      <img src={leader.logoUrl} alt={leader.nameEn} className={styles.logoImage} />
+                    ) : (
+                      leader.nameEn.charAt(0)
+                    )}
                   </motion.div>
 
                   {/* 소속사 이름 (대형 중앙) */}

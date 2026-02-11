@@ -82,7 +82,11 @@ export default function CurrentRaceChart({ year, data, maxWins = 12 }: CurrentRa
               {/* 소속사 정보 */}
               <div className={styles.companyInfo}>
                 <div className={styles.companyLogo} style={{ background: item.companyLogo }}>
-                  <span>{item.companyName.charAt(0)}</span>
+                  {item.companyLogoUrl ? (
+                    <img src={item.companyLogoUrl} alt={item.companyName} className={styles.logoImage} />
+                  ) : (
+                    <span>{item.companyName.charAt(0)}</span>
+                  )}
                 </div>
                 <span className={styles.companyName}>{item.companyName}</span>
               </div>

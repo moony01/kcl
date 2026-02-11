@@ -33,6 +33,8 @@ interface SearchResult {
   companyName: string;
   artistName?: string;
   gradient: string;
+  /** 로고 이미지 URL */
+  logoUrl?: string;
   /** 전체 순위 (#1, #2...) */
   rank: number;
   /** 화력 (투표 수) */
@@ -115,6 +117,7 @@ export default function SearchBar({ onSelect, placeholder }: SearchBarProps) {
           companyId: company.companyId,
           companyName: company.nameEn,
           gradient,
+          logoUrl: company.logoUrl || undefined,
           rank: company.rank,
           voteCount: company.voteCount,
         });
@@ -135,6 +138,7 @@ export default function SearchBar({ onSelect, placeholder }: SearchBarProps) {
               companyName: company.nameEn,
               artistName: artist,
               gradient,
+              logoUrl: company.logoUrl || undefined,
               rank: company.rank,
               voteCount: company.voteCount,
             });
@@ -372,12 +376,16 @@ export default function SearchBar({ onSelect, placeholder }: SearchBarProps) {
                     role="option"
                     aria-selected={isHighlighted(result)}
                   >
-                    {/* 소속사 아바타 (gradient 배경 + 이니셜) */}
+                    {/* 소속사 아바타 (로고 이미지 또는 gradient + 이니셜) */}
                     <div
                       className={styles.resultAvatar}
                       style={{ background: result.gradient }}
                     >
-                      {result.companyName.charAt(0)}
+                      {result.logoUrl ? (
+                        <img src={result.logoUrl} alt={result.companyName} className={styles.avatarImage} />
+                      ) : (
+                        result.companyName.charAt(0)
+                      )}
                     </div>
                     {/* 소속사 정보 */}
                     <div className={styles.resultInfo}>
@@ -417,12 +425,16 @@ export default function SearchBar({ onSelect, placeholder }: SearchBarProps) {
                     role="option"
                     aria-selected={isHighlighted(result)}
                   >
-                    {/* 아티스트 아바타 */}
+                    {/* 아티스트 아바타 (소속사 로고 이미지 또는 이니셜) */}
                     <div
                       className={styles.resultAvatar}
                       style={{ background: result.gradient }}
                     >
-                      {(result.artistName || '?').charAt(0)}
+                      {result.logoUrl ? (
+                        <img src={result.logoUrl} alt={result.companyName} className={styles.avatarImage} />
+                      ) : (
+                        (result.artistName || '?').charAt(0)
+                      )}
                     </div>
                     {/* 아티스트 이름 + 소속사 매핑 표시 */}
                     <div className={styles.resultInfo}>

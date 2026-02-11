@@ -53,7 +53,11 @@ export default function ChampionBadge({ champion, size = 'medium', onClick }: Ch
     >
       {/* 소속사 로고 */}
       <div className={styles.logoWrapper} style={{ background: champion.companyLogo }}>
-        <span className={styles.logoText}>{champion.companyName.charAt(0)}</span>
+        {champion.companyLogoUrl ? (
+          <img src={champion.companyLogoUrl} alt={champion.companyName} className={styles.logoImage} />
+        ) : (
+          <span className={styles.logoText}>{champion.companyName.charAt(0)}</span>
+        )}
       </div>
 
       {/* 월 정보 */}

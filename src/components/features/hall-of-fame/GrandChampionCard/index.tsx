@@ -66,7 +66,11 @@ export default function GrandChampionCard({ champion }: GrandChampionCardProps) 
         transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
       >
         <div className={styles.logoWrapper} style={{ background: champion.companyLogo }}>
-          <span className={styles.logoText}>{champion.companyName.charAt(0)}</span>
+          {champion.companyLogoUrl ? (
+            <img src={champion.companyLogoUrl} alt={champion.companyName} className={styles.logoImage} />
+          ) : (
+            <span className={styles.logoText}>{champion.companyName.charAt(0)}</span>
+          )}
         </div>
         <div className={styles.shineEffect} />
       </motion.div>
