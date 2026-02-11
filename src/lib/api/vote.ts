@@ -87,13 +87,13 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
   }
 
   try {
-    const fingerprint = generateFingerprint();
-
-    // submit_vote_secure RPC: 서버에서 rate limit + firepower 증가 + 투표 기록을 원자적으로 처리
+    // T1.82: 서버 fingerprint 체크 비활성화 — localStorage 기반 쿼타만 사용
+    // 사용자 수가 적은 초기 단계에서는 클라이언트 제한으로 충분
+    // 추후 사용자 증가 시 fingerprint 기반 서버 제한 재활성화 예정
     const { data, error } = await supabase.rpc('submit_vote_secure', {
       p_company_id: companyId,
       p_group_id: groupId || null,
-      p_fingerprint: fingerprint || null,
+      p_fingerprint: null,
     });
 
     if (error) {
