@@ -132,6 +132,13 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         ? companyRanking.gradientColor
         : `linear-gradient(135deg, ${companyRanking.gradientColor} 0%, #1A1A1A 100%)`,
       stockHistory: [],
+      // T1.75: 산하 레이블 매핑
+      subLabels: companyRanking.subLabels?.map((sub) => ({
+        id: sub.id,
+        nameEn: sub.nameEn,
+        nameKo: sub.nameKo,
+        artists: sub.artists,
+      })),
     };
   }, [selectedCompanyId, allCompanies]);
 

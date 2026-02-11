@@ -169,7 +169,9 @@
       "vote": "Vote",
       "exhausted": "Sudah Vote"
     },
-    "vote_success": "+1 Firepower untuk {company}"
+    "vote_success": "+1 Firepower untuk {company}",
+    "sub_label_title": "Sub Label",
+    "sub_label_all": "Semua"
   },
   "Analytics": {
     "title": "Statistik",

@@ -79,6 +79,52 @@
   }
 }
 
+// T1.75: 산하 레이블 선택 섹션
+.subLabelSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subLabelTitle {
+  font-size: 0.8rem;
+  color: $color-text-dim;
+  margin: 0;
+  font-weight: 500;
+}
+
+.subLabelChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.subLabelChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba($color-border, 1);
+  background: rgba($color-text, 0.03);
+  color: $color-text;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.5);
+    background: rgba($color-primary, 0.05);
+  }
+
+  &.subLabelSelected {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.15);
+    color: $color-primary;
+    font-weight: 600;
+  }
+}
+
 // 질문 섹션
 .questionSection {
   display: flex;

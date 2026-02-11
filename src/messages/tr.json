@@ -169,7 +169,9 @@
       "vote": "Oy Ver",
       "exhausted": "Oy Verildi"
     },
-    "vote_success": "{company} için +1 Güç"
+    "vote_success": "{company} için +1 Güç",
+    "sub_label_title": "Alt Etiketler",
+    "sub_label_all": "Tümü"
   },
   "Analytics": {
     "title": "İstatistikler",

@@ -65,6 +65,13 @@ export const FEATURES = {
    * - 상태: Phase 2에서 활성화 예정
    */
   AUTH_SYSTEM: false,
+
+  /**
+   * T1.75: 산하 레이블 투표 UI (Sub-Label Voting)
+   * - HYBE(6개 산하), YG(1개 산하) 투표 시 서브레이블 필터 표시
+   * - 투표는 항상 부모 소속사에 귀속, 서브레이블은 UI 필터 역할만
+   */
+  SUB_LABEL_VOTING: true,
 } as const;
 
 /** Feature Flag 타입 */

@@ -45,6 +45,18 @@ export interface SeasonInfo {
   isActive: boolean;
 }
 
+/** T1.75: 산하 레이블 정보 (UI용) */
+export interface SubLabelInfo {
+  id: string;
+  nameEn: string;
+  nameKo: string;
+  /** 해당 서브레이블 소속 아티스트 */
+  artists: {
+    en: string[];
+    ko: string[];
+  };
+}
+
 /** 소속사 순위 정보 */
 export interface CompanyRanking {
   companyId: string;
@@ -73,6 +85,9 @@ export interface CompanyRanking {
     en: string[];
     ko: string[];
   };
+
+  /** T1.75: 산하 레이블 목록 (없으면 undefined) */
+  subLabels?: SubLabelInfo[];
 }
 
 /** 승강전 정보 (직행 승강전: 10위 vs 1위) */

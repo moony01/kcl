@@ -20,8 +20,18 @@ export interface DBCompany {
   firepower: number;
   /** T1.53: 리그 티어 (시즌 중 고정, 월초 승강) */
   league_tier: DBLeagueTier;
+  /** T1.75: 산하 레이블의 부모 소속사 ID (null이면 최상위 소속사) */
+  parent_company_id: string | null;
   created_at: string;
   updated_at: string;
+}
+
+/** T1.75: 산하 레이블 데이터 (API 응답용) */
+export interface SubLabelData {
+  id: string;
+  name_ko: string;
+  name_en: string;
+  groups: Pick<DBGroup, 'id' | 'name_ko' | 'name_en' | 'vote_count'>[];
 }
 
 /** Supabase kcl_groups 테이블 스키마 */
@@ -55,6 +65,8 @@ export interface CompaniesResponse {
     | 'league_tier'
   > & {
     groups: Pick<DBGroup, 'id' | 'name_ko' | 'name_en' | 'vote_count'>[];
+    /** T1.75: 산하 레이블 목록 (HYBE, YG 등 산하가 있는 소속사만) */
+    sub_labels?: SubLabelData[];
   })[];
   totalCount: number;
   updatedAt: string;

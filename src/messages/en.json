@@ -169,7 +169,9 @@
       "vote": "Vote",
       "exhausted": "Voted"
     },
-    "vote_success": "+1 Firepower for {company}"
+    "vote_success": "+1 Firepower for {company}",
+    "sub_label_title": "Sub Labels",
+    "sub_label_all": "All"
   },
   "Analytics": {
     "title": "Analytics",

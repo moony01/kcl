@@ -169,7 +169,9 @@
       "vote": "Voter",
       "exhausted": "Voté"
     },
-    "vote_success": "+1 Puissance pour {company}"
+    "vote_success": "+1 Puissance pour {company}",
+    "sub_label_title": "Sous-labels",
+    "sub_label_all": "Tous"
   },
   "Analytics": {
     "title": "Statistiques",

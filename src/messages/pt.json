@@ -169,7 +169,9 @@
       "vote": "Votar",
       "exhausted": "Votado"
     },
-    "vote_success": "+1 Potência para {company}"
+    "vote_success": "+1 Potência para {company}",
+    "sub_label_title": "Sub Selos",
+    "sub_label_all": "Todos"
   },
   "Analytics": {
     "title": "Estatísticas",
