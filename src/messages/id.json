@@ -91,7 +91,8 @@
     "readMore": "Baca selengkapnya",
     "sharePrompt": "Suka artikel ini? Bagikan dengan penggemar K-pop lainnya!",
     "views": "{count} dilihat",
-    "relatedNews": "Berita Lainnya"
+    "relatedNews": "Berita Lainnya",
+    "category_all": "Semua"
   },
   "NewsComments": {
     "title": "Komentar",

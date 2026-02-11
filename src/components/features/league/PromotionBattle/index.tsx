@@ -57,7 +57,11 @@ export default function PromotionBattle({ battle, onVote }: PromotionBattleProps
             <span>10위 강등 위기</span>
           </div>
           <div className={styles.logo} style={{ background: relegationCompany.gradientColor }}>
-            {relegationCompany.nameEn.charAt(0)}
+            {relegationCompany.logoUrl ? (
+              <img src={relegationCompany.logoUrl} alt={relegationCompany.nameEn} className={styles.logoImage} />
+            ) : (
+              relegationCompany.nameEn.charAt(0)
+            )}
           </div>
           <h3 className={styles.companyName}>{relegationCompany.nameEn}</h3>
           <p className={styles.voteCount}>
@@ -96,7 +100,11 @@ export default function PromotionBattle({ battle, onVote }: PromotionBattleProps
             <span>11위 승격 기회</span>
           </div>
           <div className={styles.logo} style={{ background: promotionCompany.gradientColor }}>
-            {promotionCompany.nameEn.charAt(0)}
+            {promotionCompany.logoUrl ? (
+              <img src={promotionCompany.logoUrl} alt={promotionCompany.nameEn} className={styles.logoImage} />
+            ) : (
+              promotionCompany.nameEn.charAt(0)
+            )}
           </div>
           <h3 className={styles.companyName}>{promotionCompany.nameEn}</h3>
           <p className={styles.voteCount}>

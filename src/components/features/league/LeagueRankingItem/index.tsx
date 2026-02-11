@@ -154,7 +154,11 @@ export default function LeagueRankingItem({
       {/* 회사 정보 */}
       <div className={styles.companyInfo}>
         <div className={styles.logo} style={{ background: company.gradientColor }}>
-          {company.nameEn.charAt(0)}
+          {company.logoUrl ? (
+            <img src={company.logoUrl} alt={company.nameEn} className={styles.logoImage} />
+          ) : (
+            company.nameEn.charAt(0)
+          )}
         </div>
         <div className={styles.textInfo}>
           <h4 className={styles.companyName}>{company.nameEn}</h4>

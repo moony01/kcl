@@ -171,6 +171,14 @@ $bronze: #cd7f32;
   }
 }
 
+// 로고 이미지 (logo_url이 있을 때)
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
 .glow {
   position: absolute;
   top: 10%;
