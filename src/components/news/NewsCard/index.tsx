@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import ExportedImage from 'next-image-export-optimizer';
-import { Calendar, Tag } from 'lucide-react';
+import { Calendar, Tag, MessageCircle } from 'lucide-react';
 import NewsViewCounter from '@/components/news/NewsViewCounter';
 import styles from './NewsCard.module.scss';
 
@@ -24,6 +24,8 @@ interface NewsCardProps {
   thumbnail?: string;
   /** 언어 코드 */
   locale: string;
+  /** 댓글 수 (목록에서 배치 조회) */
+  commentCount?: number;
 }
 
 /**
@@ -38,6 +40,7 @@ export default function NewsCard({
   category = 'General',
   thumbnail,
   locale,
+  commentCount,
 }: NewsCardProps) {
   // 날짜 포맷팅 (YYYY-MM-DD → 로케일에 맞게)
   const formattedDate = new Date(date).toLocaleDateString(locale, {
@@ -86,7 +89,15 @@ export default function NewsCard({
             <Calendar size={14} />
             <span>{formattedDate}</span>
           </div>
-          <NewsViewCounter slug={slug} iconSize={12} />
+          <div className={styles.metaRight}>
+            {(commentCount ?? 0) > 0 && (
+              <span className={styles.commentCount}>
+                <MessageCircle size={12} />
+                <span>{commentCount}</span>
+              </span>
+            )}
+            <NewsViewCounter slug={slug} iconSize={12} />
+          </div>
         </div>
       </div>
     </Link>

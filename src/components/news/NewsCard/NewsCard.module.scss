@@ -134,3 +134,23 @@
     opacity: 0.7;
   }
 }
+
+/* 메타 우측 (댓글수 + 조회수) */
+.metaRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 댓글 수 */
+.commentCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+
+  svg {
+    opacity: 0.7;
+  }
+}

@@ -136,3 +136,36 @@ export async function getNewsCommentCount(slug: string): Promise<number> {
 
   return data || 0;
 }
+
+/**
+ * 여러 뉴스의 댓글 수를 한번에 배치 조회
+ * 목록 페이지에서 각 뉴스 기사의 댓글 수를 효율적으로 가져오기 위해 사용
+ * @param slugs - 뉴스 slug 배열
+ * @returns slug → 댓글 수 맵 (Record<string, number>)
+ */
+export async function getNewsCommentCounts(
+  slugs: string[],
+): Promise<Record<string, number>> {
+  if (slugs.length === 0) return {};
+
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from('kcl_news_comments')
+    .select('slug')
+    .in('slug', slugs)
+    .eq('is_deleted', false);
+
+  if (error) {
+    console.error('[news-comments] 배치 댓글 수 조회 실패:', error);
+    return {};
+  }
+
+  // slug별로 그룹 카운팅
+  const counts: Record<string, number> = {};
+  for (const row of data || []) {
+    counts[row.slug] = (counts[row.slug] || 0) + 1;
+  }
+
+  return counts;
+}

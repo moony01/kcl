@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Pin } from 'lucide-react';
+import { Pin, MessageCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import type { AnnouncementListItem } from '@/types/announcement';
@@ -10,13 +10,14 @@ import styles from './NoticeList.module.scss';
 interface NoticeListProps {
   notices: AnnouncementListItem[];
   locale: string;
+  commentCounts?: Record<string, number>;
 }
 
 /**
  * 공지사항 목록 컴포넌트
  * 클릭 시 /notice/[id] 상세 페이지로 이동
  */
-export default function NoticeList({ notices, locale }: NoticeListProps) {
+export default function NoticeList({ notices, locale, commentCounts = {} }: NoticeListProps) {
   const t = useTranslations('Notice');
 
   /** 카테고리 라벨 매핑 */
@@ -60,6 +61,12 @@ export default function NoticeList({ notices, locale }: NoticeListProps) {
           <div className={styles.itemMeta}>
             <span>{formatDate(notice.created_at)}</span>
             <span>{t('views', { count: notice.view_count })}</span>
+            {(commentCounts[notice.id] ?? 0) > 0 && (
+              <span className={styles.commentCount}>
+                <MessageCircle size={12} />
+                {commentCounts[notice.id]}
+              </span>
+            )}
           </div>
         </Link>
       ))}
