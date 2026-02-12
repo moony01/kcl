@@ -121,6 +121,17 @@
   }
 }
 
+// 댓글 섹션 (팬 토크)
+.commentsSection {
+  width: 100%;
+  padding: 0 0 16px;
+
+  @media (min-width: 1024px) {
+    max-width: 900px;
+    padding: 0 0 24px;
+  }
+}
+
 // ===== 기존 스타일 호환성 (deprecated) =====
 // 아래 클래스들은 더 이상 사용되지 않거나 하위 호환을 위해 남겨둠
 

@@ -1,0 +1,315 @@
+/**
+ * 메인 페이지 댓글 섹션 스타일
+ * 뉴스 댓글과 동일 패턴, 메인 페이지 레이아웃에 맞게 조정
+ */
+
+.commentsSection {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  svg {
+    color: var(--color-primary);
+  }
+}
+
+.commentCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 11px;
+}
+
+/* 댓글 작성 폼 */
+.commentForm {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 1rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  &:last-of-type {
+    margin-bottom: 8px;
+  }
+}
+
+.inputField {
+  flex: 1;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+}
+
+.textareaField {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  min-height: 72px;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.charCount {
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.errorText {
+  font-size: 12px;
+  color: var(--color-danger);
+  margin: 4px 0 8px;
+}
+
+/* 댓글 목록 */
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentItem {
+  padding: 12px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.authorName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.commentDate {
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+.deleteButton {
+  margin-left: auto;
+  padding: 4px;
+  color: var(--color-text-dim);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+    color: var(--color-danger);
+  }
+}
+
+.commentContent {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 로딩/빈 상태 */
+.loadingState,
+.emptyState {
+  text-align: center;
+  padding: 1.5rem;
+
+  p {
+    font-size: 13px;
+    color: var(--color-text-dim);
+    margin: 0;
+  }
+}
+
+/* 삭제 모달 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 8px;
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--color-text-dim);
+    margin: 0 0 16px;
+  }
+
+  .inputField {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+.modalActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.cancelButton {
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--color-text-dim);
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.confirmDeleteButton {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  background: var(--color-danger);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .formRow {
+    flex-direction: column;
+  }
+}
