@@ -101,7 +101,9 @@ export default function HomeComments() {
       if (newComment) {
         // 목록 상단에 추가
         setComments((prev) => [newComment, ...prev]);
-        // content만 초기화 (닉네임/비밀번호 유지)
+        // 모든 입력 필드 초기화
+        setAuthorName('');
+        setPassword('');
         setContent('');
         setLastSubmitTime(now);
       } else {
