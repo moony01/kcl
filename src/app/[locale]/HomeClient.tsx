@@ -40,6 +40,9 @@ import PremierLeague from '@/components/features/league/PremierLeague';
 const Challengers = dynamic(() => import('@/components/features/league/Challengers'), {
   ssr: false,
 });
+const HomeComments = dynamic(() => import('@/components/features/home/HomeComments'), {
+  ssr: false,
+});
 
 import styles from './page.module.scss';
 
@@ -300,6 +303,11 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
           </StickyPanel>
         </aside>
       </div>
+
+      {/* 팬 토크 (댓글 섹션) */}
+      <section className={styles.commentsSection}>
+        <HomeComments />
+      </section>
 
       {/* 모바일 투표 BottomSheet */}
       <BottomSheet
