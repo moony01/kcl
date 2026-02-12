@@ -5,6 +5,7 @@ import { Inter, Montserrat } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { SWRProvider } from '@/components/providers/SWRProvider';
+import AuthProvider from '@/components/providers/AuthProvider';
 import AppShell from '@/components/layout/AppShell';
 import '@/styles/main.scss';
 import '@/styles/layout/_app-shell.scss';
@@ -117,7 +118,9 @@ export default async function LocaleLayout({
         >
           <SWRProvider>
             <NextIntlClientProvider messages={messages}>
-              <AppShell>{children}</AppShell>
+              <AuthProvider>
+                <AppShell>{children}</AppShell>
+              </AuthProvider>
             </NextIntlClientProvider>
           </SWRProvider>
         </ThemeProvider>
