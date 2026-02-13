@@ -7,6 +7,7 @@
  * 생성 파일:
  * - src/generated/news-meta.json: 목록용 메타데이터
  * - src/generated/news-content/{locale}/{slug}.json: 본문 포함 상세 데이터
+ * - public/api/news.json: 외부 연동용 공개 API (영어, active 뉴스만)
  *
  * @example
  * ```bash
@@ -28,6 +29,9 @@ const CONTENT_DIR = path.join(__dirname, '../src/content/news');
 const OUTPUT_DIR = path.join(__dirname, '../src/generated');
 const META_OUTPUT = path.join(OUTPUT_DIR, 'news-meta.json');
 const CONTENT_OUTPUT_DIR = path.join(OUTPUT_DIR, 'news-content');
+// 외부 연동용 공개 API JSON 경로
+const PUBLIC_API_DIR = path.join(__dirname, '../public/api');
+const PUBLIC_API_OUTPUT = path.join(PUBLIC_API_DIR, 'news.json');
 
 /**
  * 디렉토리가 없으면 재귀적으로 생성
@@ -131,9 +135,24 @@ function main() {
   // news-meta.json 저장
   fs.writeFileSync(META_OUTPUT, JSON.stringify(allNewsMeta, null, 2), 'utf8');
 
+  // 외부 연동용 공개 API JSON 생성 (영어 + active 뉴스만)
+  ensureDir(PUBLIC_API_DIR);
+  const publicApiData = allNewsMeta
+    .filter((item) => item.locale === 'en' && item.active !== false)
+    .map((item) => ({
+      title: item.title,
+      summary: item.excerpt,
+      slug: item.slug,
+      date: item.date,
+      category: item.category,
+      url: `https://www.kclhq.com/en/news/${item.slug}`,
+    }));
+  fs.writeFileSync(PUBLIC_API_OUTPUT, JSON.stringify(publicApiData, null, 2), 'utf8');
+
   console.log(`\n✅ 생성 완료!`);
   console.log(`   - 메타데이터: ${path.relative(process.cwd(), META_OUTPUT)}`);
   console.log(`   - 콘텐츠: ${path.relative(process.cwd(), CONTENT_OUTPUT_DIR)}/`);
+  console.log(`   - 공개 API: ${path.relative(process.cwd(), PUBLIC_API_OUTPUT)} (${publicApiData.length}개)`);
   console.log(`   - 총 ${allNewsMeta.length}개 뉴스 처리됨\n`);
 }
 
