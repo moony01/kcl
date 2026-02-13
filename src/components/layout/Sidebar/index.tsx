@@ -1,17 +1,32 @@
 'use client';
 
+/**
+ * Sidebar - 데스크탑 좌측 네비게이션 컴포넌트
+ *
+ * 인스타그램 스타일의 좌측 고정 네비게이션입니다.
+ * Feature Flags에 따라 메뉴를 동적으로 표시하며,
+ * AUTH_SYSTEM 활성화 시 하단에 인증 영역을 표시합니다.
+ *
+ * 반응형:
+ * - Mobile(<768px): 숨김
+ * - Tablet(768px-1263px): 아이콘만 표시, 호버 시 확장
+ * - Desktop(1264px+): 아이콘 + 레이블 고정
+ */
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Home, BarChart3, Trophy, Newspaper, Bell } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, Bell, LogIn, LogOut, User } from 'lucide-react';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
+import { useAuth } from '@/hooks/useAuth';
 import styles from './Sidebar.module.scss';
 
 export default function Sidebar() {
   const t = useTranslations('Nav');
   const pathname = usePathname();
   const locale = pathname?.split('/')[1] || 'ko';
+  const { profile, isAuthenticated, signOut } = useAuth();
 
   const isActive = (path: string) => {
     if (path === '/') {
@@ -71,6 +86,56 @@ export default function Sidebar() {
           </Link>
         ))}
       </nav>
+
+      {/* 인증 영역 (AUTH_SYSTEM 플래그 활성화 시 표시) */}
+      {FEATURES.AUTH_SYSTEM && (
+        <div className={styles.authSection}>
+          {isAuthenticated ? (
+            <>
+              {/* 프로필 정보 */}
+              <Link
+                href={`/${locale}/my`}
+                className={classNames(styles.navItem, styles.profileItem)}
+              >
+                <div className={styles.iconWrapper}>
+                  {profile?.avatar_url ? (
+                    <img
+                      src={profile.avatar_url}
+                      alt={profile.username}
+                      className={styles.avatar}
+                    />
+                  ) : (
+                    <User className={styles.icon} />
+                  )}
+                </div>
+                <span className={styles.label}>{profile?.username || t('my')}</span>
+              </Link>
+
+              {/* 로그아웃 버튼 */}
+              <button
+                onClick={signOut}
+                className={classNames(styles.navItem, styles.logoutBtn)}
+              >
+                <div className={styles.iconWrapper}>
+                  <LogOut className={styles.icon} />
+                </div>
+                <span className={styles.label}>{t('logout')}</span>
+              </button>
+            </>
+          ) : (
+            /* 로그인 버튼 */
+            <Link
+              href={`/${locale}/login`}
+              className={classNames(styles.navItem, styles.loginBtn)}
+            >
+              <div className={styles.iconWrapper}>
+                <LogIn className={styles.icon} />
+              </div>
+              <span className={styles.label}>{t('login')}</span>
+            </Link>
+          )}
+        </div>
+      )}
     </aside>
   );
 }

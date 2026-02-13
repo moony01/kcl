@@ -62,9 +62,9 @@ export const FEATURES = {
   /**
    * 프로필/로그인 (Profile/Auth)
    * - 경로: /[locale]/profile, /[locale]/login
-   * - 상태: Phase 2에서 활성화 예정
+   * - 상태: T1.70에서 활성화 (Google/Kakao OAuth + 이메일 로그인)
    */
-  AUTH_SYSTEM: false,
+  AUTH_SYSTEM: true,
 
   /**
    * T1.75: 산하 레이블 투표 UI (Sub-Label Voting)

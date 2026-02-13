@@ -18,8 +18,8 @@ import styles from './HomeComments.module.scss';
 /** 스팸 방지: 최소 작성 간격 (ms) */
 const MIN_SUBMIT_INTERVAL = 5000;
 
-/** 페이지당 댓글 수 */
-const PAGE_SIZE = 20;
+/** 페이지당 댓글 수 (11개부터 2페이지 표시) */
+const PAGE_SIZE = 10;
 
 /**
  * 메인 페이지 댓글 컴포넌트

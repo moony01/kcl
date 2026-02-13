@@ -1,15 +1,31 @@
 'use client';
 
+/**
+ * Header - 상단 헤더 컴포넌트
+ *
+ * 모바일에서는 로고 + 컨트롤 영역을 표시하고,
+ * 데스크탑에서는 컨트롤 영역만 우측 상단에 표시합니다.
+ *
+ * AUTH_SYSTEM 활성화 시:
+ * - 미인증: LogIn 아이콘
+ * - 인증됨: 아바타 썸네일
+ * - ThemeToggle과 LangSelect 사이에 배치
+ */
+
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { LogIn, User } from 'lucide-react';
 import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
+import { FEATURES } from '@/config/features';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Header() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const { profile, isAuthenticated } = useAuth();
 
   const changeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
@@ -19,16 +35,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      {/* 
-        Logo is mainly handled by Sidebar on Desktop. 
-        On Mobile, we might want to keep KCL logo or title.
-        But for now, Sidebar is hidden on mobile, so we need a header? 
-        Actually, AppShell Logic:
-        Sidebar (Desktop) / BottomNav (Mobile).
-        If BottomNav is used, where is the top bar? 
-        Instagram has a top bar on mobile with kcl logo.
-        So let's keep logo but remove Theme Toggle as requested.
-      */}
+      {/* 모바일 로고 (데스크탑에서는 사이드바에 로고가 있으므로 숨김) */}
       <Link href="/" className={styles.logoWrapper}>
         <img
           src="/kcl-logo.svg"
@@ -43,6 +50,26 @@ export default function Header() {
       <div className={styles.controls}>
         {/* 테마 토글 버튼 (다크/라이트 모드 전환) */}
         <ThemeToggle compact className={styles.themeToggle} />
+
+        {/* 프로필/로그인 버튼 (AUTH_SYSTEM 활성화 시) */}
+        {FEATURES.AUTH_SYSTEM && (
+          <Link
+            href={`/${locale}${isAuthenticated ? '/my' : '/login'}`}
+            className={styles.profileBtn}
+          >
+            {isAuthenticated && profile?.avatar_url ? (
+              <img
+                src={profile.avatar_url}
+                alt={profile.username}
+                className={styles.profileAvatar}
+              />
+            ) : isAuthenticated ? (
+              <User size={18} />
+            ) : (
+              <LogIn size={18} />
+            )}
+          </Link>
+        )}
 
         <select value={locale} onChange={changeLang} className={styles.langSelect}>
           <option value="ko">한국어</option>

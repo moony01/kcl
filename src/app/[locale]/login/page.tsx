@@ -9,7 +9,6 @@
 import { Metadata } from 'next';
 import AuthLayout from '@/components/features/auth/AuthLayout';
 import LoginForm from '@/components/features/auth/LoginForm';
-import Link from 'next/link';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 
@@ -40,13 +39,7 @@ export async function generateMetadata({ params }: LoginPageProps): Promise<Meta
 
 export default function LoginPage({ params }: LoginPageProps) {
   return (
-    <AuthLayout
-      footerLink={
-        <>
-          계정이 없으신가요? <Link href="/signup">가입하기</Link>
-        </>
-      }
-    >
+    <AuthLayout>
       <LoginForm />
     </AuthLayout>
   );
