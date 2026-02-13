@@ -161,7 +161,10 @@
     "error_too_fast": "กรุณารอสักครู่ก่อนโพสต์อีกครั้ง",
     "error_submit_failed": "โพสต์ความคิดเห็นไม่สำเร็จ",
     "error_wrong_password": "รหัสผ่านไม่ถูกต้อง",
-    "error_delete_failed": "ลบไม่สำเร็จ"
+    "error_delete_failed": "ลบไม่สำเร็จ",
+    "like": "ถูกใจ",
+    "liked": "ยกเลิกถูกใจ",
+    "show_more": "ดูเพิ่มเติม"
   },
   "Company": {
     "detail": "รายละเอียดบริษัท",
@@ -506,5 +509,31 @@
     "pinned": "ปักหมุด",
     "back_to_list": "กลับไปยังรายการ",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "เข้าสู่ระบบด้วย Google",
+    "kakao_login": "เข้าสู่ระบบด้วย Kakao",
+    "email_placeholder": "อีเมล",
+    "password_placeholder": "รหัสผ่าน",
+    "username_placeholder": "ชื่อผู้ใช้",
+    "login_button": "เข้าสู่ระบบ",
+    "signup_button": "สมัครสมาชิก",
+    "logout": "ออกจากระบบ",
+    "or_divider": "หรือ",
+    "forgot_password": "ลืมรหัสผ่าน?",
+    "no_account": "ยังไม่มีบัญชี?",
+    "has_account": "มีบัญชีอยู่แล้ว?",
+    "logging_in": "กำลังดำเนินการ...",
+    "signing_up": "กำลังสมัคร...",
+    "callback_loading": "กำลังเข้าสู่ระบบ...",
+    "callback_error": "เกิดข้อผิดพลาดระหว่างการยืนยันตัวตน",
+    "error_invalid_credentials": "อีเมลหรือรหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง",
+    "error_generic": "เกิดข้อผิดพลาด กรุณาลองอีกครั้ง",
+    "error_email_invalid": "กรุณากรอกอีเมลที่ถูกต้อง",
+    "error_username_min": "ชื่อผู้ใช้ต้องมีอย่างน้อย 3 ตัวอักษร",
+    "error_password_min": "รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร",
+    "signup_subtitle": "สมัครสมาชิกเพื่อเชื่อมต่อกับแฟนคนอื่นๆ",
+    "signup_terms": "การสมัครสมาชิกหมายความว่าคุณยอมรับข้อกำหนดการให้บริการและนโยบายความเป็นส่วนตัวของ KCL",
+    "profile": "โปรไฟล์"
   }
 }

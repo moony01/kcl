@@ -161,7 +161,10 @@
     "error_too_fast": "Please wait a moment before posting again.",
     "error_submit_failed": "Failed to post comment.",
     "error_wrong_password": "Incorrect password.",
-    "error_delete_failed": "Failed to delete comment."
+    "error_delete_failed": "Failed to delete comment.",
+    "like": "Like",
+    "liked": "Unlike",
+    "show_more": "Show more"
   },
   "Company": {
     "detail": "Company Details",
@@ -506,5 +509,31 @@
     "pinned": "Pinned",
     "back_to_list": "Back to list",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Sign in with Google",
+    "kakao_login": "Sign in with Kakao",
+    "email_placeholder": "Email address",
+    "password_placeholder": "Password",
+    "username_placeholder": "Username",
+    "login_button": "Log in",
+    "signup_button": "Sign up",
+    "logout": "Log out",
+    "or_divider": "or",
+    "forgot_password": "Forgot password?",
+    "no_account": "Don't have an account?",
+    "has_account": "Already have an account?",
+    "logging_in": "Logging in...",
+    "signing_up": "Signing up...",
+    "callback_loading": "Signing in...",
+    "callback_error": "An error occurred during authentication.",
+    "error_invalid_credentials": "Incorrect email or password. Please try again.",
+    "error_generic": "An error occurred. Please try again.",
+    "error_email_invalid": "Please enter a valid email.",
+    "error_username_min": "Username must be at least 3 characters.",
+    "error_password_min": "Password must be at least 6 characters.",
+    "signup_subtitle": "Sign up to connect with other fans.",
+    "signup_terms": "By signing up, you agree to KCL's Terms of Service and Privacy Policy.",
+    "profile": "Profile"
   }
 }

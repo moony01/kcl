@@ -161,7 +161,10 @@
     "error_too_fast": "Bitte warten Sie einen Moment, bevor Sie erneut posten.",
     "error_submit_failed": "Kommentar konnte nicht gepostet werden.",
     "error_wrong_password": "Falsches Passwort.",
-    "error_delete_failed": "Löschen fehlgeschlagen."
+    "error_delete_failed": "Löschen fehlgeschlagen.",
+    "like": "Gefällt mir",
+    "liked": "Gefällt mir nicht mehr",
+    "show_more": "Mehr anzeigen"
   },
   "Company": {
     "detail": "Firmendetails",
@@ -506,5 +509,31 @@
     "pinned": "Angepinnt",
     "back_to_list": "Zurück zur Liste",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Mit Google anmelden",
+    "kakao_login": "Mit Kakao anmelden",
+    "email_placeholder": "E-Mail-Adresse",
+    "password_placeholder": "Passwort",
+    "username_placeholder": "Benutzername",
+    "login_button": "Anmelden",
+    "signup_button": "Registrieren",
+    "logout": "Abmelden",
+    "or_divider": "oder",
+    "forgot_password": "Passwort vergessen?",
+    "no_account": "Noch kein Konto?",
+    "has_account": "Bereits ein Konto?",
+    "logging_in": "Verarbeitung...",
+    "signing_up": "Registrierung...",
+    "callback_loading": "Anmeldung läuft...",
+    "callback_error": "Bei der Authentifizierung ist ein Fehler aufgetreten.",
+    "error_invalid_credentials": "E-Mail oder Passwort falsch. Bitte versuchen Sie es erneut.",
+    "error_generic": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "error_email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "error_username_min": "Der Benutzername muss mindestens 3 Zeichen lang sein.",
+    "error_password_min": "Das Passwort muss mindestens 6 Zeichen lang sein.",
+    "signup_subtitle": "Registrieren Sie sich, um sich mit anderen Fans zu verbinden.",
+    "signup_terms": "Mit der Registrierung stimmen Sie den Nutzungsbedingungen und der Datenschutzrichtlinie von KCL zu.",
+    "profile": "Profil"
   }
 }

@@ -161,7 +161,10 @@
     "error_too_fast": "Vui lòng đợi một lát trước khi đăng lại.",
     "error_submit_failed": "Đăng bình luận thất bại.",
     "error_wrong_password": "Mật khẩu không đúng.",
-    "error_delete_failed": "Xóa thất bại."
+    "error_delete_failed": "Xóa thất bại.",
+    "like": "Thích",
+    "liked": "Bỏ thích",
+    "show_more": "Xem thêm"
   },
   "Company": {
     "detail": "Chi Tiết Công Ty",
@@ -506,5 +509,31 @@
     "pinned": "Ghim",
     "back_to_list": "Quay lại danh sách",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Đăng nhập bằng Google",
+    "kakao_login": "Đăng nhập bằng Kakao",
+    "email_placeholder": "Địa chỉ email",
+    "password_placeholder": "Mật khẩu",
+    "username_placeholder": "Tên người dùng",
+    "login_button": "Đăng nhập",
+    "signup_button": "Đăng ký",
+    "logout": "Đăng xuất",
+    "or_divider": "hoặc",
+    "forgot_password": "Quên mật khẩu?",
+    "no_account": "Chưa có tài khoản?",
+    "has_account": "Đã có tài khoản?",
+    "logging_in": "Đang xử lý...",
+    "signing_up": "Đang đăng ký...",
+    "callback_loading": "Đang đăng nhập...",
+    "callback_error": "Đã xảy ra lỗi trong quá trình xác thực.",
+    "error_invalid_credentials": "Email hoặc mật khẩu không đúng. Vui lòng thử lại.",
+    "error_generic": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "error_email_invalid": "Vui lòng nhập email hợp lệ.",
+    "error_username_min": "Tên người dùng phải có ít nhất 3 ký tự.",
+    "error_password_min": "Mật khẩu phải có ít nhất 6 ký tự.",
+    "signup_subtitle": "Đăng ký để kết nối với những người hâm mộ khác.",
+    "signup_terms": "Bằng việc đăng ký, bạn đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của KCL.",
+    "profile": "Hồ sơ"
   }
 }

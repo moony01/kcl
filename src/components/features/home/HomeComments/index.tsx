@@ -2,17 +2,24 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { MessageCircle, Trash2, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, Trash2, Send, Loader2, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   getHomeComments,
   createHomeComment,
   deleteHomeComment,
+  getHomeCommentCount,
+  toggleHomeCommentLike,
+  getHomeCommentLikedIds,
   type HomeComment,
 } from '@/lib/api/home-comments';
+import { getFingerprint } from '@/lib/utils/fingerprint';
 import styles from './HomeComments.module.scss';
 
 /** 스팸 방지: 최소 작성 간격 (ms) */
 const MIN_SUBMIT_INTERVAL = 5000;
+
+/** 페이지당 댓글 수 */
+const PAGE_SIZE = 20;
 
 /**
  * 메인 페이지 댓글 컴포넌트
@@ -27,11 +34,19 @@ export default function HomeComments() {
   const [submitting, setSubmitting] = useState(false);
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
+  // 페이징 상태
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+
   // 댓글 작성 폼
   const [authorName, setAuthorName] = useState('');
   const [password, setPassword] = useState('');
   const [content, setContent] = useState('');
   const [formError, setFormError] = useState('');
+
+  // 좋아요 상태
+  const [likedIds, setLikedIds] = useState<Set<string>>(new Set());
+  const [likingId, setLikingId] = useState<string | null>(null);
 
   // 삭제 모달
   const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
@@ -39,12 +54,21 @@ export default function HomeComments() {
   const [deleteError, setDeleteError] = useState('');
   const [deleting, setDeleting] = useState(false);
 
-  /** 댓글 목록 조회 */
-  const fetchComments = useCallback(async () => {
+  /** 총 페이지 수 계산 */
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+  /** 특정 페이지의 댓글 목록 조회 */
+  const fetchPage = useCallback(async (page: number) => {
     try {
       setLoading(true);
-      const data = await getHomeComments();
+      const offset = (page - 1) * PAGE_SIZE;
+      const [data, count] = await Promise.all([
+        getHomeComments(PAGE_SIZE, offset),
+        getHomeCommentCount(),
+      ]);
       setComments(data);
+      setTotalCount(count);
+      setCurrentPage(page);
     } catch {
       // 조회 실패 무시
     } finally {
@@ -52,9 +76,28 @@ export default function HomeComments() {
     }
   }, []);
 
+  /** 페이지 이동 핸들러 */
+  const goToPage = useCallback((page: number) => {
+    if (page < 1 || page > totalPages || page === currentPage) return;
+    fetchPage(page);
+  }, [totalPages, currentPage, fetchPage]);
+
+  /** 사용자 좋아요 목록 조회 */
+  const fetchLikedIds = useCallback(async () => {
+    const fp = getFingerprint();
+    if (!fp) return;
+    try {
+      const ids = await getHomeCommentLikedIds(fp);
+      setLikedIds(new Set(ids));
+    } catch {
+      // 조회 실패 무시
+    }
+  }, []);
+
   useEffect(() => {
-    fetchComments();
-  }, [fetchComments]);
+    fetchPage(1);
+    fetchLikedIds();
+  }, [fetchPage, fetchLikedIds]);
 
   /** 댓글 작성 */
   const handleSubmit = async (e: React.FormEvent) => {
@@ -99,8 +142,8 @@ export default function HomeComments() {
       });
 
       if (newComment) {
-        // 목록 상단에 추가
-        setComments((prev) => [newComment, ...prev]);
+        // 새 댓글 작성 후 1페이지로 새로고침 (최신순이므로 맨 앞에 표시)
+        await fetchPage(1);
         // 모든 입력 필드 초기화
         setAuthorName('');
         setPassword('');
@@ -113,6 +156,78 @@ export default function HomeComments() {
       setFormError(t('error_submit_failed'));
     } finally {
       setSubmitting(false);
+    }
+  };
+
+  /** 좋아요 토글 (Optimistic Update) */
+  const handleLike = async (commentId: string) => {
+    if (likingId) return; // 이미 처리 중이면 무시
+
+    const fp = getFingerprint();
+    if (!fp) return;
+
+    const wasLiked = likedIds.has(commentId);
+
+    // Optimistic: 즉시 UI 반영
+    setLikingId(commentId);
+    setLikedIds((prev) => {
+      const next = new Set(prev);
+      if (wasLiked) {
+        next.delete(commentId);
+      } else {
+        next.add(commentId);
+      }
+      return next;
+    });
+    setComments((prev) =>
+      prev.map((c) =>
+        c.id === commentId
+          ? { ...c, likes_count: c.likes_count + (wasLiked ? -1 : 1) }
+          : c,
+      ),
+    );
+
+    try {
+      const result = await toggleHomeCommentLike(commentId, fp);
+      if (result) {
+        // 서버 응답으로 정확한 값 동기화
+        setComments((prev) =>
+          prev.map((c) =>
+            c.id === commentId
+              ? { ...c, likes_count: result.likes_count }
+              : c,
+          ),
+        );
+        setLikedIds((prev) => {
+          const next = new Set(prev);
+          if (result.liked) {
+            next.add(commentId);
+          } else {
+            next.delete(commentId);
+          }
+          return next;
+        });
+      }
+    } catch {
+      // 실패 시 롤백
+      setLikedIds((prev) => {
+        const next = new Set(prev);
+        if (wasLiked) {
+          next.add(commentId);
+        } else {
+          next.delete(commentId);
+        }
+        return next;
+      });
+      setComments((prev) =>
+        prev.map((c) =>
+          c.id === commentId
+            ? { ...c, likes_count: c.likes_count + (wasLiked ? 1 : -1) }
+            : c,
+        ),
+      );
+    } finally {
+      setLikingId(null);
     }
   };
 
@@ -136,8 +251,11 @@ export default function HomeComments() {
       });
 
       if (success) {
-        setComments((prev) => prev.filter((c) => c.id !== deleteTarget));
         setDeleteTarget(null);
+        // 삭제 후 현재 페이지 새로고침 (페이지가 비면 이전 페이지로)
+        const newTotal = totalCount - 1;
+        const maxPage = Math.max(1, Math.ceil(newTotal / PAGE_SIZE));
+        await fetchPage(Math.min(currentPage, maxPage));
       } else {
         setDeleteError(t('error_wrong_password'));
       }
@@ -160,7 +278,7 @@ export default function HomeComments() {
       <div className={styles.sectionHeader}>
         <MessageCircle size={18} />
         <h3>{t('title')}</h3>
-        <span className={styles.commentCount}>{comments.length}</span>
+        <span className={styles.commentCount}>{totalCount}</span>
       </div>
 
       {/* 댓글 작성 폼 */}
@@ -236,8 +354,50 @@ export default function HomeComments() {
                 </button>
               </div>
               <p className={styles.commentContent}>{comment.content}</p>
+              <div className={styles.commentFooter}>
+                <button
+                  className={`${styles.likeButton} ${likedIds.has(comment.id) ? styles.liked : ''}`}
+                  onClick={() => handleLike(comment.id)}
+                  disabled={likingId === comment.id}
+                  title={likedIds.has(comment.id) ? t('liked') : t('like')}
+                >
+                  <Heart size={14} />
+                  {comment.likes_count > 0 && (
+                    <span className={styles.likeCount}>{comment.likes_count}</span>
+                  )}
+                </button>
+              </div>
             </div>
           ))}
+
+          {/* 페이지 네비게이션 */}
+          {totalPages >= 1 && (
+            <div className={styles.pagination}>
+              <button
+                className={styles.pageButton}
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage <= 1}
+              >
+                <ChevronLeft size={16} />
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  className={`${styles.pageButton} ${page === currentPage ? styles.activePage : ''}`}
+                  onClick={() => goToPage(page)}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                className={styles.pageButton}
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage >= totalPages}
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          )}
         </div>
       )}
 

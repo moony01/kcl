@@ -161,7 +161,10 @@
     "error_too_fast": "Silakan tunggu sebentar sebelum mengirim lagi.",
     "error_submit_failed": "Gagal mengirim komentar.",
     "error_wrong_password": "Kata sandi salah.",
-    "error_delete_failed": "Gagal menghapus."
+    "error_delete_failed": "Gagal menghapus.",
+    "like": "Suka",
+    "liked": "Batal Suka",
+    "show_more": "Lihat lainnya"
   },
   "Company": {
     "detail": "Detail Perusahaan",
@@ -506,5 +509,31 @@
     "pinned": "Disematkan",
     "back_to_list": "Kembali ke daftar",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Masuk dengan Google",
+    "kakao_login": "Masuk dengan Kakao",
+    "email_placeholder": "Alamat email",
+    "password_placeholder": "Kata sandi",
+    "username_placeholder": "Nama pengguna",
+    "login_button": "Masuk",
+    "signup_button": "Daftar",
+    "logout": "Keluar",
+    "or_divider": "atau",
+    "forgot_password": "Lupa kata sandi?",
+    "no_account": "Belum punya akun?",
+    "has_account": "Sudah punya akun?",
+    "logging_in": "Memproses...",
+    "signing_up": "Mendaftar...",
+    "callback_loading": "Sedang masuk...",
+    "callback_error": "Terjadi kesalahan saat autentikasi.",
+    "error_invalid_credentials": "Email atau kata sandi salah. Silakan coba lagi.",
+    "error_generic": "Terjadi kesalahan. Silakan coba lagi.",
+    "error_email_invalid": "Masukkan email yang valid.",
+    "error_username_min": "Nama pengguna minimal 3 karakter.",
+    "error_password_min": "Kata sandi minimal 6 karakter.",
+    "signup_subtitle": "Daftar untuk terhubung dengan penggemar lainnya.",
+    "signup_terms": "Dengan mendaftar, Anda menyetujui Ketentuan Layanan dan Kebijakan Privasi KCL.",
+    "profile": "Profil"
   }
 }

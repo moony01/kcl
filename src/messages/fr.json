@@ -161,7 +161,10 @@
     "error_too_fast": "Veuillez patienter avant de publier à nouveau.",
     "error_submit_failed": "Échec de la publication du commentaire.",
     "error_wrong_password": "Mot de passe incorrect.",
-    "error_delete_failed": "Échec de la suppression."
+    "error_delete_failed": "Échec de la suppression.",
+    "like": "J'aime",
+    "liked": "Je n'aime plus",
+    "show_more": "Voir plus"
   },
   "Company": {
     "detail": "Détails de l'Entreprise",
@@ -506,5 +509,31 @@
     "pinned": "Épinglé",
     "back_to_list": "Retour à la liste",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Se connecter avec Google",
+    "kakao_login": "Se connecter avec Kakao",
+    "email_placeholder": "Adresse e-mail",
+    "password_placeholder": "Mot de passe",
+    "username_placeholder": "Nom d'utilisateur",
+    "login_button": "Se connecter",
+    "signup_button": "S'inscrire",
+    "logout": "Se déconnecter",
+    "or_divider": "ou",
+    "forgot_password": "Mot de passe oublié ?",
+    "no_account": "Pas encore de compte ?",
+    "has_account": "Vous avez déjà un compte ?",
+    "logging_in": "Traitement...",
+    "signing_up": "Inscription...",
+    "callback_loading": "Connexion en cours...",
+    "callback_error": "Une erreur est survenue lors de l'authentification.",
+    "error_invalid_credentials": "E-mail ou mot de passe incorrect. Veuillez réessayer.",
+    "error_generic": "Une erreur est survenue. Veuillez réessayer.",
+    "error_email_invalid": "Veuillez entrer un e-mail valide.",
+    "error_username_min": "Le nom d'utilisateur doit comporter au moins 3 caractères.",
+    "error_password_min": "Le mot de passe doit comporter au moins 6 caractères.",
+    "signup_subtitle": "Inscrivez-vous pour vous connecter avec d'autres fans.",
+    "signup_terms": "En vous inscrivant, vous acceptez les Conditions d'utilisation et la Politique de confidentialité de KCL.",
+    "profile": "Profil"
   }
 }

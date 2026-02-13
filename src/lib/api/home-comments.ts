@@ -14,6 +14,7 @@ export interface HomeComment {
   is_deleted: boolean;
   created_at: string;
   updated_at: string;
+  likes_count: number;
 }
 
 /** 댓글 작성 요청 */
@@ -43,7 +44,7 @@ export async function getHomeComments(
 
   const { data, error } = await supabase
     .from('kcl_home_comments')
-    .select('id, author_name, content, is_deleted, created_at, updated_at')
+    .select('id, author_name, content, is_deleted, created_at, updated_at, likes_count')
     .eq('is_deleted', false)
     .order('created_at', { ascending: false })
     .range(offset, offset + limit - 1);
@@ -80,7 +81,7 @@ export async function createHomeComment(
     return null;
   }
 
-  return data;
+  return data as HomeComment;
 }
 
 /**
@@ -123,4 +124,60 @@ export async function getHomeCommentCount(): Promise<number> {
   }
 
   return data || 0;
+}
+
+/** 좋아요 토글 결과 타입 */
+export interface ToggleLikeResult {
+  liked: boolean;
+  likes_count: number;
+}
+
+/**
+ * 댓글 좋아요 토글
+ * 이미 좋아요한 상태면 취소, 아니면 추가
+ * @param commentId - 대상 댓글 ID
+ * @param fingerprint - 브라우저 고유 식별자
+ * @returns 토글 결과 (liked 상태 + 새 카운트) 또는 null
+ */
+export async function toggleHomeCommentLike(
+  commentId: string,
+  fingerprint: string,
+): Promise<ToggleLikeResult | null> {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .rpc('toggle_kcl_home_comment_like', {
+      p_comment_id: commentId,
+      p_fingerprint: fingerprint,
+    });
+
+  if (error) {
+    console.error('[home-comments] 좋아요 토글 실패:', error);
+    return null;
+  }
+
+  return data as ToggleLikeResult;
+}
+
+/**
+ * 특정 fingerprint가 좋아요한 댓글 ID 목록 조회
+ * @param fingerprint - 브라우저 고유 식별자
+ * @returns 좋아요한 댓글 ID 배열
+ */
+export async function getHomeCommentLikedIds(
+  fingerprint: string,
+): Promise<string[]> {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .rpc('get_kcl_home_comment_likes_by_fingerprint', {
+      p_fingerprint: fingerprint,
+    });
+
+  if (error) {
+    console.error('[home-comments] 좋아요 목록 조회 실패:', error);
+    return [];
+  }
+
+  return (data as string[]) || [];
 }

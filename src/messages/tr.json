@@ -161,7 +161,10 @@
     "error_too_fast": "Lütfen tekrar göndermeden önce biraz bekleyin.",
     "error_submit_failed": "Yorum gönderilemedi.",
     "error_wrong_password": "Yanlış şifre.",
-    "error_delete_failed": "Silme başarısız oldu."
+    "error_delete_failed": "Silme başarısız oldu.",
+    "like": "Beğen",
+    "liked": "Beğenmekten Vazgeç",
+    "show_more": "Daha fazla göster"
   },
   "Company": {
     "detail": "Şirket Detayları",
@@ -506,5 +509,31 @@
     "pinned": "Sabitlenmiş",
     "back_to_list": "Listeye dön",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Google ile Giriş Yap",
+    "kakao_login": "Kakao ile Giriş Yap",
+    "email_placeholder": "E-posta adresi",
+    "password_placeholder": "Şifre",
+    "username_placeholder": "Kullanıcı adı",
+    "login_button": "Giriş Yap",
+    "signup_button": "Kayıt Ol",
+    "logout": "Çıkış Yap",
+    "or_divider": "veya",
+    "forgot_password": "Şifrenizi mi unuttunuz?",
+    "no_account": "Hesabınız yok mu?",
+    "has_account": "Zaten hesabınız var mı?",
+    "logging_in": "İşleniyor...",
+    "signing_up": "Kayıt olunuyor...",
+    "callback_loading": "Giriş yapılıyor...",
+    "callback_error": "Kimlik doğrulama sırasında bir hata oluştu.",
+    "error_invalid_credentials": "E-posta veya şifre hatalı. Lütfen tekrar deneyin.",
+    "error_generic": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "error_email_invalid": "Geçerli bir e-posta girin.",
+    "error_username_min": "Kullanıcı adı en az 3 karakter olmalıdır.",
+    "error_password_min": "Şifre en az 6 karakter olmalıdır.",
+    "signup_subtitle": "Diğer hayranlarla bağlantı kurmak için kaydolun.",
+    "signup_terms": "Kayıt olarak KCL Kullanım Şartları ve Gizlilik Politikasını kabul edersiniz.",
+    "profile": "Profil"
   }
 }
