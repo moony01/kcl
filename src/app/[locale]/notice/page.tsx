@@ -4,6 +4,8 @@ import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeClient from './NoticeClient';
+import AdBanner from '@/components/common/AdBanner';
+import { AD_SLOTS } from '@/types/ads';
 import styles from './notice-seo.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -58,6 +60,9 @@ export default async function NoticePage({ params }: { params: Promise<{ locale:
 
       {/* CSR 공지사항 목록 */}
       <NoticeClient locale={locale} />
+
+      {/* 공지사항 목록 하단 광고 */}
+      <AdBanner adSlot={AD_SLOTS.NOTICE_LIST_BOTTOM} adFormat="leaderboard" />
 
       {/* SEO 콘텐츠 하단 섹션 */}
       <section className={styles.seoSection}>

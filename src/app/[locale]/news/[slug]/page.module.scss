@@ -396,18 +396,3 @@
   color: var(--text-tertiary);
 }
 
-/* 광고 플레이스홀더 */
-.adPlaceholder {
-  margin-top: 3rem;
-  min-height: 90px;
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* 개발 중에는 숨김 */
-  &:empty {
-    display: none;
-  }
-}
