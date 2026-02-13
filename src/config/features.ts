@@ -64,7 +64,7 @@ export const FEATURES = {
    * - 경로: /[locale]/profile, /[locale]/login
    * - 상태: T1.70에서 활성화 (Google/Kakao OAuth + 이메일 로그인)
    */
-  AUTH_SYSTEM: true,
+  AUTH_SYSTEM: false,
 
   /**
    * T1.75: 산하 레이블 투표 UI (Sub-Label Voting)
