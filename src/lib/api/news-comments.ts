@@ -88,7 +88,7 @@ export async function createNewsComment(
     return null;
   }
 
-  return data;
+  return data as NewsComment;
 }
 
 /**

@@ -161,7 +161,10 @@
     "error_too_fast": "잠시 후 다시 시도해주세요.",
     "error_submit_failed": "댓글 등록에 실패했습니다.",
     "error_wrong_password": "비밀번호가 일치하지 않습니다.",
-    "error_delete_failed": "삭제에 실패했습니다."
+    "error_delete_failed": "삭제에 실패했습니다.",
+    "like": "좋아요",
+    "liked": "좋아요 취소",
+    "show_more": "더보기"
   },
   "Company": {
     "detail": "회사 상세",
@@ -506,5 +509,31 @@
     "pinned": "고정",
     "back_to_list": "목록으로",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Google로 로그인",
+    "kakao_login": "Kakao로 로그인",
+    "email_placeholder": "이메일 주소",
+    "password_placeholder": "비밀번호",
+    "username_placeholder": "사용자 이름",
+    "login_button": "로그인",
+    "signup_button": "회원가입",
+    "logout": "로그아웃",
+    "or_divider": "또는",
+    "forgot_password": "비밀번호를 잊으셨나요?",
+    "no_account": "계정이 없으신가요?",
+    "has_account": "이미 계정이 있으신가요?",
+    "logging_in": "로그인 중...",
+    "signing_up": "가입 중...",
+    "callback_loading": "로그인 처리 중...",
+    "callback_error": "인증 중 오류가 발생했습니다.",
+    "error_invalid_credentials": "이메일 또는 비밀번호가 올바르지 않습니다. 다시 시도해주세요.",
+    "error_generic": "오류가 발생했습니다. 다시 시도해주세요.",
+    "error_email_invalid": "유효한 이메일을 입력해주세요.",
+    "error_username_min": "사용자 이름은 3자 이상이어야 합니다.",
+    "error_password_min": "비밀번호는 6자 이상이어야 합니다.",
+    "signup_subtitle": "다른 팬들과 연결하려면 가입하세요.",
+    "signup_terms": "가입하면 KCL의 이용약관 및 개인정보처리방침에 동의하게 됩니다.",
+    "profile": "프로필"
   }
 }

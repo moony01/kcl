@@ -86,7 +86,7 @@ export async function createNoticeComment(
     return null;
   }
 
-  return data;
+  return data as NoticeComment;
 }
 
 /**

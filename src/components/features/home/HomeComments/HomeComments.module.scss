@@ -211,6 +211,97 @@
   word-break: break-word;
 }
 
+/* 댓글 하단 (좋아요 버튼 영역) */
+.commentFooter {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.likeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  color: var(--color-text-dim);
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+    color: #FF6B8A;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  /* 좋아요 활성 상태 */
+  &.liked {
+    opacity: 1;
+    color: #FF6B8A;
+
+    svg {
+      fill: #FF6B8A;
+    }
+  }
+}
+
+.likeCount {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* 페이지 네비게이션 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.pageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-dim);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled):not(.activePage) {
+    color: var(--color-text);
+    background: var(--color-surface);
+    border-color: var(--color-border);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  /* 현재 활성 페이지 */
+  &.activePage {
+    color: white;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    cursor: default;
+  }
+}
+
 /* 로딩/빈 상태 */
 .loadingState,
 .emptyState {

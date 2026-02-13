@@ -161,7 +161,10 @@
     "error_too_fast": "しばらくしてからもう一度お試しください。",
     "error_submit_failed": "コメントの投稿に失敗しました。",
     "error_wrong_password": "パスワードが一致しません。",
-    "error_delete_failed": "削除に失敗しました。"
+    "error_delete_failed": "削除に失敗しました。",
+    "like": "いいね",
+    "liked": "いいね取消",
+    "show_more": "もっと見る"
   },
   "Company": {
     "detail": "会社詳細",
@@ -506,5 +509,31 @@
     "pinned": "固定",
     "back_to_list": "一覧に戻る",
     "created_at": "{date}"
+  },
+  "Auth": {
+    "google_login": "Googleでログイン",
+    "kakao_login": "Kakaoでログイン",
+    "email_placeholder": "メールアドレス",
+    "password_placeholder": "パスワード",
+    "username_placeholder": "ユーザー名",
+    "login_button": "ログイン",
+    "signup_button": "新規登録",
+    "logout": "ログアウト",
+    "or_divider": "または",
+    "forgot_password": "パスワードをお忘れですか？",
+    "no_account": "アカウントをお持ちでないですか？",
+    "has_account": "すでにアカウントをお持ちですか？",
+    "logging_in": "処理中...",
+    "signing_up": "登録中...",
+    "callback_loading": "ログイン中...",
+    "callback_error": "認証中にエラーが発生しました。",
+    "error_invalid_credentials": "メールアドレスまたはパスワードが正しくありません。",
+    "error_generic": "エラーが発生しました。もう一度お試しください。",
+    "error_email_invalid": "有効なメールアドレスを入力してください。",
+    "error_username_min": "ユーザー名は3文字以上必要です。",
+    "error_password_min": "パスワードは6文字以上必要です。",
+    "signup_subtitle": "他のファンとつながるために登録しましょう。",
+    "signup_terms": "登録することで、KCLの利用規約とプライバシーポリシーに同意したことになります。",
+    "profile": "プロフィール"
   }
 }
