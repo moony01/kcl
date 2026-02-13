@@ -25,7 +25,7 @@
 
 import { createContext, useEffect, useState, useCallback, useMemo } from 'react';
 import type { ReactNode } from 'react';
-import type { User } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { getSupabase } from '@/lib/supabase/client';
 
 /**
@@ -159,7 +159,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
     // 2. 인증 상태 변경 리스너 (로그인/로그아웃/토큰 갱신)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      async (event: AuthChangeEvent, session: Session | null) => {
         if (session?.user) {
           setUser(session.user);
           // 신규 가입(SIGNED_IN) 또는 토큰 갱신 시 프로필 조회
