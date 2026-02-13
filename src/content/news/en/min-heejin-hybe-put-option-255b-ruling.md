@@ -1,0 +1,63 @@
+---
+title: "Min Heejin Just Won ₩25.5B From HYBE — The Put Option Ruling That Changes Everything"
+excerpt: "Seoul Central District Court ruled in favor of former ADOR CEO Min Heejin's put option claim, ordering HYBE to purchase her 18% stake for approximately ₩25.5 billion. Here's what this landmark ruling means for the K-pop industry."
+date: '2026-02-13'
+category: 'Business'
+thumbnail: '/images/news/min-heejin-hybe-put-option-255b-ruling-thumbnail.png'
+active: true
+---
+
+"It's over."
+
+On February 12, 2026, the Seoul Central District Court ruled in favor of Min Heejin, former CEO of ADOR, in her put option lawsuit against HYBE. **HYBE must now purchase Min's 18% stake in ADOR for approximately ₩25.5 billion** (roughly $18 million USD).
+
+The HYBE-Min Heejin war that erupted in April 2024 over alleged "coup" attempts has finally reached its legal conclusion — two years later. And the verdict caught many industry insiders off guard.
+
+## What Is a Put Option — And Why ₩25.5B Matters
+
+To understand the weight of this ruling, you need to understand put options in corporate agreements.
+
+A put option grants the holder the **right to sell shares** at a pre-agreed price when specific conditions are met. When Min Heejin co-founded ADOR in 2019, she signed a Shareholders' Agreement (SHA) with HYBE that included this clause. The key trigger: if she was dismissed from her CEO position, the put option could be exercised.
+
+In August 2024, HYBE removed Min from her position through an extraordinary shareholders' meeting. Min's legal team immediately notified HYBE of the put option exercise. HYBE refused, and the case went to court.
+
+The battle lines were clear. HYBE argued that Min's alleged breach of duty (the supposed management takeover attempt) invalidated the put option conditions. Min's side countered that the contract's language was unambiguous — dismissal itself, regardless of the reason, triggered the option.
+
+The court sided with Min. The judges strictly interpreted the SHA's language, ruling that **the fact of dismissal — not its justification — constituted the trigger** for the put option. The "why" didn't matter; the "what happened" did.
+
+## What HYBE Really Lost — It's Bigger Than ₩25.5B
+
+The ₩25.5 billion itself is relatively modest compared to HYBE's annual revenue (approximately ₩2 trillion in 2025). But the real damage extends far beyond the payment.
+
+**First, the loss of legal high ground.** HYBE justified Min's dismissal by citing her alleged coup attempt. But the court's recognition of her put option sends a powerful signal: "You were contractually protected, and that protection stands." While this ruling doesn't directly judge the legitimacy of the dismissal, its impact on public perception is significant.
+
+**Second, the complete severance from NewJeans.** Min selling her ADOR stake means the last formal connection between her and ADOR is severed. All five NewJeans members have already obtained injunctions suspending their exclusive contracts with HYBE/ADOR. If Min launches a new label and NewJeans joins, HYBE could lose the most successful girl group IP in its history.
+
+**Third, the precedent effect.** This ruling confirms that put option clauses in shareholder agreements between K-pop agencies and creative executives carry real legal weight. Going forward, producers and creative directors joining agencies will have stronger leverage to demand protective clauses — citing this very case.
+
+![The significance of the put option ruling and its impact on the K-pop industry](/images/news/min-heejin-hybe-put-option-255b-ruling-1.png)
+_Min Heejin's put option ruling is setting a new benchmark for K-pop management disputes_
+
+## Min Heejin's Next Move — A New Label and NewJeans' Future
+
+With ₩25.5 billion secured, all eyes are on Min Heejin's next chapter.
+
+Industry consensus points to Min launching an independent label and recruiting the NewJeans members. As long as the injunction suspending their HYBE/ADOR contracts holds, the members can legally operate outside the HYBE ecosystem. The ₩25.5 billion provides more than enough seed capital for a new label's initial operations.
+
+HYBE won't go quietly, of course. An appeal is virtually certain, and the main NewJeans contract lawsuit is still ongoing. For HYBE, the NewJeans IP is worth thousands of billions of won — making the ₩25.5B put option loss pale in comparison to the potential loss of NewJeans entirely.
+
+## KCL's Take on the Put Option Ruling
+
+From KCL's (K-pop Company League) perspective, this ruling directly impacts our core evaluation metrics of **corporate governance and talent risk management**.
+
+HYBE's market capitalization has fallen over 60% from its peak since the Min Heejin dispute began in 2024 — regardless of musical achievements. This case is a textbook example of how management disputes can destroy corporate value. For investors, this ruling signals that "HYBE's risk profile hasn't cleared."
+
+For trainees and K-pop aspirants, the takeaway is equally critical. The era of choosing agencies based solely on brand or size is over. Governance structure, artist-creator relations, and how disputes are handled must all factor into the decision. This ruling proved that **a single clause in a contract can be worth tens of billions of won**.
+
+## Final Thoughts
+
+Min Heejin vs. HYBE was never just a personal dispute. It was a historic test of **how far creator rights can be protected** in the K-pop industry.
+
+The court upheld the contract. It confirmed that put options actually work when triggered. The ball is now in HYBE's court — whether they can overturn this on appeal, whether they can retain NewJeans — these will be the biggest storylines in K-pop business in 2026.
+
+One thing is certain: after this ruling, every creative professional joining a K-pop agency will read the "put option" clause in their contract much, much more carefully.
