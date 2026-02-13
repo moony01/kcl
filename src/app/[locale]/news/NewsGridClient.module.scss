@@ -47,6 +47,12 @@
   }
 }
 
+// in-feed 광고 (그리드 전체 너비)
+.inFeedAd {
+  grid-column: 1 / -1;
+  margin: 8px 0;
+}
+
 // 필터 결과 없음
 .noResults {
   grid-column: 1 / -1;
