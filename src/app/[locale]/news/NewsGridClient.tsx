@@ -4,14 +4,17 @@
  * 뉴스 그리드 클라이언트 컴포넌트
  *
  * 카테고리 탭 필터링 + 배치 댓글 수 조회
+ * 뉴스 카드 3개 후 in-feed 광고 삽입
  * 공지사항 페이지의 CategoryFilter 패턴 참조
  */
 
-import { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { getNewsCommentCounts } from '@/lib/api/news-comments';
 import NewsCard from '@/components/news/NewsCard';
+import AdBanner from '@/components/common/AdBanner';
+import { AD_SLOTS } from '@/types/ads';
 import styles from './NewsGridClient.module.scss';
 
 interface NewsPost {
@@ -87,19 +90,26 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
         </div>
       )}
 
-      {/* 뉴스 카드 그리드 */}
-      {filteredPosts.map((post) => (
-        <NewsCard
-          key={post.slug}
-          slug={post.slug}
-          title={post.title}
-          excerpt={post.excerpt}
-          date={post.date}
-          category={post.category}
-          thumbnail={post.thumbnail}
-          locale={locale}
-          commentCount={commentCounts[post.slug] ?? 0}
-        />
+      {/* 뉴스 카드 그리드 + in-feed 광고 (3번째 카드 후 삽입) */}
+      {filteredPosts.map((post, index) => (
+        <React.Fragment key={post.slug}>
+          <NewsCard
+            slug={post.slug}
+            title={post.title}
+            excerpt={post.excerpt}
+            date={post.date}
+            category={post.category}
+            thumbnail={post.thumbnail}
+            locale={locale}
+            commentCount={commentCounts[post.slug] ?? 0}
+          />
+          {/* 3번째 카드 뒤에 in-feed 광고 삽입 (전체 너비) */}
+          {index === 2 && filteredPosts.length > 3 && (
+            <div className={styles.inFeedAd}>
+              <AdBanner adSlot={AD_SLOTS.NEWS_LIST_BOTTOM} adFormat="leaderboard" />
+            </div>
+          )}
+        </React.Fragment>
       ))}
 
       {/* 필터링 결과 없음 */}

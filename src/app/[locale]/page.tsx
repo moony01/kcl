@@ -13,8 +13,6 @@ import { HomeClient } from './HomeClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
-import AdBanner from '@/components/common/AdBanner';
-import { AD_SLOTS } from '@/types/ads';
 import styles from './seo-content.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -89,9 +87,6 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* SEO용 h1 태그 - 시각적으로 숨김 처리하여 스크린 리더와 검색 엔진에만 노출 */}
       <h1 className="sr-only">KCL - K-pop Company League 실시간 랭킹</h1>
       <HomeClient />
-
-      {/* 홈 하단 광고 */}
-      <AdBanner adSlot={AD_SLOTS.HOME_BOTTOM} adFormat="leaderboard" />
 
       {/* SEO 콘텐츠 섹션 - 서버 렌더링, 크롤러에 노출되는 정적 텍스트 */}
       <section className={styles.seoSection}>

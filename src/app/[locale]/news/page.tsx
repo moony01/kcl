@@ -6,8 +6,6 @@ import NewsGridClient from './NewsGridClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
-import AdBanner from '@/components/common/AdBanner';
-import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -116,8 +114,6 @@ export default async function NewsPage({ params }: NewsPageProps) {
         </div>
       )}
 
-      {/* 뉴스 목록 하단 광고 */}
-      <AdBanner adSlot={AD_SLOTS.NEWS_LIST_BOTTOM} adFormat="leaderboard" />
     </main>
   );
 }

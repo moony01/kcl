@@ -44,6 +44,8 @@ const HomeComments = dynamic(() => import('@/components/features/home/HomeCommen
   ssr: false,
 });
 
+import AdBanner from '@/components/common/AdBanner';
+import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
 
 interface HomeClientProps {
@@ -303,6 +305,9 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
           </StickyPanel>
         </aside>
       </div>
+
+      {/* 홈 광고 - 랭킹과 팬토크 사이 */}
+      <AdBanner adSlot={AD_SLOTS.HOME_BOTTOM} adFormat="leaderboard" />
 
       {/* 팬 토크 (댓글 섹션) */}
       <section className={styles.commentsSection}>
