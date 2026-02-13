@@ -92,6 +92,39 @@
   }
 }
 
+// 프로필/로그인 버튼
+.profileBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-text, 0.12);
+  background: rgba($color-bg, 0.6);
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($color-text, 0.1);
+    border-color: rgba($color-primary, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    background: rgba($color-bg, 0.8);
+  }
+}
+
+// 프로필 아바타 (헤더용 원형)
+.profileAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 // 언어 선택 드롭다운
 .langSelect {
   padding: 8px 12px;

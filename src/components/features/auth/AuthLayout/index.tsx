@@ -7,7 +7,8 @@ import { MOCK_COMPANIES } from '@/lib/mock-data';
 
 interface AuthLayoutProps {
   children: ReactNode;
-  footerLink: ReactNode;
+  /** 하단 링크 (선택사항 - LoginForm/SignupForm 내부에서 자체 처리 시 생략 가능) */
+  footerLink?: ReactNode;
 }
 
 export default function AuthLayout({ children, footerLink }: AuthLayoutProps) {
@@ -46,9 +47,11 @@ export default function AuthLayout({ children, footerLink }: AuthLayoutProps) {
             {children}
           </div>
           
-          <div className={styles.subBox}>
-            {footerLink}
-          </div>
+          {footerLink && (
+            <div className={styles.subBox}>
+              {footerLink}
+            </div>
+          )}
           
           {/* App download badges or other footers can go here */}
         </div>

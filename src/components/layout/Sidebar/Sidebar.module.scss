@@ -255,3 +255,58 @@ $sidebar-wide: 244px;
   padding-top: 8px;
   border-top: 1px solid rgba($color-text, 0.05);
 }
+
+// 인증 영역 (하단 고정)
+.authSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba($color-text, 0.08);
+}
+
+// 프로필 아바타 (원형 이미지)
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+// 프로필 아이템 스타일
+.profileItem {
+  &:hover {
+    background-color: rgba($color-text, 0.06);
+  }
+}
+
+// 로그아웃 버튼 (네비 아이템과 동일 스타일)
+.logoutBtn {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+
+  &:hover {
+    background-color: rgba($color-danger, 0.08);
+    color: $color-danger;
+
+    .icon {
+      color: $color-danger;
+    }
+  }
+}
+
+// 로그인 버튼 스타일
+.loginBtn {
+  &:hover {
+    background-color: rgba($color-primary, 0.08);
+    color: $color-primary;
+
+    .icon {
+      color: $color-primary;
+    }
+  }
+}

@@ -4,10 +4,16 @@
  * 브라우저 환경에서 사용하는 Supabase 클라이언트입니다.
  * SSG/CSR 마이그레이션: API Routes 대신 브라우저에서 직접 Supabase를 호출합니다.
  *
+ * 주의: KCL은 output: 'export' (정적 빌드)를 사용하므로
+ * @supabase/ssr의 createBrowserClient 대신 @supabase/supabase-js의 createClient를 사용합니다.
+ * - createBrowserClient: 쿠키 기반 세션 저장 → 서버 미들웨어 필요 (정적 빌드 비호환)
+ * - createClient: localStorage 기반 세션 저장 → 정적 빌드 호환
+ *
  * 특징:
  * - 싱글톤 패턴으로 인스턴스 재사용 (메모리 효율)
  * - NEXT_PUBLIC_* 환경변수만 사용 (클라이언트 안전)
  * - RLS(Row Level Security) 정책에 의존
+ * - PKCE 플로우로 OAuth 인증 (detectSessionInUrl 활성화)
  *
  * @example
  * ```typescript
@@ -20,10 +26,10 @@
  * ```
  */
 
-import { createBrowserClient } from '@supabase/ssr';
+import { createClient as createSupabaseClient, SupabaseClient } from '@supabase/supabase-js';
 
-/** Supabase 클라이언트 타입 */
-export type SupabaseClient = ReturnType<typeof createBrowserClient>;
+/** Supabase 클라이언트 타입을 re-export */
+export type { SupabaseClient };
 
 /** 싱글톤 인스턴스 */
 let supabaseInstance: SupabaseClient | null = null;
@@ -32,6 +38,7 @@ let supabaseInstance: SupabaseClient | null = null;
  * Supabase 브라우저 클라이언트 생성/반환 (싱글톤)
  *
  * 최초 호출 시에만 인스턴스를 생성하고, 이후에는 기존 인스턴스를 반환합니다.
+ * localStorage를 사용하여 세션을 저장하므로 정적 빌드에서도 동작합니다.
  *
  * @returns Supabase 클라이언트 인스턴스
  * @throws 환경변수가 설정되지 않은 경우 에러
@@ -51,7 +58,18 @@ export function getSupabase(): SupabaseClient {
     );
   }
 
-  supabaseInstance = createBrowserClient(supabaseUrl, supabaseAnonKey);
+  supabaseInstance = createSupabaseClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      /** PKCE 플로우 사용 (정적 빌드 호환) */
+      flowType: 'pkce',
+      /** localStorage에 세션 저장 (서버 미들웨어 불필요) */
+      persistSession: true,
+      /** URL에서 세션 파라미터 자동 감지 (OAuth 콜백 처리) */
+      detectSessionInUrl: true,
+      /** 자동 토큰 갱신 활성화 */
+      autoRefreshToken: true,
+    },
+  });
 
   return supabaseInstance;
 }

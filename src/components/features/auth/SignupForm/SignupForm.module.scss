@@ -1,6 +1,92 @@
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
+// 폼 전체 래퍼
+.formWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// 부제목 안내 문구
+.subtitle {
+  color: var(--color-text-dim);
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+// OAuth 버튼 영역
+.oauthSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// OAuth 공통 버튼 스타일
+.oauthBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-border);
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    filter: brightness(0.95);
+  }
+}
+
+// OAuth 아이콘
+.oauthIcon {
+  flex-shrink: 0;
+}
+
+// Google 버튼
+.googleBtn {
+  background-color: #fff;
+  color: #333;
+  border-color: #dadce0;
+
+  &:hover:not(:disabled) {
+    background-color: #f7f8f8;
+  }
+
+  [data-theme='dark'] & {
+    background-color: #fff;
+    color: #333;
+  }
+}
+
+// Kakao 버튼
+.kakaoBtn {
+  background-color: #FEE500;
+  color: #3C1E1E;
+  border-color: #FEE500;
+
+  &:hover:not(:disabled) {
+    background-color: #FADA0A;
+  }
+
+  [data-theme='dark'] & {
+    background-color: #FEE500;
+    color: #3C1E1E;
+  }
+}
+
+// 이메일/비밀번호 폼
 .form {
   width: 100%;
   display: flex;
@@ -8,7 +94,7 @@
   gap: 12px;
 }
 
-// 입력 필드 그룹 - 라이트/다크 모드 대응
+// 입력 필드 그룹
 .inputGroup {
   position: relative;
   width: 100%;
@@ -31,12 +117,12 @@
     }
 
     .input {
-      padding: 14px 0 2px 8px; // 텍스트 아래로 밀기
+      padding: 14px 0 2px 8px;
     }
   }
 }
 
-// 입력 필드 - 테마 변수 사용
+// 입력 필드
 .input {
   width: 100%;
   height: 100%;
@@ -48,7 +134,6 @@
   font-size: 0.8rem;
   outline: none;
 
-  // 다크 모드 자동완성 스타일
   [data-theme='dark'] & {
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
@@ -59,7 +144,6 @@
     }
   }
 
-  // 라이트 모드 자동완성 스타일
   :root:not([data-theme='dark']) & {
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
@@ -84,11 +168,11 @@
   transform-origin: left center;
 }
 
-// 회원가입 버튼 - primary 색상 위에는 흰색 텍스트 유지
+// 가입 버튼
 .loginBtn {
-  margin-top: 8px;
+  margin-top: 4px;
   width: 100%;
-  height: 32px;
+  height: 36px;
   background-color: $color-primary;
   color: #fff;
   border: none;
@@ -107,9 +191,9 @@
   }
 }
 
-// 구분선 - 테마 변수 사용
+// 구분선
 .separator {
-  margin: 16px 0 18px;
+  margin: 4px 0;
   display: flex;
   align-items: center;
   width: 100%;
@@ -130,45 +214,42 @@
   }
 }
 
-// 소셜 로그인 버튼
-.socialLogin {
+// 약관 동의 문구
+.disclaimer {
+  font-size: 0.72rem;
+  color: var(--color-text-dim);
+  text-align: center;
+  line-height: 1.4;
+}
+
+// 로그인 안내
+.loginPrompt {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  color: var(--color-text);
-  font-weight: 600;
-  font-size: 0.9rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 12px;
-
-  img {
-    width: 16px;
-    height: 16px;
-  }
-
-  span {
-     color: #0095f6; // Instagram 링크 블루 (브랜드 색상)
-  }
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
 }
 
-// 비밀번호 찾기 링크
-.forgotPassword {
-  color: var(--color-text-dim);
-  font-size: 0.75rem;
+// 로그인 링크
+.loginLink {
+  color: $color-primary;
+  font-weight: 600;
   text-decoration: none;
-  margin-top: 12px;
 
   &:hover {
     text-decoration: underline;
   }
 }
 
+// 에러 메시지
 .errorMsg {
   color: $color-danger;
   font-size: 0.8rem;
   text-align: center;
-  margin-bottom: 10px;
+  margin: -4px 0;
 }
