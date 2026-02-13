@@ -1,0 +1,38 @@
+/**
+ * AdBanner 컴포넌트 스타일
+ * 포맷별 min-height로 CLS(Cumulative Layout Shift) 방지
+ */
+.adBanner {
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+  background: var(--color-panel-bg, var(--bg-secondary));
+  border-radius: 8px;
+  overflow: hidden;
+
+  ins {
+    width: 100%;
+  }
+}
+
+/* 리더보드 포맷 (728x90 데스크탑 / 320x50 모바일) */
+.leaderboard {
+  max-width: 728px;
+  min-height: 50px;
+
+  @media (min-width: 768px) {
+    min-height: 90px;
+  }
+}
+
+/* 직사각형 포맷 (300x250) */
+.rectangle {
+  max-width: 336px;
+  min-height: 250px;
+}
+
+/* 기사 내 포맷 (유동 크기) */
+.in-article {
+  max-width: 100%;
+  min-height: 100px;
+}

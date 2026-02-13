@@ -36,3 +36,6 @@ export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 
 /** 기본 언어 */
 export const DEFAULT_LOCALE: SupportedLocale = 'en';
+
+/** Google AdSense Publisher ID */
+export const ADSENSE_PUBLISHER_ID = 'ca-pub-8955182453510440';

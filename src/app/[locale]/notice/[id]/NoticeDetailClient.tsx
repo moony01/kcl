@@ -8,6 +8,8 @@ import DOMPurify from 'isomorphic-dompurify';
 import { getAnnouncementById, incrementAnnouncementView } from '@/lib/api/announcements';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeComments from '@/components/features/notice/NoticeComments';
+import AdBanner from '@/components/common/AdBanner';
+import { AD_SLOTS } from '@/types/ads';
 import type { Announcement } from '@/types/announcement';
 import styles from './page.module.scss';
 
@@ -140,6 +142,9 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
                 },
               }}
             />
+
+            {/* 공지사항 상세 광고 */}
+            <AdBanner adSlot={AD_SLOTS.NOTICE_DETAIL_ARTICLE} adFormat="in-article" />
 
             {/* 공지사항 댓글 섹션 */}
             <NoticeComments announcementId={noticeId} />

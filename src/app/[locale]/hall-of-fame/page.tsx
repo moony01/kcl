@@ -13,6 +13,8 @@ import HallOfFameClient from './HallOfFameClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
+import AdBanner from '@/components/common/AdBanner';
+import { AD_SLOTS } from '@/types/ads';
 import styles from './hall-of-fame-seo.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -85,6 +87,9 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
 
       {/* CSR 챔피언 데이터 영역 */}
       <HallOfFameClient />
+
+      {/* 명예의 전당 하단 광고 */}
+      <AdBanner adSlot={AD_SLOTS.HOF_BOTTOM} adFormat="leaderboard" />
 
       {/* SEO 콘텐츠 하단 섹션 */}
       <section className={styles.seoSection}>

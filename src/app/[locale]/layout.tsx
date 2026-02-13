@@ -26,7 +26,7 @@ const montserrat = Montserrat({
 });
 
 import { Metadata, Viewport } from 'next';
-import { FULL_URL, BASE_PATH } from '@/lib/constants';
+import { FULL_URL, BASE_PATH, ADSENSE_PUBLISHER_ID } from '@/lib/constants';
 
 /**
  * Next.js 14+에서 viewport는 별도로 export해야 함
@@ -109,6 +109,13 @@ export default async function LocaleLayout({
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </Script>
+      {/* Google AdSense */}
+      <Script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+        crossOrigin="anonymous"
+        strategy="afterInteractive"
+      />
       <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="data-theme"

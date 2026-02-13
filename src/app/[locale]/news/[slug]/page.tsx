@@ -14,6 +14,8 @@ import ShareButtons from '@/components/common/ShareButtons';
 import NewsViewCounter from '@/components/news/NewsViewCounter';
 import NewsComments from '@/components/news/NewsComments';
 import RelatedNewsGrid from '@/components/news/RelatedNewsGrid';
+import AdBanner from '@/components/common/AdBanner';
+import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
 
 /**
@@ -194,6 +196,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         </ReactMarkdown>
       </article>
 
+      {/* 기사 내 광고 */}
+      <AdBanner adSlot={AD_SLOTS.NEWS_DETAIL_ARTICLE} adFormat="in-article" />
+
       {/* 기사 하단 공유 버튼 */}
       <div className={styles.shareSection}>
         <p className={styles.sharePrompt}>{t('sharePrompt')}</p>
@@ -230,10 +235,8 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
       {/* 댓글 섹션 */}
       <NewsComments slug={slug} />
 
-      {/* 광고 플레이스홀더 (향후 AdSense 삽입 위치) */}
-      <div className={styles.adPlaceholder} data-ad-slot="news-detail-bottom">
-        {/* AdSense 코드 삽입 예정 */}
-      </div>
+      {/* 뉴스 상세 하단 광고 */}
+      <AdBanner adSlot={AD_SLOTS.NEWS_DETAIL_BOTTOM} adFormat="leaderboard" />
 
       {/* JSON-LD 구조화 데이터 (Article 스키마) */}
       <JsonLd
