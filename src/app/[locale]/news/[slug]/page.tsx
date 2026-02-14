@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
@@ -206,7 +205,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           };
 
           return sections.map((section, index) => (
-            <Fragment key={index}>
+            <div key={index}>
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                 {section}
               </ReactMarkdown>
@@ -214,7 +213,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
               {AD_INSERT_AFTER_SECTIONS.includes(index) && index < sections.length - 1 && (
                 <AdBanner adSlot={AD_SLOTS.NEWS_DETAIL_ARTICLE} adFormat="in-article" />
               )}
-            </Fragment>
+            </div>
           ));
         })()}
       </article>
