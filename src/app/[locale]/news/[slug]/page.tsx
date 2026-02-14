@@ -1,10 +1,11 @@
+import { Fragment } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import ExportedImage from 'next-image-export-optimizer';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getNewsBySlug, getAllNewsParams, getRelatedNews } from '@/lib/news';
 import { generateDynamicAlternates } from '@/lib/seo';
@@ -17,6 +18,19 @@ import RelatedNewsGrid from '@/components/news/RelatedNewsGrid';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
+
+/**
+ * 마크다운 콘텐츠를 ## (h2) 기준으로 섹션 분할
+ * 도입부(## 이전)와 각 ## 섹션을 별도 문자열 배열로 반환
+ * 광고를 섹션 사이에 삽입하기 위해 사용
+ */
+function splitContentBySections(content: string): string[] {
+  const sections = content.split(/(?=^## )/m);
+  return sections.filter((s) => s.trim());
+}
+
+/** 광고를 삽입할 섹션 인덱스 (0-based, 해당 섹션 뒤에 광고 배치) */
+const AD_INSERT_AFTER_SECTIONS = [1, 3];
 
 /**
  * 제목을 지정된 최대 길이로 truncate
@@ -166,14 +180,13 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         </div>
       </header>
 
-      {/* 기사 본문 */}
+      {/* 기사 본문 (섹션별 분할 + 중간 광고 삽입) */}
       <article className={styles.content}>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            // 마크다운 이미지를 ExportedImage로 최적화 (빌드 시 WebP 변환)
+        {(() => {
+          const sections = splitContentBySections(post.content);
+          // 마크다운 이미지를 ExportedImage로 최적화하는 공용 컴포넌트
+          const markdownComponents: Partial<Components> = {
             img: ({ src, alt }) => {
-              // src가 string인 경우에만 ExportedImage 사용
               if (typeof src === 'string' && src) {
                 return (
                   <span className={styles.contentImage}>
@@ -190,14 +203,21 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
               }
               return null;
             },
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
-      </article>
+          };
 
-      {/* 기사 내 광고 */}
-      <AdBanner adSlot={AD_SLOTS.NEWS_DETAIL_ARTICLE} adFormat="in-article" />
+          return sections.map((section, index) => (
+            <Fragment key={index}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                {section}
+              </ReactMarkdown>
+              {/* 지정된 섹션 뒤에 in-article 광고 삽입 (마지막 섹션 제외) */}
+              {AD_INSERT_AFTER_SECTIONS.includes(index) && index < sections.length - 1 && (
+                <AdBanner adSlot={AD_SLOTS.NEWS_DETAIL_ARTICLE} adFormat="in-article" />
+              )}
+            </Fragment>
+          ));
+        })()}
+      </article>
 
       {/* 기사 하단 공유 버튼 */}
       <div className={styles.shareSection}>
