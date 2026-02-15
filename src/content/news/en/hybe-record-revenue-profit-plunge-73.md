@@ -1,0 +1,73 @@
+---
+title: "HYBE's $1.86B Revenue Record Hides a Brutal Truth — Operating Profit Crashed 73%"
+excerpt: "HYBE posted an all-time record revenue of KRW 2.65 trillion ($1.86B) for 2025, yet operating profit collapsed 73% to just $34.6 million. Despite concert revenue surging 69%, the structural contradiction at K-pop's biggest company is impossible to ignore."
+date: '2026-02-15'
+category: 'Market Trend'
+thumbnail: '/images/news/hybe-record-revenue-profit-plunge-73-thumbnail.png'
+active: true
+---
+
+Sometimes, the numbers tell a cruel story.
+
+On February 13, 2026, HYBE released its 2025 annual earnings. Consolidated revenue: **KRW 2.65 trillion ($1.86 billion)**. That's a 17.5% jump from the previous year and the highest revenue figure in the company's history — and the largest ever posted by a single K-pop entertainment company.
+
+If that were the whole story, it would be champagne time. But the very next line on the same earnings report flipped the narrative entirely.
+
+**Operating profit: KRW 49.9 billion ($34.6 million). Down 73% year-over-year.**
+
+Record-breaking revenue at the top, but the actual money left over shrank to a quarter of what it was. How is that paradox even possible?
+
+## Concert Revenue Hit an All-Time High — So Why No Profit?
+
+Digging into the numbers, the most striking figure is the **explosive growth in concerts**. HYBE's concert revenue reached **KRW 763.9 billion ($530 million)** in 2025, surging roughly **69% year-over-year** to an all-time high. Large-scale world tours by SEVENTEEN, ENHYPEN, and TXT drove these results.
+
+But concerts are a "big revenue, thin margin" business. Stadium rentals, stage production, global logistics, local staffing — costs scale directly with size. It's common for a KRW 100 billion tour to net less than KRW 10 billion in actual profit.
+
+Meanwhile, **recorded music revenue declined 11.3%**. Albums are the opposite of concerts — smaller revenue, but much higher margins. With BTS largely inactive, the high-margin album revenue dried up and was replaced by low-margin concert revenue. That structural swap is the key to understanding HYBE's paradoxical earnings.
+
+## The Real Cost of BTS's Absence — From 95% to Under 20%
+
+To understand HYBE's earnings paradox, you need to look at the **history of BTS dependency**.
+
+In 2019, BTS accounted for over **95%** of HYBE's (then Big Hit Entertainment) total revenue. Since then, HYBE has acquired and established multiple sub-labels — Source Music, Pledis, KOZ, ADOR — transitioning to a multi-label structure. By 2025, BTS's share of total revenue had dropped below **20%**.
+
+On paper, that looks like a successful "post-BTS" diversification. But there's a catch. When BTS was active, their revenue came with **high profit margins**. Albums, merchandise, licensing — most revenue streams tied to the BTS IP were inherently high-margin.
+
+New artists like NewJeans, ILLIT, and KATSEYE, on the other hand, require **massive upfront investment** during their debut phase. Training, promotion, music videos, global marketing — it takes a minimum of 2-3 years before returns materialize. This structural transition cost is the biggest reason HYBE posted record revenue in 2025 while operating profit cratered.
+
+![HYBE's dramatic contrast between record revenue and plunging profit](/images/news/hybe-record-revenue-profit-plunge-73-1.png)
+_Revenue hit an all-time high, but operating profit crashed 73% — exposing the structural limits of K-pop's biggest business model_
+
+## HYBE America: The Black Hole of Global Expansion
+
+Another major contributor to the profit decline is **HYBE America**. The U.S. subsidiary, launched through the acquisition of Ithaca Holdings (approximately KRW 1.2 trillion / $900M), recorded a net loss of around KRW 142.4 billion ($99M) in 2023 and continued bleeding red ink through 2025.
+
+With underperforming activity from Ithaca artists like Justin Bieber and Ariana Grande, the costs of U.S. market infrastructure and payroll continued to pile up. KATSEYE's debut represented an attempt at a K-pop localization model, but the return on that investment remains distant.
+
+HYBE's global expansion strategy may prove correct in the long run. But in the near term, it has created a structural problem where revenue can climb as high as it wants, but operating profit simply can't keep up.
+
+## Q4 Performance — Barely Escaping the Red
+
+The full-year numbers are striking, but Q4 tells an even more dramatic story.
+
+Q4 2025 operating profit came in at just **KRW 4.6 billion ($3.2 million)**, down **92.9%** year-over-year. Even that meager figure looks like a victory compared to Q3, when HYBE posted an operating **loss** of KRW 42.2 billion.
+
+What pulled Q4 back into the black was **content revenue**. BTS members Jimin and Jungkook's reality show *Are You Sure?! Season 2* drove content revenue up **61% year-over-year**. Fan club revenue also rose 21.5%. It was the content power of individual BTS members' solo activities that rescued HYBE from the red.
+
+Ironically, these numbers also prove that HYBE still **depends on BTS** — even when the group isn't active as a unit.
+
+## KCL's Take on HYBE's Earnings
+
+HYBE's 2025 results send a critical message to the entire K-pop industry.
+
+**First, revenue growth does not equal business success.** Running more tours and debuting more artists will increase revenue. But if that revenue doesn't convert to profit, you're left with a business that's busy but broke.
+
+**Second, the multi-label strategy has hidden costs.** HYBE successfully reduced its BTS dependency by expanding its label roster. But each label's new artists require simultaneous investment before they become profitable. The full weight of that transition cost is written all over the 2025 earnings.
+
+**Third, 2026 is the real battleground.** With all BTS members expected to complete military service and resume full group activities in 2026, HYBE could be entering a historic earnings cycle. Kyobo Securities forecasted that "2026 will be a record-breaking earnings year as BTS's comeback coincides with the monetization of younger artist groups."
+
+## Looking Ahead
+
+HYBE's 2025 earnings report lays bare the reality of the K-pop business. Spectacular stages, sold-out world tours, massive global fandoms — on the surface, it looks like a golden age. But open the books, and the profit is shrinking.
+
+Revenue of $1.86 billion. Operating profit of just $34.6 million. The gap between those two numbers is the challenge the entire K-pop industry must solve. And the answer might start to emerge in 2026 — when BTS comes home.
