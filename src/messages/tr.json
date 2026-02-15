@@ -531,7 +531,12 @@
     "error_generic": "Bir hata oluştu. Lütfen tekrar deneyin.",
     "error_email_invalid": "Geçerli bir e-posta girin.",
     "error_username_min": "Kullanıcı adı en az 3 karakter olmalıdır.",
-    "error_password_min": "Şifre en az 6 karakter olmalıdır.",
+    "error_password_min": "Şifre en az 8 karakter olmalıdır.",
+    "error_password_letter": "Şifre bir harf içermelidir.",
+    "error_password_number": "Şifre bir rakam içermelidir.",
+    "password_weak": "Zayıf",
+    "password_medium": "Orta",
+    "password_strong": "Güçlü",
     "signup_subtitle": "Diğer hayranlarla bağlantı kurmak için kaydolun.",
     "signup_terms": "Kayıt olarak KCL Kullanım Şartları ve Gizlilik Politikasını kabul edersiniz.",
     "profile": "Profil"

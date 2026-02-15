@@ -531,7 +531,12 @@
     "error_generic": "エラーが発生しました。もう一度お試しください。",
     "error_email_invalid": "有効なメールアドレスを入力してください。",
     "error_username_min": "ユーザー名は3文字以上必要です。",
-    "error_password_min": "パスワードは6文字以上必要です。",
+    "error_password_min": "パスワードは8文字以上必要です。",
+    "error_password_letter": "パスワードに英字を含めてください。",
+    "error_password_number": "パスワードに数字を含めてください。",
+    "password_weak": "弱い",
+    "password_medium": "普通",
+    "password_strong": "強い",
     "signup_subtitle": "他のファンとつながるために登録しましょう。",
     "signup_terms": "登録することで、KCLの利用規約とプライバシーポリシーに同意したことになります。",
     "profile": "プロフィール"

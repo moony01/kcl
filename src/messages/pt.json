@@ -531,7 +531,12 @@
     "error_generic": "Ocorreu um erro. Tente novamente.",
     "error_email_invalid": "Digite um e-mail válido.",
     "error_username_min": "O nome de usuário deve ter pelo menos 3 caracteres.",
-    "error_password_min": "A senha deve ter pelo menos 6 caracteres.",
+    "error_password_min": "A senha deve ter pelo menos 8 caracteres.",
+    "error_password_letter": "A senha deve conter uma letra.",
+    "error_password_number": "A senha deve conter um número.",
+    "password_weak": "Fraca",
+    "password_medium": "Média",
+    "password_strong": "Forte",
     "signup_subtitle": "Cadastre-se para se conectar com outros fãs.",
     "signup_terms": "Ao se cadastrar, você concorda com os Termos de Serviço e Política de Privacidade do KCL.",
     "profile": "Perfil"

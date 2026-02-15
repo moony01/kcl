@@ -531,7 +531,12 @@
     "error_generic": "오류가 발생했습니다. 다시 시도해주세요.",
     "error_email_invalid": "유효한 이메일을 입력해주세요.",
     "error_username_min": "사용자 이름은 3자 이상이어야 합니다.",
-    "error_password_min": "비밀번호는 6자 이상이어야 합니다.",
+    "error_password_min": "비밀번호는 8자 이상이어야 합니다.",
+    "error_password_letter": "비밀번호에 영문자를 포함해주세요.",
+    "error_password_number": "비밀번호에 숫자를 포함해주세요.",
+    "password_weak": "약함",
+    "password_medium": "보통",
+    "password_strong": "강함",
     "signup_subtitle": "다른 팬들과 연결하려면 가입하세요.",
     "signup_terms": "가입하면 KCL의 이용약관 및 개인정보처리방침에 동의하게 됩니다.",
     "profile": "프로필"

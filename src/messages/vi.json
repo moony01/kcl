@@ -531,7 +531,12 @@
     "error_generic": "Đã xảy ra lỗi. Vui lòng thử lại.",
     "error_email_invalid": "Vui lòng nhập email hợp lệ.",
     "error_username_min": "Tên người dùng phải có ít nhất 3 ký tự.",
-    "error_password_min": "Mật khẩu phải có ít nhất 6 ký tự.",
+    "error_password_min": "Mật khẩu phải có ít nhất 8 ký tự.",
+    "error_password_letter": "Mật khẩu phải chứa chữ cái.",
+    "error_password_number": "Mật khẩu phải chứa số.",
+    "password_weak": "Yếu",
+    "password_medium": "Trung bình",
+    "password_strong": "Mạnh",
     "signup_subtitle": "Đăng ký để kết nối với những người hâm mộ khác.",
     "signup_terms": "Bằng việc đăng ký, bạn đồng ý với Điều khoản Dịch vụ và Chính sách Bảo mật của KCL.",
     "profile": "Hồ sơ"

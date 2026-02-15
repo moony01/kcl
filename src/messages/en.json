@@ -531,7 +531,12 @@
     "error_generic": "An error occurred. Please try again.",
     "error_email_invalid": "Please enter a valid email.",
     "error_username_min": "Username must be at least 3 characters.",
-    "error_password_min": "Password must be at least 6 characters.",
+    "error_password_min": "Password must be at least 8 characters.",
+    "error_password_letter": "Password must contain a letter.",
+    "error_password_number": "Password must contain a number.",
+    "password_weak": "Weak",
+    "password_medium": "Medium",
+    "password_strong": "Strong",
     "signup_subtitle": "Sign up to connect with other fans.",
     "signup_terms": "By signing up, you agree to KCL's Terms of Service and Privacy Policy.",
     "profile": "Profile"

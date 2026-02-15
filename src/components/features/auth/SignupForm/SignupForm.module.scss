@@ -246,6 +246,46 @@
   }
 }
 
+// 비밀번호 강도 인디케이터
+.strengthBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -4px 0 0;
+}
+
+.strengthTrack {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.strengthSegment {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background-color: var(--color-border);
+  transition: background-color 0.2s ease;
+
+  &.weak {
+    background-color: $color-danger;
+  }
+
+  &.medium {
+    background-color: #f59e0b;
+  }
+
+  &.strong {
+    background-color: #10b981;
+  }
+}
+
+.strengthLabel {
+  font-size: 0.72rem;
+  color: var(--color-text-dim);
+  white-space: nowrap;
+}
+
 // 에러 메시지
 .errorMsg {
   color: $color-danger;

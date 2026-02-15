@@ -35,9 +35,21 @@ function CallbackHandler() {
     const errorParam = searchParams.get('error');
     const errorDescription = searchParams.get('error_description');
 
-    // OAuth 에러 파라미터가 있는 경우
+    // OAuth 에러 파라미터가 있는 경우 (XSS 방지: 화이트리스트 방식)
     if (errorParam) {
-      setError(errorDescription || errorParam);
+      // raw 에러는 콘솔에만 기록 (디버깅용)
+      if (errorDescription) {
+        console.error('[OAuth Callback] Error:', errorParam, errorDescription);
+      }
+      // 사전 정의된 에러 코드만 매핑, 나머지는 기본 메시지
+      const errorMessages: Record<string, string> = {
+        'access_denied': 'Access denied. Please try again.',
+        'server_error': 'Server error occurred. Please try again later.',
+        'temporarily_unavailable': 'Service temporarily unavailable. Please try again later.',
+        'invalid_request': 'Invalid request. Please try again.',
+        'unauthorized_client': 'Authorization failed. Please try again.',
+      };
+      setError(errorMessages[errorParam] || 'Authentication failed. Please try again.');
       return;
     }
 

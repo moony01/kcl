@@ -127,10 +127,12 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const supabase = getSupabase();
       await supabase.auth.signOut();
-      setUser(null);
-      setProfile(null);
     } catch (err) {
       console.error('[AuthProvider] 로그아웃 실패:', err);
+    } finally {
+      // 로그아웃 성공/실패 여부와 관계없이 클라이언트 상태 항상 초기화 (보안 우선)
+      setUser(null);
+      setProfile(null);
     }
   }, []);
 
