@@ -531,7 +531,12 @@
     "error_generic": "Terjadi kesalahan. Silakan coba lagi.",
     "error_email_invalid": "Masukkan email yang valid.",
     "error_username_min": "Nama pengguna minimal 3 karakter.",
-    "error_password_min": "Kata sandi minimal 6 karakter.",
+    "error_password_min": "Kata sandi minimal 8 karakter.",
+    "error_password_letter": "Kata sandi harus mengandung huruf.",
+    "error_password_number": "Kata sandi harus mengandung angka.",
+    "password_weak": "Lemah",
+    "password_medium": "Sedang",
+    "password_strong": "Kuat",
     "signup_subtitle": "Daftar untuk terhubung dengan penggemar lainnya.",
     "signup_terms": "Dengan mendaftar, Anda menyetujui Ketentuan Layanan dan Kebijakan Privasi KCL.",
     "profile": "Profil"

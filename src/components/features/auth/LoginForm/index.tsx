@@ -143,7 +143,8 @@ export default function LoginForm() {
         <div className={classNames(styles.inputGroup, { [styles.hasValue]: !!emailValue })}>
           <input
             {...register('email')}
-            type="text"
+            type="email"
+            autoComplete="email"
             className={styles.input}
           />
           <label className={styles.floatingLabel}>{t('email_placeholder')}</label>
@@ -154,6 +155,7 @@ export default function LoginForm() {
           <input
             {...register('password')}
             type="password"
+            autoComplete="current-password"
             className={styles.input}
           />
           <label className={styles.floatingLabel}>{t('password_placeholder')}</label>

@@ -531,7 +531,12 @@
     "error_generic": "发生错误，请重试。",
     "error_email_invalid": "请输入有效的电子邮箱。",
     "error_username_min": "用户名至少需要3个字符。",
-    "error_password_min": "密码至少需要6个字符。",
+    "error_password_min": "密码至少8个字符。",
+    "error_password_letter": "密码须包含字母。",
+    "error_password_number": "密码须包含数字。",
+    "password_weak": "弱",
+    "password_medium": "中等",
+    "password_strong": "强",
     "signup_subtitle": "注册以与其他粉丝建立联系。",
     "signup_terms": "注册即表示您同意KCL的服务条款和隐私政策。",
     "profile": "个人资料"
