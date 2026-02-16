@@ -3,7 +3,7 @@ title: "Big 4, 결국 일본에 '올인'했다…서울 극비 회의에서 터�
 excerpt: "하이브·SM·JYP·YG를 포함한 50개 이상의 기획사가 서울에 모여 일본 스트리밍 시장 공략 전략을 수립했습니다. '직감의 시대는 끝났다'고 선언한 이들의 데이터 기반 일본 침공 작전, 그 전모를 분석합니다."
 date: '2026-02-16'
 category: 'Market Trend'
-thumbnail: '/images/news/kpop-big4-japan-streaming-strategy-thumbnail.png'
+thumbnail: '/images/news/kpop-big4-japan-streaming-strategy-thumb.png'
 active: true
 ---
 
@@ -33,7 +33,7 @@ active: true
 
 이는 그동안 K-pop 기획사들이 일본 시장을 공략하던 방식과 근본적으로 다릅니다. 과거에는 "일본어 버전 음원 발매 + 현지 팬미팅"이라는 천편일률적 공식이 통했습니다. 하지만 스트리밍 시대에 접어들면서 일본 소비자의 행동이 완전히 바뀌었고, 구시대 공식으로는 더 이상 일본을 잡을 수 없게 된 겁니다.
 
-![K-pop 기획사들의 일본 스트리밍 시장 공략 전략 — 데이터 기반 접근의 시작](/images/news/kpop-big4-japan-streaming-strategy-1.png)
+![K-pop 기획사들의 일본 스트리밍 시장 공략 전략 — 데이터 기반 접근의 시작](/images/news/kpop-big4-japan-streaming-strategy-body.png)
 _50개 이상의 K-pop 기획사가 서울에 모여 일본 스트리밍 시장 공략을 위한 데이터 기반 전략을 수립했다_
 
 ## Big 4의 일본 전략 — 각자의 길, 같은 목적지
