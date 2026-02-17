@@ -36,7 +36,7 @@ The message was clear: "We love K-pop, but we will not accept racism." The movem
 
 This isn't just an online spat — the **numbers** tell a much more serious story. Southeast Asia is K-pop's most loyal overseas market. Indonesia (280 million), the Philippines (110 million), Vietnam (100 million), Thailand (70 million) — the region's combined population exceeds **680 million people**. Southeast Asian revenue from K-pop concert tours grows year after year, and the region's contribution to album sales is far from negligible.
 
-With K-pop physical album sales declining for two consecutive years in 2024-2025, losing Southeast Asia could be catastrophic for the industry. Some #SEAblings participants have already declared boycotts of Korean cultural content — a warning sign that threatens not just K-pop, but the entire Korean Wave including K-dramas and K-beauty.
+With K-pop physical album sales declining for the first time in nine years in 2024, losing Southeast Asia could be catastrophic for the industry. Some #SEAblings participants have already declared boycotts of Korean cultural content — a warning sign that threatens not just K-pop, but the entire Korean Wave including K-dramas and K-beauty.
 
 ## KCL's Take: K-Pop's Cultural Diplomacy Crisis
 
@@ -44,7 +44,7 @@ KCL views this incident as a **structural problem** within the K-pop industry fi
 
 Entertainment agencies are well aware of Southeast Asia's economic value through tour revenue and album sales. Yet virtually none have issued official statements addressing racist remarks within fan communities, nor do they operate cultural understanding programs. This crisis is the price of that neglect.
 
-On February 6, over 50 Korean entertainment companies — including HYBE, SM, JYP, and YG — convened in Seoul to discuss Japan's streaming market strategy. Yet there has been **no industry-level response** to the fan exodus crisis unfolding in Southeast Asia. If K-pop is to become a truly global culture, **cultural inclusion** must accompany music exports.
+To date, none of the major agencies — including HYBE, SM, JYP, and YG — have issued any official statement addressing the fan exodus crisis unfolding in Southeast Asia. If K-pop is to become a truly global culture, **cultural inclusion** must accompany music exports.
 
 ## The Road Ahead
 
