@@ -1,0 +1,71 @@
+---
+title: "'She Won $17.6M but Lost the Fans' — The Shocking Aftermath of Min Hee-jin's Court Victory Over HYBE"
+excerpt: "The Seoul Central District Court ordered HYBE to pay $17.6 million to Min Hee-jin. She won in court. But NewJeans fans are turning against her. Behind the paradox of legal victory and fandom betrayal lies a story that could reshape K-pop governance."
+date: '2026-02-19'
+category: 'Business'
+thumbnail: '/images/news/hybe-min-heejin-255b-ruling-fan-betrayal-thumbnail.png'
+active: true
+---
+
+"Min Hee-jin won."
+
+On February 12, the Seoul Central District Court dropped a ruling that shook the entire K-pop industry. HYBE was ordered to pay **25.5 billion won (approximately $17.6 million)** to former ADOR CEO Min Hee-jin. In the biggest turning point of the HYBE-Min Hee-jin dispute that began in April 2024, the court sided with Min.
+
+But then something strange happened. Instead of celebration, fan communities erupted in **anger**. The woman who once called herself "NewJeans' mother" was now being accused of **betraying** the very group she claimed to protect.
+
+Min Hee-jin walked away with $17.6 million. But what she lost may be worth far more.
+
+## What the Court Actually Ruled — The Put Option Verdict
+
+The core of this lawsuit was the legitimacy of Min Hee-jin's **put option (stock purchase claim right)**.
+
+When Min co-founded ADOR with HYBE, she secured a shareholder agreement that included the right to demand HYBE purchase her shares under certain conditions. After HYBE dismissed her as ADOR CEO in 2024, Min exercised this put option, essentially saying: "Buy my shares."
+
+HYBE's counter-argument was straightforward: "Min violated the shareholder agreement first, so the put option is void." Specifically, HYBE claimed that Min's public allegations about ILLIT copying NewJeans and her criticism of HYBE's album oversupply practices constituted contractual violations.
+
+**The court disagreed firmly.** These actions did not constitute breaches of the shareholder agreement. Notably, the court found that HYBE failed to provide sufficient evidence to refute Min's claims about similarities between ILLIT and NewJeans.
+
+The result: HYBE was ordered to pay 25.5 billion won to Min Hee-jin, 1.7 billion won to former ADOR Vice CEO Shin, and 1.4 billion won to former director Kim.
+
+## 'NewJeans' Mother' Accused of Abandoning NewJeans — The Fan Divide
+
+Legal victory didn't translate to public victory.
+
+Right after the ruling, Min posted a video on her social media featuring five rabbits — the symbol of NewJeans. Given that Danielle had already left the group, the "five rabbits" sparked confusion. "Five without Danielle? What is she saying?" fans asked.
+
+The real flashpoint came from Min's legal team. According to Koreaboo, during the trial proceedings, Min appeared to shift responsibility toward NewJeans members' families when legal accountability came into focus. For someone who had carefully built a "NewJeans' mother" narrative, this felt like betrayal to many fans.
+
+As reported by allkpop, Min had already been distancing herself from NewJeans even before the ruling. She constructed the guardian narrative herself, but when legal consequences started closing in, she began pulling away.
+
+Fan reactions split sharply. Some accused her of "using NewJeans and then discarding them." Others defended her, pointing out that the real issue is K-pop idols not being recognized as "employees" under Korean labor law, which prevented NewJeans from receiving any direct compensation. The debate grew so heated that Reddit's r/kpopthoughts created a dedicated megathread just for this ruling.
+
+![Legal victory and fandom divide](/images/news/hybe-min-heejin-255b-ruling-fan-betrayal-1.png)
+_The paradox of winning in court while losing fan trust_
+
+## $17.6M Was Just Round One — The $30M War Still Ahead
+
+This ruling is far from the end. According to The Korea Herald, HYBE is pursuing a **separate damages lawsuit worth approximately 43 billion won (~$30 million)** against Min Hee-jin. HYBE's central claim is that Min induced NewJeans members to pursue activities independently from ADOR.
+
+Legal experts say the put option ruling could significantly impact the damages case. "If the court has already rejected claims of reputational damage and misconduct in the put option case, it raises questions about how convincingly HYBE can quantify losses in a separate suit," one expert told Korea Herald.
+
+HYBE immediately announced it would appeal. "We are disappointed that our claims were not sufficiently accepted," the company said in an official statement. "We will review the ruling and proceed with legal measures including an appeal."
+
+Meanwhile, Min has established a new label called OK Records and stated she would "repay with new music and performances rather than engaging in exhaustive disputes." It's a signal that she intends to step back from legal battles while opening a new chapter in artist development.
+
+## What This Ruling Means for K-pop's Future
+
+This verdict goes beyond a financial dispute. It raises fundamental questions about K-pop's **governance structure**.
+
+**First, the balance of power between creators and corporations.** The court's ruling that HYBE cannot strip contractual rights just because it dismissed a subsidiary CEO sets an important precedent. One individual successfully challenged a multi-billion-dollar entertainment conglomerate — and won.
+
+**Second, the danger of the "idol parent" narrative.** Min's case shows what happens when a creator leverages emotional bonds with artists for personal branding, only to have that narrative collide with legal accountability. Fandoms demand authenticity, and the moment that authenticity is questioned, the backlash is fierce.
+
+**Third, a renewed awareness of entertainment company risk.** HYBE's stock price experienced significant volatility throughout this dispute. The 25.5 billion won payout, appeal costs, and the uncertainty of the additional 43 billion won lawsuit are reminding investors about the unique risks of investing in K-pop entertainment companies.
+
+## Looking Ahead
+
+Min Hee-jin won in court. The $17.6 million figure speaks to the magnitude of that victory.
+
+But the "NewJeans' mother" title appears irreparably damaged. Whether legal victory translates into restored public trust — or whether this fracture becomes permanent — depends on the upcoming damages lawsuit and OK Records' trajectory.
+
+One thing is certain: **this story is far from over.**
