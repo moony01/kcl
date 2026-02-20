@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { FULL_URL, SupportedLocale } from '@/lib/constants';
+import { FULL_URL, SUPPORTED_LOCALES, SupportedLocale } from '@/lib/constants';
 import { getAllNews } from '@/lib/news';
 
 /**
@@ -22,7 +22,7 @@ export const dynamic = 'force-static';
  * sitemap에 포함할 언어 목록
  * 실제 트래픽과 콘텐츠가 있는 언어만 포함
  */
-const SITEMAP_LOCALES: SupportedLocale[] = ['en', 'ko', 'ja', 'zh'];
+const SITEMAP_LOCALES = SUPPORTED_LOCALES;
 
 /**
  * 뉴스 콘텐츠가 존재하는 언어 목록
