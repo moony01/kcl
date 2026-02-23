@@ -63,6 +63,8 @@ function getEventModalCopy(locale: string) {
       title: string;
       lead: string;
       highlight: string;
+      powerVoteTitle: string;
+      powerVote: string;
       note: string;
       primaryCta: string;
       noticeCta: string;
@@ -72,7 +74,9 @@ function getEventModalCopy(locale: string) {
     ko: {
       title: '회원가입하면 투표권 2배',
       lead: '지금 회원가입하면 매일 더 많은 투표권으로 최애 소속사를 응원할 수 있어요.',
-      highlight: '비회원 30표 -> 회원 60표 (매일)',
+      highlight: '비회원 30표 → 회원 60표 (매일)',
+      powerVoteTitle: '파워투표',
+      powerVote: '투표하기 버튼을 길게 눌러 한 번에 최대 30표까지 투표',
       note: '이벤트 공지에서 상세 내용을 확인해 주세요.',
       primaryCta: '회원가입하고 2배 받기',
       noticeCta: '이벤트 공지 보기',
@@ -81,7 +85,9 @@ function getEventModalCopy(locale: string) {
     en: {
       title: 'Sign up and get 2x votes',
       lead: 'Create your account now and support your favorite company with more daily voting power.',
-      highlight: 'Guest 30 votes -> Member 60 votes (daily)',
+      highlight: 'Guest 30 votes → Member 60 votes (daily)',
+      powerVoteTitle: 'Power Vote',
+      powerVote: 'Long-press Vote to cast up to 30 votes at once',
       note: 'See the event notice for full details.',
       primaryCta: 'Sign up for double votes',
       noticeCta: 'View event notice',
@@ -91,6 +97,8 @@ function getEventModalCopy(locale: string) {
       title: '会員登録で投票権2倍',
       lead: '今すぐ会員登録して、毎日もっと多くの投票権で推しの事務所を応援しましょう。',
       highlight: '非会員 30票 → 会員 60票（毎日）',
+      powerVoteTitle: 'パワー投票',
+      powerVote: '投票ボタン長押しで最大30票までまとめて投票できます',
       note: 'イベント告知で詳細をご確認ください。',
       primaryCta: '登録して2倍ゲット',
       noticeCta: 'イベント告知を見る',
@@ -100,6 +108,8 @@ function getEventModalCopy(locale: string) {
       title: '注册即享双倍投票权',
       lead: '立即注册账号，每天用更多投票权为你喜爱的公司助力。',
       highlight: '游客 30票 → 会员 60票（每日）',
+      powerVoteTitle: '火力投票',
+      powerVote: '长按“投票”按钮，一次最多可投30票',
       note: '请查看活动公告了解详情。',
       primaryCta: '注册领取双倍投票',
       noticeCta: '查看活动公告',
@@ -109,6 +119,8 @@ function getEventModalCopy(locale: string) {
       title: 'Regístrate y obtén el doble de votos',
       lead: 'Crea tu cuenta ahora y apoya a tu empresa favorita con el doble de votos diarios.',
       highlight: 'Invitado 30 votos → Miembro 60 votos (diario)',
+      powerVoteTitle: 'Voto poderoso',
+      powerVote: 'Mantén pulsado Votar para emitir hasta 30 votos de una vez',
       note: 'Consulta el aviso del evento para más detalles.',
       primaryCta: 'Registrarse y obtener el doble',
       noticeCta: 'Ver aviso del evento',
@@ -118,6 +130,8 @@ function getEventModalCopy(locale: string) {
       title: 'Cadastre-se e ganhe o dobro de votos',
       lead: 'Crie sua conta agora e apoie sua empresa favorita com o dobro de votos diários.',
       highlight: 'Visitante 30 votos → Membro 60 votos (diário)',
+      powerVoteTitle: 'Voto poderoso',
+      powerVote: 'Pressione e segure Votar para lançar até 30 votos de uma vez',
       note: 'Confira o aviso do evento para mais detalhes.',
       primaryCta: 'Cadastrar e ganhar o dobro',
       noticeCta: 'Ver aviso do evento',
@@ -127,6 +141,8 @@ function getEventModalCopy(locale: string) {
       title: 'Inscrivez-vous et obtenez le double de votes',
       lead: 'Créez votre compte maintenant et soutenez votre entreprise favorite avec deux fois plus de votes quotidiens.',
       highlight: 'Visiteur 30 votes → Membre 60 votes (quotidien)',
+      powerVoteTitle: 'Vote puissant',
+      powerVote: 'Maintenez Voter pour lancer jusqu\'à 30 votes en une fois',
       note: 'Consultez l\'annonce de l\'événement pour plus de détails.',
       primaryCta: 'S\'inscrire pour le double',
       noticeCta: 'Voir l\'annonce de l\'événement',
@@ -136,6 +152,8 @@ function getEventModalCopy(locale: string) {
       title: 'Registriere dich und erhalte doppelte Stimmen',
       lead: 'Erstelle jetzt dein Konto und unterstütze dein Lieblingsunternehmen mit doppelt so vielen täglichen Stimmen.',
       highlight: 'Gast 30 Stimmen → Mitglied 60 Stimmen (täglich)',
+      powerVoteTitle: 'Power-Voting',
+      powerVote: 'Halte Abstimmen gedrückt, um bis zu 30 Stimmen auf einmal abzugeben',
       note: 'Weitere Details findest du in der Event-Ankündigung.',
       primaryCta: 'Registrieren und doppelt erhalten',
       noticeCta: 'Event-Ankündigung ansehen',
@@ -145,6 +163,8 @@ function getEventModalCopy(locale: string) {
       title: 'Daftar dan dapatkan 2x suara',
       lead: 'Buat akun sekarang dan dukung perusahaan favoritmu dengan suara harian dua kali lipat.',
       highlight: 'Tamu 30 suara → Anggota 60 suara (harian)',
+      powerVoteTitle: 'Power Vote',
+      powerVote: 'Tekan lama tombol Vote untuk memberi hingga 30 suara sekaligus',
       note: 'Lihat pengumuman event untuk detail selengkapnya.',
       primaryCta: 'Daftar untuk suara ganda',
       noticeCta: 'Lihat pengumuman event',
@@ -154,6 +174,8 @@ function getEventModalCopy(locale: string) {
       title: 'Kayıt ol ve 2 kat oy kazan',
       lead: 'Hemen hesap oluştur ve favori şirketini günlük iki kat oyla destekle.',
       highlight: 'Misafir 30 oy → Üye 60 oy (günlük)',
+      powerVoteTitle: 'Güçlü Oy',
+      powerVote: 'Oy Ver düğmesine basılı tutarak tek seferde en fazla 30 oy kullan',
       note: 'Detaylar için etkinlik duyurusuna göz atın.',
       primaryCta: 'Kayıt ol ve 2 kat kazan',
       noticeCta: 'Etkinlik duyurusunu gör',
@@ -163,6 +185,8 @@ function getEventModalCopy(locale: string) {
       title: 'สมัครสมาชิกรับสิทธิ์โหวต 2 เท่า',
       lead: 'สมัครสมาชิกตอนนี้ แล้วสนับสนุนบริษัทที่คุณชื่นชอบด้วยสิทธิ์โหวตรายวันสองเท่า',
       highlight: 'บุคคลทั่วไป 30 โหวต → สมาชิก 60 โหวต (รายวัน)',
+      powerVoteTitle: 'Power Vote',
+      powerVote: 'กดปุ่มโหวตค้างไว้ เพื่อโหวตได้สูงสุด 30 โหวตในครั้งเดียว',
       note: 'ดูรายละเอียดเพิ่มเติมได้ที่ประกาศกิจกรรม',
       primaryCta: 'สมัครรับโหวต 2 เท่า',
       noticeCta: 'ดูประกาศกิจกรรม',
@@ -172,13 +196,14 @@ function getEventModalCopy(locale: string) {
       title: 'Đăng ký nhận gấp đôi phiếu bầu',
       lead: 'Tạo tài khoản ngay và ủng hộ công ty yêu thích với lượng phiếu bầu hàng ngày gấp đôi.',
       highlight: 'Khách 30 phiếu → Thành viên 60 phiếu (hàng ngày)',
+      powerVoteTitle: 'Power Vote',
+      powerVote: 'Nhấn giữ nút Bỏ phiếu để bỏ tối đa 30 phiếu cùng lúc',
       note: 'Xem thông báo sự kiện để biết thêm chi tiết.',
       primaryCta: 'Đăng ký nhận gấp đôi',
       noticeCta: 'Xem thông báo sự kiện',
       dismissToday: 'Không hiển thị hôm nay',
     },
   };
-
   return copies[locale] ?? copies.en;
 }
 
@@ -605,9 +630,17 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         <div className={styles.eventModalContent}>
           <span className={styles.eventModalEmoji} aria-hidden="true">🎉</span>
           <p className={styles.eventModalLead}>{eventModalCopy.lead}</p>
-          <p className={styles.eventModalHighlight}>
-            ✨ {eventModalCopy.highlight} ✨
-          </p>
+          <div className={styles.eventModalBenefitCard}>
+            <ul className={styles.eventBenefitList}>
+              <li className={styles.eventBenefitItem}>
+                <p className={styles.eventModalHighlight}>{eventModalCopy.highlight}</p>
+              </li>
+              <li className={styles.eventBenefitItem}>
+                <p className={styles.eventBenefitTitle}>{eventModalCopy.powerVoteTitle}</p>
+                <p className={styles.eventModalPowerVote}>{eventModalCopy.powerVote}</p>
+              </li>
+            </ul>
+          </div>
           <p className={styles.eventModalNote}>{eventModalCopy.note}</p>
           <div className={styles.eventModalActions}>
             <Link href={`/${locale}/signup`} className={styles.eventPrimaryBtn}>

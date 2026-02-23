@@ -76,7 +76,7 @@ export default function VoteController({
   /** 마지막 투표 점수 (성공 애니메이션에 표시) */
   const [lastScore, setLastScore] = useState(1);
 
-  // 파워투표 최대 레벨: 비회원 1표(불가), 회원 30표, Pro 100표
+  // 파워투표 최대 레벨: 비회원 1표(불가), 회원 30표, Pro 50표
   const isPro = !!profile?.is_pro;
   const isLoggedIn = !!user;
   const maxPowerLevel = !isLoggedIn
