@@ -15,7 +15,9 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import type { CompanyType } from '@/lib/mock-data';
 import type { LeagueTabType } from '@/types/league';
 
@@ -45,10 +47,140 @@ const HomeComments = dynamic(() => import('@/components/features/home/HomeCommen
 });
 
 import AdBanner from '@/components/common/AdBanner';
+import Modal from '@/components/common/Modal';
 import { useAuth } from '@/hooks/useAuth';
 import { getSupabase } from '@/lib/supabase/client';
+import { SIGNUP_EVENT_NOTICE_ID } from '@/lib/api/announcements';
 import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
+
+const EVENT_MODAL_STORAGE_KEY = 'kcl:event-signup-double-votes:hidden-until';
+
+function getEventModalCopy(locale: string) {
+  const copies: Record<
+    string,
+    {
+      title: string;
+      lead: string;
+      highlight: string;
+      note: string;
+      primaryCta: string;
+      noticeCta: string;
+      dismissToday: string;
+    }
+  > = {
+    ko: {
+      title: '회원가입하면 투표권 2배',
+      lead: '지금 회원가입하면 매일 더 많은 투표권으로 최애 소속사를 응원할 수 있어요.',
+      highlight: '비회원 30표 -> 회원 60표 (매일)',
+      note: '이벤트 공지에서 상세 내용을 확인해 주세요.',
+      primaryCta: '회원가입하고 2배 받기',
+      noticeCta: '이벤트 공지 보기',
+      dismissToday: '오늘 하루 보지 않기',
+    },
+    en: {
+      title: 'Sign up and get 2x votes',
+      lead: 'Create your account now and support your favorite company with more daily voting power.',
+      highlight: 'Guest 30 votes -> Member 60 votes (daily)',
+      note: 'See the event notice for full details.',
+      primaryCta: 'Sign up for double votes',
+      noticeCta: 'View event notice',
+      dismissToday: 'Hide for today',
+    },
+    ja: {
+      title: '会員登録で投票権2倍',
+      lead: '今すぐ会員登録して、毎日もっと多くの投票権で推しの事務所を応援しましょう。',
+      highlight: '非会員 30票 → 会員 60票（毎日）',
+      note: 'イベント告知で詳細をご確認ください。',
+      primaryCta: '登録して2倍ゲット',
+      noticeCta: 'イベント告知を見る',
+      dismissToday: '今日は表示しない',
+    },
+    zh: {
+      title: '注册即享双倍投票权',
+      lead: '立即注册账号，每天用更多投票权为你喜爱的公司助力。',
+      highlight: '游客 30票 → 会员 60票（每日）',
+      note: '请查看活动公告了解详情。',
+      primaryCta: '注册领取双倍投票',
+      noticeCta: '查看活动公告',
+      dismissToday: '今天不再显示',
+    },
+    es: {
+      title: 'Regístrate y obtén el doble de votos',
+      lead: 'Crea tu cuenta ahora y apoya a tu empresa favorita con el doble de votos diarios.',
+      highlight: 'Invitado 30 votos → Miembro 60 votos (diario)',
+      note: 'Consulta el aviso del evento para más detalles.',
+      primaryCta: 'Registrarse y obtener el doble',
+      noticeCta: 'Ver aviso del evento',
+      dismissToday: 'No mostrar hoy',
+    },
+    pt: {
+      title: 'Cadastre-se e ganhe o dobro de votos',
+      lead: 'Crie sua conta agora e apoie sua empresa favorita com o dobro de votos diários.',
+      highlight: 'Visitante 30 votos → Membro 60 votos (diário)',
+      note: 'Confira o aviso do evento para mais detalhes.',
+      primaryCta: 'Cadastrar e ganhar o dobro',
+      noticeCta: 'Ver aviso do evento',
+      dismissToday: 'Não mostrar hoje',
+    },
+    fr: {
+      title: 'Inscrivez-vous et obtenez le double de votes',
+      lead: 'Créez votre compte maintenant et soutenez votre entreprise favorite avec deux fois plus de votes quotidiens.',
+      highlight: 'Visiteur 30 votes → Membre 60 votes (quotidien)',
+      note: 'Consultez l\'annonce de l\'événement pour plus de détails.',
+      primaryCta: 'S\'inscrire pour le double',
+      noticeCta: 'Voir l\'annonce de l\'événement',
+      dismissToday: 'Ne plus afficher aujourd\'hui',
+    },
+    de: {
+      title: 'Registriere dich und erhalte doppelte Stimmen',
+      lead: 'Erstelle jetzt dein Konto und unterstütze dein Lieblingsunternehmen mit doppelt so vielen täglichen Stimmen.',
+      highlight: 'Gast 30 Stimmen → Mitglied 60 Stimmen (täglich)',
+      note: 'Weitere Details findest du in der Event-Ankündigung.',
+      primaryCta: 'Registrieren und doppelt erhalten',
+      noticeCta: 'Event-Ankündigung ansehen',
+      dismissToday: 'Heute nicht mehr anzeigen',
+    },
+    id: {
+      title: 'Daftar dan dapatkan 2x suara',
+      lead: 'Buat akun sekarang dan dukung perusahaan favoritmu dengan suara harian dua kali lipat.',
+      highlight: 'Tamu 30 suara → Anggota 60 suara (harian)',
+      note: 'Lihat pengumuman event untuk detail selengkapnya.',
+      primaryCta: 'Daftar untuk suara ganda',
+      noticeCta: 'Lihat pengumuman event',
+      dismissToday: 'Jangan tampilkan hari ini',
+    },
+    tr: {
+      title: 'Kayıt ol ve 2 kat oy kazan',
+      lead: 'Hemen hesap oluştur ve favori şirketini günlük iki kat oyla destekle.',
+      highlight: 'Misafir 30 oy → Üye 60 oy (günlük)',
+      note: 'Detaylar için etkinlik duyurusuna göz atın.',
+      primaryCta: 'Kayıt ol ve 2 kat kazan',
+      noticeCta: 'Etkinlik duyurusunu gör',
+      dismissToday: 'Bugün gösterme',
+    },
+    th: {
+      title: 'สมัครสมาชิกรับสิทธิ์โหวต 2 เท่า',
+      lead: 'สมัครสมาชิกตอนนี้ แล้วสนับสนุนบริษัทที่คุณชื่นชอบด้วยสิทธิ์โหวตรายวันสองเท่า',
+      highlight: 'บุคคลทั่วไป 30 โหวต → สมาชิก 60 โหวต (รายวัน)',
+      note: 'ดูรายละเอียดเพิ่มเติมได้ที่ประกาศกิจกรรม',
+      primaryCta: 'สมัครรับโหวต 2 เท่า',
+      noticeCta: 'ดูประกาศกิจกรรม',
+      dismissToday: 'ไม่แสดงวันนี้',
+    },
+    vi: {
+      title: 'Đăng ký nhận gấp đôi phiếu bầu',
+      lead: 'Tạo tài khoản ngay và ủng hộ công ty yêu thích với lượng phiếu bầu hàng ngày gấp đôi.',
+      highlight: 'Khách 30 phiếu → Thành viên 60 phiếu (hàng ngày)',
+      note: 'Xem thông báo sự kiện để biết thêm chi tiết.',
+      primaryCta: 'Đăng ký nhận gấp đôi',
+      noticeCta: 'Xem thông báo sự kiện',
+      dismissToday: 'Không hiển thị hôm nay',
+    },
+  };
+
+  return copies[locale] ?? copies.en;
+}
 
 interface HomeClientProps {
   /** 서버에서 미리 fetch한 초기 데이터 (옵셔널, SSG에서는 사용 안 함) */
@@ -61,6 +193,8 @@ interface HomeClientProps {
  * @param initialData - 서버에서 미리 fetch한 리그 데이터 (옵셔널)
  */
 export function HomeClient({ initialData }: HomeClientProps = {}) {
+  const locale = useLocale();
+  const eventModalCopy = useMemo(() => getEventModalCopy(locale), [locale]);
   const { profile, isLoading: isAuthLoading, isAuthenticated } = useAuth();
 
   // 탭 상태 (1부 리그 기본)
@@ -85,6 +219,9 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
   // 화면 크기 감지
   const [isMobile, setIsMobile] = useState(true);
 
+  // 회원가입 이벤트 모달
+  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -92,6 +229,32 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isAuthLoading || isAuthenticated) {
+      return;
+    }
+
+    const hiddenUntilRaw = window.localStorage.getItem(EVENT_MODAL_STORAGE_KEY);
+    const hiddenUntil = hiddenUntilRaw ? Number(hiddenUntilRaw) : 0;
+
+    if (!Number.isNaN(hiddenUntil) && hiddenUntil > Date.now()) {
+      return;
+    }
+
+    setIsEventModalOpen(true);
+  }, [isAuthLoading, isAuthenticated]);
+
+  const handleCloseEventModal = useCallback(() => {
+    setIsEventModalOpen(false);
+  }, []);
+
+  const handleDismissEventModalToday = useCallback(() => {
+    const nextMidnight = new Date();
+    nextMidnight.setHours(24, 0, 0, 0);
+    window.localStorage.setItem(EVENT_MODAL_STORAGE_KEY, String(nextMidnight.getTime()));
+    setIsEventModalOpen(false);
   }, []);
 
   // 🔥 Supabase에서 직접 데이터 가져오기 (CSR)
@@ -298,7 +461,9 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     return (
       <div className={styles.errorContainer}>
         <p>Failed to load data</p>
-        <button onClick={() => refresh()}>Retry</button>
+        <button type="button" onClick={() => refresh()}>
+          Retry
+        </button>
       </div>
     );
   }
@@ -431,6 +596,39 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
           selectedArtist={autoArtistName || undefined}
         />
       </BottomSheet>
+
+      <Modal
+        isOpen={isEventModalOpen}
+        onClose={handleCloseEventModal}
+        title={eventModalCopy.title}
+      >
+        <div className={styles.eventModalContent}>
+          <span className={styles.eventModalEmoji} aria-hidden="true">🎉</span>
+          <p className={styles.eventModalLead}>{eventModalCopy.lead}</p>
+          <p className={styles.eventModalHighlight}>
+            ✨ {eventModalCopy.highlight} ✨
+          </p>
+          <p className={styles.eventModalNote}>{eventModalCopy.note}</p>
+          <div className={styles.eventModalActions}>
+            <Link href={`/${locale}/signup`} className={styles.eventPrimaryBtn}>
+              {eventModalCopy.primaryCta}
+            </Link>
+            <Link
+              href={`/${locale}/notice/${SIGNUP_EVENT_NOTICE_ID}`}
+              className={styles.eventSecondaryBtn}
+            >
+              {eventModalCopy.noticeCta}
+            </Link>
+            <button
+              type="button"
+              onClick={handleDismissEventModalToday}
+              className={styles.eventDismissBtn}
+            >
+              {eventModalCopy.dismissToday}
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

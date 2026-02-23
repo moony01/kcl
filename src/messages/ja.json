@@ -6,6 +6,15 @@
     "search_placeholder": "アーティストまたは会社を検索...",
     "vote_button": "投票する",
     "firepower": "ファイアパワー",
+    "event_modal": {
+      "title": "会員登録で投票権2倍",
+      "lead": "今すぐ会員登録して、毎日もっと多くの投票権で推しの事務所を応援しましょう。",
+      "highlight": "非会員 30票 → 会員 60票（毎日）",
+      "note": "イベント告知で詳細をご確認ください。",
+      "primary_cta": "登録して2倍ゲット",
+      "notice_cta": "イベント告知を見る",
+      "dismiss_today": "今日は表示しない"
+    },
     "seo_title": "KCLへようこそ — K-pop事務所投票プラットフォーム",
     "seo_intro": "K-pop Company League（KCL）は、K-popエンターテイメント事務所に特化した世界初のファン主導型ランキングプラットフォームです。190か国以上の数百万人のファンが毎日投票に参加し、お気に入りの事務所とアーティストを応援しています。HYBE、SM Entertainment、JYP Entertainment、YG Entertainmentなど、K-pop業界を牽引する数多くの事務所の中から、あなたが応援したい事務所に投票しましょう。",
     "seo_how_title": "KCLランキングの仕組み",

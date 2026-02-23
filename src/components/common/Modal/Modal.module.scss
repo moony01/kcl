@@ -7,8 +7,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -29,6 +29,15 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  // 다크 모드에서 배경과 구분되도록 밝기 올림
+  [data-theme='dark'] & {
+    background: #141418;
+    border-color: rgba($color-primary, 0.35);
+    box-shadow:
+      0 0 0 1px rgba(139, 92, 246, 0.15),
+      0 8px 40px rgba(0, 0, 0, 0.6);
+  }
 }
 
 .title {

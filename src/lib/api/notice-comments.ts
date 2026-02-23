@@ -13,6 +13,9 @@ function sanitizePassword(pw: string): string {
   return pw.trim().replace(/[\x01-\x1F\x7F\xA0\u200B-\u200D\uFEFF]/g, '');
 }
 
+/** UUID v4 형식 검사 (이벤트 공지 등 비-UUID ID를 Supabase 쿼리에서 제외) */
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 /** 공지사항 댓글 타입 */
 export interface NoticeComment {
   id: string;
@@ -127,15 +130,15 @@ export async function deleteNoticeComment(
  * @returns 댓글 수
  */
 export async function getNoticeCommentCount(announcementId: string): Promise<number> {
-  const supabase = createClient();
+  // 비-UUID ID(이벤트 공지 등)는 DB 조회 없이 0 반환
+  if (!UUID_RE.test(announcementId)) return 0;
 
+  const supabase = createClient();
   const { data, error } = await supabase
     .rpc('get_kcl_notice_comment_count', { p_announcement_id: announcementId });
-
   if (error) {
     return 0;
   }
-
   return data || 0;
 }
 
@@ -149,25 +152,25 @@ export async function getNoticeCommentCounts(
   announcementIds: string[],
 ): Promise<Record<string, number>> {
   if (announcementIds.length === 0) return {};
+  // 이벤트 공지 등 비-UUID ID를 Supabase 쿼리에서 제외 (UUID 컬럼에 문자열 전달 시 에러 방지)
+  const uuidIds = announcementIds.filter((id) => UUID_RE.test(id));
+  const counts: Record<string, number> = {};
+  // UUID가 아닌 ID는 댓글 0으로 처리
+  if (uuidIds.length === 0) return counts;
 
   const supabase = createClient();
-
   const { data, error } = await supabase
     .from('kcl_notice_comments')
     .select('announcement_id')
-    .in('announcement_id', announcementIds)
+    .in('announcement_id', uuidIds)
     .eq('is_deleted', false);
-
   if (error) {
     console.error('[notice-comments] 배치 댓글 수 조회 실패:', error);
     return {};
   }
-
   // announcement_id별로 그룹 카운팅
-  const counts: Record<string, number> = {};
   for (const row of data || []) {
     counts[row.announcement_id] = (counts[row.announcement_id] || 0) + 1;
   }
-
   return counts;
 }

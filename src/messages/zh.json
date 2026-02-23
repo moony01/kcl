@@ -6,6 +6,15 @@
     "search_placeholder": "搜索艺人或公司...",
     "vote_button": "立即投票",
     "firepower": "火力",
+    "event_modal": {
+      "title": "注册即享双倍投票权",
+      "lead": "立即注册账号，每天用更多投票权为你喜爱的公司助力。",
+      "highlight": "游客 30票 → 会员 60票（每日）",
+      "note": "请查看活动公告了解详情。",
+      "primary_cta": "注册领取双倍投票",
+      "notice_cta": "查看活动公告",
+      "dismiss_today": "今天不再显示"
+    },
     "seo_title": "欢迎来到KCL — K-pop经纪公司投票平台",
     "seo_intro": "K-pop Company League（KCL）是全球首个专注于K-pop娱乐公司的粉丝驱动排名平台。来自190多个国家的数百万粉丝每天参与投票，支持他们喜爱的公司和艺人。无论你支持的是HYBE、SM Entertainment、JYP Entertainment、YG Entertainment，还是其他正在塑造K-pop产业的众多公司，KCL都能让你的声音被听到。",
     "seo_how_title": "KCL排名是如何运作的",

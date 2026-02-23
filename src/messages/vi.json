@@ -6,6 +6,15 @@
     "search_placeholder": "Tìm kiếm nghệ sĩ hoặc công ty...",
     "vote_button": "Bình Chọn Ngay",
     "firepower": "Sức Mạnh",
+    "event_modal": {
+      "title": "Đăng ký nhận gấp đôi phiếu bầu",
+      "lead": "Tạo tài khoản ngay và ủng hộ công ty yêu thích với lượng phiếu bầu hàng ngày gấp đôi.",
+      "highlight": "Khách 30 phiếu → Thành viên 60 phiếu (hàng ngày)",
+      "note": "Xem thông báo sự kiện để biết thêm chi tiết.",
+      "primary_cta": "Đăng ký nhận gấp đôi",
+      "notice_cta": "Xem thông báo sự kiện",
+      "dismiss_today": "Không hiển thị hôm nay"
+    },
     "seo_title": "Chào mừng đến với KCL — Nền Tảng Bình Chọn Công Ty K-pop Hàng Đầu",
     "seo_intro": "K-pop Company League (KCL) là nền tảng xếp hạng do fan vận hành đầu tiên trên thế giới, dành riêng cho các công ty giải trí K-pop. Hàng triệu fan từ hơn 190 quốc gia bình chọn mỗi ngày để ủng hộ công ty yêu thích và những nghệ sĩ họ yêu mến. Dù bạn đam mê HYBE, SM Entertainment, JYP Entertainment, YG Entertainment hay bất kỳ công ty nào khác đang định hình ngành công nghiệp K-pop, KCL trao cho bạn quyền cất lên tiếng nói của mình.",
     "seo_how_title": "Hệ Thống Xếp Hạng KCL Hoạt Động Như Thế Nào",

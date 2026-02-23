@@ -6,6 +6,15 @@
     "search_placeholder": "Sanatçı veya şirket ara...",
     "vote_button": "Şimdi Oy Ver",
     "firepower": "Güç",
+    "event_modal": {
+      "title": "Kayıt ol ve 2 kat oy kazan",
+      "lead": "Hemen hesap oluştur ve favori şirketini günlük iki kat oyla destekle.",
+      "highlight": "Misafir 30 oy → Üye 60 oy (günlük)",
+      "note": "Detaylar için etkinlik duyurusuna göz atın.",
+      "primary_cta": "Kayıt ol ve 2 kat kazan",
+      "notice_cta": "Etkinlik duyurusunu gör",
+      "dismiss_today": "Bugün gösterme"
+    },
     "seo_title": "KCL'ye Hoş Geldiniz — En Kapsamlı K-pop Şirket Oylama Platformu",
     "seo_intro": "K-pop Company League (KCL), K-pop eğlence şirketlerine adanmış, hayranlar tarafından yönetilen dünyanın ilk sıralama platformudur. 190'dan fazla ülkeden milyonlarca hayran, favori şirketlerini ve sevdikleri sanatçıları desteklemek için her gün oy kullanıyor. HYBE, SM Entertainment, JYP Entertainment, YG Entertainment veya K-pop endüstrisini şekillendiren düzinelerce ajansın herhangi biri için tutkuluysanız, KCL size sesinizi duyurma gücü verir.",
     "seo_how_title": "KCL Sıralamaları Nasıl Çalışır",
