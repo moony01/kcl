@@ -7,8 +7,101 @@
 import { createClient } from '@/lib/supabase/client';
 import type { Announcement, AnnouncementCategory, AnnouncementListItem } from '@/types/announcement';
 
+export const SIGNUP_EVENT_NOTICE_ID = 'event-signup-double-votes-2026-02';
+
+interface EventNoticeCopy {
+  title: string;
+  content: string;
+}
+
+function getEventNoticeCopy(locale = 'ko'): EventNoticeCopy {
+  const copies: Record<string, EventNoticeCopy> = {
+    ko: {
+      title: '회원가입하면 투표권 두배 이벤트 안내',
+      content:
+        '<p><strong>회원가입하면 매일 투표권이 2배</strong>로 지급됩니다.</p><p>비회원은 일 30표, 회원은 일 60표를 받을 수 있습니다.</p><p>지금 가입하고 최애 소속사를 더 강하게 응원해보세요.</p>',
+    },
+    en: {
+      title: 'Sign up and get double daily votes',
+      content:
+        '<p><strong>Sign up to get 2x daily votes.</strong></p><p>Guests get 30 votes per day, while signed-in members get 60 votes per day.</p><p>Create your account and support your favorite company with more power.</p>',
+    },
+    ja: {
+      title: '会員登録で投票権2倍イベントのお知らせ',
+      content:
+        '<p><strong>会員登録すると毎日の投票権が2倍</strong>になります。</p><p>非会員は1日30票、会員は1日60票を受け取れます。</p><p>今すぐ登録して、推しの事務所をもっと強力に応援しましょう。</p>',
+    },
+    zh: {
+      title: '注册即享双倍投票权活动公告',
+      content:
+        '<p><strong>注册后每日投票权翻倍。</strong></p><p>游客每天30票，注册会员每天60票。</p><p>立即注册，用更强的力量支持你喜爱的公司。</p>',
+    },
+    es: {
+      title: 'Evento: Regístrate y obtén el doble de votos diarios',
+      content:
+        '<p><strong>Regístrate para obtener el doble de votos diarios.</strong></p><p>Los invitados reciben 30 votos al día, mientras que los miembros registrados reciben 60 votos al día.</p><p>Crea tu cuenta y apoya a tu empresa favorita con más poder.</p>',
+    },
+    pt: {
+      title: 'Evento: Cadastre-se e ganhe o dobro de votos diários',
+      content:
+        '<p><strong>Cadastre-se para ganhar o dobro de votos diários.</strong></p><p>Visitantes recebem 30 votos por dia, enquanto membros cadastrados recebem 60 votos por dia.</p><p>Crie sua conta e apoie sua empresa favorita com mais poder.</p>',
+    },
+    fr: {
+      title: 'Événement : Inscrivez-vous et obtenez le double de votes quotidiens',
+      content:
+        '<p><strong>Inscrivez-vous pour obtenir le double de votes quotidiens.</strong></p><p>Les visiteurs reçoivent 30 votes par jour, tandis que les membres inscrits reçoivent 60 votes par jour.</p><p>Créez votre compte et soutenez votre entreprise favorite avec plus de puissance.</p>',
+    },
+    de: {
+      title: 'Event: Registriere dich und erhalte doppelte tägliche Stimmen',
+      content:
+        '<p><strong>Registriere dich und erhalte doppelt so viele tägliche Stimmen.</strong></p><p>Gäste erhalten 30 Stimmen pro Tag, registrierte Mitglieder erhalten 60 Stimmen pro Tag.</p><p>Erstelle dein Konto und unterstütze dein Lieblingsunternehmen mit mehr Stimmkraft.</p>',
+    },
+    id: {
+      title: 'Event: Daftar dan dapatkan suara harian dua kali lipat',
+      content:
+        '<p><strong>Daftar untuk mendapatkan suara harian dua kali lipat.</strong></p><p>Tamu mendapatkan 30 suara per hari, sementara anggota terdaftar mendapatkan 60 suara per hari.</p><p>Buat akun dan dukung perusahaan favoritmu dengan lebih banyak kekuatan.</p>',
+    },
+    tr: {
+      title: 'Etkinlik: Kayıt ol ve günlük iki kat oy kazan',
+      content:
+        '<p><strong>Kayıt olarak günlük oy hakkınızı ikiye katlayın.</strong></p><p>Misafirler günde 30 oy alırken, kayıtlı üyeler günde 60 oy alır.</p><p>Hesabını oluştur ve favori şirketini daha güçlü destekle.</p>',
+    },
+    th: {
+      title: 'กิจกรรม: สมัครสมาชิกรับสิทธิ์โหวตรายวันสองเท่า',
+      content:
+        '<p><strong>สมัครสมาชิกเพื่อรับสิทธิ์โหวตรายวันสองเท่า</strong></p><p>บุคคลทั่วไปได้รับ 30 โหวตต่อวัน สมาชิกที่ลงทะเบียนได้รับ 60 โหวตต่อวัน</p><p>สร้างบัญชีของคุณแล้วสนับสนุนบริษัทที่คุณชื่นชอบด้วยพลังที่มากขึ้น</p>',
+    },
+    vi: {
+      title: 'Sự kiện: Đăng ký nhận gấp đôi phiếu bầu hàng ngày',
+      content:
+        '<p><strong>Đăng ký để nhận gấp đôi phiếu bầu hàng ngày.</strong></p><p>Khách nhận 30 phiếu mỗi ngày, trong khi thành viên đã đăng ký nhận 60 phiếu mỗi ngày.</p><p>Tạo tài khoản và ủng hộ công ty yêu thích với sức mạnh lớn hơn.</p>',
+    },
+  };
+
+  return copies[locale] ?? copies.en;
+}
+
+function createSignupEventNotice(locale = 'ko'): Announcement {
+  const copy = getEventNoticeCopy(locale);
+
+  return {
+    id: SIGNUP_EVENT_NOTICE_ID,
+    title: copy.title,
+    content: copy.content,
+    category: 'event',
+    is_pinned: true,
+    is_published: true,
+    view_count: 0,
+    created_at: '2026-02-23T00:00:00.000Z',
+    updated_at: '2026-02-23T00:00:00.000Z',
+  };
+}
+
 /** 공지사항 목록 조회 (공개된 것만, RLS 적용) */
-export async function getAnnouncements(category?: AnnouncementCategory): Promise<AnnouncementListItem[]> {
+export async function getAnnouncements(
+  category?: AnnouncementCategory,
+  locale = 'ko',
+): Promise<AnnouncementListItem[]> {
   const supabase = createClient();
 
   let query = supabase
@@ -29,11 +122,23 @@ export async function getAnnouncements(category?: AnnouncementCategory): Promise
     throw error;
   }
 
-  return data || [];
+  const notices = data || [];
+
+  if (category && category !== 'event') {
+    return notices;
+  }
+
+  const eventNotice = createSignupEventNotice(locale);
+  const hasSameId = notices.some((notice) => notice.id === eventNotice.id);
+  return hasSameId ? notices : [eventNotice, ...notices];
 }
 
 /** 공지사항 상세 조회 */
-export async function getAnnouncementById(id: string): Promise<Announcement | null> {
+export async function getAnnouncementById(id: string, locale = 'ko'): Promise<Announcement | null> {
+  if (id === SIGNUP_EVENT_NOTICE_ID) {
+    return createSignupEventNotice(locale);
+  }
+
   const supabase = createClient();
 
   const { data, error } = await supabase
@@ -53,6 +158,10 @@ export async function getAnnouncementById(id: string): Promise<Announcement | nu
 
 /** 조회수 증가 */
 export async function incrementAnnouncementView(id: string): Promise<void> {
+  if (id === SIGNUP_EVENT_NOTICE_ID) {
+    return;
+  }
+
   const supabase = createClient();
 
   await supabase.rpc('increment_kcl_announcement_view', { p_id: id });
@@ -68,8 +177,8 @@ export async function getPublishedAnnouncementIds(): Promise<string[]> {
   const supabase = createServerClient();
 
   if (!supabase) {
-    console.warn('[announcements] 서버 클라이언트 생성 실패, 빈 배열 반환');
-    return [];
+    console.warn('[announcements] 서버 클라이언트 생성 실패, 이벤트 공지 ID만 반환');
+    return [SIGNUP_EVENT_NOTICE_ID];
   }
 
   const { data, error } = await supabase
@@ -78,9 +187,10 @@ export async function getPublishedAnnouncementIds(): Promise<string[]> {
     .eq('is_published', true);
 
   if (error) {
-    console.error('[announcements] ID 목록 조회 실패:', error);
-    return [];
+    console.error('[announcements] ID 목록 조회 실패, 이벤트 공지 ID만 반환:', error);
+    return [SIGNUP_EVENT_NOTICE_ID];
   }
 
-  return (data || []).map((row: { id: string }) => row.id);
+  const ids = (data || []).map((row: { id: string }) => row.id);
+  return ids.includes(SIGNUP_EVENT_NOTICE_ID) ? ids : [SIGNUP_EVENT_NOTICE_ID, ...ids];
 }

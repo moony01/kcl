@@ -32,7 +32,7 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
     try {
       setLoading(true);
       setError(false);
-      const data = await getAnnouncements(selectedCategory);
+      const data = await getAnnouncements(selectedCategory, locale);
       setNotices(data);
 
       // 댓글 수 배치 조회
@@ -46,7 +46,7 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
     } finally {
       setLoading(false);
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, locale]);
 
   useEffect(() => {
     fetchNotices();
@@ -83,7 +83,7 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
         {error && !loading && (
           <div className={styles.statusMessage}>
             <p>{t('error')}</p>
-            <button className={styles.retryButton} onClick={fetchNotices}>
+            <button type="button" className={styles.retryButton} onClick={fetchNotices}>
               {t('retry')}
             </button>
           </div>

@@ -35,7 +35,7 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
       try {
         setLoading(true);
         setError(false);
-        const data = await getAnnouncementById(noticeId);
+        const data = await getAnnouncementById(noticeId, locale);
         if (data) {
           setNotice(data);
           // 조회수 증가 (fire-and-forget)
@@ -51,7 +51,7 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
     }
 
     fetchNotice();
-  }, [noticeId]);
+  }, [noticeId, locale]);
 
   /** 날짜 포맷팅 */
   const formatDate = (dateStr: string) => {
