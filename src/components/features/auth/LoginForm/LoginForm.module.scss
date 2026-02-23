@@ -251,10 +251,100 @@
   }
 }
 
+// T1.99: OAuth 버튼 래퍼 (뱃지 포지셔닝용)
+.oauthBtnWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+// T1.99: 프로바이더 충돌 알림 배너
+.conflictAlert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background-color: rgba($color-danger, 0.08);
+  border: 1px solid rgba($color-danger, 0.25);
+
+  p {
+    margin: 0;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--color-text);
+  }
+
+  [data-theme='dark'] & {
+    background-color: rgba($color-danger, 0.12);
+    border-color: rgba($color-danger, 0.3);
+  }
+}
+
+// T1.99: 충돌 알림 느낌표 아이콘
+.conflictIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $color-danger;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+// T1.99: 충돌 시 버튼 강조 (맥동 테두리)
+.conflictHighlight {
+  border-color: $color-primary !important;
+  box-shadow: 0 0 0 2px rgba($color-primary, 0.25);
+  animation: conflictPulse 2s ease-in-out infinite;
+}
+
+@keyframes conflictPulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba($color-primary, 0.25); }
+  50% { box-shadow: 0 0 0 4px rgba($color-primary, 0.15); }
+}
+
+// T1.99: 프로바이더 뱃지 (마지막 로그인 / 충돌 안내)
+.providerBadge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  padding: 2px 8px;
+  border-radius: 10px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+// T1.99: 충돌 시 뱃지 강조 스타일
+.conflictBadge {
+  color: $color-primary;
+  background-color: rgba($color-primary, 0.08);
+  border-color: rgba($color-primary, 0.3);
+  font-weight: 700;
+}
+
 // 에러 메시지
 .errorMsg {
   color: $color-danger;
   font-size: 0.8rem;
   text-align: center;
   margin-bottom: 4px;
+}
+
+// 이메일 회원가입 준비중 안내
+.comingSoonNotice {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
 }

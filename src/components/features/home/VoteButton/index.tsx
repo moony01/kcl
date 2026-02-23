@@ -26,7 +26,8 @@ export default function VoteButton({ company }: VoteButtonProps) {
     setClickCount(prev => prev + 1);
 
     // Call API
-    await submitVote(company.id, company.image); // Pass gradient/color for confetti
+    // T1.85: 새 시그니처 (options 객체)
+    await submitVote({ companyId: company.id, companyColor: company.image });
     
     // Hide popup after animation
     setTimeout(() => {

@@ -16,7 +16,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Home, BarChart3, Trophy, Newspaper, Bell, LogIn, LogOut, User } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, Bell, LogIn, LogOut } from 'lucide-react';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
@@ -98,15 +98,9 @@ export default function Sidebar() {
                 className={classNames(styles.navItem, styles.profileItem)}
               >
                 <div className={styles.iconWrapper}>
-                  {profile?.avatar_url ? (
-                    <img
-                      src={profile.avatar_url}
-                      alt={profile.username}
-                      className={styles.avatar}
-                    />
-                  ) : (
-                    <User className={styles.icon} />
-                  )}
+                  <span className={styles.avatarInitial}>
+                    {(profile?.username || '?').charAt(0).toUpperCase()}
+                  </span>
                 </div>
                 <span className={styles.label}>{profile?.username || t('my')}</span>
               </Link>

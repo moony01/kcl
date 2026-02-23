@@ -64,8 +64,12 @@ export function getSupabase(): SupabaseClient {
       flowType: 'pkce',
       /** localStorage에 세션 저장 (서버 미들웨어 불필요) */
       persistSession: true,
-      /** URL에서 세션 파라미터 자동 감지 (OAuth 콜백 처리) */
-      detectSessionInUrl: true,
+      /**
+       * URL 세션 자동 감지 비활성화
+       * - 콜백 페이지(CallbackClient)에서 수동 교환으로 일원화
+       * - 자동 교환과 수동 교환의 경쟁 상태(race condition) 방지
+       */
+      detectSessionInUrl: false,
       /** 자동 토큰 갱신 활성화 */
       autoRefreshToken: true,
     },

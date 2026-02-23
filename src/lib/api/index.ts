@@ -36,13 +36,26 @@ export {
 export {
   submitVote,
   getVoteStats,
+  getUserVoteStats,
   type SubmitVoteParams,
   type VoteResult,
   type VoteStats,
+  type UserVoteStats,
 } from './vote';
 
 // Hall of Fame API
 export { getHallOfFame, getMonthlyChampionsByYear } from './hall-of-fame';
+
+// Subscription API (T2.02: KCL Pro)
+export {
+  createCheckout,
+  getActiveSubscription,
+  getSubscriptionHistory,
+  type Subscription,
+  type SubscriptionStatus,
+  type CreateCheckoutParams,
+  type CreateCheckoutResult,
+} from './subscription';
 
 // Community API
 export {

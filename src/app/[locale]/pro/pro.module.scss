@@ -1,0 +1,301 @@
+/**
+ * KCL Pro 구독 페이지 스타일
+ * T2.02: 게임 스타일 UI, 보라색/골드 테마
+ */
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* ===== 로딩 ===== */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  color: var(--color-primary, #8b5cf6);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== 헤더 ===== */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.zapIcon {
+  color: #f59e0b;
+  margin-bottom: 0.75rem;
+}
+
+.crownIcon {
+  color: #f59e0b;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, #8b5cf6, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--color-text-secondary, #9ca3af);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ===== 플랜 비교 ===== */
+.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.planCard {
+  background: var(--color-surface, #1e1b2e);
+  border: 1px solid var(--color-border, #2d2a3e);
+  border-radius: 16px;
+  padding: 1.5rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.proPlan {
+  border-color: #8b5cf6;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+
+  [data-theme='light'] & {
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.06) 0%, #fff 60%);
+  }
+}
+
+.proBadge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.planHeader {
+  margin-bottom: 1.25rem;
+}
+
+.planName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  svg {
+    color: #f59e0b;
+  }
+}
+
+.planPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.priceAmount {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.pricePeriod {
+  color: var(--color-text-secondary, #9ca3af);
+  font-size: 0.85rem;
+}
+
+/* ===== 기능 리스트 ===== */
+.planFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary, #9ca3af);
+
+    svg {
+      color: #22c55e;
+      flex-shrink: 0;
+    }
+  }
+
+  .highlight {
+    color: var(--color-text-primary);
+    font-weight: 600;
+
+    /* 라이트 모드에서 강조 텍스트 가시성 확보 */
+    [data-theme='light'] & {
+      color: #7c3aed;
+    }
+
+    svg {
+      color: #f59e0b;
+    }
+  }
+}
+
+/* ===== 구독 버튼 ===== */
+.subscribeButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff;
+  transition: opacity 0.2s, transform 0.1s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ===== 보안 안내 ===== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--color-text-secondary, #9ca3af);
+  font-size: 0.8rem;
+  text-align: center;
+
+  svg {
+    color: #22c55e;
+  }
+}
+
+/* ===== 활성 구독 카드 ===== */
+.activeCard {
+  background: var(--color-surface, #1e1b2e);
+  border: 1px solid #8b5cf6;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.activeStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.statusBadge {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.activeDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.detailLabel {
+  color: var(--color-text-secondary, #9ca3af);
+}
+
+.detailValue {
+  font-weight: 600;
+}
+
+.activeActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.secondaryButton {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-border, #2d2a3e);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text-primary, #fff);
+  background: transparent;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(139, 92, 246, 0.1);
+  }
+}

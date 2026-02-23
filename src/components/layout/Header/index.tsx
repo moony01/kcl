@@ -7,15 +7,15 @@
  * 데스크탑에서는 컨트롤 영역만 우측 상단에 표시합니다.
  *
  * AUTH_SYSTEM 활성화 시:
- * - 미인증: LogIn 아이콘
- * - 인증됨: 아바타 썸네일
+ * - 미인증: LogIn 아이콘 (원형 버튼)
+ * - 인증됨: 아바타 썸네일 (클릭 시 /my로 이동)
  * - ThemeToggle과 LangSelect 사이에 배치
  */
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LogIn, User } from 'lucide-react';
+import { LogIn } from 'lucide-react';
 import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
 import { FEATURES } from '@/config/features';
@@ -51,24 +51,19 @@ export default function Header() {
         {/* 테마 토글 버튼 (다크/라이트 모드 전환) */}
         <ThemeToggle compact className={styles.themeToggle} />
 
-        {/* 프로필/로그인 버튼 (AUTH_SYSTEM 활성화 시) */}
+        {/* 인증 버튼: 로그인 또는 프로필 아바타 */}
         {FEATURES.AUTH_SYSTEM && (
-          <Link
-            href={`/${locale}${isAuthenticated ? '/my' : '/login'}`}
-            className={styles.profileBtn}
-          >
-            {isAuthenticated && profile?.avatar_url ? (
-              <img
-                src={profile.avatar_url}
-                alt={profile.username}
-                className={styles.profileAvatar}
-              />
-            ) : isAuthenticated ? (
-              <User size={18} />
-            ) : (
+          isAuthenticated ? (
+            <Link href={`/${locale}/my`} className={styles.profileBtn} title={profile?.username || 'Profile'}>
+              <span className={styles.profileAvatarInitial}>
+                {(profile?.username || '?').charAt(0).toUpperCase()}
+              </span>
+            </Link>
+          ) : (
+            <Link href={`/${locale}/login`} className={styles.profileBtn} title="Login">
               <LogIn size={18} />
-            )}
-          </Link>
+            </Link>
+          )
         )}
 
         <select value={locale} onChange={changeLang} className={styles.langSelect}>

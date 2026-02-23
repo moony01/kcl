@@ -266,12 +266,21 @@ $sidebar-wide: 244px;
   border-top: 1px solid rgba($color-text, 0.08);
 }
 
-// 프로필 아바타 (원형 이미지)
-.avatar {
+// 프로필 아바타 이니셜 (원형, 배경색 + 흰색 텍스트)
+.avatarInitial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  object-fit: cover;
+  background: $gradient-primary;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+  flex-shrink: 0;
 }
 
 // 프로필 아이템 스타일

@@ -1,0 +1,327 @@
+.container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 36px 16px 48px;
+  animation: fadeIn 0.35s ease;
+}
+
+/* ─── 헤더 ─── */
+.header {
+  margin-bottom: 28px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* ─── 폼 영역 ─── */
+.formArea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldGroup {
+  margin-bottom: 20px;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+
+/* ─── 닉네임 입력 ─── */
+.nicknameField {
+  /* 래퍼 — 카운터/에러 포함 */
+}
+
+.nicknameInput {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 0 14px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: var(--color-text-dim);
+    font-weight: 400;
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+  }
+}
+
+.nicknameInputError {
+  border-color: #ef4444;
+
+  &:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+  }
+}
+
+.nicknameCount {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.nicknameErrorText {
+  margin: 6px 0 0;
+  font-size: 0.84rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* ─── 그룹 검색 Autocomplete ─── */
+.groupSearchWrap {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: 0 14px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* 드롭다운 리스트 */
+.groupDropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 264px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  list-style: none;
+  margin: 0;
+  animation: dropdownIn 0.15s ease;
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.groupDropdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  }
+}
+
+.groupDropdownItemActive {
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+
+.groupDropdownName {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.groupDropdownCompany {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+}
+
+.groupDropdownEmpty {
+  padding: 16px 12px;
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.88rem;
+}
+
+/* ─── 선택된 그룹 칩 ─── */
+.groupChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+  animation: fadeIn 0.2s ease;
+}
+
+.groupChipText {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.groupChipCompany {
+  font-weight: 400;
+  color: var(--color-text-dim);
+  font-size: 0.82rem;
+}
+
+.groupChipRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: color-mix(in srgb, var(--color-text-dim) 20%, transparent);
+  color: var(--color-text-dim);
+  font-size: 0.7rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease;
+  line-height: 1;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-text-dim) 36%, transparent);
+    color: var(--color-text);
+  }
+}
+
+/* ─── 시작하기 버튼 ─── */
+.submitButton {
+  margin-top: 8px;
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* ─── 나중에 하기 링크 ─── */
+.skipLink {
+  margin-top: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-text-dim);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    color: var(--color-primary);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* ─── 로딩/빈 상태 ─── */
+.loading {
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  padding: 20px 14px;
+  text-align: center;
+  color: var(--color-text-dim);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+}
+
+/* ─── 애니메이션 ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

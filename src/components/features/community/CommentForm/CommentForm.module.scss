@@ -46,6 +46,26 @@
   white-space: nowrap;
 }
 
+/* 로그인 사용자 닉네임 표시 */
+.authenticatedRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: $color-text;
+
+  svg {
+    color: $color-primary;
+    flex-shrink: 0;
+  }
+}
+
+.authenticatedNickname {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
 .textareaRow {
   display: flex;
   gap: 12px;

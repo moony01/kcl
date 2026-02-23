@@ -1,34 +1,43 @@
 /**
  * useVoteQuota Hook
  *
- * 일일 투표권 관리 훅
- * localStorage를 사용하여 클라이언트 사이드에서 투표권을 관리합니다.
+ * 투표권 관리 훅
  *
- * 규칙:
- * - 일일 투표권: 30회
- * - 리셋 시간: 자정 (UTC)
- * - 같은 회사 연속 투표: 허용
+ * 모드별 동작:
+ * - 비로그인: localStorage 기반 일일 30회 (UTC 자정 리셋)
+ * - 로그인 Free: 서버 기반 일일 60회 (get_user_vote_stats RPC 조회)
+ * - 로그인 Pro: 서버 기반 일일 300회 (T2.02: KCL Pro)
+ *
+ * T1.85: 로그인 사용자 일일 60표 + 파워투표 다중 소비 지원
+ * T2.02: Pro 사용자 300표/일 지원 (서버에서 is_pro 확인 후 한도 결정)
  */
 
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { getUserVoteStats } from '@/lib/api';
 
 /** localStorage 키 */
 const STORAGE_KEY = 'kcl_vote_quota';
 
-/** 일일 최대 투표권 */
+/** 비로그인 일일 최대 투표권 */
 export const MAX_DAILY_VOTES = 30;
 
+/** 로그인 Free 일일 최대 투표권 */
+export const MAX_DAILY_VOTES_LOGIN = 60;
+
+/** 로그인 Pro 일일 최대 투표권 (T2.02) */
+export const MAX_DAILY_VOTES_PRO = 300;
+
 /**
- * localStorage에 저장되는 투표권 데이터 구조
+ * localStorage에 저장되는 투표권 데이터 구조 (비로그인용)
  */
 interface VoteQuotaStorage {
   /** 날짜 (YYYY-MM-DD, UTC 기준) */
   date: string;
   /** 사용한 투표권 수 */
   used: number;
-  /** 최대 투표권 (항상 30) */
+  /** 최대 투표권 */
   max: number;
 }
 
@@ -50,6 +59,8 @@ export interface VoteQuota {
   hoursUntilReset: number;
   /** 리셋까지 남은 시간 (분) */
   minutesUntilReset: number;
+  /** 투표 모드 */
+  mode: 'daily';
 }
 
 /**
@@ -58,8 +69,10 @@ export interface VoteQuota {
 export interface UseVoteQuotaReturn {
   /** 투표권 정보 */
   quota: VoteQuota;
-  /** 투표권 사용 (성공 시 true 반환) */
-  useVote: () => boolean;
+  /** 투표권 사용 (count만큼 차감, 성공 시 true) */
+  useVote: (count?: number) => boolean;
+  /** 서버에서 최신 투표 통계 다시 가져오기 (로그인 사용자 전용) */
+  refetchStats: () => Promise<void>;
   /** 로딩 상태 */
   isLoading: boolean;
 }
@@ -76,7 +89,7 @@ function getTodayUTC(): string {
 }
 
 /**
- * UTC 자정까지 남은 시간 계산
+ * UTC 자정까지 남은 시간 계산 (비로그인용 일일 리셋)
  */
 function getTimeUntilMidnightUTC(): { hours: number; minutes: number; formatted: string } {
   const now = new Date();
@@ -125,27 +138,26 @@ function saveQuotaToStorage(data: VoteQuotaStorage): void {
 }
 
 /**
- * 일일 투표권 관리 훅
+ * 투표권 관리 훅
+ *
+ * @param userId - 로그인 사용자 ID (null이면 비로그인 모드)
  *
  * @example
  * ```tsx
- * const { quota, useVote, isLoading } = useVoteQuota();
+ * // 비로그인: 일일 30표 (localStorage)
+ * const { quota, useVote } = useVoteQuota();
  *
- * const handleVote = async () => {
- *   if (!quota.canVote) {
- *     toast.error('투표권이 소진되었습니다');
- *     return;
- *   }
+ * // 로그인: 일일 60표 (서버 조회)
+ * const { user } = useAuth();
+ * const { quota, useVote } = useVoteQuota(user?.id);
  *
- *   const success = await submitVoteToAPI();
- *   if (success) {
- *     useVote(); // 투표권 차감
- *   }
- * };
+ * // 파워투표: 한번에 5표 소비
+ * useVote(5);
  * ```
  */
-export function useVoteQuota(): UseVoteQuotaReturn {
+export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
   const [used, setUsed] = useState<number>(0);
+  const [max, setMax] = useState<number>(MAX_DAILY_VOTES);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [timeInfo, setTimeInfo] = useState<{ hours: number; minutes: number; formatted: string }>({
     hours: 0,
@@ -153,30 +165,64 @@ export function useVoteQuota(): UseVoteQuotaReturn {
     formatted: '',
   });
 
+  const mode: 'daily' = 'daily';
+
   /**
-   * 초기화 및 날짜 체크
-   * - 날짜가 바뀌면 투표권 리셋
+   * 서버에서 로그인 사용자 투표 통계 가져오기
+   */
+  const fetchServerStats = useCallback(async () => {
+    if (!userId) return;
+
+    try {
+      const stats = await getUserVoteStats(userId);
+      if (stats) {
+        setUsed(stats.dailyUsed);
+        setMax(stats.dailyLimit);
+      }
+    } catch (error) {
+      console.error('[useVoteQuota] Failed to fetch server stats:', error);
+    }
+  }, [userId]);
+
+  /**
+   * 초기화: 모드에 따라 다른 소스에서 데이터 로드
+   * userId가 변경되면 로딩 상태를 리셋하기 위해 key 기반 리렌더링 대신
+   * 로딩 플래그를 true로 초기화하여 처리
    */
   useEffect(() => {
-    const today = getTodayUTC();
-    const stored = loadQuotaFromStorage();
+    let cancelled = false;
 
-    if (stored && stored.date === today) {
-      // 같은 날이면 기존 데이터 사용
-      setUsed(stored.used);
+    if (userId) {
+      // 로그인 모드: 서버 통계를 일일 한도로 사용
+      setMax(MAX_DAILY_VOTES_LOGIN);
+      fetchServerStats().finally(() => {
+        if (!cancelled) setIsLoading(false);
+      });
     } else {
-      // 새 날짜면 리셋
-      const newData: VoteQuotaStorage = {
-        date: today,
-        used: 0,
-        max: MAX_DAILY_VOTES,
-      };
-      saveQuotaToStorage(newData);
-      setUsed(0);
+      // 비로그인 모드: localStorage에서 일일 통계 가져오기
+      setMax(MAX_DAILY_VOTES);
+      const today = getTodayUTC();
+      const stored = loadQuotaFromStorage();
+
+      if (stored && stored.date === today) {
+        setUsed(stored.used);
+      } else {
+        const newData: VoteQuotaStorage = {
+          date: today,
+          used: 0,
+          max: MAX_DAILY_VOTES,
+        };
+        saveQuotaToStorage(newData);
+        setUsed(0);
+      }
+
+      if (!cancelled) setIsLoading(false);
     }
 
-    setIsLoading(false);
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, fetchServerStats]);
 
   /**
    * 리셋 시간 업데이트 (1분마다)
@@ -187,95 +233,130 @@ export function useVoteQuota(): UseVoteQuotaReturn {
     };
 
     updateTimeInfo();
-    const interval = setInterval(updateTimeInfo, 60000); // 1분마다 업데이트
+    const interval = setInterval(updateTimeInfo, 60000);
 
     return () => clearInterval(interval);
   }, []);
 
   /**
    * 날짜 변경 체크 (1분마다)
+   * - 비로그인: localStorage 리셋
+   * - 로그인: 서버에서 최신 통계 다시 가져오기
    */
   useEffect(() => {
+    /** 날짜 변경 기준점 */
+    let lastDate = getTodayUTC();
+
     const checkDateChange = () => {
+      const today = getTodayUTC();
+      if (lastDate === today) return;
+      lastDate = today;
+
+      if (userId) {
+        // 로그인 모드: 서버에서 일일 통계 다시 가져오기 (UTC 자정 리셋)
+        fetchServerStats();
+      } else {
+        // 비로그인 모드: localStorage 리셋
+        const stored = loadQuotaFromStorage();
+        if (stored && stored.date !== today) {
+          const newData: VoteQuotaStorage = {
+            date: today,
+            used: 0,
+            max: MAX_DAILY_VOTES,
+          };
+          saveQuotaToStorage(newData);
+          setUsed(0);
+        }
+      }
+    };
+
+    const interval = setInterval(checkDateChange, 60000);
+
+    return () => clearInterval(interval);
+  }, [userId, fetchServerStats]);
+
+  /**
+   * 투표권 사용 (클라이언트 측 낙관적 업데이트)
+   *
+    * @param count - 소비할 투표 수 (기본값 1, 파워투표 시 1~50)
+    * @returns 성공 여부
+    */
+  const useVote = useCallback(
+    (count: number = 1): boolean => {
+      if (userId) {
+        // 로그인 모드: 서버 통계를 기반으로 낙관적으로 차감
+        const newUsed = used + count;
+        if (newUsed > max) return false;
+        setUsed(newUsed);
+        return true;
+      }
+
+      // 비로그인 모드: localStorage 기반
       const today = getTodayUTC();
       const stored = loadQuotaFromStorage();
 
       if (stored && stored.date !== today) {
-        // 날짜가 바뀌면 리셋
+        // 날짜가 바뀌었으면 리셋 후 차감
         const newData: VoteQuotaStorage = {
           date: today,
-          used: 0,
+          used: count,
           max: MAX_DAILY_VOTES,
         };
         saveQuotaToStorage(newData);
-        setUsed(0);
+        setUsed(count);
+        return true;
       }
-    };
 
-    const interval = setInterval(checkDateChange, 60000); // 1분마다 체크
+      const currentUsed = stored?.used ?? 0;
 
-    return () => clearInterval(interval);
-  }, []);
+      if (currentUsed + count > MAX_DAILY_VOTES) {
+        return false;
+      }
 
-  /**
-   * 투표권 사용
-   */
-  const useVote = useCallback((): boolean => {
-    const today = getTodayUTC();
-    const stored = loadQuotaFromStorage();
-
-    // 날짜 체크
-    if (stored && stored.date !== today) {
-      // 날짜가 바뀌었으면 리셋
+      const newUsed = currentUsed + count;
       const newData: VoteQuotaStorage = {
         date: today,
-        used: 1,
+        used: newUsed,
         max: MAX_DAILY_VOTES,
       };
       saveQuotaToStorage(newData);
-      setUsed(1);
+      setUsed(newUsed);
+
       return true;
+    },
+    [userId, used, max],
+  );
+
+  /**
+   * 서버에서 최신 통계 다시 가져오기 (로그인 모드 전용)
+   */
+  const refetchStats = useCallback(async () => {
+    if (userId) {
+      await fetchServerStats();
     }
-
-    const currentUsed = stored?.used ?? 0;
-
-    // 투표권 소진 체크
-    if (currentUsed >= MAX_DAILY_VOTES) {
-      return false;
-    }
-
-    // 투표권 차감
-    const newUsed = currentUsed + 1;
-    const newData: VoteQuotaStorage = {
-      date: today,
-      used: newUsed,
-      max: MAX_DAILY_VOTES,
-    };
-    saveQuotaToStorage(newData);
-    setUsed(newUsed);
-
-    return true;
-  }, []);
+  }, [userId, fetchServerStats]);
 
   /**
    * 투표권 정보 계산
    */
   const quota: VoteQuota = useMemo(() => {
-    const remaining = MAX_DAILY_VOTES - used;
+    const remaining = max - used;
     return {
       used,
       remaining,
-      max: MAX_DAILY_VOTES,
+      max,
       canVote: remaining > 0,
       timeUntilReset: timeInfo.formatted,
       hoursUntilReset: timeInfo.hours,
       minutesUntilReset: timeInfo.minutes,
+      mode,
     };
-  }, [used, timeInfo]);
+  }, [used, max, timeInfo, mode]);
 
   return {
     quota,
     useVote,
+    refetchStats,
     isLoading,
   };
 }

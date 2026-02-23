@@ -1,36 +1,19 @@
-/**
- * MyClient (클라이언트 컴포넌트)
- *
- * 마이페이지 클라이언트 사이드 로직
- *
- * @updated Phase 5 - SSG/CSR 마이그레이션
- */
-
 'use client';
 
-import { useTranslations } from 'next-intl';
-import Header from '@/components/layout/Header';
-import styles from './page.module.scss';
+/**
+ * MyClient - 마이페이지 클라이언트 컴포넌트
+ *
+ * AuthGuard로 보호되며, 인증된 사용자의 프로필 정보를 표시합니다.
+ * 실제 데이터(kcl_user_profiles)와 연동됩니다.
+ */
+
+import AuthGuard from '@/components/common/AuthGuard';
+import MyProfile from '@/components/features/my/MyProfile';
 
 export default function MyClient() {
-  const t = useTranslations('Nav');
-
   return (
-    <div className={styles.homeContainer}>
-      <Header />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '80vh',
-          flexDirection: 'column',
-          textAlign: 'center',
-        }}
-      >
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>My Page</h2>
-        <p style={{ color: 'var(--color-text-dim)' }}>Coming Soon...</p>
-      </div>
-    </div>
+    <AuthGuard>
+      <MyProfile />
+    </AuthGuard>
   );
 }
