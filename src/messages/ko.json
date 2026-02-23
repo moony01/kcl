@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "이메일 회원가입은 준비 중입니다. 소셜 계정으로 간편하게 시작하세요!",
     "error_provider_conflict": "이 이메일은 이미 {provider}로 가입되어 있습니다. {provider}로 로그인해주세요.",
     "provider_last_used": "최근 사용",
-    "provider_use_this": "이걸로 로그인"
+    "provider_use_this": "이걸로 로그인",
+    "delete_account": "회원탈퇴",
+    "delete_account_title": "회원탈퇴",
+    "delete_account_warning": "이 작업은 되돌릴 수 없습니다. 투표 기록, 프로필 등 모든 데이터가 영구적으로 삭제됩니다.",
+    "delete_account_error": "계정 삭제에 실패했습니다. 다시 시도해주세요."
   },
   "Onboarding": {
     "title": "프로필을 설정하세요",

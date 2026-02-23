@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "E-posta ile kayıt yakında geliyor. Sosyal hesabınızla kolayca başlayın!",
     "error_provider_conflict": "Bu e-posta zaten {provider} ile kayıtlı. Lütfen {provider} ile giriş yapın.",
     "provider_last_used": "Son kullanılan",
-    "provider_use_this": "Bunu kullan"
+    "provider_use_this": "Bunu kullan",
+    "delete_account": "Hesabı Sil",
+    "delete_account_title": "Hesabı Sil",
+    "delete_account_warning": "Bu işlem geri alınamaz. Oy geçmişi ve profil dahil tüm verileriniz kalıcı olarak silinecektir.",
+    "delete_account_error": "Hesap silinemedi. Lütfen tekrar deneyin."
   },
   "Onboarding": {
     "title": "Profilini ayarla",

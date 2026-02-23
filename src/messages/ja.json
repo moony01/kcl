@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "メール会員登録は準備中です。ソーシャルアカウントで簡単に始めましょう！",
     "error_provider_conflict": "このメールアドレスは既に{provider}で登録されています。{provider}でログインしてください。",
     "provider_last_used": "最近使用",
-    "provider_use_this": "こちらでログイン"
+    "provider_use_this": "こちらでログイン",
+    "delete_account": "アカウント削除",
+    "delete_account_title": "アカウント削除",
+    "delete_account_warning": "この操作は元に戻せません。投票履歴やプロフィールなど、すべてのデータが完全に削除されます。",
+    "delete_account_error": "アカウントの削除に失敗しました。もう一度お試しください。"
   },
   "Onboarding": {
     "title": "プロフィールを設定しましょう",

@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "Đăng ký bằng email sắp ra mắt. Bắt đầu dễ dàng với tài khoản mạng xã hội!",
     "error_provider_conflict": "Email này đã được đăng ký với {provider}. Vui lòng đăng nhập bằng {provider}.",
     "provider_last_used": "Dùng gần đây",
-    "provider_use_this": "Dùng cái này"
+    "provider_use_this": "Dùng cái này",
+    "delete_account": "Xóa tài khoản",
+    "delete_account_title": "Xóa tài khoản",
+    "delete_account_warning": "Hành động này không thể hoàn tác. Tất cả dữ liệu của bạn bao gồm lịch sử bình chọn và hồ sơ sẽ bị xóa vĩnh viễn.",
+    "delete_account_error": "Không thể xóa tài khoản. Vui lòng thử lại."
   },
   "Onboarding": {
     "title": "Thiết lập hồ sơ của bạn",

@@ -2,41 +2,96 @@
  * MyProfile.module.scss
  *
  * 마이페이지 프로필 스타일
- * 프로필 헤더, 통계, 계정 정보, 로그아웃 버튼
+ * 카드 기반 레이아웃 · glass-panel 적용 · 타이포그래피 계층 강화
  */
 
 @use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
 
+// ===========================
+// 컨테이너 — flex-column + gap으로 섹션 간 균일한 간격
+// ===========================
 .container {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 16px 40px;
+  padding: 8px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-// 프로필 헤더
+// ===========================
+// 공통 섹션 타이틀 — Montserrat, 프라이머리 아이콘 액센트
+// ===========================
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+  color: $color-text;
+
+  svg {
+    color: $color-primary;
+    opacity: 0.85;
+  }
+}
+
+// ===========================
+// 프로필 헤더 카드 — 그라디언트 데코레이션 + 글래스 패널
+// ===========================
 .profileHeader {
+  @include mix.glass-panel;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 16px 24px;
+  padding: 36px 24px 28px;
+  border-radius: 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // 상단 데코레이션 그라디언트
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 110px;
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.07) 0%,
+      rgba(6, 182, 212, 0.05) 50%,
+      transparent 100%
+    );
+    border-radius: 20px 20px 0 0;
+    pointer-events: none;
+  }
 }
 
+// 아바타 영역 — z-index로 데코레이션 위에 표시
 .avatarSection {
-  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 18px;
 }
 
+// 아바타 — 더블 링 효과 (화이트 보더 + 퍼플 글로우 링)
 .avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background: linear-gradient(135deg, $color-primary, $color-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid $color-bg;
-  box-shadow: 0 0 30px rgba($color-primary, 0.3);
+  @include mix.flex-center;
+  border: 3.5px solid $color-surface;
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.2),
+    0 8px 28px rgba(139, 92, 246, 0.25);
   overflow: hidden;
 }
 
@@ -46,25 +101,32 @@
   object-fit: cover;
 }
 
+// 아바타 이니셜 — 그림자로 깊이감
 .avatarInitial {
   font-family: $font-display;
   font-size: 2.5rem;
   font-weight: 900;
   color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .userInfo {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
 }
 
+// 유저네임 — Montserrat, 강한 무게감
 .username {
+  font-family: $font-display;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin: 0;
-  text-align: center;
+  color: $color-text;
 }
 
 .usernameRow {
@@ -83,7 +145,7 @@
   width: 100%;
 }
 
-// 닉네임 입력칸 - 하단 라인형 포커스 효과
+// 닉네임 입력칸 — 하단 라인형 포커스 효과
 .editNicknameInput {
   width: 196px;
   height: 38px;
@@ -110,6 +172,7 @@
   }
 }
 
+// 닉네임 편집 버튼 — 원형, 서브틀한 보더
 .editNicknameBtn {
   display: inline-flex;
   align-items: center;
@@ -117,16 +180,16 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba($color-text, 0.16);
-  background: rgba($color-text, 0.04);
+  border: 1px solid rgba(139, 92, 246, 0.16);
+  background: rgba(139, 92, 246, 0.04);
   color: $color-text-dim;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    border-color: rgba($color-primary, 0.55);
+    border-color: rgba(139, 92, 246, 0.55);
     color: $color-primary;
-    background: rgba($color-primary, 0.1);
+    background: rgba(139, 92, 246, 0.1);
   }
 
   &:disabled {
@@ -153,69 +216,118 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: $color-text-dim;
-  margin: 0;
+  margin: 2px 0 0;
 
   svg {
     opacity: 0.5;
   }
 }
 
+// 프로바이더 배지 — 대문자, 보더, 칩 스타일
 .providerBadge {
   margin-top: 8px;
-  padding: 4px 12px;
-  background: rgba($color-primary, 0.1);
+  padding: 5px 14px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.12);
   border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: $color-primary;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
-// 통계 섹션
+// ===========================
+// 통계 카드 섹션 — 2컬럼 그리드, 개별 글래스 패널
+// ===========================
 .statsSection {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px 0;
-  border-top: 1px solid rgba($color-text, 0.08);
-  border-bottom: 1px solid rgba($color-text, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
+// 통계 카드 — 글래스 패널 + 서브틀 그라디언트 배경
 .statCard {
-  flex: 1;
+  @include mix.glass-panel;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 16px 8px;
-  background: rgba($color-text, 0.03);
-  border-radius: 12px;
+  gap: 6px;
+  padding: 18px 12px;
+  border-radius: 16px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // 서브틀한 배경 그라디언트 오버레이
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom right,
+      rgba(139, 92, 246, 0.04),
+      transparent
+    );
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  // Joined 카드 — 시안 계열 그라디언트
+  &:last-child::before {
+    background: linear-gradient(
+      to bottom right,
+      rgba(6, 182, 212, 0.04),
+      transparent
+    );
+  }
 }
 
 .statIcon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   color: $color-primary;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  position: relative;
+  z-index: 1;
+
+  // Joined 카드의 아이콘 — 시안 색상
+  .statCard:last-child & {
+    color: $color-secondary;
+  }
 }
 
+// 통계 값 — Montserrat, 강조
 .statValue {
-  font-size: 1.1rem;
+  font-family: $font-display;
+  font-size: 1.15rem;
   font-weight: 800;
+  letter-spacing: -0.01em;
   color: $color-text;
+  position: relative;
+  z-index: 1;
 }
 
+// 통계 라벨 — 대문자, 작은 크기
 .statLabel {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: $color-text-dim;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
 }
 
-// 투표 현황 섹션
+// ===========================
+// 오늘의 투표 섹션 — 글래스 패널 카드
+// ===========================
 .voteStatsSection {
-  padding: 24px 0;
-  border-bottom: 1px solid rgba($color-text, 0.08);
+  @include mix.glass-panel;
+  padding: 22px 18px;
+  border-radius: 16px;
 }
 
 .statsLoading {
@@ -232,7 +344,7 @@
   font-size: 0.9rem;
 }
 
-// 프로그레스
+// 프로그레스 영역
 .monthlyProgress {
   margin-bottom: 20px;
 }
@@ -240,60 +352,87 @@
 .monthlyHeader {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
+// 사용량 숫자 — Montserrat, 큰 크기
 .monthlyUsed {
+  font-family: $font-display;
   font-size: 1.5rem;
   font-weight: 800;
+  letter-spacing: -0.02em;
   color: $color-text;
 }
 
 .monthlyMax {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 400;
   color: $color-text-dim;
+  letter-spacing: 0;
 }
 
+// 퍼센트 배지 — 필 형태
 .monthlyPercent {
-  font-size: 0.9rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(139, 92, 246, 0.1);
+  font-family: $font-display;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: $color-primary;
 }
 
+// 프로그레스 바 — 두께 10px, 글로우 효과
 .progressBar {
   width: 100%;
-  height: 8px;
-  background: rgba($color-text, 0.08);
-  border-radius: 4px;
+  height: 10px;
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 6px;
   overflow: hidden;
 }
 
+// 프로그레스 필 — 그라디언트 + 글로우
 .progressFill {
   height: 100%;
   background: linear-gradient(90deg, $color-primary, $color-secondary);
-  border-radius: 4px;
-  transition: width 0.5s ease;
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+  min-width: 0;
 }
 
+// 남은 투표 힌트 — 필/배지 형태
 .monthlyHint {
-  margin-top: 8px;
-  font-size: 0.8rem;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(6, 182, 212, 0.06);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  font-size: 0.78rem;
+  font-weight: 500;
   color: $color-text-dim;
 }
 
-// 상위 투표 소속사
+// ===========================
+// 상위 투표 소속사 — 카드형 리스트 + 메달 랭크
+// ===========================
 .topCompanies {
-  margin-top: 4px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid $color-border;
 }
 
 .topTitle {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: $font-display;
+  font-size: 0.88rem;
+  font-weight: 700;
   margin-bottom: 12px;
   color: $color-text;
 
@@ -305,56 +444,93 @@
 .topList {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background: rgba($color-text, 0.06);
-  border-radius: 10px;
-  overflow: hidden;
+  gap: 6px;
 }
 
 .topItem {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  background: $color-bg;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.05);
+  transition: background 0.15s ease;
+
+  // 1위: 골드 메달 랭크
+  &:nth-child(1) .topRank {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #fff;
+  }
+
+  // 2위: 실버 메달 랭크
+  &:nth-child(2) .topRank {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+    color: #fff;
+  }
+
+  // 3위: 브론즈 메달 랭크
+  &:nth-child(3) .topRank {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #fff;
+  }
 }
 
+// 랭크 배지 — 정사각형 둥근 모서리
 .topRank {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: $color-primary;
+  @include mix.flex-center;
   width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-family: $font-display;
+  background: rgba(139, 92, 246, 0.1);
+  color: $color-primary;
+  flex-shrink: 0;
 }
 
 .topName {
   flex: 1;
   font-size: 0.9rem;
   font-weight: 500;
+  color: $color-text;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .topCount {
+  font-family: $font-display;
   font-size: 0.85rem;
   font-weight: 700;
-  color: $color-text-dim;
+  color: $color-text;
+  flex-shrink: 0;
 
   &::after {
     content: ' votes';
     font-weight: 400;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    font-family: $font-stack;
+    color: $color-text-dim;
   }
 }
 
-// KCL Pro 구독 섹션
+// ===========================
+// KCL Pro 구독 섹션 — 글래스 패널 래핑
+// ===========================
 .proSection {
-  padding: 24px 0;
-  border-bottom: 1px solid rgba($color-text, 0.08);
+  @include mix.glass-panel;
+  padding: 22px 18px;
+  border-radius: 16px;
 }
 
 .proActiveCard {
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid #8b5cf6;
-  background: linear-gradient(135deg, rgba(#8b5cf6, 0.06), rgba(#f59e0b, 0.04));
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(245, 158, 11, 0.04));
 }
 
 .proBadgeRow {
@@ -406,14 +582,14 @@
   justify-content: space-between;
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid rgba(#8b5cf6, 0.2);
-  background: linear-gradient(135deg, rgba(#8b5cf6, 0.06), rgba(#f59e0b, 0.04));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.06), rgba(245, 158, 11, 0.04));
   text-decoration: none;
   transition: all 0.2s;
 
   &:hover {
-    border-color: rgba(#8b5cf6, 0.4);
-    background: linear-gradient(135deg, rgba(#8b5cf6, 0.1), rgba(#f59e0b, 0.06));
+    border-color: rgba(139, 92, 246, 0.4);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(245, 158, 11, 0.06));
   }
 }
 
@@ -448,10 +624,13 @@
   font-weight: 600;
 }
 
-// 최애 그룹 섹션
+// ===========================
+// 최애 그룹 섹션 — 글래스 패널 카드
+// ===========================
 .favoriteGroupSection {
-  padding: 24px 0;
-  border-bottom: 1px solid rgba($color-text, 0.08);
+  @include mix.glass-panel;
+  padding: 22px 18px;
+  border-radius: 16px;
 }
 
 .favoriteGroupCard {
@@ -461,8 +640,8 @@
   gap: 12px;
   padding: 14px 16px;
   border-radius: 12px;
-  background: rgba($color-text, 0.03);
-  border: 1px solid rgba($color-text, 0.08);
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.08);
 }
 
 .favoriteGroupName {
@@ -472,15 +651,16 @@
   font-weight: 600;
 }
 
+// 최애 그룹 액션 버튼 — 변경/해제
 .favoriteGroupAction {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 34px;
-  padding: 0 12px;
+  padding: 0 14px;
   border-radius: 8px;
-  border: 1px solid rgba($color-primary, 0.35);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   background: transparent;
   color: $color-primary;
   font-size: 0.82rem;
@@ -490,10 +670,9 @@
   transition: all 0.2s;
 
   &:hover {
-    border-color: rgba(139, 92, 246, 0.8);
-    background: rgba(139, 92, 246, 0.16);
-    color: #7c3aed;
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.24);
+    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.1);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
     transform: translateY(-1px);
   }
 
@@ -510,14 +689,14 @@
 }
 
 .favoriteGroupRemoveAction {
-  border-color: rgba(#ef4444, 0.3);
+  border-color: rgba(239, 68, 68, 0.25);
   color: #ef4444;
 
   &:hover {
-    border-color: rgba(#ef4444, 0.45);
-    background: rgba(#ef4444, 0.08);
+    border-color: rgba(239, 68, 68, 0.45);
+    background: rgba(239, 68, 68, 0.08);
     color: #ef4444;
-    box-shadow: 0 4px 12px rgba(#ef4444, 0.22);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.18);
   }
 }
 
@@ -529,14 +708,15 @@
   position: relative;
 }
 
+// 그룹 검색 인풋 — 라운드, 프라이머리 포커스
 .groupSearchInput {
   width: 100%;
   height: 44px;
-  border: 1px solid rgba($color-text, 0.16);
-  border-radius: 10px;
-  background: rgba($color-text, 0.03);
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.02);
   color: $color-text;
-  padding: 0 12px;
+  padding: 0 14px;
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -547,7 +727,7 @@
 
   &:focus {
     border-color: #8b5cf6;
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
   }
 
   &:disabled {
@@ -556,19 +736,20 @@
   }
 }
 
+// 그룹 드롭다운 — 플로팅, 서피스 배경
 .groupDropdown {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   left: 0;
   right: 0;
   z-index: 50;
   max-height: 264px;
   overflow-y: auto;
-  border: 1px solid rgba($color-text, 0.16);
-  border-radius: 12px;
-  background: $color-bg;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  padding: 4px;
+  border: 1px solid $color-border;
+  border-radius: 14px;
+  background: $color-surface;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  padding: 6px;
 }
 
 .groupDropdownItem {
@@ -577,17 +758,17 @@
   align-items: center;
   gap: 8px;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.12s ease;
 
   &:hover {
-    background: rgba($color-primary, 0.08);
+    background: rgba(139, 92, 246, 0.08);
   }
 }
 
 .groupDropdownItemActive {
-  background: rgba($color-primary, 0.14);
+  background: rgba(139, 92, 246, 0.12);
 }
 
 .groupDropdownName {
@@ -595,7 +776,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: $color-text;
 }
@@ -613,15 +794,16 @@
   font-size: 0.88rem;
 }
 
+// 그룹 칩 — 선택된 그룹 표시
 .groupChip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 20px;
-  background: rgba($color-primary, 0.11);
-  border: 1px solid rgba($color-primary, 0.26);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   font-size: 0.88rem;
   font-weight: 600;
   color: $color-text;
@@ -635,69 +817,72 @@
   height: 20px;
   border: none;
   border-radius: 50%;
-  background: rgba($color-text-dim, 0.2);
+  background: rgba(139, 92, 246, 0.15);
   color: $color-text-dim;
   font-size: 0.7rem;
   cursor: pointer;
   transition: all 0.15s ease;
 
   &:hover {
-    background: rgba($color-text-dim, 0.35);
+    background: rgba(139, 92, 246, 0.3);
     color: $color-text;
   }
 }
 
-// 계정 정보 섹션
+// ===========================
+// 계정 정보 섹션 — 글래스 패널 카드
+// ===========================
 .accountSection {
-  padding: 24px 0;
+  @include mix.glass-panel;
+  padding: 22px 18px;
+  border-radius: 16px;
 }
 
-.sectionTitle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-
-  svg {
-    color: $color-primary;
-  }
-}
-
+// 정보 리스트 — 보더 구분선
 .infoList {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background: rgba($color-text, 0.06);
   border-radius: 12px;
   overflow: hidden;
+  border: 1px solid rgba(139, 92, 246, 0.06);
 }
 
 .infoItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
-  background: $color-bg;
+  padding: 13px 16px;
+  background: rgba(139, 92, 246, 0.02);
+
+  // 항목 간 보더 구분선
+  & + & {
+    border-top: 1px solid $color-border;
+  }
 }
 
 .infoLabel {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: $color-text-dim;
 }
 
 .infoValue {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: $color-text;
 }
 
-// 액션 버튼
+// ===========================
+// 액션 버튼 — 명확한 시각적 위계
+// ===========================
 .actions {
-  padding: 24px 0;
+  padding: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
+// 로그아웃 버튼 — 위험 색상, 보더 스타일
 .logoutBtn {
   width: 100%;
   display: flex;
@@ -705,9 +890,9 @@
   justify-content: center;
   gap: 8px;
   padding: 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(#ef4444, 0.3);
-  background: rgba(#ef4444, 0.05);
+  border-radius: 14px;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.04);
   color: #ef4444;
   font-size: 0.95rem;
   font-weight: 600;
@@ -715,7 +900,186 @@
   transition: all 0.2s;
 
   &:hover {
-    background: rgba(#ef4444, 0.1);
-    border-color: rgba(#ef4444, 0.5);
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.35);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12);
+  }
+}
+
+// 회원탈퇴 버튼 — 시각적 위계를 의도적으로 낮춤
+.deleteAccountBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: $color-text-dim;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0.7;
+
+  &:hover {
+    color: #ef4444;
+    opacity: 1;
+  }
+}
+
+// ===========================
+// 회원탈퇴 확인 모달
+// ===========================
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modalBackdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+
+.deleteModal {
+  position: relative;
+  z-index: 1;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 20px;
+  padding: 32px 24px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  h4 {
+    font-family: $font-display;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ef4444;
+    margin: 16px 0 8px;
+  }
+
+  > p {
+    font-size: 0.85rem;
+    color: $color-text-dim;
+    margin: 0 0 12px;
+    line-height: 1.5;
+  }
+}
+
+.deleteModalIcon {
+  @include mix.flex-center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  margin: 0 auto;
+}
+
+.deleteModalConfirmHint {
+  font-size: 0.82rem !important;
+  font-weight: 500;
+  color: $color-text !important;
+}
+
+.deleteModalInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: $color-text;
+  background: rgba(239, 68, 68, 0.02);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &::placeholder {
+    color: $color-text-dim;
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.deleteModalError {
+  margin: 8px 0 0 !important;
+  font-size: 0.8rem !important;
+  color: #ef4444 !important;
+  font-weight: 500;
+}
+
+.deleteModalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.deleteModalCancelBtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid $color-border;
+  background: transparent;
+  color: $color-text;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background: rgba(139, 92, 246, 0.04);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.deleteModalConfirmBtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    background: #dc2626;
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 }

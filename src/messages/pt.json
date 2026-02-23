@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "O cadastro por e-mail estará disponível em breve. Comece facilmente com sua conta social!",
     "error_provider_conflict": "Este email já está registrado com {provider}. Por favor, faça login com {provider}.",
     "provider_last_used": "Último utilizado",
-    "provider_use_this": "Usar este"
+    "provider_use_this": "Usar este",
+    "delete_account": "Excluir conta",
+    "delete_account_title": "Excluir conta",
+    "delete_account_warning": "Esta ação é irreversível. Todos os seus dados, incluindo histórico de votos e perfil, serão permanentemente excluídos.",
+    "delete_account_error": "Falha ao excluir a conta. Tente novamente."
   },
   "Onboarding": {
     "title": "Configure seu perfil",

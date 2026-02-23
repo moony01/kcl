@@ -80,6 +80,7 @@ export async function createHomeComment(
     .rpc('create_kcl_home_comment_secure', {
       p_author_name: req.author_name.trim(),
       p_password: sanitizePassword(req.password),
+      p_content: req.content.trim(),
     })
     .single();
 

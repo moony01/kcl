@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "Pendaftaran email segera hadir. Mulai dengan mudah menggunakan akun sosial Anda!",
     "error_provider_conflict": "Email ini sudah terdaftar dengan {provider}. Silakan masuk dengan {provider}.",
     "provider_last_used": "Terakhir digunakan",
-    "provider_use_this": "Gunakan ini"
+    "provider_use_this": "Gunakan ini",
+    "delete_account": "Hapus Akun",
+    "delete_account_title": "Hapus Akun",
+    "delete_account_warning": "Tindakan ini tidak dapat dibatalkan. Semua data Anda termasuk riwayat voting dan profil akan dihapus secara permanen.",
+    "delete_account_error": "Gagal menghapus akun. Silakan coba lagi."
   },
   "Onboarding": {
     "title": "Atur profilmu",

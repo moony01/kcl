@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "การสมัครด้วยอีเมลจะเปิดให้บริการเร็วๆ นี้ เริ่มต้นง่ายๆ ด้วยบัญชีโซเชียลของคุณ!",
     "error_provider_conflict": "อีเมลนี้ลงทะเบียนด้วย {provider} แล้ว กรุณาเข้าสู่ระบบด้วย {provider}",
     "provider_last_used": "ใช้ล่าสุด",
-    "provider_use_this": "ใช้ตัวนี้"
+    "provider_use_this": "ใช้ตัวนี้",
+    "delete_account": "ลบบัญชี",
+    "delete_account_title": "ลบบัญชี",
+    "delete_account_warning": "การดำเนินการนี้ไม่สามารถย้อนกลับได้ ข้อมูลทั้งหมดของคุณรวมถึงประวัติการโหวตและโปรไฟล์จะถูกลบอย่างถาวร",
+    "delete_account_error": "ไม่สามารถลบบัญชีได้ กรุณาลองอีกครั้ง"
   },
   "Onboarding": {
     "title": "ตั้งค่าโปรไฟล์ของคุณ",
