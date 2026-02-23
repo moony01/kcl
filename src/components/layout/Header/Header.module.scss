@@ -117,12 +117,20 @@
   }
 }
 
-// 프로필 아바타 (헤더용 원형)
-.profileAvatar {
+// 프로필 아바타 이니셜 (헤더용 원형, 배경색 + 흰색 텍스트)
+.profileAvatarInitial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  object-fit: cover;
+  background: $gradient-primary;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
 }
 
 // 언어 선택 드롭다운

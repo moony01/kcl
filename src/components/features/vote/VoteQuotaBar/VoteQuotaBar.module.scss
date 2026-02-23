@@ -262,3 +262,38 @@ $color-warning-dark: color.adjust($color-warning, $lightness: -10%);
   flex-shrink: 0;
   color: $color-text-dim;
 }
+
+// =====================================
+// Pro 업셀링 링크
+// =====================================
+.proUpsell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(#8b5cf6, 0.08), rgba(#f59e0b, 0.08));
+  border: 1px solid rgba(#8b5cf6, 0.2);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: rgba(#8b5cf6, 0.4);
+    background: linear-gradient(135deg, rgba(#8b5cf6, 0.12), rgba(#f59e0b, 0.12));
+  }
+}
+
+.proUpsellIcon {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.proUpsellDesc {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: $color-text-dim;
+}

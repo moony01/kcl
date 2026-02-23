@@ -293,3 +293,58 @@
   text-align: center;
   margin: -4px 0;
 }
+
+// 이메일 회원가입 준비중 안내
+.comingSoonNotice {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+// 이메일 인증 안내 화면
+.emailSentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 0;
+  gap: 12px;
+}
+
+.emailSentIcon {
+  color: $color-primary;
+  margin-bottom: 8px;
+}
+
+.emailSentTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.emailSentDesc {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 280px;
+}
+
+.backToLogin {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 32px;
+  background-color: $color-primary;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}

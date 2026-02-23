@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { MessageCircle, Trash2, Send, Loader2, Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageCircle, Trash2, Send, Loader2, Heart, ChevronLeft, ChevronRight, User } from 'lucide-react';
 import {
   getHomeComments,
   createHomeComment,
@@ -13,6 +13,7 @@ import {
   type HomeComment,
 } from '@/lib/api/home-comments';
 import { getFingerprint } from '@/lib/utils/fingerprint';
+import { useAuth } from '@/hooks/useAuth';
 import styles from './HomeComments.module.scss';
 
 /** 스팸 방지: 최소 작성 간격 (ms) */
@@ -28,6 +29,16 @@ const PAGE_SIZE = 10;
  */
 export default function HomeComments() {
   const t = useTranslations('HomeComments');
+  const { profile } = useAuth();
+
+  /** 로그인 사용자 여부 */
+  const isAuthenticated = !!profile?.username;
+  /**
+   * 로그인 사용자 자동 비밀번호 (user ID 기반 결정적 값)
+   * DB에서 bcrypt 해싱되므로 원문 노출 없이 안전.
+   * 삭제 시에도 동일 값을 사용하여 본인 인증 가능.
+   */
+  const autoPassword = profile?.id ? `kcl_auth_${profile.id}` : '';
 
   const [comments, setComments] = useState<HomeComment[]>([]);
   const [loading, setLoading] = useState(true);
@@ -104,18 +115,24 @@ export default function HomeComments() {
     e.preventDefault();
     setFormError('');
 
-    // 입력값 검증
-    if (!authorName.trim()) {
-      setFormError(t('error_name_required'));
-      return;
-    }
-    if (!password.trim()) {
-      setFormError(t('error_password_required'));
-      return;
-    }
-    if (password.trim().length < 4) {
-      setFormError(t('error_password_min'));
-      return;
+    /** 로그인 사용자: 프로필 닉네임 + 자동 비밀번호 사용 */
+    const effectiveName = isAuthenticated ? profile!.username : authorName.trim();
+    const effectivePassword = isAuthenticated ? autoPassword : password.trim();
+
+    // 입력값 검증 (비로그인 사용자만 닉네임/비밀번호 검증)
+    if (!isAuthenticated) {
+      if (!authorName.trim()) {
+        setFormError(t('error_name_required'));
+        return;
+      }
+      if (!password.trim()) {
+        setFormError(t('error_password_required'));
+        return;
+      }
+      if (password.trim().length < 4) {
+        setFormError(t('error_password_min'));
+        return;
+      }
     }
     if (!content.trim()) {
       setFormError(t('error_content_required'));
@@ -136,17 +153,19 @@ export default function HomeComments() {
     try {
       setSubmitting(true);
       const newComment = await createHomeComment({
-        author_name: authorName.trim(),
-        password: password.trim(),
+        author_name: effectiveName,
+        password: effectivePassword,
         content: content.trim(),
       });
 
       if (newComment) {
         // 새 댓글 작성 후 1페이지로 새로고침 (최신순이므로 맨 앞에 표시)
         await fetchPage(1);
-        // 모든 입력 필드 초기화
-        setAuthorName('');
-        setPassword('');
+        // 입력 필드 초기화 (로그인 사용자는 내용만 초기화)
+        if (!isAuthenticated) {
+          setAuthorName('');
+          setPassword('');
+        }
         setContent('');
         setLastSubmitTime(now);
       } else {
@@ -240,14 +259,16 @@ export default function HomeComments() {
 
   /** 삭제 실행 */
   const handleDelete = async () => {
-    if (!deleteTarget || !deletePassword.trim()) return;
+    /** 로그인 사용자: 자동 비밀번호, 비로그인: 수동 입력 비밀번호 */
+    const effectiveDeletePassword = isAuthenticated ? autoPassword : deletePassword.trim();
+    if (!deleteTarget || !effectiveDeletePassword) return;
 
     try {
       setDeleting(true);
       setDeleteError('');
       const success = await deleteHomeComment({
         id: deleteTarget,
-        password: deletePassword.trim(),
+        password: effectiveDeletePassword,
       });
 
       if (success) {
@@ -283,24 +304,33 @@ export default function HomeComments() {
 
       {/* 댓글 작성 폼 */}
       <form className={styles.commentForm} onSubmit={handleSubmit}>
-        <div className={styles.formRow}>
-          <input
-            type="text"
-            className={styles.inputField}
-            placeholder={t('placeholder_name')}
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-            maxLength={30}
-          />
-          <input
-            type="password"
-            className={styles.inputField}
-            placeholder={t('placeholder_password')}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            maxLength={20}
-          />
-        </div>
+        {isAuthenticated ? (
+          /* 로그인 사용자: 닉네임 읽기 전용 표시, 비밀번호 숨김 */
+          <div className={styles.authenticatedRow}>
+            <User size={14} />
+            <span className={styles.authenticatedName}>{profile?.username}</span>
+          </div>
+        ) : (
+          /* 비로그인 사용자: 닉네임/비밀번호 입력 */
+          <div className={styles.formRow}>
+            <input
+              type="text"
+              className={styles.inputField}
+              placeholder={t('placeholder_name')}
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
+              maxLength={30}
+            />
+            <input
+              type="password"
+              className={styles.inputField}
+              placeholder={t('placeholder_password')}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              maxLength={20}
+            />
+          </div>
+        )}
         <div className={styles.formRow}>
           <textarea
             className={styles.textareaField}
@@ -407,14 +437,23 @@ export default function HomeComments() {
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h4>{t('delete_title')}</h4>
             <p>{t('delete_message')}</p>
-            <input
-              type="password"
-              className={styles.inputField}
-              placeholder={t('placeholder_password')}
-              value={deletePassword}
-              onChange={(e) => setDeletePassword(e.target.value)}
-              autoFocus
-            />
+            {/* 로그인 사용자: 비밀번호 입력 불필요 (자동 비밀번호 사용) */}
+            {!isAuthenticated && (
+              <input
+                type="password"
+                className={styles.inputField}
+                placeholder={t('placeholder_password')}
+                value={deletePassword}
+                onChange={(e) => setDeletePassword(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && deletePassword.trim() && !deleting) {
+                    handleDelete();
+                  }
+                }}
+                autoComplete="off"
+                autoFocus
+              />
+            )}
             {deleteError && <p className={styles.errorText}>{deleteError}</p>}
             <div className={styles.modalActions}>
               <button
@@ -426,7 +465,7 @@ export default function HomeComments() {
               <button
                 className={styles.confirmDeleteButton}
                 onClick={handleDelete}
-                disabled={deleting || !deletePassword.trim()}
+                disabled={deleting || (!isAuthenticated && !deletePassword.trim())}
               >
                 {deleting ? t('deleting') : t('delete')}
               </button>

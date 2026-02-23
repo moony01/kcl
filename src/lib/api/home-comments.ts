@@ -6,6 +6,14 @@
 
 import { createClient } from '@/lib/supabase/client';
 
+/**
+ * 비밀번호 정규화 — 유니코드 제어문자/보이지 않는 공백 제거
+ * 모바일 키보드 자동완성 등에서 삽입되는 NBSP, zero-width space 등 방지
+ */
+function sanitizePassword(pw: string): string {
+  return pw.trim().replace(/[\x01-\x1F\x7F\xA0\u200B-\u200D\uFEFF]/g, '');
+}
+
 /** 홈 댓글 타입 */
 export interface HomeComment {
   id: string;
@@ -71,8 +79,7 @@ export async function createHomeComment(
   const { data, error } = await supabase
     .rpc('create_kcl_home_comment_secure', {
       p_author_name: req.author_name.trim(),
-      p_password: req.password.trim(),
-      p_content: req.content.trim(),
+      p_password: sanitizePassword(req.password),
     })
     .single();
 
@@ -98,7 +105,7 @@ export async function deleteHomeComment(
   const { data, error } = await supabase
     .rpc('delete_kcl_home_comment_secure', {
       p_id: req.id,
-      p_password: req.password.trim(),
+      p_password: sanitizePassword(req.password),
     });
 
   if (error) {

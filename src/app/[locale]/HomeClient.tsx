@@ -13,7 +13,7 @@
 
 'use client';
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { CompanyType } from '@/lib/mock-data';
@@ -45,6 +45,8 @@ const HomeComments = dynamic(() => import('@/components/features/home/HomeCommen
 });
 
 import AdBanner from '@/components/common/AdBanner';
+import { useAuth } from '@/hooks/useAuth';
+import { getSupabase } from '@/lib/supabase/client';
 import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
 
@@ -59,6 +61,8 @@ interface HomeClientProps {
  * @param initialData - 서버에서 미리 fetch한 리그 데이터 (옵셔널)
  */
 export function HomeClient({ initialData }: HomeClientProps = {}) {
+  const { profile, isLoading: isAuthLoading, isAuthenticated } = useAuth();
+
   // 탭 상태 (1부 리그 기본)
   const [activeTab, setActiveTab] = useState<LeagueTabType>('premier');
 
@@ -68,6 +72,12 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   // BottomSheet 열림 상태 (모바일)
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const didAutoSelectCompany = useRef(false);
+
+  // T1.102: 최애 그룹 기반 자동 선택 정보 (산하 레이블 + 그룹명)
+  const [autoSubLabelId, setAutoSubLabelId] = useState<string | null>(null);
+  const [autoArtistName, setAutoArtistName] = useState<string | null>(null);
 
   // Challengers 더 보기 상태
   const [challengersLimit, setChallengersLimit] = useState(10);
@@ -148,6 +158,95 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
       })),
     };
   }, [selectedCompanyId, allCompanies]);
+
+  useEffect(() => {
+    // 이미 자동 선택 완료됨
+    if (didAutoSelectCompany.current) {
+      return;
+    }
+
+    // 사용자가 직접 회사를 선택한 경우 자동 선택 비활성화
+    if (selectedCompanyId) {
+      didAutoSelectCompany.current = true;
+      return;
+    }
+
+    // 인증 상태 로딩 중이면 대기
+    if (isAuthLoading) {
+      return;
+    }
+
+    // 로그인했지만 프로필이 아직 로드되지 않은 경우 대기
+    // (onAuthStateChange가 isLoading을 먼저 false로 설정하는 레이스 컨디션 방지)
+    if (isAuthenticated && !profile) {
+      return;
+    }
+
+    // 비로그인 또는 최애 그룹 미설정 → 자동 선택 불필요
+    if (!profile?.favorite_group_id) {
+      didAutoSelectCompany.current = true;
+      return;
+    }
+
+    // 회사 데이터 로드 대기
+    if (allCompanies.length === 0) {
+      return;
+    }
+
+    const autoSelectCompanyByFavoriteGroup = async () => {
+      try {
+        const supabase = getSupabase();
+
+        // 1단계: 그룹의 소속사 ID + 그룹명 조회
+        const { data: groupData, error: groupError } = await supabase
+          .from('kcl_groups')
+          .select('company_id, name_en')
+          .eq('id', profile.favorite_group_id)
+          .single();
+
+        if (groupError || !groupData?.company_id) {
+          console.warn('[HomeClient] favorite_group 소속사 조회 실패:', groupError?.message);
+          return;
+        }
+
+        const companyId = groupData.company_id;
+        const groupNameEn = groupData.name_en;
+
+        // 1차: 소속사 자체가 allCompanies에 있는지 확인 (산하 레이블이 아닌 경우)
+        const directMatch = allCompanies.some((company) => company.companyId === companyId);
+        if (directMatch) {
+          setSelectedCompanyId(companyId);
+          // 아티스트(그룹)명 설정
+          if (groupNameEn) setAutoArtistName(groupNameEn);
+          return;
+        }
+
+        // 2단계: 산하 레이블인 경우 부모 회사 조회 (예: Source Music → HYBE)
+        const { data: companyData } = await supabase
+          .from('kcl_companies')
+          .select('parent_company_id')
+          .eq('id', companyId)
+          .single();
+
+        const parentId = companyData?.parent_company_id;
+        if (parentId) {
+          const parentMatch = allCompanies.some((company) => company.companyId === parentId);
+          if (parentMatch) {
+            setSelectedCompanyId(parentId);
+            // 산하 레이블 ID + 아티스트(그룹)명 설정
+            setAutoSubLabelId(companyId);
+            if (groupNameEn) setAutoArtistName(groupNameEn);
+          }
+        }
+      } catch (err) {
+        console.warn('[HomeClient] favorite_group 자동 선택 중 예외 발생:', err);
+      } finally {
+        didAutoSelectCompany.current = true;
+      }
+    };
+
+    autoSelectCompanyByFavoriteGroup();
+  }, [profile, isAuthLoading, isAuthenticated, allCompanies, selectedCompanyId]);
 
   // 투표 핸들러 - 회사 ID만 상태로 설정
   const handleVote = useCallback(
@@ -301,7 +400,12 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         {/* 우측: Battle Station 패널 (데스크톱 전용) */}
         <aside className={styles.panelColumn}>
           <StickyPanel isVisible={true} title="Battle Station">
-            <VoteController company={selectedCompany} onVoteSuccess={handleVoteSuccess} />
+            <VoteController
+              company={selectedCompany}
+              onVoteSuccess={handleVoteSuccess}
+              autoSelectedSubLabelId={autoSubLabelId}
+              selectedArtist={autoArtistName || undefined}
+            />
           </StickyPanel>
         </aside>
       </div>
@@ -320,7 +424,12 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         onClose={() => setIsSheetOpen(false)}
         heightRatio={0.55}
       >
-        <VoteController company={selectedCompany} onVoteSuccess={handleVoteSuccess} />
+        <VoteController
+          company={selectedCompany}
+          onVoteSuccess={handleVoteSuccess}
+          autoSelectedSubLabelId={autoSubLabelId}
+          selectedArtist={autoArtistName || undefined}
+        />
       </BottomSheet>
     </div>
   );

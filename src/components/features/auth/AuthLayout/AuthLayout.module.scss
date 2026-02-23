@@ -1,77 +1,511 @@
 @use '../../../../styles/abstracts/variables' as *;
 @use '../../../../styles/abstracts/mixins' as mix;
 
+// ============================================================
+// AuthLayout - 인스타그램 벤치마킹 디자인
+// 좌측: 브랜드 히어로 패널 (퍼플 그라데이션 + 플로팅 카드)
+// 우측: 로그인 폼 (최소한의 테두리)
+// ============================================================
+
+// ----------------------------------------------------------
+// 플로팅 애니메이션 키프레임 정의
+// transform과 opacity만 사용하여 GPU 가속 활용
+// ----------------------------------------------------------
+@keyframes float1 {
+  0%, 100% { transform: translateY(0px) rotate(-6deg); }
+  50% { transform: translateY(-12px) rotate(-6deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(0deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translateY(0px) rotate(4deg); }
+  50% { transform: translateY(-10px) rotate(4deg); }
+}
+
+// 장식 아이콘 떠다니기 애니메이션
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+// 미세한 펄스 애니메이션 (통계 숫자용)
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+// ----------------------------------------------------------
+// 전체 컨테이너
+// ----------------------------------------------------------
 .container {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg);
+  padding: 24px 16px;
   padding-bottom: 60px; // 푸터 공간
 }
 
+// ----------------------------------------------------------
+// 콘텐츠 래퍼: 좌:우 = 55:45 비율 (인스타그램 참조)
+// ----------------------------------------------------------
 .contentWrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 32px;
+  align-items: stretch;
+  gap: 0;
   width: 100%;
-  max-width: 935px;
+  max-width: 960px;
+  min-height: 0;
 }
 
+// ----------------------------------------------------------
+// 좌측 패널: 브랜드 히어로 영역
+// 퍼플 그라데이션 배경 + 플로팅 랭킹 카드 + 장식 아이콘
+// ----------------------------------------------------------
 .leftPanel {
   display: none; // 모바일에서 숨김
 
-  // 넓은 화면에서 비주얼 표시
   @media (min-width: 876px) {
-    display: block;
-    width: 380px;
-    height: 580px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
     position: relative;
-    border-radius: 32px;
     overflow: hidden;
+    border-radius: 24px 0 0 24px;
+    padding: 48px 40px;
 
-    // 3D 요소를 위한 글래스/그래디언트 배경
-    background: radial-gradient(circle at center, rgba($color-primary, 0.1), transparent 70%);
+    // 다크한 퍼플 그라데이션 배경 (항상 다크 느낌)
+    background: linear-gradient(
+      160deg,
+      #1a0533 0%,
+      #2d1654 25%,
+      #4c1d95 50%,
+      #6d28d9 75%,
+      #7c3aed 100%
+    );
+
+    // 추가 배경 레이어: 은은한 빛 효과
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    // 하단 빛 효과
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -20%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
   }
 }
 
-.rightPanel {
-  width: 100%;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-// 인증 박스 - 라이트/다크 모드 대응
-.authBox {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 40px;
+// ----------------------------------------------------------
+// 좌측 패널 내부 콘텐츠 (z-index로 배경 위에 표시)
+// ----------------------------------------------------------
+.heroContent {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-md);
+  gap: 32px;
+  width: 100%;
+  text-align: center;
+}
 
-  // 다크 모드에서 반투명 배경
-  [data-theme='dark'] & {
-    background: rgba(20, 20, 20, 0.6);
-    border-color: rgba(255, 255, 255, 0.15);
+// ----------------------------------------------------------
+// 브랜드 로고 (좌측 패널용)
+// ----------------------------------------------------------
+.heroBrand {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+// ----------------------------------------------------------
+// 대형 헤드라인
+// 핵심 단어에만 그라데이션 적용 (인스타그램 스타일)
+// ----------------------------------------------------------
+.heroHeadline {
+  font-family: $font-display;
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 320px;
+
+  // "K-pop 소속사" 등 핵심 단어에 적용되는 그라데이션
+  .gradientText {
+    background: linear-gradient(135deg, #c4b5fd 0%, #f9a8d4 50%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
+// ----------------------------------------------------------
+// 플로팅 랭킹 카드 영역
+// 3개의 카드가 겹치는 포디엄 레이아웃
+// ----------------------------------------------------------
+.cardsArea {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // 접근성: 모션 감소 설정 시 애니메이션 비활성화
+  @media (prefers-reduced-motion: reduce) {
+    .rankCard {
+      animation: none !important;
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// 공통 랭킹 카드 스타일
+// ----------------------------------------------------------
+.rankCard {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// 1위 카드 - 골드, 가장 크게, 중앙
+.cardFirst {
+  composes: rankCard;
+  z-index: 3;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.12);
+  padding: 16px 22px;
+  animation: float2 4s ease-in-out infinite;
+
+  .rankBadge {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #78350f;
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+  }
+}
+
+// 2위 카드 - 실버, 약간 작게, 좌측으로 기울어짐
+.cardSecond {
+  composes: rankCard;
+  z-index: 2;
+  top: 100px;
+  left: 8%;
+  transform: rotate(-6deg);
+  border-color: rgba(209, 213, 219, 0.4);
+  background: rgba(209, 213, 219, 0.1);
+  font-size: 0.9em;
+  animation: float1 5s ease-in-out infinite;
+
+  .rankBadge {
+    background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+    color: #374151;
+    box-shadow: 0 0 10px rgba(156, 163, 175, 0.3);
+  }
+}
+
+// 3위 카드 - 브론즈, 더 작게, 우측으로 기울어짐
+.cardThird {
+  composes: rankCard;
+  z-index: 1;
+  top: 110px;
+  right: 8%;
+  transform: rotate(4deg);
+  border-color: rgba(217, 119, 6, 0.35);
+  background: rgba(217, 119, 6, 0.08);
+  font-size: 0.85em;
+  animation: float3 4.5s ease-in-out infinite;
+
+  .rankBadge {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(217, 119, 6, 0.3);
+  }
+}
+
+// ----------------------------------------------------------
+// 순위 배지 (원형 번호)
+// ----------------------------------------------------------
+.rankBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+// ----------------------------------------------------------
+// 소속사 아바타 (이니셜 원형)
+// ----------------------------------------------------------
+.companyAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+// 각 소속사별 배경색
+.avatarYG { background: linear-gradient(135deg, #1f2937, #374151); }
+.avatarHY { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.avatarSM { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+// ----------------------------------------------------------
+// 카드 텍스트 정보
+// ----------------------------------------------------------
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.companyName {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.95);
+  white-space: nowrap;
+}
+
+.firepower {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  // 파이어파워 수치 하이라이트
+  strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+  }
+}
+
+// ----------------------------------------------------------
+// 플로팅 장식 아이콘
+// position: absolute, 은은한 opacity
+// ----------------------------------------------------------
+.floatingIcons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floatingIcon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.12);
+  animation: floatIcon 3s ease-in-out infinite;
+  will-change: transform;
+
+  &:nth-child(1) {
+    top: 8%;
+    right: 12%;
+    animation-delay: 0s;
+    animation-duration: 3.5s;
+  }
+
+  &:nth-child(2) {
+    bottom: 15%;
+    left: 8%;
+    animation-delay: 1s;
+    animation-duration: 4s;
+  }
+
+  &:nth-child(3) {
+    top: 40%;
+    left: 5%;
+    animation-delay: 0.5s;
+    animation-duration: 3s;
+  }
+
+  &:nth-child(4) {
+    bottom: 25%;
+    right: 8%;
+    animation-delay: 1.5s;
+    animation-duration: 3.8s;
+  }
+}
+
+// ----------------------------------------------------------
+// 미니 통계 바 (하단)
+// ----------------------------------------------------------
+.statsBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+  }
+}
+
+.statDivider {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+// ----------------------------------------------------------
+// 우측 패널: 로그인 폼 영역
+// ----------------------------------------------------------
+.rightPanel {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 36px;
+
+  // 데스크톱에서 좌측 패널과 연결되는 느낌
+  @media (min-width: 876px) {
+    width: 45%;
+    max-width: none;
+    background: var(--color-surface);
+    border-radius: 0 24px 24px 0;
+    border: 1px solid var(--color-border);
+    border-left: none;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.05);
+
+    [data-theme='dark'] & {
+      background: rgba(10, 10, 10, 0.95);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  // 모바일에서는 독립적인 카드 형태
+  @media (max-width: 875px) {
+    padding: 24px 16px;
+  }
+}
+
+// ----------------------------------------------------------
+// 인증 박스 - 부드러운 스타일 (그림자 줄이기, 배경 반투명도 조절)
+// ----------------------------------------------------------
+.authBox {
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 32px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // 모바일에서만 카드 스타일 적용
+  @media (max-width: 875px) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 40px 32px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+
+    [data-theme='dark'] & {
+      background: rgba(20, 20, 20, 0.6);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// 하단 서브 박스 (회원가입/로그인 전환 링크)
+// ----------------------------------------------------------
 .subBox {
-  @extend .authBox;
-  padding: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 20px 8px;
+  display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   font-size: 0.9rem;
 
+  // 모바일에서만 카드 스타일 적용
+  @media (max-width: 875px) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+
+    [data-theme='dark'] & {
+      background: rgba(20, 20, 20, 0.6);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
   a {
-    color: $color-primary;
+    color: #8B5CF6;
     font-weight: 600;
     margin-left: 4px;
     text-decoration: none;
@@ -82,20 +516,24 @@
   }
 }
 
-// 로고 - 라이트 모드에서는 primary 기반 그래디언트
+// ----------------------------------------------------------
+// 로고 - 라이트/다크 모드 대응 그라데이션
+// ----------------------------------------------------------
 .logo {
   font-family: $font-display;
   font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 32px;
-  background: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 
-  // 다크 모드에서는 흰색→primary 그래디언트
+  // 다크 모드에서는 흰색에서 퍼플로 가는 그라데이션
   [data-theme='dark'] & {
-    background: linear-gradient(135deg, #fff 0%, $color-primary 100%);
+    background: linear-gradient(135deg, #fff 0%, #8B5CF6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

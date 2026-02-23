@@ -64,7 +64,14 @@ export const FEATURES = {
    * - 경로: /[locale]/profile, /[locale]/login
    * - 상태: T1.70에서 활성화 (Google/Kakao OAuth + 이메일 로그인)
    */
-  AUTH_SYSTEM: false,
+  AUTH_SYSTEM: true,
+
+  /**
+   * Kakao OAuth 로그인
+   * - 카카오 로그인 버튼 표시 여부
+   * - 상태: 활성화됨
+   */
+  KAKAO_LOGIN: true,
 
   /**
    * T1.75: 산하 레이블 투표 UI (Sub-Label Voting)
@@ -72,6 +79,14 @@ export const FEATURES = {
    * - 투표는 항상 부모 소속사에 귀속, 서브레이블은 UI 필터 역할만
    */
   SUB_LABEL_VOTING: true,
+
+  /**
+   * T2.02: KCL Pro 구독 결제 시스템
+   * - 경로: /[locale]/pro
+   * - 상태: 테스트 모드 활성화
+   * - Lemon Squeezy 연동, 월 $1.99, 일 300표
+   */
+  PRO_SUBSCRIPTION: false,
 } as const;
 
 /** Feature Flag 타입 */

@@ -116,6 +116,11 @@ export default async function LocaleLayout({
         crossOrigin="anonymous"
         strategy="afterInteractive"
       />
+      {/* Lemon Squeezy Checkout Overlay (T2.02: KCL Pro 구독) */}
+      <Script
+        src="https://app.lemonsqueezy.com/js/lemon.js"
+        strategy="afterInteractive"
+      />
       <body className={`${inter.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="data-theme"

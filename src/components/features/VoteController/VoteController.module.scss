@@ -95,8 +95,17 @@
   gap: 12px;
 }
 
+// 투표 버튼 래퍼 (파워투표 힌트 포함)
+.voteButtonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
 // 투표 버튼
 .voteButton {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,6 +116,12 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  // 모바일에서 텍스트 선택 방지
+  user-select: none;
+  -webkit-user-select: none;
+  // 롱프레스 시 컨텍스트 메뉴 방지
+  -webkit-touch-callout: none;
 
   &:disabled {
     opacity: 0.7;
@@ -118,11 +133,32 @@
     cursor: not-allowed;
     box-shadow: none;
   }
+
+  // T1.85: 롱프레스 중 하이라이트
+  &.pressing {
+    transform: scale(0.97);
+    box-shadow: 0 0 30px rgba($color-primary, 0.5);
+  }
+}
+
+// T1.85: 파워투표 게이지 오버레이
+.gaugeOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.06s linear;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .voteContent,
 .successContent,
-.exhaustedContent {
+.exhaustedContent,
+.powerContent {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -141,6 +177,74 @@
 
 .exhaustedContent {
   opacity: 0.9;
+}
+
+// T1.85: 파워투표 콘텐츠
+.powerContent {
+  .powerNumber {
+    font-family: $font-display;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+}
+
+// T1.85: 롱프레스 힌트 텍스트 (강조 스타일)
+.powerHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: center;
+
+  svg {
+    flex-shrink: 0;
+    opacity: 1;
+    color: #8e5bff;
+    filter: drop-shadow(0 0 6px rgba(142, 91, 255, 0.55));
+    animation: powerHintFlame 1.2s ease-in-out infinite;
+  }
+
+  span {
+    background: linear-gradient(120deg, #6f2dff 0%, #a855f7 38%, #c084fc 52%, #8b5cf6 72%, #6f2dff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow:
+      0 0 7px rgba(146, 84, 255, 0.35),
+      0 0 16px rgba(168, 85, 247, 0.2);
+    animation: powerHintGradientSparkle 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes powerHintGradientSparkle {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+    text-shadow:
+      0 0 7px rgba(146, 84, 255, 0.35),
+      0 0 16px rgba(168, 85, 247, 0.2);
+  }
+  50% {
+    filter: brightness(1.18) saturate(1.15);
+    text-shadow:
+      0 0 10px rgba(146, 84, 255, 0.55),
+      0 0 24px rgba(168, 85, 247, 0.35);
+  }
+}
+
+@keyframes powerHintFlame {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
 }
 
 // For Artist 텍스트

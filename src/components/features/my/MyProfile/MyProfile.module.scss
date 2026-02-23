@@ -1,0 +1,721 @@
+/**
+ * MyProfile.module.scss
+ *
+ * 마이페이지 프로필 스타일
+ * 프로필 헤더, 통계, 계정 정보, 로그아웃 버튼
+ */
+
+@use '../../../../styles/abstracts/variables' as *;
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+// 프로필 헤더
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 24px;
+  text-align: center;
+}
+
+.avatarSection {
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid $color-bg;
+  box-shadow: 0 0 30px rgba($color-primary, 0.3);
+  overflow: hidden;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitial {
+  font-family: $font-display;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.username {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.usernameRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.editNicknameWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+
+// 닉네임 입력칸 - 하단 라인형 포커스 효과
+.editNicknameInput {
+  width: 196px;
+  height: 38px;
+  border: none;
+  border-bottom: 2px solid rgba(139, 92, 246, 0.25);
+  border-radius: 0;
+  background: transparent;
+  color: $color-text;
+  padding: 0 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &::placeholder {
+    color: $color-text-dim;
+    font-weight: 400;
+  }
+
+  &:focus {
+    border-bottom-color: #8b5cf6;
+    box-shadow: 0 2px 0 0 #8b5cf6;
+  }
+}
+
+.editNicknameBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-text, 0.16);
+  background: rgba($color-text, 0.04);
+  color: $color-text-dim;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    border-color: rgba($color-primary, 0.55);
+    color: $color-primary;
+    background: rgba($color-primary, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.editNicknameBtnFloating {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.editNicknameError {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: $color-text-dim;
+  margin: 0;
+
+  svg {
+    opacity: 0.5;
+  }
+}
+
+.providerBadge {
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: rgba($color-primary, 0.1);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+// 통계 섹션
+.statsSection {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0;
+  border-top: 1px solid rgba($color-text, 0.08);
+  border-bottom: 1px solid rgba($color-text, 0.08);
+}
+
+.statCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 8px;
+  background: rgba($color-text, 0.03);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.statIcon {
+  width: 20px;
+  height: 20px;
+  color: $color-primary;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: $color-text;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: $color-text-dim;
+}
+
+// 투표 현황 섹션
+.voteStatsSection {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba($color-text, 0.08);
+}
+
+.statsLoading {
+  text-align: center;
+  padding: 20px;
+  color: $color-text-dim;
+  font-size: 0.9rem;
+}
+
+.noStats {
+  text-align: center;
+  padding: 20px;
+  color: $color-text-dim;
+  font-size: 0.9rem;
+}
+
+// 프로그레스
+.monthlyProgress {
+  margin-bottom: 20px;
+}
+
+.monthlyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.monthlyUsed {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $color-text;
+}
+
+.monthlyMax {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: $color-text-dim;
+}
+
+.monthlyPercent {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: rgba($color-text, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, $color-primary, $color-secondary);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.monthlyHint {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: $color-text-dim;
+}
+
+// 상위 투표 소속사
+.topCompanies {
+  margin-top: 4px;
+}
+
+.topTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: $color-text;
+
+  svg {
+    color: #f59e0b;
+  }
+}
+
+.topList {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba($color-text, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.topItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: $color-bg;
+}
+
+.topRank {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $color-primary;
+  width: 28px;
+}
+
+.topName {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.topCount {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $color-text-dim;
+
+  &::after {
+    content: ' votes';
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
+}
+
+// KCL Pro 구독 섹션
+.proSection {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba($color-text, 0.08);
+}
+
+.proActiveCard {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #8b5cf6;
+  background: linear-gradient(135deg, rgba(#8b5cf6, 0.06), rgba(#f59e0b, 0.04));
+}
+
+.proBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.proActiveBadge {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.proActiveText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.proVoteInfo {
+  font-size: 0.85rem;
+  color: $color-text-dim;
+  margin: 0 0 12px;
+}
+
+.proManageLink {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.proUpgradeCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(#8b5cf6, 0.2);
+  background: linear-gradient(135deg, rgba(#8b5cf6, 0.06), rgba(#f59e0b, 0.04));
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: rgba(#8b5cf6, 0.4);
+    background: linear-gradient(135deg, rgba(#8b5cf6, 0.1), rgba(#f59e0b, 0.06));
+  }
+}
+
+.proUpgradeLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.proUpgradeIcon {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.proUpgradeTitle {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.proUpgradeDesc {
+  display: block;
+  font-size: 0.8rem;
+  color: $color-text-dim;
+  margin-top: 2px;
+}
+
+.proUpgradeArrow {
+  font-size: 1.2rem;
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+// 최애 그룹 섹션
+.favoriteGroupSection {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba($color-text, 0.08);
+}
+
+.favoriteGroupCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba($color-text, 0.03);
+  border: 1px solid rgba($color-text, 0.08);
+}
+
+.favoriteGroupName {
+  margin: 0;
+  font-size: 0.95rem;
+  color: $color-text;
+  font-weight: 600;
+}
+
+.favoriteGroupAction {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid rgba($color-primary, 0.35);
+  background: transparent;
+  color: $color-primary;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: rgba(139, 92, 246, 0.8);
+    background: rgba(139, 92, 246, 0.16);
+    color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.24);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.favoriteGroupActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.favoriteGroupRemoveAction {
+  border-color: rgba(#ef4444, 0.3);
+  color: #ef4444;
+
+  &:hover {
+    border-color: rgba(#ef4444, 0.45);
+    background: rgba(#ef4444, 0.08);
+    color: #ef4444;
+    box-shadow: 0 4px 12px rgba(#ef4444, 0.22);
+  }
+}
+
+.groupSearchSection {
+  margin-top: 12px;
+}
+
+.groupSearchWrap {
+  position: relative;
+}
+
+.groupSearchInput {
+  width: 100%;
+  height: 44px;
+  border: 1px solid rgba($color-text, 0.16);
+  border-radius: 10px;
+  background: rgba($color-text, 0.03);
+  color: $color-text;
+  padding: 0 12px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: $color-text-dim;
+  }
+
+  &:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.groupDropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 264px;
+  overflow-y: auto;
+  border: 1px solid rgba($color-text, 0.16);
+  border-radius: 12px;
+  background: $color-bg;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+}
+
+.groupDropdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.08);
+  }
+}
+
+.groupDropdownItemActive {
+  background: rgba($color-primary, 0.14);
+}
+
+.groupDropdownName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.groupDropdownCompany {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  color: $color-text-dim;
+}
+
+.groupDropdownEmpty {
+  padding: 16px 12px;
+  text-align: center;
+  color: $color-text-dim;
+  font-size: 0.88rem;
+}
+
+.groupChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: rgba($color-primary, 0.11);
+  border: 1px solid rgba($color-primary, 0.26);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.groupChipRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: rgba($color-text-dim, 0.2);
+  color: $color-text-dim;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba($color-text-dim, 0.35);
+    color: $color-text;
+  }
+}
+
+// 계정 정보 섹션
+.accountSection {
+  padding: 24px 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+
+  svg {
+    color: $color-primary;
+  }
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba($color-text, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: $color-bg;
+}
+
+.infoLabel {
+  font-size: 0.9rem;
+  color: $color-text-dim;
+}
+
+.infoValue {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $color-text;
+}
+
+// 액션 버튼
+.actions {
+  padding: 24px 0;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(#ef4444, 0.3);
+  background: rgba(#ef4444, 0.05);
+  color: #ef4444;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(#ef4444, 0.1);
+    border-color: rgba(#ef4444, 0.5);
+  }
+}

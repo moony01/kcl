@@ -15,14 +15,17 @@
 
 import { memo } from 'react';
 import { useTranslations } from 'next-intl';
-import { Ticket, Clock, Moon } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Ticket, Clock, Moon, Crown } from 'lucide-react';
 import classNames from 'classnames';
+import Link from 'next/link';
+import { FEATURES } from '@/config/features';
 import styles from './VoteQuotaBar.module.scss';
 
 export interface VoteQuotaBarProps {
-  /** 사용한 투표권 수 (0~30) */
+  /** 사용한 투표권 수 */
   used: number;
-  /** 최대 투표권 (기본 30) */
+  /** 최대 투표권 (비로그인 30, 로그인 60) */
   max: number;
   /** 리셋까지 남은 시간 (시간) */
   hoursUntilReset?: number;
@@ -30,17 +33,25 @@ export interface VoteQuotaBarProps {
   minutesUntilReset?: number;
   /** 표시 변형 - PC: full, Mobile: compact */
   variant?: 'full' | 'compact';
+  /** 투표 모드 */
+  mode?: 'daily';
+  /** 로그인 여부 */
+  isLoggedIn?: boolean;
+  /** Pro 구독 여부 (true면 업셀링 숨김) */
+  isPro?: boolean;
   /** 추가 CSS 클래스 */
   className?: string;
 }
 
 /**
  * 남은 투표권에 따른 색상 레벨 반환
+ * max 기준으로 비율 계산하여 모드(30/60)에 관계없이 일관된 표시
  */
-function getQuotaLevel(remaining: number): 'plenty' | 'caution' | 'warning' | 'exhausted' {
+function getQuotaLevel(remaining: number, max: number): 'plenty' | 'caution' | 'warning' | 'exhausted' {
   if (remaining === 0) return 'exhausted';
-  if (remaining <= 10) return 'warning';
-  if (remaining <= 20) return 'caution';
+  const ratio = remaining / max;
+  if (ratio <= 0.17) return 'warning';   // ~17% 이하
+  if (ratio <= 0.5) return 'caution';    // ~50% 이하
   return 'plenty';
 }
 
@@ -53,13 +64,18 @@ function VoteQuotaBar({
   hoursUntilReset = 0,
   minutesUntilReset = 0,
   variant = 'full',
+  isLoggedIn = false,
+  isPro = false,
   className,
 }: VoteQuotaBarProps) {
   const t = useTranslations('Vote');
+  const tPro = useTranslations('Pro');
+  const pathname = usePathname();
+  const locale = pathname?.split('/')[1] || 'en';
 
   const remaining = max - used;
   const progress = (used / max) * 100;
-  const level = getQuotaLevel(remaining);
+  const level = getQuotaLevel(remaining, max);
   const isExhausted = remaining === 0;
 
   // 컴팩트 모드 (모바일)
@@ -113,20 +129,26 @@ function VoteQuotaBar({
             <div className={styles.exhaustedMessage}>
               <span className={styles.exhaustedTitle}>{t('quota.exhausted_title')}</span>
               <span className={styles.countdown}>
-                {t('quota.exhausted_countdown', {
-                  hours: hoursUntilReset,
-                  minutes: minutesUntilReset,
-                })}
+                {t('quota.reset_countdown', { hours: hoursUntilReset })}
               </span>
             </div>
           </>
         ) : (
           <>
             <Clock size={14} className={styles.hintIcon} />
-            <span>{t('quota.reset_hint')}</span>
+            <span>{t('quota.reset_countdown', { hours: hoursUntilReset })}</span>
           </>
         )}
       </div>
+
+      {/* Pro 업셀링: 로그인 Free 사용자에게만 표시 */}
+      {FEATURES.PRO_SUBSCRIPTION && isLoggedIn && !isPro && (
+        <Link href={`/${locale}/pro`} className={styles.proUpsell}>
+          <Crown size={14} className={styles.proUpsellIcon} />
+          <span>{tPro('upgrade_cta')}</span>
+          <span className={styles.proUpsellDesc}>{tPro('upgrade_desc')}</span>
+        </Link>
+      )}
     </div>
   );
 }

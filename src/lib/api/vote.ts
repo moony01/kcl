@@ -20,6 +20,10 @@ export interface SubmitVoteParams {
   companyId: string;
   /** 그룹 ID (선택) */
   groupId?: string | null;
+  /** 로그인 사용자 ID (선택, 로그인 시 월간 60표 적용) */
+  userId?: string | null;
+  /** 투표 파워 (비회원: 1 고정, 회원: 1~30, Pro: 1~50, 롱프레스 파워투표 시 사용) */
+  votePower?: number;
 }
 
 /** 투표 결과 */
@@ -36,32 +40,6 @@ export interface VoteResult {
   errorCode?: 'INVALID_COMPANY' | 'SUPABASE_ERROR' | 'RATE_LIMITED' | 'UNKNOWN';
   /** 오늘 남은 투표 수 */
   remaining?: number;
-}
-
-/**
- * 브라우저 fingerprint 생성
- * User-Agent, 화면 크기, 타임존, 언어 등을 조합한 해시
- * 완벽하지 않지만 localStorage 우회 공격을 방어
- */
-function generateFingerprint(): string {
-  if (typeof window === 'undefined') return '';
-
-  const components = [
-    navigator.userAgent,
-    `${screen.width}x${screen.height}x${screen.colorDepth}`,
-    Intl.DateTimeFormat().resolvedOptions().timeZone,
-    navigator.language,
-    navigator.hardwareConcurrency?.toString() || '',
-    navigator.maxTouchPoints?.toString() || '',
-  ];
-
-  // 간단한 해시 (djb2 알고리즘)
-  const str = components.join('|');
-  let hash = 5381;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) + hash + str.charCodeAt(i)) & 0xffffffff;
-  }
-  return `fp_${(hash >>> 0).toString(36)}`;
 }
 
 /**
@@ -90,10 +68,16 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
     // T1.82: 서버 fingerprint 체크 비활성화 — localStorage 기반 쿼타만 사용
     // 사용자 수가 적은 초기 단계에서는 클라이언트 제한으로 충분
     // 추후 사용자 증가 시 fingerprint 기반 서버 제한 재활성화 예정
+    //
+    // T1.85: 로그인 사용자 지원 추가
+    // - p_user_id: 로그인 사용자 ID (서버에서 월간 60표 제한 검증)
+    // - p_vote_power: 파워투표 점수 (1~50, 롱프레스 게이지)
     const { data, error } = await supabase.rpc('submit_vote_secure', {
       p_company_id: companyId,
       p_group_id: groupId || null,
       p_fingerprint: null,
+      p_user_id: params.userId || null,
+      p_vote_power: params.votePower || 1,
     });
 
     if (error) {
@@ -137,6 +121,84 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
       message: 'Failed to submit vote',
       errorCode: 'UNKNOWN',
     };
+  }
+}
+
+/** 로그인 사용자 투표 통계 (get_user_vote_stats RPC 결과) */
+export interface UserVoteStats {
+  /** 오늘 사용한 투표 수 */
+  dailyUsed: number;
+  /** 오늘 남은 투표 수 */
+  dailyRemaining: number;
+  /** 일일 투표 한도 (Free: 60, Pro: 300) */
+  dailyLimit: number;
+  /** 총 누적 투표 수 */
+  totalVotes: number;
+  /** 가장 많이 투표한 상위 5개 소속사 */
+  topCompanies: Array<{
+    company_id: string;
+    company_name: string;
+    vote_count: number;
+    gradient_color?: string;
+  }>;
+}
+
+/**
+ * 로그인 사용자 투표 통계 조회
+ *
+ * get_user_vote_stats RPC를 호출하여 일일/총 투표 현황을 반환합니다.
+ *
+ * @param userId - 사용자 ID (auth.users.id)
+ * @returns 사용자 투표 통계
+ */
+export async function getUserVoteStats(userId: string): Promise<UserVoteStats | null> {
+  const supabase = getSupabase();
+
+  try {
+    const { data, error } = await supabase.rpc('get_user_vote_stats', {
+      p_user_id: userId,
+    });
+
+    if (error) {
+      console.error('[getUserVoteStats] RPC error:', error.message);
+      return null;
+    }
+
+    const result = data as {
+      daily_used: number;
+      daily_remaining: number;
+      daily_limit: number;
+      total_votes: number;
+      top_companies: Array<{
+        company_id?: string;
+        company_name?: string;
+        vote_count?: number;
+        /** RPC가 실제 반환하는 필드명 */
+        votes?: number;
+        name_en?: string;
+        name_ko?: string;
+        gradient_color?: string;
+      }>;
+    };
+
+    // RPC 응답 필드명 매핑: votes→vote_count, name_en→company_name
+    const topCompanies = (result.top_companies || []).map((c) => ({
+      company_id: c.company_id || c.name_en || '',
+      company_name: c.company_name || c.name_en || '',
+      vote_count: c.vote_count ?? c.votes ?? 0,
+      gradient_color: c.gradient_color,
+    }));
+
+    return {
+      dailyUsed: result.daily_used,
+      dailyRemaining: result.daily_remaining,
+      dailyLimit: result.daily_limit,
+      totalVotes: result.total_votes,
+      topCompanies,
+    };
+  } catch (error) {
+    console.error('[getUserVoteStats] Unexpected error:', error);
+    return null;
   }
 }
 

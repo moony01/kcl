@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { MessageSquare, Flag } from 'lucide-react';
 import type { Comment, CommentFormData } from '@/types/community';
+import { useAuth } from '@/hooks/useAuth';
 import CommentForm from '../CommentForm';
 import styles from './CommentSection.module.scss';
 
@@ -35,6 +36,7 @@ export default function CommentSection({
   onReportComment,
 }: CommentSectionProps) {
   const t = useTranslations('Community');
+  const { profile } = useAuth();
   const [localComments, setLocalComments] = useState<Comment[]>(comments);
 
   /**
@@ -97,8 +99,11 @@ export default function CommentSection({
         {t('comment.title')} ({localComments.length})
       </h3>
 
-      {/* 댓글 작성 폼 */}
-      <CommentForm onSubmit={handleAddComment} />
+      {/* 댓글 작성 폼 — 로그인 시 프로필 닉네임 자동 적용 */}
+      <CommentForm
+        onSubmit={handleAddComment}
+        authenticatedNickname={profile?.username}
+      />
 
       {/* 댓글 목록 */}
       <div className={styles.list}>

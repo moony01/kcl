@@ -6,6 +6,13 @@
 
 import { createClient } from '@/lib/supabase/client';
 
+/**
+ * 비밀번호 정규화 — 유니코드 제어문자/보이지 않는 공백 제거
+ */
+function sanitizePassword(pw: string): string {
+  return pw.trim().replace(/[\x01-\x1F\x7F\xA0\u200B-\u200D\uFEFF]/g, '');
+}
+
 /** 공지사항 댓글 타입 */
 export interface NoticeComment {
   id: string;
@@ -76,7 +83,7 @@ export async function createNoticeComment(
     .rpc('create_kcl_notice_comment_secure', {
       p_announcement_id: req.announcement_id,
       p_author_name: req.author_name.trim(),
-      p_password: req.password.trim(),
+      p_password: sanitizePassword(req.password),
       p_content: req.content.trim(),
     })
     .single();
@@ -103,7 +110,7 @@ export async function deleteNoticeComment(
   const { data, error } = await supabase
     .rpc('delete_kcl_notice_comment_secure', {
       p_id: req.id,
-      p_password: req.password.trim(),
+      p_password: sanitizePassword(req.password),
     });
 
   if (error) {
