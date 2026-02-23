@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { MessageCircle, Trash2, Send, Loader2 } from 'lucide-react';
+import { MessageCircle, Trash2, Send, Loader2, User } from 'lucide-react';
 import {
   getNoticeComments,
   createNoticeComment,
   deleteNoticeComment,
   type NoticeComment,
 } from '@/lib/api/notice-comments';
+import { useAuth } from '@/hooks/useAuth';
 import styles from './NoticeComments.module.scss';
 
 interface NoticeCommentsProps {
@@ -26,6 +27,10 @@ const MIN_SUBMIT_INTERVAL = 5000;
  */
 export default function NoticeComments({ announcementId }: NoticeCommentsProps) {
   const t = useTranslations('NoticeComments');
+  const { profile } = useAuth();
+
+  const isAuthenticated = !!profile?.username;
+  const autoPassword = profile?.id ? `kcl_auth_${profile.id}` : '';
 
   const [comments, setComments] = useState<NoticeComment[]>([]);
   const [loading, setLoading] = useState(true);
@@ -66,18 +71,23 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
     e.preventDefault();
     setFormError('');
 
+    const effectiveName = isAuthenticated ? profile!.username : authorName.trim();
+    const effectivePassword = isAuthenticated ? autoPassword : password.trim();
+
     // 입력값 검증
-    if (!authorName.trim()) {
-      setFormError(t('error_name_required'));
-      return;
-    }
-    if (!password.trim()) {
-      setFormError(t('error_password_required'));
-      return;
-    }
-    if (password.trim().length < 4) {
-      setFormError(t('error_password_min'));
-      return;
+    if (!isAuthenticated) {
+      if (!authorName.trim()) {
+        setFormError(t('error_name_required'));
+        return;
+      }
+      if (!password.trim()) {
+        setFormError(t('error_password_required'));
+        return;
+      }
+      if (password.trim().length < 4) {
+        setFormError(t('error_password_min'));
+        return;
+      }
     }
     if (!content.trim()) {
       setFormError(t('error_content_required'));
@@ -99,8 +109,8 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
       setSubmitting(true);
       const newComment = await createNoticeComment({
         announcement_id: announcementId,
-        author_name: authorName.trim(),
-        password: password.trim(),
+        author_name: effectiveName,
+        password: effectivePassword,
         content: content.trim(),
       });
 
@@ -108,6 +118,10 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
         // 목록 상단에 추가
         setComments((prev) => [newComment, ...prev]);
         // 폼 초기화
+        if (!isAuthenticated) {
+          setAuthorName('');
+          setPassword('');
+        }
         setContent('');
         setLastSubmitTime(now);
       } else {
@@ -129,14 +143,15 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
 
   /** 삭제 실행 */
   const handleDelete = async () => {
-    if (!deleteTarget || !deletePassword.trim()) return;
+    const effectiveDeletePassword = isAuthenticated ? autoPassword : deletePassword.trim();
+    if (!deleteTarget || !effectiveDeletePassword) return;
 
     try {
       setDeleting(true);
       setDeleteError('');
       const success = await deleteNoticeComment({
         id: deleteTarget,
-        password: deletePassword.trim(),
+        password: effectiveDeletePassword,
       });
 
       if (success) {
@@ -169,24 +184,31 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
 
       {/* 댓글 작성 폼 */}
       <form className={styles.commentForm} onSubmit={handleSubmit}>
-        <div className={styles.formRow}>
-          <input
-            type="text"
-            className={styles.inputField}
-            placeholder={t('placeholder_name')}
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-            maxLength={30}
-          />
-          <input
-            type="password"
-            className={styles.inputField}
-            placeholder={t('placeholder_password')}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            maxLength={20}
-          />
-        </div>
+        {isAuthenticated ? (
+          <div className={styles.authenticatedRow}>
+            <User size={14} />
+            <span className={styles.authenticatedName}>{profile?.username}</span>
+          </div>
+        ) : (
+          <div className={styles.formRow}>
+            <input
+              type="text"
+              className={styles.inputField}
+              placeholder={t('placeholder_name')}
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
+              maxLength={30}
+            />
+            <input
+              type="password"
+              className={styles.inputField}
+              placeholder={t('placeholder_password')}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              maxLength={20}
+            />
+          </div>
+        )}
         <div className={styles.formRow}>
           <textarea
             className={styles.textareaField}
@@ -251,14 +273,16 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h4>{t('delete_title')}</h4>
             <p>{t('delete_message')}</p>
-            <input
-              type="password"
-              className={styles.inputField}
-              placeholder={t('placeholder_password')}
-              value={deletePassword}
-              onChange={(e) => setDeletePassword(e.target.value)}
-              autoFocus
-            />
+            {!isAuthenticated && (
+              <input
+                type="password"
+                className={styles.inputField}
+                placeholder={t('placeholder_password')}
+                value={deletePassword}
+                onChange={(e) => setDeletePassword(e.target.value)}
+                autoFocus
+              />
+            )}
             {deleteError && <p className={styles.errorText}>{deleteError}</p>}
             <div className={styles.modalActions}>
               <button
@@ -270,7 +294,7 @@ export default function NoticeComments({ announcementId }: NoticeCommentsProps) 
               <button
                 className={styles.confirmDeleteButton}
                 onClick={handleDelete}
-                disabled={deleting || !deletePassword.trim()}
+                disabled={deleting || (!isAuthenticated && !deletePassword.trim())}
               >
                 {deleting ? t('deleting') : t('delete')}
               </button>

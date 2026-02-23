@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "L'inscription par e-mail arrive bientôt. Commencez facilement avec votre compte social !",
     "error_provider_conflict": "Cet email est déjà enregistré avec {provider}. Veuillez vous connecter avec {provider}.",
     "provider_last_used": "Dernier utilisé",
-    "provider_use_this": "Utiliser celui-ci"
+    "provider_use_this": "Utiliser celui-ci",
+    "delete_account": "Supprimer le compte",
+    "delete_account_title": "Supprimer le compte",
+    "delete_account_warning": "Cette action est irréversible. Toutes vos données, y compris l'historique des votes et le profil, seront définitivement supprimées.",
+    "delete_account_error": "La suppression du compte a échoué. Veuillez réessayer."
   },
   "Onboarding": {
     "title": "Configurez votre profil",

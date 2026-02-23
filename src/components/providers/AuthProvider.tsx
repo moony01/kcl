@@ -61,6 +61,8 @@ export interface AuthContextType {
   signOut: () => Promise<void>;
   /** 프로필 데이터 수동 새로고침 */
   refreshProfile: () => Promise<void>;
+  /** 회원탈퇴 함수 */
+  deleteAccount: () => Promise<{ success: boolean; error?: string }>;
 }
 
 /**
@@ -73,6 +75,7 @@ export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
   signOut: async () => {},
   refreshProfile: async () => {},
+  deleteAccount: async () => ({ success: false, error: 'Not initialized' }),
 });
 
 /**
@@ -140,6 +143,49 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   /**
+   * 회원탈퇴 처리
+   * Edge Function 호출로 앱 데이터 정리 + auth.users 삭제를 수행
+   */
+  const deleteAccount = useCallback(async (): Promise<{ success: boolean; error?: string }> => {
+    try {
+      const supabase = getSupabase();
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        return { success: false, error: '로그인 세션이 만료되었습니다.' };
+      }
+
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      if (!supabaseUrl) {
+        return { success: false, error: '서버 설정 오류' };
+      }
+
+      const res = await fetch(`${supabaseUrl}/functions/v1/delete-account`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const payload = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        return { success: false, error: payload?.error || '계정 삭제에 실패했습니다.' };
+      }
+
+      // 로컬 세션 정리
+      await supabase.auth.signOut();
+      setUser(null);
+      setProfile(null);
+
+      return { success: true };
+    } catch (err) {
+      console.error('[AuthProvider] 회원탈퇴 실패:', err);
+      return { success: false, error: '계정 삭제 중 오류가 발생했습니다.' };
+    }
+  }, []);
+
+  /**
    * 초기 세션 확인 + 인증 상태 변경 리스너 등록
    */
   useEffect(() => {
@@ -196,8 +242,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       isAuthenticated: !!user,
       signOut,
       refreshProfile,
+      deleteAccount,
     }),
-    [user, profile, isLoading, signOut, refreshProfile],
+    [user, profile, isLoading, signOut, refreshProfile, deleteAccount],
   );
 
   return (

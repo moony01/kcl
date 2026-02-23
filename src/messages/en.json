@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "Email sign-up is coming soon. Get started easily with your social account!",
     "error_provider_conflict": "This email is already registered with {provider}. Please sign in with {provider} instead.",
     "provider_last_used": "Last used",
-    "provider_use_this": "Use this"
+    "provider_use_this": "Use this",
+    "delete_account": "Delete Account",
+    "delete_account_title": "Delete Account",
+    "delete_account_warning": "This action is irreversible. All your data including vote history and profile will be permanently deleted.",
+    "delete_account_error": "Failed to delete account. Please try again."
   },
   "Onboarding": {
     "title": "Set up your profile",

@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "E-Mail-Registrierung kommt bald. Starten Sie einfach mit Ihrem Social-Konto!",
     "error_provider_conflict": "Diese E-Mail ist bereits mit {provider} registriert. Bitte melden Sie sich mit {provider} an.",
     "provider_last_used": "Zuletzt verwendet",
-    "provider_use_this": "Diesen verwenden"
+    "provider_use_this": "Diesen verwenden",
+    "delete_account": "Konto löschen",
+    "delete_account_title": "Konto löschen",
+    "delete_account_warning": "Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Daten einschließlich Abstimmungsverlauf und Profil werden dauerhaft gelöscht.",
+    "delete_account_error": "Konto konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
   },
   "Onboarding": {
     "title": "Richte dein Profil ein",

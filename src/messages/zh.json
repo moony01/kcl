@@ -605,7 +605,11 @@
     "email_signup_coming_soon": "邮箱注册即将开放，请先使用社交账号快速开始！",
     "error_provider_conflict": "该邮箱已通过{provider}注册。请使用{provider}登录。",
     "provider_last_used": "最近使用",
-    "provider_use_this": "使用此方式"
+    "provider_use_this": "使用此方式",
+    "delete_account": "注销账号",
+    "delete_account_title": "注销账号",
+    "delete_account_warning": "此操作不可撤销。您的所有数据（包括投票记录和个人资料）将被永久删除。",
+    "delete_account_error": "账号删除失败，请重试。"
   },
   "Onboarding": {
     "title": "设置你的个人资料",

@@ -17,7 +17,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { LogOut, Flame, Calendar, User, Mail, Trophy, TrendingUp, Crown, Pencil, Check, X } from 'lucide-react';
+import { LogOut, Flame, Calendar, User, Mail, Trophy, TrendingUp, Crown, Pencil, Check, X, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
@@ -46,7 +46,7 @@ interface GroupRow {
 export default function MyProfile() {
   const t = useTranslations('Auth');
   const tOnboarding = useTranslations('Onboarding');
-  const { user, profile, signOut, refreshProfile } = useAuth();
+  const { user, profile, signOut, refreshProfile, deleteAccount } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const locale = pathname?.split('/')[1] || 'en';
@@ -65,6 +65,10 @@ export default function MyProfile() {
   const [showGroupDropdown, setShowGroupDropdown] = useState(false);
   const [highlightedGroupIndex, setHighlightedGroupIndex] = useState(-1);
   const [groupsFetching, setGroupsFetching] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
+  const [accountDeleting, setAccountDeleting] = useState(false);
+  const [deleteAccountError, setDeleteAccountError] = useState('');
 
   const nicknameInputRef = useRef<HTMLInputElement>(null);
   const groupSearchRef = useRef<HTMLDivElement>(null);
@@ -399,6 +403,36 @@ export default function MyProfile() {
   const handleSignOut = async () => {
     await signOut();
     router.replace(`/${locale}`);
+  };
+
+  /** 회원탈퇴 처리 */
+  const handleDeleteAccount = async () => {
+    if (accountDeleting) {
+      return;
+    }
+
+    // "탈퇴" 또는 "DELETE" 입력 확인
+    const confirmWord = locale === 'ko' ? '탈퇴' : 'DELETE';
+    if (deleteConfirmText.trim() !== confirmWord) {
+      setDeleteAccountError(
+        locale === 'ko'
+          ? `"${confirmWord}"를 정확히 입력해주세요.`
+          : `Please type "${confirmWord}" exactly.`,
+      );
+      return;
+    }
+
+    setAccountDeleting(true);
+    setDeleteAccountError('');
+
+    const result = await deleteAccount();
+
+    if (result.success) {
+      router.replace(`/${locale}`);
+    } else {
+      setDeleteAccountError(result.error || t('delete_account_error'));
+      setAccountDeleting(false);
+    }
   };
 
   /** 아바타 이니셜 (유저네임 첫 글자) */
@@ -774,7 +808,75 @@ export default function MyProfile() {
           <LogOut size={18} />
           {t('logout')}
         </button>
+
+        {/* 회원탈퇴 버튼 */}
+        <button
+          type="button"
+          className={styles.deleteAccountBtn}
+          onClick={() => {
+            setShowDeleteModal(true);
+            setDeleteConfirmText('');
+            setDeleteAccountError('');
+          }}
+        >
+          <AlertTriangle size={16} />
+          {t('delete_account')}
+        </button>
       </motion.div>
+
+      {/* 회원탈퇴 확인 모달 */}
+      {showDeleteModal && (
+        <div className={styles.modalOverlay}>
+          <button
+            type="button"
+            className={styles.modalBackdrop}
+            aria-label={locale === 'ko' ? '회원탈퇴 모달 닫기' : 'Close account deletion modal'}
+            onClick={() => !accountDeleting && setShowDeleteModal(false)}
+          />
+          <div className={styles.deleteModal}>
+            <div className={styles.deleteModalIcon}>
+              <AlertTriangle size={32} />
+            </div>
+            <h4>{t('delete_account_title')}</h4>
+            <p>{t('delete_account_warning')}</p>
+            <p className={styles.deleteModalConfirmHint}>
+              {locale === 'ko'
+                ? '계속하려면 아래에 "탈퇴"를 입력하세요.'
+                : 'Type "DELETE" below to continue.'}
+            </p>
+            <input
+              type="text"
+              className={styles.deleteModalInput}
+              value={deleteConfirmText}
+              onChange={(e) => setDeleteConfirmText(e.target.value)}
+              placeholder={locale === 'ko' ? '탈퇴' : 'DELETE'}
+              autoComplete="off"
+              disabled={accountDeleting}
+            />
+            {deleteAccountError && <p className={styles.deleteModalError}>{deleteAccountError}</p>}
+            <div className={styles.deleteModalActions}>
+              <button
+                type="button"
+                className={styles.deleteModalCancelBtn}
+                onClick={() => setShowDeleteModal(false)}
+                disabled={accountDeleting}
+              >
+                {locale === 'ko' ? '취소' : 'Cancel'}
+              </button>
+              <button
+                type="button"
+                className={styles.deleteModalConfirmBtn}
+                onClick={handleDeleteAccount}
+                disabled={accountDeleting || deleteConfirmText.trim() !== (locale === 'ko' ? '탈퇴' : 'DELETE')}
+              >
+                {accountDeleting
+                  ? locale === 'ko' ? '처리 중...' : 'Deleting...'
+                  : locale === 'ko' ? '회원탈퇴' : 'Delete Account'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
