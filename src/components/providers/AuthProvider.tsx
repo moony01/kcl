@@ -29,6 +29,20 @@ import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { getSupabase } from '@/lib/supabase/client';
 
 /**
+ * 비동기 작업 타임아웃 유틸
+ * Supabase 내부 lock 대기 등으로 Promise가 장시간 pending 되는 상황을 방지합니다.
+ */
+async function withTimeout<T>(promise: PromiseLike<T>, ms: number, label: string): Promise<T> {
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    setTimeout(() => {
+      reject(new Error(`${label} timeout (${ms}ms)`));
+    }, ms);
+  });
+
+  return Promise.race([promise, timeoutPromise]);
+}
+
+/**
  * 사용자 프로필 타입 (kcl_user_profiles 테이블 스키마)
  */
 export interface UserProfile {
@@ -96,11 +110,17 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   const fetchProfile = useCallback(async (userId: string) => {
     try {
       const supabase = getSupabase();
-      const { data, error } = await supabase
+      const profileQuery = supabase
         .from('kcl_user_profiles')
         .select('*')
         .eq('id', userId)
         .single();
+
+      const { data, error } = await withTimeout(
+        profileQuery,
+        8000,
+        'AuthProvider fetchProfile',
+      );
 
       if (error) {
         console.warn('[AuthProvider] 프로필 조회 실패:', error.message);
@@ -194,7 +214,12 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     // 1. 현재 세션 확인 (페이지 로드 시)
     const initSession = async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const sessionQuery = supabase.auth.getSession();
+        const { data: { session } } = await withTimeout<Awaited<ReturnType<typeof supabase.auth.getSession>>>(
+          sessionQuery,
+          8000,
+          'AuthProvider getSession',
+        );
         if (session?.user) {
           setUser(session.user);
           await fetchProfile(session.user.id);
@@ -214,8 +239,11 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         if (session?.user) {
           setUser(session.user);
           // 신규 가입(SIGNED_IN) 또는 토큰 갱신 시 프로필 조회
+          // 주의: 여기서 await하면 Auth 상태 전환이 lock에 묶일 수 있으므로 non-blocking으로 실행
           if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-            await fetchProfile(session.user.id);
+            fetchProfile(session.user.id).catch((err) => {
+              console.warn('[AuthProvider] onAuthStateChange 프로필 조회 실패:', err);
+            });
           }
         } else {
           setUser(null);
