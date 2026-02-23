@@ -10,6 +10,21 @@
 import { getSupabase } from '@/lib/supabase/client';
 import type { CompaniesResponse, DBLeagueTier, SubLabelData } from '@/types/api';
 
+/**
+ * 비동기 작업 타임아웃 유틸
+ * Supabase 내부 lock 대기 등으로 Promise가 장시간 pending 되는 상황을 방지합니다.
+ */
+async function withTimeout<T>(promise: PromiseLike<T>, ms: number, label: string): Promise<T> {
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    const id = setTimeout(() => {
+      clearTimeout(id);
+      reject(new Error(`${label} timeout (${ms}ms)`));
+    }, ms);
+  });
+
+  return Promise.race([promise, timeoutPromise]);
+}
+
 /** 소속사 목록 조회 옵션 */
 export interface GetCompaniesOptions {
   /** 리그 필터 ('premier' | 'challengers') */
@@ -101,7 +116,11 @@ export async function getCompanies(
       .order('firepower', { ascending: false })
       .order('previous_season_rank', { ascending: true });
 
-    const { data: rawCompanies, error } = await query;
+    const { data: rawCompanies, error } = await withTimeout(
+      query,
+      10000,
+      'getCompanies query',
+    );
 
     if (error) {
       console.error('[Companies API] Supabase error:', error.message);
