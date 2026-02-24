@@ -2,7 +2,7 @@
  * KCL Pro 구독 페이지 (Server Component)
  *
  * T2.02: KCL Pro 월정액 구독 ($1.99/월)
- * Lemon Squeezy 결제 연동
+ * Buy Me a Coffee 멤버십 결제 연동
  *
  * SSG 빌드 시 정적 셸 생성, 클라이언트에서 동적 데이터 로드
  */

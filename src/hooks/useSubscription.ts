@@ -4,7 +4,7 @@
  * KCL Pro 구독 상태 관리 훅
  *
  * - 로그인 사용자의 활성 구독 정보를 조회
- * - Checkout 생성 (Lemon Squeezy 결제 플로우 시작)
+ * - 멤버십 결제 URL 생성 (Buy Me a Coffee 결제 플로우 시작)
  * - 구독 상태 (isPro, status, renewsAt 등) 제공
  *
  * @example
@@ -101,7 +101,7 @@ export function useSubscription(): UseSubscriptionReturn {
   }, [fetchSubscription]);
 
   /**
-   * Checkout URL 생성 (Lemon Squeezy 결제 플로우 시작)
+   * Checkout URL 생성 (Buy Me a Coffee 결제 플로우 시작)
    *
    * @returns Checkout URL 또는 null (실패 시)
    */
@@ -119,14 +119,14 @@ export function useSubscription(): UseSubscriptionReturn {
         const result = await createCheckout({ ...params, locale });
 
         if (!result.success || !result.checkoutUrl) {
-          setError(result.error || 'Failed to create checkout');
+          setError(result.error || 'Failed to open membership page');
           return null;
         }
 
         return result.checkoutUrl;
       } catch (err) {
         console.error('[useSubscription] Checkout error:', err);
-        setError('Failed to create checkout');
+        setError('Failed to open membership page');
         return null;
       } finally {
         setIsCheckoutLoading(false);
@@ -142,7 +142,16 @@ export function useSubscription(): UseSubscriptionReturn {
    */
   const isPro = useMemo(() => {
     if (subscription) {
-      return ['active', 'on_trial'].includes(subscription.status);
+      if (['active', 'on_trial'].includes(subscription.status)) {
+        return true;
+      }
+
+      if (subscription.status === 'past_due') {
+        if (!subscription.endsAt) {
+          return false;
+        }
+        return new Date(subscription.endsAt).getTime() > Date.now();
+      }
     }
     // 프로필의 is_pro를 fallback으로 사용
     return !!profile?.is_pro;

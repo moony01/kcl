@@ -1,8 +1,8 @@
 /**
  * KCL Pro 결제 성공 페이지
  *
- * Lemon Squeezy Checkout 완료 후 리다이렉트되는 페이지
- * Webhook 처리가 완료되기까지 약간의 지연이 있을 수 있음
+ * Buy Me a Coffee 멤버십 결제 완료 후 리다이렉트되는 페이지
+ * 멤버십 반영(Webhook)까지 약간의 지연이 있을 수 있음
  */
 
 import { Metadata } from 'next';

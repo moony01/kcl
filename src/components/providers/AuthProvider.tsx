@@ -28,6 +28,8 @@ import type { ReactNode } from 'react';
 import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { getSupabase } from '@/lib/supabase/client';
 
+const INVALID_REFRESH_TOKEN_REGEX = /invalid refresh token|refresh token not found/i;
+
 /**
  * 비동기 작업 타임아웃 유틸
  * Supabase 내부 lock 대기 등으로 Promise가 장시간 pending 되는 상황을 방지합니다.
@@ -40,6 +42,40 @@ async function withTimeout<T>(promise: PromiseLike<T>, ms: number, label: string
   });
 
   return Promise.race([promise, timeoutPromise]);
+}
+
+function isInvalidRefreshTokenError(error: unknown): boolean {
+  if (!error) return false;
+
+  if (typeof error === 'string') {
+    return INVALID_REFRESH_TOKEN_REGEX.test(error);
+  }
+
+  if (error instanceof Error) {
+    return INVALID_REFRESH_TOKEN_REGEX.test(error.message);
+  }
+
+  const maybeMessage = (error as { message?: unknown }).message;
+  return typeof maybeMessage === 'string' && INVALID_REFRESH_TOKEN_REGEX.test(maybeMessage);
+}
+
+function clearStaleSupabaseAuthStorage() {
+  if (typeof window === 'undefined') return;
+
+  try {
+    const keysToRemove: string[] = [];
+    for (let i = 0; i < localStorage.length; i += 1) {
+      const key = localStorage.key(i);
+      if (!key) continue;
+      if (key.startsWith('sb-') && key.endsWith('-auth-token')) {
+        keysToRemove.push(key);
+      }
+    }
+
+    keysToRemove.forEach((key) => localStorage.removeItem(key));
+  } catch (err) {
+    console.warn('[AuthProvider] 로컬 인증 스토리지 정리 실패:', err);
+  }
 }
 
 /**
@@ -225,6 +261,17 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
           await fetchProfile(session.user.id);
         }
       } catch (err) {
+        if (isInvalidRefreshTokenError(err)) {
+          console.warn('[AuthProvider] 만료/유효하지 않은 Refresh Token 감지. 로컬 세션을 정리합니다.');
+          try {
+            await supabase.auth.signOut({ scope: 'local' });
+          } catch {
+            // 로컬 정리가 목적이므로 signOut 실패는 무시
+          }
+          clearStaleSupabaseAuthStorage();
+          setUser(null);
+          setProfile(null);
+        }
         console.warn('[AuthProvider] 초기 세션 확인 실패:', err);
       } finally {
         setIsLoading(false);

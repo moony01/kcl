@@ -13,20 +13,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: clamp(12px, 3vw, 24px);
 }
 
 .container {
   @include mix.glass-panel;
-  width: 100%;
-  max-width: 380px;
+  width: min(100%, 420px);
   padding: 26px 24px 22px;
   border-radius: 20px;
   border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: $shadow-lg;
   background: #fff;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
+  max-height: calc(100vh - 24px);
   display: flex;
   flex-direction: column;
 
@@ -51,6 +51,33 @@
 
   [data-theme='dark'] & {
     color: #f3f6ff;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    align-items: flex-end;
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+    max-height: min(88vh, 620px);
+    border-radius: 18px 18px 14px 14px;
+    padding: 20px 16px 14px;
+  }
+
+  .title {
+    font-size: 1.18rem;
+    margin-bottom: 10px;
+    padding-right: 30px;
+  }
+
+  .closeBtn {
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
   }
 }
 

@@ -83,10 +83,10 @@ export const FEATURES = {
   /**
    * T2.02: KCL Pro 구독 결제 시스템
    * - 경로: /[locale]/pro
-   * - 상태: 테스트 모드 활성화
-   * - Lemon Squeezy 연동, 월 $1.99, 일 300표
+   * - 상태: 활성화
+   * - Buy Me a Coffee 멤버십 연동, 월 $1.99, 일 300표
    */
-  PRO_SUBSCRIPTION: false,
+  PRO_SUBSCRIPTION: true,
 } as const;
 
 /** Feature Flag 타입 */

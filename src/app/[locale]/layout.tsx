@@ -26,7 +26,7 @@ const montserrat = Montserrat({
 });
 
 import { Metadata, Viewport } from 'next';
-import { FULL_URL, BASE_PATH, ADSENSE_PUBLISHER_ID } from '@/lib/constants';
+import { FULL_URL, ADSENSE_PUBLISHER_ID } from '@/lib/constants';
 
 /**
  * Next.js 14+에서 viewport는 별도로 export해야 함
@@ -114,11 +114,6 @@ export default async function LocaleLayout({
         async
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
         crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
-      {/* Lemon Squeezy Checkout Overlay (T2.02: KCL Pro 구독) */}
-      <Script
-        src="https://app.lemonsqueezy.com/js/lemon.js"
         strategy="afterInteractive"
       />
       <body className={`${inter.variable} ${montserrat.variable}`}>

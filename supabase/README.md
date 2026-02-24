@@ -8,8 +8,12 @@
 packages/kcl/supabase/
 ├── README.md                           # 이 문서
 ├── policies.sql                        # RLS (Row Level Security) 정책
+├── functions/
+│   └── bmc-webhook/
+│       └── index.ts                    # Buy Me a Coffee 결제 웹훅 처리
 └── migrations/
-    └── 20260119_add_league_tier.sql   # T1.53: 리그 티어 컬럼 추가
+    ├── 20260119_add_league_tier.sql    # T1.53: 리그 티어 컬럼 추가
+    └── 20260224_add_bmc_webhook_support.sql # BMC 웹훅/유예기간 지원
 ```
 
 ## 테이블 스키마 개요
