@@ -3,7 +3,7 @@ title: "'Save Your Money' - Tzuyu's Clap Back Sparks Global Conversation on K-po
 excerpt: "TWICE's Tzuyu shut down a body-shaming subscriber on Bubble with two devastating words. Her response — 'Save your money' — ignited a global debate on K-pop's toxic beauty standards."
 date: '2026-02-24'
 category: 'Artist'
-thumbnail: '/images/news/tzuyu-body-shaming-clap-back-thumbnail.png'
+thumbnail: '/images/news/tzuyu-body-shaming-clap-back-thumbnail-official.png'
 active: true
 ---
 
@@ -36,7 +36,7 @@ The real catalyst traces back a few days earlier. On February 13–14, TWICE per
 
 The moment that drew the most attention was Tzuyu's solo performance of **'DIVE IN'** — a high-energy stage featuring a short bodysuit paired with fur boots and powerfully choreographed routines. Fan-recorded clips of the performance spread rapidly online, drawing overwhelming praise from global fans. But predictably, a vocal minority zeroed in on her body instead of her performance. The backlash migrated from social media comment sections to Bubble, where the now-infamous message was sent.
 
-![Body shaming controversy sparked by Tzuyu's solo stage and global fandom response](/images/news/tzuyu-body-shaming-clap-back-1.png)
+![Body shaming controversy sparked by Tzuyu's solo stage and global fandom response](/images/news/tzuyu-body-shaming-clap-back-1-official.png)
 _Image source: TWICE official X (@JYPETWICE), [original post](https://x.com/JYPETWICE/status/2022524297303199965)_
 
 ### Global Fans Strike Back
