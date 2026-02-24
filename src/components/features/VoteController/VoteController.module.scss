@@ -122,6 +122,7 @@
   -webkit-user-select: none;
   // 롱프레스 시 컨텍스트 메뉴 방지
   -webkit-touch-callout: none;
+  touch-action: none;
 
   &:disabled {
     opacity: 0.7;

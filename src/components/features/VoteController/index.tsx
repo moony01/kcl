@@ -334,6 +334,8 @@ export default function VoteController({
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerLeave}
+          onPointerCancel={handlePointerLeave}
+          onContextMenu={(e) => e.preventDefault()}
           whileHover={quota.canVote && !isPressing ? { scale: 1.02 } : {}}
           style={{
             background: showSuccess
