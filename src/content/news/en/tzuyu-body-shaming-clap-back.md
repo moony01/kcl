@@ -11,6 +11,8 @@ active: true
 
 On February 19, the internet erupted. A screenshot from TWICE member Tzuyu's Bubble chat had gone viral — and it wasn't because of a selfie or a behind-the-scenes clip. It was two lines, delivered with surgical precision, aimed squarely at a subscriber who had paid real money to body-shame her. "Thanks. Save your money and spend it wisely." With that, Tzuyu turned a paid insult into one of K-pop's most celebrated mic-drop moments of 2026.
 
+_Hero image source: TWICE official X (@JYPETWICE), [THIS IS FOR WORLD TOUR IN WASHINGTON, D.C. - Day 1](https://x.com/JYPETWICE/status/2022524297303199965)_
+
 ## The $3.50 Hate Message
 
 It started on February 16, on Bubble — a paid fan communication platform where subscribers pay roughly $3.50 per month for the privilege of messaging their favorite artists directly. One subscriber used that privilege to send Tzuyu this:
@@ -35,7 +37,7 @@ The real catalyst traces back a few days earlier. On February 13–14, TWICE per
 The moment that drew the most attention was Tzuyu's solo performance of **'DIVE IN'** — a high-energy stage featuring a short bodysuit paired with fur boots and powerfully choreographed routines. Fan-recorded clips of the performance spread rapidly online, drawing overwhelming praise from global fans. But predictably, a vocal minority zeroed in on her body instead of her performance. The backlash migrated from social media comment sections to Bubble, where the now-infamous message was sent.
 
 ![Body shaming controversy sparked by Tzuyu's solo stage and global fandom response](/images/news/tzuyu-body-shaming-clap-back-1.png)
-_After TWICE's Washington D.C. show at Capital One Arena, Tzuyu's response set the entire global fandom ablaze_
+_Image source: TWICE official X (@JYPETWICE), [original post](https://x.com/JYPETWICE/status/2022524297303199965)_
 
 ### Global Fans Strike Back
 
