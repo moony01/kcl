@@ -3,7 +3,7 @@ title: "'고마워. 돈 아껴서 써라' - 쯔위의 한마디에 팬들 환호
 excerpt: "TWICE 쯔위가 버블 악플러에게 날린 한마디 '돈 아껴서 써라'. 쯔위 바디쉐이밍 반박에 글로벌 팬덤이 환호했다. 워싱턴 D.C. 공연 직후 터진 사건의 전말."
 date: '2026-02-24'
 category: 'Artist'
-thumbnail: '/images/news/tzuyu-body-shaming-clap-back-thumbnail.png'
+thumbnail: '/images/news/tzuyu-body-shaming-clap-back-thumbnail-official.png'
 active: true
 ---
 
@@ -34,7 +34,7 @@ _대표 이미지 출처: TWICE 공식 X(@JYPETWICE), [THIS IS FOR WORLD TOUR IN
 
 특히 관심을 모은 건 쯔위의 솔로 무대 **'DIVE IN'**이었다. 숏 바디수트에 퍼 부츠를 매치한 의상으로 파워풀한 안무를 선보인 쯔위의 직캠이 공연 직후 온라인에서 빠르게 확산됐다. 글로벌 팬들은 열광적으로 반응했지만, 일부에서는 외모를 지적하는 댓글이 달리기 시작했다. 그리고 이 논란이 버블까지 번진 것이다.
 
-![쯔위의 솔로 무대 이후 촉발된 바디쉐이밍 논란과 팬덤의 반응](/images/news/tzuyu-body-shaming-clap-back-1.png)
+![쯔위의 솔로 무대 이후 촉발된 바디쉐이밍 논란과 팬덤의 반응](/images/news/tzuyu-body-shaming-clap-back-1-official.png)
 _이미지 출처: TWICE 공식 X(@JYPETWICE), [원문 게시물](https://x.com/JYPETWICE/status/2022524297303199965)_
 
 ### 글로벌 팬덤의 반격
