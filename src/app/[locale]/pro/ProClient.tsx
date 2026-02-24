@@ -213,8 +213,13 @@ export default function ProClient() {
               KCL Pro
             </h3>
             <div className={styles.planPrice}>
-              <span className={styles.priceAmount}>$1.99</span>
+              <span className={styles.priceAmount}>$5</span>
               <span className={styles.pricePeriod}>/{t('month')}</span>
+            </div>
+            <div className={styles.planPriceAnnual}>
+              <span className={styles.priceAmountAnnual}>$48</span>
+              <span className={styles.pricePeriodAnnual}>/yr</span>
+              <span className={styles.discountBadge}>Save 20%</span>
             </div>
           </div>
           <ul className={styles.planFeatures}>

@@ -15,7 +15,7 @@ export const FULL_URL = `${SITE_URL}${BASE_PATH}`;
 
 /** Buy Me a Coffee 멤버십 페이지 URL */
 export const BMC_MEMBERSHIP_URL =
-  process.env.NEXT_PUBLIC_BMC_MEMBERSHIP_URL || 'https://buymeacoffee.com/kclhq/membership';
+  process.env.NEXT_PUBLIC_BMC_MEMBERSHIP_URL || 'https://buymeacoffee.com/moony01/membership';
 
 /**
  * 지원 언어 목록 (12개)
