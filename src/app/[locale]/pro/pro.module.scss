@@ -136,6 +136,36 @@
   color: var(--color-text-secondary, #9ca3af);
   font-size: 0.85rem;
 }
+.planPriceAnnual {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+}
+
+.priceAmountAnnual {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-secondary, #9ca3af);
+}
+
+.pricePeriodAnnual {
+  color: var(--color-text-secondary, #9ca3af);
+  font-size: 0.8rem;
+}
+
+.discountBadge {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 
 /* ===== 기능 리스트 ===== */
 .planFeatures {
