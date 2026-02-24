@@ -54,6 +54,26 @@ Cloudflare Pages 대시보드에서 설정:
 | `NEXT_PUBLIC_SITE_URL`          | 사이트 기본 URL       | `https://www.kclhq.com`   | **필수** |
 | `NEXT_PUBLIC_SUPABASE_URL`      | Supabase 프로젝트 URL | `https://xxx.supabase.co` | -        |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase 공개 키      | `eyJhbGci...`             | -        |
+| `NEXT_PUBLIC_BMC_MEMBERSHIP_URL` | Buy Me a Coffee 멤버십 URL | `https://buymeacoffee.com/kclhq/membership` | -        |
+
+### Supabase Edge Function 환경 변수 (BMC 웹훅)
+
+Buy Me a Coffee 결제 웹훅은 Cloudflare Pages가 아니라 Supabase Edge Function에서 처리합니다.
+
+| 변수명                     | 설명                       |
+| -------------------------- | -------------------------- |
+| `SUPABASE_SERVICE_ROLE_KEY` | 사용자 Pro 권한 갱신용 서버 키 |
+| `BMC_WEBHOOK_SECRET`         | Buy Me a Coffee 웹훅 서명 검증 키 |
+
+웹훅 엔드포인트:
+
+`https://<SUPABASE_PROJECT_REF>.supabase.co/functions/v1/bmc-webhook`
+
+운영 정책:
+
+- 결제 성공/갱신 이벤트: `is_pro=true`
+- 결제 실패 이벤트: `is_pro=true` 유지 + `10일 유예`
+- 해지/종료 이벤트: `is_pro=false`
 
 > ⚠️ **중요**: `NEXT_PUBLIC_SITE_URL`이 설정되지 않으면 sitemap.xml과 robots.txt에 `localhost:3000`이 들어가 Google Search Console 등록이 불가능합니다!
 

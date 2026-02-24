@@ -2,7 +2,7 @@
  * 결제 성공 클라이언트 컴포넌트
  *
  * 결제 완료 축하 메시지 및 홈으로 이동 안내
- * Webhook 처리까지 약간의 딜레이가 있을 수 있어서
+ * 멤버십 동기화(Webhook)까지 약간의 딜레이가 있을 수 있어서
  * 구독 상태를 폴링하여 활성화 확인
  */
 
@@ -89,6 +89,7 @@ export default function SuccessClient() {
       )}
 
       <button
+        type="button"
         onClick={() => router.push(`/${locale}`)}
         style={{
           padding: '0.875rem 2rem',

@@ -5,35 +5,22 @@
  *
  * 기능:
  * - 플랜 비교 (Free vs Pro)
- * - Lemon Squeezy Checkout Overlay 연동
+ * - Buy Me a Coffee 멤버십 페이지 연동
  * - 이미 구독 중인 사용자에게 관리 페이지 표시
  * - 비로그인 사용자에게 로그인 유도
  */
 
 'use client';
 
-import { useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useCallback, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useAuth } from '@/hooks/useAuth';
 import { useSubscription } from '@/hooks/useSubscription';
 import { Zap, Check, Crown, Shield, ArrowRight, Loader2 } from 'lucide-react';
+import { BMC_MEMBERSHIP_URL } from '@/lib/constants';
 import styles from './pro.module.scss';
 import { FEATURES } from '@/config/features';
-
-/** Lemon Squeezy 글로벌 타입 (lemon.js) */
-declare global {
-  interface Window {
-    createLemonSqueezy?: () => void;
-    LemonSqueezy?: {
-      Url: {
-        Open: (url: string) => void;
-        Close: () => void;
-      };
-      Setup: (config: { eventHandler: (event: { event: string }) => void }) => void;
-    };
-  }
-}
 
 /**
  * Pro 페이지 클라이언트 컴포넌트
@@ -41,16 +28,18 @@ declare global {
 export default function ProClient() {
   const t = useTranslations('Pro');
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = pathname?.split('/')[1] || 'en';
 
-  // Pro 구독 기능이 비활성화되면 홈으로 리다이렉트
-  if (!FEATURES.PRO_SUBSCRIPTION) {
-    router.replace('/');
-    return null;
-  }
+  useEffect(() => {
+    if (!FEATURES.PRO_SUBSCRIPTION) {
+      router.replace(`/${locale}`);
+    }
+  }, [router, locale]);
+
   const { isAuthenticated, isLoading: authLoading } = useAuth();
   const {
     isPro,
-    subscription,
     createCheckoutUrl,
     customerPortalUrl,
     updatePaymentMethodUrl,
@@ -65,32 +54,31 @@ export default function ProClient() {
 
   /**
    * 구독하기 버튼 핸들러
-   * Lemon Squeezy Checkout Overlay를 오픈
+   * Buy Me a Coffee 멤버십 페이지를 오픈
    */
   const handleSubscribe = useCallback(async () => {
     setCheckoutError(null);
 
     if (!isAuthenticated) {
-      router.push('/login');
+      router.push(`/${locale}/login`);
       return;
     }
 
     const url = await createCheckoutUrl();
     if (!url) {
-      setCheckoutError(error || 'Failed to create checkout');
+      setCheckoutError(error || 'Failed to open membership page');
       return;
     }
 
-    // Lemon.js Overlay 오픈 시도
-    if (window.LemonSqueezy?.Url?.Open) {
-      window.LemonSqueezy.Url.Open(url);
-    } else {
-      // fallback: 새 탭에서 열기
-      window.open(url, '_blank');
-    }
-  }, [isAuthenticated, createCheckoutUrl, error, router]);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }, [isAuthenticated, createCheckoutUrl, error, router, locale]);
 
   const isLoading = authLoading || subLoading;
+  const hasPortalLinks = !!updatePaymentMethodUrl || !!customerPortalUrl;
+
+  if (!FEATURES.PRO_SUBSCRIPTION) {
+    return null;
+  }
 
   // 로딩 상태
   if (isLoading) {
@@ -104,7 +92,7 @@ export default function ProClient() {
   }
 
   // 이미 Pro 구독 중
-  if (isPro && subscription) {
+  if (isPro) {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
@@ -156,6 +144,16 @@ export default function ProClient() {
             {customerPortalUrl && (
               <a
                 href={customerPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.secondaryButton}
+              >
+                {t('manage_subscription')}
+              </a>
+            )}
+            {!hasPortalLinks && (
+              <a
+                href={BMC_MEMBERSHIP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.secondaryButton}
@@ -236,6 +234,7 @@ export default function ProClient() {
 
           {/* 구독 버튼 */}
           <button
+            type="button"
             className={styles.subscribeButton}
             onClick={handleSubscribe}
             disabled={isCheckoutLoading}

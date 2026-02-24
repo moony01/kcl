@@ -13,6 +13,10 @@ export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const FULL_URL = `${SITE_URL}${BASE_PATH}`;
 
+/** Buy Me a Coffee 멤버십 페이지 URL */
+export const BMC_MEMBERSHIP_URL =
+  process.env.NEXT_PUBLIC_BMC_MEMBERSHIP_URL || 'https://buymeacoffee.com/kclhq/membership';
+
 /**
  * 지원 언어 목록 (12개)
  * sitemap, i18n 등에서 공통 사용

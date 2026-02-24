@@ -650,7 +650,9 @@ export default function MyProfile() {
                     {locale === 'ko' ? 'Pro로 업그레이드' : 'Upgrade to Pro'}
                   </span>
                   <span className={styles.proUpgradeDesc}>
-                    {locale === 'ko' ? '일 300표 · $1.99/월' : '300 votes/day · $1.99/mo'}
+                    {locale === 'ko'
+                      ? '일 300표 · Buy Me a Coffee 멤버십'
+                      : '300 votes/day · Buy Me a Coffee membership'}
                   </span>
                 </div>
               </div>
