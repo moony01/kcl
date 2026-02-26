@@ -578,12 +578,17 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: var(--color-text-primary, #fff);
+  color: #374151;
   background: transparent;
   transition: background 0.2s;
 
   &:hover {
     background: rgba(139, 92, 246, 0.1);
+  }
+
+  [data-theme='dark'] & {
+    color: #f3f4f6;
+    border-color: rgba(139, 92, 246, 0.3);
   }
 }
 
