@@ -363,8 +363,8 @@ Deno.serve(async (req: Request) => {
   }
 
   // Stale event guard: ignore events older than the current profile state
-  // Exception: cancelled events always apply (safety net)
-  if (action !== 'cancelled') {
+  // Exception: cancelled/grace events always apply (safety net) — 취소/결제실패는 항상 적용
+  if (action !== 'cancelled' && action !== 'grace') {
     const eventCreatedRaw = firstString(payload, ['created', 'data.created_at']);
     const eventCreatedMs = eventCreatedRaw ? Number(eventCreatedRaw) * 1000 : null;
 
