@@ -614,7 +614,7 @@ export default function MyProfile() {
         )}
       </motion.section>
 
-      {/* T2.02: KCL Pro 구독 섹션 */}
+      {/* T2.02: Fan Power Pass 구독 섹션 */}
       {FEATURES.PRO_SUBSCRIPTION && (
         <motion.section
           className={styles.proSection}
@@ -624,7 +624,7 @@ export default function MyProfile() {
         >
           <h3 className={styles.sectionTitle}>
             <Crown size={18} />
-            KCL Pro
+            Fan Power Pass
           </h3>
           {profile?.is_pro ? (
             <div className={styles.proActiveCard}>

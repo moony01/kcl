@@ -16,17 +16,31 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Home, BarChart3, Trophy, Newspaper, Bell, LogIn, LogOut } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, Bell, LogIn, LogOut, Mail, Check } from 'lucide-react';
 import classNames from 'classnames';
+import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
 import styles from './Sidebar.module.scss';
+
+const CONTACT_EMAIL = 'mun01183@gmail.com';
 
 export default function Sidebar() {
   const t = useTranslations('Nav');
   const pathname = usePathname();
   const locale = pathname?.split('/')[1] || 'ko';
   const { profile, isAuthenticated, signOut } = useAuth();
+  const [copied, setCopied] = useState(false);
+
+  const handleContactClick = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      window.location.href = `mailto:${CONTACT_EMAIL}`;
+    }
+  }, []);
 
   const isActive = (path: string) => {
     if (path === '/') {
@@ -92,6 +106,26 @@ export default function Sidebar() {
         <div className={styles.authSection}>
           {isAuthenticated ? (
             <>
+              {/* 문의하기 (로그인 회원에게만 표시) */}
+              <button
+                onClick={handleContactClick}
+                className={classNames(styles.navItem, styles.contactBtn, {
+                  [styles.contactCopied]: copied,
+                })}
+                title={copied ? CONTACT_EMAIL : t('contact')}
+              >
+                <div className={styles.iconWrapper}>
+                  {copied ? (
+                    <Check className={styles.icon} />
+                  ) : (
+                    <Mail className={styles.icon} />
+                  )}
+                </div>
+                <span className={styles.label}>
+                  {copied ? t('contact_copied') : t('contact')}
+                </span>
+              </button>
+
               {/* 프로필 정보 */}
               <Link
                 href={`/${locale}/my`}

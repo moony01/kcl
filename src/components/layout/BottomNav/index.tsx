@@ -13,9 +13,10 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, BarChart3, Trophy, Newspaper, Bell, User } from 'lucide-react';
+import { Home, BarChart3, Trophy, Newspaper, Bell, User, Mail, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
+import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
 import styles from './BottomNav.module.scss';
@@ -26,6 +27,18 @@ export default function BottomNav() {
   // 현재 locale 추출 (예: /en/ranking -> 'en')
   const currentLocale = pathname.split('/')[1] || 'en';
   const { isAuthenticated } = useAuth();
+  const [copied, setCopied] = useState(false);
+
+  const handleContactClick = useCallback(async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText('mun01183@gmail.com');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      window.location.href = 'mailto:mun01183@gmail.com';
+    }
+  }, []);
 
   // Feature Flags 기반 네비게이션 메뉴 (Sidebar와 동기화)
   const NAV_ITEMS = [
@@ -52,6 +65,18 @@ export default function BottomNav() {
     // AUTH_SYSTEM 활성화 시 프로필/로그인 아이콘 추가
     ...(FEATURES.AUTH_SYSTEM
       ? [
+          // 로그인 회원에게만 문의하기 표시
+          ...(isAuthenticated
+            ? [
+                {
+                  label: copied ? t('contact_copied') : t('contact'),
+                  href: '#contact',
+                  icon: copied ? Check : Mail,
+                  enabled: true,
+                  isContact: true,
+                },
+              ]
+            : []),
           {
             label: isAuthenticated ? t('my') : t('login'),
             href: isAuthenticated ? '/my' : '/login',
@@ -66,15 +91,33 @@ export default function BottomNav() {
     <nav className={styles.navContainer}>
       <div className={styles.navGlass}>
         {NAV_ITEMS.map((item) => {
-          // 경로 생성: /en + /ranking
-          const linkHref = `/${currentLocale}${item.href === '/' ? '' : item.href}`;
-          // Home('/')일 경우 정확히 일치, 그 외에는 포함 여부 (간단한 isActive 로직)
-          const isActive =
-            item.href === '/'
+          const isContact = 'isContact' in item && item.isContact;
+          const isExternal = 'isExternal' in item && (item as {isExternal?: boolean}).isExternal;
+          const linkHref = isContact || isExternal
+            ? item.href
+            : `/${currentLocale}${item.href === '/' ? '' : item.href}`;
+          const isActive = isContact || isExternal
+            ? false
+            : item.href === '/'
               ? pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`
               : pathname.startsWith(linkHref);
 
           const Icon = item.icon;
+
+          if (isContact) {
+            return (
+              <button
+                key={item.href}
+                onClick={handleContactClick}
+                className={classNames(styles.navItem, { [styles.active]: copied })}
+              >
+                <div className={styles.iconWrapper}>
+                  <Icon size={24} strokeWidth={2} />
+                </div>
+                <span className={styles.label}>{item.label}</span>
+              </button>
+            );
+          }
 
           return (
             <Link
