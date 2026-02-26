@@ -15,7 +15,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useAuth } from '@/hooks/useAuth';
 import { useSubscription } from '@/hooks/useSubscription';
-import { Zap, Check, Crown, Shield, ArrowRight, Loader2 } from 'lucide-react';
+import { Zap, Check, Crown, Shield, ArrowRight, Loader2, CheckCircle2, Sparkles } from 'lucide-react';
 import { BMC_MEMBERSHIP_URL } from '@/lib/constants';
 import styles from './pro.module.scss';
 import { FEATURES } from '@/config/features';
@@ -227,75 +227,141 @@ export default function ProClient() {
   // 이미 Pro 구독 중
   if (isPro) {
     return (
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <Crown className={styles.crownIcon} size={40} />
-          <h1 className={styles.title}>{t('active_title')}</h1>
-          <p className={styles.subtitle}>{t('active_subtitle')}</p>
-        </div>
-
-        <div className={styles.activeCard}>
-          <div className={styles.activeStatus}>
-            <span className={styles.statusBadge}>{t('status_active')}</span>
-            <span className={styles.planName}>Fan Power Pass</span>
+      <div className={styles.successPage}>
+        <section className={styles.successHero}>
+          <div className={styles.successIconWrap}>
+            <Crown size={34} className={styles.successCrownIcon} />
+            <CheckCircle2 size={24} className={styles.successCheckIcon} />
           </div>
 
-          <div className={styles.activeDetails}>
-            {renewsAt && (
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>{t('next_billing')}</span>
-                <span className={styles.detailValue}>
-                  {new Date(renewsAt).toLocaleDateString()}
-                </span>
+          <p className={styles.successKicker}>
+            <Sparkles size={14} />
+            {t('success_kicker')}
+          </p>
+          <h1 className={styles.successTitle}>{t('active_title')}</h1>
+          <p className={styles.successDescription}>{t('active_subtitle')}</p>
+        </section>
+
+        <section className={styles.successActiveCard}>
+          <div className={styles.successCardTop}>
+            <div>
+              <p className={styles.successCardBadge}>{t('success_active_badge')}</p>
+              <h2 className={styles.successCardTitle}>{t('success_card_title')}</h2>
+              <p className={styles.successCardDesc}>{t('success_card_desc')}</p>
+            </div>
+            <div className={styles.successCardStatus}>{t('status_active')}</div>
+          </div>
+
+          <div className={styles.successMetrics}>
+            <article className={styles.successMetricItem}>
+              <p>{t('monthly_votes')}</p>
+              <strong>
+                300 <span>{t('votes_per_month')}</span>
+              </strong>
+            </article>
+            <article className={styles.successMetricItem}>
+              <p>{t('benefit_power_vote_title')}</p>
+              <strong>x50</strong>
+            </article>
+            <article className={styles.successMetricItem}>
+              <p>{t('benefit_ranking_title')}</p>
+              <strong>{t('benefit_ranking_value')}</strong>
+            </article>
+          </div>
+
+          {(hasPortalLinks || true) && (
+            <div className={styles.activeActions}>
+              {updatePaymentMethodUrl && (
+                <a
+                  href={updatePaymentMethodUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.secondaryButton}
+                >
+                  {t('update_payment')}
+                </a>
+              )}
+              {customerPortalUrl && (
+                <a
+                  href={customerPortalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.secondaryButton}
+                >
+                  {t('manage_subscription')}
+                </a>
+              )}
+              {!hasPortalLinks && (
+                <a
+                  href={BMC_MEMBERSHIP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.secondaryButton}
+                >
+                  {t('manage_subscription')}
+                </a>
+              )}
+            </div>
+          )}
+        </section>
+
+        <section className={styles.successBenefitsSection}>
+          <div className={styles.successSectionHeader}>
+            <h3>{t('benefits_title')}</h3>
+            <p>{t('benefits_desc')}</p>
+          </div>
+
+          <div className={styles.successBenefitsGrid}>
+            <article className={styles.successBenefitCard}>
+              <h4>{t('pro_votes')}</h4>
+              <p>{t('benefit_daily_votes_desc')}</p>
+            </article>
+            <article className={styles.successBenefitCard}>
+              <h4>{t('pro_power_vote')}</h4>
+              <p>{t('benefit_power_vote_desc')}</p>
+            </article>
+            <article className={styles.successBenefitCard}>
+              <h4>{t('pro_ranking')}</h4>
+              <p>{t('benefit_ranking_desc')}</p>
+            </article>
+          </div>
+        </section>
+
+        <section className={styles.successNextSection}>
+          <div className={styles.successSectionHeader}>
+            <h3>{t('whats_next_title')}</h3>
+            <p>{t('whats_next_desc')}</p>
+          </div>
+
+          <div className={styles.successNextSteps}>
+            <div className={styles.successStepItem}>
+              <span>01</span>
+              <div>
+                <strong>{t('next_step_vote_title')}</strong>
+                <p>{t('next_step_vote_desc')}</p>
               </div>
-            )}
-            {endsAt && (
-              <div className={styles.detailRow}>
-                <span className={styles.detailLabel}>{t('ends_at')}</span>
-                <span className={styles.detailValue}>
-                  {new Date(endsAt).toLocaleDateString()}
-                </span>
+            </div>
+            <div className={styles.successStepItem}>
+              <span>02</span>
+              <div>
+                <strong>{t('next_step_power_title')}</strong>
+                <p>{t('next_step_power_desc')}</p>
               </div>
-            )}
-            <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>{t('monthly_votes')}</span>
-              <span className={styles.detailValue}>300 {t('votes_per_month')}</span>
+            </div>
+            <div className={styles.successStepItem}>
+              <span>03</span>
+              <div>
+                <strong>{t('next_step_rank_title')}</strong>
+                <p>{t('next_step_rank_desc')}</p>
+              </div>
             </div>
           </div>
 
-          <div className={styles.activeActions}>
-            {updatePaymentMethodUrl && (
-              <a
-                href={updatePaymentMethodUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.secondaryButton}
-              >
-                {t('update_payment')}
-              </a>
-            )}
-            {customerPortalUrl && (
-              <a
-                href={customerPortalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.secondaryButton}
-              >
-                {t('manage_subscription')}
-              </a>
-            )}
-            {!hasPortalLinks && (
-              <a
-                href={BMC_MEMBERSHIP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.secondaryButton}
-              >
-                {t('manage_subscription')}
-              </a>
-            )}
-          </div>
-        </div>
+          <button type="button" onClick={() => router.push(`/${locale}`)} className={styles.successCta}>
+            {t('go_vote')}
+            <ArrowRight size={18} />
+          </button>
+        </section>
       </div>
     );
   }
