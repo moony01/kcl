@@ -639,3 +639,415 @@
   animation: spin 1.2s linear infinite;
   color: #f59e0b;
 }
+
+/* ===== 성공 페이지 ===== */
+.successPage {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+  overflow: hidden;
+}
+
+.successHero,
+.successActiveCard,
+.successBenefitsSection,
+.successNextSection {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid var(--color-border, #2d2a3e);
+  background: var(--color-surface, #1e1b2e);
+}
+
+.successHero {
+  padding: 2.2rem 1.25rem 1.6rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 18% 15%, rgba(245, 158, 11, 0.22), transparent 42%),
+      radial-gradient(circle at 80% 0%, rgba(139, 92, 246, 0.32), transparent 48%);
+    z-index: -1;
+  }
+}
+
+.successIconWrap {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  margin: 0 auto 0.9rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.92), rgba(124, 58, 237, 0.92));
+  box-shadow:
+    0 12px 28px rgba(124, 58, 237, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  animation: successPopIn 550ms ease-out;
+}
+
+.successCrownIcon {
+  color: #f8fafc;
+}
+
+.successCheckIcon {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  color: #22c55e;
+  background: #f8fafc;
+  border-radius: 50%;
+}
+
+.successKicker {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7c3aed;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+}
+
+.successTitle {
+  margin: 0.85rem 0 0;
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary, #f8fafc);
+}
+
+.successDescription {
+  margin: 0.8rem auto 0;
+  max-width: 56ch;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #9ca3af);
+}
+
+.successActivation {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #f59e0b;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.successActiveCard {
+  padding: 1.15rem;
+  margin-bottom: 1rem;
+  background:
+    linear-gradient(125deg, rgba(139, 92, 246, 0.22), rgba(245, 158, 11, 0.16) 55%, transparent),
+    var(--color-surface, #1e1b2e);
+}
+
+.successCardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.successCardBadge {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f59e0b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.successCardTitle {
+  margin: 0.25rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary, #f8fafc);
+}
+
+.successCardDesc {
+  margin: 0.4rem 0 0;
+  color: var(--color-text-secondary, #9ca3af);
+  font-size: 0.86rem;
+}
+
+.successCardStatus {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.successMetrics {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.successMetricItem {
+  border-radius: 14px;
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  background: rgba(17, 24, 39, 0.28);
+  padding: 0.8rem;
+
+  p {
+    margin: 0;
+    color: var(--color-text-secondary, #9ca3af);
+    font-size: 0.76rem;
+  }
+
+  strong {
+    margin-top: 0.32rem;
+    display: inline-flex;
+    gap: 0.2rem;
+    align-items: baseline;
+    font-size: 1.03rem;
+    color: var(--color-text-primary, #f8fafc);
+
+    span {
+      font-size: 0.72rem;
+      color: var(--color-text-secondary, #9ca3af);
+      font-weight: 600;
+    }
+  }
+}
+
+.successBenefitsSection,
+.successNextSection {
+  padding: 1.15rem;
+}
+
+.successBenefitsSection {
+  margin-bottom: 1rem;
+}
+
+.successSectionHeader {
+  h3 {
+    margin: 0;
+    color: var(--color-text-primary, #f8fafc);
+    font-size: 1.06rem;
+  }
+
+  p {
+    margin: 0.35rem 0 0;
+    color: var(--color-text-secondary, #9ca3af);
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+}
+
+.successBenefitsGrid {
+  margin-top: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.successBenefitCard {
+  border-radius: 14px;
+  padding: 0.9rem;
+  background: linear-gradient(145deg, rgba(139, 92, 246, 0.17), rgba(15, 23, 42, 0.22));
+  border: 1px solid rgba(139, 92, 246, 0.22);
+
+  h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-primary, #f8fafc);
+  }
+
+  p {
+    margin: 0.45rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary, #9ca3af);
+  }
+}
+
+.successNextSteps {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.successStepItem {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  border-radius: 12px;
+  padding: 0.68rem 0.72rem;
+  border: 1px solid var(--color-border, #2d2a3e);
+  background: rgba(17, 24, 39, 0.22);
+
+  span {
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    display: grid;
+    place-items: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+
+  strong {
+    color: var(--color-text-primary, #f8fafc);
+    font-size: 0.9rem;
+  }
+
+  p {
+    margin: 0.3rem 0 0;
+    color: var(--color-text-secondary, #9ca3af);
+    font-size: 0.79rem;
+    line-height: 1.45;
+  }
+}
+
+.successCta {
+  width: 100%;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 13px;
+  padding: 0.88rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: linear-gradient(130deg, #8b5cf6, #7c3aed 55%, #f59e0b 145%);
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+  }
+}
+
+.successConfetti {
+  position: absolute;
+  inset: -14px 0 auto;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.confettiPiece {
+  position: absolute;
+  top: 0;
+  width: 7px;
+  height: 14px;
+  border-radius: 4px;
+  animation: confettiDrop 2100ms ease-in-out forwards;
+  opacity: 0;
+
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      left: calc(#{$i} * 7%);
+      animation-delay: #{$i * 45ms};
+      transform: rotate(#{$i * 17deg});
+    }
+  }
+
+  &:nth-child(2n) {
+    background: #f59e0b;
+  }
+
+  &:nth-child(2n + 1) {
+    background: #8b5cf6;
+  }
+}
+
+@keyframes successPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.75) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes confettiDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(170px) rotate(220deg);
+  }
+}
+
+[data-theme='light'] {
+  .successHero,
+  .successActiveCard,
+  .successBenefitsSection,
+  .successNextSection {
+    background: #ffffff;
+  }
+
+  .successHero {
+    &::before {
+      background:
+        radial-gradient(circle at 18% 15%, rgba(245, 158, 11, 0.2), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(139, 92, 246, 0.2), transparent 50%);
+    }
+  }
+
+  .successTitle,
+  .successCardTitle,
+  .successSectionHeader h3,
+  .successBenefitCard h4,
+  .successStepItem strong {
+    color: #111827;
+  }
+
+  .successMetricItem,
+  .successBenefitCard,
+  .successStepItem {
+    background: #f8f6ff;
+    border-color: #ddd6fe;
+  }
+
+  .successMetricItem strong {
+    color: #111827;
+  }
+}
+
+[data-theme='dark'] {
+  .successHero,
+  .successActiveCard,
+  .successBenefitsSection,
+  .successNextSection {
+    box-shadow: 0 12px 32px rgba(2, 6, 23, 0.35);
+  }
+}
