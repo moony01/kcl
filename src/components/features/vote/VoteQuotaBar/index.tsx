@@ -15,11 +15,8 @@
 
 import { memo } from 'react';
 import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
-import { Ticket, Clock, Moon, Crown } from 'lucide-react';
+import { Ticket, Clock, Moon } from 'lucide-react';
 import classNames from 'classnames';
-import Link from 'next/link';
-import { FEATURES } from '@/config/features';
 import styles from './VoteQuotaBar.module.scss';
 
 export interface VoteQuotaBarProps {
@@ -69,9 +66,6 @@ function VoteQuotaBar({
   className,
 }: VoteQuotaBarProps) {
   const t = useTranslations('Vote');
-  const tPro = useTranslations('Pro');
-  const pathname = usePathname();
-  const locale = pathname?.split('/')[1] || 'en';
 
   const remaining = max - used;
   const progress = (used / max) * 100;
@@ -141,14 +135,6 @@ function VoteQuotaBar({
         )}
       </div>
 
-      {/* Pro 업셀링: 로그인 Free 사용자에게만 표시 */}
-      {FEATURES.PRO_SUBSCRIPTION && isLoggedIn && !isPro && (
-        <Link href={`/${locale}/pro`} className={styles.proUpsell}>
-          <Crown size={14} className={styles.proUpsellIcon} />
-          <span>{tPro('upgrade_cta')}</span>
-          <span className={styles.proUpsellDesc}>{tPro('upgrade_desc')}</span>
-        </Link>
-      )}
     </div>
   );
 }

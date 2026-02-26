@@ -319,3 +319,40 @@ $sidebar-wide: 244px;
     }
   }
 }
+
+// 문의하기 버튼
+.contactBtn {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: left;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.08);
+    color: $color-primary;
+
+    .icon {
+      color: $color-primary;
+    }
+  }
+}
+
+// 복사 완료 상태
+.contactCopied {
+  color: #16a34a;
+
+  .icon {
+    color: #16a34a;
+  }
+
+  &:hover {
+    background-color: rgba(#16a34a, 0.08);
+    color: #16a34a;
+
+    .icon {
+      color: #16a34a;
+    }
+  }
+}

@@ -19,8 +19,10 @@
 'use client';
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Flame, Check, Timer } from 'lucide-react';
+import { Zap, Flame, Check, Timer, Crown, Sparkles, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
@@ -65,6 +67,7 @@ export default function VoteController({
   variant = 'full',
 }: VoteControllerProps) {
   const t = useTranslations('Vote');
+  const tPro = useTranslations('Pro');
   const { user, profile } = useAuth();
   const { submitVote, isLoading } = useVote();
   // T1.85: 로그인 사용자는 일일 60표, 비로그인은 일일 30표
@@ -73,12 +76,16 @@ export default function VoteController({
   // 선택된 아티스트 상태 (초기값은 props에서 전달받거나 첫번째 아티스트)
   const [chosenArtist, setChosenArtist] = useState<string | null>(selectedArtist || null);
   const [showSuccess, setShowSuccess] = useState(false);
+  /** Pro 업그레이드 소진 팝업 표시 여부 */
+  const [showExhaustedProPopup, setShowExhaustedProPopup] = useState(false);
   /** 마지막 투표 점수 (성공 애니메이션에 표시) */
   const [lastScore, setLastScore] = useState(1);
 
   // 파워투표 최대 레벨: 비회원 1표(불가), 회원 30표, Pro 50표
   const isPro = !!profile?.is_pro;
   const isLoggedIn = !!user;
+  /** 로그인 회원이지만 Pro가 아닌 경우 — 힌트/팝업 표시 대상 */
+  const isLoggedInNonPro = isLoggedIn && !isPro;
   const maxPowerLevel = !isLoggedIn
     ? POWER_VOTE.MAX_LEVEL_GUEST
     : isPro
@@ -155,17 +162,23 @@ export default function VoteController({
       });
 
       if (result?.success) {
-        consumeVote(result.voteScore || normalizedVotePower);
-        setLastScore(result.voteScore || normalizedVotePower);
+        const consumed = result.voteScore || normalizedVotePower;
+        consumeVote(consumed);
+        setLastScore(consumed);
         setShowSuccess(true);
         onVoteSuccess?.(company.id);
+
+        // 투표 후 남은 투표권이 0이 되면 소진 팝업 표시 (Non-Pro만)
+        if (isLoggedInNonPro && quota.remaining - consumed <= 0) {
+          setShowExhaustedProPopup(true);
+        }
 
         setTimeout(() => {
           setShowSuccess(false);
         }, 1500);
       }
     },
-    [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, submitVote, consumeVote, onVoteSuccess, user?.id],
+    [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, submitVote, consumeVote, onVoteSuccess, user?.id, isLoggedInNonPro],
   );
 
   /**
@@ -262,6 +275,7 @@ export default function VoteController({
   useEffect(() => {
     return () => clearTimers();
   }, [clearTimers]);
+
 
   // 회사가 선택되지 않았을 때
   if (!company) {
@@ -394,26 +408,31 @@ export default function VoteController({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <Flame size={28} />
-                <span>{isLoading ? 'Sending...' : t('button.vote')}</span>
+                <div className={styles.voteMain}>
+                  <Flame size={28} />
+                  <span>{isLoading ? 'Sending...' : t('button.vote')}</span>
+                </div>
+                {canPowerVote && (
+                  <span className={styles.voteSubHint}>
+                    {t('button.hold_hint', { max: maxPowerLevel, defaultValue: `Hold for Power Vote (x${maxPowerLevel})` })}
+                  </span>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
         </motion.button>
 
-        {/* 롱프레스 힌트 텍스트 (파워투표 가능한 회원만 표시) */}
-        {canPowerVote && quota.canVote && !showSuccess && !isPressing && (
-          <motion.p
-            className={styles.powerHint}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4 }}
-          >
-            <Flame size={13} />
-            <span>{t('button.hold_hint', { max: maxPowerLevel, defaultValue: `Hold for Power Vote (x${maxPowerLevel})` })}</span>
-          </motion.p>
-        )}
       </div>
+
+      {/* Fan Power Pass 업셀링 버튼 (로그인 비Pro 회원에게만 표시) */}
+      {FEATURES.PRO_SUBSCRIPTION && isLoggedInNonPro && (
+        <Link href="../pro" className={styles.fanPowerPassBtn}>
+          <Crown size={15} className={styles.fanPowerPassBtnIcon} />
+          <span className={styles.fanPowerPassBtnCta}>{tPro('upgrade_cta')}</span>
+          <span className={styles.fanPowerPassBtnBadge}>{tPro('upgrade_desc')}</span>
+        </Link>
+      )}
+
 
       {/* 투표권 상태 바 */}
       {!isQuotaLoading && (
@@ -427,6 +446,49 @@ export default function VoteController({
           isLoggedIn={!!user}
           isPro={!!profile?.is_pro}
         />
+      )}
+
+
+      {/* ② 투표권 소진 Pro 업그레이드 모달 (로그인 비Pro 회원이 투표권 0이 됐을 때) */}
+      {typeof window !== 'undefined' && createPortal(
+        <AnimatePresence>
+          {isLoggedInNonPro && showExhaustedProPopup && (
+            <motion.div
+              className={styles.proExhaustedOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setShowExhaustedProPopup(false)}
+            >
+              <motion.div
+                className={styles.proExhaustedModal}
+                initial={{ opacity: 0, y: 32, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className={styles.proExhaustedClose}
+                  onClick={() => setShowExhaustedProPopup(false)}
+                  aria-label="close"
+                >
+                  <X size={16} />
+                </button>
+                <div className={styles.proExhaustedIcon}>
+                  <Sparkles size={26} />
+                </div>
+                <p className={styles.proExhaustedTitle}>{t('button.pro_exhausted_title')}</p>
+                <p className={styles.proExhaustedDesc}>{t('button.pro_exhausted_desc')}</p>
+                <Link href="../pro" className={styles.proExhaustedCta} onClick={() => setShowExhaustedProPopup(false)}>
+                  {t('button.pro_exhausted_cta')}
+                </Link>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
       )}
 
       {/* 선택된 아티스트 컨텍스트 */}

@@ -1,5 +1,5 @@
 /**
- * KCL Pro 구독 페이지 스타일
+ * Fan Power Pass 구독 페이지 스타일
  * T2.02: 게임 스타일 UI, 보라색/골드 테마
  */
 
@@ -58,6 +58,185 @@
   color: var(--color-text-secondary, #9ca3af);
   font-size: 0.95rem;
   margin: 0;
+}
+
+.bmcGuideSection {
+  margin: 1rem 0 1.25rem;
+}
+
+.bmcGuideFrame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--color-border, #2d2a3e);
+  background: #0f0f14;
+  /* PC: 가운데 정렬, 최대 너비 제한 */
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.bmcGuideImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bmcGuideOverlay {
+  position: absolute;
+  /* Email 필드(top=61.9%) 바로 위 오른쪽 */
+  right: 3%;
+  top: 42%;
+  width: min(40%, 160px);
+  background: rgba(239, 68, 68, 0.92);
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  font-weight: 600;
+  z-index: 3;
+
+  strong {
+    font-weight: 800;
+  }
+
+  /* 아래 화살표: Email 필드 방향 */
+  &::after {
+    content: '';
+    position: absolute;
+    left: 20%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 11px solid rgba(239, 68, 68, 0.92);
+  }
+
+  @media (max-width: 560px) {
+    right: 3%;
+    top: 40%;
+    width: min(42%, 150px);
+    font-size: 0.67rem;
+    padding: 0.42rem 0.55rem;
+  }
+}
+
+/* 이미지 자체에 빨간 테두리 포함 — CSS 보더 비활성화 */
+.bmcGuideEmailBorder {
+  display: none;
+}
+
+.bmcGuideHeadline {
+  margin: 0.7rem 0 0;
+  text-align: center;
+  font-size: clamp(1.05rem, 2.3vw, 1.35rem);
+  line-height: 1.35;
+  color: #374151;
+  font-weight: 800;
+
+  [data-theme='dark'] & {
+    color: #f3f4f6;
+  }
+
+  strong {
+    background: linear-gradient(135deg, #8b5cf6, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.bmcGuideNotes {
+  margin-top: 0.6rem;
+  text-align: left;
+  background: rgba(139, 92, 246, 0.07);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+
+  p {
+    margin: 0.15rem 0;
+  }
+
+  strong {
+    color: #b0b0bd;
+  }
+}
+
+.noticeCheckItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0.45rem 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(139, 92, 246, 0.15);
+  color: #374151;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.35);
+  }
+
+  input {
+    margin-top: 0.15rem;
+    width: 17px;
+    height: 17px;
+    accent-color: #8b5cf6;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  span {
+    line-height: 1.45;
+  }
+
+  strong {
+    color: #7c3aed;
+    font-weight: 700;
+  }
+
+  [data-theme='dark'] & {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(139, 92, 246, 0.25);
+    color: #d1d5db;
+
+    &:hover {
+      background: rgba(139, 92, 246, 0.12);
+      border-color: rgba(139, 92, 246, 0.45);
+    }
+
+    strong {
+      color: #a78bfa;
+    }
+  }
+}
+
+.noticeCheckItemError {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.06) !important;
+
+  [data-theme='dark'] & {
+    background: rgba(239, 68, 68, 0.1) !important;
+  }
+}
+
+.inlineError {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0 0.65rem;
+  line-height: 1.3;
+}
+
+.linkBoxError {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.04) !important;
 }
 
 /* ===== 플랜 비교 ===== */
@@ -235,6 +414,84 @@
   }
 }
 
+.linkBox {
+  margin: 0 0 0.85rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: rgba(139, 92, 246, 0.06);
+}
+
+.linkTitle {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #111827;
+
+  [data-theme='dark'] & {
+    color: #f3f4f6;
+  }
+}
+
+.linkDesc {
+  margin: 0.25rem 0 0.55rem;
+  font-size: 0.74rem;
+  color: #4b5563;
+  line-height: 1.35;
+
+  [data-theme='dark'] & {
+    color: #9ca3af;
+  }
+}
+
+.linkRow {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.linkInput {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  padding: 0 0.7rem;
+  font-size: 0.82rem;
+
+  [data-theme='dark'] & {
+    border: 1px solid var(--color-border, #2d2a3e);
+    background: var(--color-surface, #1e1b2e);
+    color: var(--color-text-primary, #fff);
+  }
+}
+
+.linkButton {
+  flex-shrink: 0;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: #fff;
+  padding: 0 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.linkStatus {
+  margin: 0.45rem 0 0;
+  font-size: 0.74rem;
+  color: #22c55e;
+  text-align: center;
+}
+
 .errorText {
   color: #ef4444;
   font-size: 0.8rem;
@@ -328,4 +585,57 @@
   &:hover {
     background: rgba(139, 92, 246, 0.1);
   }
+}
+
+/* ===== 결제 처리 중 상태 ===== */
+.proPlanPending {
+  border-color: #f59e0b !important;
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, transparent 60%) !important;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    border: 1.5px solid #f59e0b;
+    animation: pendingPulse 2s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  [data-theme='light'] & {
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.06) 0%, #fff 60%) !important;
+  }
+}
+
+@keyframes pendingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.pendingBanner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #b45309;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.35;
+
+  [data-theme='dark'] & {
+    color: #fcd34d;
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+}
+
+.pendingSpinner {
+  flex-shrink: 0;
+  animation: spin 1.2s linear infinite;
+  color: #f59e0b;
 }

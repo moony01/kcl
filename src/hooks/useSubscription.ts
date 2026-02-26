@@ -50,7 +50,7 @@ export interface UseSubscriptionReturn {
   /** Checkout URL 생성 (결제 시작) */
   createCheckoutUrl: (params?: CreateCheckoutParams) => Promise<string | null>;
   /** 구독 정보 새로고침 */
-  refetch: () => Promise<void>;
+  refetch: (silent?: boolean) => Promise<void>;
   /** 로딩 상태 */
   isLoading: boolean;
   /** Checkout 생성 로딩 */
@@ -73,23 +73,23 @@ export function useSubscription(): UseSubscriptionReturn {
   /**
    * 활성 구독 조회
    */
-  const fetchSubscription = useCallback(async () => {
+  const fetchSubscription = useCallback(async (silent = false) => {
     if (!isAuthenticated) {
       setSubscription(null);
-      setIsLoading(false);
+      if (!silent) setIsLoading(false);
       return;
     }
 
     try {
-      setIsLoading(true);
+      if (!silent) setIsLoading(true);
       const sub = await getActiveSubscription();
       setSubscription(sub);
       setError(null);
     } catch (err) {
       console.error('[useSubscription] Fetch error:', err);
-      setError('Failed to load subscription');
+      if (!silent) setError('Failed to load subscription');
     } finally {
-      setIsLoading(false);
+      if (!silent) setIsLoading(false);
     }
   }, [isAuthenticated]);
 

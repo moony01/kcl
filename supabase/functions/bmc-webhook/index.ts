@@ -100,9 +100,13 @@ function classifyMembershipAction(eventName: string, payload: JsonObject): Membe
     return 'ignored';
   }
 
+  const cancelAtPeriodEnd =
+    (firstString(payload, ['cancel_at_period_end', 'data.cancel_at_period_end']) || '').toLowerCase() === 'true';
+
   const isCancelled =
     /(cancel|canceled|cancelled|expired|ended|deleted)/.test(normalizedEvent) ||
-    ['cancelled', 'canceled', 'expired', 'unpaid'].includes(statusHint);
+    ['cancelled', 'canceled', 'expired', 'unpaid'].includes(statusHint) ||
+    cancelAtPeriodEnd;
   if (isCancelled) {
     return 'cancelled';
   }
@@ -327,16 +331,62 @@ Deno.serve(async (req: Request) => {
     },
   });
 
-  const { data: userId, error: lookupError } = await supabase.rpc('kcl_find_user_id_by_email', {
-    p_email: email,
-  });
+  const { data: linkedUserId, error: linkedLookupError } = await supabase.rpc(
+    'kcl_find_user_id_by_bmc_email',
+    {
+      p_bmc_email: email,
+    },
+  );
 
-  if (lookupError) {
-    return jsonResponse({ error: 'Failed to resolve user by email' }, 500);
+  // linkedLookupError는 RPC 미존재 등 인프라 에러 — fallback으로 계속 진행
+  if (linkedLookupError) {
+    console.warn('kcl_find_user_id_by_bmc_email RPC error (fallback to email lookup):', linkedLookupError.message);
   }
 
-  if (!userId || typeof userId !== 'string') {
+  let resolvedUserId: string | null =
+    linkedUserId && typeof linkedUserId === 'string' ? linkedUserId : null;
+
+  if (!resolvedUserId) {
+    const { data: userId, error: lookupError } = await supabase.rpc('kcl_find_user_id_by_email', {
+      p_email: email,
+    });
+
+    if (lookupError) {
+      return jsonResponse({ error: 'Failed to resolve user by email' }, 500);
+    }
+
+    resolvedUserId = userId && typeof userId === 'string' ? userId : null;
+  }
+
+  if (!resolvedUserId) {
     return jsonResponse({ ok: true, ignored: true, reason: 'no matching user for email' });
+  }
+
+  // Stale event guard: ignore events older than the current profile state
+  // Exception: cancelled events always apply (safety net)
+  if (action !== 'cancelled') {
+    const eventCreatedRaw = firstString(payload, ['created', 'data.created_at']);
+    const eventCreatedMs = eventCreatedRaw ? Number(eventCreatedRaw) * 1000 : null;
+
+    if (eventCreatedMs && Number.isFinite(eventCreatedMs)) {
+      const { data: profile } = await supabase
+        .from('kcl_user_profiles')
+        .select('updated_at')
+        .eq('id', resolvedUserId)
+        .maybeSingle();
+
+      const profileUpdatedMs = profile?.updated_at
+        ? new Date(profile.updated_at).getTime()
+        : 0;
+
+      if (eventCreatedMs < profileUpdatedMs) {
+        return jsonResponse({
+          ok: true,
+          ignored: true,
+          reason: 'stale event: newer state already applied',
+        });
+      }
+    }
   }
 
   const eventHash = await sha256Hex(`${normalizedEventName}:${rawBody}`);
@@ -362,11 +412,11 @@ Deno.serve(async (req: Request) => {
     await supabase
       .from('kcl_user_profiles')
       .update({ is_pro: true, pro_grace_until: null, updated_at: nowIso })
-      .eq('id', userId);
+      .eq('id', resolvedUserId);
 
     await upsertSubscriptionRow({
       supabase,
-      userId,
+      userId: resolvedUserId,
       email,
       membershipId,
       customerId,
@@ -377,18 +427,18 @@ Deno.serve(async (req: Request) => {
       nowIso,
     });
 
-    return jsonResponse({ ok: true, action: 'active', userId, membershipId });
+    return jsonResponse({ ok: true, action: 'active', userId: resolvedUserId, membershipId });
   }
 
   if (action === 'grace') {
     await supabase
       .from('kcl_user_profiles')
       .update({ is_pro: true, pro_grace_until: graceUntil, updated_at: nowIso })
-      .eq('id', userId);
+      .eq('id', resolvedUserId);
 
     await upsertSubscriptionRow({
       supabase,
-      userId,
+      userId: resolvedUserId,
       email,
       membershipId,
       customerId,
@@ -399,17 +449,17 @@ Deno.serve(async (req: Request) => {
       nowIso,
     });
 
-    return jsonResponse({ ok: true, action: 'grace', userId, graceUntil });
+    return jsonResponse({ ok: true, action: 'grace', userId: resolvedUserId, graceUntil });
   }
 
   await supabase
     .from('kcl_user_profiles')
     .update({ is_pro: false, pro_grace_until: null, updated_at: nowIso })
-    .eq('id', userId);
+    .eq('id', resolvedUserId);
 
   await upsertSubscriptionRow({
     supabase,
-    userId,
+    userId: resolvedUserId,
     email,
     membershipId,
     customerId,
@@ -420,5 +470,5 @@ Deno.serve(async (req: Request) => {
     nowIso,
   });
 
-  return jsonResponse({ ok: true, action: 'cancelled', userId, membershipId });
+  return jsonResponse({ ok: true, action: 'cancelled', userId: resolvedUserId, membershipId });
 });
