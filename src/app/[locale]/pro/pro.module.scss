@@ -565,6 +565,9 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border, #e5e7eb);
 }
 
 .secondaryButton {
