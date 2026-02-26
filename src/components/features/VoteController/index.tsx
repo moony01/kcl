@@ -23,7 +23,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Flame, Check, Timer, Crown, Sparkles, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
 import { FEATURES } from '@/config/features';
@@ -68,6 +68,7 @@ export default function VoteController({
 }: VoteControllerProps) {
   const t = useTranslations('Vote');
   const tPro = useTranslations('Pro');
+  const locale = useLocale();
   const { user, profile } = useAuth();
   const { submitVote, isLoading } = useVote();
   // T1.85: 로그인 사용자는 일일 60표, 비로그인은 일일 30표
@@ -426,7 +427,7 @@ export default function VoteController({
 
       {/* Fan Power Pass 업셀링 버튼 (로그인 비Pro 회원에게만 표시) */}
       {FEATURES.PRO_SUBSCRIPTION && isLoggedInNonPro && (
-        <Link href="../pro" className={styles.fanPowerPassBtn}>
+        <Link href={`/${locale}/pro`} className={styles.fanPowerPassBtn}>
           <Crown size={15} className={styles.fanPowerPassBtnIcon} />
           <span className={styles.fanPowerPassBtnCta}>{tPro('upgrade_cta')}</span>
           <span className={styles.fanPowerPassBtnBadge}>{tPro('upgrade_desc')}</span>
@@ -481,7 +482,7 @@ export default function VoteController({
                 </div>
                 <p className={styles.proExhaustedTitle}>{t('button.pro_exhausted_title')}</p>
                 <p className={styles.proExhaustedDesc}>{t('button.pro_exhausted_desc')}</p>
-                <Link href="../pro" className={styles.proExhaustedCta} onClick={() => setShowExhaustedProPopup(false)}>
+                <Link href={`/${locale}/pro`} className={styles.proExhaustedCta} onClick={() => setShowExhaustedProPopup(false)}>
                   {t('button.pro_exhausted_cta')}
                 </Link>
               </motion.div>
