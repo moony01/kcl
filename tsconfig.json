@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "_api_backup_phase3"]
+  "exclude": ["node_modules", "_api_backup_phase3", "supabase/functions"]
 }
