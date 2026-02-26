@@ -12,7 +12,8 @@ import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useSubscription } from '@/hooks/useSubscription';
-import { Crown, ArrowRight, Loader2 } from 'lucide-react';
+import { Crown, ArrowRight, Loader2, CheckCircle2, Sparkles } from 'lucide-react';
+import styles from '../pro.module.scss';
 
 export default function SuccessClient() {
   const t = useTranslations('Pro');
@@ -21,6 +22,7 @@ export default function SuccessClient() {
   const locale = pathname?.split('/')[1] || 'en';
   const { isPro, refetch } = useSubscription();
   const [pollCount, setPollCount] = useState(0);
+  const confettiPieces = Array.from({ length: 14 }, (_, index) => index + 1);
 
   /**
    * Webhook 처리 완료 대기 (최대 30초, 3초 간격)
@@ -37,78 +39,119 @@ export default function SuccessClient() {
   }, [isPro, pollCount, refetch]);
 
   return (
-    <div
-      style={{
-        maxWidth: 480,
-        margin: '0 auto',
-        padding: '3rem 1rem',
-        textAlign: 'center',
-      }}
-    >
-      <Crown size={56} color="#f59e0b" style={{ marginBottom: '1rem' }} />
+    <div className={styles.successPage}>
+      <div className={styles.successConfetti} aria-hidden="true">
+        {confettiPieces.map((piece) => (
+          <span key={piece} className={styles.confettiPiece} />
+        ))}
+      </div>
 
-      <h1
-        style={{
-          fontSize: '1.75rem',
-          fontWeight: 800,
-          background: 'linear-gradient(135deg, #8b5cf6, #f59e0b)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          marginBottom: '0.75rem',
-        }}
-      >
-        {t('success_title')}
-      </h1>
-
-      <p
-        style={{
-          color: 'var(--color-text-secondary, #9ca3af)',
-          fontSize: '1rem',
-          marginBottom: '2rem',
-          lineHeight: 1.6,
-        }}
-      >
-        {t('success_desc')}
-      </p>
-
-      {!isPro && pollCount < 10 && (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.5rem',
-            color: 'var(--color-text-secondary, #9ca3af)',
-            fontSize: '0.85rem',
-            marginBottom: '1.5rem',
-          }}
-        >
-          <Loader2 size={16} style={{ animation: 'spin 1s linear infinite' }} />
-          <span>{t('activating')}</span>
+      <section className={styles.successHero}>
+        <div className={styles.successIconWrap}>
+          <Crown size={34} className={styles.successCrownIcon} />
+          <CheckCircle2 size={24} className={styles.successCheckIcon} />
         </div>
-      )}
 
-      <button
-        type="button"
-        onClick={() => router.push(`/${locale}`)}
-        style={{
-          padding: '0.875rem 2rem',
-          border: 'none',
-          borderRadius: 12,
-          fontSize: '1rem',
-          fontWeight: 700,
-          cursor: 'pointer',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
-          color: '#fff',
-          transition: 'opacity 0.2s',
-        }}
-      >
-        {t('go_vote')}
-        <ArrowRight size={18} />
-      </button>
+        <p className={styles.successKicker}>
+          <Sparkles size={14} />
+          {t('success_kicker')}
+        </p>
+        <h1 className={styles.successTitle}>{t('success_title')}</h1>
+        <p className={styles.successDescription}>{t('success_desc')}</p>
+
+        {!isPro && pollCount < 10 && (
+          <div className={styles.successActivation}>
+            <Loader2 size={16} className={styles.pendingSpinner} />
+            <span>{t('activating')}</span>
+          </div>
+        )}
+      </section>
+
+      <section className={styles.successActiveCard}>
+        <div className={styles.successCardTop}>
+          <div>
+            <p className={styles.successCardBadge}>{t('success_active_badge')}</p>
+            <h2 className={styles.successCardTitle}>{t('success_card_title')}</h2>
+            <p className={styles.successCardDesc}>{t('success_card_desc')}</p>
+          </div>
+          <div className={styles.successCardStatus}>{t('status_active')}</div>
+        </div>
+
+        <div className={styles.successMetrics}>
+          <article className={styles.successMetricItem}>
+            <p>{t('monthly_votes')}</p>
+            <strong>
+              300 <span>{t('votes_per_month')}</span>
+            </strong>
+          </article>
+          <article className={styles.successMetricItem}>
+            <p>{t('benefit_power_vote_title')}</p>
+            <strong>x50</strong>
+          </article>
+          <article className={styles.successMetricItem}>
+            <p>{t('benefit_ranking_title')}</p>
+            <strong>{t('benefit_ranking_value')}</strong>
+          </article>
+        </div>
+      </section>
+
+      <section className={styles.successBenefitsSection}>
+        <div className={styles.successSectionHeader}>
+          <h3>{t('benefits_title')}</h3>
+          <p>{t('benefits_desc')}</p>
+        </div>
+
+        <div className={styles.successBenefitsGrid}>
+          <article className={styles.successBenefitCard}>
+            <h4>{t('pro_votes')}</h4>
+            <p>{t('benefit_daily_votes_desc')}</p>
+          </article>
+          <article className={styles.successBenefitCard}>
+            <h4>{t('pro_power_vote')}</h4>
+            <p>{t('benefit_power_vote_desc')}</p>
+          </article>
+          <article className={styles.successBenefitCard}>
+            <h4>{t('pro_ranking')}</h4>
+            <p>{t('benefit_ranking_desc')}</p>
+          </article>
+        </div>
+      </section>
+
+      <section className={styles.successNextSection}>
+        <div className={styles.successSectionHeader}>
+          <h3>{t('whats_next_title')}</h3>
+          <p>{t('whats_next_desc')}</p>
+        </div>
+
+        <div className={styles.successNextSteps}>
+          <div className={styles.successStepItem}>
+            <span>01</span>
+            <div>
+              <strong>{t('next_step_vote_title')}</strong>
+              <p>{t('next_step_vote_desc')}</p>
+            </div>
+          </div>
+          <div className={styles.successStepItem}>
+            <span>02</span>
+            <div>
+              <strong>{t('next_step_power_title')}</strong>
+              <p>{t('next_step_power_desc')}</p>
+            </div>
+          </div>
+          <div className={styles.successStepItem}>
+            <span>03</span>
+            <div>
+              <strong>{t('next_step_rank_title')}</strong>
+              <p>{t('next_step_rank_desc')}</p>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" onClick={() => router.push(`/${locale}`)} className={styles.successCta}>
+          {t('go_vote')}
+          <ArrowRight size={18} />
+        </button>
+      </section>
     </div>
   );
 }
