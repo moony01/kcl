@@ -1,0 +1,127 @@
+# KCL 월초 시즌 정산 자동화
+#
+# 매월 1일 00:00 UTC (한국시간 09:00)에 실행
+#
+# 실행 순서:
+# 1. 챔피언 기록 - 전월 1위를 kcl_seasons에 기록 (Hall of Fame)
+# 2. 리그 승강 + firepower 초기화 - monthly_league_promotion이 승강/초기화 모두 처리
+#
+# 참고: monthly_league_promotion 함수가 내부에서 firepower 초기화까지 수행하므로
+#       별도 reset_monthly_firepower 호출은 불필요 (이중 초기화 방지)
+#
+# 수동 실행: Actions 탭 > "KCL Monthly Season Settlement" > Run workflow
+
+name: KCL Monthly Season Settlement
+
+on:
+  schedule:
+    # 매월 1일 00:00 UTC (한국시간 09:00)
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+    # 수동 실행 지원 (테스트용)
+    inputs:
+      dry_run:
+        description: 'Dry run (실제 실행하지 않고 테스트만)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+env:
+  SUPABASE_URL: https://eevckvdicfhqxywixznt.supabase.co
+
+jobs:
+  monthly-settlement:
+    name: Execute Monthly Season Settlement
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Log execution info
+        run: |
+          echo "🏆 KCL Monthly Season Settlement"
+          echo "📅 Execution time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "📅 Korea time: $(TZ='Asia/Seoul' date '+%Y-%m-%d %H:%M:%S KST')"
+          echo "🔧 Dry run: ${{ github.event.inputs.dry_run || 'false' }}"
+          echo ""
+          echo "📋 실행 순서:"
+          echo "   1. 챔피언 기록 (record_monthly_champion)"
+          echo "   2. 리그 승강 + firepower 초기화 (monthly_league_promotion)"
+
+      # Step 1: 월간 챔피언 기록 (현재 firepower 기준 1위)
+      # 승강 전에 실행해야 현재 시즌 1위가 정확히 기록됨
+      - name: Step 1 - Record monthly champion
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          echo "🏅 [Step 1/2] Recording monthly champion to Hall of Fame..."
+
+          RESPONSE=$(curl -sf -X POST \
+            "${{ env.SUPABASE_URL }}/rest/v1/rpc/record_monthly_champion" \
+            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Content-Type: application/json")
+
+          echo "📊 Response: $RESPONSE"
+
+          if echo "$RESPONSE" | grep -qE '"success"\s*:\s*true'; then
+            echo "✅ Monthly champion recorded successfully!"
+          else
+            echo "⚠️ Could not record champion (may already exist or no data)"
+          fi
+
+      # Step 2: 리그 승강 + firepower 초기화 (함수 내부에서 모두 처리)
+      # - previous_season_rank 저장
+      # - 직행 승강: 1부 10위 ↔ 2부 1위
+      # - 플레이오프: 2부 2위 > 1부 9위면 교체
+      # - firepower 0 초기화 + groups vote_count 0 초기화
+      - name: Step 2 - Execute league promotion & reset
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          echo "🔄 [Step 2/2] Executing league promotion & firepower reset..."
+
+          RESPONSE=$(curl -sf -X POST \
+            "${{ env.SUPABASE_URL }}/rest/v1/rpc/monthly_league_promotion" \
+            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Content-Type: application/json")
+
+          echo "📊 Response: $RESPONSE"
+
+          if echo "$RESPONSE" | grep -qE '"success"\s*:\s*true'; then
+            echo "✅ League promotion & firepower reset completed!"
+            echo ""
+            echo "📊 Details:"
+            echo "$RESPONSE" | python3 -m json.tool 2>/dev/null || echo "$RESPONSE"
+          else
+            echo "❌ League promotion failed!"
+            echo "Response was: $RESPONSE"
+            exit 1
+          fi
+
+      # Dry run 모드
+      - name: Dry run mode
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: |
+          echo "🧪 DRY RUN MODE - No changes made"
+          echo ""
+          echo "Would execute:"
+          echo "  1. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/record_monthly_champion"
+          echo "  2. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/monthly_league_promotion"
+          echo ""
+          echo "ℹ️ monthly_league_promotion handles promotion + firepower reset internally"
+
+      # 완료 요약
+      - name: Settlement summary
+        if: ${{ success() && github.event.inputs.dry_run != 'true' }}
+        run: |
+          PREV_MONTH=$(TZ='Asia/Seoul' date -d '1 month ago' '+%Y년 %m월' 2>/dev/null || date -u -v-1m '+%Y년 %m월')
+          echo ""
+          echo "🎉 =================================="
+          echo "   Monthly Settlement Completed!"
+          echo "==================================="
+          echo "📅 ${PREV_MONTH} 시즌 정산 완료"
+          echo ""
+          echo "✅ 챔피언 기록 완료 (kcl_seasons)"
+          echo "✅ 리그 승강 완료 (league_tier 업데이트)"
+          echo "✅ firepower 초기화 완료 (새 시즌 시작)"
