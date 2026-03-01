@@ -56,15 +56,23 @@ jobs:
         run: |
           echo "🏅 [Step 1/2] Recording monthly champion to Hall of Fame..."
 
-          RESPONSE=$(curl -sf -X POST \
+          RESPONSE=$(curl -s -w '\n__HTTP_STATUS__%{http_code}' -X POST \
             "${{ env.SUPABASE_URL }}/rest/v1/rpc/record_monthly_champion" \
             -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
             -H "Content-Type: application/json")
+          HTTP_STATUS=$(echo "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          BODY=$(echo "$RESPONSE" | grep -v '__HTTP_STATUS__')
 
-          echo "📊 Response: $RESPONSE"
+          echo "📊 HTTP Status: $HTTP_STATUS"
+          echo "📊 Response: $BODY"
 
-          if echo "$RESPONSE" | grep -qE '"success"\s*:\s*true'; then
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "❌ HTTP error: $HTTP_STATUS"
+            exit 1
+          fi
+
+          if echo "$BODY" | grep -qE '"success"\s*:\s*true'; then
             echo "✅ Monthly champion recorded successfully!"
           else
             echo "⚠️ Could not record champion (may already exist or no data)"
@@ -80,22 +88,31 @@ jobs:
         run: |
           echo "🔄 [Step 2/2] Executing league promotion & firepower reset..."
 
-          RESPONSE=$(curl -sf -X POST \
+          RESPONSE=$(curl -s -w '\n__HTTP_STATUS__%{http_code}' -X POST \
             "${{ env.SUPABASE_URL }}/rest/v1/rpc/monthly_league_promotion" \
             -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
             -H "Content-Type: application/json")
+          HTTP_STATUS=$(echo "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          BODY=$(echo "$RESPONSE" | grep -v '__HTTP_STATUS__')
 
-          echo "📊 Response: $RESPONSE"
+          echo "📊 HTTP Status: $HTTP_STATUS"
+          echo "📊 Response: $BODY"
 
-          if echo "$RESPONSE" | grep -qE '"success"\s*:\s*true'; then
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "❌ HTTP error: $HTTP_STATUS"
+            echo "Response body: $BODY"
+            exit 1
+          fi
+
+          if echo "$BODY" | grep -qE '"success"\s*:\s*true'; then
             echo "✅ League promotion & firepower reset completed!"
             echo ""
             echo "📊 Details:"
-            echo "$RESPONSE" | python3 -m json.tool 2>/dev/null || echo "$RESPONSE"
+            echo "$BODY" | python3 -m json.tool 2>/dev/null || echo "$BODY"
           else
             echo "❌ League promotion failed!"
-            echo "Response was: $RESPONSE"
+            echo "Response was: $BODY"
             exit 1
           fi
 
