@@ -3,6 +3,7 @@
 # 매월 1일 00:00 UTC (한국시간 09:00)에 실행
 #
 # 실행 순서:
+# 0. 시즌 순위 스냅샷 - 승강 전 전체 순위 저장 (snapshot_season_rankings)
 # 1. 챔피언 기록 - 전월 1위를 kcl_seasons에 기록 (Hall of Fame)
 # 2. 리그 승강 + firepower 초기화 - monthly_league_promotion이 승강/초기화 모두 처리
 #
@@ -46,8 +47,38 @@ jobs:
           echo "🔧 Dry run: ${{ github.event.inputs.dry_run || 'false' }}"
           echo ""
           echo "📋 실행 순서:"
+          echo "   0. 시즌 순위 스냅샷 (snapshot_season_rankings)"
           echo "   1. 챔피언 기록 (record_monthly_champion)"
           echo "   2. 리그 승강 + firepower 초기화 (monthly_league_promotion)"
+
+      # Step 0: 시즌 순위 스냅샷 (승강 전 전체 순위 저장)
+      # 언제든 restore_season_state(year, month)로 원복 가능하도록 스냅샷 먼저 저장
+      - name: Step 0 - Snapshot season rankings
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          echo "📸 [Step 0/2] Snapshotting season rankings before promotion..."
+
+          RESPONSE=$(curl -s -w '\n__HTTP_STATUS__%{http_code}' -X POST \
+            "${{ env.SUPABASE_URL }}/rest/v1/rpc/snapshot_season_rankings" \
+            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            -H "Content-Type: application/json")
+          HTTP_STATUS=$(echo "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          BODY=$(echo "$RESPONSE" | grep -v '__HTTP_STATUS__')
+
+          echo "📊 HTTP Status: $HTTP_STATUS"
+          echo "📊 Response: $BODY"
+
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "❌ HTTP error: $HTTP_STATUS"
+            exit 1
+          fi
+
+          if echo "$BODY" | grep -qE '"success"\s*:\s*true'; then
+            echo "✅ Season rankings snapshot saved!"
+          else
+            echo "⚠️ Snapshot may already exist for this month (skipped)"
+          fi
 
       # Step 1: 월간 챔피언 기록 (현재 firepower 기준 1위)
       # 승강 전에 실행해야 현재 시즌 1위가 정확히 기록됨
@@ -123,6 +154,7 @@ jobs:
           echo "🧪 DRY RUN MODE - No changes made"
           echo ""
           echo "Would execute:"
+          echo "  0. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/snapshot_season_rankings"
           echo "  1. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/record_monthly_champion"
           echo "  2. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/monthly_league_promotion"
           echo ""
