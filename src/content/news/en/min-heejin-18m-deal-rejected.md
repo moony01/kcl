@@ -1,0 +1,75 @@
+---
+title: 'Min Hee-jin Offered HYBE $18M to End the War — They Said No'
+excerpt: 'On February 25, 2026, Min Hee-jin offered to waive her $18M court victory in exchange for HYBE dropping all lawsuits. HYBE responded by depositing $20M with the court instead. The most expensive feud in K-pop history just entered a new chapter.'
+date: '2026-03-03'
+category: 'Business'
+thumbnail: '/images/news/min-heejin-18m-deal-rejected-thumbnail.png'
+active: true
+---
+
+The moment HYBE thought it had won, Min Hee-jin flipped the table. Then HYBE flipped it back.
+
+On February 25, 2026, former ADOR CEO Min Hee-jin held a press conference in Seoul with an offer no one saw coming: she would voluntarily give up her right to collect the approximately 25.5 billion won (roughly $18 million USD) that a Seoul court had ordered HYBE to pay her — if, and only if, HYBE withdrew all ongoing lawsuits against her, NewJeans members, former ADOR employees, and fans.
+
+Industry observers called it the maximum concession she could possibly make. A white flag holding a billion-dollar price tag.
+
+HYBE's answer wasn't a counteroffer. The company deposited approximately 29.25 billion won (~$20.4 million USD) with the court to stay enforcement of the verdict pending its appeal. Translation: we'll fight this in the next round.
+
+## From the $18M Ruling to the $18M Offer
+
+### What February 12 Changed
+
+On February 12, 2026, the Seoul Central District Court ruled in Min Hee-jin's favor in the ADOR put-option dispute, ordering HYBE to pay her roughly 25.5 billion won. After months of brutal litigation, Min had won on paper.
+
+Thirteen days later, she walked into a press conference and offered to not collect it.
+
+To understand why, you have to look past the number. The ongoing legal battles between Min, HYBE, and the parties connected to NewJeans aren't just abstract corporate disputes — they're actively casting a shadow over the group's ability to function. And with NewJeans already fractured, every courtroom round is another day the group can't move forward.
+
+### NewJeans: From 5 to 4 to 3
+
+The math of NewJeans' lineup has been shifting for months. In December 2025, ADOR terminated Danielle's exclusive contract. As of now, Hanni, Haerin, and Hyein have returned to the label, while Minji is reportedly still in discussions. That's a confirmed three-member configuration, with a question mark where two members used to be.
+
+Min Hee-jin's offer carried an implicit message: end the lawsuits, and there's at least a chance at resolution. Keep fighting, and the path back to a full group gets narrower with every filing.
+
+## Why HYBE Said No
+
+![Min Hee-jin vs HYBE legal dispute timeline showing the $18M offer and rejection](/images/news/min-heejin-18m-deal-rejected-1.png)
+_Following Min Hee-jin's press conference, HYBE deposited court funds — signaling its intent to continue the appeal._
+
+### It's Not Just About the Money
+
+Reading HYBE's decision to counter-deposit as a purely financial move would miss the point. The company's choice to fight the appeal sends two simultaneous signals.
+
+The first is internal. This dispute — a subsidiary CEO challenging parent company authority over management control — isn't just about Min Hee-jin. It's about what precedent HYBE sets for every executive relationship across its entire label network. Fully accepting a court loss in this case could structurally weaken HYBE's ability to manage future conflicts with creative leaders across all its companies.
+
+The second signal is public-facing. The lawsuits against NewJeans fans have become a sustained PR liability. But withdrawing them unconditionally would mean admitting, implicitly, that they were leverage rather than legitimate grievances — a concession HYBE's legal strategy has no room for.
+
+### Min Hee-jin's New Move: Ooak Records
+
+Three weeks before the press conference, on February 5, 2026, Min Hee-jin had already officially launched **Ooak Records** — opening social media accounts, rolling out a global campaign, and teasing a new boy group project. By the time she extended the peace offer on February 25, she had already built her exit ramp.
+
+This is the clearest sign yet that the HYBE war, however it ends legally, is no longer the center of Min Hee-jin's strategy. Her offer was extended from a position of movement, not desperation: *I'm already building something new — let's settle this and move on.* HYBE's refusal hands her exactly the narrative she needs: the party who tried to make peace, and the one who wouldn't let go.
+
+## What the Appeal Changes
+
+### The Legal Variables
+
+HYBE's court deposit means the appeal moves forward. Depending on the outcome, the 25.5 billion won ruling could be upheld, reduced, or overturned entirely. Min Hee-jin's "I'll waive it" offer was calculated on the current ruling. If the appeal changes the number, the entire negotiating calculus shifts.
+
+Some legal observers believe HYBE may selectively drop certain smaller claims — particularly those targeting fans — as the reputational cost of maintaining them continues to mount. However, the core lawsuits connected to Min Hee-jin personally are widely expected to continue.
+
+## The KCL Angle
+
+Strip away the personalities and the headlines, and this dispute is really about one question: **how much creative autonomy can a director hold in a K-pop major label structure before the system rejects it?**
+
+Min Hee-jin's work with NewJeans challenged the standard formula — the idea that idols are assets managed by the label's vision, not the director's. That challenge collided with corporate authority, and what followed has cost both sides enormously in money, energy, and reputation.
+
+The $18M peace offer was her attempt to close the loop. HYBE's refusal keeps it open — and in doing so, hands Min Hee-jin exactly the story she needs for her next chapter.
+
+For NewJeans fans, especially those still waiting for Danielle's return, this is the worst-case scenario sustained. Every month the legal battle continues is another month the full group remains impossible.
+
+Watch what Ooak Records does next. If Min Hee-jin can prove that "Min Hee-jin music" exists independently of NewJeans, the HYBE war becomes background noise rather than an existential threat.
+
+---
+
+[Related: The HYBE vs Min Hee-jin Put Option Ruling — What $18M Really Means](/en/news/min-heejin-hybe-put-option-255b-ruling)
