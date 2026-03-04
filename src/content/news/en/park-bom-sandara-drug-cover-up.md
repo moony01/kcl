@@ -74,7 +74,7 @@ That's worth naming directly. But it's equally important to separate two things:
 
 Reading this as "former group members fighting" misses the scale of what's happening.
 
-**First: YG's crisis management is under scrutiny again.** Yang Hyun-suk, Teddy, and CL were named directly — yet YG has issued no public response. This comes just days after XG producer Simon Jakops was arrested for drug possession in Japan. The K-pop industry is stacking up narcotics-adjacent crises, and two major agencies are at the center of both.
+**First: YG's crisis management is under scrutiny again.** Yang Hyun-suk, Teddy, and CL were named directly — yet YG has issued no public response. One week earlier, news broke that XG member Simon Jakops had been arrested for drug possession in Japan. The two cases are entirely different in nature — connecting them as evidence of an industry-wide drug crisis would be an overreach. But the fact that YG's response to both was silence raises a sharper question: not about K-pop broadly, but about how this specific agency handles situations where it is implicated.
 
 **Second: 2NE1's legacy is being rewritten in real time.** For twelve years, Park Bom's scandal has been treated as the reason the group imploded. If her claims carry any truth, that narrative shifts. The question changes from "Why did Park Bom make a mistake?" to "Who decided that Park Bom would carry this alone?"
 
