@@ -1,0 +1,79 @@
+---
+title: '"Sandara Got Caught and They Made Me Take the Fall" — Park Bom Just Broke YG''s 12-Year Silence'
+excerpt: "2NE1's Park Bom dropped a bombshell handwritten letter alleging she was used as a scapegoat to cover up Sandara Park's drug use. She named Yang Hyun-suk, Teddy, and CL. Here's what changed — and what hasn't."
+date: '2026-03-04'
+category: 'Industry'
+thumbnail: '/images/news/park-bom-sandara-drug-cover-up-thumbnail.png'
+active: true
+---
+
+In 2010, Park Bom was investigated for bringing 80 Adderall tablets into South Korea without declaring them at customs. A year later, she received a non-prosecution decision. Then, in 2014, the story leaked to the press — and 2NE1 quietly fell apart. In November 2016, 2NE1 officially disbanded and Park Bom left YG. Twelve years passed.
+
+On March 3, 2026, a handwritten letter changed everything.
+
+## The Handwritten Letter That Blew Up the Internet
+
+### 14 Lines That Rewrote 2NE1 History
+
+Park Bom posted the letter on Instagram before deleting it. By then, screenshots had already spread across X (formerly Twitter) and major K-pop communities worldwide.
+
+The core claim: "I am an ADD patient. Sandara Park was caught for drug abuse, and to cover that up, they turned my prescription medication into a drug scandal involving me."
+
+Fourteen handwritten lines. Twelve years of silence broken.
+
+### She Named Names
+
+Park Bom didn't write to the general public. She addressed Yang Hyun-suk (YG Entertainment founder), Teddy (YG's top producer), and CL (2NE1's leader). Her message to them: "Stop reporting that I exceeded my prescribed dosage."
+
+This wasn't a vague allegation. It was a direct, named accusation — directed at the most powerful figures in her former agency and group.
+
+## Reconstructing the 2010 Adderall Case
+
+### 80 Tablets, Customs, and a Non-Prosecution Decision
+
+Adderall is commonly prescribed in the United States for ADD/ADHD treatment. In South Korea, however, it contains amphetamine — classifying it as a controlled substance under the Narcotics Control Act. Park Bom had family members in the US mail the tablets to her in Korea, where they were intercepted at customs.
+
+The investigation concluded with no prosecution. At the time, Korean law had no specific provision for individuals legally prescribed Adderall abroad bringing it home. Her side maintained it was a legitimate prescription medication.
+
+But in 2014, when the story finally went public, YG and Park Bom's team stayed largely silent. 2NE1's schedule shrank. The group entered a quiet phase that never ended.
+
+### "After My Case, They Created the Law"
+
+One line in Park Bom's letter stands out: "At the time, there wasn't even a specific law about Adderall in this country. But strangely, after my case, one was created."
+
+If accurate, this suggests her case served as a direct catalyst for new legislation — and that she bore the public cost of a legal framework that didn't yet exist when her situation occurred.
+
+## Sandara's Response — and What Wasn't Said
+
+![A torn handwritten letter in dramatic lighting symbolizing the collapse of 2NE1's narrative and a 12-year cover-up allegation](/images/news/park-bom-sandara-drug-cover-up-1.png)
+_Image: AI Generated_
+
+### "Groundless" — But No Specifics
+
+Sandara Park denied the allegations, calling them "groundless." Her agency issued a similar statement to media outlets.
+
+What's notable is the scope of the denial. No specific point was addressed. No clarification of whether she was ever involved in a drug incident at all. No legal statement. Just a single word: groundless.
+
+### The Contract Expiration Timing
+
+Allkpop reported that around the time Park Bom's letter went public, Sandara Park's agency contract had just expired. Representing an artist without an active contract presents legal and practical complications. In effect, the main voice capable of mounting a more detailed defense found itself in a structurally weakened position exactly when it was needed most.
+
+## KCL's Take: This Is Bigger Than a Feud
+
+Reading this as "former group members fighting" misses the scale of what's happening.
+
+**First: YG's crisis management is under scrutiny again.** Yang Hyun-suk, Teddy, and CL were named directly — yet YG has issued no public response. This comes just days after XG producer Simon Jakops was arrested for drug possession in Japan. The K-pop industry is stacking up narcotics-adjacent crises, and two major agencies are at the center of both.
+
+**Second: 2NE1's legacy is being rewritten in real time.** For twelve years, Park Bom's scandal has been treated as the reason the group imploded. If her claims carry any truth, that narrative shifts. The question changes from "Why did Park Bom make a mistake?" to "Who decided that Park Bom would carry this alone?"
+
+That's a question about power. About how K-pop agencies manage risk — and whose career gets sacrificed when the cost has to go somewhere.
+
+Park Bom's letter is, at this stage, an unverified personal account. Sandara denies it. YG is silent. The full truth remains out of reach.
+
+[Related: Yang Hyun-suk's Return to YG's Frontline — What It Means](/en/news/yg-yang-hyunsuk-audition-return)
+
+## The Question That Won't Go Away
+
+Park Bom's letter isn't a court filing. A handwritten note has limits. But its impact on fans has nothing to do with legal weight.
+
+2NE1 fans spent twelve years placing the collapse of the group on Park Bom's shoulders. One letter has cracked that narrative open. The fandom now faces a question it may not be ready for: **Did 2NE1 end because of Park Bom — or because of what was done to her?**
