@@ -58,6 +58,18 @@ What's notable is the scope of the denial. No specific point was addressed. No c
 
 Allkpop reported that around the time Park Bom's letter went public, Sandara Park's agency contract had just expired. Representing an artist without an active contract presents legal and practical complications. In effect, the main voice capable of mounting a more detailed defense found itself in a structurally weakened position exactly when it was needed most.
 
+## Reading the Letter Through the Public's Eye
+
+### The Other Narrative Attached to Park Bom's Name
+
+To understand how this letter landed, you need to know what Park Bom's public presence has looked like in recent years.
+
+Since leaving YG, Park Bom's appearances — primarily through social media — have raised serious concern among fans and casual observers alike. Erratic posts, a noticeably changed appearance, and statements that have confused rather than clarified her situation have left a significant portion of the Korean public with a fixed image: not "the 2NE1 member wronged by the system," but someone perceived to be struggling with serious mental health issues.
+
+This matters because it shapes how the letter is received before anyone reads the contents. For many, the fact that Park Bom wrote it is already a filter — one that leads to the claims being dismissed before they're evaluated.
+
+That's worth naming directly. But it's equally important to separate two things: **what Park Bom's current public perception is, and what actually happened 12 years ago.** The credibility of historical claims doesn't rise or fall solely based on the mental state of the person raising them today. YG's continued silence and Sandara's non-specific denial both speak independently of Park Bom's current condition.
+
 ## KCL's Take: This Is Bigger Than a Feud
 
 Reading this as "former group members fighting" misses the scale of what's happening.
