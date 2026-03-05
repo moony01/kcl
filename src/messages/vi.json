@@ -103,7 +103,8 @@
     "sharePrompt": "Bạn thích bài viết này? Chia sẻ với fan K-pop khác nhé!",
     "views": "{count} lượt xem",
     "relatedNews": "Tin tức khác",
-    "category_all": "Tất cả"
+    "category_all": "Tất cả",
+    "loadMore": "Xem thêm"
   },
   "NewsComments": {
     "title": "Bình luận",

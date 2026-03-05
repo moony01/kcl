@@ -5,7 +5,8 @@
  * SWR을 사용하여 캐싱과 자동 갱신을 지원합니다.
  *
  * 기능:
- * - 1부 리그 (1-10위) / 2부 리그 (11위~) 분리
+ * - 전체 소속사를 rank 순 단일 배열로 반환 (2부 리그 폐지)
+ * - 하위 호환: premierLeague (1-10위), challengers (빈 배열)
  * - 20초마다 자동 갱신
  * - 에러 처리 및 로딩 상태
  * - 수동 새로고침 (mutate)
@@ -21,7 +22,6 @@ import useSWR from 'swr';
 import type {
   CompanyRanking,
   LeagueTier,
-  PlayoffBattle,
   PromotionBattle,
   PromotionBattles,
   PromotionStatus,
@@ -48,9 +48,9 @@ const PREV_LEAGUE_RANKS_KEY = 'kcl_previous_league_ranks';
  * 글로벌 순위가 아닌 리그 내 순위(배열 인덱스 기반)를 저장
  */
 interface PreviousLeagueRanksData {
-  /** 1부 리그 내 순위: companyId → 리그 내 순위 (1-10) */
+  /** 전체 순위: companyId → 순위 */
   premier: Record<string, number>;
-  /** 2부 리그 내 순위: companyId → 리그 내 순위 (1-N) */
+  /** 하위 호환용 (사용 안 함, 빈 객체) */
   challengers: Record<string, number>;
   /** 저장 시점 timestamp */
   savedAt: number;
@@ -96,16 +96,14 @@ function loadPreviousLeagueRanks(): PreviousLeagueRanksData | null {
 }
 
 /**
- * 현재 리그 순위를 localStorage에 저장
+ * 현재 순위를 localStorage에 저장
  * - 이전 순위가 없을 때만 저장 (기준점 설정)
  * - 같은 UTC 날짜의 데이터가 있으면 유지 (투표권 갱신까지 기준점 고정)
  *
- * @param premierCompanies - 1부 리그 회사들 (배열 순서 = 리그 내 순위)
- * @param challengersCompanies - 2부 리그 회사들 (배열 순서 = 리그 내 순위)
+ * @param allCompanies - 전체 회사 배열 (rank 순)
  */
 function savePreviousLeagueRanks(
-  premierCompanies: CompanyRanking[],
-  challengersCompanies: CompanyRanking[],
+  allCompanies: CompanyRanking[],
 ): void {
   if (typeof window === 'undefined') return;
 
@@ -121,20 +119,15 @@ function savePreviousLeagueRanks(
       }
     }
 
-    // 새 기준점 저장: 배열 인덱스 + 1 = 리그 내 순위
+    // 새 기준점 저장: 배열 인덱스 + 1 = 전체 순위
     const premier: Record<string, number> = {};
-    premierCompanies.forEach((company, index) => {
+    allCompanies.forEach((company, index) => {
       premier[company.companyId] = index + 1;
-    });
-
-    const challengers: Record<string, number> = {};
-    challengersCompanies.forEach((company, index) => {
-      challengers[company.companyId] = index + 1;
     });
 
     const data: PreviousLeagueRanksData = {
       premier,
-      challengers,
+      challengers: {},
       savedAt: Date.now(),
     };
 
@@ -372,117 +365,42 @@ export function useLeagueData(options: UseLeagueDataOptions = {}): UseLeagueData
   // 이전 리그 순위 데이터 로드 (localStorage)
   const previousLeagueRanks = loadPreviousLeagueRanks();
 
-  // 전체 소속사 변환 (기본 변환, rankChange는 리그 분리 후 계산)
-  const allCompaniesRaw = (data?.companies || []).map((company) =>
-    transformToCompanyRanking(company),
-  );
+  // 전체 소속사 변환 (rank 순 정렬)
+  const allCompaniesRaw = (data?.companies || [])
+    .map((company) => transformToCompanyRanking(company))
+    .sort((a, b) => a.rank - b.rank);
 
-  // T1.53: DB의 league_tier 기준으로 리그 분리 (rank 기준 X)
-  // 1부 리그 (league_tier === 'premier')
-  const premierLeagueRaw = allCompaniesRaw.filter((c) => c.tier === 'premier');
-
-  // 2부 리그 (league_tier === 'challengers')
-  const challengersRaw = allCompaniesRaw.filter((c) => c.tier === 'challengers');
-
-  // T1.XX: 리그 내 순위 변동 계산 (배열 인덱스 기반)
-  // 이전 순위 맵이 없으면 빈 객체로 (첫 방문 시 변동 없음으로 표시)
-  const premierWithRankChange = calculateLeagueRankChanges(
-    premierLeagueRaw,
+  // 순위 변동 계산 (전체 순위 기반)
+  const allCompaniesWithRankChange = calculateLeagueRankChanges(
+    allCompaniesRaw,
     previousLeagueRanks?.premier || {},
   );
 
-  const challengersWithRankChange = calculateLeagueRankChanges(
-    challengersRaw,
-    previousLeagueRanks?.challengers || {},
-  );
+  // 단일 리그: 모든 소속사는 'safe' promotionStatus
+  // (2부 리그 폐지로 승강 개념 없음)
+  const allCompanies = allCompaniesWithRankChange.map((c) => ({
+    ...c,
+    tier: 'premier' as const,
+    isRelegationZone: false,
+    isPromotionZone: false,
+    promotionStatus: 'safe' as const,
+  }));
 
-  // T1.XX: 리그 내 순위 기준으로 승강 상태 설정
-  // 2026년 개편: 4가지 상태 (강등 직행, 강등 위기, 승격 직행, 승격 기회)
-  const premierLeagueSize = premierWithRankChange.length;
-  const challengersSize = challengersWithRankChange.length;
-
-  const premierLeague = premierWithRankChange.map((c, index) => {
-    const leagueRank = index + 1;
-    const promotionStatus = determinePromotionStatus('premier', leagueRank, premierLeagueSize);
-    return {
-      ...c,
-      // 기존 호환성 유지: 10위만 강등 위기로 표시 (deprecated)
-      isRelegationZone: promotionStatus === 'relegation_direct',
-      promotionStatus,
-    };
-  });
-
-  const challengers = challengersWithRankChange.map((c, index) => {
-    const leagueRank = index + 1;
-    const promotionStatus = determinePromotionStatus('challengers', leagueRank, challengersSize);
-    return {
-      ...c,
-      // 기존 호환성 유지: 1위만 승격 기회로 표시 (deprecated)
-      isPromotionZone: promotionStatus === 'promotion_direct',
-      promotionStatus,
-    };
-  });
-
-  // 현재 리그 순위를 localStorage에 저장 (기준점 설정)
-  if (premierLeague.length > 0 || challengers.length > 0) {
-    savePreviousLeagueRanks(premierLeague, challengers);
+  // 현재 순위를 localStorage에 저장 (기준점 설정)
+  if (allCompanies.length > 0) {
+    savePreviousLeagueRanks(allCompanies);
   }
 
-  // 전체 소속사: 리그별로 합친 후 rankChange가 계산된 버전
-  const allCompanies = [...premierLeague, ...challengers];
+  // 하위 호환: premierLeague = 1~10위, challengers = 빈 배열
+  const premierLeague = allCompanies.slice(0, 10);
+  const challengers: CompanyRanking[] = [];
 
   // 시즌 정보
   const season = getCurrentSeason();
 
-  // 2026년 개편: 직행 승강전 + 플레이오프 정보
-  // 직행 승강전: 1부 10위 vs 2부 1위
-  const relegationDirectCompany =
-    premierLeague.length > 0 ? premierLeague[premierLeague.length - 1] : null;
-  const promotionDirectCompany = challengers.length > 0 ? challengers[0] : null;
-
-  // 플레이오프: 1부 9위 vs 2부 2위
-  const relegationDangerCompany =
-    premierLeague.length >= 2 ? premierLeague[premierLeague.length - 2] : null;
-  const promotionChanceCompany = challengers.length >= 2 ? challengers[1] : null;
-
-  // 기존 호환성 유지: promotionBattle (10위 vs 11위)
-  const promotionBattle: PromotionBattle | null =
-    relegationDirectCompany && promotionDirectCompany
-      ? {
-          relegationCompany: relegationDirectCompany,
-          promotionCompany: promotionDirectCompany,
-          gap: relegationDirectCompany.voteCount - promotionDirectCompany.voteCount,
-        }
-      : null;
-
-  // 플레이오프 정보 (9위 vs 2위)
-  const playoffBattle: PlayoffBattle | null =
-    relegationDangerCompany && promotionChanceCompany
-      ? {
-          dangerCompany: relegationDangerCompany,
-          chanceCompany: promotionChanceCompany,
-          gap: relegationDangerCompany.voteCount - promotionChanceCompany.voteCount,
-          isChanceWinning: promotionChanceCompany.voteCount > relegationDangerCompany.voteCount,
-        }
-      : null;
-
-  // 전체 승강전 정보
-  const promotionBattles: PromotionBattles | null =
-    promotionBattle && playoffBattle
-      ? {
-          direct: promotionBattle,
-          playoff: playoffBattle,
-        }
-      : null;
-
-  // T1.51: 개발 모드 디버그 로그 - 승강전 데이터 누락 시 경고
-  if (isDev && allCompanies.length > 0 && !promotionBattle) {
-    console.warn('[useLeagueData] promotionBattle is null!', {
-      totalCompanies: allCompanies.length,
-      premierCount: premierLeague.length,
-      challengersCount: challengers.length,
-    });
-  }
+  // 단일 리그이므로 승강전 없음
+  const promotionBattle: PromotionBattle | null = null;
+  const promotionBattles: PromotionBattles | null = null;
 
   // 현재 1위
   const leader = allCompanies.find((c) => c.rank === 1) || null;

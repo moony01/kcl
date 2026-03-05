@@ -10,9 +10,7 @@
 
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Crown } from 'lucide-react';
 import type { CompanyRanking } from '@/types/league';
 import TopThreeCard from '../TopThreeCard';
 import LeagueRankingItem from '../LeagueRankingItem';
@@ -32,8 +30,6 @@ export default function PremierLeague({
   onVote,
   selectedCompanyId,
 }: PremierLeagueProps) {
-  const t = useTranslations('League.premier');
-
   // T1.XX: 배열 index 기준으로 분류 (rank는 전체 firepower 순위라서 사용 불가)
   // companies는 이미 firepower 순으로 정렬되어 있음
   const top3 = companies.slice(0, 3); // 처음 3개 = 1, 2, 3위
@@ -41,15 +37,6 @@ export default function PremierLeague({
 
   return (
     <section className={styles.premierLeague}>
-      {/* 섹션 헤더 */}
-      <header className={styles.header}>
-        <Crown className={styles.icon} size={20} />
-        <div className={styles.titleGroup}>
-          <h2 className={styles.title}>{t('title')}</h2>
-          <span className={styles.subtitle}>{t('subtitle')}</span>
-        </div>
-      </header>
-
       {/* Top 3 대형 카드 */}
       <div className={styles.topThreeGrid}>
         {top3.map((company, index) => (

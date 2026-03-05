@@ -103,7 +103,8 @@
     "sharePrompt": "Bu makaleyi beğendiniz mi? K-pop hayranlarıyla paylaşın!",
     "views": "{count} görüntüleme",
     "relatedNews": "Diğer Haberler",
-    "category_all": "Tümü"
+    "category_all": "Tümü",
+    "loadMore": "Daha fazla göster"
   },
   "NewsComments": {
     "title": "Yorumlar",

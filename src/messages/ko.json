@@ -103,7 +103,8 @@
     "sharePrompt": "기사가 마음에 드셨나요? K-pop 팬들과 공유해주세요!",
     "views": "{count} 조회",
     "relatedNews": "다른 뉴스도 읽어보세요",
-    "category_all": "전체"
+    "category_all": "전체",
+    "loadMore": "더 보기"
   },
   "NewsComments": {
     "title": "댓글",

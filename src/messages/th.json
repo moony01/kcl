@@ -103,7 +103,8 @@
     "sharePrompt": "ชอบบทความนี้ไหม? แชร์ให้เพื่อนๆ แฟน K-pop เลย!",
     "views": "{count} การดู",
     "relatedNews": "ข่าวอื่นๆ",
-    "category_all": "ทั้งหมด"
+    "category_all": "ทั้งหมด",
+    "loadMore": "ดูเพิ่มเติม"
   },
   "NewsComments": {
     "title": "ความคิดเห็น",

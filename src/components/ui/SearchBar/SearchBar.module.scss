@@ -15,8 +15,14 @@
 .searchWrapper {
   position: relative;
   width: 100%;
-  max-width: 500px;
   z-index: 100;
+
+  // 태블릿+: input과 chips를 가로 배치
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 }
 
 // =============================================
@@ -30,6 +36,12 @@
   border-radius: 16px;
   padding: 0 16px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  // 태블릿+: input 영역 고정 너비
+  @media (min-width: 768px) {
+    width: 400px;
+    flex-shrink: 0;
+  }
 
   // 포커스 상태: 보라색 보더 + 미세한 글로우 링
   &.focused,
@@ -109,6 +121,14 @@
   margin-top: 10px;
   padding: 0 4px;
   flex-wrap: wrap;
+
+  // 태블릿+: input 옆에 배치
+  @media (min-width: 768px) {
+    margin-top: 0;
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+  }
 }
 
 // "인기" 라벨
@@ -190,6 +210,12 @@
   left: 0;
   right: 0;
   z-index: 999;
+
+  // 태블릿+: input 너비에 맞춤
+  @media (min-width: 768px) {
+    width: 400px;
+    right: auto;
+  }
   // 완전 불투명 배경 (다크 모드에서 뒤 콘텐츠가 절대 비치지 않도록)
   background: #12121e;
   border: 1px solid rgba(255, 255, 255, 0.12);

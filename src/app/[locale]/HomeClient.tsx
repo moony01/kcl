@@ -19,7 +19,6 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import type { CompanyType } from '@/lib/mock-data';
-import type { LeagueTabType } from '@/types/league';
 
 // 데이터 Hooks
 import { useLeagueData } from '@/hooks/useLeagueData';
@@ -36,12 +35,8 @@ import SearchBar from '@/components/ui/SearchBar';
 const VoteController = dynamic(() => import('@/components/features/VoteController'), {
   ssr: false,
 });
-import SeasonHeader from '@/components/features/league/SeasonHeader';
-import LeagueTabs from '@/components/features/league/LeagueTabs';
 import PremierLeague from '@/components/features/league/PremierLeague';
-const Challengers = dynamic(() => import('@/components/features/league/Challengers'), {
-  ssr: false,
-});
+import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
 const HomeComments = dynamic(() => import('@/components/features/home/HomeComments'), {
   ssr: false,
 });
@@ -222,8 +217,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
   const eventModalCopy = useMemo(() => getEventModalCopy(locale), [locale]);
   const { profile, isLoading: isAuthLoading, isAuthenticated } = useAuth();
 
-  // 탭 상태 (1부 리그 기본)
-  const [activeTab, setActiveTab] = useState<LeagueTabType>('premier');
+  // 11위+ 더보기/접기 상태
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // T1.29: 선택된 회사 ID만 상태로 관리 (실제 데이터는 allCompanies에서 파생)
   // 기존 문제: selectedCompany가 투표 시점의 스냅샷을 유지하여 firepower 갱신 안 됨
@@ -237,9 +232,6 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
   // T1.102: 최애 그룹 기반 자동 선택 정보 (산하 레이블 + 그룹명)
   const [autoSubLabelId, setAutoSubLabelId] = useState<string | null>(null);
   const [autoArtistName, setAutoArtistName] = useState<string | null>(null);
-
-  // Challengers 더 보기 상태
-  const [challengersLimit, setChallengersLimit] = useState(10);
 
   // 화면 크기 감지
   const [isMobile, setIsMobile] = useState(true);
@@ -286,12 +278,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
   // Phase 5: API Route 대신 Supabase 직접 호출
   const {
     premierLeague,
-    challengers: allChallengers,
     allCompanies,
-    season,
-    promotionBattle,
-    promotionBattles,
-    leader,
     isLoading,
     error,
     refresh,
@@ -300,15 +287,10 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     fallbackData: initialData ?? undefined, // SSG에서는 undefined
   });
 
-  // 2부 리그 페이지네이션
-  const challengers = useMemo(() => {
-    return allChallengers.slice(0, challengersLimit);
-  }, [allChallengers, challengersLimit]);
-
-  // 더 불러올 데이터 있는지
-  const hasMoreChallengers = useMemo(() => {
-    return challengersLimit < allChallengers.length;
-  }, [allChallengers, challengersLimit]);
+  // 11위 이상 회사들 (더보기/접기 대상)
+  const companiesBelow11 = useMemo(() => {
+    return allCompanies.slice(10);
+  }, [allCompanies]);
 
   // T1.29: 선택된 회사 데이터를 allCompanies에서 파생 (항상 최신 데이터 반영)
   // 기존: selectedCompany state가 투표 시점 스냅샷 유지 → firepower 갱신 안 됨
@@ -458,9 +440,9 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     refresh();
   }, [refresh]);
 
-  // 더 보기 핸들러
-  const handleLoadMore = useCallback(() => {
-    setChallengersLimit((prev) => prev + 10);
+  // 11위+ 더보기/접기 토글 핸들러
+  const handleToggleExpand = useCallback(() => {
+    setIsExpanded((prev) => !prev);
   }, []);
 
   // 검색 결과 선택 핸들러
@@ -497,94 +479,77 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     <div className={styles.dashboardContainer}>
       {/* SEO용 H1 태그는 page.tsx에서 sr-only로 렌더링됨 */}
 
-      {/* 상단 영역: 시즌 헤더 + 검색 + 탭 (전체 너비) */}
-      <header className={styles.headerSection}>
-        {/* 시즌 대시보드 */}
-        <SeasonHeader
-          season={season}
-          leader={leader}
-          promotionBattle={promotionBattle}
-          promotionBattles={promotionBattles}
-          onVote={handleVote}
-        />
+      {/* 검색창 (LeagueHeader는 Header 바에 통합됨) */}
+      <div className={styles.searchSection}>
+        <SearchBar onSelect={handleSearchSelect} />
+      </div>
 
-        {/* 검색창 */}
-        <div className={styles.searchSection}>
-          <SearchBar onSelect={handleSearchSelect} />
-        </div>
-
-        {/* 탭 네비게이션 */}
-        <LeagueTabs
-          activeTab={activeTab}
-          onTabChange={setActiveTab}
-          premierCount={premierLeague.length}
-          challengersCount={allChallengers.length}
-        />
-      </header>
-
-      {/* 하단 영역: 탭 콘텐츠 + Battle Station (2열 레이아웃) */}
+      {/* 하단 영역: 리그 목록 + Battle Station (2열 레이아웃) */}
       <div className={styles.contentLayout}>
-        {/* 좌측: 탭 콘텐츠 영역 (스와이프 지원) */}
+        {/* 좌측: 리그 순위 영역 */}
         <section className={styles.leagueListSection}>
-          <motion.div
-            className={styles.swipeContainer}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(_, info) => {
-              // 스와이프 임계값: 50px 이상 또는 빠른 스와이프 (velocity 500 이상)
-              const swipeThreshold = 50;
-              const velocityThreshold = 500;
+          {/* 1~10위: PremierLeague 컴포넌트 */}
+          <PremierLeague
+            companies={premierLeague}
+            onVote={handleVote}
+            selectedCompanyId={selectedCompanyId}
+          />
 
-              if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-                // 왼쪽으로 스와이프 → 2부리그로 이동
-                if (activeTab === 'premier') {
-                  setActiveTab('challengers');
-                }
-              } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-                // 오른쪽으로 스와이프 → 1부리그로 이동
-                if (activeTab === 'challengers') {
-                  setActiveTab('premier');
-                }
-              }
-            }}
-            style={{ cursor: 'grab', touchAction: 'pan-y' }}
-            whileDrag={{ cursor: 'grabbing' }}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              {activeTab === 'premier' ? (
-                <motion.div
-                  key="premier"
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 30 }}
+          {/* 11위 이상: 더보기/접기 토글 */}
+          {companiesBelow11.length > 0 && (
+            <div className={styles.expandSection}>
+              {/* 11위+ 아이템 목록 - 펼쳐지는 애니메이션 */}
+              <AnimatePresence initial={false}>
+                {isExpanded && (
+                  <motion.div
+                    key="below11"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                    className={styles.expandedList}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    {companiesBelow11.map((company) => (
+                      <LeagueRankingItem
+                        key={company.companyId}
+                        company={company}
+                        onVote={handleVote}
+                        displayRank={company.rank}
+                        isSelected={selectedCompanyId === company.companyId}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* 더보기/접기 버튼 - 항상 목록 아래에 위치 */}
+              <button
+                type="button"
+                className={styles.expandToggleBtn}
+                onClick={handleToggleExpand}
+                aria-expanded={isExpanded}
+              >
+                <span>{isExpanded ? 'Collapse' : 'Show more'}</span>
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  animate={{ rotate: isExpanded ? 180 : 0 }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
+                  aria-hidden="true"
                 >
-                  <PremierLeague
-                    companies={premierLeague}
-                    onVote={handleVote}
-                    selectedCompanyId={selectedCompanyId}
-                  />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="challengers"
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
-                >
-                  <Challengers
-                    companies={challengers}
-                    onVote={handleVote}
-                    onLoadMore={handleLoadMore}
-                    hasMore={hasMoreChallengers}
-                    selectedCompanyId={selectedCompanyId}
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+                  <polyline points="6 9 12 15 18 9" />
+                </motion.svg>
+              </button>
+            </div>
+          )}
         </section>
 
         {/* 우측: Battle Station 패널 (데스크톱 전용) */}

@@ -31,10 +31,13 @@ interface NewsGridClientProps {
   locale: string;
 }
 
+const PAGE_SIZE = 9;
+
 export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
   const t = useTranslations('News');
   const [commentCounts, setCommentCounts] = useState<Record<string, number>>({});
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   // 댓글 수 배치 조회
   useEffect(() => {
@@ -61,6 +64,16 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
     return posts.filter((p) => (p.category || 'General') === selectedCategory);
   }, [posts, selectedCategory]);
 
+  // 카테고리 변경 시 페이지 리셋
+  const handleCategoryChange = (cat: string | null) => {
+    setSelectedCategory(cat);
+    setVisibleCount(PAGE_SIZE);
+  };
+
+  // 현재 페이지에 표시할 게시물
+  const displayedPosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPosts.length;
+
   return (
     <>
       {/* 카테고리 탭 필터 */}
@@ -71,7 +84,7 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
             className={classNames(styles.filterButton, {
               [styles.active]: selectedCategory === null,
             })}
-            onClick={() => setSelectedCategory(null)}
+            onClick={() => handleCategoryChange(null)}
           >
             {t('category_all')}
           </button>
@@ -82,7 +95,7 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
               className={classNames(styles.filterButton, {
                 [styles.active]: selectedCategory === cat,
               })}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => handleCategoryChange(cat)}
             >
               {cat}
             </button>
@@ -91,7 +104,7 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
       )}
 
       {/* 뉴스 카드 그리드 + in-feed 광고 (3번째 카드 후 삽입) */}
-      {filteredPosts.map((post, index) => (
+      {displayedPosts.map((post, index) => (
         <React.Fragment key={post.slug}>
           <NewsCard
             slug={post.slug}
@@ -111,6 +124,18 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
           )}
         </React.Fragment>
       ))}
+
+      {/* 더 보기 버튼 */}
+      {hasMore && (
+        <div className={styles.loadMore}>
+          <button
+            className={styles.loadMoreButton}
+            onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+          >
+            {t('loadMore')}
+          </button>
+        </div>
+      )}
 
       {/* 필터링 결과 없음 */}
       {filteredPosts.length === 0 && selectedCategory && (
