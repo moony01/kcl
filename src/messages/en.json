@@ -103,7 +103,8 @@
     "sharePrompt": "Did you enjoy this article? Share it with fellow K-pop fans!",
     "views": "{count} views",
     "relatedNews": "More Stories",
-    "category_all": "All"
+    "category_all": "All",
+    "loadMore": "Show more"
   },
   "NewsComments": {
     "title": "Comments",

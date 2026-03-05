@@ -103,7 +103,8 @@
     "sharePrompt": "Hat dir dieser Artikel gefallen? Teile ihn mit K-pop Fans!",
     "views": "{count} Aufrufe",
     "relatedNews": "Weitere Nachrichten",
-    "category_all": "Alle"
+    "category_all": "Alle",
+    "loadMore": "Mehr anzeigen"
   },
   "NewsComments": {
     "title": "Kommentare",

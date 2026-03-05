@@ -103,7 +103,8 @@
     "sharePrompt": "喜欢这篇文章吗？分享给K-pop粉丝们吧！",
     "views": "{count} 次浏览",
     "relatedNews": "更多新闻",
-    "category_all": "全部"
+    "category_all": "全部",
+    "loadMore": "显示更多"
   },
   "NewsComments": {
     "title": "评论",

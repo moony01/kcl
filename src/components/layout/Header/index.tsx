@@ -6,6 +6,8 @@
  * 모바일에서는 로고 + 컨트롤 영역을 표시하고,
  * 데스크탑에서는 컨트롤 영역만 우측 상단에 표시합니다.
  *
+ * 홈 페이지일 때: 로고 자리에 LeagueHeader (h1 + D-day) 표시
+ *
  * AUTH_SYSTEM 활성화 시:
  * - 미인증: LogIn 아이콘 (원형 버튼)
  * - 인증됨: 아바타 썸네일 (클릭 시 /my로 이동)
@@ -20,12 +22,16 @@ import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
+import { LeagueHeader } from '@/components/features/league/LeagueHeader';
 
 export default function Header() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const { profile, isAuthenticated } = useAuth();
+
+  // 홈 페이지 여부 판단 (/{locale} 또는 /{locale}/)
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
 
   const changeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
@@ -35,19 +41,27 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      {/* 모바일 로고 (데스크탑에서는 사이드바에 로고가 있으므로 숨김) */}
-      <Link href="/" className={styles.logoWrapper}>
-        <img
-          src="/kcl-logo.svg"
-          alt="KCL Logo"
-          className={styles.logoIcon}
-          width={28}
-          height={28}
-        />
-        <span className={styles.logoText}>KCL</span>
-      </Link>
+      <div className={styles.headerInner}>
+        {isHome ? (
+          /* 홈: 로고 자리에 LeagueHeader (Trophy + h1 + D-day badge) */
+          <div className={styles.leagueHeaderSlot}>
+            <LeagueHeader />
+          </div>
+        ) : (
+          /* 기타 페이지: 모바일 로고 (데스크탑에서는 사이드바에 로고가 있으므로 숨김) */
+          <Link href="/" className={styles.logoWrapper}>
+            <img
+              src="/kcl-logo.svg"
+              alt="KCL Logo"
+              className={styles.logoIcon}
+              width={28}
+              height={28}
+            />
+            <span className={styles.logoText}>KCL</span>
+          </Link>
+        )}
 
-      <div className={styles.controls}>
+        <div className={styles.controls}>
         {/* 테마 토글 버튼 (다크/라이트 모드 전환) */}
         <ThemeToggle compact className={styles.themeToggle} />
 
@@ -80,6 +94,7 @@ export default function Header() {
           <option value="fr">Français</option>
           <option value="de">Deutsch</option>
         </select>
+        </div>
       </div>
     </header>
   );

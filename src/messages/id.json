@@ -103,7 +103,8 @@
     "sharePrompt": "Suka artikel ini? Bagikan dengan penggemar K-pop lainnya!",
     "views": "{count} dilihat",
     "relatedNews": "Berita Lainnya",
-    "category_all": "Semua"
+    "category_all": "Semua",
+    "loadMore": "Tampilkan lebih banyak"
   },
   "NewsComments": {
     "title": "Komentar",

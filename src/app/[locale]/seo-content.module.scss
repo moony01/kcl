@@ -5,6 +5,21 @@
 
 @use '../../styles/abstracts/variables' as *;
 
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  padding: 16px 16px 0;
+
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+    padding: 24px 24px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
 .seoSection {
   width: 100%;
   max-width: 900px;

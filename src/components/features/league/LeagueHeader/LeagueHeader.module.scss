@@ -1,0 +1,227 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+$color-gold: #d4af37;
+$color-gold-light: #f5e4a1;
+$color-gold-dark: #b8860b;
+$light-primary: #8b5cf6;
+
+// ===== 전체 바 =====
+.infoBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+// ===== 좌측: 트로피 + h1 =====
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.trophyWrapper {
+  flex-shrink: 0;
+}
+
+// 트로피 아이콘
+.trophyIcon {
+  color: $color-gold;
+  filter: drop-shadow(0 0 5px rgba($color-gold, 0.5));
+  display: block;
+
+  [data-theme='dark'] & {
+    filter: drop-shadow(0 0 7px rgba($color-gold, 0.7));
+  }
+}
+
+// h1 타이틀 (두 줄: brand + seasonInfo)
+.title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+// 브랜드 텍스트 컨테이너
+.brand {
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: $font-display;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  // 다크 모드: 골드 그라디언트
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    $color-gold-light 40%,
+    $color-gold 60%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+
+  // 라이트 모드: 퍼플 단색
+  [data-theme='light'] & {
+    background: none;
+    -webkit-text-fill-color: unset;
+    color: $light-primary;
+    animation: none;
+  }
+
+  @media (min-width: 480px) {
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.15rem;
+  }
+}
+
+// 모바일: "KCL" 축약 표시
+.brandShort {
+  display: inline;
+
+  @media (min-width: 480px) {
+    display: none;
+  }
+}
+
+// 태블릿+: "KPOP COMPANY LEAGUE" 풀 텍스트
+.brandFull {
+  display: none;
+
+  @media (min-width: 480px) {
+    display: inline;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+// 서브 텍스트 (시즌 정보)
+.seasonInfo {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+
+  [data-theme='light'] & {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+// ===== 우측 그룹: 싱크 + D-day (수평 배치) =====
+.rightGroup {
+  display: none; // 모바일: 숨김
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+
+  @media (min-width: 480px) {
+    display: flex;
+  }
+}
+
+// 데이터 싱크 카운트다운 배지 (D-day와 동일한 pill 스타일)
+.syncBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: $font-display;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.55);
+
+  [data-theme='light'] & {
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    gap: 5px;
+  }
+}
+
+// D-day 배지
+.badge {
+  flex-shrink: 0;
+}
+
+.ddayLabel {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: $font-display;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba($color-gold, 0.4);
+  background: rgba($color-gold, 0.1);
+  color: $color-gold-light;
+  white-space: nowrap;
+
+  // 라이트 모드
+  [data-theme='light'] & {
+    border-color: rgba($light-primary, 0.35);
+    background: rgba($light-primary, 0.08);
+    color: $light-primary;
+  }
+
+  // 임박 (D-1 이하)
+  .badge[data-urgent='true'] & {
+    border-color: rgba(#f97316, 0.5);
+    background: rgba(#f97316, 0.12);
+    color: #f97316;
+    animation: urgentPulse 1.5s ease-in-out infinite;
+  }
+
+  @media (min-width: 480px) {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}
+
+@keyframes urgentPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

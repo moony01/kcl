@@ -12,25 +12,38 @@
 @use '../../../styles/abstracts/mixins' as mix;
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: calc($z-nav - 1); // 사이드바보다 낮게
+  z-index: calc($z-nav - 1);
   background: rgba($color-bg, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba($color-text, 0.08);
+  padding: 12px 0;
 
-  // 태블릿+: 로고 숨김되므로 우측 정렬
   @media (min-width: 768px) {
-    padding: 16px 24px;
+    padding: 16px 0;
     background: transparent;
     border-bottom: none;
     backdrop-filter: none;
-    justify-content: flex-end;
+  }
+}
+
+// contentInner와 동일한 max-width + 중앙 정렬
+.headerInner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 935px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @media (min-width: 768px) {
+    padding: 0 32px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 1100px;
   }
 }
 
@@ -64,11 +77,19 @@
   margin: 0;
 }
 
+// 홈 페이지 전용: LeagueHeader 슬롯 (로고 자리 대체)
+.leagueHeaderSlot {
+  flex: 1;
+  min-width: 0;
+  margin-right: 8px;
+}
+
 // 컨트롤 영역 (테마 토글, 언어 선택기 등)
 .controls {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto; // 항상 우측 정렬
 }
 
 // 테마 토글 버튼
@@ -94,7 +115,7 @@
 
 // 프로필/로그인 버튼
 .profileBtn {
-  display: flex;
+  display: none; // 모바일: 숨김
   align-items: center;
   justify-content: center;
   width: 36px;
@@ -106,6 +127,10 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
+
+  @media (min-width: 480px) {
+    display: flex;
+  }
 
   &:hover {
     background: rgba($color-text, 0.1);
