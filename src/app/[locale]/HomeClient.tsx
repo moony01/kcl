@@ -40,6 +40,7 @@ import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
 const HomeComments = dynamic(() => import('@/components/features/home/HomeComments'), {
   ssr: false,
 });
+import { LeagueHeader } from '@/components/features/league/LeagueHeader';
 
 import AdBanner from '@/components/common/AdBanner';
 import Modal from '@/components/common/Modal';
@@ -477,9 +478,12 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   return (
     <div className={styles.dashboardContainer}>
-      {/* SEO용 H1 태그는 page.tsx에서 sr-only로 렌더링됨 */}
+      {/* 시즌 헤더 (h1 + D-day) */}
+      <div className={styles.leagueHeaderSection}>
+        <LeagueHeader />
+      </div>
 
-      {/* 검색창 (LeagueHeader는 Header 바에 통합됨) */}
+      {/* 검색창 */}
       <div className={styles.searchSection}>
         <SearchBar onSelect={handleSearchSelect} />
       </div>

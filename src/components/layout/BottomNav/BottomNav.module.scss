@@ -18,8 +18,8 @@
   z-index: $z-nav;
   background: linear-gradient(to top, rgba($color-bg, 0.95) 0%, transparent 100%);
   
-  @media (min-width: 768px) {
-    display: none; // 태블릿 이상에서 숨김
+  @media (min-width: 480px) {
+    display: none; // 사이드바가 대체
   }
 }
 
@@ -49,9 +49,9 @@
   color: $color-text-dim;
   text-decoration: none;
   transition: color 0.2s ease;
-  padding: 6px 12px;
+  padding: 8px;
   border-radius: 12px;
-  min-width: 56px;
+  min-width: 44px;
 
   &:active {
     transform: scale(0.95);
@@ -97,7 +97,5 @@
 }
 
 .label {
-  font-size: 0.65rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  display: none; // 텍스트 라벨 완전 제거 (인스타 스타일)
 }

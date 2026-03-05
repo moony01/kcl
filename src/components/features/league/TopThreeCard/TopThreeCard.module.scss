@@ -35,6 +35,19 @@ $bronze: #cd7f32;
     &:hover {
       box-shadow: 0 8px 32px rgba($gold, 0.3);
     }
+
+    // 다크모드 전용 후광 효과
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border-radius: 30px;
+      background: radial-gradient(ellipse at center, rgba($gold, 0.2) 0%, transparent 70%);
+      filter: blur(25px);
+      z-index: -1;
+      animation: goldAura 3s ease-in-out infinite;
+      pointer-events: none;
+    }
   }
 
   // 2위 카드
@@ -201,6 +214,12 @@ $bronze: #cd7f32;
     opacity: 0.6;
     transform: scale(1.1);
   }
+}
+
+// 다크모드 1위 골드 후광 애니메이션
+@keyframes goldAura {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
 }
 
 // T1.45: 순위 변동 글로우 페이드 아웃
@@ -375,6 +394,11 @@ $light-primary: #8B5CF6;
 
   // 라이트모드에서 글로우/반짝임 효과 제거
   .glow {
+    display: none !important;
+  }
+
+  // 라이트모드에서 1위 골드 후광 숨김
+  .card[data-rank='1']::before {
     display: none !important;
   }
 

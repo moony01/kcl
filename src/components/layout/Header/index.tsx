@@ -3,15 +3,12 @@
 /**
  * Header - 상단 헤더 컴포넌트
  *
- * 모바일에서는 로고 + 컨트롤 영역을 표시하고,
- * 데스크탑에서는 컨트롤 영역만 우측 상단에 표시합니다.
- *
- * 홈 페이지일 때: 로고 자리에 LeagueHeader (h1 + D-day) 표시
+ * 모바일: 로고 + 컨트롤 (480px 이상에서는 사이드바가 로고 대체)
+ * LeagueHeader(h1)는 HomeClient에서 별도 렌더링
  *
  * AUTH_SYSTEM 활성화 시:
  * - 미인증: LogIn 아이콘 (원형 버튼)
  * - 인증됨: 아바타 썸네일 (클릭 시 /my로 이동)
- * - ThemeToggle과 LangSelect 사이에 배치
  */
 
 import { useLocale } from 'next-intl';
@@ -22,16 +19,12 @@ import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
-import { LeagueHeader } from '@/components/features/league/LeagueHeader';
 
 export default function Header() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const { profile, isAuthenticated } = useAuth();
-
-  // 홈 페이지 여부 판단 (/{locale} 또는 /{locale}/)
-  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
 
   const changeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
@@ -42,24 +35,17 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        {isHome ? (
-          /* 홈: 로고 자리에 LeagueHeader (Trophy + h1 + D-day badge) */
-          <div className={styles.leagueHeaderSlot}>
-            <LeagueHeader />
-          </div>
-        ) : (
-          /* 기타 페이지: 모바일 로고 (데스크탑에서는 사이드바에 로고가 있으므로 숨김) */
-          <Link href="/" className={styles.logoWrapper}>
-            <img
-              src="/kcl-logo.svg"
-              alt="KCL Logo"
-              className={styles.logoIcon}
-              width={28}
-              height={28}
-            />
-            <span className={styles.logoText}>KCL</span>
-          </Link>
-        )}
+        {/* 모바일 로고 (480px 이상에서는 사이드바에 로고가 있으므로 숨김) */}
+        <Link href="/" className={styles.logoWrapper}>
+          <img
+            src="/kcl-logo.svg"
+            alt="KCL Logo"
+            className={styles.logoIcon}
+            width={28}
+            height={28}
+          />
+          <span className={styles.logoText}>KCL</span>
+        </Link>
 
         <div className={styles.controls}>
         {/* 테마 토글 버튼 (다크/라이트 모드 전환) */}
