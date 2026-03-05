@@ -84,8 +84,6 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       <JsonLd data={websiteJsonLd} />
-      {/* SEO용 h1 - LeagueHeader 컴포넌트에서 시각적으로 렌더링됨 */}
-      <h1 className="sr-only">KCL - K-pop Company League 실시간 랭킹</h1>
       <HomeClient />
 
       {/* SEO 콘텐츠 섹션 - 서버 렌더링, 크롤러에 노출되는 정적 텍스트 */}

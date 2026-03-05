@@ -42,6 +42,16 @@
   }
 }
 
+// 시즌 헤더 (h1 + D-day) - 메인 콘텐츠 상단
+.leagueHeaderSection {
+  width: 100%;
+  padding: 12px 0 0;
+
+  @media (min-width: 768px) {
+    padding: 8px 0 0;
+  }
+}
+
 // 검색 섹션
 .searchSection {
   z-index: 50;

@@ -21,9 +21,9 @@
   border-bottom: 1px solid rgba($color-text, 0.08);
   padding: 12px 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 480px) {
     padding: 16px 0;
-    background: transparent;
+    background: $color-bg;
     border-bottom: none;
     backdrop-filter: none;
   }
@@ -53,8 +53,8 @@
   gap: 0.5rem;
   text-decoration: none;
 
-  // 데스크탑: 사이드바에 로고가 있으므로 숨김
-  @media (min-width: 768px) {
+  // 사이드바 표시 시 로고 숨김
+  @media (min-width: 480px) {
     display: none;
   }
 }
@@ -75,13 +75,6 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-}
-
-// 홈 페이지 전용: LeagueHeader 슬롯 (로고 자리 대체)
-.leagueHeaderSlot {
-  flex: 1;
-  min-width: 0;
-  margin-right: 8px;
 }
 
 // 컨트롤 영역 (테마 토글, 언어 선택기 등)
@@ -113,9 +106,9 @@
   }
 }
 
-// 프로필/로그인 버튼
+// 프로필/로그인 버튼 (사이드바 표시 후부터 노출)
 .profileBtn {
-  display: none; // 모바일: 숨김
+  display: none;
   align-items: center;
   justify-content: center;
   width: 36px;
@@ -128,7 +121,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     display: flex;
   }
 
