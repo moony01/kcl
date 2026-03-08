@@ -5,26 +5,18 @@
  *
  * 모바일: 로고 + 컨트롤 (480px 이상에서는 사이드바가 로고 대체)
  * LeagueHeader(h1)는 HomeClient에서 별도 렌더링
- *
- * AUTH_SYSTEM 활성화 시:
- * - 미인증: LogIn 아이콘 (원형 버튼)
- * - 인증됨: 아바타 썸네일 (클릭 시 /my로 이동)
  */
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LogIn } from 'lucide-react';
 import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
-import { FEATURES } from '@/config/features';
-import { useAuth } from '@/hooks/useAuth';
 
 export default function Header() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
-  const { profile, isAuthenticated } = useAuth();
 
   const changeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
@@ -51,20 +43,6 @@ export default function Header() {
         {/* 테마 토글 버튼 (다크/라이트 모드 전환) */}
         <ThemeToggle compact className={styles.themeToggle} />
 
-        {/* 인증 버튼: 로그인 또는 프로필 아바타 */}
-        {FEATURES.AUTH_SYSTEM && (
-          isAuthenticated ? (
-            <Link href={`/${locale}/my`} className={styles.profileBtn} title={profile?.username || 'Profile'}>
-              <span className={styles.profileAvatarInitial}>
-                {(profile?.username || '?').charAt(0).toUpperCase()}
-              </span>
-            </Link>
-          ) : (
-            <Link href={`/${locale}/login`} className={styles.profileBtn} title="Login">
-              <LogIn size={18} />
-            </Link>
-          )
-        )}
 
         <select value={locale} onChange={changeLang} className={styles.langSelect}>
           <option value="ko">한국어</option>
