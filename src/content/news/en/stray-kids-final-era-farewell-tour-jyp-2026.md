@@ -1,0 +1,72 @@
+---
+title: '"This Isn''t Goodbye" — Stray Kids Announce ''The Final Era'' Farewell Tour Before Military Service'
+excerpt: 'Stray Kids have officially announced ''The Final Era'' farewell world tour for late 2026. With Lee Know''s military enlistment looming, JYP''s crown jewel is writing the final chapter of their golden age.'
+date: '2026-03-08'
+category: 'Artist'
+thumbnail: '/images/news/stray-kids-final-era-farewell-tour-jyp-2026-thumbnail.png'
+active: true
+---
+
+"Everything we are today is because of STAY. This tour isn't just goodbye. It's a celebration of everything we've built together."
+
+When Bang Chan's message dropped, the STAY fandom collectively held its breath.
+
+On March 6, JYP Entertainment officially announced Stray Kids' end-of-year farewell tour, **'The Final Era,'** accompanied by an emotional teaser video. The news sent shockwaves through the entire K-pop landscape.
+
+## Tour Scale — Starting With Three Stadium Nights in Seoul
+
+'The Final Era' kicks off with **three consecutive stadium shows in Seoul**, then sweeps across Tokyo, Osaka, Los Angeles, New York, Chicago, Toronto, London, Paris, Berlin, Sydney, and Melbourne — a massive global circuit spanning over 10 cities.
+
+Stray Kids' ticket-selling power is already proven beyond question. Their **6th official fan meeting, 'STAY in Our Little House,'** scheduled for March 28–29 and April 4–5 at Inspire Arena, sold out all four dates within hours. The March 29 and April 5 shows will also be streamed globally via Beyond LIVE.
+
+### Festival Headliners
+
+Beyond their solo tour, Stray Kids are confirmed as headliners for **The Governors Ball Music Festival** in New York and **Rock in Rio** in Brazil — marking the first time any K-pop act has ever headlined these iconic festivals.
+
+## Why Now — Lee Know's Military Clock
+
+The reason this tour carries the weight of 'The Final Era' is the unavoidable reality of **mandatory military service**.
+
+Lee Know (Lee Minho), the group's eldest member born in 1998, must enlist by age 28 under South Korean military law. The most likely scenario points to **late 2026 or early 2027 enlistment**. While Bang Chan holds Australian citizenship, his Korean-based group activities will inevitably be affected.
+
+As [BTS's comeback proved](/en/news/bts-arirang-comeback-2026), military enlistment isn't merely a hiatus for K-pop groups — it's a generational turning point.
+
+![An ocean of blue lightsticks at a K-pop concert](/images/news/stray-kids-final-era-farewell-tour-jyp-2026-1.png)
+_The iconic sea of blue light — STAY's lightsticks illuminating a Stray Kids concert_
+
+## JYP's Strategic Calculation
+
+For JYP Entertainment, Stray Kids are the **financial backbone** of the company. Analysts recently raised JYP's target stock price by 14.3% to 88,000 KRW, largely driven by expectations around Stray Kids and TWICE resuming large-scale activities.
+
+Placing the farewell tour at year's end is a calculated move by JYP.
+
+| Period | Activity |
+|--------|----------|
+| Mar–Apr | 6th Fan Meeting 'STAY in Our Little House' |
+| First Half | New EP 'Do It' release |
+| Summer | Governors Ball & Rock in Rio festivals |
+| Second Half | 'The Final Era' world tour |
+
+The strategy is clear: maximize every moment of 2026, then deliver the most spectacular finale possible. If executed successfully, Stray Kids will set the record for the highest annual activity density among 4th-generation boy groups before enlistment.
+
+## The 'Dominate Experience' Box Office Success
+
+Stray Kids recently topped the **global box office** with their concert film, 'Stray Kids: The Dominate Experience.' Even accounting for a quiet weekend at theaters, a K-pop concert film claiming the global #1 spot is a powerful testament to the group's fandom loyalty.
+
+This box office success is expected to amplify ticket demand for 'The Final Era' tour to explosive levels.
+
+## KCL's Take on Stray Kids' Final Chapter
+
+Stray Kids' farewell tour carries significance beyond a mere concert series. It marks the **opening act of the 4th-generation military enlistment era**.
+
+In the early 2020s, BTS, EXO, and SEVENTEEN's sequential enlistments briefly paused the K-pop industry's momentum. Now that baton has been passed to the 4th generation. After Stray Kids, ATEEZ, THE BOYZ, and other groups that defined the 4th generation will follow the same path.
+
+JYP's clock stopping isn't just a Stray Kids story. It's the moment the entire 4th-generation K-pop clock gets reset.
+
+## Final Thoughts
+
+Bang Chan said it himself: "This isn't goodbye."
+
+He's right. Stray Kids' 'The Final Era' isn't an ending — it's the grandest punctuation mark on eight years of history built with STAY. And after every period comes a new sentence.
+
+2026 marks the beginning of K-pop's most passionate farewell.
