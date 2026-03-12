@@ -1,0 +1,85 @@
+---
+title: 'BLACKPINK''s ''GO'' Debuted at No. 63 on the Hot 100. The Number That Actually Matters Is 11'
+excerpt: 'On March 11, BLACKPINK''s ''GO'' entered the Billboard Hot 100 at No. 63. Alone, that number sounds unremarkable. But ''GO'' is the 11th BLACKPINK song to crack the Hot 100 — making them the first female K-pop act in history to reach that milestone.'
+date: '2026-03-12'
+category: 'Industry'
+thumbnail: '/images/news/blackpink-go-billboard-hot100-11th-entry-record-2026-thumbnail.png'
+active: true
+---
+
+On March 11, BLACKPINK's "GO" debuted at No. 63 on the Billboard Hot 100. Read that number in isolation and it seems modest — not a headline-maker. But context changes everything. "GO" is BLACKPINK's **11th song** to chart on the Hot 100, making them the first female K-pop artist in history to reach double-digit entries on the chart. That's what the 63 actually represents. Not a position. A milestone.
+
+## Why 11 Is the Record
+
+### The Complete Billboard Hot 100 History
+
+The Billboard Hot 100 is the most authoritative singles chart in the United States. Getting a K-pop song onto it at all is an achievement. Getting eleven there — across eight years, without a single English-language solo-project loophole — is something no female K-pop act had ever done before March 11, 2026.
+
+Here is the full BLACKPINK Hot 100 history:
+
+| # | Song | Peak | Year |
+|---|------|------|------|
+| 1 | DDU-DU DDU-DU | #55 | 2018 |
+| 2 | Kiss and Make Up (feat. Dua Lipa) | #93 | 2018 |
+| 3 | Kill This Love | #41 | 2019 |
+| 4 | Sour Candy (with Lady Gaga) | #33 | 2020 |
+| 5 | How You Like That | #33 | 2020 |
+| 6 | Ice Cream (feat. Selena Gomez) | **#13** | 2020 |
+| 7 | Lovesick Girls | #59 | 2020 |
+| 8 | Pink Venom | #22 | 2022 |
+| 9 | Shut Down | #25 | 2022 |
+| 10 | JUMP | #28 | 2026 |
+| **11** | **GO** | **#63** | **2026** |
+
+Ten entries was already the record. "GO" extended it to eleven. That is the story.
+
+### Putting 11 Next to 27
+
+BTS holds the K-pop group record with 27 Hot 100 entries — a figure that looks commanding next to BLACKPINK's 11. But the comparison deserves nuance.
+
+BTS's 27 entries include a significant number of solo tracks from individual members, two #1 English-language pop anthems ("Dynamite," "Butter") engineered specifically for American radio, and contributions from seven members accumulating entries over an extended run. BLACKPINK's 11 are almost exclusively group tracks, predominantly in Korean or Korean-English mix, without an equivalent English crossover strategy.
+
+The structural gap between a 7-member boy group with an intentional English-pop play and a 4-member girl group operating primarily in Korean narrows the apparent 27-vs-11 distance considerably. What BLACKPINK has done is demonstrate that consistent, sustained Hot 100 presence is achievable for a female K-pop group — not just a one-time collaboration spike.
+
+## Why 'GO' at #63 Gets More Attention Than 'JUMP' at #28
+
+This is the counterintuitive element of the story. "JUMP," the lead single from 'DEADLINE,' debuted at #28 on the Hot 100 — the highest chart position BLACKPINK has ever achieved as a group without a Western superstar feature. It was the stronger chart performance by every traditional metric. Yet "GO" at #63 generated the headline.
+
+The reason is purely about sequence. **"JUMP" was the 10th entry. "GO" was the 11th.** No amount of rank improvement can create the same milestone that a new entry number delivers. Chart peaks fluctuate; cumulative count only moves one direction. The 11th entry will be part of K-pop history. The peak position of that 11th entry is a footnote.
+
+![BLACKPINK on a global stage with a glowing Billboard Hot 100 chart visualization in the background, pink and black tones, representing their 11th chart entry milestone](/images/news/blackpink-go-billboard-hot100-11th-entry-record-2026-1.png)
+_Image: AI-generated via ChatGPT_
+
+## UK Charts: The Record Isn't Only American
+
+The Hot 100 milestone is part of a broader pattern. On the UK Official Charts, "GO" debuted at No. 44 on the Singles chart — BLACKPINK's 12th entry in UK singles chart history. 'DEADLINE' as an album debuted at No. 11, the group's 4th UK albums chart entry.
+
+The UK Official Charts sit alongside Billboard as the two most globally recognized music industry benchmarks. BLACKPINK now holds the record for most single chart entries by any K-pop female act in both the United States and the United Kingdom simultaneously. That is not a streaming-era participation trophy. It reflects consistent market penetration across the two largest English-language music markets over nearly a decade.
+
+## What This Means for K-Pop Girl Groups
+
+### The Gap That Still Exists
+
+The honest reading of the data is that no other fourth-generation K-pop girl group is close. TWICE, IVE, NewJeans, aespa — the groups that define the current generation — have combined Hot 100 appearances that don't approach BLACKPINK's 11. aespa, arguably the dominant 4th-gen girl group brand in Korea right now, has yet to chart on the Hot 100 as a group.
+
+This gap is not about talent or domestic popularity. It's about the specific mechanics of the Hot 100: streaming volume from US-based listeners, radio airplay, and digital sales in the American market. BLACKPINK cracked those mechanics starting in 2018 and has maintained access since.
+
+### The Ceiling Just Got Raised
+
+Before March 11, 2026, the K-pop girl group Hot 100 ceiling was 10 entries. It is now 11. The next target is 12. BLACKPINK would need another 'DEADLINE'-era single cycle, or a solo feature collaboration, to get there. Given the trajectory — two singles from one EP both reaching the Hot 100 in the same chart cycle — the path to 12 is shorter than the path to 11 was.
+
+[Related: BLACKPINK 'DEADLINE' Sells 1.77M First Week — K-Pop Girl Group Sales Record Shattered](/en/news/blackpink-deadline-ep-record-sales-yg-2026)
+
+## KCL's Take
+
+Three things stand out from the "GO" milestone.
+
+**First, the longevity argument is settled.** BLACKPINK debuted in 2016. Their first Hot 100 entry came in 2018. Their 11th came in 2026. That is an eight-year run of relevance in the American market — by any measure, extraordinary for a K-pop act operating in Korean. The conventional wisdom that K-pop groups have short commercial windows does not apply to BLACKPINK.
+
+**Second, the 11th entry is more significant than their highest peak.** Ice Cream (#13, 2020) remains their best chart position. But a #13 from a collboration with Selena Gomez at the height of the 2020 pandemic streaming boom is a different data point from 11 separate chart appearances across eight years. Depth of catalogue performance beats a single spike.
+
+**Third, this is a benchmark, not a ceiling.** The 27 entries BTS holds did not accumulate overnight. BLACKPINK's 11 are a foundation, not a final number. Whether they reach 15 or 20 depends on what comes after 'DEADLINE' — and whether the group continues to operate in the long-arc, multi-decade pattern they've established rather than the shorter cycle most K-pop acts follow.
+
+## Remember 11, Not 63
+
+Chart positions reset every week. "GO" at No. 63 will be a footnote in BLACKPINK's discography. But the first female K-pop artist with 11 Billboard Hot 100 entries is a permanent entry in music history. That's the number worth remembering. Not the position. The count.
