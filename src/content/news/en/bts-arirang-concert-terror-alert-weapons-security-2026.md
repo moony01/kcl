@@ -1,5 +1,5 @@
 ---
-title: 'Bomb Threats, Gas Guns, and a Terror Alert: The Full Story of BTS Gwanghwamun's Unprecedented Security Operation'
+title: "Bomb Threats, Gas Guns, and a Terror Alert: The Full Story of BTS Gwanghwamun's Unprecedented Security Operation"
 excerpt: "As 260,000 fans descended on Seoul's Gwanghwamun Square for BTS's comeback concert, South Korean authorities raised the terror alert level, deployed 15,000 security personnel with anti-drone systems, and arrested concertgoers carrying gas guns, stun guns, and knives. KCL breaks down the largest security operation in K-pop history."
 date: '2026-03-21'
 category: 'Artist'
