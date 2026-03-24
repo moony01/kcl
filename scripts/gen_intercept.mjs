@@ -6,12 +6,12 @@ import { chromium } from 'playwright-core';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const slug = process.argv[2] || 'bts-arirang-grammy-hunt-2026';
+const slug = process.argv[2] || 'bts-arirang-comeback-gwanghwamun-2026';
 const outDir = 'C:/Users/mun01/workspace/kcl/public/images/news';
 
 const prompts = {
-  thumbnail: `Cinematic editorial 16:9, no text: a gleaming Grammy Award trophy standing alone on a dark stage under a single dramatic spotlight, behind it a vast sold-out stadium with purple and gold light beams, BTS silhouettes visible in the background, sense of ambition and tension, photorealistic`,
-  body: `Cinematic editorial 16:9, no text: seven young Korean men in stylish modern outfits standing on a massive concert stage at night, arms raised, stadium crowd of 260000 fans with phone lights stretching to the horizon, dramatic purple and white stage lighting, triumphant energy, photorealistic`
+  thumbnail: `Cinematic editorial 16:9, no text: an enormous open-air night concert at a historic plaza in Seoul, South Korea, massive stage blazing with white and purple LED lights, an ocean of 260000 fans holding glowing lightsticks stretching to the horizon, aerial view, breathtaking scale, K-pop comeback energy, photorealistic`,
+  body: `Cinematic editorial 16:9, no text: seven young Korean men in sleek modern stage outfits performing on a huge outdoor concert stage at night, arms raised triumphantly, surrounded by a sea of 260000 cheering fans with phone lights, dramatic spotlights and confetti, Seoul city skyline visible in the background, epic comeback moment, photorealistic`
 };
 
 function log(m) { console.log(`[${new Date().toISOString()}] ${m}`); }
