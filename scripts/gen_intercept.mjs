@@ -6,12 +6,12 @@ import { chromium } from 'playwright-core';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const slug = process.argv[2] || 'newjeans-ador-return-2026-comeback-without-minhejin';
+const slug = process.argv[2] || 'bts-arirang-grammy-hunt-2026';
 const outDir = 'C:/Users/mun01/workspace/kcl/public/images/news';
 
 const prompts = {
-  thumbnail: `Cinematic editorial 16:9, no text: five young K-pop women standing at a crossroads in a dimly lit Seoul street at night, uncertain expressions, warm neon reflections on wet pavement, sense of anticipation and tension, photorealistic`,
-  body: `Cinematic editorial 16:9, no text: empty modern K-pop recording studio at night, five silhouettes behind glass, one director's chair conspicuously empty at the mixing desk, spotlights, moody blue and gold lighting, photorealistic`
+  thumbnail: `Cinematic editorial 16:9, no text: a gleaming Grammy Award trophy standing alone on a dark stage under a single dramatic spotlight, behind it a vast sold-out stadium with purple and gold light beams, BTS silhouettes visible in the background, sense of ambition and tension, photorealistic`,
+  body: `Cinematic editorial 16:9, no text: seven young Korean men in stylish modern outfits standing on a massive concert stage at night, arms raised, stadium crowd of 260000 fans with phone lights stretching to the horizon, dramatic purple and white stage lighting, triumphant energy, photorealistic`
 };
 
 function log(m) { console.log(`[${new Date().toISOString()}] ${m}`); }
