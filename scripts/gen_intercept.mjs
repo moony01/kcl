@@ -6,12 +6,12 @@ import { chromium } from 'playwright-core';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const slug = process.argv[2] || 'bts-arirang-comeback-gwanghwamun-2026';
+const slug = process.argv[2] || 'gdragon-lawsuit-media-100-commenters-cleared-2026';
 const outDir = 'C:/Users/mun01/workspace/kcl/public/images/news';
 
 const prompts = {
-  thumbnail: `Cinematic editorial 16:9, no text: an enormous open-air night concert at a historic plaza in Seoul, South Korea, massive stage blazing with white and purple LED lights, an ocean of 260000 fans holding glowing lightsticks stretching to the horizon, aerial view, breathtaking scale, K-pop comeback energy, photorealistic`,
-  body: `Cinematic editorial 16:9, no text: seven young Korean men in sleek modern stage outfits performing on a huge outdoor concert stage at night, arms raised triumphantly, surrounded by a sea of 260000 cheering fans with phone lights, dramatic spotlights and confetti, Seoul city skyline visible in the background, epic comeback moment, photorealistic`
+  thumbnail: `Cinematic editorial 16:9, no text: lone East Asian male K-pop superstar standing in a blinding white courtroom spotlight on a massive dark stage, stacks of legal documents and a gavel visible in the foreground, powerful confident expression, suited lawyers blurred in background, dramatic chiaroscuro lighting, ultra-realistic photojournalism editorial style`,
+  body: `Cinematic editorial 16:9, no text: East Asian male music icon in a sleek black outfit standing triumphantly at a podium on a concert stage, a vast adoring crowd in the distance, large abstract scales-of-justice motif glowing in neon behind him, atmosphere of vindication and power, cinematic wide-angle shot, photorealistic editorial photography`
 };
 
 function log(m) { console.log(`[${new Date().toISOString()}] ${m}`); }
@@ -53,14 +53,21 @@ async function generateOne(context, type) {
 
   // Navigate to a brand new conversation
   await page.goto('https://chatgpt.com/', { waitUntil: 'load', timeout: 60000 });
-  await sleep(4000);
+  await sleep(15000); // Wait for Cloudflare "확인 중..." to auto-pass
 
-  // Handle Cloudflare
+  // Handle Cloudflare CAPTCHA (manual check required)
   const cf = await page.locator('text=사람인지 확인하십시오').count();
   if (cf > 0) {
-    log('Cloudflare, reloading...');
+    log('Cloudflare CAPTCHA, reloading...');
     await page.reload({ waitUntil: 'load' });
-    await sleep(5000);
+    await sleep(15000);
+  }
+
+  // Also handle "확인 중..." auto-check still lingering
+  const cfChecking = await page.locator('text=확인 중').count();
+  if (cfChecking > 0) {
+    log('Cloudflare still checking, waiting extra 20s...');
+    await sleep(20000);
   }
 
   await ss(page, `${type}_0_home`);
