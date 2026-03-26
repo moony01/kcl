@@ -6,12 +6,12 @@ import { chromium } from 'playwright-core';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const slug = process.argv[2] || 'gdragon-lawsuit-media-100-commenters-cleared-2026';
+const slug = process.argv[2] || 'bts-arirang-animation-whitewash-howard-university-2026';
 const outDir = 'C:/Users/mun01/workspace/kcl/public/images/news';
 
 const prompts = {
-  thumbnail: `Cinematic editorial 16:9, no text: lone East Asian male K-pop superstar standing in a blinding white courtroom spotlight on a massive dark stage, stacks of legal documents and a gavel visible in the foreground, powerful confident expression, suited lawyers blurred in background, dramatic chiaroscuro lighting, ultra-realistic photojournalism editorial style`,
-  body: `Cinematic editorial 16:9, no text: East Asian male music icon in a sleek black outfit standing triumphantly at a podium on a concert stage, a vast adoring crowd in the distance, large abstract scales-of-justice motif glowing in neon behind him, atmosphere of vindication and power, cinematic wide-angle shot, photorealistic editorial photography`
+  thumbnail: `Cinematic editorial 16:9, no text: seven young East Asian men in 1890s formal attire standing on the grand stone steps of a historic American university at golden hour, singing together, surrounded by a racially diverse crowd of Black and Asian faces looking on with wonder, warm amber lighting, epic historical documentary photography style, photorealistic`,
+  body: `Cinematic editorial 16:9, no text: antique brass phonograph with a large recording horn on a wooden table in a sunlit university hall in 1896, surrounded by young Korean men in period formal coats and young Black American students in Victorian-era dress, a woman ethnologist carefully adjusting the recording device, warm candlelight and window light, historical documentary photography, photorealistic`
 };
 
 function log(m) { console.log(`[${new Date().toISOString()}] ${m}`); }
@@ -51,16 +51,38 @@ async function generateOne(context, type) {
     }
   });
 
-  // Navigate to a brand new conversation
-  await page.goto('https://chatgpt.com/', { waitUntil: 'load', timeout: 60000 });
+  // Navigate to a brand new conversation — force gpt-4o (image-capable, not reasoning model)
+  await page.goto('https://chatgpt.com/?model=gpt-4o', { waitUntil: 'load', timeout: 60000 });
   await sleep(15000); // Wait for Cloudflare "확인 중..." to auto-pass
 
-  // Handle Cloudflare CAPTCHA (manual check required)
+  // Handle Cloudflare CAPTCHA — try clicking the turnstile iframe
   const cf = await page.locator('text=사람인지 확인하십시오').count();
   if (cf > 0) {
-    log('Cloudflare CAPTCHA, reloading...');
-    await page.reload({ waitUntil: 'load' });
-    await sleep(15000);
+    log('Cloudflare Turnstile detected, attempting click...');
+    try {
+      // CF Turnstile is inside an iframe
+      const frames = page.frames();
+      for (const frame of frames) {
+        if (frame.url().includes('challenges.cloudflare.com')) {
+          await frame.locator('body').click({ timeout: 5000 });
+          log('Clicked CF Turnstile iframe body');
+          break;
+        }
+      }
+    } catch { /* */ }
+    // Also try clicking the widget on the main page
+    try {
+      const widget = page.locator('[class*="widget"], #cf-chl-widget, input[name*="cf-turnstile"]').first();
+      if (await widget.count() > 0) await widget.click({ timeout: 3000 });
+    } catch { /* */ }
+    await sleep(12000); // Wait for CF to resolve
+    // If still stuck, reload once
+    const cfStill = await page.locator('text=사람인지 확인하십시오').count();
+    if (cfStill > 0) {
+      log('Still on CF after click, reloading...');
+      await page.reload({ waitUntil: 'load' });
+      await sleep(20000);
+    }
   }
 
   // Also handle "확인 중..." auto-check still lingering
@@ -71,6 +93,34 @@ async function generateOne(context, type) {
   }
 
   await ss(page, `${type}_0_home`);
+
+  // Switch to GPT-4o — the model selector is the "Pro" button in the input area
+  try {
+    // Click the model selector button (shows as "Pro" or current model name)
+    const modelBtn = page.locator('button:has-text("Pro"), button[data-testid="model-switcher-dropdown-button"], button[class*="model"]').first();
+    if (await modelBtn.count() > 0) {
+      await modelBtn.click({ timeout: 5000 });
+      log('Clicked model selector');
+      await sleep(1500);
+      // Select GPT-4o from the dropdown
+      const opt4o = page.locator('[role="menuitem"]:has-text("4o"), [role="option"]:has-text("4o"), li:has-text("GPT-4o"), button:has-text("GPT-4o")').first();
+      if (await opt4o.count() > 0) {
+        await opt4o.click({ timeout: 5000 });
+        log('Switched to GPT-4o');
+        await sleep(1000);
+      } else {
+        // Fall back to "Instant" mode (fast/non-reasoning, supports image gen)
+        const optInstant = page.locator('[role="menuitem"]:has-text("Instant"), [role="option"]:has-text("Instant")').first();
+        if (await optInstant.count() > 0) {
+          await optInstant.click({ timeout: 5000 });
+          log('Switched to Instant mode');
+          await sleep(1000);
+        } else {
+          await page.keyboard.press('Escape');
+        }
+      }
+    }
+  } catch (e) { log(`Model switch error: ${e}`); }
 
   const input = page.locator('#prompt-textarea').first();
   await input.waitFor({ state: 'visible', timeout: 15000 });
@@ -146,7 +196,9 @@ async function generateOne(context, type) {
   }
 
   const ctx = await chromium.launchPersistentContext('C:/Users/mun01/.playwright-mcp-profile', {
-    channel: 'msedge', headless: false, viewport: { width: 1440, height: 900 }
+    channel: 'msedge', headless: false, viewport: { width: 1440, height: 900 },
+    args: ['--disable-blink-features=AutomationControlled'],
+    ignoreDefaultArgs: ['--enable-automation'],
   });
 
   try {
