@@ -1,5 +1,173 @@
 [
   {
+    "slug": "cortis-greengreen-preorders",
+    "locale": "en",
+    "title": "436K Turned Into 1.22M — Why CORTIS Flipped The Rookie Market Before Comeback Day",
+    "excerpt": "CORTIS GREENGREEN pre-orders hit 1.22 million a month before release, nearly tripling the debut 436K benchmark and resetting the rookie album market.",
+    "date": "2026-04-07",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/cortis-greengreen-preorders-thumbnail.png"
+  },
+  {
+    "slug": "cortis-greengreen-preorders",
+    "locale": "ko",
+    "title": "43만장이 122만이 됐다…CORTIS가 컴백 한 달 전 시장을 뒤집은 이유",
+    "excerpt": "CORTIS GREENGREEN 선주문이 122만 장을 넘겼다. 데뷔 초동 43만장을 한 달 전에 갈아치운 루키 보이그룹의 시장 장악력을 읽는다.",
+    "date": "2026-04-07",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/cortis-greengreen-preorders-thumbnail.png"
+  },
+  {
+    "slug": "top-bigbang-solo-2026",
+    "locale": "en",
+    "title": "BIGBANG Is at Coachella — T.O.P Just Dropped a Solo Album Nobody Saw Coming",
+    "excerpt": "While BIGBANG headlines Coachella 2026 for their 20th anniversary, T.O.P quietly released his first full solo album in 13 years — independently, without YG or the group. Here's what his choice reveals.",
+    "date": "2026-04-06",
+    "category": "Artist",
+    "thumbnail": "/images/news/top-bigbang-solo-2026-thumbnail.png"
+  },
+  {
+    "slug": "top-bigbang-solo-2026",
+    "locale": "ko",
+    "title": "BIGBANG 멤버 모두 코첼라인데…T.O.P만 혼자 다른 앨범을 냈다",
+    "excerpt": "BIGBANG 데뷔 20주년 코첼라 무대가 달아오르는 동안, T.O.P는 13년 만의 솔로 정규앨범 'Another Dimension'을 냈다. YG 없이, 그룹 없이—독립 레이블로 혼자 택한 길의 의미를 짚는다.",
+    "date": "2026-04-06",
+    "category": "Artist",
+    "thumbnail": "/images/news/top-bigbang-solo-2026-thumbnail.png"
+  },
+  {
+    "slug": "coachella-2026-kpop-takeover",
+    "locale": "en",
+    "title": "'Next to Michael Jackson' — K-pop Just Landed at the Grammy Museum, and Coachella 2026 Is the Encore",
+    "excerpt": "BIGBANG reunites after 6 years, Taemin becomes the first male K-pop solo at Coachella, and the Grammy Museum places a K-pop exhibit on the same floor as Michael Jackson. Nine Asian acts at one festival — this is what cultural domination looks like.",
+    "date": "2026-03-29",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/coachella-2026-kpop-takeover-thumbnail.png"
+  },
+  {
+    "slug": "hybe-stock-bts-paradox",
+    "locale": "en",
+    "title": "HYBE Stock Crashed 15% in a Day — Why K-Pop's Biggest Album Couldn't Save It",
+    "excerpt": "BTS's ARIRANG sold 4.17 million copies, set Spotify's biggest K-pop opening day with 110 million streams, and drew 18.4 million Netflix viewers. Then HYBE's stock plunged 15%. The answer was in Gwanghwamun Square.",
+    "date": "2026-03-29",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/hybe-stock-bts-paradox-thumbnail.png",
+    "active": false
+  },
+  {
+    "slug": "rose-solo-kpop-records",
+    "locale": "en",
+    "title": "Rosé Just Rewrote Every K-pop Solo Record in 6 Months — And She's Not Done Yet",
+    "excerpt": "1 billion Spotify streams for APT., 12 weeks at No. 1 on Global 200, Grammy opening stage, Guinness records. Rosé's 6-month solo run shattered every ceiling K-pop soloists thought existed.",
+    "date": "2026-03-29",
+    "category": "Artist",
+    "thumbnail": "/images/news/rose-solo-kpop-records-thumbnail.png",
+    "active": false
+  },
+  {
+    "slug": "coachella-2026-kpop-takeover",
+    "locale": "ko",
+    "title": "'마이클 잭슨 옆자리에 K-pop이 들어갔다' — 코첼라 2026, 빅뱅·태민·KATSEYE 총출동의 진짜 의미",
+    "excerpt": "코첼라 2026에 빅뱅 20주년 재결합, 태민 K-pop 남성 솔로 최초 출연, 그래미 뮤지엄 단독 전시까지. 9팀의 아시안 아티스트가 사막을 점령하는 이 라인업이 K-pop 역사의 분기점인 이유.",
+    "date": "2026-03-29",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/coachella-2026-kpop-takeover-thumbnail.png"
+  },
+  {
+    "slug": "hybe-stock-bts-paradox",
+    "locale": "ko",
+    "title": "하이브, 하루 만에 주가 15% 증발 — 사상 최대 앨범도 막지 못한 'BTS 리스크'의 민낯",
+    "excerpt": "BTS ARIRANG 417만 장 판매, 스포티파이 1억 스트리밍, 넷플릭스 1,840만 동접. 모든 지표가 역대급이었다. 그런데 하이브 주가는 15% 폭락했다. 광화문에 사람이 없었다.",
+    "date": "2026-03-29",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/hybe-stock-bts-paradox-thumbnail.png",
+    "active": false
+  },
+  {
+    "slug": "rose-solo-kpop-records",
+    "locale": "ko",
+    "title": "로제, 결국 혼자서 해냈다 — 그래미 오프닝·Hot 100 3위·기네스, K-pop 솔로의 천장이 깨졌다",
+    "excerpt": "APT. 스포티파이 10억 스트리밍, 글로벌 200 12주 1위, 그래미 오프닝 무대, 기네스 기록까지. 로제가 6개월 만에 부순 K-pop 솔로의 벽은 이전에 존재한 적 없는 높이였다.",
+    "date": "2026-03-29",
+    "category": "Artist",
+    "thumbnail": "/images/news/rose-solo-kpop-records-thumbnail.png",
+    "active": false
+  },
+  {
+    "slug": "hybe-india-audition-kpop",
+    "locale": "en",
+    "title": "HYBE Just Opened Auditions Across India — The Moment K-Pop Stopped Being 'Korean'",
+    "excerpt": "HYBE launches massive auditions across 10 Indian cities on March 31. Samsung, Nongshim, and H&M signed on as sponsors. This isn't a talent search — it's Bang Si-hyuk's plan to redefine K-pop itself.",
+    "date": "2026-03-28",
+    "category": "Trainee System",
+    "thumbnail": "/images/news/hybe-india-audition-kpop-thumbnail.png"
+  },
+  {
+    "slug": "kpop-concert-price-inflation-2026",
+    "locale": "en",
+    "title": "K-pop Labels Doubled Ticket Prices in 3 Years — And Fans Kept Paying",
+    "excerpt": "BTS standing tickets at $200, rookie ILLIT's first tour M&G at $180. K-pop concert prices doubled in 3 years. How far will labels push before fans break?",
+    "date": "2026-03-28",
+    "category": "Business",
+    "thumbnail": "/images/news/kpop-concert-price-inflation-2026-thumbnail.png",
+    "active": false
+  },
+  {
+    "slug": "twice-double-injury-kpop-overwork",
+    "locale": "en",
+    "title": "'Just Sit in a Chair and Perform' — The K-pop Machine That Won't Let Injured Idols Rest",
+    "excerpt": "TWICE's Dahyun performed on a broken ankle from a chair. Chaeyoung couldn't board her flight due to back pain. Two members sidelined mid-tour across 43 cities — exposing the relentless overwork system behind K-pop's biggest stages.",
+    "date": "2026-03-28",
+    "category": "Industry",
+    "thumbnail": "/images/news/twice-double-injury-kpop-overwork-thumbnail.png"
+  },
+  {
+    "slug": "hybe-india-audition-kpop",
+    "locale": "ko",
+    "title": "방시혁, 14억 인도에 오디션을 열었다…'K-pop은 한국 것'이라는 공식이 깨지는 순간",
+    "excerpt": "하이브가 3월 31일 인도 10개 도시에서 대규모 오디션을 시작한다. 삼성·농심·H&M이 스폰서로 붙었다. 단순 연습생 모집이 아닌, 방시혁의 멀티홈 전략 실체를 해부한다.",
+    "date": "2026-03-28",
+    "category": "Trainee System",
+    "thumbnail": "/images/news/hybe-india-audition-kpop-thumbnail.png"
+  },
+  {
+    "slug": "kpop-concert-price-inflation-2026",
+    "locale": "ko",
+    "title": "'25만 원이요? 싼데요'…K-pop 팬의 가격 기준이 무너진 순간, 기획사는 웃었다",
+    "excerpt": "BTS 스탠딩 26만 원, 신인 ILLIT 첫 투어 M&G 25만 원. 3년 만에 2배로 뛴 K-pop 콘서트 티켓값, 기획사의 가격 실험은 어디까지 갈까.",
+    "date": "2026-03-28",
+    "category": "Business",
+    "thumbnail": "/images/news/kpop-concert-price-inflation-2026-thumbnail.png",
+    "active": false
+  },
+  {
+    "slug": "twice-double-injury-kpop-overwork",
+    "locale": "ko",
+    "title": "'괜찮아, 의자에 앉아서 해' — 발목 골절 다현에게 무대를 준 K-pop의 정체",
+    "excerpt": "TWICE 다현은 발목이 부러진 채 의자에 앉아 공연했고, 채영은 등 부상으로 미국행 비행기를 못 탔다. 43개 도시 월드투어 한복판에서 벌어진 연쇄 이탈, 그 이면의 시스템을 파헤친다.",
+    "date": "2026-03-28",
+    "category": "Industry",
+    "thumbnail": "/images/news/twice-double-injury-kpop-overwork-thumbnail.png"
+  },
+  {
+    "slug": "yuna-solo-debut-ice-cream",
+    "locale": "en",
+    "title": "Darkness vs Sugar — Why ITZY's Two Solo Debuts Are Polar Opposites",
+    "excerpt": "Yeji chose dark electro. Yuna chose bubblegum pop. Two solo debuts from the same K-pop group going in completely opposite directions isn't a coincidence — it's JYP's calculated experiment.",
+    "date": "2026-03-27",
+    "category": "Artist",
+    "thumbnail": "/images/news/yuna-solo-debut-ice-cream-thumbnail.png"
+  },
+  {
+    "slug": "yuna-solo-debut-ice-cream",
+    "locale": "ko",
+    "title": "예지는 어둠, 유나는 설탕 — 같은 ITZY에서 \"정반대 솔로\"가 나온 진짜 이유",
+    "excerpt": "ITZY 예지의 솔로 AIR은 다크 일렉트로였고, 유나의 Ice Cream은 버블검 팝이다. 같은 그룹에서 정반대 색깔의 솔로가 연달아 나온 건 우연이 아니다. JYP가 설계한 실험의 전모.",
+    "date": "2026-03-27",
+    "category": "Artist",
+    "thumbnail": "/images/news/yuna-solo-debut-ice-cream-thumbnail.png"
+  },
+  {
     "slug": "bts-arirang-animation-whitewash-howard-university-2026",
     "locale": "en",
     "title": "BTS Used the Black University That Preserved Korean Music in 1896 — Then Erased the Black People From It",
