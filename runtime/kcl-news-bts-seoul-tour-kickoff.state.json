@@ -1,0 +1,7 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-seoul-tour-kickoff",
+  "lastPassedStep": "localRender",
+  "runStartedAt": "2026-04-09T21:03:23+0900",
+  "status": "in_progress"
+}
