@@ -1,5 +1,41 @@
 [
   {
+    "slug": "bts-billboard-two-weeks",
+    "locale": "en",
+    "title": "BTS Stayed No. 1 for 2 Weeks — The Bigger Signal Is What America Did Next",
+    "excerpt": "BTS's ARIRANG stayed No. 1 on the Billboard 200 for a second week with 187,000 units. The bigger story may be its U.S. staying power.",
+    "date": "2026-04-10",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/bts-billboard-two-weeks-thumbnail.png"
+  },
+  {
+    "slug": "nct-2026-project",
+    "locale": "en",
+    "title": "NCT Just Pulled 10 Years Into One Play — Why SM Is Betting Big On 'NCT 2026' Right Now",
+    "excerpt": "NCT 2026 was unveiled on April 9, 2026. By bundling albums, tours, a Seoul pop-up, and an exhibition into one anniversary rollout, SM is turning NCT's 10th year into a full brand reset.",
+    "date": "2026-04-10",
+    "category": "Artist",
+    "thumbnail": "/images/news/nct-2026-project-thumbnail.png"
+  },
+  {
+    "slug": "bts-billboard-two-weeks",
+    "locale": "ko",
+    "title": "2주 연속 1위인데 진짜 무서운 건 따로 있다…BTS가 미국에서 다시 증명한 것",
+    "excerpt": "BTS ARIRANG이 빌보드 200에서 2주 연속 1위를 기록했다. 18만7000 유닛이 말해주는 건 단순한 팬덤 화력이 아니라 미국 시장 체류력이다.",
+    "date": "2026-04-10",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/bts-billboard-two-weeks-thumbnail.png"
+  },
+  {
+    "slug": "nct-2026-project",
+    "locale": "ko",
+    "title": "NCT, 결국 10년 서사를 한 번에 꺼낸다 - SM이 'NCT 2026'을 지금 던진 이유",
+    "excerpt": "NCT 2026 프로젝트가 2026년 4월 9일 공개됐다. 앨범, 투어, 팝업, 전시를 한 번에 묶은 10주년 설계가 왜 SM의 가장 큰 리셋 카드인지 읽는다.",
+    "date": "2026-04-10",
+    "category": "Artist",
+    "thumbnail": "/images/news/nct-2026-project-thumbnail.png"
+  },
+  {
     "slug": "bts-seoul-tour-kickoff",
     "locale": "en",
     "title": "Gwanghwamun Was the Teaser — What BTS Opened in Seoul Is Bigger Than a Tour",
