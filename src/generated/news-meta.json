@@ -1,5 +1,59 @@
 [
   {
+    "slug": "txt-year7-comeback",
+    "locale": "en",
+    "title": "TXT Renewed, Then Changed The Mood — Why Their Year-7 Comeback Feels Dangerous",
+    "excerpt": "TXT returns on April 13 with its 8th EP. After renewing with BigHit, 7TH YEAR looks less like an anniversary and more like a reset test for the group.",
+    "date": "2026-04-13",
+    "category": "Artist",
+    "thumbnail": "/images/news/txt-year7-comeback-thumbnail.png"
+  },
+  {
+    "slug": "txt-year7-comeback",
+    "locale": "ko",
+    "title": "재계약 끝나자마자 분위기가 달라졌다…TXT 7년차 컴백이 진짜 무서운 이유",
+    "excerpt": "TXT가 4월 13일 8번째 EP로 돌아온다. 재계약 이후 첫 컴백 7TH YEAR가 왜 7년차 축하가 아니라 두 번째 도약의 시험대인지 읽는다.",
+    "date": "2026-04-13",
+    "category": "Artist",
+    "thumbnail": "/images/news/txt-year7-comeback-thumbnail.png"
+  },
+  {
+    "slug": "bts-china-ban-gap",
+    "locale": "en",
+    "title": "BTS Is Back, But China Is Missing — K-pop's Most Expensive Empty Stop",
+    "excerpt": "BTS is back on a massive world tour, yet mainland China is still absent. The gap shows how costly K-pop’s unfinished return to the China market has become.",
+    "date": "2026-04-12",
+    "category": "Industry",
+    "thumbnail": "/images/news/bts-china-ban-gap-thumbnail.png"
+  },
+  {
+    "slug": "katseye-coachella-debut",
+    "locale": "en",
+    "title": "KATSEYE Reached Coachella as Five, Not Six — Why the Fandom Shook Harder Than the Stage",
+    "excerpt": "KATSEYE made its Coachella debut as five. The stage landed, but Manon's hiatus and transparency questions shook the fandom harder.",
+    "date": "2026-04-12",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/katseye-coachella-debut-thumbnail.png"
+  },
+  {
+    "slug": "bts-china-ban-gap",
+    "locale": "ko",
+    "title": "'돌아왔는데 중국은 없다' - BTS 투어가 드러낸 K-pop의 가장 비싼 공백",
+    "excerpt": "BTS 월드투어엔 거대한 복귀의 열기가 붙었지만 중국 본토는 끝내 빠졌다. 한한령 10년차에 드러난 K-pop 중국 시장 공백의 비용을 읽는다.",
+    "date": "2026-04-12",
+    "category": "Industry",
+    "thumbnail": "/images/news/bts-china-ban-gap-thumbnail.png"
+  },
+  {
+    "slug": "katseye-coachella-debut",
+    "locale": "ko",
+    "title": "KATSEYE, 결국 6명이 아니라 5명으로 코첼라를 밟았다…팬들이 더 크게 흔들린 이유",
+    "excerpt": "KATSEYE가 5인 체제로 코첼라에 데뷔했다. 무대는 성공했지만 Manon 공백과 투명성 논란이 팬덤을 더 크게 흔들었다.",
+    "date": "2026-04-12",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/katseye-coachella-debut-thumbnail.png"
+  },
+  {
     "slug": "bts-billboard-two-weeks",
     "locale": "en",
     "title": "BTS Stayed No. 1 for 2 Weeks — The Bigger Signal Is What America Did Next",
