@@ -1,5 +1,23 @@
 [
   {
+    "slug": "lisa-vegas-residency",
+    "locale": "en",
+    "title": "Lisa Just Claimed Vegas — And K-pop May Have Crossed Its Last U.S. Barrier",
+    "excerpt": "Lisa has locked in a four-night Las Vegas residency. As K-pop's first true Vegas resident run, 'Viva La Lisa' looks bigger than a concert win — it looks like a new U.S. business model.",
+    "date": "2026-04-14",
+    "category": "Business",
+    "thumbnail": "/images/news/lisa-vegas-residency-thumbnail.png"
+  },
+  {
+    "slug": "lisa-vegas-residency",
+    "locale": "ko",
+    "title": "리사, 결국 베가스에 깃발 꽂았다 - K-pop이 미국에서 넘은 마지막 문턱",
+    "excerpt": "리사가 11월 라스베이거스 4회 레지던시를 확정했다. K-pop 최초 베가스 상주 공연이 왜 투어보다 더 큰 미국 비즈니스 전환점인지 읽는다.",
+    "date": "2026-04-14",
+    "category": "Business",
+    "thumbnail": "/images/news/lisa-vegas-residency-thumbnail.png"
+  },
+  {
     "slug": "lesserafim-pureflow-comeback",
     "locale": "en",
     "title": "May 22 Is Not Even The Real Shock — Why LE SSERAFIM Put 'Celebration' Before PUREFLOW",
