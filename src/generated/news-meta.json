@@ -1,5 +1,14 @@
 [
   {
+    "slug": "bts-korea-venue-crisis",
+    "locale": "en",
+    "title": "BTS Filled Goyang — And Exposed the 50,000-Seat Gap Korea Still Hasn't Fixed",
+    "excerpt": "BTS packed Goyang with roughly 132,000 fans, but the bigger story is Korea's K-pop venue shortage. Why a global industry still leans on one 50,000-seat stage.",
+    "date": "2026-04-14",
+    "category": "Industry",
+    "thumbnail": "/images/news/bts-korea-venue-crisis-thumbnail.png"
+  },
+  {
     "slug": "lisa-vegas-residency",
     "locale": "en",
     "title": "Lisa Just Claimed Vegas — And K-pop May Have Crossed Its Last U.S. Barrier",
@@ -7,6 +16,15 @@
     "date": "2026-04-14",
     "category": "Business",
     "thumbnail": "/images/news/lisa-vegas-residency-thumbnail.png"
+  },
+  {
+    "slug": "bts-korea-venue-crisis",
+    "locale": "ko",
+    "title": "BTS가 고양에 뜨자 다 드러났다…한국 K-pop이 아직도 못 만든 '5만석'",
+    "excerpt": "BTS 고양 공연이 약 13만2000명을 모으자 한국 공연장 부족이 다시 터졌다. 왜 2조원 K-pop 시장이 아직도 5만석 무대를 돌려 쓰는지 읽는다.",
+    "date": "2026-04-14",
+    "category": "Industry",
+    "thumbnail": "/images/news/bts-korea-venue-crisis-thumbnail.png"
   },
   {
     "slug": "lisa-vegas-residency",
