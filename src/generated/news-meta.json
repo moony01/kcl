@@ -1,5 +1,14 @@
 [
   {
+    "slug": "bts-swim-100m",
+    "locale": "en",
+    "title": "26 Days, 100 Million Views - Why BTS's \"SWIM\" Feels Bigger Than Another No. 1",
+    "excerpt": "BTS's \"SWIM\" hit 100 million views on April 15 in just 26 days. Why that milestone says more about ARIRANG-era fan conversion than another No. 1.",
+    "date": "2026-04-15",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/bts-swim-100m-thumbnail.png"
+  },
+  {
     "slug": "jennie-lollapalooza-headliner",
     "locale": "en",
     "title": "It’s Not Coachella. It’s Not a Tour. Why Jennie Is Suddenly Sitting at the Top of Lollapalooza",
@@ -7,6 +16,15 @@
     "date": "2026-04-15",
     "category": "Tech & Culture",
     "thumbnail": "/images/news/jennie-lollapalooza-headliner-thumbnail.png"
+  },
+  {
+    "slug": "bts-swim-100m",
+    "locale": "ko",
+    "title": "26일 만에 1억 뷰…BTS 'SWIM'이 차트 1위보다 더 무서운 이유",
+    "excerpt": "BTS 'SWIM'이 4월 15일 26일 만에 1억 뷰를 돌파했다. 이 기록이 왜 단순 조회수가 아니라 ARIRANG 시대의 팬덤 전환 속도인지 읽는다.",
+    "date": "2026-04-15",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/bts-swim-100m-thumbnail.png"
   },
   {
     "slug": "jennie-lollapalooza-headliner",
