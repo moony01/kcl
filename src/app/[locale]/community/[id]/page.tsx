@@ -23,8 +23,12 @@ import { getAllPostIds } from '@/lib/api/community';
 export async function generateStaticParams() {
   const postIds = await getAllPostIds();
 
+  // getAllPostIds 실패(Supabase 빌드타임 연결 실패) 시 빌드 실패 방지
+  // output:export는 최소 1개 경로 필요 — 플레이스홀더로 대응
+  const ids = postIds.length > 0 ? postIds : ['__placeholder__'];
+
   // 각 로케일 × 각 게시글 ID 조합으로 정적 페이지 생성
-  return SUPPORTED_LOCALES.flatMap((locale) => postIds.map((id) => ({ locale, id })));
+  return SUPPORTED_LOCALES.flatMap((locale) => ids.map((id) => ({ locale, id })));
 }
 
 /**
