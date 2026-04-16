@@ -1,5 +1,41 @@
 [
   {
+    "slug": "bts-fan-merch-crackdown",
+    "locale": "en",
+    "title": "Even BTS Freebies Got Hit — The Line HYBE Just Drew Around ARMY's Fan Economy",
+    "excerpt": "The BTS fan-made merch crackdown reached Goyang. From tossed freebies in Korea to a U.S. seizure suit, HYBE is redrawing the ARMY merch economy.",
+    "date": "2026-04-16",
+    "category": "Business",
+    "thumbnail": "/images/news/bts-fan-merch-crackdown-thumbnail.png"
+  },
+  {
+    "slug": "katseye-wild-manon",
+    "locale": "en",
+    "title": "'WILD' Is Coming, But Manon Is Still Missing - The Costliest Void Inside KATSEYE Right Now",
+    "excerpt": "KATSEYE's new EP WILD arrives on August 14. But after Coachella, the bigger story is whether HYBE x Geffen can manage Manon's absence without losing trust.",
+    "date": "2026-04-16",
+    "category": "Industry",
+    "thumbnail": "/images/news/katseye-wild-manon-thumbnail.png"
+  },
+  {
+    "slug": "bts-fan-merch-crackdown",
+    "locale": "ko",
+    "title": "팬이 나눠주던 무료 굿즈까지…하이브가 BTS 앞에서 그은 '마지막 선'",
+    "excerpt": "BTS 팬메이드 굿즈 단속이 고양 공연장에서 현실이 됐다. 무료 슬로건백부터 미국 압수 소송까지, 하이브가 ARMY 경제에 어디까지 선을 긋는지 읽는다.",
+    "date": "2026-04-16",
+    "category": "Business",
+    "thumbnail": "/images/news/bts-fan-merch-crackdown-thumbnail.png"
+  },
+  {
+    "slug": "katseye-wild-manon",
+    "locale": "ko",
+    "title": "'WILD'는 떴는데 Manon은 멈춰 있다 - KATSEYE가 지금 맞닥뜨린 가장 비싼 공백",
+    "excerpt": "KATSEYE가 8월 14일 새 EP WILD를 예고했다. 코첼라 상승세 한복판에서 나온 이 공지가 왜 컴백보다 Manon 공백 관리 시험대로 읽히는지 짚는다.",
+    "date": "2026-04-16",
+    "category": "Industry",
+    "thumbnail": "/images/news/katseye-wild-manon-thumbnail.png"
+  },
+  {
     "slug": "bts-swim-100m",
     "locale": "en",
     "title": "26 Days, 100 Million Views - Why BTS's \"SWIM\" Feels Bigger Than Another No. 1",
