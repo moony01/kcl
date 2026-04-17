@@ -1,5 +1,41 @@
 [
   {
+    "slug": "big4-fanomenon-festival",
+    "locale": "en",
+    "title": "The Big Four Finally Joined Hands: Korea's Plan to Build the Next Coachella",
+    "excerpt": "HYBE, SM, JYP, and YG are pushing a Fanomenon joint venture. K-pop now wants to export the festival format, not just its idols.",
+    "date": "2026-04-17",
+    "category": "Industry",
+    "thumbnail": "/images/news/big4-fanomenon-festival-thumbnail.png"
+  },
+  {
+    "slug": "jennie-time100-shift",
+    "locale": "en",
+    "title": "Is Jennie Bigger Than K-Pop Now? The TIME100 Line That Changes the Argument",
+    "excerpt": "Jennie made TIME100, but the bigger story is the language around her. Why this moment reads less like BLACKPINK halo and more like a solo-brand reclassification.",
+    "date": "2026-04-17",
+    "category": "Artist",
+    "thumbnail": "/images/news/jennie-time100-shift-thumbnail.png"
+  },
+  {
+    "slug": "big4-fanomenon-festival",
+    "locale": "ko",
+    "title": "빅4가 결국 손을 잡았다…'코첼라 다음 판'을 한국에서 만들겠다는 계획",
+    "excerpt": "HYBE·SM·JYP·YG가 합작사 Fanomenon으로 글로벌 페스티벌을 추진한다. K-pop이 이제 그룹이 아니라 행사 포맷 자체를 수출하려는 이유를 짚는다.",
+    "date": "2026-04-17",
+    "category": "Industry",
+    "thumbnail": "/images/news/big4-fanomenon-festival-thumbnail.png"
+  },
+  {
+    "slug": "jennie-time100-shift",
+    "locale": "ko",
+    "title": "제니는 이제 K-pop 스타가 아니다? TIME 100이 진짜로 찍어버린 한 줄",
+    "excerpt": "제니가 TIME100에 올랐다. 더 큰 뉴스는 소개 문구와 타이밍이다. 왜 이 선정이 블랙핑크 후광이 아니라 솔로 브랜드 재분류로 읽히는지 짚는다.",
+    "date": "2026-04-17",
+    "category": "Artist",
+    "thumbnail": "/images/news/jennie-time100-shift-thumbnail.png"
+  },
+  {
     "slug": "bts-fan-merch-crackdown",
     "locale": "en",
     "title": "Even BTS Freebies Got Hit — The Line HYBE Just Drew Around ARMY's Fan Economy",
