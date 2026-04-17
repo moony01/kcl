@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-news-json.js",
-    "build": "pnpm prebuild && next build && next-image-export-optimizer && node scripts/inject-sitemap-style.js",
+    "build": "node scripts/generate-news-json.js && next build && next-image-export-optimizer && node scripts/inject-sitemap-style.js",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest"
