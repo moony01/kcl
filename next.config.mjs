@@ -33,8 +33,8 @@ const nextConfig = {
   ...(isDev ? {} : { output: 'export' }),
   images: {
     loader: 'custom', // next-image-export-optimizer 사용
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [128, 384],
+    deviceSizes: [750, 1080, 1920],
   },
   transpilePackages: ['next-image-export-optimizer'], // 이미지 최적화 패키지
   reactCompiler: !isDev, // 개발 모드에서 비활성화 (HMR 속도 개선)
