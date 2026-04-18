@@ -1,5 +1,23 @@
 [
   {
+    "slug": "bts-ama-aoty",
+    "locale": "en",
+    "title": "BTS Finally Got the AMA Slot K-Pop Rarely Touches — And That's the Real Story",
+    "excerpt": "BTS landed a 2026 AMA Artist of the Year nomination. Why SWIM, ARIRANG, and U.S. staying power make this bigger than another fan-vote headline.",
+    "date": "2026-04-18",
+    "category": "Artist",
+    "thumbnail": "/images/news/bts-ama-aoty-thumbnail.png"
+  },
+  {
+    "slug": "bts-ama-aoty",
+    "locale": "ko",
+    "title": "BTS가 드디어 '그 칸'에 들어갔다…AMA가 K-pop에게 잘 안 주던 자리",
+    "excerpt": "BTS가 2026 AMA에서 올해의 아티스트 후보에 올랐다. SWIM과 ARIRANG, 복귀 직후의 미국 체류력이 왜 이 지명을 단순 팬투표 뉴스 이상으로 만드는지 읽는다.",
+    "date": "2026-04-18",
+    "category": "Artist",
+    "thumbnail": "/images/news/bts-ama-aoty-thumbnail.png"
+  },
+  {
     "slug": "big4-fanomenon-festival",
     "locale": "en",
     "title": "The Big Four Finally Joined Hands: Korea's Plan to Build the Next Coachella",
