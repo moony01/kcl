@@ -26,11 +26,12 @@ const __dirname = path.dirname(__filename);
 const CONFIG = {
   quality: 80, // WebP 품질 (0-100)
   lossless: false, // 무손실 압축
-  keepOriginal: true, // 원본 파일 유지
+  keepOriginal: false, // 원본 파일 유지
 };
 
 // 지원 확장자
 const SUPPORTED_EXTENSIONS = ['.png', '.jpg', '.jpeg'];
+const PUBLIC_IMAGES_DIR = path.resolve(__dirname, '..', 'public', 'images');
 
 /**
  * 파일 크기를 사람이 읽기 쉬운 형태로 변환
@@ -41,6 +42,34 @@ function formatBytes(bytes) {
   if (bytes < 1024) return bytes + ' B';
   if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
   return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+/**
+ * 원본 삭제 대상인지 확인
+ * @param {string} filePath - 확인할 파일 경로
+ * @returns {boolean} 삭제 대상 여부
+ */
+function shouldDeleteOriginal(filePath) {
+  const resolvedPath = path.resolve(filePath);
+  return (
+    resolvedPath === PUBLIC_IMAGES_DIR ||
+    resolvedPath.startsWith(`${PUBLIC_IMAGES_DIR}${path.sep}`)
+  );
+}
+
+/**
+ * 원본 파일 삭제
+ * @param {string} filePath - 삭제할 파일 경로
+ * @returns {boolean} 삭제 성공 여부
+ */
+function deleteOriginalFile(filePath) {
+  if (CONFIG.keepOriginal || !shouldDeleteOriginal(filePath) || !fs.existsSync(filePath)) {
+    return false;
+  }
+
+  fs.unlinkSync(filePath);
+  console.log(`  🗑️  원본 삭제: ${path.basename(filePath)}`);
+  return true;
 }
 
 /**
@@ -60,6 +89,7 @@ async function convertFile(filePath) {
 
   // 이미 WebP가 존재하면 스킵
   if (fs.existsSync(outputPath)) {
+    deleteOriginalFile(filePath);
     console.log(`  ⏭️  스킵: ${path.basename(filePath)} (WebP 이미 존재)`);
     return null;
   }
@@ -82,6 +112,7 @@ async function convertFile(filePath) {
     console.log(
       `     ${formatBytes(originalSize)} → ${formatBytes(newSize)} (${savedPercent}% 절감)`,
     );
+    deleteOriginalFile(filePath);
 
     return {
       original: originalSize,
