@@ -1,5 +1,77 @@
 [
   {
+    "slug": "bigbang-august-tour",
+    "locale": "en",
+    "title": "'It Starts in August' — The One Coachella Line That Reopened BIGBANG's 20th Anniversary Era",
+    "excerpt": "BIGBANG used Coachella to confirm an August 2026 world tour and a completed anniversary album. Why that stage line matters more than YG's March teaser.",
+    "date": "2026-04-20",
+    "category": "Artist",
+    "thumbnail": "/images/news/bigbang-august-tour-thumbnail.png"
+  },
+  {
+    "slug": "nct-wish-cortis-clash",
+    "locale": "en",
+    "title": "'6 PM, Same Day' — NCT WISH and CORTIS Are Targeting The Same Fandom Wallets",
+    "excerpt": "NCT WISH's first full album ODE TO LOVE and CORTIS's pre-release single REDRED both arrive at 6 p.m. KST on April 20, 2026. Here's why that rookie clash matters beyond the songs.",
+    "date": "2026-04-20",
+    "category": "Industry",
+    "thumbnail": "/images/news/nct-wish-cortis-clash-thumbnail.png"
+  },
+  {
+    "slug": "bigbang-august-tour",
+    "locale": "ko",
+    "title": "'8월에 시작합니다' - 빅뱅이 코첼라에서 꺼낸 한마디, 20주년 판이 다시 열렸다",
+    "excerpt": "빅뱅이 코첼라에서 20주년 월드투어의 8월 출발과 새 앨범 준비 완료를 직접 밝혔다. 3월 예고보다 이 한마디가 더 크게 읽히는 이유를 짚는다.",
+    "date": "2026-04-20",
+    "category": "Artist",
+    "thumbnail": "/images/news/bigbang-august-tour-thumbnail.png"
+  },
+  {
+    "slug": "nct-wish-cortis-clash",
+    "locale": "ko",
+    "title": "'같은 날 6시'…NCT WISH와 CORTIS, 결국 같은 팬덤 지갑을 겨눴다",
+    "excerpt": "NCT WISH 정규 1집 ODE TO LOVE와 CORTIS 선공개곡 REDRED가 2026년 4월 20일 오후 6시에 동시에 나온다. 오늘 K-pop 신인전이 왜 소비 동선을 흔드는지 읽는다.",
+    "date": "2026-04-20",
+    "category": "Industry",
+    "thumbnail": "/images/news/nct-wish-cortis-clash-thumbnail.png"
+  },
+  {
+    "slug": "idle-us-tour-cancelled",
+    "locale": "en",
+    "title": "10 Cities, Then the Cancellations — Why i-dle's North America Tour Panic Hits Harder Than One Refund Notice",
+    "excerpt": "Multiple i-dle Syncopation dates now show cancelled on ticketing pages. The bigger story is what that says about K-pop's 2026 arena gamble.",
+    "date": "2026-04-19",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/idle-us-tour-cancelled-thumbnail.png"
+  },
+  {
+    "slug": "taemin-coachella-first",
+    "locale": "en",
+    "title": "Male K-Pop Soloists Can't Do Coachella? Taemin Flipped The Script In 50 Minutes",
+    "excerpt": "Taemin completed the first official full Coachella solo set by a Korean male K-pop artist. The bigger story is how one 50-minute performance shifted both U.S. trend momentum and cultural positioning.",
+    "date": "2026-04-19",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/taemin-coachella-first-thumbnail.png"
+  },
+  {
+    "slug": "idle-us-tour-cancelled",
+    "locale": "ko",
+    "title": "10개 도시를 열어놓고 닫아버렸다 - i-dle 북미 투어가 업계를 더 긴장시키는 이유",
+    "excerpt": "i-dle 북미 투어 페이지에 취소 표기가 잇따르고 있다. 더 큰 문제는 환불 공지가 아니라 2026 K-pop 북미 아레나 전략의 계산법이다.",
+    "date": "2026-04-19",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/idle-us-tour-cancelled-thumbnail.png"
+  },
+  {
+    "slug": "taemin-coachella-first",
+    "locale": "ko",
+    "title": "남자 솔로는 안 된다? 태민이 코첼라 50분 만에 뒤집은 판",
+    "excerpt": "태민이 코첼라에서 K-pop 남성 솔로 최초의 공식 풀세트를 마쳤다. 더 큰 뉴스는 50분 공연 뒤 미국 트렌드와 문화적 위상이 동시에 움직였다는 점이다.",
+    "date": "2026-04-19",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/taemin-coachella-first-thumbnail.png"
+  },
+  {
     "slug": "bts-ama-aoty",
     "locale": "en",
     "title": "BTS Finally Got the AMA Slot K-Pop Rarely Touches — And That's the Real Story",
@@ -9,6 +81,16 @@
     "thumbnail": "/images/news/bts-ama-aoty-thumbnail.png"
   },
   {
+    "slug": "enhypen-blood-saga-tour",
+    "locale": "en",
+    "title": "The Bigger ENHYPEN News Isn't the Sellout — It's the Cities That Came Next",
+    "excerpt": "ENHYPEN's BLOOD SAGA sold out all three Seoul shows in presale. The bigger signal is a tour map stretching to Sao Paulo, Lima and Mexico City.",
+    "date": "2026-04-18",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/enhypen-blood-saga-tour-thumbnail.png",
+    "active": false
+  },
+  {
     "slug": "bts-ama-aoty",
     "locale": "ko",
     "title": "BTS가 드디어 '그 칸'에 들어갔다…AMA가 K-pop에게 잘 안 주던 자리",
@@ -16,6 +98,16 @@
     "date": "2026-04-18",
     "category": "Artist",
     "thumbnail": "/images/news/bts-ama-aoty-thumbnail.png"
+  },
+  {
+    "slug": "enhypen-blood-saga-tour",
+    "locale": "ko",
+    "title": "서울 3회 매진보다 더 큰 뉴스…ENHYPEN이 이번 투어에서 먼저 바꾼 건 도시 목록이다",
+    "excerpt": "ENHYPEN BLOOD SAGA가 서울 3회를 프리세일만으로 매진시켰다. 더 큰 신호는 상파울루·리마·멕시코시티까지 뻗은 투어 지도다.",
+    "date": "2026-04-18",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/enhypen-blood-saga-tour-thumbnail.png",
+    "active": false
   },
   {
     "slug": "big4-fanomenon-festival",
