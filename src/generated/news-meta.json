@@ -9,6 +9,15 @@
     "thumbnail": "/images/news/aespa-lemonade-tour-thumbnail.png"
   },
   {
+    "slug": "bts-arirang-streaming-record",
+    "locale": "en",
+    "title": "1.58B Streams in 30 Days - BTS Just Entered a Club K-Pop Was Never Supposed to Reach",
+    "excerpt": "BTS ARIRANG reportedly crossed 1.58B Spotify streams in its first month. The bigger story is how K-pop streaming power is being repriced.",
+    "date": "2026-04-23",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/bts-arirang-streaming-record-thumbnail.png"
+  },
+  {
     "slug": "aespa-lemonade-tour",
     "locale": "ko",
     "title": "25개 도시, 2집, 그리고 북미 직행 - aespa가 이번에 키우는 건 투어가 아니다",
@@ -16,6 +25,15 @@
     "date": "2026-04-23",
     "category": "Artist",
     "thumbnail": "/images/news/aespa-lemonade-tour-thumbnail.png"
+  },
+  {
+    "slug": "bts-arirang-streaming-record",
+    "locale": "ko",
+    "title": "30일 만에 15억 스트림…BTS가 들어간 \"금단의 클럽\"이 K-pop 판을 바꾼다",
+    "excerpt": "BTS ARIRANG이 첫 달 Spotify 15억 스트림을 넘긴 것으로 집계됐다. 진짜 핵심은 기록보다 K-pop 플랫폼 파워의 재가격화다.",
+    "date": "2026-04-23",
+    "category": "Market Trend",
+    "thumbnail": "/images/news/bts-arirang-streaming-record-thumbnail.png"
   },
   {
     "slug": "bts-city-vegas-busan",
@@ -153,16 +171,6 @@
     "thumbnail": "/images/news/bts-ama-aoty-thumbnail.png"
   },
   {
-    "slug": "enhypen-blood-saga-tour",
-    "locale": "en",
-    "title": "The Bigger ENHYPEN News Isn't the Sellout — It's the Cities That Came Next",
-    "excerpt": "ENHYPEN's BLOOD SAGA sold out all three Seoul shows in presale. The bigger signal is a tour map stretching to Sao Paulo, Lima and Mexico City.",
-    "date": "2026-04-18",
-    "category": "Market Trend",
-    "thumbnail": "/images/news/enhypen-blood-saga-tour-thumbnail.png",
-    "active": false
-  },
-  {
     "slug": "bts-ama-aoty",
     "locale": "ko",
     "title": "BTS가 드디어 '그 칸'에 들어갔다…AMA가 K-pop에게 잘 안 주던 자리",
@@ -170,16 +178,6 @@
     "date": "2026-04-18",
     "category": "Artist",
     "thumbnail": "/images/news/bts-ama-aoty-thumbnail.png"
-  },
-  {
-    "slug": "enhypen-blood-saga-tour",
-    "locale": "ko",
-    "title": "서울 3회 매진보다 더 큰 뉴스…ENHYPEN이 이번 투어에서 먼저 바꾼 건 도시 목록이다",
-    "excerpt": "ENHYPEN BLOOD SAGA가 서울 3회를 프리세일만으로 매진시켰다. 더 큰 신호는 상파울루·리마·멕시코시티까지 뻗은 투어 지도다.",
-    "date": "2026-04-18",
-    "category": "Market Trend",
-    "thumbnail": "/images/news/enhypen-blood-saga-tour-thumbnail.png",
-    "active": false
   },
   {
     "slug": "big4-fanomenon-festival",
