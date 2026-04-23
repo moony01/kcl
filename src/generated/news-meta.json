@@ -1,5 +1,59 @@
 [
   {
+    "slug": "aespa-lemonade-tour",
+    "locale": "en",
+    "title": "25 Cities, a New Album, and a North America Push - aespa Is Building More Than a Tour",
+    "excerpt": "aespa just paired its May 29 album LEMONADE with an August kickoff and a 25-region world tour. The bigger story is not the comeback but the price reset.",
+    "date": "2026-04-23",
+    "category": "Artist",
+    "thumbnail": "/images/news/aespa-lemonade-tour-thumbnail.png"
+  },
+  {
+    "slug": "aespa-lemonade-tour",
+    "locale": "ko",
+    "title": "25개 도시, 2집, 그리고 북미 직행 - aespa가 이번에 키우는 건 투어가 아니다",
+    "excerpt": "aespa가 5월 29일 2집 LEMONADE와 8월 서울 개막, 25개 지역 월드투어를 동시에 열었다. 이번 뉴스의 핵심은 컴백이 아니라 몸값 재평가다.",
+    "date": "2026-04-23",
+    "category": "Artist",
+    "thumbnail": "/images/news/aespa-lemonade-tour-thumbnail.png"
+  },
+  {
+    "slug": "bts-city-vegas-busan",
+    "locale": "en",
+    "title": "It's Not the Concert Anymore - BTS Is About to Turn Las Vegas and Busan Into the Real Headline",
+    "excerpt": "BTS THE CITY ARIRANG is expanding to Las Vegas and Busan. The bigger story is how BTS is building a destination economy outside the stadium.",
+    "date": "2026-04-22",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/bts-city-vegas-busan-thumbnail.png"
+  },
+  {
+    "slug": "kiss-of-life-first-win",
+    "locale": "en",
+    "title": "A First Win Wasn't The Real Headline — Did KISS OF LIFE Actually Come Back?",
+    "excerpt": "KISS OF LIFE finally won their first music show trophy with 'Who is she.' The bigger story is how far public trust has really returned.",
+    "date": "2026-04-22",
+    "category": "Artist",
+    "thumbnail": "/images/news/kiss-of-life-first-win-thumbnail.png"
+  },
+  {
+    "slug": "bts-city-vegas-busan",
+    "locale": "ko",
+    "title": "공연장이 아니다…BTS가 라스베이거스와 부산에서 다시 켜는 건 도시 전체다",
+    "excerpt": "BTS THE CITY ARIRANG이 라스베이거스와 부산으로 확장된다. 이번 뉴스의 핵심은 투어가 아니라 BTS가 공연장 밖에서 다시 도시 경제를 여는 방식이다.",
+    "date": "2026-04-22",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/bts-city-vegas-busan-thumbnail.png"
+  },
+  {
+    "slug": "kiss-of-life-first-win",
+    "locale": "ko",
+    "title": "'첫 1위'보다 더 크게 붙은 질문…KISS OF LIFE는 정말 돌아왔나",
+    "excerpt": "KISS OF LIFE가 'Who is she'로 첫 음악방송 1위를 잡았다. 더 큰 뉴스는 트로피보다 복귀 여론이 어디까지 돌아왔는지였다.",
+    "date": "2026-04-22",
+    "category": "Artist",
+    "thumbnail": "/images/news/kiss-of-life-first-win-thumbnail.png"
+  },
+  {
     "slug": "hybe-bang-arrest-warrant",
     "locale": "en",
     "title": "Right Before BTS's U.S. Tour, Bang Si-hyuk Faces an Arrest Warrant — HYBE's Real Risk Starts Now",
