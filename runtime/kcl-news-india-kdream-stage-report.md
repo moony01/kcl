@@ -68,4 +68,24 @@ Verification rate: `5/5 (100%)`
 
 ## Deployment
 
-Pending.
+- commit_sha: `0543806bcd2994aa2f07f758882caf0cb86beb6b`
+- push: `origin/main`
+- live_url: `https://www.kclhq.com/en/news/india-kdream-stage`
+- deploy polls: `13` (`404` for the initial 10 + extra 2, `200` on extra poll 3)
+- live page: `200`
+- live optimized thumbnail: `200`
+- live optimized body image: `200`
+- Playwright live verification: passed
+
+## Search Console
+
+- property: `sc-domain:kclhq.com`
+- inspected URL: `https://www.kclhq.com/en/news/india-kdream-stage`
+- live test: passed (`URL을 Google에 등록할 수 있음`)
+- indexing request state: `색인 생성 요청됨`
+
+## Final Status
+
+- status: `SUCCESS`
+- pass_steps: `Research`, `Content`, `Image`, `Local Render`, `Deploy`, `GSC`
+- last_non_blocking_error: `npm run build` failed locally on an unrelated community route because this shell lacked Supabase public env vars.
