@@ -4,7 +4,7 @@ excerpt: 'BTS ARIRANG 417만 장 판매, 스포티파이 1억 스트리밍, 넷�
 date: '2026-03-29'
 category: 'Market Trend'
 thumbnail: '/images/news/hybe-stock-bts-paradox-thumbnail.png'
-active: false
+active: true
 ---
 
 417만 장. 1억 1천만 스트리밍. 1,840만 동접. 그리고 -15%.

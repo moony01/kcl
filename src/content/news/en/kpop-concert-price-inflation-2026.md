@@ -4,7 +4,7 @@ excerpt: "BTS standing tickets at $200, rookie ILLIT's first tour M&G at $180. K
 date: '2026-03-28'
 category: 'Business'
 thumbnail: '/images/news/kpop-concert-price-inflation-2026-thumbnail.png'
-active: false
+active: true
 ---
 
 110,000 won → 264,000 won.

@@ -4,7 +4,7 @@ excerpt: 'APT. 스포티파이 10억 스트리밍, 글로벌 200 12주 1위, 그
 date: '2026-03-29'
 category: 'Artist'
 thumbnail: '/images/news/rose-solo-kpop-records-thumbnail.png'
-active: false
+active: true
 ---
 
 로제는 K-pop 여성 솔로 아티스트가 도달할 수 있는 모든 천장을 깼다. 그것도 6개월 만에.
