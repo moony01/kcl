@@ -54,21 +54,28 @@ export interface NewsMeta {
  */
 export function getAllNews(locale: string = 'ko'): NewsMeta[] {
   // 해당 로케일의 뉴스만 필터링 (active가 false인 항목은 제외)
-  let posts = (newsMeta as NewsMeta[]).filter(
+  const localePosts = (newsMeta as NewsMeta[]).filter(
     (post) => post.locale === locale && post.active !== false,
   );
 
-  // 해당 언어 콘텐츠가 없으면 영어로 fallback
-  if (posts.length === 0 && locale !== 'en') {
-    posts = (newsMeta as NewsMeta[]).filter(
-      (post) => post.locale === 'en' && post.active !== false,
+  // en 요청이거나 locale 자체가 en인 경우 바로 정렬 반환
+  if (locale === 'en') {
+    return localePosts.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
   }
 
-  // 날짜 내림차순 정렬 (이미 정렬되어 있지만 안전하게 재정렬)
-  return posts.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  // en 뉴스 중 해당 locale에 같은 slug가 없는 것을 fallback으로 추가
+  const localeSlugs = new Set(localePosts.map((p) => p.slug));
+  const fallbackPosts = (newsMeta as NewsMeta[]).filter(
+    (post) =>
+      post.locale === 'en' && post.active !== false && !localeSlugs.has(post.slug),
+  );
+
+  // 날짜 내림차순 정렬
+  return [...localePosts, ...fallbackPosts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
 }
 
 /**
