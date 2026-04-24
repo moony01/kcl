@@ -1,6 +1,6 @@
 {
   "runStartedAt": "2026-04-24T11:08:01+09:00",
-  "runEndedAt": null,
+  "runEndedAt": "2026-04-24T11:37:00+09:00",
   "workflow": "kcl-news",
   "slug": "india-kdream-stage",
   "selectedTopic": {
@@ -83,19 +83,26 @@
     "reuseCheck": "PASS"
   },
   "deploy": {
-    "commitSha": null,
-    "cloudflareProductionSha": null
+    "commitSha": "0543806bcd2994aa2f07f758882caf0cb86beb6b",
+    "cloudflareProductionSha": "0543806bcd2994aa2f07f758882caf0cb86beb6b (inferred from live route + content match; public response did not expose a separate build SHA)",
+    "liveUrl": "https://www.kclhq.com/en/news/india-kdream-stage",
+    "pollAttempts": 13,
+    "liveStatus": 200
   },
   "gsc": {
-    "requestedUrls": []
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/india-kdream-stage"
+    ],
+    "property": "sc-domain:kclhq.com",
+    "status": "색인 생성 요청됨"
   },
   "stepResults": {
     "research": "pass",
     "content": "pass",
     "image": "pass",
     "local_render": "pass",
-    "deploy": "pending",
-    "gsc": "pending"
+    "deploy": "pass",
+    "gsc": "pass"
   },
   "factCheck": [
     {
@@ -153,5 +160,18 @@
       "http://localhost:3000/images/news/nextImageExportOptimizer/india-kdream-stage-1-opt-1200.WEBP"
     ],
     "note": "Standalone optimizer passed. Full production build remains blocked by missing Supabase env on unrelated /[locale]/community/[id] static generation."
+  },
+  "attempts": {
+    "research": 1,
+    "content": 1,
+    "image": 2,
+    "localRender": 2,
+    "deployPolls": 13,
+    "gsc": 1
+  },
+  "lastErrors": {
+    "localBuild": "npm run build failed on unrelated /[locale]/community/[id] due missing NEXT_PUBLIC_SUPABASE_ANON_KEY during static generation.",
+    "deploy": null,
+    "gsc": null
   }
 }
