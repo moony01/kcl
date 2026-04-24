@@ -4,7 +4,7 @@ excerpt: "1 billion Spotify streams for APT., 12 weeks at No. 1 on Global 200, G
 date: '2026-03-29'
 category: 'Artist'
 thumbnail: '/images/news/rose-solo-kpop-records-thumbnail.png'
-active: false
+active: true
 ---
 
 Rosé broke every ceiling a female K-pop solo artist could reach. She did it in six months.

@@ -4,7 +4,7 @@ excerpt: 'BTS 스탠딩 26만 원, 신인 ILLIT 첫 투어 M&G 25만 원. 3년 �
 date: '2026-03-28'
 category: 'Business'
 thumbnail: '/images/news/kpop-concert-price-inflation-2026-thumbnail.png'
-active: false
+active: true
 ---
 
 11만 원 → 26.4만 원.

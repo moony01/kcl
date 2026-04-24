@@ -4,7 +4,7 @@ excerpt: "BTS's ARIRANG sold 4.17 million copies, set Spotify's biggest K-pop op
 date: '2026-03-29'
 category: 'Market Trend'
 thumbnail: '/images/news/hybe-stock-bts-paradox-thumbnail.png'
-active: false
+active: true
 ---
 
 4.17 million copies. 110 million streams. 18.4 million concurrent viewers. And -15%.
