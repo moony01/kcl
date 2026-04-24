@@ -1,5 +1,14 @@
 [
   {
+    "slug": "india-kdream-stage",
+    "locale": "en",
+    "title": "3,000 Fans, JYP, and Korea's First Lady — India Just Became K-pop's Hardest Market to Ignore",
+    "excerpt": "3,000 fans packed Delhi's K-Dream Stage with JYP on the judges' panel. The bigger story is why India now looks like K-pop's next serious market.",
+    "date": "2026-04-24",
+    "category": "Industry",
+    "thumbnail": "/images/news/india-kdream-stage-thumbnail.png"
+  },
+  {
     "slug": "aespa-lemonade-tour",
     "locale": "en",
     "title": "25 Cities, a New Album, and a North America Push - aespa Is Building More Than a Tour",
@@ -501,8 +510,7 @@
     "excerpt": "BTS's ARIRANG sold 4.17 million copies, set Spotify's biggest K-pop opening day with 110 million streams, and drew 18.4 million Netflix viewers. Then HYBE's stock plunged 15%. The answer was in Gwanghwamun Square.",
     "date": "2026-03-29",
     "category": "Market Trend",
-    "thumbnail": "/images/news/hybe-stock-bts-paradox-thumbnail.png",
-    "active": false
+    "thumbnail": "/images/news/hybe-stock-bts-paradox-thumbnail.png"
   },
   {
     "slug": "rose-solo-kpop-records",
@@ -511,8 +519,7 @@
     "excerpt": "1 billion Spotify streams for APT., 12 weeks at No. 1 on Global 200, Grammy opening stage, Guinness records. Rosé's 6-month solo run shattered every ceiling K-pop soloists thought existed.",
     "date": "2026-03-29",
     "category": "Artist",
-    "thumbnail": "/images/news/rose-solo-kpop-records-thumbnail.png",
-    "active": false
+    "thumbnail": "/images/news/rose-solo-kpop-records-thumbnail.png"
   },
   {
     "slug": "coachella-2026-kpop-takeover",
@@ -530,8 +537,7 @@
     "excerpt": "BTS ARIRANG 417만 장 판매, 스포티파이 1억 스트리밍, 넷플릭스 1,840만 동접. 모든 지표가 역대급이었다. 그런데 하이브 주가는 15% 폭락했다. 광화문에 사람이 없었다.",
     "date": "2026-03-29",
     "category": "Market Trend",
-    "thumbnail": "/images/news/hybe-stock-bts-paradox-thumbnail.png",
-    "active": false
+    "thumbnail": "/images/news/hybe-stock-bts-paradox-thumbnail.png"
   },
   {
     "slug": "rose-solo-kpop-records",
@@ -540,8 +546,7 @@
     "excerpt": "APT. 스포티파이 10억 스트리밍, 글로벌 200 12주 1위, 그래미 오프닝 무대, 기네스 기록까지. 로제가 6개월 만에 부순 K-pop 솔로의 벽은 이전에 존재한 적 없는 높이였다.",
     "date": "2026-03-29",
     "category": "Artist",
-    "thumbnail": "/images/news/rose-solo-kpop-records-thumbnail.png",
-    "active": false
+    "thumbnail": "/images/news/rose-solo-kpop-records-thumbnail.png"
   },
   {
     "slug": "hybe-india-audition-kpop",
@@ -559,8 +564,7 @@
     "excerpt": "BTS standing tickets at $200, rookie ILLIT's first tour M&G at $180. K-pop concert prices doubled in 3 years. How far will labels push before fans break?",
     "date": "2026-03-28",
     "category": "Business",
-    "thumbnail": "/images/news/kpop-concert-price-inflation-2026-thumbnail.png",
-    "active": false
+    "thumbnail": "/images/news/kpop-concert-price-inflation-2026-thumbnail.png"
   },
   {
     "slug": "twice-double-injury-kpop-overwork",
@@ -587,8 +591,7 @@
     "excerpt": "BTS 스탠딩 26만 원, 신인 ILLIT 첫 투어 M&G 25만 원. 3년 만에 2배로 뛴 K-pop 콘서트 티켓값, 기획사의 가격 실험은 어디까지 갈까.",
     "date": "2026-03-28",
     "category": "Business",
-    "thumbnail": "/images/news/kpop-concert-price-inflation-2026-thumbnail.png",
-    "active": false
+    "thumbnail": "/images/news/kpop-concert-price-inflation-2026-thumbnail.png"
   },
   {
     "slug": "twice-double-injury-kpop-overwork",
