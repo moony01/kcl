@@ -40,8 +40,7 @@ let supabaseInstance: SupabaseClient | null = null;
  * 최초 호출 시에만 인스턴스를 생성하고, 이후에는 기존 인스턴스를 반환합니다.
  * localStorage를 사용하여 세션을 저장하므로 정적 빌드에서도 동작합니다.
  *
- * @returns Supabase 클라이언트 인스턴스
- * @throws 환경변수가 설정되지 않은 경우 에러
+ * @returns Supabase 클라이언트 인스턴스 (환경변수 누락 시 null as SupabaseClient)
  */
 export function getSupabase(): SupabaseClient {
   if (supabaseInstance) {
@@ -52,10 +51,19 @@ export function getSupabase(): SupabaseClient {
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error(
+    console.warn(
       '[Supabase Client] 환경변수가 설정되지 않았습니다. ' +
         'NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY를 확인하세요.',
     );
+    // SSG 빌드 prerender 시 환경변수 없이도 컴포넌트 body 실행이 통과하도록 no-op 프록시 반환
+    // "use client" 컴포넌트는 서버에서 body가 실행되나 useEffect/이벤트 핸들러는 실행되지 않음
+    // onAuthStateChange 패턴: const { data: { subscription } } = supabase.auth.onAuthStateChange(cb)
+    const noopReturn = { data: { subscription: { unsubscribe: () => {} }, session: null, user: null }, error: null };
+    const handler: ProxyHandler<object> = {
+      get: (_target, _prop) =>
+        new Proxy((..._args: unknown[]) => noopReturn, handler),
+    };
+    return new Proxy({}, handler) as unknown as SupabaseClient;
   }
 
   supabaseInstance = createSupabaseClient(supabaseUrl, supabaseAnonKey, {
