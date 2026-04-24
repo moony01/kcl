@@ -33,9 +33,9 @@ const MAX_LIMIT = 50;
  * @returns 게시글 ID 배열
  */
 export async function getAllPostIds(): Promise<string[]> {
-  const supabase = getSupabase();
-
   try {
+    const supabase = getSupabase();
+
     const { data: posts, error } = await supabase
       .from('kcl_posts')
       .select('id')
