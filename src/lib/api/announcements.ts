@@ -41,11 +41,6 @@ function getEventNoticeCopy(locale = 'ko'): EventNoticeCopy {
       content:
         '<p><strong>Regístrate para obtener el doble de votos diarios.</strong></p><p>Los invitados reciben 30 votos al día, mientras que los miembros registrados reciben 60 votos al día.</p><p>Voto Poderoso exclusivo para miembros: lanza hasta 50 votos a la vez.</p><p>Crea tu cuenta y apoya a tu empresa favorita con más poder.</p>',
     },
-    pt: {
-      title: 'Evento: Cadastre-se e ganhe o dobro de votos diários',
-      content:
-        '<p><strong>Cadastre-se para ganhar o dobro de votos diários.</strong></p><p>Visitantes recebem 30 votos por dia, enquanto membros cadastrados recebem 60 votos por dia.</p><p>Voto Poderoso exclusivo para membros: lance até 50 votos de uma vez.</p><p>Crie sua conta e apoie sua empresa favorita com mais poder.</p>',
-    },
     fr: {
       title: 'Événement : Inscrivez-vous et obtenez le double de votes quotidiens',
       content:
@@ -55,26 +50,6 @@ function getEventNoticeCopy(locale = 'ko'): EventNoticeCopy {
       title: 'Event: Registriere dich und erhalte doppelte tägliche Stimmen',
       content:
         '<p><strong>Registriere dich und erhalte doppelt so viele tägliche Stimmen.</strong></p><p>Gäste erhalten 30 Stimmen pro Tag, registrierte Mitglieder erhalten 60 Stimmen pro Tag.</p><p>Power-Abstimmung nur für Mitglieder: bis zu 50 Stimmen auf einmal abgeben.</p><p>Erstelle dein Konto und unterstütze dein Lieblingsunternehmen mit mehr Stimmkraft.</p>',
-    },
-    id: {
-      title: 'Event: Daftar dan dapatkan suara harian dua kali lipat',
-      content:
-        '<p><strong>Daftar untuk mendapatkan suara harian dua kali lipat.</strong></p><p>Tamu mendapatkan 30 suara per hari, sementara anggota terdaftar mendapatkan 60 suara per hari.</p><p>Power Vote khusus anggota: berikan hingga 50 suara sekaligus.</p><p>Buat akun dan dukung perusahaan favoritmu dengan lebih banyak kekuatan.</p>',
-    },
-    tr: {
-      title: 'Etkinlik: Kayıt ol ve günlük iki kat oy kazan',
-      content:
-        '<p><strong>Kayıt olarak günlük oy hakkınızı ikiye katlayın.</strong></p><p>Misafirler günde 30 oy alırken, kayıtlı üyeler günde 60 oy alır.</p><p>Üyelere özel Güçlü Oy: bir seferde 50 oya kadar kullanın.</p><p>Hesabını oluştur ve favori şirketini daha güçlü destekle.</p>',
-    },
-    th: {
-      title: 'กิจกรรม: สมัครสมาชิกรับสิทธิ์โหวตรายวันสองเท่า',
-      content:
-        '<p><strong>สมัครสมาชิกเพื่อรับสิทธิ์โหวตรายวันสองเท่า</strong></p><p>บุคคลทั่วไปได้รับ 30 โหวตต่อวัน สมาชิกที่ลงทะเบียนได้รับ 60 โหวตต่อวัน</p><p>Power Vote สำหรับสมาชิก: โหวตครั้งละสูงสุด 50 โหวต</p><p>สร้างบัญชีของคุณแล้วสนับสนุนบริษัทที่คุณชื่นชอบด้วยพลังที่มากขึ้น</p>',
-    },
-    vi: {
-      title: 'Sự kiện: Đăng ký nhận gấp đôi phiếu bầu hàng ngày',
-      content:
-        '<p><strong>Đăng ký để nhận gấp đôi phiếu bầu hàng ngày.</strong></p><p>Khách nhận 30 phiếu mỗi ngày, trong khi thành viên đã đăng ký nhận 60 phiếu mỗi ngày.</p><p>Bỏ phiếu mạnh dành cho thành viên: bỏ tối đa 50 phiếu cùng lúc.</p><p>Tạo tài khoản và ủng hộ công ty yêu thích với sức mạnh lớn hơn.</p>',
     },
   };
 
