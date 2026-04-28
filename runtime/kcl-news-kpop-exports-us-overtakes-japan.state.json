@@ -1,0 +1,14 @@
+{
+  "workflow": "kcl-news",
+  "slug": "kpop-exports-us-overtakes-japan",
+  "runStartedAt": "2026-04-28T21:04:34+09:00",
+  "currentStep": "deploy",
+  "stepResults": {
+    "research": "pass",
+    "content": "pass",
+    "image": "pass",
+    "local_render": "pass",
+    "deploy": "pending",
+    "gsc": "pending"
+  }
+}
