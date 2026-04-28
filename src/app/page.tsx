@@ -4,7 +4,7 @@
  * SSG 환경에서는 middleware를 사용할 수 없으므로,
  * 클라이언트 사이드에서 브라우저 언어를 감지하여 적절한 locale로 리다이렉트합니다.
  *
- * 지원 언어: ko, en, id, tr, ja, zh, es, pt, th, vi, fr, de (12개)
+ * 지원 언어: ko, en, ja, zh, es, fr, de (7개)
  */
 
 'use client';
@@ -12,7 +12,7 @@
 import { useEffect } from 'react';
 
 /** 지원하는 로케일 목록 */
-const SUPPORTED_LOCALES = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
+const SUPPORTED_LOCALES = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de'];
 
 /** 기본 로케일 */
 const DEFAULT_LOCALE = 'en';

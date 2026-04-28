@@ -20,13 +20,8 @@ const titles: Record<SupportedLocale, string> = {
   ja: '殿堂入り',
   zh: '名人堂',
   es: 'Salón de la Fama',
-  pt: 'Hall da Fama',
   fr: 'Temple de la Renommée',
   de: 'Hall of Fame',
-  id: 'Hall of Fame',
-  tr: 'Onur Listesi',
-  th: 'หอเกียรติยศ',
-  vi: 'Đại Sảnh Danh Vọng',
 };
 
 /** 언어별 부제목 */
@@ -36,13 +31,8 @@ const subtitles: Record<SupportedLocale, string> = {
   ja: 'K-Popチャンピオンの歴史',
   zh: 'K-Pop冠军历史',
   es: 'Historia de Campeones K-Pop',
-  pt: 'História dos Campeões K-Pop',
   fr: 'Histoire des Champions K-Pop',
   de: 'K-Pop Champions Geschichte',
-  id: 'Sejarah Juara K-Pop',
-  tr: 'K-Pop Şampiyonları Tarihi',
-  th: 'ประวัติแชมป์ K-Pop',
-  vi: 'Lịch Sử Nhà Vô Địch K-Pop',
 };
 
 /**

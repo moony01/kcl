@@ -20,13 +20,8 @@ const titles: Record<SupportedLocale, string> = {
   ja: 'KCL ニュース & インサイト',
   zh: 'KCL 新闻与洞察',
   es: 'KCL Noticias e Insights',
-  pt: 'KCL Notícias e Insights',
   fr: 'KCL Actualités et Analyses',
   de: 'KCL Nachrichten & Insights',
-  id: 'KCL Berita & Wawasan',
-  tr: 'KCL Haberler ve Analizler',
-  th: 'KCL ข่าวและข้อมูลเชิงลึก',
-  vi: 'KCL Tin Tức & Phân Tích',
 };
 
 /** 언어별 부제목 */
@@ -36,13 +31,8 @@ const subtitles: Record<SupportedLocale, string> = {
   ja: 'K-Pop業界トレンドと分析',
   zh: 'K-Pop行业趋势与分析',
   es: 'Tendencias y Análisis de la Industria K-Pop',
-  pt: 'Tendências e Análises da Indústria K-Pop',
   fr: "Tendances et Analyses de l'Industrie K-Pop",
   de: 'K-Pop Branchentrends & Analysen',
-  id: 'Tren & Analisis Industri K-Pop',
-  tr: 'K-Pop Endüstri Trendleri ve Analizleri',
-  th: 'แนวโน้มและการวิเคราะห์อุตสาหกรรม K-Pop',
-  vi: 'Xu Hướng & Phân Tích Ngành Công Nghiệp K-Pop',
 };
 
 /**
