@@ -21,13 +21,8 @@ const titles: Record<SupportedLocale, string> = {
   ja: 'K-POP企画社リーグ',
   zh: 'K-POP娱乐公司联赛',
   es: 'Liga de Compañías K-Pop',
-  pt: 'Liga de Empresas K-Pop',
   fr: 'Ligue des Agences K-Pop',
   de: 'K-Pop Agentur Liga',
-  id: 'Liga Perusahaan K-Pop',
-  tr: 'K-Pop Şirket Ligi',
-  th: 'ลีกบริษัท K-Pop',
-  vi: 'Giải Đấu Công Ty K-Pop',
 };
 
 /** 언어별 부제목 */
@@ -37,13 +32,8 @@ const subtitles: Record<SupportedLocale, string> = {
   ja: 'ファンダムのパワーを証明しよう!',
   zh: '证明你的粉丝力量!',
   es: '¡Demuestra el poder de tu fandom!',
-  pt: 'Prove o poder do seu fandom!',
   fr: 'Prouvez la puissance de votre fandom!',
   de: 'Beweise die Stärke deines Fandoms!',
-  id: 'Buktikan Kekuatan Fandommu!',
-  tr: 'Fandomun Gücünü Kanıtla!',
-  th: 'พิสูจน์พลังแฟนด้อมของคุณ!',
-  vi: 'Chứng minh sức mạnh fandom của bạn!',
 };
 
 /**
