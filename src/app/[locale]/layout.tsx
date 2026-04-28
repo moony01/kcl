@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   },
 };
 
-const locales = ['ko', 'en', 'id', 'tr', 'ja', 'zh', 'es', 'pt', 'th', 'vi', 'fr', 'de'];
+const locales = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de'];
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

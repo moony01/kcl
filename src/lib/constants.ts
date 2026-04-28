@@ -18,7 +18,7 @@ export const BMC_MEMBERSHIP_URL =
   process.env.NEXT_PUBLIC_BMC_MEMBERSHIP_URL || 'https://buymeacoffee.com/moony01/membership';
 
 /**
- * 지원 언어 목록 (12개)
+ * 지원 언어 목록 (7개)
  * sitemap, i18n 등에서 공통 사용
  */
 export const SUPPORTED_LOCALES = [
@@ -27,13 +27,8 @@ export const SUPPORTED_LOCALES = [
   'ja',
   'zh',
   'es',
-  'pt',
   'fr',
   'de',
-  'id',
-  'tr',
-  'th',
-  'vi',
 ] as const;
 
 export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
