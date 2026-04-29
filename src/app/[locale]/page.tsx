@@ -35,20 +35,21 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   const { locale } = await params;
 
   return {
-    title: 'KCL - K-pop Company League',
+    title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
     description:
-      "Prove your fandom's power! Vote and rank your favorite K-pop companies in the ultimate fan showdown.",
+      "Prove your fandom's firepower! Vote and rank your favorite K-pop entertainment companies in the global league. Real-time rankings updated every season — join millions of fans worldwide.",
     openGraph: {
-      title: 'KCL - K-pop Company League',
+      title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
       description:
-        "Prove your fandom's power! Vote and rank your favorite K-pop companies in the ultimate fan showdown.",
+        "Prove your fandom's firepower! Vote and rank your favorite K-pop entertainment companies in the global league. Real-time rankings updated every season — join millions of fans worldwide.",
       url: `https://www.kclhq.com/${locale}`,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'KCL - K-pop Company League',
-      description: "Prove your fandom's power! Vote for your favorite K-pop company.",
+      title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
+      description:
+        "Prove your fandom's firepower! Vote and rank your favorite K-pop companies in the global league rankings.",
     },
     alternates: generateAlternates(locale, ''),
   };

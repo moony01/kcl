@@ -47,22 +47,25 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(FULL_URL),
   title: {
-    template: '%s | KCL',
-    default: 'KCL - Kpop Company League',
+    template: '%s | KCL - K-pop Company League',
+    default: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
   },
-  description: "Prove your fandom's firepower. Support your artist in the global ranking battle.",
+  description:
+    "Prove your fandom's firepower! Vote for your favorite K-pop entertainment companies, compete in global league rankings, and support your artist in the ultimate fan showdown.",
   openGraph: {
-    title: 'KCL - Kpop Company League',
-    description: "Prove your fandom's firepower. Support your artist in the global ranking battle.",
-    siteName: 'Kpop Company League',
+    title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
+    description:
+      "Prove your fandom's firepower! Vote for your favorite K-pop entertainment companies, compete in global league rankings, and support your artist in the ultimate fan showdown.",
+    siteName: 'KCL - K-pop Company League',
     type: 'website',
     url: FULL_URL,
     // images는 opengraph-image.tsx에서 동적 생성됨
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KCL - Kpop Company League',
-    description: "Prove your fandom's firepower. Support your artist in the global ranking battle.",
+    title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
+    description:
+      "Prove your fandom's firepower! Vote for your favorite K-pop entertainment companies, compete in global league rankings, and support your artist in the ultimate fan showdown.",
     // images는 opengraph-image.tsx에서 동적 생성됨
   },
 };
