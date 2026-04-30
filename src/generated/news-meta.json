@@ -1,5 +1,32 @@
 [
   {
+    "slug": "hybe-q1-red-ink",
+    "locale": "en",
+    "title": "HYBE Made More Money Than Ever. So Why Did the Quarter Still Turn Red?",
+    "excerpt": "HYBE Q1 2026 revenue hit a record 698.3 billion won, but a 255 billion won one-off charge still pushed the BTS-fueled quarter into loss.",
+    "date": "2026-04-30",
+    "category": "Industry",
+    "thumbnail": "/images/news/hybe-q1-red-ink-thumbnail.png"
+  },
+  {
+    "slug": "santos-bravos-korea",
+    "locale": "en",
+    "title": "Santos Bravos Came to Seoul for a Reason - and It Wasn't Korea",
+    "excerpt": "Santos Bravos' Korea push was not about domestic charts. HYBE used Seoul's K-pop machine to beam a Latin act into the wider fandom economy.",
+    "date": "2026-04-30",
+    "category": "Tech & Culture",
+    "thumbnail": "/images/news/santos-bravos-korea-thumbnail.png"
+  },
+  {
+    "slug": "andteam-we-on-fire",
+    "locale": "en",
+    "title": "1.2 Million Copies Later, &TEAM Is Breaking the Korea-Japan Rulebook",
+    "excerpt": "&TEAM's We on Fire sold 1.24 million copies in its first week. The bigger story is how a Japan-first act is redrawing HYBE's cross-border playbook.",
+    "date": "2026-04-29",
+    "category": "Artist",
+    "thumbnail": "/images/news/andteam-we-on-fire-thumbnail.png"
+  },
+  {
     "slug": "fanomenon-big4-festival",
     "locale": "en",
     "title": "HYBE, SM, JYP, and YG Are Building Their Own Coachella — And That May Be the Real Power Move",
