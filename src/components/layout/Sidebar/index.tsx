@@ -23,7 +23,7 @@ import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
 import styles from './Sidebar.module.scss';
 
-const CONTACT_EMAIL = 'mun01183@gmail.com';
+const CONTACT_EMAIL = '';
 
 export default function Sidebar() {
   const t = useTranslations('Nav');
