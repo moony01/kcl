@@ -47,3 +47,11 @@ src/generated/
 .open-next/
 nextImageExportOptimizer/
 next-image-export-optimizer-hashes.json
+
+# Wrangler config (contains secrets)
+wrangler.jsonc
+wrangler.jsonc.*
+*.bak.old
+
+# Internal planning/agent files
+.claude/
