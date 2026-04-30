@@ -108,28 +108,30 @@ export default async function LocaleLayout({
             strategy="beforeInteractive"
           />
         )}
+        {/* Google AdSense 계정 인증 메타 태그 */}
+        <meta name="google-adsense-account" content={ADSENSE_PUBLISHER_ID} />
       </head>
-      {/* Google Analytics */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+      <body className={`${inter.variable} ${montserrat.variable}`}>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}');
         `}
-      </Script>
-      {/* Google AdSense */}
-      <Script
-        async
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
-      <body className={`${inter.variable} ${montserrat.variable}`}>
+        </Script>
+        {/* Google AdSense */}
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="light"
