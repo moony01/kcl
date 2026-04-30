@@ -31,7 +31,7 @@ on:
           - 'true'
 
 env:
-  SUPABASE_URL: https://eevckvdicfhqxywixznt.supabase.co
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
 
 jobs:
   monthly-settlement:

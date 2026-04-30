@@ -47,3 +47,4 @@ src/generated/
 .open-next/
 nextImageExportOptimizer/
 next-image-export-optimizer-hashes.json
+runtime/
