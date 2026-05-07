@@ -1,0 +1,8 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "mamamoo-4ward-return",
+  "lastPassStep": "LocalRender",
+  "nextStep": "Deploy",
+  "updatedAt": "2026-05-07T13:16:30+09:00",
+  "status": "IN_PROGRESS"
+}

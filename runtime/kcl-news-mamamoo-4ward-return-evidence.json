@@ -1,0 +1,180 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "mamamoo-4ward-return",
+  "runStartedAt": "2026-05-07T13:03:22+09:00",
+  "runEndedAt": null,
+  "selectedTopic": {
+    "topic": "MAMAMOO releases first 4WARD teaser ahead of June full-group comeback and world tour",
+    "category": "Artist",
+    "tone": "Positive",
+    "reason": "Same-day teaser coverage plus confirmed June comeback and tour; higher-ranked BTS/SM/G-Dragon topics were already published on origin/main."
+  },
+  "recentToneDistribution": {
+    "negative": 2,
+    "positive": 3,
+    "neutral": 0,
+    "balanceRule": "not_applied"
+  },
+  "stepResults": {
+    "research": "PASS",
+    "content": "PASS",
+    "factcheck": "PASS",
+    "image": "PASS",
+    "localRender": "PASS",
+    "deploy": "PENDING",
+    "gsc": "PENDING"
+  },
+  "attempts": {
+    "chatgptAccess": 1,
+    "thumbnailGeneration": 1,
+    "bodyGeneration": 1,
+    "imageDownload": 2,
+    "localRender": 1,
+    "deployPoll": 0,
+    "gsc": 0
+  },
+  "lastError": null,
+  "researchQueries": [
+    "K-pop breaking news today 2026 May 2026",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026 May 2026",
+    "K-pop idol debut announcement 2026 May",
+    "K-pop chart record milestone 2026 May",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026 May",
+    "K-pop fan project viral 2026 May",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter X fans May 2026",
+    "K-pop industry revenue market growth 2026 May",
+    "K-pop global expansion new market 2026 May",
+    "K-pop trainee audition 2026 tips May",
+    "K-pop survival show 2026 May",
+    "MAMAMOO 4WARD comeback teaser May 2026 full group comeback"
+  ],
+  "researchUrls": [
+    "https://www.soompi.com/article/1838654wpp/mamamoo-drops-1st-teaser-for-full-group-comeback-with-4ward",
+    "https://www.allkpop.com/article/2025/11/mamamoo-announces-full-group-comeback-and-world-tour-in-2026-returning-after-a-4-year-hiatus",
+    "https://www.fnnews.com/news/202605011841589205",
+    "https://www.tenasia.com/music/2026041786634",
+    "https://koreanindo.net/2026/05/06/mamamoo-bersiap-comeback-formasi-lengkap-dengan-4ward/",
+    "https://www.mamamoo2026us.com/",
+    "https://www.soompi.com/article/1829194wpp/watch-mamamoos-hwasa-announces-april-comeback-date-with-teaser-for-so-cute",
+    "https://www.starnewskorea.com/en/music/2026/03/13/2026031307582039837",
+    "https://biz.chosun.com/en/en-entertainment/2026/04/03/K57V3H4BQJAY3FIWMGDMECMLDE/?outputType=amp"
+  ],
+  "factcheck": [
+    {
+      "claim": "MAMAMOO unveiled the first 4WARD teaser at midnight KST on May 7 for a four-member comeback.",
+      "verdict": "PASS",
+      "sources": ["Soompi", "KoreanIndo"],
+      "action": "kept"
+    },
+    {
+      "claim": "RBW previously confirmed a June full-group album and world tour.",
+      "verdict": "PASS",
+      "sources": ["Soompi", "allkpop", "Financial News/Newsis"],
+      "action": "kept"
+    },
+    {
+      "claim": "MAMAMOO's last full-group release was the 2022 EP MIC ON with ILLELLA.",
+      "verdict": "PASS",
+      "sources": ["allkpop", "UPI", "NME"],
+      "action": "kept"
+    },
+    {
+      "claim": "The 2026 U.S. tour starts August 12 in New York and spans seven U.S. cities.",
+      "verdict": "PASS",
+      "sources": ["Financial News/Newsis", "official MAMAMOO 2026 US Tour site", "SBS Star"],
+      "action": "kept"
+    },
+    {
+      "claim": "The wider world tour opens in Seoul on June 19, MAMAMOO's debut anniversary.",
+      "verdict": "PASS",
+      "sources": ["Financial News/Newsis", "ChosunBiz"],
+      "action": "kept"
+    },
+    {
+      "claim": "Members have been active individually ahead of the June group return.",
+      "verdict": "PASS",
+      "sources": ["TenAsia", "Soompi", "StarNews"],
+      "action": "kept"
+    }
+  ],
+  "chatgpt": {
+    "url": "https://chatgpt.com/c/69fc0f49-c1f8-83a5-92d2-b89d68876448",
+    "prompt_thumbnail": "Generate a cinematic, photorealistic thumbnail image (16:9 aspect ratio, 1200x675px). Scene: a dramatic K-pop comeback teaser reveal for a legendary four-member vocal group returning after years away: an empty concert stage at midnight with four vintage microphone stands in a diamond formation, deep emerald, gold, violet, and white spotlights crossing through haze, fans' phones glowing in the dark foreground, a subtle sense of a world tour beginning. Style: editorial news thumbnail, dramatic lighting. No real people's faces, no identifiable people, no text, no logos, no watermarks, high quality, 8k resolution.",
+    "prompt_body": "Generate a dramatic editorial image (16:9 aspect ratio, 1200x675px). Scene: a backstage rehearsal studio at night before a major K-pop reunion era, with four empty chairs, four microphone cases, warm sheet lights, a partially open stage door spilling gold light, subtle tour-preparation mood, and a wall of blurred sticky notes with no readable writing. Style: professional news photography, cinematic lighting, polished magazine editorial. No real people's faces, no identifiable people, no text, no logos, no watermarks, high quality, 8k resolution.",
+    "rawDownloads": [
+      {
+        "file": "/home/mhhan/workspace/kcl/.playwright-mcp/ChatGPT-Image-2026년-5월-7일-오후-01-05-39.png",
+        "copiedToDownloads": "/home/mhhan/Downloads/ChatGPT-Image-2026년-5월-7일-오후-01-05-39.png",
+        "createdAt": "2026-05-07T13:05:39+09:00",
+        "size": 1959627,
+        "sha256": "04ef56673603d108ef1e7fabd8a53bc5286c4aefb8382f2147d46604b0373264"
+      },
+      {
+        "file": "/home/mhhan/workspace/kcl/.playwright-mcp/ChatGPT-Image-2026년-5월-7일-오후-01-07-16.png",
+        "copiedToDownloads": "/home/mhhan/Downloads/ChatGPT-Image-2026년-5월-7일-오후-01-07-16.png",
+        "createdAt": "2026-05-07T13:07:16+09:00",
+        "size": 1932954,
+        "sha256": "1ab61dfd6efebb28c15f52abe9bb0d11a7caa628e3b7682a1b0645455a7b61dd"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "/home/mhhan/.config/superpowers/worktrees/kcl/kcl-news-mamamoo-4ward-return/public/images/news/mamamoo-4ward-return-thumbnail.png",
+        "mtime": "2026-05-07T13:07:42+09:00",
+        "size": 1959627,
+        "sha256": "04ef56673603d108ef1e7fabd8a53bc5286c4aefb8382f2147d46604b0373264"
+      },
+      {
+        "path": "/home/mhhan/.config/superpowers/worktrees/kcl/kcl-news-mamamoo-4ward-return/public/images/news/mamamoo-4ward-return-1.png",
+        "mtime": "2026-05-07T13:07:42+09:00",
+        "size": 1932954,
+        "sha256": "1ab61dfd6efebb28c15f52abe9bb0d11a7caa628e3b7682a1b0645455a7b61dd"
+      }
+    ],
+    "reuse_check": "PASS"
+  },
+  "deploy": {
+    "commitSha": null,
+    "cloudflareProductionSha": null,
+    "url": "https://www.kclhq.com/en/news/mamamoo-4ward-return"
+  },
+  "localRender": {
+    "devServer": "http://127.0.0.1:3217",
+    "pageStatus": 200,
+    "rawImageStatuses": [
+      {
+        "url": "http://127.0.0.1:3217/images/news/mamamoo-4ward-return-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:3217/images/news/mamamoo-4ward-return-1.png",
+        "status": 200
+      }
+    ],
+    "optimizerImageStatuses": [
+      {
+        "url": "http://127.0.0.1:3217/images/news/nextImageExportOptimizer/mamamoo-4ward-return-thumbnail-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:3217/images/news/nextImageExportOptimizer/mamamoo-4ward-return-1-opt-800.WEBP",
+        "status": 200
+      }
+    ],
+    "playwright": {
+      "titleFound": true,
+      "thumbnailRendered": true,
+      "bodyImageRenderedAfterScroll": true
+    },
+    "build": "PASS",
+    "buildNotes": "pnpm build completed. Existing Sass deprecation and missing local Supabase env warnings appeared, but build exited 0."
+  },
+  "gsc": {
+    "requestedUrls": []
+  }
+}
