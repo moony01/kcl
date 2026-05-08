@@ -1,0 +1,17 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "meovv-awakening-test",
+  "runStartedAt": "2026-05-08T12:05:27+09:00",
+  "currentStep": "gsc",
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "LocalRender": "PASS",
+    "Deploy": "PENDING",
+    "GSC": "PENDING"
+  },
+  "articleUrl": "https://www.kclhq.com/en/news/meovv-awakening-test",
+  "evidenceFile": "runtime/kcl-news-meovv-awakening-test-evidence.json",
+  "reportFile": "runtime/kcl-news-meovv-awakening-test-report.md"
+}

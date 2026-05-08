@@ -1,0 +1,241 @@
+{
+  "runStartedAt": "2026-05-08T12:05:27+09:00",
+  "runEndedAt": null,
+  "workflow": "kcl-news-autopilot",
+  "slug": "meovv-awakening-test",
+  "selectedTopic": {
+    "topic": "MEOVV's May 8 cryptic AWAKENING / ready to strike comeback teasers",
+    "category": "Artist",
+    "tone": "Positive",
+    "selectionReason": "Latest non-duplicate origin/main topic with same-day media coverage and fast fan engagement; higher-noise BTS Mexico, G-Dragon, MAMAMOO, SM Q1, and The Scout topics already existed on origin/main.",
+    "recentToneDistribution": {
+      "negative": 0,
+      "positive": 3,
+      "neutral": 2,
+      "balanceRule": "not_applied"
+    },
+    "topCandidates": [
+      "MEOVV cryptic comeback teaser - selected",
+      "LE SSERAFIM BOOMPALA teaser - skipped as already covered by prior LE SSERAFIM PUREFLOW and May girl-group articles",
+      "MAMAMOO 4WARD teaser - skipped as existing origin/main post",
+      "The Scout Stars Reborn premiere - skipped as existing origin/main post",
+      "BTS Mexico National Palace visibility - skipped as existing origin/main post"
+    ]
+  },
+  "plan": {
+    "titleCandidates": [
+      {
+        "title": "MEOVV Just Said 'AWAKENING' - The Black Label's Mystery Game Has One Last Test",
+        "score": 23
+      },
+      {
+        "title": "Three Words, One Cat Eye, Zero Dates: Why MEOVV's Comeback Teaser Is Working Too Well",
+        "score": 21
+      },
+      {
+        "title": "MEOVV Finally Moved - But 'Ready to Strike' Is the Easy Part",
+        "score": 20
+      }
+    ],
+    "selectedTitle": "MEOVV Just Said 'AWAKENING' - The Black Label's Mystery Game Has One Last Test",
+    "slug": "meovv-awakening-test",
+    "targetKeywords": [
+      "MEOVV comeback",
+      "MEOVV teaser"
+    ]
+  },
+  "researchQueries": [
+    "K-pop breaking news today 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter/X fans",
+    "K-pop trainee audition 2026 tips",
+    "MEOVV cryptic images comeback May 2026",
+    "MEOVV AWAKENING ready to strike teaser"
+  ],
+  "researchUrls": [
+    "https://www.soompi.com/article/1839079wpp/meovv-hints-at-comeback-with-mysterious-teasers",
+    "https://www.allkpop.com/article/2026/05/meovv-unveils-cryptic-images-signaling-a-possible-comeback",
+    "https://www.kpopify.com/2026/05/meovv-sends-fans-into-frenzy-with.html",
+    "https://koreajoongangdaily.joins.com/news/2024-08-29/entertainment/kpop/THE-BLACK-LABELs-first-girl-group-Meovv-signs-with-Capitol-Records-before-debut/2122312",
+    "https://www.capitolrecords.com/pages/meovv",
+    "https://www.allkpop.com/article/2024/09/event-recap-theblacklabels-1st-girl-group-meovv-holds-debut-press-showcase-debuts-with-big-dreams-and-strong-support-from-k-pop-seniors",
+    "https://www.reddit.com/r/kpop/comments/1t6dise/meovv_coming_soon_comeback_teaser_videos_photos/",
+    "https://www.reddit.com/r/meovv/comments/1t6d5sz/260508_meovv_coming_soon_comeback_teaser_images/"
+  ],
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "LocalRender": "PASS",
+    "Deploy": "PENDING",
+    "GSC": "PENDING"
+  },
+  "content": {
+    "file": "src/content/news/en/meovv-awakening-test.md",
+    "wordCount": 1428,
+    "excerptLength": 117,
+    "internalLinks": [
+      "/en/news/black-label-yg-board"
+    ],
+    "active": true,
+    "encodingCheck": "PASS"
+  },
+  "factCheck": [
+    {
+      "claim": "MEOVV shared May 8 teaser images/clips using AWAKENING, ready to strike, Instinct gauge, and One bite at the apple.",
+      "verdict": "PASS",
+      "sources": [
+        "Soompi",
+        "Kpopify"
+      ],
+      "action": "kept"
+    },
+    {
+      "claim": "Current reports do not confirm title, release date, track count, or format.",
+      "verdict": "PASS",
+      "sources": [
+        "Soompi",
+        "allkpop",
+        "Kpopify"
+      ],
+      "action": "kept"
+    },
+    {
+      "claim": "MEOVV signed a Capitol Records partnership before debut.",
+      "verdict": "PASS",
+      "sources": [
+        "Korea JoongAng Daily"
+      ],
+      "action": "kept"
+    },
+    {
+      "claim": "MEOVV debuted with Meow on September 6, 2024.",
+      "verdict": "PASS",
+      "sources": [
+        "Capitol Records",
+        "allkpop"
+      ],
+      "action": "kept"
+    },
+    {
+      "claim": "Fan communities reacted strongly and asked for more music/project clarity.",
+      "verdict": "PASS",
+      "sources": [
+        "Reddit r/kpop",
+        "Reddit r/meovv"
+      ],
+      "action": "kept"
+    },
+    {
+      "claim": "May 2026 is crowded with major girl-group campaigns.",
+      "verdict": "PASS",
+      "sources": [
+        "allkpop",
+        "Soompi",
+        "KCL prior coverage"
+      ],
+      "action": "kept"
+    }
+  ],
+  "chatgpt": {
+    "pageUrl": "https://chatgpt.com/c/69fd5325-6540-83ab-8336-da8fc67e83cf",
+    "prompt_thumbnail": "Generate one cinematic, photorealistic K-pop news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: an anonymous futuristic K-pop comeback teaser room at night, with glossy black cat-eye light shapes, red warning glow, chrome apple-like abstract sculpture, scattered production monitors showing only unreadable waveform blocks, and silhouettes of fans' smartphones reacting outside a dark glass wall. Mood: suspenseful, high-fashion, urgent, editorial, mystery-marketing energy. Colors: black, silver, deep red, neon cyan. Style: professional news thumbnail, dramatic lighting, realistic photography, high contrast. Safety: no real people's faces, no identifiable celebrity likeness, no readable text, no logos, no watermarks, high quality, 8k resolution.",
+    "prompt_body": "Generate one dramatic editorial K-pop news body image in 16:9 aspect ratio, 1200x675px. Scene: an anonymous entertainment-label strategy studio after a cryptic comeback teaser drop, with a long black table, glowing social-media heat map made of abstract squares, cat-eye neon reflections on glass, sealed concept folders, and shadowy staff silhouettes reviewing fan reaction dashboards. Mood: tense but premium, anticipation turning into business pressure. Colors: charcoal, white chrome, crimson, electric teal. Style: professional news photography, cinematic lighting, realistic, high contrast. Safety: no real people's faces, no identifiable celebrity likeness, no readable text, no logos, no watermarks, high quality, 8k resolution.",
+    "rawDownloads": [
+      {
+        "suggestedFilename": "e19c6da2-ec05-4de7-959d-3a6aebdbfce8.png",
+        "savedPath": "/home/mhhan/Downloads/ChatGPT_Generated_Image_meovv_awakening_thumbnail.png",
+        "mtime": "2026-05-08 12:08:53.059496608 +0900",
+        "size": 1976747,
+        "sha256": "3fa08c3355dca0ab88ea3cf172dfaa9406af5eeec83a0b0d94bcd4e3cc23ed1c"
+      },
+      {
+        "suggestedFilename": "9d1cada7-f18b-4d4a-8a4b-88e0e1a09d5d.png",
+        "savedPath": "/home/mhhan/Downloads/ChatGPT_Generated_Image_meovv_awakening_body.png",
+        "mtime": "2026-05-08 12:11:13.706681819 +0900",
+        "size": 1965955,
+        "sha256": "3a2e0017c48d82083bb231d56200dcfdb9e9b26f2f62a4330995fd5e56fe8a32"
+      }
+    ],
+    "resourceImages": [
+      "/home/mhhan/workspace/.resource/meovv-awakening-test-thumbnail.png",
+      "/home/mhhan/workspace/.resource/meovv-awakening-test-1.png"
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/meovv-awakening-test-thumbnail.png",
+        "publicUrl": "/images/news/meovv-awakening-test-thumbnail.png",
+        "mtime": "2026-05-08 12:13:57.476917048 +0900",
+        "size": 1976747,
+        "sha256": "3fa08c3355dca0ab88ea3cf172dfaa9406af5eeec83a0b0d94bcd4e3cc23ed1c"
+      },
+      {
+        "path": "public/images/news/meovv-awakening-test-1.png",
+        "publicUrl": "/images/news/meovv-awakening-test-1.png",
+        "mtime": "2026-05-08 12:13:57.479917052 +0900",
+        "size": 1965955,
+        "sha256": "3a2e0017c48d82083bb231d56200dcfdb9e9b26f2f62a4330995fd5e56fe8a32"
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "localRender": {
+    "build": "PASS",
+    "buildCommand": "pnpm build",
+    "warnings": [
+      "Existing Sass darken() deprecation warnings",
+      "Missing local Supabase env warnings during static generation",
+      "One dynamic font fetch timeout during local build"
+    ],
+    "devServerUrl": "http://127.0.0.1:4189",
+    "route": {
+      "url": "http://127.0.0.1:4189/en/news/meovv-awakening-test",
+      "status": 200
+    },
+    "imageUrls": [
+      {
+        "url": "http://127.0.0.1:4189/images/news/meovv-awakening-test-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4189/images/news/meovv-awakening-test-1.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4189/images/news/nextImageExportOptimizer/meovv-awakening-test-thumbnail-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4189/images/news/nextImageExportOptimizer/meovv-awakening-test-1-opt-800.WEBP",
+        "status": 200
+      }
+    ],
+    "browserCheck": {
+      "h1": "MEOVV Just Said 'AWAKENING' - The Black Label's Mystery Game Has One Last Test",
+      "heroImage": "PASS",
+      "bodyImage": "PASS",
+      "screenshot": "runtime/kcl-local-meovv-awakening-body.png"
+    }
+  },
+  "deploy": {
+    "commitSha": null,
+    "cloudflare": {
+      "productionSha": null,
+      "status": "PENDING"
+    }
+  },
+  "gsc": {
+    "requestedUrls": []
+  },
+  "attempts": {
+    "Research": 1,
+    "ChatGPT": 1,
+    "Content": 1,
+    "LocalRender": 2,
+    "Deploy": 0,
+    "GSC": 0
+  },
+  "lastError": null
+}
