@@ -1,0 +1,7 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "the-scout-reboot",
+  "status": "in_progress",
+  "lastPassedGate": "LocalRender",
+  "updatedAt": "2026-05-08T11:20:20+09:00"
+}

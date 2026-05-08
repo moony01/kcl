@@ -1,0 +1,223 @@
+{
+  "runStartedAt": "2026-05-08T11:05:11+09:00",
+  "runEndedAt": null,
+  "workflow": "kcl-news-autopilot",
+  "slug": "the-scout-reboot",
+  "selectedTopic": {
+    "name": "ENA The Scout: Stars Reborn premiere",
+    "category": "Trainee System",
+    "tone": "Neutral",
+    "reason": "Fresh non-duplicate May 8 premiere with multiple source pickup and strong trainee/audition relevance."
+  },
+  "toneBalance": {
+    "recentFive": [
+      "mamamoo-4ward-return: Positive",
+      "sm-q1-money-machine: Positive",
+      "bts-mexico-palace: Positive",
+      "japan-super-weekend: Positive",
+      "cix-seven-year-end: Neutral"
+    ],
+    "negative": 0,
+    "positive": 4,
+    "neutral": 1,
+    "rule": "No forced balance rule applied"
+  },
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "LocalRender": "PASS",
+    "Deploy": "PENDING",
+    "GSC": "PENDING"
+  },
+  "researchQueries": [
+    "K-pop breaking news today 2026 May 8",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026 May",
+    "K-pop idol debut announcement 2026 May",
+    "K-pop chart record milestone 2026 May",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026 May",
+    "K-pop fan project viral 2026 May",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter X fans May 2026",
+    "K-pop industry revenue market growth 2026",
+    "K-pop global expansion new market 2026",
+    "K-pop trainee audition 2026 tips",
+    "K-pop survival show 2026 trainees debut May",
+    "THE SCOUT STARS REBORN ENA survival show May 8 2026 K-pop"
+  ],
+  "researchUrls": [
+    "https://kpopping.com/survivalshows/the-scout",
+    "https://kstationtv.com/2026/04/24/the-scout-stars-reborn-a-new-era-for-raw-talents-on-the-ena-channel/?lang=en",
+    "https://www.starnewskorea.com/en/star/2026/04/29/2026042912470681492",
+    "https://www.mk.co.kr/en/entertain/12019638",
+    "https://www.soompi.com/article/1833922wpp/wendy-young-k-kim-jae-joong-and-more-announced-as-masters-for-new-audition-show-the-scout",
+    "https://sports.khan.co.kr/article/202605061504003",
+    "https://www.fnnews.com/news/202604251128295091",
+    "https://www.koreadaily.com/article/20260416185448333",
+    "https://kprofiles.com/the-scout-stars-reborn-audition-show-contestants-profile/",
+    "https://koreajoongangdaily.joins.com/news/2026-04-28/entertainment/kpop/Kpop-album-exports-surpass-100-million-for-first-time-in-Q1/2579529",
+    "https://www.ifpi.org/global-music-report-2026-global-recorded-music-revenues-grow-6-4-as-record-companies-drive-innovation/"
+  ],
+  "content": {
+    "file": "src/content/news/en/the-scout-reboot.md",
+    "title": "16 Second Chances, No Eliminations: The Scout Just Exposed K-pop's Audition Trap",
+    "wordCount": 1060,
+    "h2Count": 6,
+    "h3Count": 7,
+    "internalLinks": [
+      "/en/news/big4-trainee-requirements-attitude"
+    ],
+    "targetKeywords": [
+      "The Scout Stars Reborn",
+      "K-pop audition show"
+    ],
+    "active": true
+  },
+  "factCheck": [
+    {
+      "claim": "The Scout Stars Reborn premieres on May 8, 2026 at 8 PM KST on ENA.",
+      "verdict": "PASS",
+      "sources": [
+        "Kpopping",
+        "Sports Khan",
+        "KoreaDaily/OSEN"
+      ],
+      "action": "Kept"
+    },
+    {
+      "claim": "The program has 16 contestants selected through closed/blind auditions.",
+      "verdict": "PASS",
+      "sources": [
+        "Kpopping",
+        "Soompi",
+        "Sports Khan"
+      ],
+      "action": "Kept"
+    },
+    {
+      "claim": "Masters include Lee Seung Chul, Kim Jae Joong, Wendy, Young K, and Choo Sung Hoon.",
+      "verdict": "PASS",
+      "sources": [
+        "Soompi",
+        "MK",
+        "KoreaDaily/OSEN"
+      ],
+      "action": "Kept"
+    },
+    {
+      "claim": "The format removes classic elimination/story/age hooks.",
+      "verdict": "PASS",
+      "sources": [
+        "Sports Khan",
+        "StarNews"
+      ],
+      "action": "Kept"
+    },
+    {
+      "claim": "All 16 release new songs; national audience voting selects eight for concert/album production.",
+      "verdict": "PASS",
+      "sources": [
+        "StarNews"
+      ],
+      "action": "Kept with attribution to StarNews"
+    }
+  ],
+  "ChatGPT": {
+    "url": "https://chatgpt.com/c/69fd44ea-87c4-83a9-a379-40b052701d1e",
+    "prompts": {
+      "thumbnail": "Generate a cinematic, photorealistic thumbnail image (16:9 aspect ratio, 1200x675px). Scene: a Korean music audition studio moments before a televised premiere, sixteen aspiring male singer silhouettes as anonymous figures in practice outfits standing under individual spotlight lanes, five mentor silhouettes behind a glass judging room, stage fog, camera cranes, rehearsal mirrors, Seoul entertainment industry mood. Colors: electric cyan, deep red, clean silver, black stage shadows. Style: editorial news thumbnail, dramatic lighting. No real people's faces, no identifiable celebrities, no text, no watermarks, high quality, 8k resolution.",
+      "body": "Generate a dramatic editorial image (16:9 aspect ratio, 1200x675px). Scene: a quiet K-pop rehearsal room after midnight with scuffed dance floor, microphones, lyric sheets, numbered audition badges, and empty chairs under warm overhead lights, showing the emotional pressure of second-chance trainees without showing identifiable faces. Style: professional news photography, cinematic lighting. No real people's faces, no identifiable people, no text, no watermarks, high quality, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "filename": "/home/mhhan/workspace/kcl/.playwright-mcp/ChatGPT-Image-2026년-5월-8일-오전-11-06-46.png",
+        "copiedTo": "/home/mhhan/Downloads/ChatGPT-Image-the-scout-reboot-thumbnail.png",
+        "mtime": "2026-05-08T11:06:46+09:00",
+        "size": 1873094,
+        "sha256": "36cc94d2a8ffa13555b7312f0bfc19fe5bfd2526082a2abdac6b4da67a9555df"
+      },
+      {
+        "filename": "/home/mhhan/workspace/kcl/.playwright-mcp/ChatGPT-Image-2026년-5월-8일-오전-11-08-14.png",
+        "copiedTo": "/home/mhhan/Downloads/ChatGPT-Image-the-scout-reboot-body.png",
+        "mtime": "2026-05-08T11:08:14+09:00",
+        "size": 2051835,
+        "sha256": "badb0fdea92f05620744600db884ce647fcfbcb63557d6c1fc4eefbd15bd9b55"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/the-scout-reboot-thumbnail.png",
+        "mtime": "2026-05-08T11:10:19+09:00",
+        "size": 1873094,
+        "sha256": "36cc94d2a8ffa13555b7312f0bfc19fe5bfd2526082a2abdac6b4da67a9555df"
+      },
+      {
+        "path": "public/images/news/the-scout-reboot-1.png",
+        "mtime": "2026-05-08T11:10:19+09:00",
+        "size": 2051835,
+        "sha256": "badb0fdea92f05620744600db884ce647fcfbcb63557d6c1fc4eefbd15bd9b55"
+      }
+    ],
+    "reuse_check": "PASS"
+  },
+  "deploy": {
+    "commitSha": null,
+    "cloudflare": {
+      "productionSha": null,
+      "status": "PENDING"
+    }
+  },
+  "gsc": {
+    "requestedUrls": []
+  },
+  "attempts": {
+    "ChatGPT": 1,
+    "LocalRender": 2,
+    "Deploy": 0,
+    "GSC": 0
+  },
+  "localRender": {
+    "build": {
+      "command": "npm run build; then reran npx next-image-export-optimizer && node scripts/inject-sitemap-style.js after the first long optimizer session ended before completion",
+      "status": "PASS",
+      "warnings": [
+        "Existing Sass darken() deprecation warnings",
+        "Local Supabase env warnings because NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are not set in this worktree shell",
+        "Local AdSense 403 on 127.0.0.1"
+      ]
+    },
+    "localUrls": [
+      {
+        "url": "http://127.0.0.1:4174/en/news/the-scout-reboot",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/the-scout-reboot-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/the-scout-reboot-1.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/nextImageExportOptimizer/the-scout-reboot-thumbnail-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/nextImageExportOptimizer/the-scout-reboot-1-opt-800.WEBP",
+        "status": 200
+      }
+    ],
+    "browserCheck": {
+      "h1": "16 Second Chances, No Eliminations: The Scout Just Exposed K-pop's Audition Trap",
+      "heroImage": "PASS",
+      "bodyImage": "PASS",
+      "screenshot": "/home/mhhan/workspace/kcl/kcl-local-the-scout-reboot-body.png"
+    }
+  },
+  "lastError": null
+}
