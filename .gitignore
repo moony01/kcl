@@ -55,3 +55,6 @@ wrangler.jsonc.*
 
 # Internal planning/agent files
 .claude/
+
+# Local git worktrees
+.worktrees/
