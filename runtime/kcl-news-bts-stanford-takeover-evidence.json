@@ -1,0 +1,187 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-stanford-takeover",
+  "runStartedAt": "2026-05-15T16:35:00+09:00",
+  "runEndedAt": null,
+  "selectedTopic": {
+    "topic": "BTS Stanford Stadium three-night sold-out Bay Area run on May 16, 17, and 19",
+    "category": "Artist",
+    "tone": "Positive",
+    "reason": "Immediate time sensitivity, official Stanford logistics pages, local media coverage, sold-out status, and active fan-project coverage; higher-scoring BTS World Cup, K-pop export, and Fanomenon topics were already published."
+  },
+  "recentToneDistribution": {
+    "negative": 1,
+    "positive": 4,
+    "neutral": 0,
+    "balanceRule": "not_applied"
+  },
+  "stepResults": {
+    "research": "PASS",
+    "content": "PASS",
+    "factcheck": "PASS",
+    "image": "PASS",
+    "localRender": "PASS",
+    "deploy": "PENDING",
+    "gsc": "PENDING"
+  },
+  "attempts": {
+    "chatgptAccess": 1,
+    "thumbnailGeneration": 1,
+    "bodyGeneration": 1,
+    "imageDownload": 2,
+    "localRender": 1,
+    "deployPoll": 0,
+    "gsc": 0
+  },
+  "lastError": null,
+  "researchQueries": [
+    "K-pop breaking news today 2026 May 15",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026 May",
+    "K-pop idol debut announcement 2026",
+    "K-pop chart record milestone 2026 May",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026 May",
+    "K-pop fan project viral 2026 May",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter X fans May 2026",
+    "K-pop industry revenue market growth 2026",
+    "K-pop global expansion new market 2026",
+    "K-pop trainee audition 2026 tips",
+    "K-pop survival show 2026",
+    "BTS Stanford Stadium May 16 17 19 2026 sold out",
+    "BTS Stanford Stadium transportation impacts May 2026"
+  ],
+  "researchUrls": [
+    "https://gostanford.com/news/2026/01/13/bts-to-perform-at-stanford-stadium-on-may-16-and-17-2026",
+    "https://transportation.stanford.edu/news/stanford-transportation-impacts-during-bts-concert",
+    "https://gostanford.com/facilities/stanford-stadium",
+    "https://www.nbcbayarea.com/news/local/bts-stanford-stadium/4084834/",
+    "https://www.kqed.org/news/12082588/bts-stanford-may-2026-stadium-army-kpop-things-to-do-bay-area-peninsula/",
+    "https://www.sfchronicle.com/entertainment/music/article/bay-area-bts-army-stanford-22241151.php",
+    "https://en.koreaportal.com/articles/54467/20260512/bts-plays-stanford-stadium-four-days-three-shows-sold-out.htm",
+    "https://www.ticketnews.com/2026/01/bts-adds-new-tampa-and-stanford-dates-to-2026-arirang-world-tour-as-general-sale-opens/"
+  ],
+  "factcheck": [
+    {
+      "claim": "BTS will perform at Stanford Stadium on May 16, 17, and 19, 2026.",
+      "verdict": "PASS",
+      "sources": ["Stanford Athletics", "KQED", "KoreaPortal"],
+      "action": "kept"
+    },
+    {
+      "claim": "The Stanford dates are part of BTS WORLD TOUR 'ARIRANG', described by Stanford as spanning 34 regions and 79 shows with a 360-degree in-the-round stage.",
+      "verdict": "PASS",
+      "sources": ["Stanford Athletics", "TicketNews"],
+      "action": "kept"
+    },
+    {
+      "claim": "Stanford Stadium's listed seating capacity is 50,424, so three standard-capacity nights imply a potential scale above 150,000 before exact production holds.",
+      "verdict": "PASS",
+      "sources": ["Stanford Stadium facility page", "Stanford Athletics"],
+      "action": "kept with cautious wording"
+    },
+    {
+      "claim": "All three Stanford shows are sold out.",
+      "verdict": "PASS",
+      "sources": ["NBC Bay Area", "KoreaPortal"],
+      "action": "kept"
+    },
+    {
+      "claim": "Stanford Transportation warned of traffic and parking impacts, ride-share limits at Wilbur Lot, public transit delays, and Waymo campus closure during the concert series.",
+      "verdict": "PASS",
+      "sources": ["Stanford Transportation"],
+      "action": "kept"
+    },
+    {
+      "claim": "Bay Area BTSxARMY crowdfunded a local welcome billboard project and has 4,700 Facebook members plus more than 12,000 Instagram followers.",
+      "verdict": "PASS",
+      "sources": ["NBC Bay Area", "San Francisco Chronicle"],
+      "action": "kept"
+    }
+  ],
+  "chatgpt": {
+    "url": "https://chatgpt.com/c/6a06ccb9-c004-83a5-93b6-e7fd032b048e",
+    "prompt_thumbnail": "Generate a cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a packed college football stadium at night on a Bay Area campus, anonymous K-pop fans arriving in waves with purple light sticks and smartphone glow, transit lines and crowd-control barriers around the venue, dramatic broadcast lighting, high-energy concert atmosphere. Style: premium editorial news photography, cinematic lighting, crisp realistic detail, global music event mood. No real people's faces, no identifiable people, no text, no logos, no watermarks, high quality, 8k resolution.",
+    "prompt_body": "Generate a dramatic editorial image in 16:9 aspect ratio, 1200x675px. Scene: Bay Area concert logistics converging on a major campus stadium before a huge K-pop tour stop, with anonymous fan silhouettes moving from trains, bike valet lanes, ride-share queues, campus walkways, and merchandise tents toward a glowing purple stadium. Mood: organized pressure, city-scale fandom, premium live-event infrastructure. Style: professional news photography, cinematic aerial perspective, realistic night lighting, crisp detail. No real people's faces, no identifiable people, no text, no logos, no watermarks, high quality, 8k resolution.",
+    "rawDownloads": [
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-stanford-takeover-thumbnail.png",
+        "createdAt": "2026-05-15T16:40:50+09:00",
+        "size": 2423474,
+        "sha256": "5d1ae92b4a9f901f6e2310ef593d1a0e0eb06b5e4c288cbd762ba1bc340c562d"
+      },
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-stanford-takeover-1.png",
+        "createdAt": "2026-05-15T16:40:50+09:00",
+        "size": 2871943,
+        "sha256": "395c1b44993c2b23d0f4327c80bd7eadddaa8e4c3ab0394f783a105751dcab8a"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "/home/mhhan/workspace/kcl/public/images/news/bts-stanford-takeover-thumbnail.png",
+        "mtime": "2026-05-15T16:40:50+09:00",
+        "size": 2423474,
+        "sha256": "5d1ae92b4a9f901f6e2310ef593d1a0e0eb06b5e4c288cbd762ba1bc340c562d"
+      },
+      {
+        "path": "/home/mhhan/workspace/kcl/public/images/news/bts-stanford-takeover-1.png",
+        "mtime": "2026-05-15T16:40:50+09:00",
+        "size": 2871943,
+        "sha256": "395c1b44993c2b23d0f4327c80bd7eadddaa8e4c3ab0394f783a105751dcab8a"
+      }
+    ],
+    "reuse_check": "PASS"
+  },
+  "content": {
+    "words": 1257,
+    "h2": 6,
+    "h3": 6,
+    "internalLinks": 1,
+    "badReplacementChars": 0,
+    "targetKeywords": ["BTS Stanford Stadium", "BTS Bay Area"]
+  },
+  "localRender": {
+    "server": "http://127.0.0.1:4173",
+    "pageStatus": 200,
+    "pageUrlChecked": "http://127.0.0.1:4173/en/news/bts-stanford-takeover.html",
+    "rawImageStatuses": [
+      {
+        "url": "http://127.0.0.1:4173/images/news/bts-stanford-takeover-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4173/images/news/bts-stanford-takeover-1.png",
+        "status": 200
+      }
+    ],
+    "optimizerImageStatuses": [
+      {
+        "url": "http://127.0.0.1:4173/images/news/nextImageExportOptimizer/bts-stanford-takeover-thumbnail-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4173/images/news/nextImageExportOptimizer/bts-stanford-takeover-1-opt-800.WEBP",
+        "status": 200
+      }
+    ],
+    "playwright": {
+      "titleFound": true,
+      "thumbnailRendered": true,
+      "bodyImageRenderedAfterScroll": true
+    },
+    "build": "PASS",
+    "buildNotes": "pnpm build and npx next-image-export-optimizer exited 0. Existing local Supabase env warnings and Sass deprecation warnings were observed."
+  },
+  "deploy": {
+    "commitSha": null,
+    "cloudflareProductionSha": null,
+    "url": "https://www.kclhq.com/en/news/bts-stanford-takeover"
+  },
+  "gsc": {
+    "requestedUrls": []
+  }
+}
