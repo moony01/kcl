@@ -2,7 +2,7 @@
   "workflow": "kcl-news-autopilot",
   "slug": "bts-stanford-takeover",
   "runStartedAt": "2026-05-15T16:35:00+09:00",
-  "runEndedAt": null,
+  "runEndedAt": "2026-05-15T17:00:39+09:00",
   "selectedTopic": {
     "topic": "BTS Stanford Stadium three-night sold-out Bay Area run on May 16, 17, and 19",
     "category": "Artist",
@@ -21,8 +21,8 @@
     "factcheck": "PASS",
     "image": "PASS",
     "localRender": "PASS",
-    "deploy": "PENDING",
-    "gsc": "PENDING"
+    "deploy": "PASS",
+    "gsc": "PASS"
   },
   "attempts": {
     "chatgptAccess": 1,
@@ -30,8 +30,8 @@
     "bodyGeneration": 1,
     "imageDownload": 2,
     "localRender": 1,
-    "deployPoll": 0,
-    "gsc": 0
+    "deployPoll": 3,
+    "gsc": 1
   },
   "lastError": null,
   "researchQueries": [
@@ -177,11 +177,55 @@
     "buildNotes": "pnpm build and npx next-image-export-optimizer exited 0. Existing local Supabase env warnings and Sass deprecation warnings were observed."
   },
   "deploy": {
-    "commitSha": null,
-    "cloudflareProductionSha": null,
-    "url": "https://www.kclhq.com/en/news/bts-stanford-takeover"
+    "commitSha": "4be4d05ed0e551245fd5791211249238cc335046",
+    "remoteMainSha": "4be4d05ed0e551245fd5791211249238cc335046",
+    "cloudflareProductionSha": "not_available_via_public_or_github_deployments",
+    "url": "https://www.kclhq.com/en/news/bts-stanford-takeover",
+    "pollAttempts": 3,
+    "publicPageStatus": 200,
+    "publicRawImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/bts-stanford-takeover-thumbnail.png",
+        "status": 200,
+        "size": 2423474
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/bts-stanford-takeover-1.png",
+        "status": 200,
+        "size": 2871943
+      }
+    ],
+    "publicOptimizerImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-stanford-takeover-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "size": 55984
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-stanford-takeover-1-opt-800.WEBP",
+        "status": 200,
+        "size": 80046
+      }
+    ],
+    "playwright": {
+      "url": "https://www.kclhq.com/en/news/bts-stanford-takeover",
+      "titleFound": true,
+      "h1Found": true,
+      "thumbnailRendered": true,
+      "bodyImageRenderedAfterScroll": true,
+      "internalLinkFound": true
+    }
   },
   "gsc": {
-    "requestedUrls": []
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/bts-stanford-takeover",
+        "property": "sc-domain:kclhq.com",
+        "status": "requested",
+        "confirmedText": "색인 생성 요청됨",
+        "requestedAt": "2026-05-15T17:00:11+09:00",
+        "attempts": 1
+      }
+    ]
   }
 }

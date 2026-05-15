@@ -47,8 +47,8 @@ Fix: 0 | Remove: 0
 - Factcheck: PASS
 - Image: PASS
 - Local Render: PASS
-- Deploy: PENDING
-- GSC: PENDING
+- Deploy: PASS
+- GSC: PASS
 
 ## Local Render Evidence
 
@@ -60,6 +60,26 @@ Fix: 0 | Remove: 0
 - Playwright render: title found, thumbnail rendered, body image rendered after scroll
 - Build: pnpm build PASS; npx next-image-export-optimizer PASS
 
+## Deployment Evidence
+
+- commit: 4be4d05ed0e551245fd5791211249238cc335046
+- push: origin/main -> 4be4d05ed0e551245fd5791211249238cc335046
+- poll: https://www.kclhq.com/en/news/bts-stanford-takeover -> 200 on attempt 3
+- public raw thumbnail: /images/news/bts-stanford-takeover-thumbnail.png -> 200
+- public raw body image: /images/news/bts-stanford-takeover-1.png -> 200
+- public optimized thumbnail: /images/news/nextImageExportOptimizer/bts-stanford-takeover-thumbnail-opt-800.WEBP -> 200
+- public optimized body: /images/news/nextImageExportOptimizer/bts-stanford-takeover-1-opt-800.WEBP -> 200
+- Playwright deployed render: H1 found, thumbnail rendered, body image rendered after scroll, internal link found
+- Cloudflare production SHA: not exposed via public page or GitHub deployments; deployment was verified by remote main SHA plus live public render
+
 ## Known Local Warnings
 
 The local build and browser render showed existing Supabase environment warnings and Sass deprecation warnings. They did not block static build output, article rendering, or image loading.
+
+## Search Console Evidence
+
+- property: sc-domain:kclhq.com
+- inspected URL: https://www.kclhq.com/en/news/bts-stanford-takeover
+- action: 색인 생성 요청
+- confirmation: 색인 생성 요청됨
+- attempts: 1
