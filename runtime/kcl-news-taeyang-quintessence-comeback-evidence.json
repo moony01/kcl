@@ -2,7 +2,7 @@
   "workflow": "kcl-news",
   "slug": "taeyang-quintessence-comeback",
   "runStartedAt": "2026-05-17T11:32:00+0900",
-  "runEndedAt": null,
+  "runEndedAt": "2026-05-17T12:28:11+0900",
   "selectedTopic": {
     "topic": "Taeyang's fourth full album QUINTESSENCE, with LIVE FAST DIE SLOW as title track and The Kid LAROI / ALLDAY PROJECT features",
     "category": "Artist",
@@ -104,14 +104,14 @@
     },
     {
       "step": "Deploy",
-      "status": "PENDING",
-      "attempts": 0,
+      "status": "PASS",
+      "attempts": 4,
       "lastError": null
     },
     {
       "step": "GSC",
-      "status": "PENDING",
-      "attempts": 0,
+      "status": "PASS",
+      "attempts": 1,
       "lastError": null
     }
   ],
@@ -241,11 +241,56 @@
     "reuseCheck": "PASS"
   },
   "deploy": {
-    "commitSha": null,
-    "cloudflareProductionSha": null,
-    "url": "https://www.kclhq.com/en/news/taeyang-quintessence-comeback"
+    "commitSha": "4ddfdb0dd9dd3dd4b773ca4cb532da020f579d70",
+    "remoteMainSha": "4ddfdb0dd9dd3dd4b773ca4cb532da020f579d70",
+    "cloudflareProductionSha": "not_available_via_public_or_github_deployments",
+    "url": "https://www.kclhq.com/en/news/taeyang-quintessence-comeback",
+    "pollAttempts": 4,
+    "publicPageStatus": 200,
+    "publicRawImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/taeyang-quintessence-comeback-thumbnail.png",
+        "status": 200,
+        "bytes": 1949367
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/taeyang-quintessence-comeback-1.png",
+        "status": 200,
+        "bytes": 1990159
+      }
+    ],
+    "publicOptimizerImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/taeyang-quintessence-comeback-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "bytes": 36790
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/taeyang-quintessence-comeback-1-opt-800.WEBP",
+        "status": 200,
+        "bytes": 49240
+      }
+    ],
+    "playwright": {
+      "titleFound": true,
+      "h1Found": true,
+      "thumbnailRendered": true,
+      "bodyImageRendered": true,
+      "internalLinkFound": true,
+      "viewportScreenshotCaptured": true
+    },
+    "notes": "GitHub deployments API returned no deployment records for this repo; Cloudflare production SHA was not exposed via public page or GitHub deployments. Deployment was verified by origin/main SHA plus live public render."
   },
   "gsc": {
-    "requestedUrls": []
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/taeyang-quintessence-comeback",
+        "property": "sc-domain:kclhq.com",
+        "status": "requested",
+        "confirmedText": "색인 생성 요청됨",
+        "requestedAt": "2026-05-17T12:28:00+09:00",
+        "attempts": 1
+      }
+    ]
   }
 }

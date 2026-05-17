@@ -1,6 +1,6 @@
 # KCL News Autopilot Report: taeyang-quintessence-comeback
 
-Status: DEPLOY_PENDING
+Status: SUCCESS
 
 ## 자동 선택된 주제
 
@@ -52,8 +52,22 @@ Verification rate: 8/8 (100%). Fix: 0. Remove: 0.
 
 Known build warnings: pre-existing Sass `darken()` deprecation warnings and missing local Supabase env warnings. Build completed successfully.
 
-## Pending
+## Deployment Evidence
 
-- Git commit and push with `[deploy:kcl]`
-- Cloudflare deployment verification
-- Google Search Console URL inspection request
+- commit: `4ddfdb0dd9dd3dd4b773ca4cb532da020f579d70`
+- push: `origin/main -> 4ddfdb0dd9dd3dd4b773ca4cb532da020f579d70`
+- poll: `https://www.kclhq.com/en/news/taeyang-quintessence-comeback` -> 200 on attempt 4
+- public raw thumbnail: `/images/news/taeyang-quintessence-comeback-thumbnail.png` -> 200
+- public raw body image: `/images/news/taeyang-quintessence-comeback-1.png` -> 200
+- public optimized thumbnail: `/images/news/nextImageExportOptimizer/taeyang-quintessence-comeback-thumbnail-opt-800.WEBP` -> 200
+- public optimized body: `/images/news/nextImageExportOptimizer/taeyang-quintessence-comeback-1-opt-800.WEBP` -> 200
+- Playwright deployed render: H1 found, thumbnail rendered, body image rendered, internal link found
+- Cloudflare production SHA: not exposed via public page or GitHub deployments; deployment was verified by remote main SHA plus live public render
+
+## Search Console Evidence
+
+- property: `sc-domain:kclhq.com`
+- inspected URL: `https://www.kclhq.com/en/news/taeyang-quintessence-comeback`
+- action: `색인 생성 요청`
+- confirmation: `색인 생성 요청됨`
+- attempts: 1
