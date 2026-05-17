@@ -1,0 +1,284 @@
+{
+  "workflow": "kcl-news",
+  "slug": "may-comeback-trap",
+  "runStartedAt": "2026-05-17T13:02:42+09:00",
+  "runEndedAt": "2026-05-17T13:30:44+09:00",
+  "selectedTopic": {
+    "topic": "May 2026 girl-group comeback pile-up featuring BABYMONSTER, NMIXX, ITZY, I.O.I, LE SSERAFIM, and aespa",
+    "category": "Industry",
+    "tone": "Neutral",
+    "reason": "A dense 25-day release lane had multi-source media coverage, strong fan-decision pressure, and global SEO value without repeating the previous BTS, Taeyang, or album-export topics.",
+    "previousFiveToneDistribution": {
+      "negative": 0,
+      "positive": 5,
+      "neutral": 0,
+      "balanceRule": "No forced correction. Negative was not overloaded; selected by scoring after duplicate filtering."
+    },
+    "topCandidatesConsidered": [
+      "BTS Stanford takeover - high score but recently covered by KCL",
+      "Taeyang QUINTESSENCE comeback - high score but already covered by KCL",
+      "K-pop album exports and U.S. demand shift - high score but already covered by KCL",
+      "May 2026 girl-group comeback pile-up - selected",
+      "K-pop trainee audition and survival-show routes - included as trainee target candidates but lower immediate trend score"
+    ]
+  },
+  "title": "Six Girl Groups, 25 Days - The May Comeback Trap Nobody Can Escape",
+  "url": "https://www.kclhq.com/en/news/may-comeback-trap",
+  "stepResults": [
+    {
+      "step": "Research",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "queriesRun": 15,
+        "researchUrls": 9,
+        "trustedSources": 7
+      }
+    },
+    {
+      "step": "Content",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "bodyWords": 1063,
+        "h2Count": 6,
+        "h3Count": 6,
+        "internalLinks": 1,
+        "excerptLength": 116,
+        "invalidReplacementCharacters": 0,
+        "active": true
+      }
+    },
+    {
+      "step": "Image",
+      "status": "PASS",
+      "attempts": 2,
+      "lastError": "Initial ChatGPT image set contained readable date/label text and was rejected. A second no-text prompt set was generated and accepted.",
+      "details": {
+        "source": "ChatGPT browser session via Playwright",
+        "noRealFaces": true,
+        "noReadableText": true,
+        "noLocalGenerationFallback": true,
+        "reuseCheck": "PASS"
+      }
+    },
+    {
+      "step": "Factcheck",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "claimsChecked": 8,
+        "pass": 8,
+        "fix": 0,
+        "remove": 0,
+        "verificationRate": "100%"
+      }
+    },
+    {
+      "step": "Local Render",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "buildCommand": "pnpm build",
+        "buildResult": "PASS with pre-existing Sass deprecation and local Supabase env warnings",
+        "pageUrl": "http://127.0.0.1:4178/en/news/may-comeback-trap.html",
+        "pageStatus": 200,
+        "imageStatuses": [
+          {
+            "url": "http://127.0.0.1:4178/images/news/may-comeback-trap-thumbnail.png",
+            "status": 200,
+            "bytes": 2469504
+          },
+          {
+            "url": "http://127.0.0.1:4178/images/news/may-comeback-trap-1.png",
+            "status": 200,
+            "bytes": 1622650
+          },
+          {
+            "url": "http://127.0.0.1:4178/images/news/nextImageExportOptimizer/may-comeback-trap-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 61602
+          },
+          {
+            "url": "http://127.0.0.1:4178/images/news/nextImageExportOptimizer/may-comeback-trap-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 24910
+          }
+        ]
+      }
+    },
+    {
+      "step": "Deploy",
+      "status": "PASS",
+      "attempts": 4,
+      "lastError": null,
+      "details": {
+        "publicArticleStatus": 200,
+        "publicArticleBytes": 111943,
+        "publicImageStatuses": [
+          {
+            "url": "https://www.kclhq.com/images/news/may-comeback-trap-thumbnail.png",
+            "status": 200,
+            "bytes": 2469504
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/may-comeback-trap-1.png",
+            "status": 200,
+            "bytes": 1622650
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/may-comeback-trap-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 61602
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/may-comeback-trap-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 24910
+          }
+        ],
+        "playwrightPublicRender": "H1 found, thumbnail rendered, body image rendered, internal link found",
+        "cloudflareCheckRun": "Cloudflare Pages check run completed successfully for commit 6015abc176d20152e038758a64b2dfba75a2ebf5. Cloudflare dashboard detail page required login, so commit linkage was verified through the GitHub check run plus live public render."
+      }
+    },
+    {
+      "step": "GSC",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "property": "sc-domain:kclhq.com",
+        "inspectedUrl": "https://www.kclhq.com/en/news/may-comeback-trap",
+        "confirmation": "Indexing requested"
+      }
+    }
+  ],
+  "researchUrls": [
+    "https://www.straitstimes.com/life/major-k-pop-girl-groups-set-for-comeback-showdown-in-may",
+    "https://www.allkpop.com/article/2026/05/k-pop-comebacks-releases-debuts-schedule-lineup-in-may-2026-week-2-nmixx-day6-lovelyz-cix-oneus-boynextdoor-more",
+    "https://en.koreaportal.com/articles/54448/20260506/six-girl-groups-25-days-k-pops-busiest-coincidence.htm",
+    "https://www.ygfamily.com/en/news/report/7408",
+    "https://www.soompi.com/article/1734990wpp/le-sserafim-gears-up-for-comeback-with-1st-full-album",
+    "https://www.starnewskorea.com/stview.php?no=2026051211041653658",
+    "https://koreajoongangdaily.joins.com/news/2026-05-07/entertainment/kpop/Itzys-12th-EP-Motto-to-drop-on-May-18/2589334",
+    "https://koreajoongangdaily.joins.com/news/2026-04-28/entertainment/kpop/Kpop-album-exports-surpass-100-million-for-first-time-in-Q1/2579529",
+    "https://www.allkpop.com/article/2026/05/ioi-to-reunite-after-nine-years-with-new-album-ioi-loop"
+  ],
+  "factcheck": [
+    {
+      "claim": "May 4-29, 2026 contains a six-girl-group comeback pile-up involving BABYMONSTER, NMIXX, ITZY, I.O.I, LE SSERAFIM, and aespa.",
+      "status": "PASS",
+      "sources": ["The Straits Times", "allkpop", "KoreaPortal"],
+      "action": "kept"
+    },
+    {
+      "claim": "BABYMONSTER released CHOOM on May 4, 2026.",
+      "status": "PASS",
+      "sources": ["YG Entertainment official news", "The Straits Times"],
+      "action": "kept"
+    },
+    {
+      "claim": "NMIXX released Heavy Serenade on May 11, 2026.",
+      "status": "PASS",
+      "sources": ["allkpop", "The Straits Times"],
+      "action": "kept"
+    },
+    {
+      "claim": "ITZY's 12th EP Motto drops on May 18, 2026, with five member solo tracks and a U.S. physical release scheduled for May 22.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "The Straits Times"],
+      "action": "kept"
+    },
+    {
+      "claim": "I.O.I returned with I.O.I : LOOP after being formed in 2016 and disbanding in 2017.",
+      "status": "PASS",
+      "sources": ["The Straits Times", "allkpop", "KoreaPortal"],
+      "action": "kept"
+    },
+    {
+      "claim": "LE SSERAFIM's Celebration pre-release landed on April 24, 2026, ahead of the May 22 album.",
+      "status": "PASS",
+      "sources": ["Soompi", "The Straits Times"],
+      "action": "kept"
+    },
+    {
+      "claim": "aespa's Lemonade, a 10-track second full album, is scheduled for May 29, 2026.",
+      "status": "PASS",
+      "sources": ["StarNews", "The Straits Times", "allkpop"],
+      "action": "kept"
+    },
+    {
+      "claim": "K-pop album exports crossed $100 million for the first time in Q1 2026, with the U.S. overtaking Japan as the top destination.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "Yonhap-cited export reporting"],
+      "action": "kept"
+    }
+  ],
+  "ChatGPT": {
+    "chatUrl": "https://chatgpt.com/c/6a093dfb-a754-83a5-9695-a5222ff077eb",
+    "prompts": {
+      "thumbnail": "Generate a NEW cinematic photorealistic editorial thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: six blank abstract K-pop stages seen from above in a dark arena, connected by beams of light and fan lightstick glow, suggesting a crowded May comeback race through pure shapes, color, and energy. Use only blank glowing panels, empty stages, silhouettes, spotlights, album boxes with plain unmarked covers, and atmospheric haze. CRITICAL: absolutely no readable text, no letters, no numbers, no dates, no calendar pages, no signage, no posters, no labels, no charts, no UI screens, no logos, no watermarks. No real people's faces and no identifiable celebrity likeness. Colors: electric pink, chrome silver, midnight black, cobalt blue, subtle lime accents. High quality, professional photography, cinematic lighting, 8k resolution.",
+      "body": "Generate a NEW dramatic editorial body image in 16:9 aspect ratio, 1200x675px. Scene: a quiet K-pop label strategy room after midnight with six plain unmarked album boxes on a long table, empty executive chairs, colored light beams reflected in glass, fan lightstick glow outside the window, and abstract pressure shown through intersecting spotlights and shadows. The image should communicate music-business strategy, fan spending choices, and a crowded girl-group comeback season without screens or boards. CRITICAL: absolutely no readable text, no letters, no numbers, no dates, no calendar pages, no signage, no posters, no labels, no charts, no UI screens, no logos, no watermarks. No real people's faces and no identifiable celebrity likeness. Colors: deep charcoal, cobalt blue, hot magenta, clean white highlights, subtle lime accents. High quality, professional photography, cinematic lighting, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_may_comeback_trap_thumbnail.png",
+        "mtime": "2026-05-17 13:11:18.465748860 +0900",
+        "bytes": 2469504,
+        "sha256": "9d25df044e171e72e2e06055a6b937d2226020546424b1b285bd9694bea2c02b"
+      },
+      {
+        "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_may_comeback_trap_body.png",
+        "mtime": "2026-05-17 13:11:18.468748881 +0900",
+        "bytes": 1622650,
+        "sha256": "376e4b8e9bf3097cab2ac86010aa3848322eef8c049f454d6cfd343fc9667564"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/may-comeback-trap-thumbnail.png",
+        "mtime": "2026-05-17 13:11:18.495749075 +0900",
+        "bytes": 2469504,
+        "sha256": "9d25df044e171e72e2e06055a6b937d2226020546424b1b285bd9694bea2c02b"
+      },
+      {
+        "path": "public/images/news/may-comeback-trap-1.png",
+        "mtime": "2026-05-17 13:11:18.499749104 +0900",
+        "bytes": 1622650,
+        "sha256": "376e4b8e9bf3097cab2ac86010aa3848322eef8c049f454d6cfd343fc9667564"
+      }
+    ]
+  },
+  "deploy": {
+    "commitSha": "6015abc176d20152e038758a64b2dfba75a2ebf5",
+    "remoteMainSha": "6015abc176d20152e038758a64b2dfba75a2ebf5",
+    "cloudflare": {
+      "checkRunName": "Cloudflare Pages",
+      "checkRunStatus": "completed",
+      "checkRunConclusion": "success",
+      "checkRunCompletedAt": "2026-05-17T04:24:41Z",
+      "detailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/e9d123e2-2f4e-45ae-b98e-768da4582172",
+      "dashboardAccess": "login_required_in_playwright",
+      "productionSha": "6015abc176d20152e038758a64b2dfba75a2ebf5"
+    },
+    "pollAttempts": [
+      {"attempt": 1, "time": "2026-05-17T13:19:28+09:00", "status": 404, "bytes": 6746},
+      {"attempt": 2, "time": "2026-05-17T13:21:28+09:00", "status": 404, "bytes": 6746},
+      {"attempt": 3, "time": "2026-05-17T13:23:28+09:00", "status": 404, "bytes": 6746},
+      {"attempt": 4, "time": "2026-05-17T13:25:29+09:00", "status": 200, "bytes": 111943}
+    ]
+  },
+  "gsc": {
+    "property": "sc-domain:kclhq.com",
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/may-comeback-trap"
+    ],
+    "attempts": 1,
+    "confirmation": "Indexing requested",
+    "confirmedAt": "2026-05-17T13:29:37+09:00"
+  }
+}
