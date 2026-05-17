@@ -1,0 +1,208 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "kpop-album-exports-us",
+  "runStartedAt": "2026-05-17T11:01:40+09:00",
+  "runEndedAt": null,
+  "selectedTopic": {
+    "topic": "K-pop album exports crossed US$100 million for the first time in Q1 2026, with the United States overtaking Japan as the top export market",
+    "category": "Market Trend",
+    "tone": "Positive",
+    "reason": "The topic combines a record $120 million export quarter, 159% year-over-year growth, U.S.-Japan market reversal, broad media pickup, and strong KCL market-analysis fit while avoiding another BTS-only duplicate."
+  },
+  "recentToneDistribution": {
+    "negative": 1,
+    "positive": 4,
+    "neutral": 0,
+    "balanceRule": "not_applied"
+  },
+  "stepResults": {
+    "research": "PASS",
+    "content": "PASS",
+    "factcheck": "PASS",
+    "image": "PASS",
+    "localRender": "PASS",
+    "deploy": "PENDING",
+    "gsc": "PENDING"
+  },
+  "attempts": {
+    "chatgptAccess": 1,
+    "thumbnailGeneration": 1,
+    "bodyGeneration": 1,
+    "bodyPromptInputRetry": 1,
+    "imageDownload": 2,
+    "optimizer": 2,
+    "build": 1,
+    "localRender": 1,
+    "deployPoll": 0,
+    "gsc": 0
+  },
+  "lastError": "Second ChatGPT prompt first targeted a hidden fallback textarea and timed out; retried successfully against the visible contenteditable textbox.",
+  "researchQueries": [
+    "K-pop breaking news today 2026",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026",
+    "K-pop idol debut announcement 2026",
+    "K-pop chart record milestone 2026",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026",
+    "K-pop fan project viral 2026",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter X fans",
+    "K-pop industry revenue market growth 2026",
+    "K-pop global expansion new market 2026",
+    "K-pop trainee audition 2026 tips",
+    "K-pop survival show 2026",
+    "K-pop album exports surpass $100 million Q1 2026 Korea Customs Service",
+    "K-pop album exports 159 percent United States 28 percent Korea Customs Service 2026"
+  ],
+  "researchUrls": [
+    "https://koreajoongangdaily.joins.com/news/2026-04-28/entertainment/kpop/Kpop-album-exports-surpass-100-million-for-first-time-in-Q1/2579529",
+    "https://m-en.yna.co.kr/view/AEN20260428001800320?section=culture%2Farts-culture",
+    "https://www.chosun.com/english/market-money-en/2026/04/28/JJ2QHQZLVRCINJ5VYIRUCFOOJY/",
+    "https://en.sedaily.com/finance/2026/04/28/k-pop-drives-record-music-album-exports-surging-159-percent",
+    "https://www.korea.net/NewsFocus/Business/view?articleId=291600",
+    "https://apnews.com/article/db577fc3124cffcbd2026578641ff04b",
+    "https://www.straitstimes.com/life/major-k-pop-girl-groups-set-for-comeback-showdown-in-may",
+    "https://www.allkpop.com/article/2026/05/k-pop-releases-in-may-2026-star-studded-lineup-to-watch",
+    "https://kpopping.com/survivalshows/the-scout",
+    "https://www.keensacademy.com/blog/what-happens-at-kpop-audition"
+  ],
+  "factcheck": [
+    {
+      "claim": "South Korea's K-pop album exports reached US$120 million in Q1 2026.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily", "Seoul Economic Daily", "Chosun English"],
+      "action": "kept"
+    },
+    {
+      "claim": "K-pop album exports increased 159% year over year in the January-March period.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily", "Seoul Economic Daily", "Chosun English"],
+      "action": "kept"
+    },
+    {
+      "claim": "Q1 2026 was the first quarter in which K-pop album exports exceeded US$100 million.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily", "Seoul Economic Daily"],
+      "action": "kept"
+    },
+    {
+      "claim": "Quarterly exports have set consecutive records since Q3 2025.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily"],
+      "action": "kept"
+    },
+    {
+      "claim": "The United States overtook Japan as the largest destination for K-pop album exports in Q1 2026.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily", "Seoul Economic Daily"],
+      "action": "kept with 'about 28%' wording to avoid source precision mismatch"
+    },
+    {
+      "claim": "Seoul Economic Daily reported the U.S. at 28.8% and Japan at 25.3%.",
+      "verdict": "PASS",
+      "sources": ["Seoul Economic Daily"],
+      "action": "kept as source-specific attribution"
+    },
+    {
+      "claim": "The European Union, China, and Taiwan followed with 16.5%, 14.4%, and 6.9% respectively.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily", "Seoul Economic Daily"],
+      "action": "kept"
+    },
+    {
+      "claim": "K-pop albums were imported by 131 countries and 94 recorded their highest-ever quarterly imports.",
+      "verdict": "PASS",
+      "sources": ["Yonhap", "Korea JoongAng Daily", "Seoul Economic Daily"],
+      "action": "kept"
+    }
+  ],
+  "chatgpt": {
+    "url": "https://chatgpt.com/c/6a0921b2-88d4-83ec-9d16-1f7a47e0b44e",
+    "prompt_thumbnail": "Create an original editorial news thumbnail image, 16:9 aspect ratio, 1200x675px. Scene: a cinematic K-pop physical album export boom visual, stacks of glossy albums and collectible photo-card envelopes moving through a modern international logistics hub, subtle U.S. and Japan market route lines on transparent screens, a clean financial dashboard glow in the background. Style: premium business news photography, dramatic but realistic lighting, teal, red, white, and graphite accents. No real people's faces, no identifiable people, no text, no numbers, no logos, no watermarks, high quality, professional photography, cinematic lighting, 8k resolution.",
+    "prompt_body": "Create an original dramatic editorial image, 16:9 aspect ratio, 1200x675px. Scene: a close-up business news scene of K-pop albums as export products: sealed albums, shipping labels without readable text, collectible photo cards partly visible but no faces, barcode-like patterns blurred, and a glowing world map dashboard showing trade flow from Seoul toward North America and Europe. Mood: analytical, premium, market-shift story, modern newsroom style. Colors: deep graphite, clean white, signal red, teal highlights. No real people's faces, no identifiable people, no text, no readable labels, no logos, no watermarks, high quality, professional photography, cinematic lighting, 8k resolution.",
+    "rawDownloads": [
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_kpop-album-exports-us-thumbnail.png",
+        "createdAt": "2026-05-17T11:14:20+09:00",
+        "size": 2171619,
+        "sha256": "6354c9f9cb3f7d839751bcd177e4ea6ea35d56083043d884be45bbf574be85ea"
+      },
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_kpop-album-exports-us-1.png",
+        "createdAt": "2026-05-17T11:14:20+09:00",
+        "size": 2060460,
+        "sha256": "32490f2b304ce58e5429814cf840eb7af62ddf2251d62a10fd465cb5d23b5fa2"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "/home/mhhan/workspace/kcl/public/images/news/kpop-album-exports-us-thumbnail.png",
+        "mtime": "2026-05-17T11:07:39+09:00",
+        "size": 2171619,
+        "sha256": "6354c9f9cb3f7d839751bcd177e4ea6ea35d56083043d884be45bbf574be85ea"
+      },
+      {
+        "path": "/home/mhhan/workspace/kcl/public/images/news/kpop-album-exports-us-1.png",
+        "mtime": "2026-05-17T11:07:39+09:00",
+        "size": 2060460,
+        "sha256": "32490f2b304ce58e5429814cf840eb7af62ddf2251d62a10fd465cb5d23b5fa2"
+      }
+    ],
+    "reuse_check": "PASS"
+  },
+  "content": {
+    "words": 955,
+    "h2": 6,
+    "h3": 6,
+    "internalLinks": 1,
+    "badReplacementChars": 0,
+    "targetKeywords": ["K-pop album exports", "K-pop physical albums"]
+  },
+  "localRender": {
+    "server": "http://127.0.0.1:4174",
+    "pageStatus": 200,
+    "pageUrlChecked": "http://127.0.0.1:4174/en/news/kpop-album-exports-us",
+    "rawImageStatuses": [
+      {
+        "url": "http://127.0.0.1:4174/images/news/kpop-album-exports-us-thumbnail.png",
+        "status": 200,
+        "size": 2171619
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/kpop-album-exports-us-1.png",
+        "status": 200,
+        "size": 2060460
+      }
+    ],
+    "optimizerImageStatuses": [
+      {
+        "url": "http://127.0.0.1:4174/images/news/nextImageExportOptimizer/kpop-album-exports-us-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "size": 47848
+      }
+    ],
+    "playwright": {
+      "titleFound": true,
+      "h1Found": true,
+      "thumbnailRendered": true,
+      "bodyImageRendered": true,
+      "internalLinkFound": true
+    },
+    "build": "PASS",
+    "buildNotes": "pnpm build exited 0. Existing Supabase environment warnings and Sass deprecation warnings were observed; they did not block static generation or article rendering."
+  },
+  "deploy": {
+    "commitSha": null,
+    "remoteMainSha": null,
+    "cloudflareProductionSha": null,
+    "url": "https://www.kclhq.com/en/news/kpop-album-exports-us",
+    "pollAttempts": 0,
+    "publicPageStatus": null
+  },
+  "gsc": {
+    "requestedUrls": []
+  }
+}
