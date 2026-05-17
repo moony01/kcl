@@ -2,7 +2,7 @@
   "workflow": "kcl-news-autopilot",
   "slug": "kpop-album-exports-us",
   "runStartedAt": "2026-05-17T11:01:40+09:00",
-  "runEndedAt": null,
+  "runEndedAt": "2026-05-17T11:25:36+09:00",
   "selectedTopic": {
     "topic": "K-pop album exports crossed US$100 million for the first time in Q1 2026, with the United States overtaking Japan as the top export market",
     "category": "Market Trend",
@@ -21,8 +21,8 @@
     "factcheck": "PASS",
     "image": "PASS",
     "localRender": "PASS",
-    "deploy": "PENDING",
-    "gsc": "PENDING"
+    "deploy": "PASS",
+    "gsc": "PASS"
   },
   "attempts": {
     "chatgptAccess": 1,
@@ -33,8 +33,8 @@
     "optimizer": 2,
     "build": 1,
     "localRender": 1,
-    "deployPoll": 0,
-    "gsc": 0
+    "deployPoll": 4,
+    "gsc": 1
   },
   "lastError": "Second ChatGPT prompt first targeted a hidden fallback textarea and timed out; retried successfully against the visible contenteditable textbox.",
   "researchQueries": [
@@ -195,14 +195,56 @@
     "buildNotes": "pnpm build exited 0. Existing Supabase environment warnings and Sass deprecation warnings were observed; they did not block static generation or article rendering."
   },
   "deploy": {
-    "commitSha": null,
-    "remoteMainSha": null,
-    "cloudflareProductionSha": null,
+    "commitSha": "8b018fc6c6566eb1443915ebd2ac6160a4de149b",
+    "remoteMainSha": "8b018fc6c6566eb1443915ebd2ac6160a4de149b",
+    "cloudflareProductionSha": "not_available_via_public_or_github_deployments",
     "url": "https://www.kclhq.com/en/news/kpop-album-exports-us",
-    "pollAttempts": 0,
-    "publicPageStatus": null
+    "pollAttempts": 4,
+    "publicPageStatus": 200,
+    "publicRawImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/kpop-album-exports-us-thumbnail.png",
+        "status": 200,
+        "size": 2171619
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/kpop-album-exports-us-1.png",
+        "status": 200,
+        "size": 2060460
+      }
+    ],
+    "publicOptimizerImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/kpop-album-exports-us-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "size": 47848
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/kpop-album-exports-us-1-opt-800.WEBP",
+        "status": 200,
+        "size": 41462
+      }
+    ],
+    "playwright": {
+      "url": "https://www.kclhq.com/en/news/kpop-album-exports-us",
+      "titleFound": true,
+      "h1Found": true,
+      "thumbnailRendered": true,
+      "bodyImageRendered": true,
+      "internalLinkFound": true
+    },
+    "notes": "GitHub deployments API returned no deployment records for this repo; Cloudflare production SHA was not exposed via public page or GitHub deployments. Deployment was verified by origin/main SHA plus live public render."
   },
   "gsc": {
-    "requestedUrls": []
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/kpop-album-exports-us",
+        "property": "sc-domain:kclhq.com",
+        "status": "requested",
+        "confirmedText": "색인 생성 요청됨",
+        "requestedAt": "2026-05-17T11:25:00+09:00",
+        "attempts": 1
+      }
+    ]
   }
 }

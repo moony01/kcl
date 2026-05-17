@@ -49,8 +49,8 @@ Fix: 0 | Remove: 0
 - Factcheck: PASS
 - Image: PASS
 - Local Render: PASS
-- Deploy: PENDING
-- GSC: PENDING
+- Deploy: PASS
+- GSC: PASS
 
 ## Local Render Evidence
 
@@ -63,8 +63,20 @@ Fix: 0 | Remove: 0
 
 ## Deployment Evidence
 
-Pending commit/push and public deployment verification.
+- commit: 8b018fc6c6566eb1443915ebd2ac6160a4de149b
+- push: origin/main -> 8b018fc6c6566eb1443915ebd2ac6160a4de149b
+- poll: https://www.kclhq.com/en/news/kpop-album-exports-us -> 200 on attempt 4
+- public raw thumbnail: /images/news/kpop-album-exports-us-thumbnail.png -> 200
+- public raw body image: /images/news/kpop-album-exports-us-1.png -> 200
+- public optimized thumbnail: /images/news/nextImageExportOptimizer/kpop-album-exports-us-thumbnail-opt-800.WEBP -> 200
+- public optimized body: /images/news/nextImageExportOptimizer/kpop-album-exports-us-1-opt-800.WEBP -> 200
+- Playwright deployed render: H1 found, thumbnail rendered, body image rendered, internal link found
+- Cloudflare production SHA: not exposed via public page or GitHub deployments; deployment was verified by remote main SHA plus live public render
 
 ## Search Console Evidence
 
-Pending public deployment verification.
+- property: sc-domain:kclhq.com
+- inspected URL: https://www.kclhq.com/en/news/kpop-album-exports-us
+- action: 색인 생성 요청
+- confirmation: 색인 생성 요청됨
+- attempts: 1
