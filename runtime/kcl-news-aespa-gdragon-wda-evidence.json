@@ -1,0 +1,284 @@
+{
+  "workflow": "kcl-news",
+  "slug": "aespa-gdragon-wda",
+  "runStartedAt": "2026-05-18T13:03:30+09:00",
+  "runEndedAt": "2026-05-18T13:29:01+09:00",
+  "selectedTopic": {
+    "topic": "aespa's WDA pre-release featuring G-Dragon ahead of LEMONADE",
+    "category": "Artist",
+    "tone": "Positive",
+    "reason": "Fresh May 2026 coverage combined a cross-generation feature, China chart traction, fan debate, and strong SEO around aespa, G-Dragon, WDA, and LEMONADE.",
+    "previousFiveToneDistribution": {
+      "negative": 0,
+      "positive": 4,
+      "neutral": 1,
+      "balanceRule": "No forced correction. Positive topic selected by scoring and duplicate filtering."
+    },
+    "topCandidatesConsidered": [
+      "BTS World Cup halftime and 2026 anthem - high score but already covered by KCL",
+      "aespa WDA featuring G-Dragon - selected",
+      "CORTIS rookie Spotify and Inkigayo momentum - lower trusted-source density",
+      "K-pop concert pricing/tour demand debate - strong fan discussion but less article-ready official evidence",
+      "JYP and global trainee audition guidance - included as trainee target candidate but lower immediate trend score"
+    ]
+  },
+  "title": "aespa Pulled G-Dragon Into WDA - And the Real Target Wasn't Korea",
+  "url": "https://www.kclhq.com/en/news/aespa-gdragon-wda",
+  "stepResults": [
+    {
+      "step": "Research",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "queriesRun": 20,
+        "researchUrls": 12,
+        "trustedSources": 8
+      }
+    },
+    {
+      "step": "Content",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "bodyWords": 1547,
+        "h2Count": 6,
+        "h3Count": 11,
+        "internalLinks": 1,
+        "excerptLength": 110,
+        "invalidReplacementCharacters": 0,
+        "active": true
+      }
+    },
+    {
+      "step": "Image",
+      "status": "PASS",
+      "attempts": 2,
+      "lastError": "The visible save button did not trigger a usable download event, so the ChatGPT-generated backend image URLs were downloaded through the browser as original PNG files. No local generation or fallback generator was used.",
+      "details": {
+        "source": "ChatGPT browser session via Playwright",
+        "noRealFaces": true,
+        "noReadableText": true,
+        "noLocalGenerationFallback": true,
+        "reuseCheck": "PASS"
+      }
+    },
+    {
+      "step": "Factcheck",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "claimsChecked": 7,
+        "pass": 7,
+        "fix": 0,
+        "remove": 0,
+        "verificationRate": "100%"
+      }
+    },
+    {
+      "step": "Local Render",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": "Local browser console showed pre-existing Supabase client errors when env vars were absent, but the page, H1, internal link, and both news images rendered successfully.",
+      "details": {
+        "buildCommand": "pnpm build",
+        "buildResult": "PASS with pre-existing Sass deprecation and local Supabase env warnings",
+        "pageUrl": "http://127.0.0.1:4173/en/news/aespa-gdragon-wda",
+        "pageStatus": 200,
+        "imageStatuses": [
+          {
+            "url": "http://127.0.0.1:4173/images/news/aespa-gdragon-wda-thumbnail.png",
+            "status": 200,
+            "bytes": 3001087
+          },
+          {
+            "url": "http://127.0.0.1:4173/images/news/aespa-gdragon-wda-1.png",
+            "status": 200,
+            "bytes": 2577688
+          },
+          {
+            "url": "http://127.0.0.1:4173/images/news/nextImageExportOptimizer/aespa-gdragon-wda-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 122622
+          },
+          {
+            "url": "http://127.0.0.1:4173/images/news/nextImageExportOptimizer/aespa-gdragon-wda-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 91732
+          }
+        ],
+        "playwrightLocalRender": "H1 found, thumbnail rendered, body image rendered after scroll, internal link found"
+      }
+    },
+    {
+      "step": "Deploy",
+      "status": "PASS",
+      "attempts": 7,
+      "lastError": "Public URL returned 404 during early polling before Cloudflare Pages completed.",
+      "details": {
+        "contentCommit": "110de9797e5a5373ff459c59da28aa16377247b6",
+        "push": "origin/main -> 110de9797e5a5373ff459c59da28aa16377247b6",
+        "publicArticleStatus": 200,
+        "publicArticleBytes": 119488,
+        "publicImageStatuses": [
+          {
+            "url": "https://www.kclhq.com/images/news/aespa-gdragon-wda-thumbnail.png",
+            "status": 200,
+            "bytes": 3001087
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/aespa-gdragon-wda-1.png",
+            "status": 200,
+            "bytes": 2577688
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/aespa-gdragon-wda-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 122622
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/aespa-gdragon-wda-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 91732
+          }
+        ],
+        "playwrightPublicRender": "H1 found, thumbnail rendered, body image rendered after scroll, internal link found",
+        "cloudflareCheckRun": {
+          "id": 76458414252,
+          "status": "completed",
+          "conclusion": "success",
+          "htmlUrl": "https://github.com/moony01/kcl/runs/76458414252",
+          "productionSha": "110de9797e5a5373ff459c59da28aa16377247b6"
+        }
+      }
+    },
+    {
+      "step": "GSC",
+      "status": "PASS",
+      "attempts": 3,
+      "lastError": "Direct guessed inspect URL returned Google 404; UI-based URL inspection succeeded.",
+      "details": {
+        "property": "sc-domain:kclhq.com",
+        "inspectedUrl": "https://www.kclhq.com/en/news/aespa-gdragon-wda",
+        "initialState": "URL is not on Google / Google did not know this URL yet",
+        "confirmation": "Indexing requested"
+      }
+    }
+  ],
+  "researchUrls": [
+    "https://www.smentertainment.com/newsroom/%EC%97%90%EC%8A%A4%ED%8C%8C-%EC%A0%95%EA%B7%9C-2%EC%A7%91-%EC%84%A0%EA%B3%B5%EA%B0%9C-%EC%8B%B1%EA%B8%80-wda-5%EC%9B%94-11%EC%9D%BC-%EC%98%A4%ED%9B%84-6%EC%8B%9C-%EB%B0%9C%EB%A7%A4/",
+    "https://www.starnewskorea.com/en/music/2026/05/12/2026051210240637853",
+    "https://biz.chosun.com/en/en-entertainment/2026/05/12/7X6WIRVBG5AJXO5IHMEQNDGFPQ/",
+    "https://www.chosun.com/english/kpop-culture-en/2026/05/14/JVQHRGDNJJBH3MHA27AQBSC4FY/",
+    "https://www.allkpop.com/video/2026/05/aespa-releases-wda-whole-different-animal-mv-featuring-g-dragon",
+    "https://www.jambase.com/article/aespa-wda-whole-different-animal-single-g-dragon",
+    "https://femmusic.com/2026/05/11/aespa-ft-g-dragon-wda/",
+    "https://www.martincid.com/music-en/aespa-g-dragon-wda-whole-different-animal-2/",
+    "https://kpopofficial.com/album/aespa-lemonade/",
+    "https://www.reddit.com/r/Aespa/comments/1t9xohv/260511_aespa_wda_whole_different_animal_feat/",
+    "https://www.reddit.com/r/kpop/comments/1t9xofh/aespa_wda_whole_different_animal_feat_bigbang/",
+    "https://www.koreajoongangdaily.joins.com/news/2026-04-28/entertainment/kpop/Kpop-album-exports-surpass-100-million-for-first-time-in-Q1/2579529"
+  ],
+  "factcheck": [
+    {
+      "claim": "aespa released WDA (Whole Different Animal) on May 11, 2026 at 6 p.m. KST as a pre-release for LEMONADE.",
+      "status": "PASS",
+      "sources": ["SM Entertainment", "allkpop", "ChosunBiz"],
+      "action": "kept"
+    },
+    {
+      "claim": "LEMONADE is aespa's second full-length album, scheduled for May 29, 2026 at 1 p.m. KST, with 10 tracks.",
+      "status": "PASS",
+      "sources": ["SM Entertainment", "ChosunBiz", "KPOP OFFICIAL"],
+      "action": "kept"
+    },
+    {
+      "claim": "LEMONADE follows aespa's 2024 full-length album Armageddon.",
+      "status": "PASS",
+      "sources": ["JamBase", "FEMMUSIC"],
+      "action": "kept"
+    },
+    {
+      "claim": "G-Dragon featured on WDA and participated in rap-making for his verse.",
+      "status": "PASS",
+      "sources": ["allkpop", "ChosunBiz", "StarNews"],
+      "action": "kept"
+    },
+    {
+      "claim": "WDA reached top 10 on iTunes Top Songs charts in 17 regions and received QQ Music Gold Album certification for sales exceeding 250,000 yuan.",
+      "status": "PASS",
+      "sources": ["StarNews", "ChosunBiz", "Chosun/OSEN"],
+      "action": "kept"
+    },
+    {
+      "claim": "WDA topped Tencent Music's integrated K-pop chart and other China-linked digital/video charts.",
+      "status": "PASS",
+      "sources": ["StarNews", "ChosunBiz"],
+      "action": "kept"
+    },
+    {
+      "claim": "Public Reddit discussion showed mixed fan reactions, including praise for the concept and criticism of structure or G-Dragon's part length.",
+      "status": "PASS",
+      "sources": ["r/Aespa", "r/kpop"],
+      "action": "kept as fan-reaction context only"
+    }
+  ],
+  "chatgpt": {
+    "prompts": {
+      "thumbnail": "Generate a cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a futuristic K-pop stage control room where a chrome digital animal-shaped light form breaks through mirrored screens, with neon lemon yellow, electric cyan, deep black, and silver lighting. The atmosphere should suggest a shocking cross-generation collaboration and viral social media reaction, but without depicting aespa, G-Dragon, or any real person. Use abstract silhouettes only from behind, no faces, no logos, no text, no watermarks. High quality, professional news thumbnail, dramatic lighting, 8k resolution.",
+      "body": "Generate a dramatic editorial news image in 16:9 aspect ratio, 1200x675px. Scene: a global K-pop fandom analytics wall after a high-profile collaboration release, with floating music-chart panels, smartphone glow, abstract comment streams, and mirrored digital avatars dissolving into light. The mood should feel tense, futuristic, and business-focused, showing how one pre-release single can test fandom, charts, and brand strategy. No real people's faces, no recognizable artists, no logos, no readable text, no watermarks. Abstract silhouettes only, professional news photography, cinematic lighting, high quality, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "path": "/home/mhhan/Downloads/27632878-e118-46ec-94cf-f88bce790f9d.png",
+        "time": "2026-05-18 13:06:47 +0900",
+        "bytes": 3001087,
+        "sha256": "45f6bd59d1cb66aacfcb2745f1efd728428d76fdd7a50286db3fd61c339e59bb"
+      },
+      {
+        "path": "/home/mhhan/Downloads/aa8ebef0-a769-4ef2-94c2-b532f727079b.png",
+        "time": "2026-05-18 13:08:43 +0900",
+        "bytes": 2577688,
+        "sha256": "49ec74cfd2bf93a1f0ace52574ee87a6ad501d4cbf91a89fc68fe555ecb26fe2"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/aespa-gdragon-wda-thumbnail.png",
+        "url": "/images/news/aespa-gdragon-wda-thumbnail.png",
+        "time": "2026-05-18 13:11:23 +0900",
+        "bytes": 3001087,
+        "sha256": "45f6bd59d1cb66aacfcb2745f1efd728428d76fdd7a50286db3fd61c339e59bb"
+      },
+      {
+        "path": "public/images/news/aespa-gdragon-wda-1.png",
+        "url": "/images/news/aespa-gdragon-wda-1.png",
+        "time": "2026-05-18 13:11:23 +0900",
+        "bytes": 2577688,
+        "sha256": "49ec74cfd2bf93a1f0ace52574ee87a6ad501d4cbf91a89fc68fe555ecb26fe2"
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "deploy": {
+    "commitSha": "110de9797e5a5373ff459c59da28aa16377247b6",
+    "cloudflare": {
+      "productionSha": "110de9797e5a5373ff459c59da28aa16377247b6",
+      "checkRunId": 76458414252,
+      "checkRunUrl": "https://github.com/moony01/kcl/runs/76458414252",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  },
+  "gsc": {
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/aespa-gdragon-wda",
+        "status": "Indexing requested",
+        "property": "sc-domain:kclhq.com"
+      }
+    ]
+  }
+}
