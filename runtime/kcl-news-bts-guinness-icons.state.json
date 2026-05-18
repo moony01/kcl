@@ -1,0 +1,18 @@
+{
+  "workflow": "kcl-news",
+  "slug": "bts-guinness-icons",
+  "status": "SUCCESS",
+  "lastCompletedStep": "GSC",
+  "updatedAt": "2026-05-18T11:36:07+09:00",
+  "url": "https://www.kclhq.com/en/news/bts-guinness-icons",
+  "commitSha": "d9e22eb9655f3a76491ca56bc0f2f434ef4401e6",
+  "gates": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "Local Render": "PASS",
+    "Deploy": "PASS",
+    "GSC": "PASS"
+  }
+}

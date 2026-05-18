@@ -1,0 +1,278 @@
+{
+  "workflow": "kcl-news",
+  "slug": "bts-guinness-icons",
+  "runStartedAt": "2026-05-18T11:02:59+09:00",
+  "runEndedAt": "2026-05-18T11:36:07+09:00",
+  "selectedTopic": {
+    "topic": "BTS in Guinness World Records ICONS plus ARIRANG's eighth consecutive Billboard 200 top-10 week",
+    "category": "Tech & Culture",
+    "tone": "Positive",
+    "reason": "It combined an official Guinness ICONS status hook, same-day fan discussion, and a fresh Billboard 200 durability record with higher global SEO pull than other uncovered K-pop items.",
+    "previousFiveToneDistribution": {
+      "negative": 0,
+      "positive": 4,
+      "neutral": 1,
+      "balanceRule": "No forced correction. Negative was not overloaded, positive was already present, and selected category avoided the recent three-category penalty."
+    },
+    "topCandidatesConsidered": [
+      "BTS Guinness ICONS plus Billboard 200 week-eight durability - selected",
+      "CORTIS debuts at No. 3 on Billboard 200 with GREENGREEN - strong but narrower rookie/business angle",
+      "Noah Kahan/CORTIS/Chris Brown Billboard 200 top-10 reshuffle - broader U.S. chart story with less K-pop fan identity",
+      "K-pop trainee audition and survival-show route searches - included as trainee target candidate but lower immediate trend score",
+      "May comeback calendar pile-up and Taeyang QUINTESSENCE - high traffic but already covered by KCL"
+    ]
+  },
+  "title": "Guinness Puts BTS Beside Taylor and Beyonce - The No. 8 Detail Fans Can't Ignore",
+  "url": "https://www.kclhq.com/en/news/bts-guinness-icons",
+  "stepResults": [
+    {
+      "step": "Research",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "queriesRun": 20,
+        "researchUrls": 10,
+        "trustedSources": 7
+      }
+    },
+    {
+      "step": "Content",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "bodyWords": 1385,
+        "h2Count": 6,
+        "h3Count": 8,
+        "internalLinks": 1,
+        "excerptLength": 123,
+        "invalidReplacementCharacters": 0,
+        "active": true
+      }
+    },
+    {
+      "step": "Image",
+      "status": "PASS",
+      "attempts": 3,
+      "lastError": "First two Playwright automation snippets could not write files from browser_run_code_unsafe because require/dynamic import were unavailable; retried by using ChatGPT UI save downloads and copied the raw downloaded images.",
+      "details": {
+        "source": "ChatGPT browser session via Playwright",
+        "chatUrl": "https://chatgpt.com/c/6a0a73ff-df6c-83a5-b3f6-ec5b7a5ca61a",
+        "noRealFaces": true,
+        "noReadableText": true,
+        "noLocalGenerationFallback": true,
+        "reuseCheck": "PASS",
+        "rawDownloads": [
+          {
+            "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-guinness-icons-thumbnail.png",
+            "sourceDownload": ".playwright-mcp/ChatGPT-Image-2026년-5월-18일-오전-11-07-40.png",
+            "mtime": "2026-05-18 11:07:54 +0900",
+            "bytes": 2333155,
+            "sha256": "64c9bbf8a66b6eb06a0c512def290b961ee427315bbab8bfe6d442ea4c447347"
+          },
+          {
+            "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-guinness-icons-body.png",
+            "sourceDownload": ".playwright-mcp/ChatGPT-Image-2026년-5월-18일-오전-11-10-11.png",
+            "mtime": "2026-05-18 11:10:21 +0900",
+            "bytes": 2249335,
+            "sha256": "c19e809fc0a31f85145626ac6bef24e90818a5b629715f06cbfcf96d0f636ae2"
+          }
+        ],
+        "finalImages": [
+          {
+            "path": "public/images/news/bts-guinness-icons-thumbnail.png",
+            "mtime": "2026-05-18 11:15:09 +0900",
+            "bytes": 2333155,
+            "sha256": "64c9bbf8a66b6eb06a0c512def290b961ee427315bbab8bfe6d442ea4c447347"
+          },
+          {
+            "path": "public/images/news/bts-guinness-icons-1.png",
+            "mtime": "2026-05-18 11:15:09 +0900",
+            "bytes": 2249335,
+            "sha256": "c19e809fc0a31f85145626ac6bef24e90818a5b629715f06cbfcf96d0f636ae2"
+          }
+        ]
+      }
+    },
+    {
+      "step": "Factcheck",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "claimsChecked": 7,
+        "pass": 7,
+        "fix": 0,
+        "remove": 0,
+        "verificationRate": "100%"
+      }
+    },
+    {
+      "step": "Local Render",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "buildCommand": "pnpm build",
+        "buildResult": "PASS with pre-existing Sass deprecation and local Supabase env warnings",
+        "pageUrl": "http://localhost:3000/en/news/bts-guinness-icons",
+        "pageStatus": 200,
+        "playwrightLocalRender": "H1 found, thumbnail rendered, body image rendered after scroll, internal link found",
+        "imageStatuses": [
+          {
+            "url": "http://localhost:3000/images/news/bts-guinness-icons-thumbnail.png",
+            "status": 200,
+            "bytes": 2333155
+          },
+          {
+            "url": "http://localhost:3000/images/news/bts-guinness-icons-1.png",
+            "status": 200,
+            "bytes": 2249335
+          },
+          {
+            "url": "http://localhost:3000/images/news/nextImageExportOptimizer/bts-guinness-icons-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 48490
+          },
+          {
+            "url": "http://localhost:3000/images/news/nextImageExportOptimizer/bts-guinness-icons-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 46132
+          }
+        ]
+      }
+    },
+    {
+      "step": "Deploy",
+      "status": "PASS",
+      "attempts": 3,
+      "lastError": "Cloudflare dashboard detail page required login, so production commit linkage was verified through the GitHub Cloudflare Pages check run plus live public render.",
+      "details": {
+        "commitSha": "d9e22eb9655f3a76491ca56bc0f2f434ef4401e6",
+        "pushTarget": "origin HEAD:main",
+        "cloudflareProductionSha": "d9e22eb9655f3a76491ca56bc0f2f434ef4401e6",
+        "cloudflareCheckRun": "completed:success",
+        "cloudflareDetailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/4453dc02-9e9e-4ed8-95c2-ae3480c7138d",
+        "publicArticleStatus": 200,
+        "publicArticleBytes": 115819,
+        "publicImageStatuses": [
+          {
+            "url": "https://www.kclhq.com/images/news/bts-guinness-icons-thumbnail.png",
+            "status": 200,
+            "bytes": 2333155
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/bts-guinness-icons-1.png",
+            "status": 200,
+            "bytes": 2249335
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-guinness-icons-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 48490
+          },
+          {
+            "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-guinness-icons-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 46132
+          }
+        ],
+        "playwrightPublicRender": "H1 found, thumbnail rendered, body image rendered, internal link found"
+      }
+    },
+    {
+      "step": "GSC",
+      "status": "PASS",
+      "attempts": 2,
+      "lastError": "First URL-entry automation referenced unavailable process object; retried with Control+A and direct text insertion.",
+      "details": {
+        "property": "sc-domain:kclhq.com",
+        "inspectedUrl": "https://www.kclhq.com/en/news/bts-guinness-icons",
+        "initialInspection": "URL is not on Google / Google does not know this URL yet",
+        "confirmation": "Indexing requested"
+      }
+    }
+  ],
+  "researchUrls": [
+    "https://www.guinnessworldrecords.com/news/icons/index",
+    "https://www.guinnessworldrecords.com/news/icons/bts-first-k-pop-act-to-reach-no-1-on-the-us-albums-chart",
+    "https://www.soompi.com/article/1841836wpp/bts-continues-record-breaking-run-in-top-10-of-billboard-200",
+    "https://www.mk.co.kr/en/culture/12050590",
+    "https://koreajoongangdaily.joins.com/news/2026-03-30/entertainment/kpop/BTS-scores-7th-No-1-album-on-Billboard-200-with-Arirang/2556471",
+    "https://en.sedaily.com/culture/2026/03/30/bts-arirang-tops-billboard-200-for-groups-seventh-no-1-20260330",
+    "https://www.guinnessworldrecords.com/world-records/758833-first-k-pop-track-to-reach-1-billion-streams-on-spotify",
+    "https://time.com/5292964/korean-boyband-bts-k-pop-billboard-200/",
+    "https://www.theguardian.com/music/2018/may/28/bts-k-pop-album-billboard-charts-us-love-yourself-tear",
+    "https://www.reddit.com/r/bangtan/comments/1tfyhhw/260518_billboard_charts_compilation_bts_arirang/"
+  ],
+  "factcheck": [
+    {
+      "claim": "Guinness World Records' current ICONS page places BTS in the Pop Culture category near Taylor Swift, Beyonce, Drake, Elton John, and Paul McCartney.",
+      "status": "PASS",
+      "sources": ["Guinness World Records ICONS index"],
+      "action": "kept"
+    },
+    {
+      "claim": "BTS's ICONS page lists South Korea, inducted 2024, and notable records including most followed and most streamed Spotify act among duos/groups and first K-pop act to reach No. 1 on the U.S. albums chart.",
+      "status": "PASS",
+      "sources": ["Guinness World Records BTS ICONS page"],
+      "action": "kept"
+    },
+    {
+      "claim": "Love Yourself: Tear made BTS the first K-pop act to top the U.S. albums chart in 2018.",
+      "status": "PASS",
+      "sources": ["Guinness World Records", "Time", "The Guardian"],
+      "action": "kept"
+    },
+    {
+      "claim": "Dynamite became the first K-pop track to reach 1 billion streams on Spotify.",
+      "status": "PASS",
+      "sources": ["Guinness World Records"],
+      "action": "kept"
+    },
+    {
+      "claim": "Billboard announced on May 17 that ARIRANG spent its eighth consecutive week in the Billboard 200 top 10 at No. 8 and earned 44,000 equivalent album units for the week ending May 14.",
+      "status": "PASS",
+      "sources": ["Soompi citing Billboard/Luminate", "Maeil Business Newspaper"],
+      "action": "kept"
+    },
+    {
+      "claim": "ARIRANG debuted at No. 1 on the Billboard 200, giving BTS its seventh No. 1 album, with 641,000 equivalent album units and 532,000 pure album sales.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "Seoul Economic Daily"],
+      "action": "kept"
+    },
+    {
+      "claim": "The Billboard 200 ranks albums in the U.S. using equivalent album units including sales, TEA, and SEA.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "Soompi"],
+      "action": "kept"
+    }
+  ],
+  "ChatGPT": {
+    "prompt_thumbnail": "Generate a cinematic, photorealistic editorial news thumbnail image, 16:9 aspect ratio, 1200x675px. Scene: an abstract K-pop fandom data arena at night, thousands of anonymous fan silhouettes holding purple light sticks, a gold record-book pedestal without any logo, floating chart lines rising toward a highlighted number-shaped milestone, global city lights, smartphone glow, broadcast-control energy. Style: premium editorial news thumbnail, dramatic cinematic lighting, professional photography, crisp depth, high quality, 8k resolution. No real people's faces, no identifiable people, no BTS likenesses, no logos, no readable text, no watermarks.",
+    "prompt_body": "Generate a dramatic editorial image, 16:9 aspect ratio, 1200x675px. Scene: a sleek newsroom-style digital command center tracking K-pop cultural records, anonymous analysts and fan silhouettes watching global chart arcs across a world map, a gold record pedestal with no logo and no readable text, purple and gold light trails connecting Seoul, New York, London, and Sao Paulo, atmosphere of live cultural momentum. Style: professional news photography, cinematic lighting, premium editorial, high quality, 8k resolution. No real people's faces, no identifiable people, no BTS likenesses, no logos, no readable text, no watermarks.",
+    "rawDownloads": [
+      "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-guinness-icons-thumbnail.png",
+      "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-guinness-icons-body.png"
+    ],
+    "finalImages": [
+      "public/images/news/bts-guinness-icons-thumbnail.png",
+      "public/images/news/bts-guinness-icons-1.png"
+    ],
+    "reuse_check": "PASS"
+  },
+  "deploy": {
+    "commitSha": "d9e22eb9655f3a76491ca56bc0f2f434ef4401e6",
+    "cloudflareProductionSha": "d9e22eb9655f3a76491ca56bc0f2f434ef4401e6",
+    "cloudflareCheckRun": "completed:success"
+  },
+  "gsc": {
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/bts-guinness-icons"
+    ],
+    "property": "sc-domain:kclhq.com",
+    "confirmation": "Indexing requested"
+  }
+}
