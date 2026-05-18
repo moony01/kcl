@@ -1,0 +1,298 @@
+{
+  "workflow": "kcl-news",
+  "slug": "blackpink-government-stamps",
+  "runStartedAt": "2026-05-18T12:03:15+0900",
+  "runEndedAt": "2026-05-18T12:37:45+0900",
+  "selectedTopic": {
+    "topic": "BLACKPINK 10th anniversary commemorative stamps issued with Korea Post",
+    "category": "Business",
+    "tone": "Positive",
+    "reason": "The top-scoring BTS World Cup halftime topic was already active on KCL, so the strongest non-duplicate topic was selected: a multi-source Korea Post/YG anniversary collectible story with official timing, global sales routes and sustained search value through the June 16 release.",
+    "previousFiveToneDistribution": {
+      "negative": 0,
+      "positive": 5,
+      "neutral": 0,
+      "balanceRule": "No forced negative-avoidance correction required; duplicate filtering applied before final selection."
+    },
+    "topCandidatesConsidered": [
+      "BTS co-headlining the FIFA World Cup Final Halftime Show - duplicate active article at /en/news/bts-world-cup-halftime",
+      "BTS Guinness ICONS and Billboard 200 No. 8 week - duplicate active article at /en/news/bts-guinness-icons",
+      "May 2026 girl-group comeback squeeze - duplicate active article at /en/news/may-comeback-trap",
+      "Lisa World Cup and Las Vegas residency signals - duplicate active KCL coverage",
+      "BLACKPINK 10th anniversary Korea Post commemorative stamps - selected",
+      "K-pop trainee audition process and survival-show advice - trainee target candidate, lower trend score"
+    ]
+  },
+  "titleCandidates": [
+    {
+      "title": "BLACKPINK Just Got Government Stamps - The 10-Design Signal YG Needed",
+      "score": 23,
+      "selected": true
+    },
+    {
+      "title": "BLACKPINK's 10th Anniversary Just Became Mail - Why This Drop Is Not Cute",
+      "score": 21,
+      "selected": false
+    },
+    {
+      "title": "A Stamp Sheet Exposed BLACKPINK's Real Power - YG Knows What It Is Selling",
+      "score": 20,
+      "selected": false
+    }
+  ],
+  "stepResults": [
+    {
+      "step": "Research",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "researchUrls": 15,
+        "trustedSources": 6,
+        "duplicateTopTopicExcluded": true
+      }
+    },
+    {
+      "step": "Content",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "bodyWords": 1224,
+        "h2Count": 5,
+        "h3Count": 9,
+        "internalLinks": 1,
+        "excerptLength": 120,
+        "invalidReplacementCharacters": 0
+      }
+    },
+    {
+      "step": "Image",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "source": "ChatGPT browser session",
+        "chatUrl": "https://chatgpt.com/c/6a0a8393-31a0-83ab-9903-c8328c1d7012",
+        "noRealFaces": true,
+        "noLocalGenerationFallback": true,
+        "downloadsFolderChecked": true,
+        "reuseCheck": "PASS"
+      }
+    },
+    {
+      "step": "Factcheck",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null,
+      "details": {
+        "claimsChecked": 8,
+        "pass": 8,
+        "fix": 0,
+        "remove": 0,
+        "verificationRate": "100%"
+      }
+    },
+    {
+      "step": "Local Render",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": "Pre-existing local Supabase env warnings and ad 403 appeared in browser console; article H1, internal link and both images rendered correctly.",
+      "details": {
+        "buildCommand": "pnpm build",
+        "buildResult": "PASS with pre-existing Sass/Supabase warnings",
+        "pageUrl": "http://127.0.0.1:4177/en/news/blackpink-government-stamps",
+        "pageStatus": 200,
+        "imageStatuses": [
+          {
+            "url": "http://127.0.0.1:4177/images/news/blackpink-government-stamps-thumbnail.png",
+            "status": 200,
+            "bytes": 2182152
+          },
+          {
+            "url": "http://127.0.0.1:4177/images/news/blackpink-government-stamps-1.png",
+            "status": 200,
+            "bytes": 2116463
+          },
+          {
+            "url": "http://127.0.0.1:4177/images/news/nextImageExportOptimizer/blackpink-government-stamps-thumbnail-opt-800.WEBP",
+            "status": 200,
+            "bytes": 46996
+          },
+          {
+            "url": "http://127.0.0.1:4177/images/news/nextImageExportOptimizer/blackpink-government-stamps-1-opt-800.WEBP",
+            "status": 200,
+            "bytes": 43214
+          }
+        ]
+      }
+    },
+    {
+      "step": "Deploy",
+      "status": "PASS",
+      "attempts": 4,
+      "lastError": null
+    },
+    {
+      "step": "GSC",
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null
+    }
+  ],
+  "researchUrls": [
+    "https://inside.fifa.com/organisation/media-releases/madonna-shakira-bts-headline-historic-world-cup-2026-final-halftime-show",
+    "https://apnews.com/article/f08a3cc88e5c1dfccf0517941458df2f",
+    "https://www.koreajoongangdaily.joins.com/news/2026-05-14/sports/football/BTS-to-perform-at-firstever-FIFA-World-Cup-final-halftime-show/2592417",
+    "https://www.koreajoongangdaily.joins.com/news/2026-05-07/entertainment/kpop/National-post-service-to-issue-Blackpinkinspired-commemorative-stamps/2586686",
+    "https://www.starnewskorea.com/en/music/2026/05/08/2026050808050447655",
+    "https://biz.chosun.com/en/en-entertainment/2026/05/07/UG7PRTJSC5H55EYQFF5USTOMBM/?outputType=amp",
+    "https://www.mk.co.kr/en/musics/12039031",
+    "https://www.mk.co.kr/en/it/12039045",
+    "https://sports.khan.co.kr/en/article/202605071304007",
+    "https://ygselect.com/product/blackpink-commemorative-stamp/13023/category/1/display/4/?icid=MAIN.product_listmain_3",
+    "https://www.allkpop.com/article/2026/05/k-pop-releases-in-may-2026-star-studded-lineup-to-watch",
+    "https://www.straitstimes.com/life/major-k-pop-girl-groups-set-for-comeback-showdown-in-may",
+    "https://www.allkpop.com/article/2025/12/jyp-entertainment-announces-final-open-audition-for-trainee-recruitment-in-2026",
+    "https://www.keensacademy.com/blog/what-happens-at-kpop-audition",
+    "https://www.reddit.com/r/BlackPink/comments/1t71mhw/260508_blackpink_commemorative_stamp_available/"
+  ],
+  "factcheck": [
+    {
+      "claim": "YG Entertainment and Korea Post under the Ministry of Science and ICT will issue BLACKPINK 10th anniversary commemorative stamps on June 16, 2026.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "StarNews", "MK", "Sports Kyunghyang"],
+      "action": "kept"
+    },
+    {
+      "claim": "BLACKPINK debuted in 2016.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "BLACKPINK public biography references"],
+      "action": "kept"
+    },
+    {
+      "claim": "BLACKPINK is the first female K-pop artist to appear on Korea Post commemorative stamps.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "StarNews", "ChosunBiz", "MK"],
+      "action": "kept"
+    },
+    {
+      "claim": "The stamp set contains 10 designs tied to BLACKPINK's discography or 10-year journey.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "StarNews", "Sports Kyunghyang", "MK"],
+      "action": "kept"
+    },
+    {
+      "claim": "The packet includes member portraits and key stage images.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "StarNews", "ChosunBiz", "Sports Kyunghyang"],
+      "action": "kept"
+    },
+    {
+      "claim": "General sales begin June 16 through post offices and online Korea Post channels.",
+      "status": "PASS",
+      "sources": ["Korea JoongAng Daily", "StarNews", "MK", "Sports Kyunghyang"],
+      "action": "kept"
+    },
+    {
+      "claim": "Online presales ran from May 12 at 7 p.m. until midnight May 15, with overseas routes through YG SELECT and English-language postal channels.",
+      "status": "PASS",
+      "sources": ["StarNews", "ChosunBiz", "MK", "Sports Kyunghyang", "YG SELECT listing"],
+      "action": "kept"
+    },
+    {
+      "claim": "MK reported prices of 8,800 won for the 10-stamp purchase and 25,000 won for the commemorative stamp packet.",
+      "status": "PASS",
+      "sources": ["MK IT article"],
+      "action": "kept"
+    }
+  ],
+  "ChatGPT": {
+    "chatUrl": "https://chatgpt.com/c/6a0a8393-31a0-83ab-9903-c8328c1d7012",
+    "prompts": {
+      "thumbnail": "Generate a cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a premium Korean postal counter displaying an elegant commemorative K-pop stamp sheet inside glass, black and pink lighting, collector envelopes, subtle anniversary celebration mood, hands of anonymous fans holding stamp albums, no readable writing. Style: luxury culture-business news thumbnail, polished studio lighting, dramatic but realistic. No real people's faces, no identifiable celebrity likeness, no official logos, no readable text, no watermarks, high quality, professional photography, 8k resolution.",
+      "body": "Generate a dramatic editorial image in 16:9 aspect ratio, 1200x675px. Scene: a sophisticated K-pop collectibles strategy table with anonymous hands arranging commemorative stamp sheets, album photobook silhouettes, postal envelopes, and fan-order receipts under black-pink accent lighting; a blurred postal sorting room in the background, no readable text. Style: professional culture-business photography, cinematic lighting, premium magazine feature mood. No real people's faces, no identifiable celebrity likeness, no official logos, no readable text, no watermarks, high quality, professional photography, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_blackpink_stamps_thumbnail.png",
+        "mtime": "2026-05-18 12:13:45 +0900",
+        "bytes": 2182152,
+        "sha256": "b1215c75571a4d0446d357581e9618d57ce7700d588f23b85a7e825005a96b11"
+      },
+      {
+        "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_blackpink_stamps_body.png",
+        "mtime": "2026-05-18 12:15:38 +0900",
+        "bytes": 2116463,
+        "sha256": "d34e98975d3aa8ae26354802ba945f3a6b70cff7d7430139046f3f897a32aa38"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "/home/mhhan/workspace/kcl/public/images/news/blackpink-government-stamps-thumbnail.png",
+        "mtime": "2026-05-18 12:19:11 +0900",
+        "bytes": 2182152,
+        "sha256": "b1215c75571a4d0446d357581e9618d57ce7700d588f23b85a7e825005a96b11"
+      },
+      {
+        "path": "/home/mhhan/workspace/kcl/public/images/news/blackpink-government-stamps-1.png",
+        "mtime": "2026-05-18 12:19:11 +0900",
+        "bytes": 2116463,
+        "sha256": "d34e98975d3aa8ae26354802ba945f3a6b70cff7d7430139046f3f897a32aa38"
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "deploy": {
+    "commitSha": "880250039d875c33a8e0984b7c520820f33a0f59",
+    "remoteMainSha": "880250039d875c33a8e0984b7c520820f33a0f59",
+    "cloudflareProductionSha": "not_available_via_public_page",
+    "url": "https://www.kclhq.com/en/news/blackpink-government-stamps",
+    "pollAttempts": 4,
+    "publicPageStatus": 200,
+    "publicRawImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/blackpink-government-stamps-thumbnail.png",
+        "status": 200,
+        "bytes": 2182152
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/blackpink-government-stamps-1.png",
+        "status": 200,
+        "bytes": 2116463
+      }
+    ],
+    "publicOptimizerImageStatuses": [
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/blackpink-government-stamps-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "bytes": 46996
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/blackpink-government-stamps-1-opt-800.WEBP",
+        "status": 200,
+        "bytes": 43214
+      }
+    ],
+    "playwright": {
+      "titleFound": true,
+      "h1Found": true,
+      "thumbnailRendered": true,
+      "bodyImageRendered": true,
+      "internalLinkFound": true,
+      "viewportScreenshotCaptured": true
+    }
+  },
+  "gsc": {
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/blackpink-government-stamps",
+        "property": "sc-domain:kclhq.com",
+        "status": "requested",
+        "confirmedText": "색인 생성 요청됨",
+        "requestedAt": "2026-05-18T12:37:00+09:00",
+        "attempts": 1
+      }
+    ]
+  }
+}
