@@ -1,0 +1,147 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "babymonster-choom-100m",
+  "runStartedAt": "2026-05-19T11:03:20+09:00",
+  "runEndedAt": null,
+  "topic": {
+    "selected": "BABYMONSTER's CHOOM became the fastest 2026 K-pop MV to reach 100 million YouTube views",
+    "category": "Tech & Culture",
+    "tone": "Positive",
+    "recentToneDistribution": {
+      "negative": 0,
+      "positive": 4,
+      "neutral": 1
+    }
+  },
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "LocalRender": "PASS",
+    "Deploy": "PENDING",
+    "GSC": "PENDING"
+  },
+  "researchQueries": [
+    "K-pop breaking news today 2026 May",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026 May",
+    "K-pop chart record milestone 2026 May",
+    "K-pop billboard streaming record May 2026",
+    "K-pop fan project viral 2026 May",
+    "K-pop fandom achievement May 2026",
+    "K-pop trainee audition 2026 tips",
+    "K-pop survival show 2026 May",
+    "BABYMONSTER CHOOM 100 million views fastest 2026 K-pop MV Soompi May 18 2026"
+  ],
+  "researchUrls": [
+    "https://www.soompi.com/article/1842011wpp/babymonsters-choom-becomes-fastest-2026-k-pop-mv-to-reach-100-million-views",
+    "https://en.kpopify.me/2026/05/18/babymonster-hits-100-million-views-with-choom-in-less-than-14-days/",
+    "https://www.musicmundial.com/en/babymonsters-choom-becomes-the-fastest-2026-kpop-music-video-to-reach-100-million-views-on-youtube/",
+    "https://biz.chosun.com/en/en-entertainment/2026/05/18/2XPMBYYJMBEWJK7T2CELKFPHJY/?outputType=amp",
+    "https://www.starnewskorea.com/en/music/2026/05/18/2026051808085596556",
+    "https://www.allkpop.com/article/2026/05/babymonster-tops-global-youtube-chart-with-choom",
+    "https://en.fannstar.tf.co.kr/fnnews/read/316194?c=5",
+    "https://www.hanteonews.com/en/article/91280",
+    "https://www.allkpop.com/article/2026/05/babymonster-announces-choom-tour-in-asia-and-oceania",
+    "https://www.starnewskorea.com/en/music/2026/04/10/2026041011045289223"
+  ],
+  "ChatGPT": {
+    "url": "https://chatgpt.com/c/6a0bc511-16a0-83a5-bcd6-1e6a28217252",
+    "prompts": {
+      "thumbnail": "Generate a cinematic, photorealistic editorial news thumbnail image (16:9 aspect ratio, 1200x675px). Scene: a K-pop music video command center at night, giant abstract screens showing rising view-count bars and glowing play-button shapes, silhouettes of fans holding phones, a performance stage in the distance with red, black, silver, and electric blue lighting. Style: editorial news thumbnail, dramatic lighting. No real people's faces, no identifiable idols, no official logos, no readable text, no numbers, no watermarks, high quality, professional photography, cinematic lighting, 8k resolution.",
+      "body": "Generate a dramatic editorial image (16:9 aspect ratio, 1200x675px). Scene: an abstract global fandom network for a K-pop music video, smartphones and light sticks glowing across a dark arena, data streams converging into a bright central stage, empty performer silhouettes only, no faces. Colors: crimson, black, silver, and electric blue. Style: professional news photography, cinematic lighting. No real people's faces, no identifiable idols, no official logos, no readable text, no numbers, no watermarks, high quality, professional photography, cinematic lighting, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "path": "runtime/kcl-news-babymonster-choom-100m-chatgpt-raw-thumbnail.png",
+        "mtime": "2026-05-19T11:05:39+09:00",
+        "sha256": "5a56e95d988a6bddf793831c9b6f62ee33a9ac2d9037e845e170294c0c7c4935",
+        "size": 2146809
+      },
+      {
+        "path": "runtime/kcl-news-babymonster-choom-100m-chatgpt-raw-body.png",
+        "mtime": "2026-05-19T11:07:01+09:00",
+        "sha256": "018f93fe1a805c166e1fd3a4f165bd597e0586da3de4c811447ef7774bd7b5c6",
+        "size": 2514744
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/babymonster-choom-100m-thumbnail.png",
+        "mtime": "2026-05-19T11:07:00+09:00",
+        "sha256": "5a56e95d988a6bddf793831c9b6f62ee33a9ac2d9037e845e170294c0c7c4935",
+        "size": 2146809
+      },
+      {
+        "path": "public/images/news/babymonster-choom-100m-1.png",
+        "mtime": "2026-05-19T11:07:00+09:00",
+        "sha256": "018f93fe1a805c166e1fd3a4f165bd597e0586da3de4c811447ef7774bd7b5c6",
+        "size": 2514744
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "factcheck": {
+    "verified": 10,
+    "total": 10,
+    "fixes": 0,
+    "removals": 0
+  },
+  "localRender": {
+    "pageUrl": "http://127.0.0.1:3000/en/news/babymonster-choom-100m",
+    "pageStatus": 200,
+    "imageStatuses": [
+      {
+        "url": "http://127.0.0.1:3000/images/news/babymonster-choom-100m-thumbnail.png",
+        "status": 200,
+        "bytes": 2146809
+      },
+      {
+        "url": "http://127.0.0.1:3000/images/news/babymonster-choom-100m-1.png",
+        "status": 200,
+        "bytes": 2514744
+      },
+      {
+        "url": "http://127.0.0.1:3000/images/news/nextImageExportOptimizer/babymonster-choom-100m-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "bytes": 45184
+      },
+      {
+        "url": "http://127.0.0.1:3000/images/news/nextImageExportOptimizer/babymonster-choom-100m-1-opt-800.WEBP",
+        "status": 200,
+        "bytes": 70732
+      }
+    ],
+    "screenshots": [
+      "runtime/kcl-news-babymonster-choom-100m-local.png",
+      "runtime/kcl-news-babymonster-choom-100m-local-body.png"
+    ],
+    "browserRenderedImages": 2
+  },
+  "build": {
+    "generateNewsJson": "PASS",
+    "nextImageExportOptimizer": "PASS",
+    "pnpmBuild": "PASS",
+    "warnings": [
+      "Existing Sass deprecation warnings in hall-of-fame and LeagueRankingItem styles",
+      "Local build missing Supabase env warnings; static export completed successfully"
+    ]
+  },
+  "deploy": {
+    "commitSha": null,
+    "cloudflareProductionSha": null
+  },
+  "gsc": {
+    "requestedUrls": []
+  },
+  "retryCounts": {
+    "ChatGPTImage": 1,
+    "LocalRender": 1,
+    "Deploy": 0,
+    "GSC": 0
+  },
+  "lastError": null
+}
