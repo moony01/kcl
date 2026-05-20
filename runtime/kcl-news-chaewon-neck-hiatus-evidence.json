@@ -1,0 +1,221 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "chaewon-neck-hiatus",
+  "runStartedAt": "2026-05-20T12:34:00+09:00",
+  "runEndedAt": "2026-05-20T13:53:10+09:00",
+  "topic": {
+    "selected": "LE SSERAFIM's Kim Chaewon takes a temporary break due to neck pain days before PUREFLOW pt.1",
+    "category": "Artist",
+    "tone": "Negative",
+    "recentToneDistribution": {
+      "negative": 1,
+      "positive": 3,
+      "neutral": 1
+    },
+    "balanceRule": "Not required; selected non-duplicate high-interest health and comeback-risk topic."
+  },
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "LocalRender": "PASS",
+    "CommitPush": "PASS",
+    "Deploy": "PASS",
+    "GSC": "PASS"
+  },
+  "researchQueries": [
+    "K-pop breaking news today 2026",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026",
+    "K-pop chart record milestone 2026",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026",
+    "K-pop fan project viral 2026",
+    "K-pop fandom achievement May 2026",
+    "K-pop industry revenue market growth 2026",
+    "K-pop trainee audition 2026 tips",
+    "LE SSERAFIM Kim Chaewon temporary break neck pain May 2026",
+    "Kim Chaewon neck pain temporary break LE SSERAFIM May 2026 Source Music"
+  ],
+  "researchUrls": [
+    "https://www.soompi.com/article/1842311wpp/le-sserafims-kim-chaewon-to-take-break-from-activities-due-to-health",
+    "https://www.starnewskorea.com/en/music/2026/05/19/2026051914551036231",
+    "https://biz.chosun.com/en/en-entertainment/2026/05/19/4DLEJ67ELFESVGFET6VG3JLGSY/?outputType=amp",
+    "https://jazminemedia.com/news/le-sserafim-member-kim-chaewon-will-temporarily-halt-activities/",
+    "https://en.kpopify.me/2026/05/19/kim-chaewon-le-sserafim-halts-activities-due-to-health-reasons/",
+    "https://sports.khan.co.kr/en/article/202605191427017",
+    "https://www.oricon.co.jp/news/2455561/"
+  ],
+  "ChatGPT": {
+    "url": "https://chatgpt.com",
+    "prompts": {
+      "thumbnail": "Generate exactly one cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px.\n\nScene: a K-pop comeback stage temporarily interrupted by an artist health break, shown symbolically without real people: five elegant microphone stands under dramatic lights, one center spotlight dimmed, a polished rehearsal floor, soft red and ice-blue stage lighting, a quiet backstage medical-rest atmosphere implied only by a folded performance towel and water bottle on a chair, no injury depiction.\n\nStyle: premium K-pop entertainment news thumbnail, professional concert photography, cinematic lighting, serious but respectful mood, sharp details, high contrast, clean composition.\n\nComposition: full-bleed image only. No foreground cards, no UI panels, no signs, no labels, no posters, no banners, no text boxes.\n\nStrict constraints: no real people's faces, no identifiable performers, no official logos, no readable text in any language, no numbers, no watermark, no typography, no fake brand marks, no medical gore, no hospital scene. High quality, 8k resolution.",
+      "body": "Generate exactly one dramatic editorial image in 16:9 aspect ratio, 1200x675px.\n\nScene: an empty K-pop dance practice studio at night, five marked positions on the floor, one position softly unlit, mirrored walls reflecting stage lights, a choreographer's clipboard closed on a bench with no readable writing, a folded towel and water bottle, cool blue and crimson lighting suggesting comeback pressure and a health pause without showing any person.\n\nStyle: professional entertainment news photography, cinematic lighting, realistic textures, respectful and serious mood, clean composition, high contrast.\n\nComposition: full-bleed image only. No posters, no schedules, no screens, no labels, no text boxes, no UI panels, no captions in the image.\n\nStrict constraints: no real people's faces, no identifiable performers, no official logos, no readable text in any language, no numbers, no watermark, no typography, no fake brand marks, no medical gore, no hospital scene. High quality, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "path": "runtime/kcl-news-chaewon-neck-hiatus-chatgpt-raw-thumbnail.png",
+        "sourcePath": ".playwright-mcp/ChatGPT-Image-2026년-5월-20일-오후-01-24-00.png",
+        "mtime": "2026-05-20T13:24:00+09:00",
+        "sha256": "c812bff933fc063fe039d1a36d845cf7996358f0393f67c0f2220c1adcb0271e",
+        "size": 1853487
+      },
+      {
+        "path": "runtime/kcl-news-chaewon-neck-hiatus-chatgpt-raw-body.png",
+        "sourcePath": ".playwright-mcp/7397d8ff-736f-4fb6-adb9-8e58f9c58b61.png",
+        "mtime": "2026-05-20T13:28:47+09:00",
+        "sha256": "15ab6f590570505f1bb21e6bdd4b6680d1187479f6603cdf443e9d203bd501ba",
+        "size": 1759433
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/chaewon-neck-hiatus-thumbnail.png",
+        "mtime": "2026-05-20T13:31:38+09:00",
+        "sha256": "c812bff933fc063fe039d1a36d845cf7996358f0393f67c0f2220c1adcb0271e",
+        "size": 1853487
+      },
+      {
+        "path": "public/images/news/chaewon-neck-hiatus-1.png",
+        "mtime": "2026-05-20T13:31:38+09:00",
+        "sha256": "15ab6f590570505f1bb21e6bdd4b6680d1187479f6603cdf443e9d203bd501ba",
+        "size": 1759433
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "factcheck": {
+    "verified": 5,
+    "total": 5,
+    "fixes": 0,
+    "removals": 0,
+    "sources": [
+      "Soompi",
+      "StarNews",
+      "ChosunBiz"
+    ]
+  },
+  "content": {
+    "path": "src/content/news/en/chaewon-neck-hiatus.md",
+    "title": "Kim Chaewon Neck Hiatus Hits LE SSERAFIM - The PUREFLOW Timing Is Brutal",
+    "wordCount": 1117,
+    "excerptLength": 123,
+    "active": true,
+    "internalLinks": 1,
+    "badCharacters": 0
+  },
+  "localRender": {
+    "pageUrl": "http://127.0.0.1:4174/en/news/chaewon-neck-hiatus",
+    "pageStatus": 200,
+    "imageStatuses": [
+      {
+        "url": "http://127.0.0.1:4174/images/news/chaewon-neck-hiatus-thumbnail.png",
+        "status": 200,
+        "bytes": 1853487
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/chaewon-neck-hiatus-1.png",
+        "status": 200,
+        "bytes": 1759433
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/nextImageExportOptimizer/chaewon-neck-hiatus-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "bytes": 29150
+      },
+      {
+        "url": "http://127.0.0.1:4174/images/news/nextImageExportOptimizer/chaewon-neck-hiatus-1-opt-800.WEBP",
+        "status": 200,
+        "bytes": 22424
+      }
+    ],
+    "screenshots": [
+      "runtime/kcl-news-chaewon-neck-hiatus-local.png",
+      "runtime/kcl-news-chaewon-neck-hiatus-local-body.png"
+    ],
+    "browserRenderedImages": 2
+  },
+  "build": {
+    "nextImageExportOptimizer": "PASS",
+    "pnpmBuild": "PASS",
+    "warnings": [
+      "Existing Sass deprecation warnings in hall-of-fame and LeagueRankingItem styles",
+      "Local missing Supabase env warnings; static export completed successfully"
+    ]
+  },
+  "deploy": {
+    "commitSha": "1572ac61ab651f844c895f8348865e126e48441f",
+    "cloudflareProductionSha": "1572ac61ab651f844c895f8348865e126e48441f",
+    "pageUrl": "https://www.kclhq.com/en/news/chaewon-neck-hiatus",
+    "pageStatus": 200,
+    "cloudflareCheckRun": "completed:success",
+    "cloudflareDetailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/e085b78b-d208-4717-ae57-d8b212cfc344",
+    "deployPolls": [
+      {
+        "attempt": 1,
+        "status": 404
+      },
+      {
+        "attempt": 2,
+        "status": 404
+      },
+      {
+        "attempt": 3,
+        "status": 404
+      },
+      {
+        "attempt": 4,
+        "status": 404
+      },
+      {
+        "attempt": 5,
+        "status": 200
+      }
+    ],
+    "deployedImages": [
+      {
+        "url": "https://www.kclhq.com/images/news/chaewon-neck-hiatus-thumbnail.png",
+        "status": 200,
+        "bytes": 1853487
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/chaewon-neck-hiatus-1.png",
+        "status": 200,
+        "bytes": 1759433
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/chaewon-neck-hiatus-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "bytes": 29150
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/chaewon-neck-hiatus-1-opt-800.WEBP",
+        "status": 200,
+        "bytes": 22424
+      }
+    ],
+    "playwrightPublicRender": "H1 found, thumbnail rendered, body image rendered after scroll, internal link found",
+    "screenshots": [
+      "runtime/kcl-news-chaewon-neck-hiatus-deployed-body.png"
+    ]
+  },
+  "gsc": {
+    "property": "sc-domain:kclhq.com",
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/chaewon-neck-hiatus"
+    ],
+    "confirmation": "Indexing requested",
+    "screenshot": "runtime/kcl-news-chaewon-neck-hiatus-gsc.png",
+    "resultFile": "runtime/kcl-news-chaewon-neck-hiatus-gsc-request-result.json"
+  },
+  "retryCounts": {
+    "ChatGPTImage": 1,
+    "LocalRender": 1,
+    "Deploy": 5,
+    "GSC": 1
+  },
+  "lastError": null
+}
