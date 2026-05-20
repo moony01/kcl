@@ -1,0 +1,40 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "kpop-superfan-money-machine",
+  "runStartedAt": "2026-05-20T12:02:10+09:00",
+  "topic": "K-pop superfan platform economy: Weverse, Bubble, and the $4.3B superfan race",
+  "category": "Tech & Culture",
+  "tone": "Neutral",
+  "stepResults": {
+    "Research": {
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null
+    },
+    "Content": {
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null
+    },
+    "Image": {
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null
+    },
+    "LocalRender": {
+      "status": "PASS",
+      "attempts": 1,
+      "lastError": null
+    },
+    "Deploy": {
+      "status": "PENDING",
+      "attempts": 0,
+      "lastError": null
+    },
+    "GSC": {
+      "status": "PENDING",
+      "attempts": 0,
+      "lastError": null
+    }
+  }
+}

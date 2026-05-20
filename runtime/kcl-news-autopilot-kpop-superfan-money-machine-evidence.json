@@ -1,0 +1,97 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "kpop-superfan-money-machine",
+  "runStartedAt": "2026-05-20T12:02:10+09:00",
+  "runEndedAt": null,
+  "selection": {
+    "recentToneDistribution": {
+      "negative": 0,
+      "positive": 4,
+      "neutral": 1
+    },
+    "balanceRule": "not_applied",
+    "selectedTopic": "K-pop superfan platform economy: Weverse, Bubble, and the $4.3B superfan race",
+    "category": "Tech & Culture",
+    "tone": "Neutral",
+    "reason": "Broad current search coverage, major platform data, high SEO value, and no recent-category penalty."
+  },
+  "researchUrls": [
+    "https://www.musicbusinessworldwide.com/hybe-says-weverse-hit-12m-monthly-users-last-year-and-that-its-turning-casual-fans-into-superfans/",
+    "https://en.sedaily.com/culture/2026/02/06/bts-blackpink-comebacks-drive-surge-in-weverse-fan-platform",
+    "https://magazine.weverse.io/article/view/1725?lang=%23%E4%BB%8A%E3%81%93%E3%82%8C",
+    "https://www.musicbusinessworldwide.com/sm-entertainments-revenue-surges-21-yoy-in-q1-to-192m-on-strong-concert-merch-sales/",
+    "https://www.ifpi.org/global-music-report-2026-global-recorded-music-revenues-grow-6-4-as-record-companies-drive-innovation/",
+    "https://www.musicbusinessworldwide.com/creating-superfans-requires-emotional-thinking-not-just-analytics/",
+    "https://ir.tencentmusic.com/2026-05-12-Tencent-Music-Entertainment-Group-Announces-First-Quarter-2026-Unaudited-Financial-Results",
+    "https://www.kpopworld.com/news/weverses-2025-fandom-report"
+  ],
+  "ChatGPT": {
+    "prompts": {
+      "thumbnail": "Generate one cinematic, photorealistic editorial news thumbnail image (16:9 aspect ratio, 1200x675px). Scene: a futuristic K-pop fan platform command center, glowing smartphone screens, concert light sticks, analytics dashboards and digital membership cards floating in a dark studio, no logos, no readable text, no real people's faces. Colors: electric cyan, magenta, clean white highlights, deep black. Style: high-end technology business magazine cover, dramatic lighting. High quality, professional photography, cinematic lighting, 8k resolution, no text, no watermark, no real faces, no identifiable people.",
+      "body": "Generate one dramatic editorial image (16:9 aspect ratio, 1200x675px). Scene: an abstract global superfan network for K-pop, silhouettes of fans holding light sticks connected by luminous data lines to app-style tiles and merchandise boxes, with a subtle Seoul-to-Latin-America world map glow in the background. No logos, no readable text, no real people's faces. Style: professional news photography, cinematic lighting, electric cyan and magenta accents with clean white highlights. High quality, 8k resolution, no text, no watermark, no real faces, no identifiable people."
+    },
+    "rawDownloads": [
+      {
+        "role": "thumbnail",
+        "source": ".playwright-mcp/ChatGPT-Image-2026년-5월-20일-오후-12-06-13.png",
+        "downloadCopy": "/home/mhhan/Downloads/kpop-superfan-money-machine-chatgpt-thumbnail-20260520-120614.png",
+        "mtime": "2026-05-20T12:08:00+09:00",
+        "size": 2130953,
+        "sha256": "7d6a5b82ed877eca7b19823ca24a17060c8054a8c10705b8f8e85e0f7a560941"
+      },
+      {
+        "role": "body",
+        "source": ".playwright-mcp/ChatGPT-Image-2026년-5월-20일-오후-12-07-40.png",
+        "downloadCopy": "/home/mhhan/Downloads/kpop-superfan-money-machine-chatgpt-body-20260520-120740.png",
+        "mtime": "2026-05-20T12:08:00+09:00",
+        "size": 2050378,
+        "sha256": "4b76dad9e4f6fe48cd850cb6db3289df971f1492a1cf8521577b1835e6f09f17"
+      }
+    ],
+    "finalImages": [
+      {
+        "role": "thumbnail",
+        "path": "/home/mhhan/workspace/kcl/public/images/news/kpop-superfan-money-machine-thumbnail.png",
+        "urlPath": "/images/news/kpop-superfan-money-machine-thumbnail.png",
+        "mtime": "2026-05-20T12:10:00+09:00",
+        "size": 2130953,
+        "sha256": "7d6a5b82ed877eca7b19823ca24a17060c8054a8c10705b8f8e85e0f7a560941"
+      },
+      {
+        "role": "body",
+        "path": "/home/mhhan/workspace/kcl/public/images/news/kpop-superfan-money-machine-1.png",
+        "urlPath": "/images/news/kpop-superfan-money-machine-1.png",
+        "mtime": "2026-05-20T12:10:00+09:00",
+        "size": 2050378,
+        "sha256": "4b76dad9e4f6fe48cd850cb6db3289df971f1492a1cf8521577b1835e6f09f17"
+      }
+    ]
+  },
+  "deploy": {
+    "commitSha": null,
+    "cloudflareProductionSha": null
+  },
+  "localRender": {
+    "pageUrl": "http://127.0.0.1:3213/en/news/kpop-superfan-money-machine",
+    "pageStatus": 200,
+    "thumbnailStatus": 200,
+    "bodyImageStatus": 200,
+    "optimizerThumbnailStatus": 200,
+    "optimizerBodyStatus": 200,
+    "optimizerThumbnailUrl": "http://127.0.0.1:3213/images/news/nextImageExportOptimizer/kpop-superfan-money-machine-thumbnail-opt-800.WEBP",
+    "optimizerBodyUrl": "http://127.0.0.1:3213/images/news/nextImageExportOptimizer/kpop-superfan-money-machine-1-opt-800.WEBP",
+    "screenshot": "runtime/kcl-news-autopilot-kpop-superfan-money-machine-local-body.png",
+    "consoleNotes": "Local-only Google Ads 403 and existing Supabase env warnings observed; article page and both images rendered successfully."
+  },
+  "gsc": {
+    "requestedUrls": []
+  },
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "LocalRender": "PASS",
+    "Deploy": "PENDING",
+    "GSC": "PENDING"
+  }
+}
