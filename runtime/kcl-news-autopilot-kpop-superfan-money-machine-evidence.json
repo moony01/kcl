@@ -2,7 +2,7 @@
   "workflow": "kcl-news-autopilot",
   "slug": "kpop-superfan-money-machine",
   "runStartedAt": "2026-05-20T12:02:10+09:00",
-  "runEndedAt": null,
+  "runEndedAt": "2026-05-20T12:26:43+09:00",
   "selection": {
     "recentToneDistribution": {
       "negative": 0,
@@ -68,8 +68,39 @@
     ]
   },
   "deploy": {
-    "commitSha": null,
-    "cloudflareProductionSha": null
+    "commitSha": "e25fb741b0ec41aff3482b95e0802a9ba54fad17",
+    "cloudflareProductionSha": "e25fb741b0ec41aff3482b95e0802a9ba54fad17",
+    "remoteUrl": "https://www.kclhq.com/en/news/kpop-superfan-money-machine",
+    "pollAttempts": [
+      {
+        "attempt": 1,
+        "status": 404,
+        "time": "2026-05-20T12:17:44+09:00"
+      },
+      {
+        "attempt": 2,
+        "status": 404,
+        "time": "2026-05-20T12:19:44+09:00"
+      },
+      {
+        "attempt": 3,
+        "status": 404,
+        "time": "2026-05-20T12:21:44+09:00"
+      },
+      {
+        "attempt": 4,
+        "status": 200,
+        "time": "2026-05-20T12:23:45+09:00",
+        "titleHits": 2
+      }
+    ],
+    "remoteImageChecks": {
+      "thumbnail": 200,
+      "body": 200,
+      "optimizerThumbnail": 200,
+      "optimizerBody": 200
+    },
+    "screenshot": "runtime/kcl-news-autopilot-kpop-superfan-money-machine-deployed-body.png"
   },
   "localRender": {
     "pageUrl": "http://127.0.0.1:3213/en/news/kpop-superfan-money-machine",
@@ -84,14 +115,23 @@
     "consoleNotes": "Local-only Google Ads 403 and existing Supabase env warnings observed; article page and both images rendered successfully."
   },
   "gsc": {
-    "requestedUrls": []
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/kpop-superfan-money-machine",
+        "property": "sc-domain:kclhq.com",
+        "status": "indexing_requested",
+        "time": "2026-05-20T12:26:00+09:00",
+        "message": "색인 생성 요청됨",
+        "screenshot": "runtime/kcl-news-autopilot-kpop-superfan-money-machine-gsc.png"
+      }
+    ]
   },
   "stepResults": {
     "Research": "PASS",
     "Content": "PASS",
     "Image": "PASS",
     "LocalRender": "PASS",
-    "Deploy": "PENDING",
-    "GSC": "PENDING"
+    "Deploy": "PASS",
+    "GSC": "PASS"
   }
 }

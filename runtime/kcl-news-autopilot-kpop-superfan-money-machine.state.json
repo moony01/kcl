@@ -2,6 +2,7 @@
   "workflow": "kcl-news-autopilot",
   "slug": "kpop-superfan-money-machine",
   "runStartedAt": "2026-05-20T12:02:10+09:00",
+  "runEndedAt": "2026-05-20T12:26:43+09:00",
   "topic": "K-pop superfan platform economy: Weverse, Bubble, and the $4.3B superfan race",
   "category": "Tech & Culture",
   "tone": "Neutral",
@@ -27,13 +28,13 @@
       "lastError": null
     },
     "Deploy": {
-      "status": "PENDING",
-      "attempts": 0,
-      "lastError": null
+      "status": "PASS",
+      "attempts": 4,
+      "lastError": "First three HTTP polls returned 404 before Cloudflare served the new page."
     },
     "GSC": {
-      "status": "PENDING",
-      "attempts": 0,
+      "status": "PASS",
+      "attempts": 1,
       "lastError": null
     }
   }

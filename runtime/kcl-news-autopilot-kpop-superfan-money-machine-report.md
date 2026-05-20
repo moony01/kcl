@@ -3,7 +3,7 @@
 - Workflow: kcl-news-autopilot
 - Slug: kpop-superfan-money-machine
 - Run started: 2026-05-20T12:02:10+09:00
-- Status: IN_PROGRESS
+- Status: SUCCESS
 
 ## Research Gate
 
@@ -65,3 +65,36 @@ PASS.
 - Playwright image check: thumbnail and body image both loaded at 800x450.
 - Screenshot: `runtime/kcl-news-autopilot-kpop-superfan-money-machine-local-body.png`.
 - Local console notes: Google Ads 403 and existing Supabase env errors appeared on localhost; they did not block article or image rendering.
+
+## Deploy Gate
+
+PASS.
+
+- Commit: `e25fb741b0ec41aff3482b95e0802a9ba54fad17`
+- Push target: `origin/main`
+- Deploy polling: 4 attempts. Attempts 1-3 returned 404, attempt 4 returned HTTP 200 with two title hits.
+- Remote URL: `https://www.kclhq.com/en/news/kpop-superfan-money-machine`
+- Remote original images: thumbnail/body -> HTTP 200.
+- Remote optimizer images: thumbnail/body -> HTTP 200.
+- Playwright deployed image check: thumbnail and body image both loaded at 800x450.
+- Screenshot: `runtime/kcl-news-autopilot-kpop-superfan-money-machine-deployed-body.png`.
+
+## GSC Gate
+
+PASS.
+
+- Property: `sc-domain:kclhq.com`
+- Requested URL: `https://www.kclhq.com/en/news/kpop-superfan-money-machine`
+- Result: `색인 생성 요청됨`
+- Attempts: 1
+- Screenshot: `runtime/kcl-news-autopilot-kpop-superfan-money-machine-gsc.png`.
+
+## Final Status
+
+SUCCESS.
+
+Pass stages: Research, Content, Image, Factcheck, Local Render, Deploy, GSC.
+
+Retry counts: Research 1, Content 1, Image 1, Local Render 1, Deploy 4 HTTP polls, GSC 1.
+
+Last nonblocking errors: local Supabase env warnings and localhost Google Ads 403; first three deploy polls returned 404 before the Cloudflare deployment completed.
