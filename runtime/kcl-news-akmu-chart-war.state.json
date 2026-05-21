@@ -1,0 +1,41 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "akmu-chart-war",
+  "status": "SUCCESS",
+  "lastPassedStep": "GSC",
+  "updatedAt": "2026-05-21T13:28:20+09:00",
+  "steps": [
+    {
+      "name": "Research",
+      "status": "PASS"
+    },
+    {
+      "name": "Content",
+      "status": "PASS"
+    },
+    {
+      "name": "Image",
+      "status": "PASS"
+    },
+    {
+      "name": "Factcheck",
+      "status": "PASS"
+    },
+    {
+      "name": "LocalRender",
+      "status": "PASS"
+    },
+    {
+      "name": "CommitPush",
+      "status": "PASS"
+    },
+    {
+      "name": "Deploy",
+      "status": "PASS"
+    },
+    {
+      "name": "GSC",
+      "status": "PASS"
+    }
+  ]
+}

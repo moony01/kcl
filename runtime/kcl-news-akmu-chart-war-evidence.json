@@ -1,0 +1,240 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "akmu-chart-war",
+  "runStartedAt": "2026-05-21T13:02:33+09:00",
+  "runEndedAt": "2026-05-21T13:28:20+09:00",
+  "topic": {
+    "selected": "AKMU's Paradise of Rumors Perfect All-Kill and Circle Chart triple crown",
+    "category": "Market Trend",
+    "tone": "Positive",
+    "recentToneDistribution": {
+      "negative": 1,
+      "positive": 3,
+      "neutral": 1
+    },
+    "balanceRule": "Not required; recent distribution already had positive coverage and no negative streak."
+  },
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "LocalRender": "PASS",
+    "CommitPush": "PASS",
+    "Deploy": "PASS",
+    "GSC": "PASS"
+  },
+  "researchQueries": [
+    "K-pop breaking news today 2026",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026",
+    "K-pop idol debut announcement 2026",
+    "K-pop chart record milestone 2026",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026",
+    "K-pop fan project viral 2026",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter/X fans",
+    "K-pop industry revenue market growth 2026",
+    "K-pop global expansion new market 2026",
+    "K-pop trainee audition 2026 tips",
+    "K-pop survival show 2026",
+    "AKMU Paradise of Rumors Perfect All-Kill 2026",
+    "AKMU Circle Chart triple crown Paradise of Rumors May 2026"
+  ],
+  "researchUrls": [
+    "https://www.soompi.com/article/1842714wpp/akmu-earns-circle-triple-crown-cortis-bts-and-illit-top-weekly-charts",
+    "https://zapzee.net/2026/05/14/akmu-tops-circle-chart-week-19-bts-cortis-shine/",
+    "https://www.soompi.com/search?query=AKMU%20Paradise%20of%20Rumors%20Perfect%20All-Kill",
+    "https://www.allkpop.com/search/articles/AKMU%20Paradise%20of%20Rumors%20Perfect%20All-Kill",
+    "https://koreajoongangdaily.joins.com/news/2025-11-21/entertainment/kpop/Sibling-duo-AKMU-amicably-exits-YG-Entertainment-may-start-own-indie-label-/2460138",
+    "https://circlechart.kr/",
+    "https://www.ifpi.org/ifpi-global-recorded-music-revenues-grew-8-1-in-2025/"
+  ],
+  "ChatGPT": {
+    "url": "https://chatgpt.com",
+    "prompts": {
+      "thumbnail": "Generate one cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a dramatic K-pop chart control room at night where glowing Korean music chart lines, streaming dashboards, album icons, and fan-community signal waves converge into one bright No. 1 peak. Make it feel like AKMU's organic Korean chart victory is breaking through a crowded idol-fandom scoreboard, but show no real artists and no identifiable people. Colors: electric cyan, magenta, white chart light, deep charcoal background. Style: premium editorial news thumbnail, cinematic lighting, realistic reflections, high contrast. No text, no letters, no logos, no watermarks, no real people's faces, no identifiable people, high quality, professional photography, 8k resolution.",
+      "body": "Generate one dramatic editorial image in 16:9 aspect ratio, 1200x675px. Scene: a modern K-pop analytics studio with a long glass table, holographic domestic chart panels, streaming graphs, fan-vote counters, and soft concert-light reflections. The mood should show the tension between organic public listening and organized fandom power after a Korean singer-songwriter duo dominates the charts. Use abstract silhouettes only, no real artists, no identifiable people. Colors: cool white, cyan data light, warm gold highlights, restrained black background. Style: professional news photography, cinematic lighting, realistic materials, high detail. No text, no letters, no logos, no watermarks, no real people's faces, no identifiable people, high quality, professional photography, 8k resolution."
+    },
+    "rawDownloads": [
+      {
+        "path": "runtime/raw-chatgpt/akmu-chart-war-raw-thumbnail.png",
+        "sourcePath": ".playwright-mcp/ChatGPT-Image-2026년-5월-21일-오후-01-04-44.png",
+        "mtime": "2026-05-21T13:09:59+09:00",
+        "sha256": "6e60508937ed1926d136080bd27f64b43bf1ffeead47045db3e394746b516313",
+        "size": 2063596
+      },
+      {
+        "path": "runtime/raw-chatgpt/akmu-chart-war-raw-body.png",
+        "sourcePath": ".playwright-mcp/ChatGPT-Image-2026년-5월-21일-오후-01-06-28.png",
+        "mtime": "2026-05-21T13:09:59+09:00",
+        "sha256": "018d3468f062e284cf87c2d4f0804d319ab75256fb4fc4108c2c66a4d5fc6be0",
+        "size": 2195550
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/akmu-chart-war-thumbnail.png",
+        "mtime": "2026-05-21T13:08:48+09:00",
+        "sha256": "6e60508937ed1926d136080bd27f64b43bf1ffeead47045db3e394746b516313",
+        "size": 2063596
+      },
+      {
+        "path": "public/images/news/akmu-chart-war-1.png",
+        "mtime": "2026-05-21T13:08:48+09:00",
+        "sha256": "018d3468f062e284cf87c2d4f0804d319ab75256fb4fc4108c2c66a4d5fc6be0",
+        "size": 2195550
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "factcheck": {
+    "verified": 5,
+    "total": 5,
+    "fixes": 0,
+    "removals": 0,
+    "sources": [
+      "Soompi",
+      "Zapzee",
+      "Korea JoongAng Daily",
+      "Circle Chart",
+      "IFPI"
+    ]
+  },
+  "content": {
+    "path": "src/content/news/en/akmu-chart-war.md",
+    "title": "AKMU Broke K-pop's Fan War - The Charts Exposed What Idols Still Can't Buy",
+    "wordCount": 1227,
+    "excerptLength": 130,
+    "active": true,
+    "internalLinks": 1,
+    "h2Count": 6,
+    "h3Count": 6,
+    "badCharacters": 0
+  },
+  "localRender": {
+    "pageUrl": "http://127.0.0.1:4173/en/news/akmu-chart-war",
+    "pageStatus": 200,
+    "imageStatuses": [
+      {
+        "url": "http://127.0.0.1:4173/images/news/akmu-chart-war-thumbnail.png",
+        "status": 200,
+        "contentType": "image/png"
+      },
+      {
+        "url": "http://127.0.0.1:4173/images/news/akmu-chart-war-1.png",
+        "status": 200,
+        "contentType": "image/png"
+      },
+      {
+        "url": "http://127.0.0.1:4173/images/news/nextImageExportOptimizer/akmu-chart-war-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "contentType": "image/webp"
+      },
+      {
+        "url": "http://127.0.0.1:4173/images/news/nextImageExportOptimizer/akmu-chart-war-1-opt-800.WEBP",
+        "status": 200,
+        "contentType": "image/webp"
+      }
+    ],
+    "screenshots": [
+      "runtime/kcl-news-akmu-chart-war-local.png"
+    ],
+    "browserRenderedImages": 2,
+    "renderedImageDimensions": [
+      {
+        "role": "thumbnail",
+        "naturalWidth": 800,
+        "naturalHeight": 450
+      },
+      {
+        "role": "body",
+        "naturalWidth": 800,
+        "naturalHeight": 450
+      }
+    ]
+  },
+  "build": {
+    "nextImageExportOptimizer": "PASS",
+    "pnpmBuild": "PASS",
+    "warnings": [
+      "Existing Sass deprecation warnings in hall-of-fame and LeagueRankingItem styles",
+      "Existing local missing Supabase env warnings during static generation; build exited successfully"
+    ]
+  },
+  "deploy": {
+    "commitSha": "3e07401a047a499f7535e7d2b4768101f8520efb",
+    "cloudflareProductionSha": "3e07401a047a499f7535e7d2b4768101f8520efb",
+    "cloudflareCheckRun": "completed:success",
+    "cloudflareCheckRunId": 77103504059,
+    "cloudflareDetailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/85ae6d08-ebab-46e2-a3dc-2ad9fda6b4ef",
+    "pageUrl": "https://www.kclhq.com/en/news/akmu-chart-war",
+    "pageStatus": 200,
+    "deployPolls": [
+      {
+        "attempt": 1,
+        "status": 404,
+        "time": "2026-05-21T13:16:02+09:00"
+      },
+      {
+        "attempt": 2,
+        "status": 404,
+        "time": "2026-05-21T13:18:03+09:00"
+      },
+      {
+        "attempt": 3,
+        "status": 404,
+        "time": "2026-05-21T13:20:03+09:00"
+      },
+      {
+        "attempt": 4,
+        "status": 200,
+        "time": "2026-05-21T13:22:04+09:00"
+      }
+    ],
+    "deployedImages": [
+      {
+        "url": "https://www.kclhq.com/images/news/akmu-chart-war-thumbnail.png",
+        "status": 200,
+        "contentType": "image/png"
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/akmu-chart-war-1.png",
+        "status": 200,
+        "contentType": "image/png"
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/akmu-chart-war-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "contentType": "image/webp"
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/akmu-chart-war-1-opt-800.WEBP",
+        "status": 200,
+        "contentType": "image/webp"
+      }
+    ],
+    "playwrightPublicRender": "H1 found, thumbnail rendered at 800x450, body image rendered at 800x450 after scroll, internal link present",
+    "screenshots": [
+      "runtime/kcl-news-akmu-chart-war-deployed-body.png"
+    ]
+  },
+  "gsc": {
+    "property": "sc-domain:kclhq.com",
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/akmu-chart-war"
+    ],
+    "confirmation": "색인 생성 요청됨",
+    "screenshot": "runtime/kcl-news-akmu-chart-war-gsc.png"
+  },
+  "retryCounts": {
+    "ChatGPTImage": 1,
+    "LocalRender": 1,
+    "Deploy": 4,
+    "GSC": 1
+  },
+  "lastError": null
+}
