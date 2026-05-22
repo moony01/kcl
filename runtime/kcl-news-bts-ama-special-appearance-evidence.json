@@ -1,0 +1,364 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-ama-special-appearance",
+  "runStartedAt": "2026-05-22T13:00:43+09:00",
+  "runEndedAt": "2026-05-22T13:30:33+09:00",
+  "topic": {
+    "selected": "BTS will make a special live appearance at the 2026 American Music Awards",
+    "category": "Tech & Culture",
+    "tone": "Positive",
+    "recentToneDistribution": {
+      "negative": 1,
+      "positive": 3,
+      "neutral": 1
+    },
+    "balanceRule": "Not required; recent distribution already had positive coverage and no negative streak.",
+    "selectionReason": "Official AMAs/CBS-DCP announcement plus same-day coverage by Soompi, KBS World, KpopStarz and fan discussion made it the strongest live K-pop broadcast topic; Artist category penalty was avoided by framing as Tech & Culture."
+  },
+  "titlePlan": {
+    "selectedTitle": "BTS AMA Special Appearance Is Official - But the Missing Word Is the Trap",
+    "candidates": [
+      {
+        "title": "BTS AMA Special Appearance Is Official - But the Missing Word Is the Trap",
+        "score": 23
+      },
+      {
+        "title": "BTS Returns to the AMAs - Why 'Special Appearance' Has Fans Suspicious",
+        "score": 21
+      },
+      {
+        "title": "BTS Got the AMAs Tease Everyone Wanted... Now One Word Changes Everything",
+        "score": 20
+      }
+    ],
+    "targetKeywords": [
+      "BTS AMA special appearance",
+      "2026 American Music Awards BTS"
+    ]
+  },
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "LocalRender": "PASS",
+    "CommitPush": "PASS",
+    "Deploy": "PASS",
+    "GSC": "PASS"
+  },
+  "attempts": {
+    "ChatGPTImage": {
+      "thumbnail": 1,
+      "body": 1,
+      "lastError": null
+    },
+    "DeployPolling": {
+      "attempts": 4,
+      "lastStatus": "page=200 cloudflare=completed:success"
+    },
+    "GSC": {
+      "attempts": 1,
+      "lastError": null
+    }
+  },
+  "researchQueries": [
+    "K-pop breaking news today May 2026",
+    "K-pop controversy scandal May 2026",
+    "K-pop company news HYBE SM JYP YG May 2026",
+    "K-pop comeback release May 2026",
+    "K-pop new album MV teaser 2026 May",
+    "K-pop idol debut announcement 2026 May",
+    "K-pop chart record milestone 2026 May",
+    "K-pop billboard streaming record May 2026",
+    "K-pop concert tour sold out 2026 May",
+    "K-pop fan project viral 2026 May",
+    "K-pop fandom achievement May 2026",
+    "K-pop trending topic Twitter X fans May 2026",
+    "K-pop industry revenue market growth 2026 May",
+    "K-pop global expansion new market 2026 May",
+    "K-pop trainee audition 2026 tips May",
+    "K-pop survival show 2026 May",
+    "BTS American Music Awards 2026 special appearance May 2026",
+    "BTS first awards show appearance in four years 52nd American Music Awards CBS Dick Clark Productions",
+    "BTS 2017 AMAs DNA U.S. television debut first Korean act perform American Music Awards",
+    "KATSEYE 2026 American Music Awards nominations New Artist Breakthrough Pop Gnarly"
+  ],
+  "researchUrls": [
+    "https://www.paramountpressexpress.com/cbs-entertainment/shows/the-52nd-american-music-awards/releases/?view=112897-bts-to-make-first-awards-show-appearance-in-four-years-at-the-52nd-american-music-awards-monday-may-25-at-800-pm-et-500-pm-pt-on-cbs",
+    "https://www.soompi.com/article/1842652wpp/bts-to-make-special-live-appearance-at-2026-american-music-awards",
+    "https://world.kbs.co.kr/service/news_view.htm?Seq_Code=201607&lang=e",
+    "https://www.kpopstarz.com/articles/322996/20260521/bts-make-special-appearance-2026-american-music-awards-first-person-return-years.htm",
+    "https://koreajoongangdaily.joins.com/news/2026-04-15/entertainment/musicPerformance/BTS-Blackpink-and-eight-other-Kpop-acts-nominated-at-2026-AMAs/2569378",
+    "https://abc.com/shows/american-music-awards/news/show-news/k-pop-band-bts-to-make-us-tv-debut-at-2017-american-music-awards",
+    "https://www.gmanetwork.com/entertainment/showbiznews/news/82861/bts-is-the-first-asian-act-to-win-artist-of-the-year-in-2021-amas/story",
+    "https://www.chosun.com/english/kpop-culture-en/2026/04/15/CHY55YKNFBDUXEPT22RXTCYY3U/",
+    "https://www.soompi.com/article/1842011wpp/babymonsters-choom-becomes-fastest-2026-k-pop-mv-to-reach-100-million-views",
+    "https://www.musicbusinessworldwide.com/yg-plus-renews-domestic-distribution-deal-with-hybe-extending-eight-year-partnership/",
+    "https://koreajoongangdaily.joins.com/news/2026-04-28/entertainment/kpop/Kpop-album-exports-surpass-100-million-for-first-time-in-Q1/2579529",
+    "https://www.keensacademy.com/blog/what-happens-at-kpop-audition"
+  ],
+  "ChatGPT": {
+    "url": "https://chatgpt.com",
+    "prompts": {
+      "thumbnail": "Generate exactly one cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px.\n\nScene: a major American music awards stage in Las Vegas moments before a globally awaited K-pop group special appearance, shown symbolically without real people. Seven empty microphone stands are arranged under a huge halo of broadcast spotlights, with a roaring audience suggested only as dark silhouettes and smartphone light. The mood should feel like a secret comeback-stage clue: huge, suspenseful, premium, and newsworthy.\n\nColors: deep black stage, platinum white spotlights, electric purple and cyan rim light, subtle gold reflections. Style: premium entertainment news thumbnail, cinematic concert photography, dramatic lighting, realistic stage materials, high contrast, clean composition.\n\nComposition: full-bleed image only. No posters, no banners, no UI panels, no text boxes, no readable signs.\n\nStrict constraints: no real people's faces, no identifiable performers, no official logos, no readable text in any language, no numbers, no watermark, no typography, no fake brand marks. High quality, professional photography, 8k resolution.",
+      "body": "Generate exactly one dramatic editorial image in 16:9 aspect ratio, 1200x675px.\n\nScene: a television broadcast control room during a major American awards show, with a K-pop special appearance being teased through abstract production signals. Show glowing camera feeds, lighting cues, a countdown-like control wall without readable numbers, and audience silhouettes reflected in glass. The mood should capture the tension between an announced \"special appearance\" and fan speculation about whether it becomes a performance, without showing real people.\n\nColors: cool blue broadcast monitors, violet stage reflections, silver equipment, warm gold lens flares. Style: professional entertainment industry news photography, cinematic lighting, realistic glass and metal, high detail, suspenseful but polished.\n\nComposition: full-bleed image only. No posters, no banners, no UI panels, no text boxes, no readable screens.\n\nStrict constraints: no real people's faces, no identifiable performers, no official logos, no readable text in any language, no numbers, no watermark, no typography, no fake brand marks. High quality, professional photography, 8k resolution."
+    },
+    "downloadsFolderCandidates": [],
+    "rawDownloads": [
+      {
+        "path": "runtime/raw-chatgpt/bts-ama-special-appearance-raw-thumbnail.png",
+        "sourcePath": ".playwright-mcp/ChatGPT-Image-2026년-5월-22일-오후-01-04-01.png",
+        "mtime": "2026-05-22T13:04:01+09:00",
+        "sha256": "b4fe1249692c66558326a6905b40bfc8f12c1d02369f6ef889a1b13f4277a31d",
+        "size": 2149336
+      },
+      {
+        "path": "runtime/raw-chatgpt/bts-ama-special-appearance-raw-body.png",
+        "sourcePath": ".playwright-mcp/ChatGPT-Image-2026년-5월-22일-오후-01-05-10.png",
+        "mtime": "2026-05-22T13:05:10+09:00",
+        "sha256": "0be167b9210218544db2419c03f684781ac4867f7924af2dbda8190d5ee372f4",
+        "size": 2286803
+      }
+    ],
+    "resourceImages": [
+      {
+        "path": "/home/mhhan/workspace/.resource/bts-ama-special-appearance-thumbnail.png",
+        "sha256": "b4fe1249692c66558326a6905b40bfc8f12c1d02369f6ef889a1b13f4277a31d",
+        "size": 2149336
+      },
+      {
+        "path": "/home/mhhan/workspace/.resource/bts-ama-special-appearance-1.png",
+        "sha256": "0be167b9210218544db2419c03f684781ac4867f7924af2dbda8190d5ee372f4",
+        "size": 2286803
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/bts-ama-special-appearance-thumbnail.png",
+        "mtime": "2026-05-22T13:08:30+09:00",
+        "sha256": "b4fe1249692c66558326a6905b40bfc8f12c1d02369f6ef889a1b13f4277a31d",
+        "size": 2149336
+      },
+      {
+        "path": "public/images/news/bts-ama-special-appearance-1.png",
+        "mtime": "2026-05-22T13:08:30+09:00",
+        "sha256": "0be167b9210218544db2419c03f684781ac4867f7924af2dbda8190d5ee372f4",
+        "size": 2286803
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "factcheck": {
+    "verified": 8,
+    "total": 8,
+    "fixes": 0,
+    "removals": 0,
+    "sources": [
+      "Paramount Press Express",
+      "Soompi",
+      "KBS World",
+      "KpopStarz",
+      "Korea JoongAng Daily",
+      "ABC",
+      "GMA Entertainment",
+      "Chosun English"
+    ],
+    "claims": [
+      {
+        "claim": "The AMAs announced on May 20 that BTS will make a special live appearance at the 2026 ceremony.",
+        "verdict": "PASS",
+        "sources": [
+          "Soompi",
+          "KBS World",
+          "Paramount Press Express"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "The 52nd American Music Awards airs May 25 at 8 p.m. ET / 5 p.m. PT on CBS and Paramount+.",
+        "verdict": "PASS",
+        "sources": [
+          "Paramount Press Express",
+          "Soompi",
+          "Allkpop"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "BTS are nominated for Artist of the Year, Song of the Summer for SWIM, and Best Male K-Pop Artist.",
+        "verdict": "PASS",
+        "sources": [
+          "Soompi",
+          "KBS World",
+          "Korea JoongAng Daily",
+          "Yonhap"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "BTS won Artist of the Year at the AMAs in 2021.",
+        "verdict": "PASS",
+        "sources": [
+          "KBS World",
+          "GMA Entertainment"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "BTS made their U.S. TV performance debut at the 2017 AMAs with DNA.",
+        "verdict": "PASS",
+        "sources": [
+          "ABC",
+          "KpopStarz"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "KATSEYE is included in the 2026 AMAs performer lineup.",
+        "verdict": "PASS",
+        "sources": [
+          "KBS World",
+          "Los40"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "KATSEYE received nominations for New Artist of the Year, Breakthrough Pop Artist, and Best Music Video for Gnarly.",
+        "verdict": "PASS",
+        "sources": [
+          "KBS World",
+          "Chosun English"
+        ],
+        "action": "Kept"
+      },
+      {
+        "claim": "Best Male K-Pop Artist nominees include ATEEZ, ENHYPEN, Stray Kids, TXT, and BTS.",
+        "verdict": "PASS",
+        "sources": [
+          "KBS World",
+          "Allkpop"
+        ],
+        "action": "Kept"
+      }
+    ]
+  },
+  "content": {
+    "path": "src/content/news/en/bts-ama-special-appearance.md",
+    "title": "BTS AMA Special Appearance Is Official - But the Missing Word Is the Trap",
+    "wordCount": 1481,
+    "excerptLength": 115,
+    "active": true,
+    "internalLinks": 1,
+    "h2Count": 6,
+    "h3Count": 10,
+    "badCharacters": 0
+  },
+  "localRender": {
+    "pageUrl": "http://127.0.0.1:4175/en/news/bts-ama-special-appearance",
+    "pageStatus": 200,
+    "imageStatuses": [
+      {
+        "url": "http://127.0.0.1:4175/images/news/bts-ama-special-appearance-thumbnail.png",
+        "status": 200,
+        "contentType": "image/png",
+        "bytes": 2149336
+      },
+      {
+        "url": "http://127.0.0.1:4175/images/news/bts-ama-special-appearance-1.png",
+        "status": 200,
+        "contentType": "image/png",
+        "bytes": 2286803
+      },
+      {
+        "url": "http://127.0.0.1:4175/images/news/nextImageExportOptimizer/bts-ama-special-appearance-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "contentType": "image/webp",
+        "bytes": 45798
+      },
+      {
+        "url": "http://127.0.0.1:4175/images/news/nextImageExportOptimizer/bts-ama-special-appearance-1-opt-800.WEBP",
+        "status": 200,
+        "contentType": "image/webp",
+        "bytes": 64452
+      }
+    ],
+    "screenshots": [
+      "runtime/kcl-news-bts-ama-special-appearance-local.png",
+      "runtime/kcl-news-bts-ama-special-appearance-local-body.png"
+    ],
+    "browserRenderedImages": 2,
+    "renderedImageDimensions": [
+      {
+        "role": "thumbnail",
+        "naturalWidth": 800,
+        "naturalHeight": 450
+      },
+      {
+        "role": "body",
+        "naturalWidth": 800,
+        "naturalHeight": 450
+      }
+    ]
+  },
+  "build": {
+    "nextImageExportOptimizer": "PASS",
+    "pnpmBuild": "PASS",
+    "warnings": [
+      "Existing Sass deprecation warnings in hall-of-fame and LeagueRankingItem styles",
+      "Local missing Supabase env warnings; static export completed successfully"
+    ]
+  },
+  "deploy": {
+    "commitSha": "8f5f5546072fb98a1827273092642efd2dd4a468",
+    "cloudflareProductionSha": "8f5f554",
+    "pageUrl": "https://www.kclhq.com/en/news/bts-ama-special-appearance",
+    "pageStatus": 200,
+    "cloudflareCheckRun": "completed:success",
+    "cloudflareDetailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/742469b8-0f98-4d9b-8e84-127d4b5b5885",
+    "previewUrl": "https://742469b8.kcl-v2.pages.dev",
+    "deployPolls": [
+      {
+        "attempt": 1,
+        "time": "13:18:28",
+        "pageStatus": 404,
+        "cloudflare": "in_progress"
+      },
+      {
+        "attempt": 2,
+        "time": "13:20:28",
+        "pageStatus": 404,
+        "cloudflare": "in_progress"
+      },
+      {
+        "attempt": 3,
+        "time": "13:22:29",
+        "pageStatus": 404,
+        "cloudflare": "in_progress"
+      },
+      {
+        "attempt": 4,
+        "time": "13:24:30",
+        "pageStatus": 200,
+        "cloudflare": "completed:success"
+      }
+    ],
+    "deployedRender": {
+      "screenshots": [
+        "runtime/kcl-news-bts-ama-special-appearance-deployed.png",
+        "runtime/kcl-news-bts-ama-special-appearance-deployed-body.png"
+      ],
+      "renderJson": "runtime/kcl-news-bts-ama-special-appearance-deployed-render.json",
+      "browserRenderedImages": 2
+    }
+  },
+  "gsc": {
+    "property": "sc-domain:kclhq.com",
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/bts-ama-special-appearance"
+    ],
+    "result": "PASS",
+    "message": "색인 생성 요청됨",
+    "screenshot": "runtime/kcl-news-bts-ama-special-appearance-gsc.png",
+    "resultJson": "runtime/kcl-news-bts-ama-special-appearance-gsc-request-result.json"
+  }
+}

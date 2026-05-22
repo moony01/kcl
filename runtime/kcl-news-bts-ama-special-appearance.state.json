@@ -1,0 +1,18 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-ama-special-appearance",
+  "status": "SUCCESS",
+  "lastPassedStep": "GSC",
+  "runStartedAt": "2026-05-22T13:00:43+09:00",
+  "runEndedAt": "2026-05-22T13:30:33+09:00",
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "LocalRender": "PASS",
+    "CommitPush": "PASS",
+    "Deploy": "PASS",
+    "GSC": "PASS"
+  }
+}
