@@ -1,0 +1,241 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "lesserafim-boompala-430k",
+  "runStartedAt": "2026-05-23T13:01:33+09:00",
+  "runEndedAt": "2026-05-23T13:34:00+09:00",
+  "status": "SUCCESS",
+  "selectedTopic": {
+    "topic": "LE SSERAFIM's PUREFLOW pt.1 first-day Hanteo sales and BOOMPALA split reaction",
+    "category": "Industry",
+    "tone": "Neutral",
+    "reason": "Fresh May 23 Hanteo data plus active May 22 BOOMPALA debate made this the strongest current non-stale topic after duplicate filtering."
+  },
+  "recentToneDistribution": {
+    "negative": 1,
+    "positive": 3,
+    "neutral": 1,
+    "balanceRule": "No forced override; positive/neutral options remained eligible."
+  },
+  "stepResults": {
+    "research": "PASS",
+    "content": "PASS",
+    "image": "PASS",
+    "factcheck": "PASS",
+    "localRender": "PASS",
+    "commitPush": "PASS",
+    "deploy": "PASS",
+    "gsc": "PASS"
+  },
+  "attempts": {
+    "chatgptThumbnail": 1,
+    "chatgptBody": 1,
+    "localRender": 1,
+    "deployPoll": 6,
+    "deployedRender": 1,
+    "gsc": 1
+  },
+  "lastErrors": {
+    "build": "Nonblocking existing warnings: Sass darken() deprecations and missing local Supabase env warnings during static generation.",
+    "gsc": "Direct inspect URL with raw page URL returned Google 404; recovered by using the Search Console URL inspection search box."
+  },
+  "researchUrls": [
+    "https://www.hanteonews.com/en/article/91584",
+    "https://www.allkpop.com/article/2026/05/le-sserafim-wraps-up-their-first-day-sales-for-pureflow-pt1",
+    "https://www.starnewskorea.com/en/music/2026/05/23/2026052310470549691",
+    "https://biz.chosun.com/en/en-entertainment/2026/05/22/4MT5KBS7WNCZFNXRWUZULGD7UY/?outputType=amp",
+    "https://weverse.io/lesserafim/notice/34880",
+    "https://weverse.io/lesserafim/notice/35860",
+    "https://koreajoongangdaily.joins.com/news/2026-04-13/entertainment/kpop/Girl-group-Le-Sserafim-to-drop-album-Pureflow-pt1-on-May-22/2567133",
+    "https://www.reddit.com/r/kpop/comments/1tk7myj/le_sserafim_boompala/"
+  ],
+  "topicCandidates": [
+    {
+      "topic": "CORTIS GREENGREEN Billboard 200 No. 3",
+      "score": 91,
+      "status": "Downranked as duplicate; KCL already has multiple current CORTIS GREENGREEN/REDRED articles."
+    },
+    {
+      "topic": "BTS THE CITY Las Vegas live window",
+      "score": 88,
+      "status": "Downranked as duplicate; KCL already published BTS THE CITY Las Vegas/Busan analysis."
+    },
+    {
+      "topic": "LE SSERAFIM PUREFLOW pt.1 first-day sales and BOOMPALA reaction",
+      "score": 86,
+      "status": "Selected; fresh data, strong fan engagement, and distinct Industry angle."
+    },
+    {
+      "topic": "SEVENTEEN YAKUSOKU Osaka dome fanmeeting",
+      "score": 75,
+      "status": "Considered positive Japan live-market topic, but lower global search volatility."
+    },
+    {
+      "topic": "JYP final 2026 trainee audition guidance",
+      "score": 63,
+      "status": "Included as trainee-target candidate but not the top trend."
+    }
+  ],
+  "titleCandidates": [
+    {
+      "title": "LE SSERAFIM Sold 435,675 in One Day - But BOOMPALA's Real Problem Is Not the Number",
+      "score": 23,
+      "selected": true
+    },
+    {
+      "title": "The 435,675-Copy BOOMPALA Trap - LE SSERAFIM Won Release Day, But Now Comes the Test",
+      "score": 21,
+      "selected": false
+    },
+    {
+      "title": "BOOMPALA Just Split the Room - And LE SSERAFIM Still Sold 435,675 Copies",
+      "score": 20,
+      "selected": false
+    }
+  ],
+  "factcheck": [
+    {
+      "claim": "PUREFLOW pt.1 sold 435,675 copies on Hanteo's May 22 daily physical album ranking.",
+      "verdict": "PASS",
+      "sources": ["Hanteo News", "allkpop", "StarNews"],
+      "action": "Kept"
+    },
+    {
+      "claim": "The album ranked No. 1 on Hanteo's May 22 daily physical album ranking.",
+      "verdict": "PASS",
+      "sources": ["Hanteo News", "StarNews"],
+      "action": "Kept"
+    },
+    {
+      "claim": "allkpop framed the total as LE SSERAFIM's fourth-best first-day sales result behind UNFORGIVEN, EASY, and HOT.",
+      "verdict": "PASS",
+      "sources": ["allkpop"],
+      "action": "Kept as attributed claim"
+    },
+    {
+      "claim": "PUREFLOW pt.1 released on May 22, 2026 at 1 p.m. KST.",
+      "verdict": "PASS",
+      "sources": ["Weverse", "ChosunBiz", "Korea JoongAng Daily"],
+      "action": "Kept"
+    },
+    {
+      "claim": "BOOMPALA is Latin house-based and samples Macarena.",
+      "verdict": "PASS",
+      "sources": ["allkpop", "ChosunBiz"],
+      "action": "Kept"
+    },
+    {
+      "claim": "PUREFLOW pt.1 is LE SSERAFIM's second full-length album, about three years after UNFORGIVEN.",
+      "verdict": "PASS",
+      "sources": ["ChosunBiz", "Korea JoongAng Daily", "Dork/Billboard Philippines search result corroboration"],
+      "action": "Kept"
+    },
+    {
+      "claim": "Source Music described the album as a new chapter about acknowledging and confronting fears.",
+      "verdict": "PASS",
+      "sources": ["Weverse", "ChosunBiz"],
+      "action": "Kept"
+    },
+    {
+      "claim": "Fan reaction to BOOMPALA is split across fan spaces.",
+      "verdict": "PASS",
+      "sources": ["Reddit r/kpop BOOMPALA thread", "Reddit LE SSERAFIM album discussion"],
+      "action": "Kept as reaction analysis, not hard fact"
+    }
+  ],
+  "content": {
+    "markdown": "src/content/news/en/lesserafim-boompala-430k.md",
+    "wordCount": 1197,
+    "active": true,
+    "internalLinks": ["/en/news/chaewon-neck-hiatus"],
+    "targetKeywords": ["LE SSERAFIM BOOMPALA", "PUREFLOW pt.1 first-day sales"]
+  },
+  "chatGPT": {
+    "url": "https://chatgpt.com/c/6a11273d-8610-83a3-bc16-737eaf8aa647",
+    "promptThumbnail": "Generate exactly one cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a high-pressure K-pop comeback analytics room at night, with a glowing album-sales counter, abstract waveform monitors, fan community heat maps, and a Latin-house dance-floor light pattern reflected on glass. The mood should suggest LE SSERAFIM BOOMPALA becoming both a sales win and a fan-debate flashpoint, but do not depict LE SSERAFIM or any real person. Use only anonymous silhouettes from behind, no faces, no logos, no text, no readable numbers, no watermarks. Colors: electric crimson, pure white, graphite black, aqua highlights, and subtle gold. Style: premium entertainment news thumbnail, professional photography, cinematic lighting, high contrast, realistic materials, 8k resolution.",
+    "promptBody": "Generate exactly one dramatic editorial image in 16:9 aspect ratio, 1200x675px. Scene: an abstract K-pop comeback stage after release day, with empty mirrored dance floor, flowing red-and-white light ribbons, a circular crowd of smartphone glows, and a split visual metaphor between celebration and debate. The image should suggest BOOMPALA's Macarena-inspired performance hook and PUREFLOW's fear-to-growth concept without depicting LE SSERAFIM, any real artist, or identifiable people. Use anonymous silhouettes only from behind or in shadow, no faces, no logos, no readable text, no numbers, no watermarks. Style: professional news photography, cinematic concert lighting, realistic haze, reflective floor, premium editorial composition, high quality, 8k resolution.",
+    "rawDownloads": [
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_lesserafim_boompala_430k_thumbnail.png",
+        "size": 1874430,
+        "mtime": "2026-05-23 13:06:16.791625890 +0900",
+        "sha256": "9105ad0baedd1d317a4107f58158268d9b951222e968b232f0f883f20fab9b87"
+      },
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_lesserafim_boompala_430k_body.png",
+        "size": 1979098,
+        "mtime": "2026-05-23 13:07:41.930423469 +0900",
+        "sha256": "9491639a58d7c711989047e6eeff9a8d6aab8b07639760a43ea5ccd652b88aaa"
+      }
+    ],
+    "finalImages": [
+      {
+        "file": "public/images/news/lesserafim-boompala-430k-thumbnail.png",
+        "size": 1874430,
+        "mtime": "2026-05-23 13:09:52.936653123 +0900",
+        "sha256": "9105ad0baedd1d317a4107f58158268d9b951222e968b232f0f883f20fab9b87"
+      },
+      {
+        "file": "public/images/news/lesserafim-boompala-430k-1.png",
+        "size": 1979098,
+        "mtime": "2026-05-23 13:09:52.939653151 +0900",
+        "sha256": "9491639a58d7c711989047e6eeff9a8d6aab8b07639760a43ea5ccd652b88aaa"
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "localRender": {
+    "article": "http://127.0.0.1:4173/en/news/lesserafim-boompala-430k",
+    "articleStatus": 200,
+    "rawThumbnailStatus": 200,
+    "rawBodyStatus": 200,
+    "optimizedThumbnailStatus": 200,
+    "optimizedBodyStatus": 200,
+    "screenshots": [
+      "runtime/kcl-news-lesserafim-boompala-430k-local.png",
+      "runtime/kcl-news-lesserafim-boompala-430k-local-body.png"
+    ]
+  },
+  "deploy": {
+    "commitSha": "25e6892f422f7d87bced7492bf9fe3c3ebc2f2be",
+    "remote": "origin",
+    "branch": "main",
+    "cloudflareCheckRun": "completed:success",
+    "cloudflareProductionSha": "25e6892f422f7d87bced7492bf9fe3c3ebc2f2be",
+    "cloudflareDetailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/c24b8f10-fc05-472c-8fba-0d05e36dc876",
+    "githubCheckRunUrl": "https://github.com/moony01/kcl/runs/77496695381",
+    "deployPolls": [
+      {"attempt": 1, "time": "13:19:50", "http": 404, "cloudflare": "in_progress"},
+      {"attempt": 2, "time": "13:21:51", "http": 404, "cloudflare": "in_progress"},
+      {"attempt": 3, "time": "13:23:52", "http": 404, "cloudflare": "in_progress"},
+      {"attempt": 4, "time": "13:25:53", "http": 404, "cloudflare": "in_progress"},
+      {"attempt": 5, "time": "13:27:53", "http": 404, "cloudflare": "in_progress"},
+      {"attempt": 6, "time": "13:29:54", "http": 200, "cloudflare": "completed:success"}
+    ],
+    "deployedUrls": [
+      {"url": "https://www.kclhq.com/en/news/lesserafim-boompala-430k", "status": 200},
+      {"url": "https://www.kclhq.com/images/news/lesserafim-boompala-430k-thumbnail.png", "status": 200, "bytes": 1874430},
+      {"url": "https://www.kclhq.com/images/news/lesserafim-boompala-430k-1.png", "status": 200, "bytes": 1979098},
+      {"url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/lesserafim-boompala-430k-thumbnail-opt-800.WEBP", "status": 200, "bytes": 48736},
+      {"url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/lesserafim-boompala-430k-1-opt-800.WEBP", "status": 200, "bytes": 38808}
+    ],
+    "deployedRender": {
+      "h1Found": true,
+      "thumbnailLoaded": true,
+      "bodyImageLoadedAfterScroll": true,
+      "screenshots": [
+        "runtime/kcl-news-lesserafim-boompala-430k-deployed.png",
+        "runtime/kcl-news-lesserafim-boompala-430k-deployed-body.png"
+      ]
+    }
+  },
+  "gsc": {
+    "property": "sc-domain:kclhq.com",
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/lesserafim-boompala-430k"
+    ],
+    "result": "Indexing requested",
+    "inspectUrl": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Akclhq.com&id=FZlFRs9_W6d_gGUfCrIzpA",
+    "screenshot": "runtime/kcl-news-lesserafim-boompala-430k-gsc.png",
+    "resultJson": "runtime/kcl-news-lesserafim-boompala-430k-gsc-request-result.json"
+  }
+}
