@@ -1,0 +1,25 @@
+{
+  "url": "https://www.kclhq.com/en/news/bts-ama-second-aoty",
+  "title": "BTS Beat Taylor Swift at the AMAs - Why This Win Hit... | KCL News | KCL - K-pop Company League",
+  "h1": "BTS Beat Taylor Swift at the AMAs - Why This Win Hits Harder Than 2021",
+  "images": [
+    {
+      "src": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-ama-second-aoty-thumbnail-opt-800.WEBP",
+      "alt": "BTS Beat Taylor Swift at the AMAs - Why This Win Hits Harder Than 2021",
+      "complete": true,
+      "naturalWidth": 800,
+      "naturalHeight": 450
+    },
+    {
+      "src": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-ama-second-aoty-1-opt-800.WEBP",
+      "alt": "BTS AMAs 2026 fan-vote control room with trophy and global signals",
+      "complete": true,
+      "naturalWidth": 800,
+      "naturalHeight": 450
+    }
+  ],
+  "screenshots": [
+    "runtime/kcl-news-bts-ama-second-aoty-deployed.png",
+    "runtime/kcl-news-bts-ama-second-aoty-deployed-body.png"
+  ]
+}

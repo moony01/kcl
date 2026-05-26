@@ -1,0 +1,11 @@
+{
+  "property": "sc-domain:kclhq.com",
+  "requestedUrls": [
+    "https://www.kclhq.com/en/news/bts-ama-second-aoty"
+  ],
+  "result": "PASS",
+  "message": "색인 생성 요청됨",
+  "observedText": "URL이 우선순위 크롤링 대기열에 추가되었습니다.",
+  "screenshot": "runtime/kcl-news-bts-ama-second-aoty-gsc.png",
+  "requestedAt": "2026-05-26T13:31:32+09:00"
+}
