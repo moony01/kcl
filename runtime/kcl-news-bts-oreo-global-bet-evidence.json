@@ -1,0 +1,231 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-oreo-global-bet",
+  "runStartedAt": "2026-05-27T12:45:00+09:00",
+  "runEndedAt": "2026-05-27T13:31:41+09:00",
+  "status": "SUCCESS",
+  "selectedTopic": {
+    "topic": "BTS and OREO's limited-edition purple hotteok cookie launch across 80+ markets",
+    "category": "Business",
+    "tone": "Positive",
+    "reason": "A May 26 global brand partnership announcement had fresh mainstream coverage, official confirmation, fan discussion, June 1 presale timing, and broad English SEO potential."
+  },
+  "recentToneDistribution": {
+    "negative": 1,
+    "positive": 4,
+    "neutral": 0,
+    "balanceRule": "No forced override; positive topic selected by score."
+  },
+  "stepResults": {
+    "research": "PASS",
+    "content": "PASS",
+    "image": "PASS",
+    "factcheck": "PASS",
+    "localRender": "PASS",
+    "commitPush": "PASS",
+    "deploy": "PASS",
+    "gsc": "PASS"
+  },
+  "attempts": {
+    "chatgptThumbnail": 1,
+    "chatgptBody": 1,
+    "localRender": 1,
+    "deployPoll": 4,
+    "deployedRender": 1,
+    "gsc": 1
+  },
+  "lastErrors": {
+    "build": "Nonblocking existing warnings: Sass darken() deprecations and local Supabase environment warnings during static generation.",
+    "localRender": "Nonblocking local-only console errors: Google Ads 403 and existing Supabase browser client TypeError; article and images rendered. Production render had 0 console errors.",
+    "gsc": null
+  },
+  "researchUrls": [
+    "https://apnews.com/article/oreo-bts-kpop-cookies-collab-hottek-83ab8cac8951329d3e7608ba3387e923",
+    "https://www.prnewswire.com/news-releases/oreo-and-21st-century-pop-icons-bts-unite-for-their-first-ever-global-snacking-partnership-302465318.html",
+    "https://www.allkpop.com/article/2026/05/oreo-bts-collaboration-creates-fan-excitement-worldwide",
+    "https://www.goodmorningamerica.com/food/story/oreo-unveils-bts-themed-cookies-featuring-unique-purple-122195724",
+    "https://www.eonline.com/news/1417363/bts-and-oreo-launch-iconic-cookie-collab",
+    "https://www.reddit.com/r/bangtan/comments/1to8c5t/260526_bts_cf_compilation/",
+    "https://www.reddit.com/r/bts7/comments/1to1tul/bts_x_oreo_june_1st_260526/"
+  ],
+  "topicCandidates": [
+    {
+      "topic": "BTS x OREO 80+ market purple hotteok cookie rollout",
+      "score": 94,
+      "status": "Selected; official, mainstream, fan-shareable, global retail timing."
+    },
+    {
+      "topic": "K-pop comeback and teaser activity for late May 2026",
+      "score": 82,
+      "status": "Considered; lower single-topic specificity."
+    },
+    {
+      "topic": "K-pop trainee audition preparation for 2026 applicants",
+      "score": 64,
+      "status": "Included as trainee-target candidate, but lower real-time trend score."
+    },
+    {
+      "topic": "K-pop global expansion and brand collaboration market growth",
+      "score": 79,
+      "status": "Folded into selected BTS OREO business angle."
+    },
+    {
+      "topic": "Fan project and social-media reaction around major idol campaigns",
+      "score": 76,
+      "status": "Considered as fandom-culture angle; selected topic had stronger source base."
+    }
+  ],
+  "titleCandidates": [
+    {
+      "title": "BTS Just Turned Oreos Purple - The 80-Market Bet Is Bigger Than a Cookie",
+      "score": 23,
+      "selected": true
+    },
+    {
+      "title": "OREO's BTS Drop Looks Cute - But The 80-Market Play Is Ruthless",
+      "score": 21,
+      "selected": false
+    },
+    {
+      "title": "A Purple Cookie, 13 Designs, 80+ Markets - BTS Fans Know What Comes Next",
+      "score": 20,
+      "selected": false
+    }
+  ],
+  "factcheck": [
+    {
+      "claim": "The BTS OREO collaboration was announced on May 26, 2026, with online presale on June 1 and retail rollout on June 8.",
+      "verdict": "PASS",
+      "sources": ["AP News", "PRNewswire", "E! News"],
+      "action": "Kept"
+    },
+    {
+      "claim": "The limited-edition cookies are planned for more than 80 markets.",
+      "verdict": "PASS",
+      "sources": ["AP News", "PRNewswire"],
+      "action": "Kept"
+    },
+    {
+      "claim": "The cookies include purple wafers, white and tan creme inspired by hotteok, and 13 embossments.",
+      "verdict": "PASS",
+      "sources": ["PRNewswire", "AP News", "Good Morning America"],
+      "action": "Kept"
+    },
+    {
+      "claim": "The designs include BTS member names and light stick motifs.",
+      "verdict": "PASS",
+      "sources": ["AP News"],
+      "action": "Kept as attributed product-detail reporting"
+    },
+    {
+      "claim": "Fans discussed early packs, country rollouts, and the hotteok flavor in BTS Reddit communities.",
+      "verdict": "PASS",
+      "sources": ["Reddit r/bangtan", "Reddit r/bts7"],
+      "action": "Kept as fan-reaction evidence, not hard news claim"
+    }
+  ],
+  "content": {
+    "markdown": "src/content/news/en/bts-oreo-global-bet.md",
+    "wordCount": 953,
+    "active": true,
+    "internalLinks": ["/en/news/bts-ama-second-aoty"],
+    "targetKeywords": ["BTS Oreo", "BTS OREO global partnership"],
+    "excerptLength": 127,
+    "forbiddenPhraseCheck": "PASS",
+    "mojibakeCheck": "PASS"
+  },
+  "chatGPT": {
+    "url": "https://chatgpt.com",
+    "promptThumbnail": "Generate a cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px.\nScene: a global K-pop fandom commerce moment inspired by a limited-edition purple sandwich cookie launch, with glossy purple cookie wafers, warm Korean street-food hotteok steam, smartphone screens glowing in a concert-like crowd, and a premium retail display atmosphere. Use abstract packaging shapes only; no brand logos, no readable text.\nColors: deep purple, silver, warm caramel, electric concert lighting. Style: professional editorial news thumbnail, dramatic but clean lighting.\nNo real people's faces, no identifiable people, no text, no watermarks, high quality, professional photography, cinematic lighting, 8k resolution.",
+    "promptBody": "Generate a dramatic editorial image in 16:9 aspect ratio, 1200x675px.\nScene: a business strategy room where K-pop fandom data, global retail shelves, purple cookie silhouettes, Korean hotteok ingredients, and digital love-letter screens converge into a single cultural-commerce dashboard. Show anonymous silhouettes only, viewed from behind or as shadows, with no recognizable faces and no real brand logos.\nStyle: professional news photography, cinematic lighting, premium but not flashy, designed for a serious business analysis article.\nNo real people's faces, no identifiable people, no text, no watermarks, high quality, professional photography, cinematic lighting, 8k resolution.",
+    "rawDownloads": [
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-oreo-global-bet-thumbnail.png",
+        "size": 2383538,
+        "mtime": "2026-05-27 13:07:57.514049221 +0900",
+        "sha256": "0a352169f52b90451786ae196925180668caae3a80f4535b0f42ad799fa82567"
+      },
+      {
+        "file": "/home/mhhan/Downloads/ChatGPT_Generated_Image_bts-oreo-global-bet-body.png",
+        "size": 2016419,
+        "mtime": "2026-05-27 13:07:57.517049262 +0900",
+        "sha256": "b9c16577fbb088a1f26f3cb6fed784d56fbdc2a39a8697182d443917270cdfd2"
+      }
+    ],
+    "finalImages": [
+      {
+        "file": "public/images/news/bts-oreo-global-bet-thumbnail.png",
+        "size": 2383538,
+        "mtime": "2026-05-27 13:10:31.788143232 +0900",
+        "sha256": "0a352169f52b90451786ae196925180668caae3a80f4535b0f42ad799fa82567"
+      },
+      {
+        "file": "public/images/news/bts-oreo-global-bet-1.png",
+        "size": 2016419,
+        "mtime": "2026-05-27 13:10:31.791143273 +0900",
+        "sha256": "b9c16577fbb088a1f26f3cb6fed784d56fbdc2a39a8697182d443917270cdfd2"
+      }
+    ],
+    "reuseCheck": "PASS"
+  },
+  "localRender": {
+    "article": "http://127.0.0.1:4327/en/news/bts-oreo-global-bet",
+    "articleStatus": 200,
+    "rawThumbnailStatus": 200,
+    "rawBodyStatus": 200,
+    "optimizedThumbnailStatus": 200,
+    "optimizedBodyStatus": 200,
+    "screenshots": [
+      "runtime/kcl-news-bts-oreo-global-bet-local.png"
+    ],
+    "consoleErrors": "runtime/kcl-news-bts-oreo-global-bet-local-console-errors.txt"
+  },
+  "optimizer": {
+    "command": "npx next-image-export-optimizer",
+    "status": "PASS",
+    "publicThumbnail800": {
+      "file": "public/images/news/nextImageExportOptimizer/bts-oreo-global-bet-thumbnail-opt-800.WEBP",
+      "size": 53240,
+      "status": 200
+    },
+    "publicBody800": {
+      "file": "public/images/news/nextImageExportOptimizer/bts-oreo-global-bet-1-opt-800.WEBP",
+      "size": 42700,
+      "status": 200
+    }
+  },
+  "deploy": {
+    "commitSha": "03f9dc24f86b2992dfdff614e1b8bf0a97219085",
+    "remote": "origin",
+    "branch": "main",
+    "cloudflareCheckRun": "completed:success",
+    "cloudflareProductionSha": "03f9dc24f86b2992dfdff614e1b8bf0a97219085",
+    "cloudflareDetailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/887858a0-1c39-4bce-87c0-c07717974b17",
+    "githubCheckRunUrl": "https://github.com/moony01/kcl/runs/78007446946",
+    "deployPolls": [
+      {"attempt": 1, "time": "13:19:13", "http": 404},
+      {"attempt": 2, "time": "13:21:14", "http": 404},
+      {"attempt": 3, "time": "13:23:14", "http": 404},
+      {"attempt": 4, "time": "13:25:15", "http": 200}
+    ],
+    "deployedUrls": [
+      {"url": "https://www.kclhq.com/en/news/bts-oreo-global-bet", "status": 200, "bytes": 110202},
+      {"url": "https://www.kclhq.com/images/news/bts-oreo-global-bet-thumbnail.png", "status": 200, "bytes": 2383538},
+      {"url": "https://www.kclhq.com/images/news/bts-oreo-global-bet-1.png", "status": 200, "bytes": 2016419},
+      {"url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/bts-oreo-global-bet-thumbnail-opt-800.WEBP", "status": 200, "bytes": 53240}
+    ],
+    "screenshots": [
+      "runtime/kcl-news-bts-oreo-global-bet-deployed.png"
+    ],
+    "consoleErrors": "runtime/kcl-news-bts-oreo-global-bet-deployed-console-errors.txt"
+  },
+  "gsc": {
+    "property": "sc-domain:kclhq.com",
+    "requestedUrls": [
+      "https://www.kclhq.com/en/news/bts-oreo-global-bet"
+    ],
+    "status": "PASS",
+    "resultFile": "runtime/kcl-news-bts-oreo-global-bet-gsc-request-result.json",
+    "screenshot": "runtime/kcl-news-bts-oreo-global-bet-gsc.png"
+  }
+}

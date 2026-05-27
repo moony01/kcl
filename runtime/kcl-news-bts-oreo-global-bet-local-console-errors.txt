@@ -1,0 +1,37 @@
+Total messages: 18 (Errors: 4, Warnings: 13)
+Returning 4 messages for level "error"
+
+[ERROR] Failed to load resource: the server responded with a status of 403 () @ https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-8955182453510440&output=html&adk=1812271804&adf=3025194257&lmt=1779855360&plat=1%3A16777216%2C2%3A16777216%2C3%3A16%2C4%3A16%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32%2C43%3A32&format=0x0&url=http%3A%2F%2F127.0.0.1%3A4327%2Fen%2Fnews%2Fbts-oreo-global-bet&pra=5&asro=0&aiactd=0&aicctd=0&ailctd=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE0Ni4wLjc2ODAuMTY0IixudWxsLDAsbnVsbCwiNjQiLFtbIkNocm9taXVtIiwiMTQ2LjAuNzY4MC4xNjQiXSxbIk5vdC1BLkJyYW5kIiwiMjQuMC4wLjAiXSxbIkdvb2dsZSBDaHJvbWUiLCIxNDYuMC43NjgwLjE2NCJdXSwwXQ..&abgtt=6&dt=1779855360049&bpp=4&bdt=477&idt=234&shv=r20260521&mjsv=m202605210101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&nras=1&correlator=2982036567656&frm=20&pv=2&u_tz=540&u_his=2&u_h=1080&u_w=1920&u_ah=1080&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=-12245933&ady=-12245933&biw=1265&bih=779&scr_x=0&scr_y=0&eid=95390668%2C31098762%2C95391807&oid=2&pvsid=5557605677884667&tmod=56109991&uas=3&nvt=1&fsapi=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1920%2C0%2C1280%2C900%2C1280%2C779&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&bz=1&pgls=CAk.&ifi=1&uci=a!1&fsb=1&dtd=275:0
+TypeError: s.from(...).select is not a function
+    at s (http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:7725)
+    at http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:8732
+    at i (http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:8750)
+    at ih (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:101263)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125113)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+TypeError: s.from(...).select is not a function
+    at l (http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:10280)
+    at h (http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:18665)
+    at ih (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:101263)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125113)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+TypeError: s.from(...).select is not a function
+    at r (http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:7921)
+    at h (http://127.0.0.1:4327/_next/static/chunks/c66223c6ecd046b9.js:11:18700)
+    at ih (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:101263)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125113)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)
+    at uc (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:124775)
+    at uf (http://127.0.0.1:4327/_next/static/chunks/a9697b0809a0bfd0.js:1:125158)

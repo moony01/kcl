@@ -1,0 +1,19 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-oreo-global-bet",
+  "url": "https://www.kclhq.com/en/news/bts-oreo-global-bet",
+  "property": "sc-domain:kclhq.com",
+  "status": "PASS",
+  "requestedAt": "2026-05-27T13:30:00+09:00",
+  "liveTest": {
+    "testedAt": "2026-05-27T13:27:00+09:00",
+    "resultText": "Page can be indexed",
+    "rawKoreanText": "페이지 색인을 생성할 수 있음"
+  },
+  "indexRequest": {
+    "clicked": true,
+    "confirmationText": "색인 생성 요청됨",
+    "confirmationMeaning": "URL was added to the priority crawl queue"
+  },
+  "screenshot": "runtime/kcl-news-bts-oreo-global-bet-gsc.png"
+}

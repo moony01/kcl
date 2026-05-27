@@ -1,0 +1,9 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "bts-oreo-global-bet",
+  "currentStep": "complete",
+  "lastPassStep": "gsc",
+  "status": "SUCCESS",
+  "commitSha": "03f9dc24f86b2992dfdff614e1b8bf0a97219085",
+  "updatedAt": "2026-05-27T13:31:41+09:00"
+}
