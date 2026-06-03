@@ -46,7 +46,10 @@
 .logoImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 6px;
+  box-sizing: border-box;
   border-radius: inherit;
 }
 

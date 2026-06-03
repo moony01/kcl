@@ -295,7 +295,10 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
 .logoImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 3px;
+  box-sizing: border-box;
   border-radius: inherit;
 }
 
