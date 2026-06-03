@@ -109,6 +109,7 @@ export const MOCK_COMPANIES: CompanyType[] = [
     firepower: 76000200,
     change: 'up',
     image: 'linear-gradient(135deg, #9C27B0 0%, #673AB7 100%)',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Starship_Entertainment_New_Logo.png',
     stockHistory: generateHistory(72000000),
   },
   {
