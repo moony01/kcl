@@ -55,14 +55,14 @@ jobs:
           echo "Before group: ${before_group}"
 
           python3 - <<'PY' "$before_company" "$before_group"
-import json, sys
-company = json.loads(sys.argv[1])
-group = json.loads(sys.argv[2])
-if len(company) != 1 or company[0].get('name_en') != 'H Music':
-    raise SystemExit(f"Unexpected company row before patch: {company}")
-if len(group) != 1 or group[0].get('name_en') != 'woo!ah!':
-    raise SystemExit(f"Unexpected group row before patch: {group}")
-PY
+          import json, sys
+          company = json.loads(sys.argv[1])
+          group = json.loads(sys.argv[2])
+          if len(company) != 1 or company[0].get('name_en') != 'H Music':
+              raise SystemExit(f"Unexpected company row before patch: {company}")
+          if len(group) != 1 or group[0].get('name_en') != 'woo!ah!':
+              raise SystemExit(f"Unexpected group row before patch: {group}")
+          PY
 
           api PATCH "kcl_companies?id=eq.${COMPANY_ID}" '{"name_ko":"더뮤즈","name_en":"THE MUZE","slug":"the-muze","logo_url":null,"gradient_color":"#A855F7"}' >/tmp/patched_company.json
           api PATCH "kcl_groups?id=eq.${GROUP_ID}" '{"name_ko":"리센느","name_en":"RESCENE","slug":"rescene","debut_date":"2024-03-26","member_count":5,"group_type":"girl","is_active":true}' >/tmp/patched_group.json
@@ -76,20 +76,20 @@ PY
           echo "Top list after patch: ${top_list}"
 
           python3 - <<'PY' "$after_company" "$after_group" "$top_list"
-import json, sys
-company = json.loads(sys.argv[1])
-group = json.loads(sys.argv[2])
-top = json.loads(sys.argv[3])
-assert len(company) == 1, company
-c = company[0]
-assert c['name_en'] == 'THE MUZE' and c['name_ko'] == '더뮤즈' and c['slug'] == 'the-muze', c
-assert c['league_tier'] == 'premier' and c['previous_season_rank'] == 6, c
-assert len(group) == 1, group
-g = group[0]
-assert g['name_en'] == 'RESCENE' and g['name_ko'] == '리센느' and g['slug'] == 'rescene', g
-assert g['debut_date'] == '2024-03-26' and g['member_count'] == 5 and g['is_active'] is True, g
-names = [item['name_en'] for item in top]
-assert 'THE MUZE' in names, names
-assert 'H Music' not in names, names
-print('VERIFIED: THE MUZE / RESCENE replaced H Music / woo!ah! in live KCL DB')
-PY
+          import json, sys
+          company = json.loads(sys.argv[1])
+          group = json.loads(sys.argv[2])
+          top = json.loads(sys.argv[3])
+          assert len(company) == 1, company
+          c = company[0]
+          assert c['name_en'] == 'THE MUZE' and c['name_ko'] == '더뮤즈' and c['slug'] == 'the-muze', c
+          assert c['league_tier'] == 'premier' and c['previous_season_rank'] == 6, c
+          assert len(group) == 1, group
+          g = group[0]
+          assert g['name_en'] == 'RESCENE' and g['name_ko'] == '리센느' and g['slug'] == 'rescene', g
+          assert g['debut_date'] == '2024-03-26' and g['member_count'] == 5 and g['is_active'] is True, g
+          names = [item['name_en'] for item in top]
+          assert 'THE MUZE' in names, names
+          assert 'H Music' not in names, names
+          print('VERIFIED: THE MUZE / RESCENE replaced H Music / woo!ah! in live KCL DB')
+          PY
