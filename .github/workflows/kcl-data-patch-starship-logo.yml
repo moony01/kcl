@@ -1,0 +1,83 @@
+name: KCL Data Patch - Add Official Starship Logo
+
+on:
+  push:
+    branches:
+      - ops/replace-hmusic-the-muze-20260603
+  workflow_dispatch:
+
+jobs:
+  add-official-starship-logo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      STARSHIP_SLUG: starship-entertainment
+      STARSHIP_LOGO_URL: https://www.starship-ent.com/logo192.png
+    steps:
+      - name: Patch Starship official logo URL
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            echo "Missing Supabase secrets" >&2
+            exit 1
+          fi
+
+          curl -fsSI "${STARSHIP_LOGO_URL}" | grep -qi 'content-type: image/png'
+
+          api() {
+            local method="$1"
+            local path="$2"
+            local body="${3:-}"
+            if [ -n "$body" ]; then
+              curl -fsS -X "$method" \
+                "${SUPABASE_URL}/rest/v1/${path}" \
+                -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
+                -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+                -H "Content-Type: application/json" \
+                -H "Accept: application/json" \
+                -H "Prefer: return=representation" \
+                --data "$body"
+            else
+              curl -fsS -X "$method" \
+                "${SUPABASE_URL}/rest/v1/${path}" \
+                -H "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
+                -H "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+                -H "Accept: application/json"
+            fi
+          }
+
+          before_company=$(api GET "kcl_companies?slug=eq.${STARSHIP_SLUG}&deleted_at=is.null&select=id,name_ko,name_en,slug,logo_url,gradient_color,league_tier,previous_season_rank")
+          echo "Before Starship: ${before_company}"
+
+          python3 - <<'PY' "$before_company"
+          import json, sys
+          company = json.loads(sys.argv[1])
+          if len(company) != 1 or company[0].get('name_en') != 'Starship':
+              raise SystemExit(f"Unexpected Starship row before patch: {company}")
+          PY
+
+          escaped_logo_url=$(python3 - <<'PY' "${STARSHIP_LOGO_URL}"
+          import json, sys
+          print(json.dumps(sys.argv[1]))
+          PY
+          )
+
+          api PATCH "kcl_companies?slug=eq.${STARSHIP_SLUG}&deleted_at=is.null" "{\"logo_url\":${escaped_logo_url}}" >/tmp/patched_starship.json
+
+          after_company=$(api GET "kcl_companies?slug=eq.${STARSHIP_SLUG}&deleted_at=is.null&select=id,name_ko,name_en,slug,logo_url,gradient_color,league_tier,previous_season_rank")
+          echo "After Starship: ${after_company}"
+
+          python3 - <<'PY' "$after_company" "${STARSHIP_LOGO_URL}"
+          import json, sys
+          company = json.loads(sys.argv[1])
+          expected = sys.argv[2]
+          assert len(company) == 1, company
+          c = company[0]
+          assert c['name_en'] == 'Starship' and c['slug'] == 'starship-entertainment', c
+          assert c['logo_url'] == expected, c
+          print('VERIFIED: Official Starship logo_url patched in live KCL DB')
+          PY
