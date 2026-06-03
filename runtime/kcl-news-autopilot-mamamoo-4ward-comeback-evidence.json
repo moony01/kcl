@@ -1,0 +1,237 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "mamamoo-4ward-comeback",
+  "runStartedAt": "2026-06-03T22:01:17+09:00",
+  "runEndedAt": null,
+  "selectedTopic": {
+    "topic": "MAMAMOO's full-group 4WARD comeback and '4 Flowers' teaser",
+    "category": "Artist",
+    "tone": "Positive",
+    "reason": "Fresh June 2026 comeback topic, official teaser available, multiple outlets covered the full-group return after a long gap, and recent KCL categories are balanced."
+  },
+  "recentToneDistribution": {
+    "negative": 0,
+    "positive": 4,
+    "neutral": 1,
+    "rule": "No negative streak; positive topic selected by score."
+  },
+  "researchUrls": [
+    {
+      "source": "UPI",
+      "url": "https://www.upi.com/Entertainment_News/Music/2026/06/02/korea-mamamoo-4-flowers-music-video-teaser/8031780417549/"
+    },
+    {
+      "source": "Allkpop",
+      "url": "https://www.allkpop.com/article/2026/06/mamamoo-reveals-4-flowers-mv-teaser-showcasing-group-bond"
+    },
+    {
+      "source": "YouTube official teaser",
+      "url": "https://www.youtube.com/watch?v=VRuskj-IVxc"
+    },
+    {
+      "source": "Wikipedia Mic On",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/summary/Mic_On"
+    }
+  ],
+  "sourceNotes": {
+    "upi": "UPI says MAMAMOO released a preview of the '4 Flowers' video on June 2, the special single album is '4ward', release is Thursday, and it is the group's first release since Mic On in October 2022.",
+    "youtube": "Official MAMAMOO YouTube channel published the '4 Flowers' MV teaser on 2026-06-02T06:00:08-07:00."
+  },
+  "stepResults": {
+    "Research Gate": "PASS",
+    "Content Gate": "PASS",
+    "Image Gate": "PASS",
+    "Local Render Gate": "PASS",
+    "Deploy Gate": "PENDING",
+    "GSC Gate": "PENDING",
+    "Factcheck Gate": "PASS",
+    "Build Gate": "PASS",
+    "Commit Gate": "PASS"
+  },
+  "ChatGPT": {
+    "prompts": [],
+    "rawDownloads": [],
+    "finalImages": [
+      {
+        "path": "public/images/news/mamamoo-4ward-comeback-thumbnail.png",
+        "size": 2234870,
+        "mtime": "2026-06-03T22:27:04.615039",
+        "sha256": "bd7343e6eac97456015a57f1190c698cdb5427de50469fda9aca4219b5e4f7b2"
+      },
+      {
+        "path": "public/images/news/mamamoo-4ward-comeback-1.png",
+        "size": 2111502,
+        "mtime": "2026-06-03T22:11:20.529460",
+        "sha256": "244556e1978b9e8fb82107527a88bf5ff6b1f262a01bf282920e232926342764"
+      }
+    ]
+  },
+  "factCheck": [],
+  "deploy": {
+    "commitSha": "7c777c1abd1d36846429e89de6c3ebd20a296a23"
+  },
+  "gsc": {
+    "requestedUrls": []
+  },
+  "factcheck": {
+    "report": "runtime/kcl-news-autopilot-mamamoo-4ward-comeback-factcheck.md",
+    "claims": [
+      {
+        "claim": "MAMAMOO released a 4 Flowers MV teaser on June 2",
+        "sources": [
+          "UPI",
+          "Allkpop",
+          "YouTube official teaser"
+        ],
+        "needles": {
+          "UPI": [
+            "released a preview",
+            "4 Flowers"
+          ],
+          "Allkpop": [
+            "released the MV teaser",
+            "4 Flowers"
+          ],
+          "YouTube official teaser": [
+            "4 Flowers",
+            "MV TEASER"
+          ]
+        },
+        "hits": [
+          "UPI",
+          "Allkpop",
+          "YouTube official teaser"
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "claim": "4 Flowers appears on special single album 4WARD",
+        "sources": [
+          "UPI",
+          "Allkpop"
+        ],
+        "needles": {
+          "UPI": [
+            "special single album, 4ward"
+          ],
+          "Allkpop": [
+            "special single album",
+            "4WARD"
+          ]
+        },
+        "hits": [
+          "UPI",
+          "Allkpop"
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "claim": "4WARD / 4 Flowers release June 4 at 6 p.m. KST",
+        "sources": [
+          "Allkpop",
+          "UPI"
+        ],
+        "needles": {
+          "Allkpop": [
+            "June 4 at 6 PM",
+            "major music streaming platforms"
+          ],
+          "UPI": [
+            "Thursday",
+            "full music video"
+          ]
+        },
+        "hits": [
+          "Allkpop",
+          "UPI"
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "claim": "4WARD is the first MAMAMOO release since Mic On in October 2022",
+        "sources": [
+          "UPI",
+          "Wikipedia Mic On"
+        ],
+        "needles": {
+          "UPI": [
+            "first release since the EP Mic On in October 2022"
+          ],
+          "Wikipedia Mic On": [
+            "2022 EP by Mamamoo"
+          ]
+        },
+        "hits": [
+          "UPI",
+          "Wikipedia Mic On"
+        ],
+        "verdict": "PASS"
+      },
+      {
+        "claim": "MAMAMOO 2026 WORLD TOUR [4WARD] begins June 19-21 at Olympic Hall, Olympic Park, Songpa-gu, Seoul",
+        "sources": [
+          "Allkpop",
+          "Google News/Korea JoongAng Daily title"
+        ],
+        "needles": {
+          "Allkpop": [
+            "June 19–21 at Olympic Hall in Olympic Park, Songpa-gu, Seoul"
+          ]
+        },
+        "hits": [
+          "Allkpop"
+        ],
+        "verdict": "PASS_ATTRIBUTED"
+      },
+      {
+        "claim": "4WARD name combines signature number 4 and moving forward",
+        "sources": [
+          "Allkpop"
+        ],
+        "needles": {
+          "Allkpop": [
+            "signature number “4”",
+            "moving forward"
+          ]
+        },
+        "hits": [
+          "Allkpop"
+        ],
+        "verdict": "PASS_ATTRIBUTED"
+      }
+    ],
+    "verificationRate": 1.0
+  },
+  "localRender": {
+    "url": "http://127.0.0.1:18124/en/news/mamamoo-4ward-comeback.html",
+    "htmlStatus": 200,
+    "imageStatuses": [
+      {
+        "url": "http://127.0.0.1:18124/images/news/mamamoo-4ward-comeback-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:18124/images/news/mamamoo-4ward-comeback-1.png",
+        "status": 200
+      }
+    ],
+    "screenshot": "runtime/kcl-news-autopilot-mamamoo-4ward-comeback-local.png",
+    "notes": "Build passed. Local browser console had expected ad 403 and Supabase env warnings/errors in local static context; article HTML and images rendered."
+  },
+  "content": {
+    "path": "src/content/news/en/mamamoo-4ward-comeback.md",
+    "wordCount": 790,
+    "excerptLength": 111,
+    "category": "Artist",
+    "active": true
+  },
+  "build": {
+    "command": "pnpm run build",
+    "status": "PASS",
+    "warnings": [
+      "existing Sass deprecation warnings",
+      "local Supabase env missing warnings",
+      "dynamic font fetch timeout warnings"
+    ]
+  }
+}

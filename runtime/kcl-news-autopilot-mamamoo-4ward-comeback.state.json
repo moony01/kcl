@@ -1,0 +1,22 @@
+{
+  "workflow": "kcl-news-autopilot",
+  "slug": "mamamoo-4ward-comeback",
+  "status": "COMMITTED",
+  "updatedAt": "2026-06-03T22:40:53.013595",
+  "passedSteps": [
+    "Research Gate",
+    "Image Gate",
+    "Content Gate",
+    "Factcheck Gate",
+    "Build Gate",
+    "Local Render Gate",
+    "Commit Gate"
+  ],
+  "nextSteps": [
+    "Push PR",
+    "Merge/deploy",
+    "Live check",
+    "GSC"
+  ],
+  "commitSha": "7c777c1abd1d36846429e89de6c3ebd20a296a23"
+}
