@@ -1,0 +1,39 @@
+{
+  "slug": "gov-ball-kpop-weekend",
+  "startIso": "2026-06-08T13:00:00+09:00",
+  "endedAt": "2026-06-08T04:11:14.393Z",
+  "prompts": {
+    "thumbnail": "Generate exactly one cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a massive outdoor New York City music festival at dusk, purple and electric-blue stage lights, diverse crowd silhouettes holding phones, the feeling of global pop and K-pop taking over one weekend. No recognizable artists, no identifiable faces, no logos, no readable text, no watermark. High quality, dramatic lighting, professional news photography, 8k detail.",
+    "body": "Generate exactly one dramatic professional editorial image in 16:9 aspect ratio, 1200x675px. Scene: an overhead festival strategy table blending a concert stage map, glowing smartphones, fan-engagement dashboards, wristbands and streaming signals, symbolizing K-pop festival economics at a major New York music festival. No real people, no identifiable faces, no logos, no readable text, no watermark. Cinematic lighting, high quality, professional news photography, 8k detail."
+  },
+  "outputs": [
+    {
+      "type": "thumbnail",
+      "raw": "/home/mhhan/Downloads/ChatGPT_Generated_Image_gov-ball-kpop-weekend_thumbnail_2026-06-08T04-09-48-489Z.png",
+      "final": "/home/mhhan/workspace/.resource/gov-ball-kpop-weekend-thumbnail.png",
+      "bytes": 2183831,
+      "ext": "png",
+      "sha256": "089d92a3f3afc8f2c54abb525428ee030df5befc94eb717a28541a9b8c01fd7c",
+      "dims": {
+        "width": 1672,
+        "height": 941
+      },
+      "sourceUrl": "[REDACTED_SIGNED_URL]",
+      "savedAt": "2026-06-08T04:09:48.557Z"
+    },
+    {
+      "type": "body",
+      "raw": "/home/mhhan/Downloads/ChatGPT_Generated_Image_gov-ball-kpop-weekend_body_2026-06-08T04-11-14-061Z.png",
+      "final": "/home/mhhan/workspace/.resource/gov-ball-kpop-weekend-1.png",
+      "bytes": 2493550,
+      "ext": "png",
+      "sha256": "47c559dd0836a8e0477dd40cd8727866dfa852053672f1b06d9f3044c83c2aa5",
+      "dims": {
+        "width": 1672,
+        "height": 941
+      },
+      "sourceUrl": "[REDACTED_SIGNED_URL]",
+      "savedAt": "2026-06-08T04:11:14.111Z"
+    }
+  ]
+}

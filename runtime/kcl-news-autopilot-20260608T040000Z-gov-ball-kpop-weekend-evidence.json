@@ -1,0 +1,192 @@
+{
+  "runStartedAt": "2026-06-08T13:00:00+09:00",
+  "runEndedAt": null,
+  "workflow": "kcl-news-autopilot",
+  "runId": "kcl-news-autopilot-20260608T040000Z",
+  "slug": "gov-ball-kpop-weekend",
+  "selectedTopic": {
+    "name": "Governors Ball 2026 K-pop weekend: Stray Kids, Jennie, and KATSEYE",
+    "category": "Tech & Culture",
+    "tone": "Positive/Neutral",
+    "reason": "Fresh June 5-7 NYC festival event with official lineup/schedule evidence, multiple media pickups, and a distinct angle from the existing Stray Kids seven-member article."
+  },
+  "toneBalance": {
+    "recentFive": "checked during research; no forced negative-topic rule applied",
+    "rule": "Selected a positive/neutral festival-scale topic."
+  },
+  "excludedSlugs": [
+    "stray-kids-gov-ball-seven",
+    "june-kpop-comeback-pileup"
+  ],
+  "stepResults": {
+    "Research": "PASS",
+    "Content": "PASS",
+    "Image": "PASS",
+    "Factcheck": "PASS",
+    "LocalRender": "PASS",
+    "Deploy": "PENDING",
+    "GSC": "PENDING"
+  },
+  "researchQueries": [
+    "K-pop breaking news today 2026",
+    "K-pop controversy scandal June 2026",
+    "K-pop company news HYBE SM JYP YG June",
+    "K-pop comeback release June 2026",
+    "K-pop chart record milestone 2026",
+    "K-pop concert tour sold out 2026",
+    "K-pop fan project viral 2026",
+    "K-pop trainee audition 2026 tips",
+    "Gov Ball 2026 Stray Kids Jennie KATSEYE",
+    "TWS Dream With Us Pledis Entertainment June 11 2026"
+  ],
+  "researchUrls": [
+    "https://www.govball.com/lineup/",
+    "https://www.govball.com/schedule/",
+    "https://www.cbsnews.com/newyork/news/governors-ball-lineup-music-festival-nyc-2026/",
+    "https://www.billboard.com/music/concerts/2026-governors-ball-headliners-asap-rocky-lorde-stray-kids-1236149516/",
+    "https://www.soompi.com/article/1843012wpp/stray-kids-seungmin-to-sit-out-governors-ball-2026-due-to-injury",
+    "https://www.yahoo.com/entertainment/music/articles/where-buy-last-minute-governors-175500814.html"
+  ],
+  "content": {
+    "file": "src/content/news/en/gov-ball-kpop-weekend.md",
+    "title": "Gov Ball Just Became K-pop’s Weekend — 3 Acts, One NYC Test Nobody Can Ignore",
+    "wordCount": 1595,
+    "h2Count": 6,
+    "h3Count": 11,
+    "excerptLength": 131,
+    "internalLinks": [
+      "/en/news/stray-kids-gov-ball-seven"
+    ],
+    "targetKeywords": [
+      "Gov Ball K-pop",
+      "KATSEYE"
+    ],
+    "active": true,
+    "bannedPhrasesPresent": [],
+    "brokenReplacementChars": 0
+  },
+  "factCheck": {
+    "report": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-factcheck.md",
+    "verificationRate": "6/6 core claims PASS",
+    "fixCount": 0,
+    "removeCount": 0
+  },
+  "ChatGPT": {
+    "url": "https://chatgpt.com",
+    "prompts": {
+      "thumbnail": "Generate exactly one cinematic, photorealistic editorial news thumbnail image in 16:9 aspect ratio, 1200x675px. Scene: a massive outdoor New York City music festival at dusk, purple and electric-blue stage lights, diverse crowd silhouettes holding phones, the feeling of global pop and K-pop taking over one weekend. No recognizable artists, no identifiable faces, no logos, no readable text, no watermark. High quality, dramatic lighting, professional news photography, 8k detail.",
+      "body": "Generate exactly one dramatic professional editorial image in 16:9 aspect ratio, 1200x675px. Scene: an overhead festival strategy table blending a concert stage map, glowing smartphones, fan-engagement dashboards, wristbands and streaming signals, symbolizing K-pop festival economics at a major New York music festival. No real people, no identifiable faces, no logos, no readable text, no watermark. Cinematic lighting, high quality, professional news photography, 8k detail."
+    },
+    "rawDownloads": [
+      {
+        "type": "thumbnail",
+        "filename": "/home/mhhan/Downloads/ChatGPT_Generated_Image_gov-ball-kpop-weekend_thumbnail_2026-06-08T04-09-48-489Z.png",
+        "mtime": "2026-06-08T04:09:48.557Z",
+        "size": 2183831,
+        "sha256": "089d92a3f3afc8f2c54abb525428ee030df5befc94eb717a28541a9b8c01fd7c"
+      },
+      {
+        "type": "body",
+        "filename": "/home/mhhan/Downloads/ChatGPT_Generated_Image_gov-ball-kpop-weekend_body_2026-06-08T04-11-14-061Z.png",
+        "mtime": "2026-06-08T04:11:14.111Z",
+        "size": 2493550,
+        "sha256": "47c559dd0836a8e0477dd40cd8727866dfa852053672f1b06d9f3044c83c2aa5"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "public/images/news/gov-ball-kpop-weekend-thumbnail.png",
+        "size": 2183831,
+        "sha256": "089d92a3f3afc8f2c54abb525428ee030df5befc94eb717a28541a9b8c01fd7c",
+        "dims": [
+          1672,
+          941
+        ],
+        "mtime": "2026-06-08T13:09:48.531312+09:00"
+      },
+      {
+        "path": "public/images/news/gov-ball-kpop-weekend-1.png",
+        "size": 2493550,
+        "sha256": "47c559dd0836a8e0477dd40cd8727866dfa852053672f1b06d9f3044c83c2aa5",
+        "dims": [
+          1672,
+          941
+        ],
+        "mtime": "2026-06-08T13:11:14.082965+09:00"
+      }
+    ],
+    "visualQA": "PASS: no readable text/logos/watermarks/identifiable faces; both PNG 1672x941.",
+    "reuse_check": "PASS"
+  },
+  "localRender": {
+    "build": {
+      "command": "pnpm build",
+      "status": "PASS",
+      "warnings": [
+        "Existing Sass deprecation warnings",
+        "Local Supabase env warnings without NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY",
+        "Local AdSense 403 on 127.0.0.1"
+      ]
+    },
+    "lint": {
+      "command": "pnpm lint",
+      "status": "NO_PASS_PREEXISTING",
+      "summary": "16 existing lint errors outside the new article/news asset changes; pnpm build passed."
+    },
+    "localUrls": [
+      {
+        "url": "http://127.0.0.1:4180/en/news/gov-ball-kpop-weekend.html",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4180/images/news/gov-ball-kpop-weekend-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4180/images/news/gov-ball-kpop-weekend-1.png",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4180/images/news/nextImageExportOptimizer/gov-ball-kpop-weekend-thumbnail-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4180/images/news/nextImageExportOptimizer/gov-ball-kpop-weekend-1-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4180/api/news.json",
+        "status": 200,
+        "containsSlug": true
+      }
+    ],
+    "browserCheck": {
+      "h1": "Gov Ball Just Became K-pop’s Weekend — 3 Acts, One NYC Test Nobody Can Ignore",
+      "heroImage": "PASS 800x450",
+      "bodyImage": "PASS 800x450",
+      "screenshot": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-local-body.png"
+    }
+  },
+  "deploy": {
+    "commitSha": null,
+    "mergeSha": null,
+    "prUrl": null,
+    "cloudflare": {
+      "productionSha": null,
+      "status": "PENDING"
+    }
+  },
+  "gsc": {
+    "requestedUrls": [],
+    "status": "PENDING"
+  },
+  "attempts": {
+    "Research": 1,
+    "Content": 1,
+    "ChatGPT": 1,
+    "LocalRender": 1,
+    "Deploy": 0,
+    "GSC": 0
+  },
+  "lastError": null
+}

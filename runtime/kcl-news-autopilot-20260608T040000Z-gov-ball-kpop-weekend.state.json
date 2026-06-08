@@ -1,0 +1,25 @@
+{
+  "runId": "kcl-news-autopilot-20260608T040000Z",
+  "slug": "gov-ball-kpop-weekend",
+  "updatedAt": "2026-06-08T04:28:02.584180+00:00",
+  "lastPassGate": "local-render",
+  "stepResults": {
+    "research": "PASS",
+    "content": "PASS",
+    "image": "PASS",
+    "localRender": "PASS",
+    "gitDeploy": "PENDING",
+    "gsc": "PENDING",
+    "report": "PENDING"
+  },
+  "localRender": {
+    "build": "PASS pnpm build exit 0",
+    "lint": "NO_PASS: pnpm lint has pre-existing unrelated repo errors outside this article change",
+    "articleLocalUrl": "http://127.0.0.1:4180/en/news/gov-ball-kpop-weekend.html",
+    "articleHttp": 200,
+    "imageHttp": 200,
+    "optimizerHttp": 200,
+    "apiContainsSlug": true,
+    "browserImagesLoaded": 2
+  }
+}
