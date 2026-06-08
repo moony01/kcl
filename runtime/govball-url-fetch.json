@@ -1,0 +1,46 @@
+[
+  {
+    "url": "https://www.govball.com/lineup/",
+    "status": 200,
+    "title": "Lineup | The Governors Ball",
+    "sample": "Lineup | The Governors Ball NEW YORK CITY FLUSHING MEADOWS CORONA PARK JUNE 5-7, 2026 Home Merch Tickets Lineup Schedule Food & Bev Beyond The Music Browse FAQs Search Help Download App ‍ Tickets NEW YORK CITY FLUSHING MEADOWS CORONA PARK JUNE 5-7, 2026 TICKETS 2026 Lineup Be first to know about know about the 2027 dates, lineup & more! SIGN UP FOR UPDATES OR SIGN UP VIA EMAIL Share lineup 2026 Festival Partners Verizon Citi Snapchat Coca-Cola Electrolit Kona Big Wave Slurpee Pacsun DoorDash May"
+  },
+  {
+    "url": "https://www.govball.com/schedule/",
+    "status": 200,
+    "title": "Schedule | The Governors Ball",
+    "sample": "Schedule | The Governors Ball NEW YORK CITY FLUSHING MEADOWS CORONA PARK JUNE 5-7, 2026 Home Merch Tickets Lineup Schedule Food & Bev Beyond The Music Browse FAQs Search Help Download App ‍ Tickets NEW YORK CITY FLUSHING MEADOWS CORONA PARK JUNE 5-7, 2026 TICKETS 2026 Schedule Be first to know about know about the 2027 dates, lineup & more! SIGN UP FOR UPDATES OR SIGN UP VIA EMAIL Share lineup Sunday Friday, 6/5 Saturday, 6/6 Sunday, 6/7 Share schedule Share schedule Share schedule 2026 Festival"
+  },
+  {
+    "url": "https://www.cbsnews.com/newyork/news/governors-ball-lineup-music-festival-nyc-2026/",
+    "status": 200,
+    "title": "Who's performing at Gov Ball 2026 today in NYC? See the lineups for the 3-day music festival. - CBS New York",
+    "sample": "Who's performing at Gov Ball 2026 today in NYC? See the lineups for the 3-day music festival. - CBS New York Latest U.S. Iran War Intel Director World Politics Entertainment HealthWatch MoneyWatch Crime Space Sports Brand Studio The Free Press Local News Atlanta Baltimore Bay Area Boston Chicago Colorado Detroit Los Angeles Miami Minnesota New York Philadelphia Pittsburgh Sacramento Texas Live CBS News 24/7 Baltimore Bay Area Boston Chicago Colorado Detroit Los Angeles Miami Minnesota New York P"
+  },
+  {
+    "url": "https://www.forbes.com/sites/monicamercuri/2026/06/06/stray-kids-jennie-katseye-everyone-performing-at-gov-ball-2026/",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "url": "https://www.billboard.com/music/concerts/2026-governors-ball-headliners-asap-rocky-lorde-stray-kids-1236149516/",
+    "status": 200,
+    "title": "A$AP Rocky, Lorde and Stray Kids to Headline 2026 Governors Ball",
+    "sample": "A$AP Rocky, Lorde and Stray Kids to Headline 2026 Governors Ball :root{--border-color-grey-lightest: rgb(237, 236, 236);--border-color-brand-secondary-light: rgb(0, 63, 250);--border-color-grey-light: rgb(237, 236, 236);--border-color-grey-dark: rgb(74, 74, 74);--border-color-brand-secondary-dark: rgb(0, 63, 250);--border-color-brand-secondary: rgb(0, 63, 250);--border-color-grey: rgb(107, 107, 107);--border-color-brand-primary-light: rgb(0, 255, 154);--border-color-white: rgb(255, 255, 255);--b"
+  },
+  {
+    "url": "https://koreajoongangdaily.joins.com/news/2026-01-07/entertainment/kpop/Blackpinks-Jennie-Stray-Kids-Katseye-to-perform-at-Governors-Ball-Music-Festival-this-summer/2494784",
+    "error": "<HTTPError 404: 'Not Found'>"
+  },
+  {
+    "url": "https://www.soompi.com/article/1843012wpp/stray-kids-seungmin-to-sit-out-governors-ball-2026-due-to-injury",
+    "status": 200,
+    "title": "Stray Kids' Seungmin To Sit Out Governors Ball 2026 Due To Injury | Soompi",
+    "sample": "Stray Kids' Seungmin To Sit Out Governors Ball 2026 Due To Injury | Soompi --> EXPLORE Latest Trending Popular Breaking MV/Teaser Drama Culture Exclusives Viki Quiz Video Celeb Style TV/FILM Music Features Getting results... See All Stray Kids' Seungmin To Sit Out Governors Ball 2026 Due To Injury Celeb May 22, 2026 by E Cha Stray Kids ’ Seungmin will not be joining his bandmates on stage at this year’s Governors Ball in New York. Back in March, JYP Entertainment announced that Seungmin had been"
+  },
+  {
+    "url": "https://www.yahoo.com/entertainment/music/articles/where-buy-last-minute-governors-175500814.html",
+    "status": 200,
+    "title": "Where to Buy Last-Minute Governors Ball Tickets to See Jennie, Stray Kids & KATSEYE Live",
+    "sample": "Where to Buy Last-Minute Governors Ball Tickets to See Jennie, Stray Kids & KATSEYE Live Search query Search with Yahoo Scout Search the web Skip to main News Finance Sports More Mail Search the web Advertisement Advertisement Return to Homepage Trending: A $259 Kate Spade leather bag for $79 and more fab deals Jennifer Aniston's 'rich mom' staple Hoka Bondi vs. Hoka Clifton 30 best gifts for husbands Walmart's best deals this week Follow Where to Buy Last-Minute Governors Ball Tickets to See Je"
+  }
+]
