@@ -4,7 +4,8 @@
 - Run ID: kcl-news-autopilot-20260608T040000Z
 - Slug: gov-ball-kpop-weekend
 - Run started: 2026-06-08T13:00:00+09:00
-- Status: IN_PROGRESS (local gates passed; deploy/GSC pending)
+- Run ended: 2026-06-08T13:46:46+09:00
+- Status: SUCCESS
 
 ## Research Gate
 
@@ -72,14 +73,36 @@ PASS.
 
 ## Deploy Gate
 
-PENDING.
+PASS.
+
+- Commit: `2f9b521ef5d9e4cfff2be91144117e26d9943587`
+- PR: https://github.com/moony01/kcl/pull/10
+- Merge commit: `2499683b4fa0701d79870be0aa38d8a0dda20625`
+- Cloudflare Pages production check: PASS on merge commit.
+- Cloudflare details: https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/45ee8e4b-6d3d-4af0-8d0f-847f9770b6c0
+- Live URL: `https://www.kclhq.com/en/news/gov-ball-kpop-weekend` -> HTTP 200 with title/content hits.
+- Remote original images: thumbnail/body -> HTTP 200.
+- Remote optimizer images: thumbnail/body -> HTTP 200.
+- Remote API: `https://www.kclhq.com/api/news.json` contains `gov-ball-kpop-weekend`.
+- Playwright deployed image check: thumbnail and body image both loaded at 800x450.
+- Screenshot: `runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-deployed-body.png`.
 
 ## GSC Gate
 
-PENDING.
+PASS.
+
+- Property: `sc-domain:kclhq.com`
+- Requested URL: `https://www.kclhq.com/en/news/gov-ball-kpop-weekend`
+- Result: `색인 생성 요청됨`
+- Attempts: 1
+- Screenshot: `runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-gsc.png`.
 
 ## Final Status
 
-IN_PROGRESS.
+SUCCESS.
 
-Pass stages so far: Research, Content, Image, Factcheck, Local Render.
+Pass stages: Research, Content, Image, Factcheck, Local Render, Deploy, GSC, Report.
+
+Retry counts: Research 1, Content 1, Image 1, Local Render 1, Deploy 25 Cloudflare check polls + 1 live HTTP poll, GSC 1.
+
+Last nonblocking errors: local Supabase env warnings, localhost Google Ads 403, pre-existing unrelated lint errors, and local cleanup failure after remote PR merge due another worktree holding `main`.

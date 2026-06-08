@@ -1,6 +1,6 @@
 {
   "runStartedAt": "2026-06-08T13:00:00+09:00",
-  "runEndedAt": null,
+  "runEndedAt": "2026-06-08T13:46:46+09:00",
   "workflow": "kcl-news-autopilot",
   "runId": "kcl-news-autopilot-20260608T040000Z",
   "slug": "gov-ball-kpop-weekend",
@@ -24,8 +24,9 @@
     "Image": "PASS",
     "Factcheck": "PASS",
     "LocalRender": "PASS",
-    "Deploy": "PENDING",
-    "GSC": "PENDING"
+    "Deploy": "PASS",
+    "GSC": "PASS",
+    "Report": "PASS"
   },
   "researchQueries": [
     "K-pop breaking news today 2026",
@@ -168,25 +169,87 @@
     }
   },
   "deploy": {
-    "commitSha": null,
-    "mergeSha": null,
-    "prUrl": null,
+    "commitSha": "2f9b521ef5d9e4cfff2be91144117e26d9943587",
+    "mergeSha": "2499683b4fa0701d79870be0aa38d8a0dda20625",
+    "prUrl": "https://github.com/moony01/kcl/pull/10",
     "cloudflare": {
-      "productionSha": null,
-      "status": "PENDING"
+      "productionSha": "2499683b4fa0701d79870be0aa38d8a0dda20625",
+      "status": "PASS",
+      "detailsUrl": "https://dash.cloudflare.com/?to=/e39b8478141c206ed1752bb486fdd8eb/pages/view/kcl/45ee8e4b-6d3d-4af0-8d0f-847f9770b6c0",
+      "check": "Cloudflare Pages completed success on merge commit"
+    },
+    "liveUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/gov-ball-kpop-weekend",
+        "status": 200,
+        "titleHits": 57
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/gov-ball-kpop-weekend-thumbnail.png",
+        "status": 200
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/gov-ball-kpop-weekend-1.png",
+        "status": 200
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/gov-ball-kpop-weekend-thumbnail-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "https://www.kclhq.com/images/news/nextImageExportOptimizer/gov-ball-kpop-weekend-1-opt-800.WEBP",
+        "status": 200
+      },
+      {
+        "url": "https://www.kclhq.com/api/news.json",
+        "status": 200,
+        "containsSlug": true
+      }
+    ],
+    "browserCheck": {
+      "h1": "Gov Ball Just Became K-pop’s Weekend — 3 Acts, One NYC Test Nobody Can Ignore",
+      "heroImage": "PASS 800x450",
+      "bodyImage": "PASS 800x450",
+      "screenshot": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-deployed-body.png"
     }
   },
   "gsc": {
-    "requestedUrls": [],
-    "status": "PENDING"
+    "requestedUrls": [
+      {
+        "url": "https://www.kclhq.com/en/news/gov-ball-kpop-weekend",
+        "property": "sc-domain:kclhq.com",
+        "status": "PASS",
+        "resultText": "색인 생성 요청됨",
+        "screenshot": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-gsc.png"
+      }
+    ],
+    "status": "PASS"
   },
   "attempts": {
     "Research": 1,
     "Content": 1,
     "ChatGPT": 1,
     "LocalRender": 1,
-    "Deploy": 0,
-    "GSC": 0
+    "Deploy": 25,
+    "GSC": 1,
+    "Report": 1
   },
-  "lastError": null
+  "lastError": "Nonblocking: initial gh pr merge command merged remotely but local branch cleanup failed because main is checked out by another worktree; verified PR state MERGED and deleted remote feature branch manually. Local lint still has pre-existing unrelated repo errors.",
+  "artifacts": {
+    "localScreenshot": {
+      "path": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-local-body.png",
+      "size": 152458,
+      "sha256": "6bd0bf2580b4757996a9e8a091d1dfdb6a0f1990f40636a0402a980b67afffdf"
+    },
+    "deployedScreenshot": {
+      "path": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-deployed-body.png",
+      "size": 152458,
+      "sha256": "6bd0bf2580b4757996a9e8a091d1dfdb6a0f1990f40636a0402a980b67afffdf"
+    },
+    "gscScreenshot": {
+      "path": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-gsc.png",
+      "size": 139760,
+      "sha256": "566319c9db9baf16639c6c737a675e434b94b5a0075939e5d9b77b3aec42bb8c"
+    }
+  }
 }
