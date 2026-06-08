@@ -1,25 +1,22 @@
 {
   "runId": "kcl-news-autopilot-20260608T040000Z",
   "slug": "gov-ball-kpop-weekend",
-  "updatedAt": "2026-06-08T04:28:02.584180+00:00",
-  "lastPassGate": "local-render",
+  "updatedAt": "2026-06-08T13:46:46+09:00",
+  "lastPassGate": "gsc-report",
   "stepResults": {
     "research": "PASS",
     "content": "PASS",
     "image": "PASS",
+    "factcheck": "PASS",
     "localRender": "PASS",
-    "gitDeploy": "PENDING",
-    "gsc": "PENDING",
-    "report": "PENDING"
+    "gitDeploy": "PASS",
+    "gsc": "PASS",
+    "report": "PASS"
   },
-  "localRender": {
-    "build": "PASS pnpm build exit 0",
-    "lint": "NO_PASS: pnpm lint has pre-existing unrelated repo errors outside this article change",
-    "articleLocalUrl": "http://127.0.0.1:4180/en/news/gov-ball-kpop-weekend.html",
-    "articleHttp": 200,
-    "imageHttp": 200,
-    "optimizerHttp": 200,
-    "apiContainsSlug": true,
-    "browserImagesLoaded": 2
-  }
+  "commitSha": "2f9b521ef5d9e4cfff2be91144117e26d9943587",
+  "mergeSha": "2499683b4fa0701d79870be0aa38d8a0dda20625",
+  "prUrl": "https://github.com/moony01/kcl/pull/10",
+  "liveUrl": "https://www.kclhq.com/en/news/gov-ball-kpop-weekend",
+  "evidence": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-evidence.json",
+  "report": "runtime/kcl-news-autopilot-20260608T040000Z-gov-ball-kpop-weekend-report.md"
 }
