@@ -1,0 +1,227 @@
+{
+  "runId": "kcl-news-autopilot-20260609T040000Z",
+  "selected": {
+    "topic": "Melon Music Awards 2026 expands to a two-day format for the first time",
+    "title": "MMA 2026 Just Doubled Its Stage — The Two-Day Gamble K-pop Can’t Ignore",
+    "slug": "mma-two-day-gamble",
+    "category": "Business",
+    "tone": "Positive",
+    "date": "2026-06-09",
+    "targetKeywords": [
+      "MMA 2026",
+      "Melon Music Awards 2026"
+    ]
+  },
+  "recentToneAndCategory": {
+    "recent5": [
+      {
+        "slug": "gov-ball-kpop-weekend",
+        "tone": "Positive",
+        "category": "Tech & Culture"
+      },
+      {
+        "slug": "june-kpop-comeback-pileup",
+        "tone": "Neutral",
+        "category": "Industry"
+      },
+      {
+        "slug": "and2ble-rookie-sales-record",
+        "tone": "Positive",
+        "category": "Market Trend"
+      },
+      {
+        "slug": "mamamoo-4ward-comeback",
+        "tone": "Positive",
+        "category": "Artist"
+      },
+      {
+        "slug": "bts-oreo-global-bet",
+        "tone": "Positive",
+        "category": "Business"
+      }
+    ],
+    "toneRule": "No forced negative/positive rule needed; selected topic is fresh positive business/event expansion.",
+    "categoryRule": "Business avoids the immediately previous three categories: Tech & Culture, Industry, Market Trend."
+  },
+  "scoredCandidates": [
+    {
+      "topic": "MMA2026 expands to two days for first time",
+      "tone": "Positive",
+      "category": "Business",
+      "score": 92,
+      "reasons": [
+        "fresh reports from 7+ sources on 2026-06-09",
+        "fan-event and global K-pop angle",
+        "SEO terms MMA 2026 / Melon Music Awards 2026",
+        "not a duplicate local/live/GSC slug"
+      ]
+    },
+    {
+      "topic": "June K-pop comeback pileup continues",
+      "tone": "Neutral",
+      "category": "Industry",
+      "score": 61,
+      "reasons": [
+        "already covered on 2026-06-05",
+        "category repetition risk"
+      ]
+    },
+    {
+      "topic": "Gov Ball K-pop weekend follow-up",
+      "tone": "Positive",
+      "category": "Tech & Culture",
+      "score": 55,
+      "reasons": [
+        "already covered on 2026-06-08",
+        "too soon for another adjacent festival article"
+      ]
+    },
+    {
+      "topic": "K-pop trainee audition tips",
+      "tone": "Neutral",
+      "category": "Trainee System",
+      "score": 43,
+      "reasons": [
+        "evergreen, lower freshness versus breaking MMA topic"
+      ]
+    }
+  ],
+  "freshnessSources": [
+    {
+      "source": "Chosunbiz",
+      "title": "Kakao Entertainment expands MMA 2026 to two days and links global K-chart in Korea",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBMUFJsVENDN1ZNaXlWNVFLOWNlblNEZFdwNzN0ZnZtVzg1Y3NDRk1PblBBMHVfQVFOVzBaeTBZODllNTd1ajBEU01CUGp1bk5OTXhUQXdsZzNVUEJ3Q1VQUnFnX2taNWlZUl8yNUxIOEFERXUxeUF4ZTJn0gGOAUFVX3lxTE4zN1B1UnlkREZpeEtWay1EUzRMMnRqbHRqUFVDZ01rblZzVXo4UHlTWUx1NERsR0dFcW5iYVNFU2EwMDlvWjhZN01XTUpvN0N0eG1TOXRfa3dmUnFkYmRaU2RjbEIzSXRycEdKWlJuSXduS1I5V1hHajAwcEhremNmVnQwOUtGckF0aHp2T1E?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 00:36:00 GMT"
+    },
+    {
+      "source": "Maeil Business Newspaper",
+      "title": "2026 Melon Music Awards to Be Held Over Two Days for the First Time",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE81REZ2THp3TWtMX1d3WGt3UUloMGNOYkI1V05ROEhzbWQwckVZRGxyTmdKWDhkcWkxOVJxM1ZKMnYtZEtBMW13aUhyNThraC15OWc?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 02:17:52 GMT"
+    },
+    {
+      "source": "Seoul Economic Daily",
+      "title": "MMA2026 Goes Two Days for First Time, Connecting K-pop Fans Worldwide",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOWXZrYVJVRC1YQS1hWV80eWZtWkZ2ZUphOFpheUR4Ni1abWs4RllxaUx6enZfZUp5eTZYWVk5QjhmYldSdThnbVR0aEtHU29UNVpsUVdNVlpEd2wxTjVhU3FhMS1ZMWxjREVwd1JrMjdKN3luV2pSTUxpMDliQWdCbkZzR3FQekZmbkhKNlhqVS1rc2tETGVMWE1tRjlCdFRWY3c?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 02:39:48 GMT"
+    },
+    {
+      "source": "Asia Economy",
+      "title": "Kakao Entertainment to Host '2026 Melon Music Awards' at Gocheok Dome in November",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9ialBRNm9uNWNPc2xKWGtvSWxpNDFiTnphQkdhUUxtU3ZtLTdGSExFMUZXMHVGUV80M3NaRU9iLWQ1aHNCVlhmZUxtZFNINm1pUkNBLUlDUXZaQ3M1WGRISEc5SGQ1VEY1dzVHWGNCVVZBTkI0MFE?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 00:04:54 GMT"
+    },
+    {
+      "source": "The Korea Herald",
+      "title": "MMA 2026 expands to 2 days",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9mMVppNEc4UXdjQV92dDFxYWVZUGlmMTNkekFrNjd6SThPZWVyMjhnSHktRHdxZ3R6cFUzWVVnUVlnaUJVMnB1bklCaHM3cmtINkJXWmRpdw?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 01:37:15 GMT"
+    },
+    {
+      "source": "The Outerhaven",
+      "title": "Kakao Entertainment to Host MMA2026 on November 14-15",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNem55RFJMN2l2cVBKXzFvdUd3eWNZV0Q0ME93el9DaHlNZ1hmN1U3eEk1QnZqQmpyMTNBZVpreU1FVG1jTC1SczhKM0ZTNHVxUFVKWmtQbXM5NXZmdFp3anFUaWNjWExjbDR2WDBxZ3Z6dkZfd2VRRlZLUEJVb0syZzN3bm9GcmpkM2Q1R3Rjd19XOU9YNzNr?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 01:21:36 GMT"
+    },
+    {
+      "source": "Soompi",
+      "title": "Melon Music Awards 2026 Announces Dates And Details",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQZWRfWE1yZVhXeGlnRWNMODRqSEZGak1Hakl2NlJXWnhMUFFBSlJjRGNaM3htRnBqYUFGcklvdTY2QVc3REVfRDNCWGpBV2FKRUtTWVJsTWpUMFdGZGN0WndIUXNKTFFPbWdCRjlaLUE0d3dXNjFlNEptLXJSWERzdnFyaXdRN1AwMXJqcHJON2dFWmhNdi1Oag?oc=5",
+      "pubDate": "Tue, 09 Jun 2026 01:59:20 GMT"
+    }
+  ],
+  "excluded": {
+    "localSlugExists": false,
+    "liveSlugExists": false,
+    "gscRequestedSlugExists": false,
+    "liveSlugCount": 182,
+    "gscRequestedSlugs": [
+      "bts-ama-second-aoty",
+      "bts-ama-special-appearance",
+      "bts-oreo-global-bet",
+      "chaewon-neck-hiatus",
+      "lesserafim-boompala-430k"
+    ]
+  },
+  "images": {
+    "rawDownloads": [
+      {
+        "path": "/home/mhhan/.hermes/hermes-agent/.playwright-mcp/ChatGPT-Generated-Image-mma-two-day-pivot-thumbnail.png",
+        "size": 2726279,
+        "signatureHex": "89504e470d0a1a0a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "sha256": "31746cbd32234995e2c5f47b57dc24872451655685c4212c778101eefa25f4b5",
+        "mtimeLocal": "2026-06-09 13:08:19 +0900"
+      },
+      {
+        "path": "/home/mhhan/.hermes/hermes-agent/.playwright-mcp/ChatGPT-Generated-Image-mma-two-day-pivot-body-final.png",
+        "size": 2402325,
+        "signatureHex": "89504e470d0a1a0a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "sha256": "893050723292223c1d12bb102a09095b6d906ecba384cddd339ccf54cd1b357f",
+        "mtimeLocal": "2026-06-09 13:17:31 +0900"
+      }
+    ],
+    "resourceCopies": [
+      {
+        "path": "/home/mhhan/workspace/.resource/mma-two-day-gamble-thumbnail.png",
+        "size": 2726279,
+        "signatureHex": "89504e470d0a1a0a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "sha256": "31746cbd32234995e2c5f47b57dc24872451655685c4212c778101eefa25f4b5",
+        "mtimeLocal": "2026-06-09 13:08:19 +0900"
+      },
+      {
+        "path": "/home/mhhan/workspace/.resource/mma-two-day-gamble-1.png",
+        "size": 2402325,
+        "signatureHex": "89504e470d0a1a0a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "sha256": "893050723292223c1d12bb102a09095b6d906ecba384cddd339ccf54cd1b357f",
+        "mtimeLocal": "2026-06-09 13:17:31 +0900"
+      }
+    ],
+    "finalCopies": [
+      {
+        "path": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260609T040000Z/public/images/news/mma-two-day-gamble-thumbnail.png",
+        "size": 2726279,
+        "signatureHex": "89504e470d0a1a0a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "sha256": "31746cbd32234995e2c5f47b57dc24872451655685c4212c778101eefa25f4b5",
+        "mtimeLocal": "2026-06-09 13:08:19 +0900"
+      },
+      {
+        "path": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260609T040000Z/public/images/news/mma-two-day-gamble-1.png",
+        "size": 2402325,
+        "signatureHex": "89504e470d0a1a0a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "sha256": "893050723292223c1d12bb102a09095b6d906ecba384cddd339ccf54cd1b357f",
+        "mtimeLocal": "2026-06-09 13:17:31 +0900"
+      }
+    ],
+    "rejectedAttempt": {
+      "path": "/home/mhhan/.hermes/hermes-agent/.playwright-mcp/ChatGPT-Generated-Image-mma-two-day-pivot-body.png",
+      "reason": "visual QA found readable DAY 1 / DAY 2 text; not used as a final image"
+    }
+  },
+  "articlePath": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260609T040000Z/src/content/news/en/mma-two-day-gamble.md",
+  "articleWordCount": 1400,
+  "createdAtLocal": "2026-06-09 13:21:38 +0900"
+}
