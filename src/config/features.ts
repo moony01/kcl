@@ -81,12 +81,12 @@ export const FEATURES = {
   SUB_LABEL_VOTING: true,
 
   /**
-   * T2.02: KCL Pro 구독 결제 시스템
+   * Legacy: KCL Pro 구독 결제 시스템
    * - 경로: /[locale]/pro
-   * - 상태: 활성화
-   * - Buy Me a Coffee 멤버십 연동, 월 $1.99, 일 300표
+   * - 상태: 사용자 노출/판매 중단 (DB/BMC 연동 구조는 보관)
+   * - 일반 회원 일 300표 정책으로 대체
    */
-  PRO_SUBSCRIPTION: true,
+  PRO_SUBSCRIPTION: false,
 } as const;
 
 /** Feature Flag 타입 */

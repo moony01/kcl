@@ -1,11 +1,13 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import koMessages from '@/messages/ko.json';
 import OnboardingClient from './OnboardingClient';
 
 const mockReplace = vi.fn();
 const mockUseAuth = vi.fn();
 const mockFrom = vi.fn();
+const mockRefreshProfile = vi.fn();
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/ko/onboarding',
@@ -24,21 +26,25 @@ vi.mock('@/lib/supabase/client', () => ({
   }),
 }));
 
-const messages = {
-  Onboarding: {
-    title: '최애 그룹을 선택하세요!',
-    subtitle: '선택한 그룹의 소속사가 메인에 자동 설정됩니다',
-    search_placeholder: '그룹 이름 검색...',
-    skip: '나중에 하기',
-    select: '선택',
-    selected: '선택 완료!',
-    saving: '저장 중...',
-    my_favorite_group: '최애 그룹',
-    change_group: '변경',
-    set_group: '최애 그룹 설정',
-    no_results: '검색 결과 없음',
-  },
-};
+const messages = { Onboarding: koMessages.Onboarding };
+
+function createProfileQuery(username = '테스터') {
+  const maybeSingle = vi.fn().mockResolvedValue({ data: { username }, error: null });
+  const selectEq = vi.fn().mockReturnValue({ maybeSingle });
+  const select = vi.fn().mockReturnValue({ eq: selectEq });
+  const updateEq = vi.fn().mockResolvedValue({ error: null });
+  const update = vi.fn().mockReturnValue({ eq: updateEq });
+
+  return { select, update, updateEq };
+}
+
+function createGroupsQuery(groups: unknown[]) {
+  const order = vi.fn().mockResolvedValue({ data: groups, error: null });
+  const eq = vi.fn().mockReturnValue({ order });
+  const select = vi.fn().mockReturnValue({ eq });
+
+  return { select, order };
+}
 
 function renderWithIntl() {
   return render(
@@ -53,6 +59,8 @@ describe('OnboardingClient', () => {
     mockReplace.mockReset();
     mockUseAuth.mockReset();
     mockFrom.mockReset();
+    mockRefreshProfile.mockReset();
+    mockRefreshProfile.mockResolvedValue(undefined);
   });
 
   it('비로그인 상태에서 로그인 페이지로 리다이렉트한다', async () => {
@@ -72,6 +80,7 @@ describe('OnboardingClient', () => {
     mockUseAuth.mockReturnValue({
       user: { id: 'user-1' },
       isLoading: false,
+      refreshProfile: mockRefreshProfile,
     });
 
     const groups = [
@@ -95,13 +104,15 @@ describe('OnboardingClient', () => {
       },
     ];
 
-    const groupsOrder = vi.fn().mockResolvedValue({ data: groups, error: null });
-    const groupsEq = vi.fn().mockReturnValue({ order: groupsOrder });
-    const groupsSelect = vi.fn().mockReturnValue({ eq: groupsEq });
+    const groupsQuery = createGroupsQuery(groups);
+    const profileQuery = createProfileQuery();
 
     mockFrom.mockImplementation((table: string) => {
       if (table === 'kcl_groups') {
-        return { select: groupsSelect };
+        return groupsQuery;
+      }
+      if (table === 'kcl_user_profiles') {
+        return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
     });
@@ -109,11 +120,10 @@ describe('OnboardingClient', () => {
     renderWithIntl();
 
     await waitFor(() => {
-      expect(screen.getByText('에스파')).toBeDefined();
-      expect(screen.getByText('방탄소년단')).toBeDefined();
+      expect(groupsQuery.order).toHaveBeenCalled();
     });
 
-    fireEvent.change(screen.getByPlaceholderText('그룹 이름 검색...'), {
+    fireEvent.change(screen.getByPlaceholderText('그룹 이름으로 검색...'), {
       target: { value: 'bts' },
     });
 
@@ -127,6 +137,7 @@ describe('OnboardingClient', () => {
     mockUseAuth.mockReturnValue({
       user: { id: 'user-1' },
       isLoading: false,
+      refreshProfile: mockRefreshProfile,
     });
 
     const groups = [
@@ -141,34 +152,37 @@ describe('OnboardingClient', () => {
       },
     ];
 
-    const groupsOrder = vi.fn().mockResolvedValue({ data: groups, error: null });
-    const groupsEq = vi.fn().mockReturnValue({ order: groupsOrder });
-    const groupsSelect = vi.fn().mockReturnValue({ eq: groupsEq });
-
-    const updateEq = vi.fn().mockResolvedValue({ error: null });
-    const update = vi.fn().mockReturnValue({ eq: updateEq });
+    const groupsQuery = createGroupsQuery(groups);
+    const profileQuery = createProfileQuery();
 
     mockFrom.mockImplementation((table: string) => {
       if (table === 'kcl_groups') {
-        return { select: groupsSelect };
+        return groupsQuery;
       }
       if (table === 'kcl_user_profiles') {
-        return { update };
+        return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
     });
 
     renderWithIntl();
 
-    await waitFor(() => {
-      expect(screen.getByText('에스파')).toBeDefined();
+    await screen.findByDisplayValue('테스터');
+
+    fireEvent.change(screen.getByPlaceholderText('그룹 이름으로 검색...'), {
+      target: { value: '에스' },
     });
 
-    fireEvent.click(screen.getByRole('button', { name: '선택' }));
+    fireEvent.mouseDown(await screen.findByText('에스파'));
+    fireEvent.click(screen.getByRole('button', { name: '시작하기' }));
 
     await waitFor(() => {
-      expect(update).toHaveBeenCalledWith({ favorite_group_id: 'group-aespa' });
-      expect(updateEq).toHaveBeenCalledWith('id', 'user-1');
+      expect(profileQuery.update).toHaveBeenCalledWith({
+        username: '테스터',
+        favorite_group_id: 'group-aespa',
+      });
+      expect(profileQuery.updateEq).toHaveBeenCalledWith('id', 'user-1');
+      expect(mockRefreshProfile).toHaveBeenCalled();
       expect(mockReplace).toHaveBeenCalledWith('/ko');
     });
   });
@@ -177,24 +191,31 @@ describe('OnboardingClient', () => {
     mockUseAuth.mockReturnValue({
       user: { id: 'user-1' },
       isLoading: false,
+      refreshProfile: mockRefreshProfile,
     });
 
-    const groupsOrder = vi.fn().mockResolvedValue({ data: [], error: null });
-    const groupsEq = vi.fn().mockReturnValue({ order: groupsOrder });
-    const groupsSelect = vi.fn().mockReturnValue({ eq: groupsEq });
+    const groupsQuery = createGroupsQuery([]);
+    const profileQuery = createProfileQuery();
 
     mockFrom.mockImplementation((table: string) => {
       if (table === 'kcl_groups') {
-        return { select: groupsSelect };
+        return groupsQuery;
+      }
+      if (table === 'kcl_user_profiles') {
+        return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
     });
 
     renderWithIntl();
 
+    await screen.findByDisplayValue('테스터');
     fireEvent.click(screen.getByRole('button', { name: '나중에 하기' }));
 
     await waitFor(() => {
+      expect(profileQuery.update).toHaveBeenCalledWith({ username: '테스터' });
+      expect(profileQuery.updateEq).toHaveBeenCalledWith('id', 'user-1');
+      expect(mockRefreshProfile).toHaveBeenCalled();
       expect(mockReplace).toHaveBeenCalledWith('/ko');
     });
   });

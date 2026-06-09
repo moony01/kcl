@@ -7,12 +7,33 @@
  * 테이블: kcl_votes, kcl_companies
  *
  * 보안:
- * - 서버 사이드 Rate Limit: submit_vote_secure RPC에서 fingerprint 기반 일일 30회 제한
- * - 클라이언트 사이드 Rate Limit: useVoteQuota 훅 (UX용 보조)
+ * - 서버 사이드 Rate Limit: submit_vote_secure RPC에서 비회원 100회/로그인 회원 300회/운영 override 500회 제한
+ * - 클라이언트 사이드 Rate Limit: useVoteQuota 훅 (비회원 localStorage 100회, UX용 보조)
  * - RLS 정책으로 데이터 접근 보안
  */
 
+import { VOTE_LIMITS } from '@/config/vote';
 import { getSupabase } from '@/lib/supabase/client';
+
+const GUEST_VOTER_ID_KEY = 'kcl_guest_voter_id';
+
+function getGuestVoteFingerprint(): string | null {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const stored = localStorage.getItem(GUEST_VOTER_ID_KEY);
+    if (stored) return stored;
+
+    const generated =
+      typeof crypto !== 'undefined' && 'randomUUID' in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    localStorage.setItem(GUEST_VOTER_ID_KEY, generated);
+    return generated;
+  } catch {
+    return null;
+  }
+}
 
 /** 투표 요청 파라미터 */
 export interface SubmitVoteParams {
@@ -20,9 +41,9 @@ export interface SubmitVoteParams {
   companyId: string;
   /** 그룹 ID (선택) */
   groupId?: string | null;
-  /** 로그인 사용자 ID (선택, 로그인 시 월간 60표 적용) */
+  /** 로그인 사용자 ID (선택, 로그인 시 일일 300표/운영 override 적용) */
   userId?: string | null;
-  /** 투표 파워 (비회원: 1 고정, 회원: 1~30, Pro: 1~50, 롱프레스 파워투표 시 사용) */
+  /** 투표 파워 (1~100, 롱프레스 파워투표 시 사용) */
   votePower?: number;
 }
 
@@ -37,7 +58,7 @@ export interface VoteResult {
   /** 에러 메시지 */
   message: string;
   /** 에러 코드 */
-  errorCode?: 'INVALID_COMPANY' | 'SUPABASE_ERROR' | 'RATE_LIMITED' | 'UNKNOWN';
+  errorCode?: 'INVALID_COMPANY' | 'SUPABASE_ERROR' | 'RATE_LIMITED' | 'UNAUTHORIZED' | 'UNKNOWN';
   /** 오늘 남은 투표 수 */
   remaining?: number;
 }
@@ -45,9 +66,9 @@ export interface VoteResult {
 /**
  * 투표 제출 (서버 사이드 Rate Limiting 적용)
  *
- * submit_vote_secure RPC를 통해 서버에서 fingerprint 기반 일일 제한을 검증합니다.
- * - 서버 사이드: fingerprint 기반 일일 30회 제한 (RPC 내부)
- * - 클라이언트 사이드: useVoteQuota 훅으로 UX 보조
+ * submit_vote_secure RPC를 통해 서버에서 로그인 사용자의 일일 제한을 검증합니다.
+ * - 서버 사이드: 회원 300표/일, 운영 override 500표/일, 파워투표 최대 x100
+ * - 클라이언트 사이드: 비회원 100표 localStorage + useVoteQuota 훅으로 UX 보조
  *
  * @param params - 투표 파라미터
  * @returns 투표 결과
@@ -55,6 +76,9 @@ export interface VoteResult {
 export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> {
   const { companyId, groupId } = params;
   const supabase = getSupabase();
+  const votePower = Math.min(Math.max(Math.floor(params.votePower || 1), 1), VOTE_LIMITS.POWER_MAX);
+  const userId = params.userId || null;
+  const fingerprint = userId ? null : getGuestVoteFingerprint();
 
   if (!companyId) {
     return {
@@ -65,19 +89,16 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
   }
 
   try {
-    // T1.82: 서버 fingerprint 체크 비활성화 — localStorage 기반 쿼타만 사용
-    // 사용자 수가 적은 초기 단계에서는 클라이언트 제한으로 충분
-    // 추후 사용자 증가 시 fingerprint 기반 서버 제한 재활성화 예정
-    //
-    // T1.85: 로그인 사용자 지원 추가
-    // - p_user_id: 로그인 사용자 ID (서버에서 월간 60표 제한 검증)
-    // - p_vote_power: 파워투표 점수 (1~50, 롱프레스 게이지)
+    // 2026-06: 로그인 사용자 일일 한도/파워투표 정책
+    // - p_user_id: 로그인 사용자 ID (서버에서 회원 300표/운영 override 500표 검증)
+    // - p_vote_power: 파워투표 점수 (1~100, 롱프레스 게이지)
     const { data, error } = await supabase.rpc('submit_vote_secure', {
       p_company_id: companyId,
       p_group_id: groupId || null,
-      p_fingerprint: null,
-      p_user_id: params.userId || null,
-      p_vote_power: params.votePower || 1,
+      p_fingerprint: fingerprint,
+      p_daily_limit: VOTE_LIMITS.GUEST_DAILY,
+      p_user_id: userId,
+      p_vote_power: votePower,
     });
 
     if (error) {
@@ -130,7 +151,7 @@ export interface UserVoteStats {
   dailyUsed: number;
   /** 오늘 남은 투표 수 */
   dailyRemaining: number;
-  /** 일일 투표 한도 (Free: 60, Pro: 300) */
+  /** 일일 투표 한도 (회원: 300, 운영 override: 500) */
   dailyLimit: number;
   /** 총 누적 투표 수 */
   totalVotes: number;
@@ -234,23 +255,27 @@ export async function getVoteStats(): Promise<VoteStats> {
       0,
     );
 
-    // 오늘 투표 수 (시간 범위 필터)
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayISO = today.toISOString();
+    // 오늘 투표 수 (UTC 일일 리셋 기준)
+    const now = new Date();
+    const todayISO = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())).toISOString();
 
-    const { count: todayCount, error: todayError } = await supabase
+    const { data: todayVotes, error: todayError } = await supabase
       .from('kcl_votes')
-      .select('*', { count: 'exact', head: true })
+      .select('vote_power')
       .gte('created_at', todayISO);
 
     if (todayError) {
-      console.warn('[getVoteStats] Failed to count today votes:', todayError.message);
+      console.warn('[getVoteStats] Failed to fetch today votes:', todayError.message);
     }
+
+    const todayVoteScore = (todayVotes || []).reduce(
+      (sum: number, vote: { vote_power: number | null }) => sum + (vote.vote_power || 1),
+      0,
+    );
 
     return {
       totalVotes,
-      todayVotes: todayCount || 0,
+      todayVotes: todayVoteScore,
     };
   } catch (error) {
     console.error('[getVoteStats] Unexpected error:', error);

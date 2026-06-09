@@ -15,6 +15,7 @@ import { useState } from 'react';
 import { useSWRConfig } from 'swr';
 import confetti from 'canvas-confetti';
 import { submitVote as submitVoteApi } from '@/lib/api';
+import { VOTE_LIMITS } from '@/config/vote';
 import type { VoteResult } from '@/lib/api';
 
 /** submitVote 호출 시 전달할 옵션 */
@@ -25,7 +26,7 @@ interface SubmitVoteOptions {
   companyColor?: string;
   /** 로그인 사용자 ID (선택) */
   userId?: string | null;
-  /** 파워투표 점수 (1~50, 기본값 1) */
+  /** 파워투표 점수 (1~100, 기본값 1) */
   votePower?: number;
 }
 
@@ -64,7 +65,7 @@ export function useVote() {
     setIsLoading(true);
 
     const { companyId, companyColor, userId, votePower = 1 } = options;
-    const normalizedVotePower = Math.min(Math.max(Math.floor(votePower), 1), 50);
+    const normalizedVotePower = Math.min(Math.max(Math.floor(votePower), 1), VOTE_LIMITS.POWER_MAX);
 
     try {
       const result = await submitVoteApi({

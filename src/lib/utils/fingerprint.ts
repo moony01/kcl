@@ -7,6 +7,31 @@
 /** localStorage 키 */
 const FINGERPRINT_KEY = 'kcl_fingerprint';
 
+function createFingerprint(): string {
+  const browserCrypto = globalThis.crypto;
+
+  if (typeof browserCrypto?.randomUUID === 'function') {
+    return browserCrypto.randomUUID();
+  }
+
+  if (typeof browserCrypto?.getRandomValues === 'function') {
+    const bytes = browserCrypto.getRandomValues(new Uint8Array(16));
+    bytes[6] = (bytes[6] & 0x0f) | 0x40;
+    bytes[8] = (bytes[8] & 0x3f) | 0x80;
+
+    const hex = [...bytes].map((byte) => byte.toString(16).padStart(2, '0'));
+    return [
+      hex.slice(0, 4).join(''),
+      hex.slice(4, 6).join(''),
+      hex.slice(6, 8).join(''),
+      hex.slice(8, 10).join(''),
+      hex.slice(10, 16).join(''),
+    ].join('-');
+  }
+
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
+}
+
 /**
  * 브라우저 fingerprint(UUID) 조회 또는 생성
  * - localStorage에 이미 저장된 값이 있으면 반환
@@ -18,12 +43,16 @@ export function getFingerprint(): string {
     return '';
   }
 
-  const existing = localStorage.getItem(FINGERPRINT_KEY);
-  if (existing) {
-    return existing;
-  }
+  try {
+    const existing = localStorage.getItem(FINGERPRINT_KEY);
+    if (existing) {
+      return existing;
+    }
 
-  const uuid = crypto.randomUUID();
-  localStorage.setItem(FINGERPRINT_KEY, uuid);
-  return uuid;
+    const uuid = createFingerprint();
+    localStorage.setItem(FINGERPRINT_KEY, uuid);
+    return uuid;
+  } catch {
+    return createFingerprint();
+  }
 }

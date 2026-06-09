@@ -11,9 +11,9 @@
  * - 현재 화력 점수 표시
  * - 투표권 상태 표시 (VoteQuotaBar)
  *
- * T1.8.2: 1회 투표 = 1점, 일일 30회 제한
+ * T1.8.2: 1회 투표 = 1점, 일일 100회 제한
  * T2.0: CompactSelect UI
- * T1.85/T2.03: 로그인 사용자 60표, 롱프레스 파워투표 (1~50)
+ * 2026-06: 비회원/회원 모두 롱프레스 파워투표 최대 x100 지원
  */
 
 'use client';
@@ -27,6 +27,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
 import { FEATURES } from '@/config/features';
+import { VOTE_LIMITS } from '@/config/vote';
 import { useVote } from '@/hooks/useVote';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
 import { useAuth } from '@/hooks/useAuth';
@@ -38,10 +39,8 @@ import styles from './VoteController.module.scss';
 const POWER_VOTE = {
   /** 롱프레스 감지 딜레이 (ms) - 이 시간 이상 누르면 파워투표 시작 */
   HOLD_DELAY: 400,
-  /** 최대 파워 레벨 - Pro: 50표, Free(회원): 30표, Guest(비회원): 파워투표 불가 */
-  MAX_LEVEL_PRO: 50,
-  MAX_LEVEL_FREE: 30,
-  MAX_LEVEL_GUEST: 1,
+  /** 최대 파워 레벨 - 모든 사용자 공통 최대 x100 */
+  MAX_LEVEL: VOTE_LIMITS.POWER_MAX,
   /** 풀충전 시간 (ms) */
   FULL_CHARGE_MS: 3000,
 } as const;
@@ -71,7 +70,7 @@ export default function VoteController({
   const locale = useLocale();
   const { user, profile } = useAuth();
   const { submitVote, isLoading } = useVote();
-  // T1.85: 로그인 사용자는 일일 60표, 비로그인은 일일 30표
+  // 2026-06: 로그인 회원 300표, 비로그인 100표 (운영 override는 서버 dailyLimit 반영)
   const { quota, useVote: consumeVote, isLoading: isQuotaLoading } = useVoteQuota(user?.id);
 
   // 선택된 아티스트 상태 (초기값은 props에서 전달받거나 첫번째 아티스트)
@@ -82,25 +81,22 @@ export default function VoteController({
   /** 마지막 투표 점수 (성공 애니메이션에 표시) */
   const [lastScore, setLastScore] = useState(1);
 
-  // 파워투표 최대 레벨: 비회원 1표(불가), 회원 30표, Pro 50표
+  // 모든 사용자가 롱프레스 파워투표를 사용할 수 있습니다. (최대 x100)
   const isPro = !!profile?.is_pro;
   const isLoggedIn = !!user;
-  /** 로그인 회원이지만 Pro가 아닌 경우 — 힌트/팝업 표시 대상 */
+  /** 로그인 회원이지만 Pro가 아닌 경우 — legacy Pro feature flag가 켜진 경우에만 힌트/팝업 표시 */
   const isLoggedInNonPro = isLoggedIn && !isPro;
-  const maxPowerLevel = !isLoggedIn
-    ? POWER_VOTE.MAX_LEVEL_GUEST
-    : isPro
-      ? POWER_VOTE.MAX_LEVEL_PRO
-      : POWER_VOTE.MAX_LEVEL_FREE;
-  /** 파워투표 가능 여부 (비회원은 불가) */
-  const canPowerVote = isLoggedIn && maxPowerLevel > 1;
+  const showProPromos = FEATURES.PRO_SUBSCRIPTION && isLoggedInNonPro;
+  const maxPowerLevel = POWER_VOTE.MAX_LEVEL;
+  /** 파워투표 가능 여부 */
+  const canPowerVote = maxPowerLevel > 1 && quota.remaining > 1;
   const stepInterval = Math.max(16, Math.round(POWER_VOTE.FULL_CHARGE_MS / Math.max(maxPowerLevel - 1, 1)));
 
   // T1.75: 선택된 서브레이블 상태 (null = 전체)
   const [selectedSubLabel, setSelectedSubLabel] = useState<string | null>(null);
 
   // T1.85: 파워투표 게이지 상태
-  /** 현재 파워 레벨 (0 = 누르지 않은 상태, 1~50 = 게이지) */
+  /** 현재 파워 레벨 (0 = 누르지 않은 상태, 1~100 = 게이지) */
   const [powerLevel, setPowerLevel] = useState(0);
   /** 롱프레스 진행 중 여부 */
   const [isPressing, setIsPressing] = useState(false);
@@ -110,6 +106,8 @@ export default function VoteController({
   const gaugeIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   /** 터치 시작 시간 (탭 vs 롱프레스 구분) */
   const pressStartRef = useRef<number>(0);
+  /** pointerup 시 React state stale 값을 피하기 위한 최신 파워 레벨 */
+  const powerLevelRef = useRef<number>(0);
 
   // T1.75: 서브레이블 유무 판단
   const hasSubLabels = FEATURES.SUB_LABEL_VOTING && (company?.subLabels?.length ?? 0) > 0;
@@ -169,8 +167,8 @@ export default function VoteController({
         setShowSuccess(true);
         onVoteSuccess?.(company.id);
 
-        // 투표 후 남은 투표권이 0이 되면 소진 팝업 표시 (Non-Pro만)
-        if (isLoggedInNonPro && quota.remaining - consumed <= 0) {
+        // 투표 후 남은 투표권이 0이 되면 legacy Pro 팝업 표시 (feature flag가 켜진 경우만)
+        if (showProPromos && quota.remaining - consumed <= 0) {
           setShowExhaustedProPopup(true);
         }
 
@@ -179,7 +177,7 @@ export default function VoteController({
         }, 1500);
       }
     },
-    [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, submitVote, consumeVote, onVoteSuccess, user?.id, isLoggedInNonPro],
+    [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, submitVote, consumeVote, onVoteSuccess, user?.id, showProPromos],
   );
 
   /**
@@ -201,18 +199,20 @@ export default function VoteController({
    *
    * 버튼을 누르면:
    * 1. HOLD_DELAY 후 파워투표 모드 진입
-   * 2. stepInterval마다 게이지 1칸씩 증가 (Pro: 최대 50, Free: 최대 30, 남은 투표권 상한)
+   * 2. stepInterval마다 게이지 1칸씩 증가 (최대 100, 남은 투표권 상한)
    */
   const handlePointerDown = useCallback(() => {
     const maxChargePower = Math.min(maxPowerLevel, quota.remaining);
     if (!company || isLoading || !quota.canVote || maxChargePower <= 0) return;
 
     pressStartRef.current = Date.now();
+    powerLevelRef.current = 0;
     setIsPressing(true);
 
     // HOLD_DELAY 후 파워투표 모드 진입
     holdTimerRef.current = setTimeout(() => {
       let level = 1;
+      powerLevelRef.current = level;
       setPowerLevel(level);
 
       // 남은 투표권이 1이면 추가 충전 없이 1표에서 고정
@@ -223,6 +223,7 @@ export default function VoteController({
       // 게이지 증가 인터벌
       gaugeIntervalRef.current = setInterval(() => {
         level = Math.min(level + 1, maxChargePower);
+        powerLevelRef.current = level;
         setPowerLevel(level);
 
         // 최대 레벨 도달 시 인터벌 중지 (자동 투표하지 않음, 놓을 때까지 대기)
@@ -246,20 +247,21 @@ export default function VoteController({
     const pressDuration = Date.now() - pressStartRef.current;
     clearTimers();
     setIsPressing(false);
+    const finalPower = powerLevelRef.current;
+    powerLevelRef.current = 0;
 
     if (pressDuration < POWER_VOTE.HOLD_DELAY) {
       // 짧은 탭 → 1표 일반 투표
       setPowerLevel(0);
       executeVote(1);
-    } else if (powerLevel > 0) {
+    } else if (finalPower > 0) {
       // 롱프레스 → 파워 레벨만큼 투표
-      const finalPower = powerLevel;
       setPowerLevel(0);
       executeVote(finalPower);
     } else {
       setPowerLevel(0);
     }
-  }, [isPressing, powerLevel, clearTimers, executeVote]);
+  }, [isPressing, clearTimers, executeVote]);
 
   /**
    * 포인터가 버튼을 벗어나면 취소
@@ -268,6 +270,7 @@ export default function VoteController({
     if (isPressing) {
       clearTimers();
       setIsPressing(false);
+      powerLevelRef.current = 0;
       setPowerLevel(0);
     }
   }, [isPressing, clearTimers]);
@@ -426,7 +429,7 @@ export default function VoteController({
       </div>
 
       {/* Fan Power Pass 업셀링 버튼 (로그인 비Pro 회원에게만 표시) */}
-      {FEATURES.PRO_SUBSCRIPTION && isLoggedInNonPro && (
+      {FEATURES.PRO_SUBSCRIPTION && showProPromos && (
         <Link href={`/${locale}/pro`} className={styles.fanPowerPassBtn}>
           <Crown size={15} className={styles.fanPowerPassBtnIcon} />
           <span className={styles.fanPowerPassBtnCta}>{tPro('upgrade_cta')}</span>
@@ -453,7 +456,7 @@ export default function VoteController({
       {/* ② 투표권 소진 Pro 업그레이드 모달 (로그인 비Pro 회원이 투표권 0이 됐을 때) */}
       {typeof window !== 'undefined' && createPortal(
         <AnimatePresence>
-          {isLoggedInNonPro && showExhaustedProPopup && (
+          {showProPromos && showExhaustedProPopup && (
             <motion.div
               className={styles.proExhaustedOverlay}
               initial={{ opacity: 0 }}

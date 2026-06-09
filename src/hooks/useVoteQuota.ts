@@ -4,30 +4,33 @@
  * 투표권 관리 훅
  *
  * 모드별 동작:
- * - 비로그인: localStorage 기반 일일 30회 (UTC 자정 리셋)
- * - 로그인 Free: 서버 기반 일일 60회 (get_user_vote_stats RPC 조회)
- * - 로그인 Pro: 서버 기반 일일 300회 (T2.02: KCL Pro)
+ * - 비로그인: localStorage 기반 일일 100회 (UTC 자정 리셋)
+ * - 로그인 회원: 서버 기반 일일 300회 (get_user_vote_stats RPC 조회)
+ * - 내부 운영 계정: 서버 override 기반 일일 500회
  *
- * T1.85: 로그인 사용자 일일 60표 + 파워투표 다중 소비 지원
- * T2.02: Pro 사용자 300표/일 지원 (서버에서 is_pro 확인 후 한도 결정)
+ * Pro 구독 노출은 중단했고, 투표권 정책은 일반 회원 중심으로 단순화합니다.
  */
 
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { VOTE_LIMITS } from '@/config/vote';
 import { getUserVoteStats } from '@/lib/api';
 
 /** localStorage 키 */
 const STORAGE_KEY = 'kcl_vote_quota';
 
 /** 비로그인 일일 최대 투표권 */
-export const MAX_DAILY_VOTES = 30;
+export const MAX_DAILY_VOTES = VOTE_LIMITS.GUEST_DAILY;
 
-/** 로그인 Free 일일 최대 투표권 */
-export const MAX_DAILY_VOTES_LOGIN = 60;
+/** 로그인 회원 일일 최대 투표권 */
+export const MAX_DAILY_VOTES_LOGIN = VOTE_LIMITS.MEMBER_DAILY;
 
-/** 로그인 Pro 일일 최대 투표권 (T2.02) */
-export const MAX_DAILY_VOTES_PRO = 300;
+/** 내부 운영 계정 일일 최대 투표권 (DB override로 서버에서 결정) */
+export const MAX_DAILY_VOTES_OWNER = VOTE_LIMITS.OWNER_DAILY;
+
+/** 1회 파워투표 최대치 */
+export const MAX_POWER_VOTE = VOTE_LIMITS.POWER_MAX;
 
 /**
  * localStorage에 저장되는 투표권 데이터 구조 (비로그인용)
@@ -144,10 +147,10 @@ function saveQuotaToStorage(data: VoteQuotaStorage): void {
  *
  * @example
  * ```tsx
- * // 비로그인: 일일 30표 (localStorage)
+ * // 비로그인: 일일 100표 (localStorage)
  * const { quota, useVote } = useVoteQuota();
  *
- * // 로그인: 일일 60표 (서버 조회)
+ * // 로그인: 일일 300표 (서버 조회, 운영 override는 서버 dailyLimit 반영)
  * const { user } = useAuth();
  * const { quota, useVote } = useVoteQuota(user?.id);
  *
@@ -165,7 +168,7 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
     formatted: '',
   });
 
-  const mode: 'daily' = 'daily';
+  const mode = 'daily' as const;
 
   /**
    * 서버에서 로그인 사용자 투표 통계 가져오기
@@ -178,9 +181,12 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
       if (stats) {
         setUsed(stats.dailyUsed);
         setMax(stats.dailyLimit);
+      } else {
+        setMax(MAX_DAILY_VOTES_LOGIN);
       }
     } catch (error) {
       console.error('[useVoteQuota] Failed to fetch server stats:', error);
+      setMax(MAX_DAILY_VOTES_LOGIN);
     }
   }, [userId]);
 
@@ -194,7 +200,7 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
 
     if (userId) {
       // 로그인 모드: 서버 통계를 일일 한도로 사용
-      setMax(MAX_DAILY_VOTES_LOGIN);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       fetchServerStats().finally(() => {
         if (!cancelled) setIsLoading(false);
       });
@@ -278,9 +284,9 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
   /**
    * 투표권 사용 (클라이언트 측 낙관적 업데이트)
    *
-    * @param count - 소비할 투표 수 (기본값 1, 파워투표 시 1~50)
-    * @returns 성공 여부
-    */
+   * @param count - 소비할 투표 수 (기본값 1, 파워투표 시 1~100)
+   * @returns 성공 여부
+   */
   const useVote = useCallback(
     (count: number = 1): boolean => {
       if (userId) {
