@@ -8,7 +8,11 @@
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   // 그리드 3컬럼 밖으로 빠져나가도록 full-width
   grid-column: 1 / -1;
@@ -51,6 +55,8 @@
 .inFeedAd {
   grid-column: 1 / -1;
   margin: 8px 0;
+  min-width: 0;
+  max-width: 100%;
 }
 
 // 더 보기 버튼 영역
