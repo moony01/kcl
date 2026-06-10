@@ -22,14 +22,7 @@
 // Companies API
 export {
   getCompanies,
-  getCompanyById,
-  getCompanyGroups,
   type GetCompaniesOptions,
-  type CompanyDetail,
-  type GroupDetail,
-  type CompanyDetailResult,
-  type GetCompanyGroupsOptions,
-  type CompanyGroupsResult,
 } from './companies';
 
 // Vote API
@@ -44,28 +37,4 @@ export {
 } from './vote';
 
 // Hall of Fame API
-export { getHallOfFame, getMonthlyChampionsByYear } from './hall-of-fame';
-
-// Subscription API (T2.02: KCL Pro)
-export {
-  createCheckout,
-  getActiveSubscription,
-  getSubscriptionHistory,
-  type Subscription,
-  type SubscriptionStatus,
-  type CreateCheckoutParams,
-  type CreateCheckoutResult,
-} from './subscription';
-
-// Community API
-export {
-  getPosts,
-  getPostById,
-  createPost,
-  createComment,
-  submitReport,
-  type GetPostsOptions,
-  type CreatePostResult,
-  type CreateCommentResult,
-  type SubmitReportParams,
-} from './community';
+export { getHallOfFame } from './hall-of-fame';

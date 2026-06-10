@@ -17,9 +17,7 @@ import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { LogOut, Flame, Calendar, User, Mail, Trophy, TrendingUp, Crown, Pencil, Check, X, AlertTriangle } from 'lucide-react';
-import Link from 'next/link';
-import { FEATURES } from '@/config/features';
+import { LogOut, Flame, Calendar, User, Mail, Trophy, TrendingUp, Pencil, Check, X, AlertTriangle } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { getUserVoteStats, type UserVoteStats } from '@/lib/api';
 import { getSupabase } from '@/lib/supabase/client';
@@ -613,54 +611,6 @@ export default function MyProfile() {
           </p>
         )}
       </motion.section>
-
-      {/* T2.02: Fan Power Pass 구독 섹션 */}
-      {FEATURES.PRO_SUBSCRIPTION && (
-        <motion.section
-          className={styles.proSection}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.18 }}
-        >
-          <h3 className={styles.sectionTitle}>
-            <Crown size={18} />
-            Fan Power Pass
-          </h3>
-          {profile?.is_pro ? (
-            <div className={styles.proActiveCard}>
-              <div className={styles.proBadgeRow}>
-                <span className={styles.proActiveBadge}>PRO</span>
-                <span className={styles.proActiveText}>
-                  {locale === 'ko' ? '활성 구독 중' : 'Active Subscription'}
-                </span>
-              </div>
-              <p className={styles.proVoteInfo}>
-                {locale === 'ko' ? '일 300표 투표 가능' : '300 votes per day'}
-              </p>
-              <Link href={`/${locale}/pro`} className={styles.proManageLink}>
-                {locale === 'ko' ? '구독 관리' : 'Manage Subscription'}
-              </Link>
-            </div>
-          ) : (
-            <Link href={`/${locale}/pro`} className={styles.proUpgradeCard}>
-              <div className={styles.proUpgradeLeft}>
-                <Crown size={20} className={styles.proUpgradeIcon} />
-                <div>
-                  <span className={styles.proUpgradeTitle}>
-                    {locale === 'ko' ? 'Pro로 업그레이드' : 'Upgrade to Pro'}
-                  </span>
-                  <span className={styles.proUpgradeDesc}>
-                    {locale === 'ko'
-                      ? '일 300표 · Buy Me a Coffee 멤버십'
-                      : '300 votes/day · Buy Me a Coffee membership'}
-                  </span>
-                </div>
-              </div>
-              <span className={styles.proUpgradeArrow}>→</span>
-            </Link>
-          )}
-        </motion.section>
-      )}
 
       <motion.section
         className={styles.favoriteGroupSection}

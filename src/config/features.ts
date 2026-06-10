@@ -8,29 +8,15 @@
  * ```tsx
  * import { FEATURES } from '@/config/features';
  *
- * if (FEATURES.ANALYTICS_PAGE) {
- *   // 통계 페이지 관련 코드
+ * if (FEATURES.NEWS_PAGE) {
+ *   // 뉴스 페이지 관련 코드
  * }
  * ```
  *
- * @updated 2026-01-19 - Phase 1: Analytics, Company Detail 비활성화
+ * @updated 2026-06-10 - Remove legacy hidden page flags
  */
 
 export const FEATURES = {
-  /**
-   * 통계 페이지 (Analytics)
-   * - 경로: /[locale]/analytics
-   * - 상태: Phase 2에서 활성화 예정
-   */
-  ANALYTICS_PAGE: false,
-
-  /**
-   * 회사 상세보기 페이지 (Company Detail)
-   * - 경로: /[locale]/company/[id]
-   * - 상태: Phase 2에서 활성화 예정
-   */
-  COMPANY_DETAIL_PAGE: false,
-
   /**
    * 명예의 전당 (Hall of Fame)
    * - 경로: /[locale]/hall-of-fame
@@ -46,22 +32,8 @@ export const FEATURES = {
   NEWS_PAGE: true,
 
   /**
-   * 커뮤니티 (Community)
-   * - 경로: /[locale]/community
-   * - 상태: Phase 1에서 활성화
-   */
-  COMMUNITY_PAGE: false,
-
-  /**
-   * 공지사항 (Notice)
-   * - 경로: /[locale]/notice
-   * - 상태: 커뮤니티를 대체하여 활성화
-   */
-  NOTICE_PAGE: true,
-
-  /**
    * 프로필/로그인 (Profile/Auth)
-   * - 경로: /[locale]/profile, /[locale]/login
+   * - 경로: /[locale]/my, /[locale]/login
    * - 상태: T1.70에서 활성화 (Google/Kakao OAuth + 이메일 로그인)
    */
   AUTH_SYSTEM: true,
@@ -80,13 +52,6 @@ export const FEATURES = {
    */
   SUB_LABEL_VOTING: true,
 
-  /**
-   * Legacy: KCL Pro 구독 결제 시스템
-   * - 경로: /[locale]/pro
-   * - 상태: 사용자 노출/판매 중단 (DB/BMC 연동 구조는 보관)
-   * - 일반 회원 일 300표 정책으로 대체
-   */
-  PRO_SUBSCRIPTION: false,
 } as const;
 
 /** Feature Flag 타입 */

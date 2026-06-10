@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/generate-news-json.js",
-    "build": "node scripts/generate-news-json.js && next build && next-image-export-optimizer && node scripts/inject-sitemap-style.js",
+    "clean:build": "node -e \"const fs=require('fs'); for (const dir of ['.next','out']) fs.rmSync(dir,{recursive:true,force:true});\"",
+    "build": "pnpm clean:build && node scripts/generate-news-json.js && next build && next-image-export-optimizer && node scripts/inject-sitemap-style.js",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest"

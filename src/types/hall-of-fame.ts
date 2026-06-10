@@ -51,7 +51,6 @@ export interface HallOfFameData {
   latestGrandChampion: GrandChampion | null;
   currentYearRace: YearlyWinCount[];
   currentYearMonthly: MonthlyChampion[];
-  archives: GrandChampion[];
 }
 
 /** 연도별 월간 챔피언 그룹 */

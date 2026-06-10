@@ -13,7 +13,7 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, BarChart3, Trophy, Newspaper, Bell, User } from 'lucide-react';
+import { Home, Trophy, Newspaper, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
@@ -31,24 +31,12 @@ export default function BottomNav() {
   const NAV_ITEMS = [
     { label: t('home'), href: '/', icon: Home, enabled: true },
     {
-      label: t('analytics'),
-      href: '/analytics',
-      icon: BarChart3,
-      enabled: FEATURES.ANALYTICS_PAGE,
-    },
-    {
       label: t('hall_of_fame'),
       href: '/hall-of-fame',
       icon: Trophy,
       enabled: FEATURES.HALL_OF_FAME_PAGE,
     },
     { label: t('news'), href: '/news', icon: Newspaper, enabled: FEATURES.NEWS_PAGE },
-    {
-      label: t('notice'),
-      href: '/notice',
-      icon: Bell,
-      enabled: FEATURES.NOTICE_PAGE,
-    },
     // AUTH_SYSTEM 활성화 시 프로필/로그인 아이콘 추가
     ...(FEATURES.AUTH_SYSTEM
       ? [

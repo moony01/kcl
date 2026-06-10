@@ -16,7 +16,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Home, BarChart3, Trophy, Newspaper, Bell, LogIn, LogOut, Mail, Check } from 'lucide-react';
+import { Home, Trophy, Newspaper, LogIn, LogOut, Mail, Check } from 'lucide-react';
 import classNames from 'classnames';
 import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
@@ -53,24 +53,12 @@ export default function Sidebar() {
   const navItems = [
     { label: t('home'), icon: Home, path: '/', enabled: true },
     {
-      label: t('analytics'),
-      icon: BarChart3,
-      path: '/analytics',
-      enabled: FEATURES.ANALYTICS_PAGE,
-    },
-    {
       label: t('hall_of_fame'),
       icon: Trophy,
       path: '/hall-of-fame',
       enabled: FEATURES.HALL_OF_FAME_PAGE,
     },
     { label: t('news'), icon: Newspaper, path: '/news', enabled: FEATURES.NEWS_PAGE },
-    {
-      label: t('notice'),
-      icon: Bell,
-      path: '/notice',
-      enabled: FEATURES.NOTICE_PAGE,
-    },
   ].filter((item) => item.enabled);
 
   return (

@@ -19,7 +19,6 @@ import ShareButtons from '@/components/common/ShareButtons';
 import GrandChampionCard from '@/components/features/hall-of-fame/GrandChampionCard';
 import CurrentRaceChart from '@/components/features/hall-of-fame/CurrentRaceChart';
 import MonthlyTimeline from '@/components/features/hall-of-fame/MonthlyTimeline';
-import ArchivesCarousel from '@/components/features/hall-of-fame/ArchivesCarousel';
 
 import styles from './page.module.scss';
 
@@ -62,15 +61,6 @@ function LoadingSkeleton() {
         </div>
       </div>
 
-      {/* Archives 스켈레톤 */}
-      <div className={styles.skeletonArchives}>
-        <div className={styles.skeletonSectionTitle} />
-        <div className={styles.skeletonCarousel}>
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className={styles.skeletonCard} />
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
@@ -217,11 +207,6 @@ export default function HallOfFameClient() {
           />
         </section>
       </div>
-
-      {/* Archives (역대 대상 수상자) */}
-      <section className={styles.archivesSection}>
-        <ArchivesCarousel archives={data.archives} />
-      </section>
     </main>
   );
 }

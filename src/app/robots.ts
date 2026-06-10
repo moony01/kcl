@@ -34,7 +34,6 @@ export default function robots(): MetadataRoute.Robots {
           '/*/signup',
 
           // 개인 페이지 (로그인 필요)
-          '/*/profile',
           '/*/my',
 
           // API 경로 (SSG에서는 없지만 방어적으로)

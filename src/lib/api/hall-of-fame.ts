@@ -206,7 +206,6 @@ export async function getHallOfFame(): Promise<HallOfFameData> {
         latestGrandChampion: null,
         currentYearRace: [],
         currentYearMonthly: [],
-        archives: [],
       };
     }
 
@@ -242,19 +241,6 @@ export async function getHallOfFame(): Promise<HallOfFameData> {
     // 현재 연도 대상 경쟁 현황
     const currentYearRace = calculateYearlyWinCount(allChampions, currentYear);
 
-    // 역대 대상 수상자 (직전 연도들)
-    const pastYears = [...new Set(allChampions.map((c) => c.year))]
-      .filter((y) => y < currentYear)
-      .sort((a, b) => b - a); // 최근 연도부터
-
-    const archives: GrandChampion[] = [];
-    for (const year of pastYears) {
-      const grandChampion = determineGrandChampion(allChampions, year);
-      if (grandChampion) {
-        archives.push(grandChampion);
-      }
-    }
-
     // 직전 연도 대상 수상자 (latestGrandChampion)
     const lastYear = currentYear - 1;
     const latestGrandChampion = determineGrandChampion(allChampions, lastYear);
@@ -264,7 +250,6 @@ export async function getHallOfFame(): Promise<HallOfFameData> {
       latestGrandChampion,
       currentYearRace,
       currentYearMonthly,
-      archives,
     };
   } catch (error) {
     console.error('[getHallOfFame] Unexpected error:', error);
@@ -274,74 +259,6 @@ export async function getHallOfFame(): Promise<HallOfFameData> {
       latestGrandChampion: null,
       currentYearRace: [],
       currentYearMonthly: [],
-      archives: [],
     };
-  }
-}
-
-/**
- * 특정 연도의 월간 챔피언 목록 조회
- *
- * @param year - 조회할 연도
- * @returns 해당 연도의 월간 챔피언 목록
- */
-export async function getMonthlyChampionsByYear(year: number): Promise<MonthlyChampion[]> {
-  const supabase = getSupabase();
-
-  try {
-    const { data: seasons, error } = await supabase
-      .from('kcl_seasons')
-      .select(
-        `
-        id,
-        year,
-        month,
-        champion_company_id,
-        total_votes,
-        decided_at,
-        company:kcl_companies!champion_company_id (
-          id,
-          name_ko,
-          name_en,
-          logo_url,
-          gradient_color
-        )
-      `,
-      )
-      .eq('year', year)
-      .order('month', { ascending: true });
-
-    if (error) {
-      console.error('[getMonthlyChampionsByYear] Error:', error.message);
-      return [];
-    }
-
-    if (!seasons || seasons.length === 0) {
-      return [];
-    }
-
-    return seasons.map(
-      (s: {
-        id: string;
-        year: number;
-        month: number;
-        champion_company_id: string;
-        total_votes: number;
-        decided_at: string;
-        company: SeasonRecord['company'] | SeasonRecord['company'][] | null;
-      }) =>
-        toMonthlyChampion({
-          id: s.id,
-          year: s.year,
-          month: s.month,
-          champion_company_id: s.champion_company_id,
-          total_votes: s.total_votes,
-          decided_at: s.decided_at,
-          company: Array.isArray(s.company) ? s.company[0] : s.company,
-        }),
-    );
-  } catch (error) {
-    console.error('[getMonthlyChampionsByYear] Unexpected error:', error);
-    return [];
   }
 }

@@ -49,15 +49,12 @@ vi.mock('framer-motion', () => ({
   },
 }));
 
-// 현재 Feature Flags 기준 Nav 메시지 (ANALYTICS_PAGE=false, COMMUNITY_PAGE=false)
+// 현재 Feature Flags 기준 Nav 메시지
 const messages = {
   Nav: {
     home: '홈',
-    analytics: '통계',
     hall_of_fame: '명예의 전당',
     news: '뉴스',
-    community: '커뮤니티',
-    notice: '공지사항',
     ranking: '랭킹',
     theme: '테마',
     login: '로그인',
@@ -74,15 +71,15 @@ describe('Navigation Components', () => {
       </NextIntlClientProvider>,
     );
 
-    // 활성 메뉴: 홈, 명예의 전당, 뉴스, 공지사항
+    // 활성 메뉴: 홈, 명예의 전당, 뉴스
     expect(screen.getByText('홈')).toBeDefined();
     expect(screen.getByText('명예의 전당')).toBeDefined();
     expect(screen.getByText('뉴스')).toBeDefined();
-    expect(screen.getByText('공지사항')).toBeDefined();
 
-    // 비활성 메뉴: 통계(ANALYTICS_PAGE=false), 커뮤니티(COMMUNITY_PAGE=false)
+    // 비노출 메뉴
     expect(screen.queryByText('통계')).toBeNull();
     expect(screen.queryByText('커뮤니티')).toBeNull();
+    expect(screen.queryByText('공지사항')).toBeNull();
     // 랭킹은 네비게이션에 없어야 함
     expect(screen.queryByText('랭킹')).toBeNull();
 
@@ -97,15 +94,15 @@ describe('Navigation Components', () => {
       </NextIntlClientProvider>,
     );
 
-    // 활성 메뉴: 홈, 명예의 전당, 뉴스, 공지사항
+    // 활성 메뉴: 홈, 명예의 전당, 뉴스
     expect(screen.getByText('홈')).toBeDefined();
     expect(screen.getByText('명예의 전당')).toBeDefined();
     expect(screen.getByText('뉴스')).toBeDefined();
-    expect(screen.getByText('공지사항')).toBeDefined();
 
-    // 비활성 메뉴: 통계, 커뮤니티
+    // 비노출 메뉴
     expect(screen.queryByText('통계')).toBeNull();
     expect(screen.queryByText('커뮤니티')).toBeNull();
+    expect(screen.queryByText('공지사항')).toBeNull();
     // 랭킹은 네비게이션에 없어야 함
     expect(screen.queryByText('랭킹')).toBeNull();
 

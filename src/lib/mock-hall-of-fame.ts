@@ -182,29 +182,6 @@ const GRAND_CHAMPION_2025: GrandChampion = {
   decidedAt: '2026-01-01T00:00:00Z',
 };
 
-/** 역대 대상 수상자 (Archive) */
-const ARCHIVES: GrandChampion[] = [
-  GRAND_CHAMPION_2025,
-  {
-    year: 2024,
-    companyId: COMPANIES.sm.id,
-    companyName: COMPANIES.sm.name,
-    companyLogo: COMPANIES.sm.logo,
-    winCount: 7,
-    totalVotesInYear: 88500200,
-    decidedAt: '2025-01-01T00:00:00Z',
-  },
-  {
-    year: 2023,
-    companyId: COMPANIES.yg.id,
-    companyName: COMPANIES.yg.name,
-    companyLogo: COMPANIES.yg.logo,
-    winCount: 5,
-    totalVotesInYear: 72100500,
-    decidedAt: '2024-01-01T00:00:00Z',
-  },
-];
-
 /**
  * 연간 우승 횟수 계산
  * @param champions 월간 챔피언 목록
@@ -249,7 +226,6 @@ export function getMockHallOfFameData(): HallOfFameData {
     latestGrandChampion: GRAND_CHAMPION_2025,
     currentYearRace: calculateYearlyRace(MONTHLY_CHAMPIONS_2026),
     currentYearMonthly: MONTHLY_CHAMPIONS_2026,
-    archives: ARCHIVES,
   };
 }
 
@@ -269,9 +245,3 @@ export function getMockYearlyRace(year: number): YearlyWinCount[] {
   const champions = getMockMonthlyChampions(year);
   return calculateYearlyRace(champions);
 }
-
-/** 전체 월간 챔피언 (2025 + 2026) */
-export const MOCK_ALL_CHAMPIONS = [...MONTHLY_CHAMPIONS_2025, ...MONTHLY_CHAMPIONS_2026];
-
-/** 역대 대상 수상자 export */
-export const MOCK_ARCHIVES = ARCHIVES;

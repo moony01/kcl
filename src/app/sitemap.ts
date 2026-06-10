@@ -7,7 +7,7 @@ import { getAllNews } from '@/lib/news';
  *
  * SEO 최적화 (2026-01-31 업데이트):
  * - 실제 콘텐츠가 있는 페이지만 포함
- * - 비활성화된 기능 페이지 제외 (/analytics 등)
+ * - 공개 표면에 남긴 핵심 페이지만 포함
  * - 뉴스는 콘텐츠가 존재하는 언어만 포함 (ko, en)
  * - 정적 페이지는 주요 언어만 포함 (크롤링 효율화)
  *
@@ -74,9 +74,8 @@ function generateStaticAlternates(path: string): Record<string, string> {
  * 활성화된 기능 페이지만 포함 (FEATURES 플래그 참조)
  *
  * 제외된 페이지:
- * - /analytics (ANALYTICS_PAGE: false)
- * - /company/* (COMPANY_DETAIL_PAGE: false)
- * - /profile, /login (AUTH_SYSTEM: false)
+ * - hidden app flows such as auth and account pages
+ * - legacy pages removed from the public surface
  */
 interface StaticPage {
   path: string;
@@ -93,9 +92,6 @@ const STATIC_PAGES: StaticPage[] = [
 
   // 뉴스 목록 - 활성화됨
   { path: '/news', priority: 0.8, changeFrequency: 'daily' },
-
-  // 공지사항 - 커뮤니티 대체
-  { path: '/notice', priority: 0.7, changeFrequency: 'daily' },
 
   // About & FAQ - AdSense 필수 페이지
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },

@@ -106,12 +106,11 @@ export function useHallOfFame(): UseHallOfFameReturn {
       const apiData = await getHallOfFameApi();
 
       // 데이터가 비어있으면 실패로 처리 (Mock 폴백)
-      if (!apiData.currentYearMonthly || apiData.currentYearMonthly.length === 0) {
-        // 빈 데이터도 유효한 응답일 수 있으므로, 일단 반환
-        // archives나 currentYearRace가 있으면 유효한 데이터
-        if (apiData.archives.length === 0 && apiData.currentYearRace.length === 0) {
-          console.warn('[useHallOfFame] Supabase returned empty data');
-        }
+      if (
+        (!apiData.currentYearMonthly || apiData.currentYearMonthly.length === 0) &&
+        apiData.currentYearRace.length === 0
+      ) {
+        console.warn('[useHallOfFame] Supabase returned empty data');
       }
 
       // 월간 챔피언 데이터 캐시

@@ -24,9 +24,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import classNames from 'classnames';
-import { useRouter } from 'next/navigation';
-import { useTranslations, useLocale } from 'next-intl';
-import { FEATURES } from '@/config/features';
+import { useTranslations } from 'next-intl';
 import type { CompanyRanking } from '@/types/league';
 import styles from './LeagueRankingItem.module.scss';
 
@@ -50,9 +48,7 @@ export default function LeagueRankingItem({
   displayRank,
   isSelected = false,
 }: LeagueRankingItemProps) {
-  const router = useRouter();
   const t = useTranslations('League');
-  const locale = useLocale();
 
   /** 순위 변동 렌더링 */
   const renderRankChange = () => {
@@ -175,18 +171,6 @@ export default function LeagueRankingItem({
         </span>
       </div>
 
-      {/* 상세 보기 버튼 (Feature Flag로 제어) */}
-      {FEATURES.COMPANY_DETAIL_PAGE && (
-        <button
-          className={styles.voteButton}
-          onClick={(e) => {
-            e.stopPropagation();
-            router.push(`/${locale}/company/${company.companyId}`);
-          }}
-        >
-          {t('view_details')}
-        </button>
-      )}
     </motion.article>
   );
 }

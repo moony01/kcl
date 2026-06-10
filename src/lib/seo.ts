@@ -21,7 +21,7 @@ type LocaleKey = (typeof SUPPORTED_LOCALES)[number] | 'x-default';
  *
  * 12개 언어 + x-default hreflang 생성
  *
- * @param pathname - 경로 (예: '', '/news', '/analytics')
+ * @param pathname - 경로 (예: '', '/news', '/hall-of-fame')
  * @returns hreflang 대체 URL 객체
  */
 export function generateAlternateLanguages(pathname: string = ''): Record<LocaleKey, string> {
@@ -44,7 +44,7 @@ export function generateAlternateLanguages(pathname: string = ''): Record<Locale
  * 현재 locale의 정규 URL 생성
  *
  * @param locale - 현재 언어 코드
- * @param pathname - 경로 (예: '', '/news', '/analytics')
+ * @param pathname - 경로 (예: '', '/news', '/hall-of-fame')
  * @returns canonical URL
  */
 export function generateCanonicalUrl(locale: string, pathname: string = ''): string {
@@ -57,7 +57,7 @@ export function generateCanonicalUrl(locale: string, pathname: string = ''): str
  * Next.js Metadata의 alternates 객체 생성
  *
  * @param locale - 현재 언어 코드
- * @param pathname - 경로 (예: '', '/news', '/analytics')
+ * @param pathname - 경로 (예: '', '/news', '/hall-of-fame')
  * @returns Metadata['alternates'] 객체
  */
 export function generateAlternates(locale: string, pathname: string = ''): Metadata['alternates'] {
