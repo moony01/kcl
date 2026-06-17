@@ -230,9 +230,9 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   const didAutoSelectCompany = useRef(false);
 
-  // T1.102: 최애 그룹 기반 자동 선택 정보 (산하 레이블 + 그룹명)
-  const [autoSubLabelId, setAutoSubLabelId] = useState<string | null>(null);
-  const [autoArtistName, setAutoArtistName] = useState<string | null>(null);
+  // T1.102: 투표 컨텍스트(최애 그룹 자동 선택 또는 검색에서 선택된 아티스트)
+  const [selectedSubLabelId, setSelectedSubLabelId] = useState<string | null>(null);
+  const [selectedArtistName, setSelectedArtistName] = useState<string | null>(null);
 
   // 화면 크기 감지
   const [isMobile, setIsMobile] = useState(true);
@@ -388,7 +388,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         if (directMatch) {
           setSelectedCompanyId(companyId);
           // 아티스트(그룹)명 설정
-          if (groupNameEn) setAutoArtistName(groupNameEn);
+          setSelectedSubLabelId(null);
+          setSelectedArtistName(groupNameEn || null);
           return;
         }
 
@@ -405,8 +406,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
           if (parentMatch) {
             setSelectedCompanyId(parentId);
             // 산하 레이블 ID + 아티스트(그룹)명 설정
-            setAutoSubLabelId(companyId);
-            if (groupNameEn) setAutoArtistName(groupNameEn);
+            setSelectedSubLabelId(companyId);
+            setSelectedArtistName(groupNameEn || null);
           }
         }
       } catch (err) {
@@ -419,15 +420,18 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     autoSelectCompanyByFavoriteGroup();
   }, [profile, isAuthLoading, isAuthenticated, allCompanies, selectedCompanyId]);
 
-  // 투표 핸들러 - 회사 ID만 상태로 설정
+  // 투표 핸들러 - 회사 ID와 선택한 아티스트 컨텍스트를 함께 관리
   const handleVote = useCallback(
-    (companyId: string) => {
+    (companyId: string, artistName?: string | null) => {
       // 회사 존재 확인
       const exists = allCompanies.some((c) => c.companyId === companyId);
       if (!exists) return;
 
       // T1.29: ID만 설정 (실제 데이터는 useMemo에서 파생)
       setSelectedCompanyId(companyId);
+      // 수동 회사 선택 시 이전 최애/아티스트 컨텍스트가 남지 않도록 초기화
+      setSelectedSubLabelId(null);
+      setSelectedArtistName(artistName ?? null);
 
       if (isMobile) {
         setIsSheetOpen(true);
@@ -448,8 +452,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   // 검색 결과 선택 핸들러
   const handleSearchSelect = useCallback(
-    (companyId: string) => {
-      handleVote(companyId);
+    (companyId: string, artistName?: string) => {
+      handleVote(companyId, artistName ?? null);
     },
     [handleVote],
   );
@@ -562,8 +566,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
             <VoteController
               company={selectedCompany}
               onVoteSuccess={handleVoteSuccess}
-              autoSelectedSubLabelId={autoSubLabelId}
-              selectedArtist={autoArtistName || undefined}
+              autoSelectedSubLabelId={selectedSubLabelId}
+              selectedArtist={selectedArtistName || undefined}
             />
           </StickyPanel>
         </aside>
@@ -586,8 +590,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         <VoteController
           company={selectedCompany}
           onVoteSuccess={handleVoteSuccess}
-          autoSelectedSubLabelId={autoSubLabelId}
-          selectedArtist={autoArtistName || undefined}
+          autoSelectedSubLabelId={selectedSubLabelId}
+          selectedArtist={selectedArtistName || undefined}
         />
       </BottomSheet>
 
