@@ -21,7 +21,7 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Flame, Check, Timer } from 'lucide-react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
 import { FEATURES } from '@/config/features';
@@ -64,7 +64,6 @@ export default function VoteController({
   variant = 'full',
 }: VoteControllerProps) {
   const t = useTranslations('Vote');
-  const locale = useLocale();
   const { user, profile } = useAuth();
   const { submitVote, isLoading } = useVote();
   // 2026-06: 로그인 회원 300표, 비로그인 100표 (운영 override는 서버 dailyLimit 반영)
@@ -84,6 +83,9 @@ export default function VoteController({
 
   // T1.75: 선택된 서브레이블 상태 (null = 전체)
   const [selectedSubLabel, setSelectedSubLabel] = useState<string | null>(null);
+  const previousCompanyIdRef = useRef<string | null>(null);
+  const previousSelectedArtistPropRef = useRef<string | undefined>(undefined);
+  const previousAutoSelectedSubLabelIdRef = useRef<string | null | undefined>(undefined);
 
   // T1.85: 파워투표 게이지 상태
   /** 현재 파워 레벨 (0 = 누르지 않은 상태, 1~100 = 게이지) */
@@ -102,15 +104,37 @@ export default function VoteController({
   // T1.75: 서브레이블 유무 판단
   const hasSubLabels = FEATURES.SUB_LABEL_VOTING && (company?.subLabels?.length ?? 0) > 0;
 
-  // T1.75/T1.102: 소속사 변경 시 서브레이블/아티스트 선택 초기화 (자동 선택값 반영)
+  // T1.75/T1.102: 회사/상위 선택 컨텍스트가 실제로 바뀔 때만 초기화한다.
+  // 같은 회사 데이터가 투표 후 refresh로 새 객체가 되어도 사용자가 고른 아티스트는 유지한다.
   useEffect(() => {
-    // 자동 선택된 산하 레이블이 있고 현재 회사의 서브레이블에 존재하면 적용
-    if (autoSelectedSubLabelId && company?.subLabels?.some((sub) => sub.id === autoSelectedSubLabelId)) {
-      setSelectedSubLabel(autoSelectedSubLabelId);
-    } else {
+    const currentCompanyId = company?.id ?? null;
+    const companyChanged = previousCompanyIdRef.current !== currentCompanyId;
+    const selectedArtistPropChanged = previousSelectedArtistPropRef.current !== selectedArtist;
+    const autoSelectedSubLabelIdChanged =
+      previousAutoSelectedSubLabelIdRef.current !== autoSelectedSubLabelId;
+
+    previousCompanyIdRef.current = currentCompanyId;
+    previousSelectedArtistPropRef.current = selectedArtist;
+    previousAutoSelectedSubLabelIdRef.current = autoSelectedSubLabelId;
+
+    if (!company) {
       setSelectedSubLabel(null);
+      setChosenArtist(null);
+      return;
     }
-    setChosenArtist(selectedArtist || null);
+
+    if (companyChanged || autoSelectedSubLabelIdChanged) {
+      // 자동 선택된 산하 레이블이 있고 현재 회사의 서브레이블에 존재하면 적용
+      if (autoSelectedSubLabelId && company.subLabels?.some((sub) => sub.id === autoSelectedSubLabelId)) {
+        setSelectedSubLabel(autoSelectedSubLabelId);
+      } else {
+        setSelectedSubLabel(null);
+      }
+    }
+
+    if (companyChanged || selectedArtistPropChanged) {
+      setChosenArtist(selectedArtist || null);
+    }
   }, [company, selectedArtist, autoSelectedSubLabelId]);
 
   // T1.75: 서브레이블 선택에 따라 아티스트 필터링
@@ -124,11 +148,6 @@ export default function VoteController({
     const subLabel = company.subLabels?.find((sub) => sub.id === selectedSubLabel);
     return subLabel?.artists.en || company.representative.en;
   }, [company, hasSubLabels, selectedSubLabel]);
-
-  // props로 전달받은 selectedArtist가 변경되면 반영
-  if (selectedArtist && selectedArtist !== chosenArtist) {
-    setChosenArtist(selectedArtist);
-  }
 
   /**
    * 투표 실행 (지정된 votePower로 제출)
