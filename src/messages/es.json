@@ -7,13 +7,13 @@
     "vote_button": "Votar Ahora",
     "firepower": "Potencia",
     "event_modal": {
-      "title": "Regístrate y obtén el doble de votos",
-      "lead": "Crea tu cuenta ahora y apoya a tu empresa favorita con el doble de votos diarios.",
-      "highlight": "Invitado 30 votos → Miembro 60 votos (diario)",
-      "note": "Consulta el aviso del evento para más detalles.",
-      "primary_cta": "Registrarse y obtener el doble",
-      "notice_cta": "Ver aviso del evento",
-      "dismiss_today": "No mostrar hoy"
+      "title": "Usaste todos tus votos de invitado de hoy",
+      "lead": "Inicia sesión para seguir apoyando a tu empresa favorita con más votos diarios.",
+      "highlight": "Invitado 100 votos / Miembro 300 votos diarios",
+      "note": "Los votos de invitado se recargan a medianoche UTC.",
+      "primary_cta": "Iniciar sesión / Registrarse",
+      "notice_cta": "Ver guía de votos",
+      "dismiss_today": "Cerrar"
     },
     "seo_title": "Bienvenido a KCL — La Plataforma Definitiva de Votación de Empresas K-pop",
     "seo_intro": "K-pop Company League (KCL) es la primera plataforma de clasificación del mundo impulsada por fans y dedicada a las empresas de entretenimiento K-pop. Millones de fans de más de 190 países emiten sus votos diariamente para apoyar a sus empresas favoritas y a los artistas que aman. Ya seas fanático de HYBE, SM Entertainment, JYP Entertainment, YG Entertainment o cualquiera de las decenas de agencias que dan forma a la industria del K-pop, KCL te da el poder de hacer oír tu voz.",

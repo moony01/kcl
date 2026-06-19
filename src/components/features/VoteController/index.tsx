@@ -52,6 +52,8 @@ interface VoteControllerProps {
   autoSelectedSubLabelId?: string | null;
   /** 투표 성공 시 콜백 (리스트 하이라이트용) */
   onVoteSuccess?: (companyId: string) => void;
+  /** 비로그인 사용자가 일일 투표권을 모두 쓴 뒤 투표를 시도했을 때 호출 */
+  onGuestQuotaExhausted?: () => void;
   /** 표시 변형 - PC: full, Mobile: compact */
   variant?: 'full' | 'compact';
 }
@@ -61,6 +63,7 @@ export default function VoteController({
   selectedArtist,
   autoSelectedSubLabelId,
   onVoteSuccess,
+  onGuestQuotaExhausted,
   variant = 'full',
 }: VoteControllerProps) {
   const t = useTranslations('Vote');
@@ -206,8 +209,10 @@ export default function VoteController({
    * 2. stepInterval마다 게이지 1칸씩 증가 (최대 100, 남은 투표권 상한)
    */
   const handlePointerDown = useCallback(() => {
+    if (!quota.canVote) return;
+
     const maxChargePower = Math.min(maxPowerLevel, quota.remaining);
-    if (!company || isLoading || !quota.canVote || maxChargePower <= 0) return;
+    if (!company || isLoading || maxChargePower <= 0) return;
 
     pressStartRef.current = Date.now();
     powerLevelRef.current = 0;
@@ -238,6 +243,12 @@ export default function VoteController({
       }, stepInterval);
     }, POWER_VOTE.HOLD_DELAY);
   }, [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, stepInterval]);
+
+  const handleVoteButtonClick = useCallback(() => {
+    if (!quota.canVote && !user) {
+      onGuestQuotaExhausted?.();
+    }
+  }, [onGuestQuotaExhausted, quota.canVote, user]);
 
   /**
    * 롱프레스 종료 (pointerup / pointerleave)
@@ -352,7 +363,8 @@ export default function VoteController({
             [styles.disabled]: !quota.canVote,
             [styles.pressing]: isPressing && powerLevel > 0,
           })}
-          disabled={isLoading || !quota.canVote}
+          disabled={isLoading}
+          onClick={handleVoteButtonClick}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerLeave={handlePointerLeave}

@@ -17,39 +17,39 @@ interface EventNoticeCopy {
 function getEventNoticeCopy(locale = 'ko'): EventNoticeCopy {
   const copies: Record<string, EventNoticeCopy> = {
     ko: {
-      title: '회원가입하면 투표권 두배 이벤트 안내',
+      title: 'KCL 일일 투표권 안내',
       content:
-        '<p><strong>회원가입하면 매일 투표권이 2배</strong>로 지급됩니다.</p><p>비회원은 일 30표, 회원은 일 60표를 받을 수 있습니다.</p><p>회원 전용 파워투표: 한 번에 최대 50표까지 몰아서 투표할 수 있습니다.</p><p>지금 가입하고 최애 소속사를 더 강하게 응원해보세요.</p>',
+        '<p><strong>KCL 일일 투표권은 비로그인 100표, 로그인 회원 300표입니다.</strong></p><p>투표권은 매일 UTC 자정에 다시 충전됩니다.</p><p>파워투표는 한 번에 최대 100표까지 사용할 수 있습니다.</p><p>로그인하고 최애 소속사를 더 오래 응원해보세요.</p>',
     },
     en: {
-      title: 'Sign up and get double daily votes',
+      title: 'KCL daily vote guide',
       content:
-        '<p><strong>Sign up to get 2x daily votes.</strong></p><p>Guests get 30 votes per day, while signed-in members get 60 votes per day.</p><p>Members-only Power Vote: cast up to 50 votes at once on your favorite.</p><p>Create your account and support your favorite company with more power.</p>',
+        '<p><strong>KCL gives guests 100 votes and signed-in members 300 votes daily.</strong></p><p>Votes refresh every day at midnight UTC.</p><p>Power Vote lets you cast up to 100 votes at once.</p><p>Sign in and support your favorite company for longer.</p>',
     },
     ja: {
-      title: '会員登録で投票権2倍イベントのお知らせ',
+      title: 'KCLデイリー投票権ガイド',
       content:
-        '<p><strong>会員登録すると毎日の投票権が2倍</strong>になります。</p><p>非会員は1日30票、会員は1日60票を受け取れます。</p><p>会員限定パワー投票：一度に最大50票まとめて投票できます。</p><p>今すぐ登録して、推しの事務所をもっと強力に応援しましょう。</p>',
+        '<p><strong>KCLではゲストは毎日100票、ログイン会員は毎日300票を利用できます。</strong></p><p>投票権は毎日UTC午前0時に再チャージされます。</p><p>パワー投票では一度に最大100票まで使用できます。</p><p>ログインして推しの事務所をもっと長く応援しましょう。</p>',
     },
     zh: {
-      title: '注册即享双倍投票权活动公告',
+      title: 'KCL 每日投票权指南',
       content:
-        '<p><strong>注册后每日投票权翻倍。</strong></p><p>游客每天30票，注册会员每天60票。</p><p>会员专属火力投票：一次最多投出50票给你喜爱的公司。</p><p>立即注册，用更强的力量支持你喜爱的公司。</p>',
+        '<p><strong>KCL 游客每天 100 票，登录会员每天 300 票。</strong></p><p>投票权会在每天 UTC 午夜刷新。</p><p>火力投票一次最多可使用 100 票。</p><p>登录后可以更久地支持你喜爱的公司。</p>',
     },
     es: {
-      title: 'Evento: Regístrate y obtén el doble de votos diarios',
+      title: 'Guía de votos diarios de KCL',
       content:
-        '<p><strong>Regístrate para obtener el doble de votos diarios.</strong></p><p>Los invitados reciben 30 votos al día, mientras que los miembros registrados reciben 60 votos al día.</p><p>Voto Poderoso exclusivo para miembros: lanza hasta 50 votos a la vez.</p><p>Crea tu cuenta y apoya a tu empresa favorita con más poder.</p>',
+        '<p><strong>KCL ofrece 100 votos diarios a invitados y 300 votos diarios a miembros con sesión iniciada.</strong></p><p>Los votos se recargan cada día a medianoche UTC.</p><p>El Voto Poderoso permite emitir hasta 100 votos de una vez.</p><p>Inicia sesión y apoya por más tiempo a tu empresa favorita.</p>',
     },
     fr: {
-      title: 'Événement : Inscrivez-vous et obtenez le double de votes quotidiens',
+      title: 'Guide des votes quotidiens KCL',
       content:
-        '<p><strong>Inscrivez-vous pour obtenir le double de votes quotidiens.</strong></p><p>Les visiteurs reçoivent 30 votes par jour, tandis que les membres inscrits reçoivent 60 votes par jour.</p><p>Vote Puissant réservé aux membres : lancez jusqu\u2019à 50 votes en une fois.</p><p>Créez votre compte et soutenez votre entreprise favorite avec plus de puissance.</p>',
+        '<p><strong>KCL offre 100 votes par jour aux visiteurs et 300 votes par jour aux membres connectés.</strong></p><p>Les votes se rechargent chaque jour à minuit UTC.</p><p>Le Vote Puissant permet de lancer jusqu\u2019à 100 votes en une fois.</p><p>Connectez-vous et soutenez plus longtemps votre entreprise favorite.</p>',
     },
     de: {
-      title: 'Event: Registriere dich und erhalte doppelte tägliche Stimmen',
+      title: 'KCL-Leitfaden für tägliche Stimmen',
       content:
-        '<p><strong>Registriere dich und erhalte doppelt so viele tägliche Stimmen.</strong></p><p>Gäste erhalten 30 Stimmen pro Tag, registrierte Mitglieder erhalten 60 Stimmen pro Tag.</p><p>Power-Abstimmung nur für Mitglieder: bis zu 50 Stimmen auf einmal abgeben.</p><p>Erstelle dein Konto und unterstütze dein Lieblingsunternehmen mit mehr Stimmkraft.</p>',
+        '<p><strong>KCL gibt Gästen täglich 100 Stimmen und eingeloggten Mitgliedern täglich 300 Stimmen.</strong></p><p>Stimmen werden jeden Tag um Mitternacht UTC aufgefüllt.</p><p>Power-Voting erlaubt bis zu 100 Stimmen auf einmal.</p><p>Melde dich an und unterstütze dein Lieblingsunternehmen länger.</p>',
     },
   };
 

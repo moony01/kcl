@@ -11,13 +11,13 @@
     "vote_button": "투표하기",
     "firepower": "화력",
     "event_modal": {
-      "title": "회원가입하면 투표권 2배",
-      "lead": "지금 회원가입하면 매일 더 많은 투표권으로 최애 소속사를 응원할 수 있어요.",
-      "highlight": "비회원 30표 -> 회원 60표 (매일)",
-      "note": "이벤트 공지에서 상세 내용을 확인해 주세요.",
-      "primary_cta": "회원가입하고 2배 받기",
-      "notice_cta": "이벤트 공지 보기",
-      "dismiss_today": "오늘 하루 보지 않기"
+      "title": "오늘 비로그인 투표권을 모두 사용했어요",
+      "lead": "로그인하면 매일 더 많은 투표권으로 최애 소속사를 계속 응원할 수 있어요.",
+      "highlight": "비로그인 100표 / 로그인 300표 (매일)",
+      "note": "비로그인 투표권은 UTC 자정에 다시 충전됩니다.",
+      "primary_cta": "로그인 / 회원가입하기",
+      "notice_cta": "투표권 안내 보기",
+      "dismiss_today": "닫기"
     },
     "seo_title": "KCL에 오신 것을 환영합니다 — K-pop 소속사 투표 플랫폼",
     "seo_intro": "K-pop Company League(KCL)는 K-pop 엔터테인먼트 소속사에 특화된 세계 최초의 팬 주도 랭킹 플랫폼입니다. 190개국 이상의 수백만 팬들이 매일 투표에 참여하여 좋아하는 소속사와 아티스트를 응원합니다. HYBE, SM Entertainment, JYP Entertainment, YG Entertainment 등 K-pop 산업을 이끄는 수십 개의 소속사 중 당신이 지지하는 곳에 목소리를 내세요.",

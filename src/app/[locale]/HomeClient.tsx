@@ -46,11 +46,8 @@ import AdBanner from '@/components/common/AdBanner';
 import Modal from '@/components/common/Modal';
 import { useAuth } from '@/hooks/useAuth';
 import { getSupabase } from '@/lib/supabase/client';
-import { SIGNUP_EVENT_NOTICE_ID } from '@/lib/api/announcements';
 import { AD_SLOTS } from '@/types/ads';
 import styles from './page.module.scss';
-
-const EVENT_MODAL_STORAGE_KEY = 'kcl:event-signup-double-votes:hidden-until';
 
 function getEventModalCopy(locale: string) {
   const copies: Record<
@@ -63,141 +60,128 @@ function getEventModalCopy(locale: string) {
       powerVote: string;
       note: string;
       primaryCta: string;
-      noticeCta: string;
-      dismissToday: string;
+      closeCta: string;
     }
   > = {
     ko: {
-      title: '회원가입하면 투표권 2배',
-      lead: '지금 회원가입하면 매일 더 많은 투표권으로 최애 소속사를 응원할 수 있어요.',
-      highlight: '비회원 30표 → 회원 60표 (매일)',
+      title: '오늘 비로그인 투표권을 모두 사용했어요',
+      lead: '로그인하면 매일 더 많은 투표권으로 최애 소속사를 계속 응원할 수 있어요.',
+      highlight: '비로그인 100표 / 로그인 300표 (매일)',
       powerVoteTitle: '파워투표',
-      powerVote: '투표하기 버튼을 길게 눌러 한 번에 최대 30표까지 투표',
-      note: '이벤트 공지에서 상세 내용을 확인해 주세요.',
-      primaryCta: '회원가입하고 2배 받기',
-      noticeCta: '이벤트 공지 보기',
-      dismissToday: '오늘 하루 보지 않기',
+      powerVote: '투표하기 버튼을 길게 눌러 한 번에 최대 100표까지 투표',
+      note: '비로그인 투표권은 UTC 자정에 다시 충전됩니다.',
+      primaryCta: '로그인 / 회원가입하기',
+      closeCta: '닫기',
     },
     en: {
-      title: 'Sign up and get 2x votes',
-      lead: 'Create your account now and support your favorite company with more daily voting power.',
-      highlight: 'Guest 30 votes → Member 60 votes (daily)',
+      title: 'You used all guest votes for today',
+      lead: 'Sign in to keep supporting your favorite company with more daily voting power.',
+      highlight: 'Guest 100 votes / Member 300 votes daily',
       powerVoteTitle: 'Power Vote',
-      powerVote: 'Long-press Vote to cast up to 30 votes at once',
-      note: 'See the event notice for full details.',
-      primaryCta: 'Sign up for double votes',
-      noticeCta: 'View event notice',
-      dismissToday: 'Hide for today',
+      powerVote: 'Long-press Vote to cast up to 100 votes at once',
+      note: 'Guest votes refresh at midnight UTC.',
+      primaryCta: 'Log in / Sign up',
+      closeCta: 'Close',
     },
     ja: {
-      title: '会員登録で投票権2倍',
-      lead: '今すぐ会員登録して、毎日もっと多くの投票権で推しの事務所を応援しましょう。',
-      highlight: '非会員 30票 → 会員 60票（毎日）',
+      title: '本日のゲスト投票権を使い切りました',
+      lead: 'ログインすると、毎日さらに多くの投票権で推しの事務所を応援できます。',
+      highlight: 'ゲスト 100票 / 会員 300票（毎日）',
       powerVoteTitle: 'パワー投票',
-      powerVote: '投票ボタン長押しで最大30票までまとめて投票できます',
-      note: 'イベント告知で詳細をご確認ください。',
-      primaryCta: '登録して2倍ゲット',
-      noticeCta: 'イベント告知を見る',
-      dismissToday: '今日は表示しない',
+      powerVote: '投票ボタン長押しで最大100票までまとめて投票できます',
+      note: 'ゲスト投票権はUTC午前0時に再チャージされます。',
+      primaryCta: 'ログイン / 会員登録',
+      closeCta: '閉じる',
     },
     zh: {
-      title: '注册即享双倍投票权',
-      lead: '立即注册账号，每天用更多投票权为你喜爱的公司助力。',
-      highlight: '游客 30票 → 会员 60票（每日）',
+      title: '今天的游客投票权已用完',
+      lead: '登录后每天可用更多投票权继续支持你喜爱的公司。',
+      highlight: '游客 100票 / 会员 300票（每日）',
       powerVoteTitle: '火力投票',
-      powerVote: '长按“投票”按钮，一次最多可投30票',
-      note: '请查看活动公告了解详情。',
-      primaryCta: '注册领取双倍投票',
-      noticeCta: '查看活动公告',
-      dismissToday: '今天不再显示',
+      powerVote: '长按“投票”按钮，一次最多可投100票',
+      note: '游客投票权将在 UTC 午夜刷新。',
+      primaryCta: '登录 / 注册',
+      closeCta: '关闭',
     },
     es: {
-      title: 'Regístrate y obtén el doble de votos',
-      lead: 'Crea tu cuenta ahora y apoya a tu empresa favorita con el doble de votos diarios.',
-      highlight: 'Invitado 30 votos → Miembro 60 votos (diario)',
+      title: 'Usaste todos tus votos de invitado de hoy',
+      lead: 'Inicia sesión para seguir apoyando a tu empresa favorita con más votos diarios.',
+      highlight: 'Invitado 100 votos / Miembro 300 votos diarios',
       powerVoteTitle: 'Voto poderoso',
-      powerVote: 'Mantén pulsado Votar para emitir hasta 30 votos de una vez',
-      note: 'Consulta el aviso del evento para más detalles.',
-      primaryCta: 'Registrarse y obtener el doble',
-      noticeCta: 'Ver aviso del evento',
-      dismissToday: 'No mostrar hoy',
+      powerVote: 'Mantén pulsado Votar para emitir hasta 100 votos de una vez',
+      note: 'Los votos de invitado se recargan a medianoche UTC.',
+      primaryCta: 'Iniciar sesión / Registrarse',
+      closeCta: 'Cerrar',
     },
     pt: {
-      title: 'Cadastre-se e ganhe o dobro de votos',
-      lead: 'Crie sua conta agora e apoie sua empresa favorita com o dobro de votos diários.',
-      highlight: 'Visitante 30 votos → Membro 60 votos (diário)',
+      title: 'Você usou todos os votos de visitante de hoje',
+      lead: 'Entre para continuar apoiando sua empresa favorita com mais votos diários.',
+      highlight: 'Visitante 100 votos / Membro 300 votos diários',
       powerVoteTitle: 'Voto poderoso',
-      powerVote: 'Pressione e segure Votar para lançar até 30 votos de uma vez',
-      note: 'Confira o aviso do evento para mais detalhes.',
-      primaryCta: 'Cadastrar e ganhar o dobro',
-      noticeCta: 'Ver aviso do evento',
-      dismissToday: 'Não mostrar hoje',
+      powerVote: 'Pressione e segure Votar para lançar até 100 votos de uma vez',
+      note: 'Os votos de visitante recarregam à meia-noite UTC.',
+      primaryCta: 'Entrar / Cadastrar',
+      closeCta: 'Fechar',
     },
     fr: {
-      title: 'Inscrivez-vous et obtenez le double de votes',
-      lead: 'Créez votre compte maintenant et soutenez votre entreprise favorite avec deux fois plus de votes quotidiens.',
-      highlight: 'Visiteur 30 votes → Membre 60 votes (quotidien)',
+      title: 'Vous avez utilisé tous vos votes visiteur du jour',
+      lead: 'Connectez-vous pour continuer à soutenir votre entreprise favorite avec plus de votes quotidiens.',
+      highlight: 'Visiteur 100 votes / Membre 300 votes par jour',
       powerVoteTitle: 'Vote puissant',
-      powerVote: 'Maintenez Voter pour lancer jusqu\'à 30 votes en une fois',
-      note: 'Consultez l\'annonce de l\'événement pour plus de détails.',
-      primaryCta: 'S\'inscrire pour le double',
-      noticeCta: 'Voir l\'annonce de l\'événement',
-      dismissToday: 'Ne plus afficher aujourd\'hui',
+      powerVote: 'Maintenez Voter pour lancer jusqu\'à 100 votes en une fois',
+      note: 'Les votes visiteur se rechargent à minuit UTC.',
+      primaryCta: 'Connexion / Inscription',
+      closeCta: 'Fermer',
     },
     de: {
-      title: 'Registriere dich und erhalte doppelte Stimmen',
-      lead: 'Erstelle jetzt dein Konto und unterstütze dein Lieblingsunternehmen mit doppelt so vielen täglichen Stimmen.',
-      highlight: 'Gast 30 Stimmen → Mitglied 60 Stimmen (täglich)',
+      title: 'Du hast alle Gast-Stimmen für heute genutzt',
+      lead: 'Melde dich an, um dein Lieblingsunternehmen täglich mit mehr Stimmen zu unterstützen.',
+      highlight: 'Gast 100 Stimmen / Mitglied 300 Stimmen täglich',
       powerVoteTitle: 'Power-Voting',
-      powerVote: 'Halte Abstimmen gedrückt, um bis zu 30 Stimmen auf einmal abzugeben',
-      note: 'Weitere Details findest du in der Event-Ankündigung.',
-      primaryCta: 'Registrieren und doppelt erhalten',
-      noticeCta: 'Event-Ankündigung ansehen',
-      dismissToday: 'Heute nicht mehr anzeigen',
+      powerVote: 'Halte Abstimmen gedrückt, um bis zu 100 Stimmen auf einmal abzugeben',
+      note: 'Gast-Stimmen werden um Mitternacht UTC aufgefüllt.',
+      primaryCta: 'Einloggen / Registrieren',
+      closeCta: 'Schließen',
     },
     id: {
-      title: 'Daftar dan dapatkan 2x suara',
-      lead: 'Buat akun sekarang dan dukung perusahaan favoritmu dengan suara harian dua kali lipat.',
-      highlight: 'Tamu 30 suara → Anggota 60 suara (harian)',
+      title: 'Suara tamu hari ini sudah habis',
+      lead: 'Masuk untuk terus mendukung perusahaan favoritmu dengan lebih banyak suara harian.',
+      highlight: 'Tamu 100 suara / Anggota 300 suara harian',
       powerVoteTitle: 'Power Vote',
-      powerVote: 'Tekan lama tombol Vote untuk memberi hingga 30 suara sekaligus',
-      note: 'Lihat pengumuman event untuk detail selengkapnya.',
-      primaryCta: 'Daftar untuk suara ganda',
-      noticeCta: 'Lihat pengumuman event',
-      dismissToday: 'Jangan tampilkan hari ini',
+      powerVote: 'Tekan lama tombol Vote untuk memberi hingga 100 suara sekaligus',
+      note: 'Suara tamu diisi ulang pada tengah malam UTC.',
+      primaryCta: 'Masuk / Daftar',
+      closeCta: 'Tutup',
     },
     tr: {
-      title: 'Kayıt ol ve 2 kat oy kazan',
-      lead: 'Hemen hesap oluştur ve favori şirketini günlük iki kat oyla destekle.',
-      highlight: 'Misafir 30 oy → Üye 60 oy (günlük)',
+      title: 'Bugünkü misafir oylarının tamamını kullandın',
+      lead: 'Favori şirketini daha fazla günlük oyla desteklemeye devam etmek için giriş yap.',
+      highlight: 'Misafir 100 oy / Üye 300 oy günlük',
       powerVoteTitle: 'Güçlü Oy',
-      powerVote: 'Oy Ver düğmesine basılı tutarak tek seferde en fazla 30 oy kullan',
-      note: 'Detaylar için etkinlik duyurusuna göz atın.',
-      primaryCta: 'Kayıt ol ve 2 kat kazan',
-      noticeCta: 'Etkinlik duyurusunu gör',
-      dismissToday: 'Bugün gösterme',
+      powerVote: 'Oy Ver düğmesine basılı tutarak tek seferde en fazla 100 oy kullan',
+      note: 'Misafir oyları UTC gece yarısında yenilenir.',
+      primaryCta: 'Giriş / Kayıt',
+      closeCta: 'Kapat',
     },
     th: {
-      title: 'สมัครสมาชิกรับสิทธิ์โหวต 2 เท่า',
-      lead: 'สมัครสมาชิกตอนนี้ แล้วสนับสนุนบริษัทที่คุณชื่นชอบด้วยสิทธิ์โหวตรายวันสองเท่า',
-      highlight: 'บุคคลทั่วไป 30 โหวต → สมาชิก 60 โหวต (รายวัน)',
+      title: 'ใช้สิทธิ์โหวตแบบผู้เยี่ยมชมของวันนี้หมดแล้ว',
+      lead: 'เข้าสู่ระบบเพื่อสนับสนุนบริษัทที่คุณชื่นชอบต่อด้วยสิทธิ์โหวตรายวันที่มากขึ้น',
+      highlight: 'ผู้เยี่ยมชม 100 โหวต / สมาชิก 300 โหวตต่อวัน',
       powerVoteTitle: 'Power Vote',
-      powerVote: 'กดปุ่มโหวตค้างไว้ เพื่อโหวตได้สูงสุด 30 โหวตในครั้งเดียว',
-      note: 'ดูรายละเอียดเพิ่มเติมได้ที่ประกาศกิจกรรม',
-      primaryCta: 'สมัครรับโหวต 2 เท่า',
-      noticeCta: 'ดูประกาศกิจกรรม',
-      dismissToday: 'ไม่แสดงวันนี้',
+      powerVote: 'กดปุ่มโหวตค้างไว้ เพื่อโหวตได้สูงสุด 100 โหวตในครั้งเดียว',
+      note: 'สิทธิ์โหวตผู้เยี่ยมชมจะรีเซ็ตตอนเที่ยงคืน UTC',
+      primaryCta: 'เข้าสู่ระบบ / สมัครสมาชิก',
+      closeCta: 'ปิด',
     },
     vi: {
-      title: 'Đăng ký nhận gấp đôi phiếu bầu',
-      lead: 'Tạo tài khoản ngay và ủng hộ công ty yêu thích với lượng phiếu bầu hàng ngày gấp đôi.',
-      highlight: 'Khách 30 phiếu → Thành viên 60 phiếu (hàng ngày)',
+      title: 'Bạn đã dùng hết phiếu khách hôm nay',
+      lead: 'Đăng nhập để tiếp tục ủng hộ công ty yêu thích với nhiều phiếu hằng ngày hơn.',
+      highlight: 'Khách 100 phiếu / Thành viên 300 phiếu mỗi ngày',
       powerVoteTitle: 'Power Vote',
-      powerVote: 'Nhấn giữ nút Bỏ phiếu để bỏ tối đa 30 phiếu cùng lúc',
-      note: 'Xem thông báo sự kiện để biết thêm chi tiết.',
-      primaryCta: 'Đăng ký nhận gấp đôi',
-      noticeCta: 'Xem thông báo sự kiện',
-      dismissToday: 'Không hiển thị hôm nay',
+      powerVote: 'Nhấn giữ nút Bỏ phiếu để bỏ tối đa 100 phiếu cùng lúc',
+      note: 'Phiếu khách sẽ được nạp lại vào nửa đêm UTC.',
+      primaryCta: 'Đăng nhập / Đăng ký',
+      closeCta: 'Đóng',
     },
   };
   return copies[locale] ?? copies.en;
@@ -249,31 +233,15 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  useEffect(() => {
-    if (isAuthLoading || isAuthenticated) {
-      return;
-    }
-
-    const hiddenUntilRaw = window.localStorage.getItem(EVENT_MODAL_STORAGE_KEY);
-    const hiddenUntil = hiddenUntilRaw ? Number(hiddenUntilRaw) : 0;
-
-    if (!Number.isNaN(hiddenUntil) && hiddenUntil > Date.now()) {
-      return;
-    }
-
-    setIsEventModalOpen(true);
-  }, [isAuthLoading, isAuthenticated]);
-
   const handleCloseEventModal = useCallback(() => {
     setIsEventModalOpen(false);
   }, []);
 
-  const handleDismissEventModalToday = useCallback(() => {
-    const nextMidnight = new Date();
-    nextMidnight.setHours(24, 0, 0, 0);
-    window.localStorage.setItem(EVENT_MODAL_STORAGE_KEY, String(nextMidnight.getTime()));
-    setIsEventModalOpen(false);
-  }, []);
+  const handleGuestQuotaExhausted = useCallback(() => {
+    if (isAuthLoading || isAuthenticated) return;
+    setIsSheetOpen(false);
+    setIsEventModalOpen(true);
+  }, [isAuthLoading, isAuthenticated]);
 
   // 🔥 Supabase에서 직접 데이터 가져오기 (CSR)
   // Phase 5: API Route 대신 Supabase 직접 호출
@@ -566,6 +534,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
             <VoteController
               company={selectedCompany}
               onVoteSuccess={handleVoteSuccess}
+              onGuestQuotaExhausted={handleGuestQuotaExhausted}
               autoSelectedSubLabelId={selectedSubLabelId}
               selectedArtist={selectedArtistName || undefined}
             />
@@ -590,6 +559,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         <VoteController
           company={selectedCompany}
           onVoteSuccess={handleVoteSuccess}
+          onGuestQuotaExhausted={handleGuestQuotaExhausted}
           autoSelectedSubLabelId={selectedSubLabelId}
           selectedArtist={selectedArtistName || undefined}
         />
@@ -619,18 +589,12 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
             <Link href={`/${locale}/signup`} className={styles.eventPrimaryBtn}>
               {eventModalCopy.primaryCta}
             </Link>
-            <Link
-              href={`/${locale}/notice/${SIGNUP_EVENT_NOTICE_ID}`}
-              className={styles.eventSecondaryBtn}
-            >
-              {eventModalCopy.noticeCta}
-            </Link>
             <button
               type="button"
-              onClick={handleDismissEventModalToday}
+              onClick={handleCloseEventModal}
               className={styles.eventDismissBtn}
             >
-              {eventModalCopy.dismissToday}
+              {eventModalCopy.closeCta}
             </button>
           </div>
         </div>

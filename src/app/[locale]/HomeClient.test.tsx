@@ -31,10 +31,12 @@ vi.mock('next/dynamic', async () => {
           company,
           selectedArtist,
           autoSelectedSubLabelId,
+          onGuestQuotaExhausted,
         }: {
           company: { name: { en: string } } | null;
           selectedArtist?: string;
           autoSelectedSubLabelId?: string | null;
+          onGuestQuotaExhausted?: () => void;
         }) {
           return React.createElement(
             'section',
@@ -44,6 +46,11 @@ vi.mock('next/dynamic', async () => {
             autoSelectedSubLabelId
               ? React.createElement('p', null, `SubLabel ${autoSelectedSubLabelId}`)
               : null,
+            React.createElement(
+              'button',
+              { type: 'button', onClick: onGuestQuotaExhausted },
+              'Guest quota exhausted',
+            ),
           );
         };
       }
@@ -255,6 +262,36 @@ describe('HomeClient vote context', () => {
     await waitFor(() => {
       expect(screen.getByText('For aespa')).toBeDefined();
       expect(screen.queryByText('For RESCENE')).toBeNull();
+    });
+  });
+
+  it('비로그인 홈 진입만으로는 투표권 안내 모달을 열지 않는다', () => {
+    mocks.mockUseAuth.mockReturnValue({
+      profile: null,
+      isLoading: false,
+      isAuthenticated: false,
+    });
+
+    renderHomeClient();
+
+    expect(screen.queryByTestId('modal')).toBeNull();
+  });
+
+  it('비로그인 사용자가 투표권을 모두 쓴 뒤 투표를 시도하면 안내 모달을 연다', async () => {
+    mocks.mockUseAuth.mockReturnValue({
+      profile: null,
+      isLoading: false,
+      isAuthenticated: false,
+    });
+
+    renderHomeClient();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Rank JYP' }));
+    fireEvent.click(screen.getAllByRole('button', { name: 'Guest quota exhausted' })[0]);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('modal')).toBeDefined();
+      expect(screen.getByText('비로그인 100표 / 로그인 300표 (매일)')).toBeDefined();
     });
   });
 });
