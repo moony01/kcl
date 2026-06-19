@@ -95,6 +95,8 @@ export default function VoteController({
   const [powerLevel, setPowerLevel] = useState(0);
   /** 롱프레스 진행 중 여부 */
   const [isPressing, setIsPressing] = useState(false);
+  /** pointerup 시 React state stale 값을 피하기 위한 최신 누름 상태 */
+  const isPressingRef = useRef(false);
   /** 롱프레스 타이머 ref */
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   /** 게이지 증가 인터벌 ref */
@@ -103,6 +105,8 @@ export default function VoteController({
   const pressStartRef = useRef<number>(0);
   /** pointerup 시 React state stale 값을 피하기 위한 최신 파워 레벨 */
   const powerLevelRef = useRef<number>(0);
+  /** pointerup과 click이 같은 탭에서 중복 투표를 보내지 않도록 방지 */
+  const didHandlePointerVoteRef = useRef(false);
 
   // T1.75: 서브레이블 유무 판단
   const hasSubLabels = FEATURES.SUB_LABEL_VOTING && (company?.subLabels?.length ?? 0) > 0;
@@ -182,9 +186,31 @@ export default function VoteController({
         setTimeout(() => {
           setShowSuccess(false);
         }, 1500);
+      } else if (
+        result &&
+        !user &&
+        (result.errorCode === 'RATE_LIMITED' ||
+          result.remaining === 0 ||
+          result.message.toLowerCase().includes('limit'))
+      ) {
+        if (quota.remaining > 0) {
+          consumeVote(quota.remaining);
+        }
+        onGuestQuotaExhausted?.();
       }
     },
-    [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, submitVote, consumeVote, onVoteSuccess, user?.id],
+    [
+      company,
+      isLoading,
+      quota.canVote,
+      quota.remaining,
+      maxPowerLevel,
+      submitVote,
+      consumeVote,
+      onVoteSuccess,
+      onGuestQuotaExhausted,
+      user,
+    ],
   );
 
   /**
@@ -216,6 +242,7 @@ export default function VoteController({
 
     pressStartRef.current = Date.now();
     powerLevelRef.current = 0;
+    isPressingRef.current = true;
     setIsPressing(true);
 
     // HOLD_DELAY 후 파워투표 모드 진입
@@ -247,8 +274,18 @@ export default function VoteController({
   const handleVoteButtonClick = useCallback(() => {
     if (!quota.canVote && !user) {
       onGuestQuotaExhausted?.();
+      return;
     }
-  }, [onGuestQuotaExhausted, quota.canVote, user]);
+
+    if (didHandlePointerVoteRef.current) {
+      didHandlePointerVoteRef.current = false;
+      return;
+    }
+
+    if (quota.canVote) {
+      executeVote(1);
+    }
+  }, [executeVote, onGuestQuotaExhausted, quota.canVote, user]);
 
   /**
    * 롱프레스 종료 (pointerup / pointerleave)
@@ -257,10 +294,11 @@ export default function VoteController({
    * - 롱프레스: 현재 파워 레벨만큼 투표
    */
   const handlePointerUp = useCallback(() => {
-    if (!isPressing) return;
+    if (!isPressingRef.current) return;
 
     const pressDuration = Date.now() - pressStartRef.current;
     clearTimers();
+    isPressingRef.current = false;
     setIsPressing(false);
     const finalPower = powerLevelRef.current;
     powerLevelRef.current = 0;
@@ -268,27 +306,30 @@ export default function VoteController({
     if (pressDuration < POWER_VOTE.HOLD_DELAY) {
       // 짧은 탭 → 1표 일반 투표
       setPowerLevel(0);
+      didHandlePointerVoteRef.current = true;
       executeVote(1);
     } else if (finalPower > 0) {
       // 롱프레스 → 파워 레벨만큼 투표
       setPowerLevel(0);
+      didHandlePointerVoteRef.current = true;
       executeVote(finalPower);
     } else {
       setPowerLevel(0);
     }
-  }, [isPressing, clearTimers, executeVote]);
+  }, [clearTimers, executeVote]);
 
   /**
    * 포인터가 버튼을 벗어나면 취소
    */
   const handlePointerLeave = useCallback(() => {
-    if (isPressing) {
+    if (isPressingRef.current) {
       clearTimers();
+      isPressingRef.current = false;
       setIsPressing(false);
       powerLevelRef.current = 0;
       setPowerLevel(0);
     }
-  }, [isPressing, clearTimers]);
+  }, [clearTimers]);
 
   // 컴포넌트 언마운트 시 타이머 정리
   useEffect(() => {
