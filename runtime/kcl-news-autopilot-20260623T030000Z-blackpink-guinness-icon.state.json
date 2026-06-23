@@ -1,0 +1,8 @@
+{
+  "runId": "kcl-news-autopilot-20260623T030000Z",
+  "slug": "blackpink-guinness-icon",
+  "status": "LOCAL_PASS_DEPLOY_PENDING",
+  "lastPassGate": "localRender",
+  "nextGate": "ship",
+  "updatedAt": "2026-06-23T12:50:00+09:00"
+}
