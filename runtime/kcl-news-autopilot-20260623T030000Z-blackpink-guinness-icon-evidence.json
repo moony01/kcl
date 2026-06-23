@@ -1,0 +1,206 @@
+{
+  "runId": "kcl-news-autopilot-20260623T030000Z",
+  "workflow": "kcl-news-autopilot",
+  "slug": "blackpink-guinness-icon",
+  "title": "BLACKPINK Got the Guinness ICON Stamp — 16.9 Billion Streams Changed the Scoreboard",
+  "runStartedAt": "2026-06-23T12:00:00+09:00",
+  "lastUpdatedAt": "2026-06-23T12:50:00+09:00",
+  "repo": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260623T030000Z",
+  "branch": "news/kcl-autopilot-20260623T030000Z",
+  "baseCommit": "7d0b12fbae75e77e81068c72a9ee1e054c693efd",
+  "stepResults": {
+    "research": {
+      "status": "PASS",
+      "notes": "Fresh topic selected after checking recent K-pop candidates and excluding duplicates/404 candidates."
+    },
+    "content": {
+      "status": "PASS",
+      "words": 1262,
+      "h2": 7,
+      "h3": 7,
+      "internalLinks": [
+        "/en/news/bts-guinness-icons"
+      ],
+      "badCharacters": 0
+    },
+    "factcheck": {
+      "status": "PASS",
+      "claimsChecked": 9,
+      "pass": 9,
+      "fix": 0,
+      "remove": 0,
+      "primaryEvidenceFiles": [
+        "runtime/blackpink-guinness-icon-gwr-reader.txt",
+        "runtime/blackpink-guinness-icon-billboard-reader.txt"
+      ]
+    },
+    "image": {
+      "status": "PASS",
+      "source": "ChatGPT browser generated originals",
+      "reuseCheck": "PASS",
+      "visionQa": "PASS: no readable text/numbers, no real faces/celebrity likenesses, no logos, no watermark"
+    },
+    "metadataApi": {
+      "status": "PASS",
+      "commands": [
+        "node scripts/generate-news-json.js",
+        "custom metadata/API validation"
+      ],
+      "apiSlugIncluded": true
+    },
+    "tests": {
+      "status": "PASS",
+      "command": "pnpm test -- --run",
+      "result": "5 files / 17 tests passed"
+    },
+    "build": {
+      "status": "PASS",
+      "command": "pnpm build",
+      "result": "Next static export + next-image-export-optimizer succeeded; 382 source images, 1146 optimized images"
+    },
+    "lint": {
+      "status": "WARN",
+      "command": "pnpm lint",
+      "result": "exit 1 from pre-existing repo lint errors outside this article scope; see /tmp/kcl-blackpink-lint.log"
+    },
+    "localRender": {
+      "status": "PASS",
+      "url": "http://127.0.0.1:41713/en/news/blackpink-guinness-icon.html",
+      "httpChecks": {
+        "articleHtml": 200,
+        "apiNewsJson": 200,
+        "thumbnailPng": 200,
+        "bodyPng": 200,
+        "thumbnailWebp800": 200,
+        "bodyWebp800": 200
+      },
+      "consoleNotes": "Localhost shows expected missing Supabase env/no-op errors and ads 403; article HTML/images/API render PASS."
+    },
+    "deploy": {
+      "status": "PENDING"
+    },
+    "gsc": {
+      "status": "PENDING"
+    }
+  },
+  "researchUrls": [
+    "https://www.guinnessworldrecords.com/news/2026/6/why-blackpink-deserve-guinness-world-records-icon-status-after-dominating-k-pop",
+    "https://www.billboard.com/lists/blackpink-timeline-history-making-accomplishments/",
+    "https://www.guinnessworldrecords.com/news/2023/3/blackpink-become-most-streamed-female-band-on-spotify-740515",
+    "https://www.guinnessworldrecords.com/news/2023/9/blackpinks-lisa-makes-history-as-money-surpasses-one-billion-spotify-streams-758919",
+    "https://www.billboard.com/music/music-news/blackpink-first-musical-act-75-million-youtube-subscribers-1235107614/",
+    "https://www.billboard.com/music/pop/blackpink-pink-venom-youtube-record-2022-1235129251/"
+  ],
+  "factCheck": [
+    {
+      "claim": "Guinness published BLACKPINK ICON feature on 2026-06-22",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "BLACKPINK reached 16,941,431,115 Spotify streams as counted by Guinness on April 1",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "How You Like That and Kill This Love each exceeded 1B Spotify streams",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "BLACKPINK held 100M YouTube subscribers for a band",
+      "status": "PASS",
+      "source": "Guinness reader evidence; Billboard timeline supports 100M milestone"
+    },
+    {
+      "claim": "BLACKPINK YouTube band views: 41,756,433,903 as of April 1",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "BLACKPINK won first Best Metaverse Performance at 2022 MTV VMAs for BLACKPINK: The Virtual",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "Born Pink reached No.1 on UK Official Albums Chart and US Billboard 200 for a female K-pop act",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "Born Pink sold 102,000 album-equivalent units in first US week",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    },
+    {
+      "claim": "Lisa MONEY first K-pop solo artist track to reach 1B Spotify streams; Rosé On the Ground Billboard Global solo/group record",
+      "status": "PASS",
+      "source": "Guinness reader evidence"
+    }
+  ],
+  "chatgpt": {
+    "promptThumbnail": "Generate a cinematic 16:9 editorial news thumbnail: abstract black-and-pink K-pop prestige stage, trophy silhouettes, anonymous audience silhouettes, no readable text, no numbers, no digits, no counters, no labels, no real faces, no celebrity likenesses, no logos, no watermark.",
+    "promptBody": "Generate a dramatic 16:9 editorial image: four anonymous performer silhouettes from behind under pink spotlights facing an abstract record archive/trophy silhouettes, no readable text/logos/faces, professional news photography, cinematic lighting.",
+    "rawDownloads": [
+      {
+        "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_blackpink-guinness-icon-thumbnail-v2.png",
+        "bytes": 1735403,
+        "mtimeLocal": "2026-06-23T12:25:30.965355",
+        "sha256": "5c4f403327ba2b83553d8734f2558fbbae8aeb3f39cb3645e7dcb16101d7d309"
+      },
+      {
+        "path": "/home/mhhan/Downloads/ChatGPT_Generated_Image_blackpink-guinness-icon-body.png",
+        "bytes": 2179995,
+        "mtimeLocal": "2026-06-23T12:22:13.850845",
+        "sha256": "d7c79f1b37e4362a05ab3603392bbacace78fcb9cd1d23ac5dcccac6eb546ed4"
+      }
+    ],
+    "finalImages": [
+      {
+        "path": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260623T030000Z/public/images/news/blackpink-guinness-icon-thumbnail.png",
+        "bytes": 1735403,
+        "mtimeLocal": "2026-06-23T12:26:20.703671",
+        "sha256": "5c4f403327ba2b83553d8734f2558fbbae8aeb3f39cb3645e7dcb16101d7d309"
+      },
+      {
+        "path": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260623T030000Z/public/images/news/blackpink-guinness-icon-1.png",
+        "bytes": 2179995,
+        "mtimeLocal": "2026-06-23T12:26:20.706671",
+        "sha256": "d7c79f1b37e4362a05ab3603392bbacace78fcb9cd1d23ac5dcccac6eb546ed4"
+      }
+    ],
+    "optimizedImages": [
+      {
+        "path": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260623T030000Z/public/images/news/nextImageExportOptimizer/blackpink-guinness-icon-thumbnail-opt-800.WEBP",
+        "bytes": 32918,
+        "mtimeLocal": "2026-06-23T12:36:32.033298",
+        "sha256": "5093ba5b622c4022bb6dcaf5977fec218f2bccb9ca2b4882b044bb3a71f649de"
+      },
+      {
+        "path": "/mnt/data/worktrees/kcl/kcl-news-autopilot-20260623T030000Z/public/images/news/nextImageExportOptimizer/blackpink-guinness-icon-1-opt-800.WEBP",
+        "bytes": 44042,
+        "mtimeLocal": "2026-06-23T12:36:31.781297",
+        "sha256": "2b79aceef30599d1e4e18d8b205c494cbc3c71968c0f61b8f44baaefe72056a4"
+      }
+    ]
+  },
+  "filesChanged": [
+    "src/content/news/en/blackpink-guinness-icon.md",
+    "public/images/news/blackpink-guinness-icon-thumbnail.png",
+    "public/images/news/blackpink-guinness-icon-1.png",
+    "public/api/news.json",
+    "src/generated/news-meta.json",
+    "runtime/kcl-news-autopilot-20260623T030000Z-blackpink-guinness-icon-evidence.json",
+    "runtime/kcl-news-autopilot-20260623T030000Z-blackpink-guinness-icon-report.md",
+    "runtime/kcl-news-autopilot-20260623T030000Z-blackpink-guinness-icon.state.json"
+  ],
+  "deploy": {
+    "commitSha": null,
+    "pullRequest": null,
+    "cloudflareProductionSha": null,
+    "productionUrl": "https://www.kclhq.com/en/news/blackpink-guinness-icon"
+  },
+  "gsc": {
+    "requestedUrls": []
+  }
+}
