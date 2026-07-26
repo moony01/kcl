@@ -28,10 +28,13 @@ export {
 // Vote API
 export {
   submitVote,
+  getKpopfaceEmbedVoteStatus,
   getVoteStats,
   getUserVoteStats,
+  KPOPFACE_EMBED_POWER_MAX,
   type SubmitVoteParams,
   type VoteResult,
+  type KpopfaceEmbedVoteStatus,
   type VoteStats,
   type UserVoteStats,
 } from './vote';

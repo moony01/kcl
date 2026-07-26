@@ -17,6 +17,8 @@ import { getSupabase } from '@/lib/supabase/client';
 
 const GUEST_VOTER_ID_KEY = 'kcl_guest_voter_id';
 
+export const KPOPFACE_EMBED_POWER_MAX = VOTE_LIMITS.KPOPFACE_EMBED_POWER_MAX;
+
 function getGuestVoteFingerprint(): string | null {
   if (typeof window === 'undefined') return null;
 
@@ -45,6 +47,8 @@ export interface SubmitVoteParams {
   userId?: string | null;
   /** 투표 파워 (1~100, 롱프레스 파워투표 시 사용) */
   votePower?: number;
+  /** 투표 출처별 서버 정책 */
+  voteSource?: 'web' | 'kpopface_embed';
 }
 
 /** 투표 결과 */
@@ -58,9 +62,64 @@ export interface VoteResult {
   /** 에러 메시지 */
   message: string;
   /** 에러 코드 */
-  errorCode?: 'INVALID_COMPANY' | 'SUPABASE_ERROR' | 'RATE_LIMITED' | 'UNAUTHORIZED' | 'UNKNOWN';
+  errorCode?: 'INVALID_COMPANY' | 'INVALID_VOTE_POWER' | 'SUPABASE_ERROR' | 'RATE_LIMITED' | 'EMBED_DAILY_LIMIT' | 'UNAUTHORIZED' | 'UNKNOWN';
   /** 오늘 남은 투표 수 */
   remaining?: number;
+}
+
+/** Kpopface embed one-per-day status returned by the server. */
+export interface KpopfaceEmbedVoteStatus {
+  canVote: boolean;
+  hasUsedEmbed: boolean;
+  /** Shared KCL daily votes still available. */
+  remaining: number;
+  dailyLimit: number;
+  /** The maximum value the current long press may submit. */
+  maxVotePower: number;
+}
+
+/**
+ * Read the server-authoritative Kpopface embed status.
+ *
+ * The RPC derives the member from auth.uid() and only uses the browser
+ * fingerprint for guests, so callers cannot inspect another user's quota.
+ */
+export async function getKpopfaceEmbedVoteStatus(
+  userId?: string | null,
+): Promise<KpopfaceEmbedVoteStatus | null> {
+  const supabase = getSupabase();
+  const fingerprint = userId ? null : getGuestVoteFingerprint();
+
+  try {
+    const { data, error } = await supabase.rpc('get_kpopface_embed_vote_status', {
+      p_fingerprint: fingerprint,
+    });
+
+    if (error) {
+      // The embed must stay usable while its accompanying migration is rolling
+      // out. Fall back to the client quota without surfacing a Next dev overlay.
+      return null;
+    }
+
+    const result = data as {
+      can_vote?: boolean;
+      has_used_embed?: boolean;
+      remaining?: number;
+      daily_limit?: number;
+      max_vote_power?: number;
+    };
+
+    return {
+      canVote: Boolean(result.can_vote),
+      hasUsedEmbed: Boolean(result.has_used_embed),
+      remaining: Number(result.remaining || 0),
+      dailyLimit: Number(result.daily_limit || 0),
+      maxVotePower: Number(result.max_vote_power || 0),
+    };
+  } catch {
+    // Network failures use the same optimistic, client-side quota fallback.
+    return null;
+  }
 }
 
 /**
@@ -74,9 +133,12 @@ export interface VoteResult {
  * @returns 투표 결과
  */
 export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> {
-  const { companyId, groupId } = params;
+  const { companyId, groupId, voteSource = 'web' } = params;
   const supabase = getSupabase();
-  const votePower = Math.min(Math.max(Math.floor(params.votePower || 1), 1), VOTE_LIMITS.POWER_MAX);
+  const maxVotePower = voteSource === 'kpopface_embed'
+    ? KPOPFACE_EMBED_POWER_MAX
+    : VOTE_LIMITS.POWER_MAX;
+  const votePower = Math.min(Math.max(Math.floor(params.votePower || 1), 1), maxVotePower);
   const userId = params.userId || null;
   const fingerprint = userId ? null : getGuestVoteFingerprint();
 
@@ -92,14 +154,25 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
     // 2026-06: 로그인 사용자 일일 한도/파워투표 정책
     // - p_user_id: 로그인 사용자 ID (서버에서 회원 300표/운영 override 500표 검증)
     // - p_vote_power: 파워투표 점수 (1~100, 롱프레스 게이지)
-    const { data, error } = await supabase.rpc('submit_vote_secure', {
-      p_company_id: companyId,
-      p_group_id: groupId || null,
-      p_fingerprint: fingerprint,
-      p_daily_limit: VOTE_LIMITS.GUEST_DAILY,
-      p_user_id: userId,
-      p_vote_power: votePower,
-    });
+    const rpcName = voteSource === 'kpopface_embed'
+      ? 'submit_kpopface_embed_vote'
+      : 'submit_vote_secure';
+    const rpcParams = voteSource === 'kpopface_embed'
+      ? {
+          p_company_id: companyId,
+          p_fingerprint: fingerprint,
+          p_vote_power: votePower,
+        }
+      : {
+          p_company_id: companyId,
+          p_group_id: groupId || null,
+          p_fingerprint: fingerprint,
+          p_daily_limit: VOTE_LIMITS.GUEST_DAILY,
+          p_user_id: userId,
+          p_vote_power: votePower,
+        };
+
+    const { data, error } = await supabase.rpc(rpcName, rpcParams);
 
     if (error) {
       console.error('[submitVote] RPC error:', error.message);

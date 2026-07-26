@@ -13,4 +13,6 @@ export const VOTE_LIMITS = {
   OWNER_DAILY: 500,
   /** Maximum votes that can be cast with one long-press power vote. */
   POWER_MAX: 100,
+  /** Kpopface embed: one long-press vote can cast at most 30 votes. */
+  KPOPFACE_EMBED_POWER_MAX: 30,
 } as const;
