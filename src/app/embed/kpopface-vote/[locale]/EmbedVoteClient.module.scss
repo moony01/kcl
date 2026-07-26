@@ -191,6 +191,9 @@
   border-radius: 9px;
   box-shadow: 0 4px 10px rgba(109, 40, 217, 0.24);
   touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .voteButton > svg {
