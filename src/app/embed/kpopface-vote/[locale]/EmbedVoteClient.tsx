@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import confetti from 'canvas-confetti';
 import { ChevronDown, ChevronRight, ChevronUp, Flame, LockKeyhole, X, Zap } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useLeagueData } from '@/hooks/useLeagueData';
@@ -95,12 +96,14 @@ function getParentReturnUrl(locale: string): string {
 }
 
 function CompanyRow({
-  company, copy, canVote, isSubmitting, onPowerStart, onPowerFinish, onPowerCancel,
+  company, copy, canVote, isSubmitting, displayVoteCount, recentVoteCount, onPowerStart, onPowerFinish, onPowerCancel,
 }: {
   company: CompanyRanking;
   copy: Copy;
   canVote: boolean;
   isSubmitting: boolean;
+  displayVoteCount: number;
+  recentVoteCount?: number;
   onPowerStart: (company: CompanyRanking) => void;
   onPowerFinish: () => void;
   onPowerCancel: () => void;
@@ -133,8 +136,9 @@ function CompanyRow({
         <strong>{company.nameEn || company.nameKo}</strong>
         <span className={styles.score}>
           <Flame size={14} aria-hidden="true" />
-          <strong>{company.voteCount.toLocaleString()}</strong>
+          <strong className={recentVoteCount ? styles.scoreBump : undefined}>{displayVoteCount.toLocaleString()}</strong>
           <small>{copy.voteUnit}</small>
+          {recentVoteCount && <span className={styles.voteBurst} aria-live="polite">+{recentVoteCount}</span>}
         </span>
       </span>
       <button
@@ -166,7 +170,6 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
     storageKey: 'kcl_kpopface_embed_quota',
   });
   const [embedStatus, setEmbedStatus] = useState<KpopfaceEmbedVoteStatus | null>(null);
-  const [hasUsedInSession, setHasUsedInSession] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
@@ -174,8 +177,11 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
   const [message, setMessage] = useState('');
   const [activeCompany, setActiveCompany] = useState<CompanyRanking | null>(null);
   const [heldVotes, setHeldVotes] = useState(0);
+  const [scoreOverrides, setScoreOverrides] = useState<Record<string, number>>({});
+  const [celebratedVote, setCelebratedVote] = useState<{ companyId: string; votePower: number } | null>(null);
   const containerRef = useRef<HTMLElement>(null);
   const holdRef = useRef<{ companyId: string; maxVotes: number; votes: number; startedAt: number; frameId: number | null } | null>(null);
+  const celebrationTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const refetchEmbedStatus = useCallback(async () => {
     const status = await getKpopfaceEmbedVoteStatus(user?.id);
@@ -185,11 +191,10 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
 
   useEffect(() => {
     if (isAuthLoading) return;
-    setHasUsedInSession(false);
     void refetchEmbedStatus();
   }, [isAuthLoading, refetchEmbedStatus]);
 
-  const hasUsedEmbed = hasUsedInSession || Boolean(embedStatus?.hasUsedEmbed);
+  const hasUsedEmbed = Boolean(embedStatus?.hasUsedEmbed);
   const remainingVotes = embedStatus?.remaining ?? quota.remaining;
   const maxVotePower = Math.min(
     KPOPFACE_EMBED_POWER_MAX,
@@ -216,6 +221,22 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
     if (window.top) window.top.location.href = `https://kclhq.com/${locale}/login?returnTo=${encodeURIComponent(returnTo)}`;
   }, [locale]);
 
+  const triggerGameEffects = useCallback((companyId: string, votePower: number) => {
+    const companyColor = allCompanies.find((company) => company.companyId === companyId)?.gradientColor || '#7c3aed';
+
+    // Keep the iframe feedback consistent with KCL's main voting experience.
+    confetti({
+      particleCount: 60 + votePower * 20,
+      spread: 50 + votePower * 10,
+      origin: { y: 0.8 },
+      colors: [companyColor, '#ffffff', '#FF5733'],
+    });
+
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+      navigator.vibrate(30 + votePower * 10);
+    }
+  }, [allCompanies]);
+
   const submitPowerVote = useCallback(async (companyId: string, votePower: number) => {
     if (isSubmitting) return;
     if (hasUsedEmbed) {
@@ -230,29 +251,54 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
 
     setIsSubmitting(true);
     setMessage('');
-    const result = await submitVote({ companyId, userId: user?.id, votePower, voteSource: 'kpopface_embed' });
+    try {
+      const result = await submitVote({ companyId, userId: user?.id, votePower, voteSource: 'kpopface_embed' });
 
-    if (result.success) {
-      setHasUsedInSession(true);
-      consumeVote(votePower);
-      await Promise.all([refetchStats(), refetchEmbedStatus(), refresh()]);
-      setMessage(copy.voted.replace('{count}', String(votePower)));
-      sendToParent({ type: 'vote_success', remaining: result.remaining ?? Math.max(remainingVotes - votePower, 0) });
-      if (votePower === KPOPFACE_EMBED_POWER_MAX) setShowPowerCta(true);
-    } else if (result.errorCode === 'EMBED_DAILY_LIMIT') {
-      setHasUsedInSession(true);
-      await refetchEmbedStatus();
-      setMessage(copy.embedComplete);
-    } else if (result.errorCode === 'RATE_LIMITED' || result.remaining === 0) {
-      await Promise.all([refetchStats(), refetchEmbedStatus()]);
-      setShowLoginPrompt(true);
-      sendToParent({ type: 'quota_exhausted', authenticated: Boolean(user) });
-    } else {
-      setMessage(result.message);
+      if (result.success) {
+        const nextRemaining = result.remaining ?? Math.max(remainingVotes - votePower, 0);
+        consumeVote(votePower);
+        setEmbedStatus((current) => current && ({
+          ...current,
+          canVote: nextRemaining > 0,
+          hasUsedEmbed: nextRemaining <= 0,
+          remaining: nextRemaining,
+          maxVotePower: nextRemaining,
+        }));
+        const currentScore = result.currentScore;
+        if (typeof currentScore === 'number') {
+          setScoreOverrides((current) => ({ ...current, [companyId]: currentScore }));
+        }
+        triggerGameEffects(companyId, votePower);
+        if (celebrationTimeoutRef.current) clearTimeout(celebrationTimeoutRef.current);
+        setCelebratedVote({ companyId, votePower });
+        celebrationTimeoutRef.current = setTimeout(() => setCelebratedVote(null), 1200);
+        setMessage(copy.voted.replace('{count}', String(votePower)));
+        sendToParent({ type: 'vote_success', remaining: nextRemaining });
+        if (nextRemaining <= 0) setShowPowerCta(true);
+
+        // Ranking and quota refetches are background work. They must not keep
+        // the next 1~30 embed vote locked after a successful submission.
+        void Promise.all([refetchStats(), refetchEmbedStatus(), refresh()])
+          .then(([, refreshedStatus]) => {
+            if (refreshedStatus && !refreshedStatus.canVote) setShowPowerCta(true);
+          })
+          .catch(() => {
+            // The optimistic score and quota state still keep the embed usable.
+          });
+      } else if (result.errorCode === 'EMBED_DAILY_LIMIT') {
+        void refetchEmbedStatus();
+        setMessage(copy.embedComplete);
+      } else if (result.errorCode === 'RATE_LIMITED' || result.remaining === 0) {
+        void Promise.all([refetchStats(), refetchEmbedStatus()]);
+        setShowLoginPrompt(true);
+        sendToParent({ type: 'quota_exhausted', authenticated: Boolean(user) });
+      } else {
+        setMessage(result.message);
+      }
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
-  }, [canVote, consumeVote, copy.embedComplete, copy.voted, hasUsedEmbed, isSubmitting, refetchEmbedStatus, refetchStats, refresh, remainingVotes, user]);
+  }, [canVote, consumeVote, copy.embedComplete, copy.voted, hasUsedEmbed, isSubmitting, refetchEmbedStatus, refetchStats, refresh, remainingVotes, triggerGameEffects, user]);
 
   const cancelPowerVote = useCallback(() => {
     const hold = holdRef.current;
@@ -309,7 +355,10 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
     hold.frameId = requestAnimationFrame(advance);
   }, [canVote, copy.embedComplete, hasUsedEmbed, isSubmitting, maxVotePower]);
 
-  useEffect(() => () => cancelPowerVote(), [cancelPowerVote]);
+  useEffect(() => () => {
+    cancelPowerVote();
+    if (celebrationTimeoutRef.current) clearTimeout(celebrationTimeoutRef.current);
+  }, [cancelPowerVote]);
 
   if (isLeagueLoading || isAuthLoading || isQuotaLoading) {
     return <div className={styles.loading}>{copy.loading}...</div>;
@@ -343,6 +392,8 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
             copy={copy}
             canVote={canVote}
             isSubmitting={isSubmitting}
+            displayVoteCount={scoreOverrides[company.companyId] ?? company.voteCount}
+            recentVoteCount={celebratedVote?.companyId === company.companyId ? celebratedVote.votePower : undefined}
             onPowerStart={startPowerVote}
             onPowerFinish={finishPowerVote}
             onPowerCancel={cancelPowerVote}
