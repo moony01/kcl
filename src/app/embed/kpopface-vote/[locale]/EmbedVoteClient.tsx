@@ -95,12 +95,14 @@ function getParentReturnUrl(locale: string): string {
 }
 
 function CompanyRow({
-  company, copy, canVote, isSubmitting, onPowerStart, onPowerFinish, onPowerCancel,
+  company, copy, canVote, isSubmitting, displayVoteCount, recentVoteCount, onPowerStart, onPowerFinish, onPowerCancel,
 }: {
   company: CompanyRanking;
   copy: Copy;
   canVote: boolean;
   isSubmitting: boolean;
+  displayVoteCount: number;
+  recentVoteCount?: number;
   onPowerStart: (company: CompanyRanking) => void;
   onPowerFinish: () => void;
   onPowerCancel: () => void;
@@ -133,8 +135,9 @@ function CompanyRow({
         <strong>{company.nameEn || company.nameKo}</strong>
         <span className={styles.score}>
           <Flame size={14} aria-hidden="true" />
-          <strong>{company.voteCount.toLocaleString()}</strong>
+          <strong className={recentVoteCount ? styles.scoreBump : undefined}>{displayVoteCount.toLocaleString()}</strong>
           <small>{copy.voteUnit}</small>
+          {recentVoteCount && <span className={styles.voteBurst} aria-live="polite">+{recentVoteCount}</span>}
         </span>
       </span>
       <button
@@ -166,7 +169,6 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
     storageKey: 'kcl_kpopface_embed_quota',
   });
   const [embedStatus, setEmbedStatus] = useState<KpopfaceEmbedVoteStatus | null>(null);
-  const [hasUsedInSession, setHasUsedInSession] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
@@ -174,8 +176,11 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
   const [message, setMessage] = useState('');
   const [activeCompany, setActiveCompany] = useState<CompanyRanking | null>(null);
   const [heldVotes, setHeldVotes] = useState(0);
+  const [scoreOverrides, setScoreOverrides] = useState<Record<string, number>>({});
+  const [celebratedVote, setCelebratedVote] = useState<{ companyId: string; votePower: number } | null>(null);
   const containerRef = useRef<HTMLElement>(null);
   const holdRef = useRef<{ companyId: string; maxVotes: number; votes: number; startedAt: number; frameId: number | null } | null>(null);
+  const celebrationTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const refetchEmbedStatus = useCallback(async () => {
     const status = await getKpopfaceEmbedVoteStatus(user?.id);
@@ -185,11 +190,10 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
 
   useEffect(() => {
     if (isAuthLoading) return;
-    setHasUsedInSession(false);
     void refetchEmbedStatus();
   }, [isAuthLoading, refetchEmbedStatus]);
 
-  const hasUsedEmbed = hasUsedInSession || Boolean(embedStatus?.hasUsedEmbed);
+  const hasUsedEmbed = Boolean(embedStatus?.hasUsedEmbed);
   const remainingVotes = embedStatus?.remaining ?? quota.remaining;
   const maxVotePower = Math.min(
     KPOPFACE_EMBED_POWER_MAX,
@@ -233,14 +237,18 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
     const result = await submitVote({ companyId, userId: user?.id, votePower, voteSource: 'kpopface_embed' });
 
     if (result.success) {
-      setHasUsedInSession(true);
       consumeVote(votePower);
-      await Promise.all([refetchStats(), refetchEmbedStatus(), refresh()]);
+      if (typeof result.currentScore === 'number') {
+        setScoreOverrides((current) => ({ ...current, [companyId]: result.currentScore! }));
+      }
+      if (celebrationTimeoutRef.current) clearTimeout(celebrationTimeoutRef.current);
+      setCelebratedVote({ companyId, votePower });
+      celebrationTimeoutRef.current = setTimeout(() => setCelebratedVote(null), 1200);
+      const [, refreshedStatus] = await Promise.all([refetchStats(), refetchEmbedStatus(), refresh()]);
       setMessage(copy.voted.replace('{count}', String(votePower)));
       sendToParent({ type: 'vote_success', remaining: result.remaining ?? Math.max(remainingVotes - votePower, 0) });
-      if (votePower === KPOPFACE_EMBED_POWER_MAX) setShowPowerCta(true);
+      if (refreshedStatus && !refreshedStatus.canVote) setShowPowerCta(true);
     } else if (result.errorCode === 'EMBED_DAILY_LIMIT') {
-      setHasUsedInSession(true);
       await refetchEmbedStatus();
       setMessage(copy.embedComplete);
     } else if (result.errorCode === 'RATE_LIMITED' || result.remaining === 0) {
@@ -309,7 +317,10 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
     hold.frameId = requestAnimationFrame(advance);
   }, [canVote, copy.embedComplete, hasUsedEmbed, isSubmitting, maxVotePower]);
 
-  useEffect(() => () => cancelPowerVote(), [cancelPowerVote]);
+  useEffect(() => () => {
+    cancelPowerVote();
+    if (celebrationTimeoutRef.current) clearTimeout(celebrationTimeoutRef.current);
+  }, [cancelPowerVote]);
 
   if (isLeagueLoading || isAuthLoading || isQuotaLoading) {
     return <div className={styles.loading}>{copy.loading}...</div>;
@@ -343,6 +354,8 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
             copy={copy}
             canVote={canVote}
             isSubmitting={isSubmitting}
+            displayVoteCount={scoreOverrides[company.companyId] ?? company.voteCount}
+            recentVoteCount={celebratedVote?.companyId === company.companyId ? celebratedVote.votePower : undefined}
             onPowerStart={startPowerVote}
             onPowerFinish={finishPowerVote}
             onPowerCancel={cancelPowerVote}
