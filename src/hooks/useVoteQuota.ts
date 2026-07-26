@@ -4,7 +4,7 @@
  * 투표권 관리 훅
  *
  * 모드별 동작:
- * - 비로그인: localStorage 기반 일일 100회 (UTC 자정 리셋)
+ * - 비로그인: localStorage 기반 일일 게스트 한도 (기본 100회, UTC 자정 리셋)
  * - 로그인 회원: 서버 기반 일일 300회 (get_user_vote_stats RPC 조회)
  * - 내부 운영 계정: 서버 override 기반 일일 500회
  *
@@ -80,6 +80,13 @@ export interface UseVoteQuotaReturn {
   isLoading: boolean;
 }
 
+export interface UseVoteQuotaOptions {
+  /** 임베드 등 출처별 비회원 일일 한도 */
+  guestDailyLimit?: number;
+  /** 출처별 비회원 잔여량 저장 키 */
+  storageKey?: string;
+}
+
 /**
  * UTC 기준 오늘 날짜 문자열 반환 (YYYY-MM-DD)
  */
@@ -114,11 +121,11 @@ function getTimeUntilMidnightUTC(): { hours: number; minutes: number; formatted:
 /**
  * localStorage에서 투표권 데이터 읽기
  */
-function loadQuotaFromStorage(): VoteQuotaStorage | null {
+function loadQuotaFromStorage(storageKey: string): VoteQuotaStorage | null {
   if (typeof window === 'undefined') return null;
 
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(storageKey);
     if (!stored) return null;
     return JSON.parse(stored) as VoteQuotaStorage;
   } catch {
@@ -130,11 +137,11 @@ function loadQuotaFromStorage(): VoteQuotaStorage | null {
 /**
  * localStorage에 투표권 데이터 저장
  */
-function saveQuotaToStorage(data: VoteQuotaStorage): void {
+function saveQuotaToStorage(storageKey: string, data: VoteQuotaStorage): void {
   if (typeof window === 'undefined') return;
 
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem(storageKey, JSON.stringify(data));
   } catch {
     console.error('[useVoteQuota] Failed to save quota to localStorage');
   }
@@ -158,9 +165,17 @@ function saveQuotaToStorage(data: VoteQuotaStorage): void {
  * useVote(5);
  * ```
  */
-export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
+export function useVoteQuota(
+  userId?: string | null,
+  options: UseVoteQuotaOptions = {},
+): UseVoteQuotaReturn {
+  const guestDailyLimit = Math.max(
+    1,
+    Math.floor(options.guestDailyLimit ?? MAX_DAILY_VOTES),
+  );
+  const storageKey = options.storageKey ?? STORAGE_KEY;
   const [used, setUsed] = useState<number>(0);
-  const [max, setMax] = useState<number>(MAX_DAILY_VOTES);
+  const [max, setMax] = useState<number>(guestDailyLimit);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [timeInfo, setTimeInfo] = useState<{ hours: number; minutes: number; formatted: string }>({
     hours: 0,
@@ -206,19 +221,19 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
       });
     } else {
       // 비로그인 모드: localStorage에서 일일 통계 가져오기
-      setMax(MAX_DAILY_VOTES);
+      setMax(guestDailyLimit);
       const today = getTodayUTC();
-      const stored = loadQuotaFromStorage();
+      const stored = loadQuotaFromStorage(storageKey);
 
       if (stored && stored.date === today) {
-        setUsed(stored.used);
+        setUsed(Math.min(stored.used, guestDailyLimit));
       } else {
         const newData: VoteQuotaStorage = {
           date: today,
           used: 0,
-          max: MAX_DAILY_VOTES,
+          max: guestDailyLimit,
         };
-        saveQuotaToStorage(newData);
+        saveQuotaToStorage(storageKey, newData);
         setUsed(0);
       }
 
@@ -228,7 +243,7 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
     return () => {
       cancelled = true;
     };
-  }, [userId, fetchServerStats]);
+  }, [userId, fetchServerStats, guestDailyLimit, storageKey]);
 
   /**
    * 리셋 시간 업데이트 (1분마다)
@@ -263,14 +278,14 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
         fetchServerStats();
       } else {
         // 비로그인 모드: localStorage 리셋
-        const stored = loadQuotaFromStorage();
+        const stored = loadQuotaFromStorage(storageKey);
         if (stored && stored.date !== today) {
           const newData: VoteQuotaStorage = {
             date: today,
             used: 0,
-            max: MAX_DAILY_VOTES,
+            max: guestDailyLimit,
           };
-          saveQuotaToStorage(newData);
+          saveQuotaToStorage(storageKey, newData);
           setUsed(0);
         }
       }
@@ -279,7 +294,7 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
     const interval = setInterval(checkDateChange, 60000);
 
     return () => clearInterval(interval);
-  }, [userId, fetchServerStats]);
+  }, [userId, fetchServerStats, guestDailyLimit, storageKey]);
 
   /**
    * 투표권 사용 (클라이언트 측 낙관적 업데이트)
@@ -299,23 +314,23 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
 
       // 비로그인 모드: localStorage 기반
       const today = getTodayUTC();
-      const stored = loadQuotaFromStorage();
+      const stored = loadQuotaFromStorage(storageKey);
 
       if (stored && stored.date !== today) {
         // 날짜가 바뀌었으면 리셋 후 차감
         const newData: VoteQuotaStorage = {
           date: today,
           used: count,
-          max: MAX_DAILY_VOTES,
+          max: guestDailyLimit,
         };
-        saveQuotaToStorage(newData);
+        saveQuotaToStorage(storageKey, newData);
         setUsed(count);
         return true;
       }
 
       const currentUsed = stored?.used ?? 0;
 
-      if (currentUsed + count > MAX_DAILY_VOTES) {
+      if (currentUsed + count > guestDailyLimit) {
         return false;
       }
 
@@ -323,14 +338,14 @@ export function useVoteQuota(userId?: string | null): UseVoteQuotaReturn {
       const newData: VoteQuotaStorage = {
         date: today,
         used: newUsed,
-        max: MAX_DAILY_VOTES,
+        max: guestDailyLimit,
       };
-      saveQuotaToStorage(newData);
+      saveQuotaToStorage(storageKey, newData);
       setUsed(newUsed);
 
       return true;
     },
-    [userId, used, max],
+    [guestDailyLimit, storageKey, userId, used, max],
   );
 
   /**

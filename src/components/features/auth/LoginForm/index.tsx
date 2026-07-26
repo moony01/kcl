@@ -78,7 +78,12 @@ function LoginFormInner() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/${locale}/auth/callback`,
+          redirectTo: (() => {
+            const returnTo = searchParams.get('returnTo');
+            const callback = new URL(`${window.location.origin}/${locale}/auth/callback`);
+            if (returnTo) callback.searchParams.set('returnTo', returnTo);
+            return callback.toString();
+          })(),
           queryParams: {
             prompt: 'select_account',
           },

@@ -25,6 +25,29 @@ import { getSupabase } from '@/lib/supabase/client';
 /** 마지막 로그인 프로바이더 localStorage 키 */
 const LAST_PROVIDER_KEY = 'kcl_last_login_provider';
 
+const RETURN_TO_ORIGINS = new Set([
+  'https://moony01.com',
+  'https://www.moony01.com',
+  'http://localhost:4000',
+  'http://127.0.0.1:4000',
+]);
+
+function getSafeReturnTo(value: string | null): string | null {
+  if (!value) return null;
+
+  try {
+    const target = new URL(value);
+    const isKpopfacePath = target.pathname === '/kpopface' || target.pathname.startsWith('/kpopface/');
+    if (RETURN_TO_ORIGINS.has(target.origin) && isKpopfacePath) {
+      return target.href;
+    }
+  } catch {
+    // Invalid or untrusted return URLs are ignored.
+  }
+
+  return null;
+}
+
 /**
  * OAuth 콜백 URL 또는 Supabase 세션에서 프로바이더 이름 추출
  * Supabase 세션의 app_metadata.provider 필드를 사용
@@ -166,6 +189,7 @@ function CallbackHandler() {
     const supabase = getSupabase();
     const flow = searchParams.get('flow');
     const forceOnboarding = flow === 'signup';
+    const safeReturnTo = getSafeReturnTo(searchParams.get('returnTo'));
     let redirected = false;
 
     /**
@@ -184,6 +208,8 @@ function CallbackHandler() {
 
       if (forceOnboarding) {
         redirectPath = `/${locale}/onboarding`;
+      } else if (safeReturnTo) {
+        redirectPath = safeReturnTo;
       } else {
         try {
           // Supabase REST API로 프로필 직접 조회 (클라이언트 lock 우회)
