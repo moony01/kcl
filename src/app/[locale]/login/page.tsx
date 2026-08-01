@@ -33,11 +33,12 @@ export async function generateMetadata({ params }: LoginPageProps): Promise<Meta
 
   return {
     title: 'Login',
+    robots: { index: false, follow: false },
     alternates: generateAlternates(locale, '/login'),
   };
 }
 
-export default function LoginPage({ params }: LoginPageProps) {
+export default function LoginPage() {
   return (
     <AuthLayout>
       <LoginForm />

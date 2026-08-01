@@ -11,11 +11,11 @@ import { getAllNews } from '@/lib/news';
  * - 뉴스는 콘텐츠가 존재하는 언어만 포함 (ko, en)
  * - 정적 페이지는 주요 언어만 포함 (크롤링 효율화)
  *
- * SSG 모드에서 빌드 시점에 정적 생성됩니다.
+ * 배포 환경에서 캐시 가능한 sitemap으로 생성됩니다.
  * Google Search Console에서 /sitemap.xml로 제출하세요.
  */
 
-// SSG export 모드에서 정적 생성 강제
+// Workers에서도 캐시 가능한 응답으로 유지
 export const dynamic = 'force-static';
 
 /**
@@ -103,18 +103,9 @@ const STATIC_PAGES: StaticPage[] = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const buildDate = new Date();
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
-  // 1. 루트 페이지 (언어 리다이렉트)
-  sitemapEntries.push({
-    url: FULL_URL,
-    lastModified: buildDate,
-    changeFrequency: 'daily',
-    priority: 1.0,
-  });
-
-  // 2. 정적 페이지 (주요 언어만)
+  // 1. 정적 콘텐츠 페이지
   for (const page of STATIC_PAGES) {
     for (const locale of SITEMAP_LOCALES) {
       // 주요 언어(en, ko)는 높은 priority, 나머지는 약간 낮춤
@@ -124,7 +115,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       sitemapEntries.push({
         url: `${FULL_URL}/${locale}${page.path}`,
-        lastModified: buildDate,
         changeFrequency: page.changeFrequency,
         priority,
         alternates: {

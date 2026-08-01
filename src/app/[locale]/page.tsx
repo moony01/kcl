@@ -15,7 +15,7 @@ import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './seo-content.module.scss';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 로케일에 대해 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
@@ -89,7 +89,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
       {/* SEO 콘텐츠 섹션 - 서버 렌더링, 크롤러에 노출되는 정적 텍스트 */}
       <section className={styles.seoSection}>
-        <h2 className={styles.seoTitle}>{t('seo_title')}</h2>
+        <h1 className={styles.seoTitle}>{t('seo_title')}</h1>
         <p className={styles.seoIntro}>{t('seo_intro')}</p>
 
         <div className={styles.seoGrid}>

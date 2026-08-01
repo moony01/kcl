@@ -27,7 +27,7 @@ type LocaleKey = (typeof SUPPORTED_LOCALES)[number] | 'x-default';
 export function generateAlternateLanguages(pathname: string = ''): Record<LocaleKey, string> {
   const languages: Partial<Record<LocaleKey, string>> = {};
 
-  // 12개 언어에 대한 hreflang 생성
+  // 지원 로케일에 대한 hreflang 생성
   for (const locale of SUPPORTED_LOCALES) {
     languages[locale] = `${SITE_URL}/${locale}${pathname}`;
   }

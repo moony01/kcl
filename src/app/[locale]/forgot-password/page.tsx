@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: ForgotPasswordPageProps): Pro
 
   return {
     title: 'Forgot Password',
+    robots: { index: false, follow: false },
     alternates: generateAlternates(locale, '/forgot-password'),
   };
 }

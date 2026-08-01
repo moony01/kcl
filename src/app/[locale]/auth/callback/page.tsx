@@ -6,10 +6,16 @@
  * 실제 콜백 처리는 CallbackClient 클라이언트 컴포넌트에서 수행합니다.
  */
 
+import type { Metadata } from 'next';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import CallbackClient from './CallbackClient';
 
-/** 12개 언어에 대한 정적 페이지 생성 */
+/** 인증 콜백은 검색 색인 대상이 아니다. */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
+/** 지원 로케일에 대한 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
