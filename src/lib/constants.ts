@@ -5,7 +5,7 @@
  * 1. NEXT_PUBLIC_SITE_URL (권장)
  * 2. 프로덕션 기본값: https://www.kclhq.com
  *
- * Cloudflare Pages 환경 변수 설정 필수!
+ * Cloudflare Workers 환경 변수 설정 필수!
  */
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kclhq.com';
 
