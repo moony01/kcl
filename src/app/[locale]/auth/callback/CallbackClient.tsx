@@ -28,6 +28,10 @@ const LAST_PROVIDER_KEY = 'kcl_last_login_provider';
 const RETURN_TO_ORIGINS = new Set([
   'https://moony01.com',
   'https://www.moony01.com',
+  'https://kclhq.com',
+  'https://www.kclhq.com',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
   'http://localhost:4000',
   'http://127.0.0.1:4000',
 ]);
@@ -38,7 +42,8 @@ function getSafeReturnTo(value: string | null): string | null {
   try {
     const target = new URL(value);
     const isKpopfacePath = target.pathname === '/kpopface' || target.pathname.startsWith('/kpopface/');
-    if (RETURN_TO_ORIGINS.has(target.origin) && isKpopfacePath) {
+    const isKclReportPath = /^\/(ko|en|ja|zh|es|fr|de)\/kpopface\/report$/.test(target.pathname);
+    if (RETURN_TO_ORIGINS.has(target.origin) && (isKpopfacePath || isKclReportPath)) {
       return target.href;
     }
   } catch {

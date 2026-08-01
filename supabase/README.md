@@ -15,6 +15,28 @@ packages/kcl/supabase/
 > BMC webhook은 2026-08-01에 폐기했습니다. 과거 BMC migration 파일은 이미 적용된
 > migration history 보존을 위해 남겨두며, 운영 함수와 secret은 제거합니다.
 
+## Kpopface AI 리포트
+
+`20260801000000_kpopface_ai_reports.sql`은 계정별 무료 1회, 유료 크레딧,
+리포트 이력, Stripe 결제 상태, 비공개 임시 이미지 버킷과 서비스 롤 전용
+크레딧 RPC를 추가합니다. 클라이언트는 크레딧을 직접 변경하지 않고 Edge
+Function이 예약·완료·환불을 처리합니다.
+
+```bash
+supabase db push
+supabase secrets set OPENAI_API_KEY=... OPENAI_REPORT_MODEL=gpt-4.1-mini \\
+  STRIPE_SECRET_KEY=... STRIPE_WEBHOOK_SECRET=... \\
+  KCL_PUBLIC_URL=https://www.kclhq.com
+supabase functions deploy kpopface-report
+supabase functions deploy kpopface-checkout
+supabase functions deploy kpopface-stripe-webhook --no-verify-jwt
+```
+
+Stripe webhook endpoint는
+`https://<project-ref>.supabase.co/functions/v1/kpopface-stripe-webhook`으로
+등록하고, 검증된 결제 이벤트만 전달해야 합니다. 원본 이미지는 리포트 처리
+성공·실패 후 즉시 삭제됩니다.
+
 ## 테이블 스키마 개요
 
 ### 1. kcl_companies (소속사)

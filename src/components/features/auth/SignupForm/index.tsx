@@ -34,7 +34,13 @@ export default function SignupForm() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/${locale}/auth/callback?flow=signup`,
+          redirectTo: (() => {
+            const returnTo = new URLSearchParams(window.location.search).get('returnTo');
+            const callback = new URL(`${window.location.origin}/${locale}/auth/callback`);
+            callback.searchParams.set('flow', returnTo ? 'report' : 'signup');
+            if (returnTo) callback.searchParams.set('returnTo', returnTo);
+            return callback.toString();
+          })(),
           queryParams: {
             prompt: 'select_account',
           },

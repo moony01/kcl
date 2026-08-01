@@ -23,6 +23,7 @@ KCL is a fan-driven ranking platform for K-Pop entertainment companies. Users vo
 - **Multilingual** — 7 languages: Korean, English, Japanese, Chinese, Spanish, French, German
 - **PWA** — Installable as a Progressive Web App
 - **SEO Optimized** — Static export with full sitemap, Open Graph, and structured data
+- **Kpopface AI Report** — Optional Supabase Edge Function-based visual-style report flow
 
 ## Tech Stack
 
@@ -101,6 +102,10 @@ kcl/
 ## Deployment
 
 Deployed on Cloudflare Pages as a fully static site (`output: 'export'`).
+
+The optional Kpopface AI Report uses Supabase Edge Functions and is deployed
+separately from Pages. Its migration, required secrets, and function commands
+are documented in [`supabase/README.md`](supabase/README.md).
 
 The `.github/workflows/kcl-league-promotion.yml` workflow runs on the 1st of every month (UTC 00:00) to:
 1. Snapshot season rankings
