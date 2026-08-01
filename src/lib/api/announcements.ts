@@ -148,8 +148,8 @@ export async function incrementAnnouncementView(id: string): Promise<void> {
  * 서버 환경에서만 호출됨 (createServerClient 사용)
  */
 export async function getPublishedAnnouncementIds(): Promise<string[]> {
-  const { createServerClient } = await import('@/lib/supabase/server');
-  const supabase = createServerClient();
+  const { createBuildClient } = await import('@/lib/supabase/build');
+  const supabase = createBuildClient();
 
   if (!supabase) {
     console.warn('[announcements] 서버 클라이언트 생성 실패, 이벤트 공지 ID만 반환');

@@ -1,0 +1,17 @@
+name = "kcl"
+main = ".open-next/worker.js"
+compatibility_date = "2026-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[observability]
+enabled = true
+
+# Preview deployments deliberately use a separate Worker and workers.dev URL.
+# Do not attach kclhq.com routes or custom domains until the cutover gate.
+[env.preview]
+name = "kcl-ssr-preview"
+workers_dev = true

@@ -6,8 +6,7 @@
  * Supabase Auth의 세션 상태를 감지하고, 로그인된 사용자의 프로필 정보를
  * kcl_user_profiles 테이블에서 자동으로 조회하여 앱 전체에 제공합니다.
  *
- * 정적 빌드(output: 'export') 호환:
- * - 서버 액션/미들웨어 없이 순수 클라이언트 사이드에서 동작
+ * - 브라우저의 쿠키 기반 Supabase 세션을 감지
  * - onAuthStateChange 리스너로 세션 변경 감지
  * - Supabase RLS 정책에 의존하여 보안 유지
  *
@@ -245,6 +244,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    * 초기 세션 확인 + 인증 상태 변경 리스너 등록
    */
   useEffect(() => {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    if (!supabaseUrl || !supabaseAnonKey) {
+      // Keep local shells usable when public Supabase env is intentionally absent.
+      // Production Workers always receives these values at build/deploy time.
+      setIsLoading(false);
+      return undefined;
+    }
+
     const supabase = getSupabase();
 
     // 1. 현재 세션 확인 (페이지 로드 시)

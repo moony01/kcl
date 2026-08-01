@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import ExportedImage from 'next-image-export-optimizer';
+import Image from 'next/image';
 import { Eye, MessageCircle } from 'lucide-react';
 import { getNewsCommentCounts } from '@/lib/api/news-comments';
 import { getNewsViewCounts } from '@/lib/api/news-views';
@@ -49,7 +49,7 @@ export default function RelatedNewsGrid({ posts, locale }: RelatedNewsGridProps)
         >
           <div className={styles.relatedImage}>
             {related.thumbnail ? (
-              <ExportedImage
+              <Image
                 src={related.thumbnail}
                 alt={related.title}
                 width={400}

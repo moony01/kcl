@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import ExportedImage from 'next-image-export-optimizer';
+import Image from 'next/image';
 import { Calendar, Tag, MessageCircle } from 'lucide-react';
 import NewsViewCounter from '@/components/news/NewsViewCounter';
 import styles from './NewsCard.module.scss';
@@ -54,7 +54,7 @@ export default function NewsCard({
       {/* 썸네일 영역 */}
       <div className={styles.thumbnailWrapper}>
         {thumbnail ? (
-          <ExportedImage
+          <Image
             src={thumbnail}
             alt={title}
             width={400}

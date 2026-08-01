@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
-import ExportedImage from 'next-image-export-optimizer';
+import Image from 'next/image';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -136,7 +136,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         {/* 히어로 이미지 (썸네일 또는 placeholder) */}
         <div className={styles.heroImage}>
           {post.thumbnail ? (
-            <ExportedImage
+              <Image
               src={post.thumbnail}
               alt={post.title}
               width={1200}
@@ -189,7 +189,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
               if (typeof src === 'string' && src) {
                 return (
                   <span className={styles.contentImage}>
-                    <ExportedImage
+                    <Image
                       src={src}
                       alt={alt || ''}
                       width={800}
