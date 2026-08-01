@@ -1,43 +1,38 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isDev = process.env.NODE_ENV === 'development';
 
 /**
- * Next.js 설정
- *
- * SSG/CSR 마이그레이션 완료:
- * - Phase 1-2: Supabase 클라이언트 + API 레이어 (Kai) ✅
- * - Phase 3: API Routes/Redis 제거 (Max) ✅
- * - Phase 4: output: 'export' 설정 (Max) ✅
- * - Phase 5: 페이지 컴포넌트 정리 (Luna) ✅
- * - Phase 6: 빌드/배포 설정 (Max) ✅
- *
- * 배포 아키텍처: Cloudflare Pages (정적 호스팅)
- * - 빌드 출력: out/ 디렉토리
- * - 환경 변수: NEXT_PUBLIC_* 만 사용
- *
- * 개발 모드에서는 output: export 비활성화 (동적 라우트 지원)
+ * KCL은 Cloudflare Workers에서 OpenNext 어댑터로 실행됩니다.
+ * 공개 콘텐츠는 Next의 캐시/정적 렌더링을 활용하고, 인증·개인화 화면은
+ * 요청 시 렌더링할 수 있도록 output: export를 사용하지 않습니다.
  */
 const nextConfig = {
-  // 프로덕션 빌드에서만 정적 export 활성화
-  // 개발 모드에서는 동적 라우트(커뮤니티 게시글 등) 지원을 위해 비활성화
-  ...(isDev ? {} : { output: 'export' }),
   images: {
-    loader: 'custom', // next-image-export-optimizer 사용
+    // Worker 런타임에서 별도 Sharp 서버를 요구하지 않도록 원본/Cloudflare CDN을 사용합니다.
+    // 추후 Cloudflare Images binding을 붙일 때 이 옵션을 제거할 수 있습니다.
+    unoptimized: true,
     imageSizes: [400],
     deviceSizes: [800],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
-  transpilePackages: ['next-image-export-optimizer'], // 이미지 최적화 패키지
-  reactCompiler: !isDev, // 개발 모드에서 비활성화 (HMR 속도 개선)
+  reactCompiler: true,
+  allowedDevOrigins: ['127.0.0.1', 'localhost'],
+  turbopack: {
+    root: __dirname,
+  },
   sassOptions: {
     includePaths: [
       path.join(__dirname, 'src/styles'),
@@ -45,33 +40,24 @@ const nextConfig = {
     ],
   },
   env: {
-    NEXT_PUBLIC_BASE_PATH: '', // SSG: Cloudflare Pages 기본 경로
-    // next-image-export-optimizer 설정
-    nextImageExportOptimizer_imageFolderPath: 'public/images',
-    nextImageExportOptimizer_exportFolderPath: 'out',
-    nextImageExportOptimizer_quality: '75',
-    nextImageExportOptimizer_storePicturesInWEBP: 'true',
-    nextImageExportOptimizer_exportFolderName: 'nextImageExportOptimizer',
-    nextImageExportOptimizer_generateAndUseBlurImages: 'true',
-    nextImageExportOptimizer_remoteImageCacheTTL: '0',
+    NEXT_PUBLIC_BASE_PATH: '',
   },
-  /**
-   * 보안 헤더 설정 (SSG 모드)
-   *
-   * 참고: output: 'export' 모드에서는 headers()가 빌드에 포함되지 않습니다.
-   * 대신 Cloudflare Pages의 _headers 파일 또는 Pages Functions에서 설정합니다.
-   *
-   * Cloudflare Pages _headers 파일 예시 (public/_headers):
-   * ```
-   * /*
-   *   X-Frame-Options: DENY
-   *   X-Content-Type-Options: nosniff
-   *   Referrer-Policy: strict-origin-when-cross-origin
-   *   X-XSS-Protection: 1; mode=block
-   *   Permissions-Policy: camera=(), microphone=(), geolocation=()
-   * ```
-   */
-  // SSG에서는 headers() 비활성화 - Cloudflare _headers로 대체
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          {
+            key: 'Content-Security-Policy',
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://t1.kakaocdn.net https://*.googlesyndication.com https://*.google.com https://*.googleadservices.com https://*.doubleclick.net https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.adtrafficquality.google https://kapi.kakao.com https://sharer.kakao.com; frame-src https://*.doubleclick.net https://*.googlesyndication.com https://*.google.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google; frame-ancestors https://moony01.com https://www.moony01.com`,
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

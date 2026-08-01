@@ -1,11 +1,12 @@
 /**
  * Supabase Server Client
  *
- * API Routes 및 Server Actions에서 사용하는 Supabase 클라이언트
+ * Cloudflare Workers Server Component용 Supabase 클라이언트
  * 서버 사이드 전용 (브라우저에서 사용 금지)
  */
 
-import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+import { createServerClient as createSupabaseServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
 
 /**
  * 서버 사이드 Supabase 클라이언트 생성
@@ -15,25 +16,33 @@ import { createClient as createSupabaseClient } from '@supabase/supabase-js';
  *
  * @returns Supabase 클라이언트 인스턴스
  */
-export function createServerClient() {
+/**
+ * 요청 쿠키를 사용하는 SSR 클라이언트.
+ * Server Component에서는 쿠키를 읽을 수 있고, 갱신 쿠키는 Middleware가 반영합니다.
+ */
+export async function createServerClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // Service Role Key가 있으면 사용 (서버 전용 작업용)
-  // 없으면 Anon Key 사용 (RLS 적용됨)
-  const key = supabaseServiceKey || supabaseAnonKey;
-
-  if (!supabaseUrl || !key) {
-    // 개발 환경에서 환경변수가 없을 수 있음
-    console.warn('[Supabase] Missing environment variables, returning null client');
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn('[Supabase] Missing public environment variables for SSR client');
     return null;
   }
 
-  return createSupabaseClient(supabaseUrl, key, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
+  const cookieStore = await cookies();
+
+  return createSupabaseServerClient(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
+      },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
+        } catch {
+          // Server Components cannot always mutate cookies; Middleware owns refresh writes.
+        }
+      },
     },
   });
 }

@@ -9,12 +9,46 @@ packages/kcl/supabase/
 ├── README.md                           # 이 문서
 ├── policies.sql                        # RLS (Row Level Security) 정책
 ├── functions/
-│   └── bmc-webhook/
-│       └── index.ts                    # Buy Me a Coffee 결제 웹훅 처리
+│   ├── bmc-webhook/
+│   │   └── index.ts                    # Buy Me a Coffee 결제 웹훅 처리
+│   ├── kpopface-report/
+│   │   └── index.ts                    # Kpopface 이미지 기반 무료/유료 AI 리포트
+│   ├── kpopface-checkout/
+│   │   └── index.ts                    # Stripe 5회권 Checkout 세션
+│   └── kpopface-stripe-webhook/
+│       └── index.ts                    # Stripe 서명 검증 및 크레딧 지급
 └── migrations/
     ├── 20260119_add_league_tier.sql    # T1.53: 리그 티어 컬럼 추가
     └── 20260224_add_bmc_webhook_support.sql # BMC 웹훅/유예기간 지원
 ```
+
+## Kpopface AI 리포트 흐름
+
+`20260801000000_kpopface_ai_reports.sql`은 계정별 무료 1회, 유료 크레딧,
+리포트 이력, Stripe 결제 상태, 비공개 임시 이미지 버킷과 서비스 롤 전용
+크레딧 RPC를 추가합니다. 클라이언트에는 INSERT/UPDATE 권한을 주지 않고,
+Edge Function이 크레딧 예약·완료·환불을 원자적으로 처리합니다.
+
+```bash
+supabase db push
+supabase secrets set OPENAI_API_KEY=... OPENAI_REPORT_MODEL=gpt-4.1-mini \
+  STRIPE_SECRET_KEY=... STRIPE_WEBHOOK_SECRET=... \
+  KCL_PUBLIC_URL=https://www.kclhq.com
+supabase functions deploy kpopface-report
+supabase functions deploy kpopface-checkout
+supabase functions deploy kpopface-stripe-webhook --no-verify-jwt
+```
+
+Stripe webhook endpoint는
+`https://<project-ref>.supabase.co/functions/v1/kpopface-stripe-webhook`으로
+등록하고, `checkout.session.completed`와
+`checkout.session.async_payment_succeeded` 이벤트만 전송합니다. 결제 성공
+페이지가 크레딧을 직접 지급하지 않으며, 서명 검증된 웹훅이 멱등 RPC로
+5회권을 지급합니다.
+
+원본 이미지는 Storage에 임시 업로드한 뒤 Edge Function이 OpenAI 분석을
+완료하거나 실패하는 즉시 삭제합니다. 새로고침하면 브라우저 메모리의
+`File`이 사라지므로 다시 업로드해야 합니다.
 
 ## 테이블 스키마 개요
 

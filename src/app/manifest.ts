@@ -2,12 +2,10 @@ import { MetadataRoute } from 'next';
 import { BASE_PATH } from '@/lib/constants';
 
 /**
- * SSG 모드에서 정적 Web App Manifest 생성
- *
- * output: 'export' 모드에서는 dynamic = 'force-static' 필수
+ * 요청과 무관한 정적 Web App Manifest 생성
  */
 
-// SSG export 모드에서 정적 생성 강제
+// 런타임 요청과 무관하므로 정적 생성 강제
 export const dynamic = 'force-static';
 
 export default function manifest(): MetadataRoute.Manifest {

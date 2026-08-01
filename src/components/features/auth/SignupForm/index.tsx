@@ -4,7 +4,7 @@
  * SignupForm - KCL 회원가입 폼 컴포넌트
  *
  * OAuth(Google/Kakao) 회원가입만 지원합니다.
- * 정적 빌드 호환을 위해 모든 인증은 클라이언트 사이드에서 처리됩니다.
+ * OAuth 콜백은 Workers SSR 경로를 거치지만, 버튼 이벤트는 브라우저에서 처리합니다.
  */
 
 import { useState } from 'react';
@@ -34,7 +34,13 @@ export default function SignupForm() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/${locale}/auth/callback?flow=signup`,
+          redirectTo: (() => {
+            const returnTo = new URLSearchParams(window.location.search).get('returnTo');
+            const callback = new URL(`${window.location.origin}/${locale}/auth/callback`);
+            callback.searchParams.set('flow', returnTo ? 'report' : 'signup');
+            if (returnTo) callback.searchParams.set('returnTo', returnTo);
+            return callback.toString();
+          })(),
           queryParams: {
             prompt: 'select_account',
           },

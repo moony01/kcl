@@ -4,7 +4,7 @@
 
 [![Live](https://img.shields.io/badge/Live-kclhq.com-blue)](https://kclhq.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Cloudflare Pages](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://kclhq.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Workers-F38020.svg?logo=cloudflare)](https://kclhq.com/)
 
 🌐 **Live**: https://kclhq.com
 
@@ -22,15 +22,15 @@ KCL is a fan-driven ranking platform for K-Pop entertainment companies. Users vo
 - **Hall of Fame** — Monthly champions recorded permanently
 - **Multilingual** — 7 languages: Korean, English, Japanese, Chinese, Spanish, French, German
 - **PWA** — Installable as a Progressive Web App
-- **SEO Optimized** — Static export with full sitemap, Open Graph, and structured data
+- **SEO Optimized** — Server-rendered/hybrid pages with full sitemap, Open Graph, and structured data
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
-| **Framework** | Next.js 16 (App Router, static export) |
+| **Framework** | Next.js 16 (App Router, SSR/SSG hybrid) |
 | **Database** | Supabase (PostgreSQL) |
-| **Hosting** | Cloudflare Pages |
+| **Hosting** | Cloudflare Workers via OpenNext |
 | **i18n** | next-intl (7 languages) |
 | **Styling** | SCSS Modules |
 | **Animation** | Framer Motion |
@@ -73,7 +73,8 @@ Open [http://localhost:3000](http://localhost:3000)
 pnpm build
 ```
 
-Output is generated in the `out/` directory (static export for Cloudflare Pages).
+`pnpm build` validates the Next.js production build. To build and preview the
+Cloudflare Worker bundle locally, run `pnpm preview` (requires Wrangler).
 
 ## Project Structure
 
@@ -100,7 +101,20 @@ kcl/
 
 ## Deployment
 
-Deployed on Cloudflare Pages as a fully static site (`output: 'export'`).
+Deployed on Cloudflare Workers through `@opennextjs/cloudflare`.
+
+```bash
+pnpm preview   # OpenNext build + Wrangler local runtime
+pnpm deploy    # OpenNext build + Wrangler deploy
+```
+
+Configure the Workers build with `NEXT_PUBLIC_SUPABASE_URL`,
+`NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `NEXT_PUBLIC_SITE_URL`. Keep service-role
+and payment/AI secrets out of the Worker bundle. The Kpopface report Edge
+Functions remain in Supabase; configure `OPENAI_API_KEY`,
+`OPENAI_REPORT_MODEL`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, and
+`KCL_PUBLIC_URL` with `supabase secrets set` as described in
+[`supabase/README.md`](supabase/README.md).
 
 The `.github/workflows/kcl-league-promotion.yml` workflow runs on the 1st of every month (UTC 00:00) to:
 1. Snapshot season rankings
