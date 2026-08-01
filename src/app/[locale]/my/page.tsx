@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: MyPageProps): Promise<Metadat
 
   return {
     title: 'My Page',
+    robots: { index: false, follow: false },
     alternates: generateAlternates(locale, '/my'),
   };
 }

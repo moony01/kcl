@@ -75,13 +75,13 @@ export function LeagueHeader() {
         >
           <Trophy className={styles.trophyIcon} size={20} />
         </motion.span>
-        <h1 className={styles.title}>
+        <h2 className={styles.title}>
           <span className={styles.brand}>
             <span className={styles.brandShort}>KCL</span>
             <span className={styles.brandFull}>KPOP COMPANY LEAGUE</span>
           </span>
           <span className={styles.seasonInfo}>{seasonLabel}</span>
-        </h1>
+        </h2>
       </div>
 
       {/* 우측: 데이터 싱크 + D-day */}

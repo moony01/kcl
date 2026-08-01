@@ -8,13 +8,12 @@
 packages/kcl/supabase/
 ├── README.md                           # 이 문서
 ├── policies.sql                        # RLS (Row Level Security) 정책
-├── functions/
-│   └── bmc-webhook/
-│       └── index.ts                    # Buy Me a Coffee 결제 웹훅 처리
 └── migrations/
-    ├── 20260119_add_league_tier.sql    # T1.53: 리그 티어 컬럼 추가
-    └── 20260224_add_bmc_webhook_support.sql # BMC 웹훅/유예기간 지원
+    └── YYYYMMDD_description.sql        # 스키마 변경 이력
 ```
+
+> BMC webhook은 2026-08-01에 폐기했습니다. 과거 BMC migration 파일은 이미 적용된
+> migration history 보존을 위해 남겨두며, 운영 함수와 secret은 제거합니다.
 
 ## 테이블 스키마 개요
 

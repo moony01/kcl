@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: SignupPageProps): Promise<Met
 
   return {
     title: 'Sign Up',
+    robots: { index: false, follow: false },
     alternates: generateAlternates(locale, '/signup'),
   };
 }

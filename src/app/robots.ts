@@ -13,10 +13,10 @@ import { FULL_URL } from '@/lib/constants';
  * Cloudflare에서 관리하므로 여기서는 제외합니다.
  * Cloudflare Dashboard > Security > Bots에서 설정 확인 가능.
  *
- * SSG 모드에서 빌드 시점에 정적 생성됩니다.
+ * 배포 환경에서 캐시 가능한 robots.txt로 생성됩니다.
  */
 
-// SSG export 모드에서 정적 생성 강제
+// Workers에서도 캐시 가능한 응답으로 유지
 export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
@@ -32,11 +32,14 @@ export default function robots(): MetadataRoute.Robots {
           // 인증 관련 페이지 (검색 불필요)
           '/*/login',
           '/*/signup',
+          '/*/forgot-password',
+          '/*/onboarding',
+          '/*/auth/',
 
           // 개인 페이지 (로그인 필요)
           '/*/my',
 
-          // API 경로 (SSG에서는 없지만 방어적으로)
+          // 애플리케이션 API 경로
           '/api/',
         ],
       },

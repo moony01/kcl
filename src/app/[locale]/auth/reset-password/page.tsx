@@ -6,11 +6,16 @@
  * 사용자는 새 비밀번호를 입력할 수 있습니다.
  */
 
+import type { Metadata } from 'next';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import AuthLayout from '@/components/features/auth/AuthLayout';
 import ResetPasswordForm from '@/components/features/auth/ResetPasswordForm';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
+/** 지원 로케일에 대한 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }

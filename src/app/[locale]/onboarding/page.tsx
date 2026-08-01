@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: OnboardingPageProps): Promise
 
   return {
     title: locale === 'ko' ? '최애 그룹 설정' : 'Favorite Group Setup',
+    robots: { index: false, follow: false },
   };
 }
 

@@ -10,8 +10,8 @@ import AppShell from '@/components/layout/AppShell';
 import '@/styles/main.scss';
 import '@/styles/layout/_app-shell.scss';
 
-/** Google Analytics 측정 ID */
-const GA_MEASUREMENT_ID = 'G-LWCB5XG3S9';
+/** Google Analytics 측정 ID (Workers 환경변수 우선, 기존 운영 ID fallback) */
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-LWCB5XG3S9';
 
 const inter = Inter({
   subsets: ['latin'],
