@@ -23,10 +23,6 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   margin-bottom: 14px;
 }
 
@@ -43,12 +39,6 @@
   color: #1a1a2e;
   font-size: clamp(17px, 4vw, 21px);
   line-height: 1.2;
-}
-
-.subtitle {
-  margin: 5px 0 0;
-  color: #6b7280;
-  font-size: 12px;
 }
 
 .list {
@@ -238,8 +228,7 @@
 
 .powerVoteAction {
   display: flex;
-  flex-shrink: 0;
-  justify-content: flex-end;
+  margin-top: 12px;
 }
 
 .expandAction {
@@ -266,6 +255,22 @@
   box-shadow: 0 6px 14px rgba(91, 33, 182, 0.28);
   text-decoration: none;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.powerVoteLink {
+  width: 100%;
+  min-height: 44px;
+  padding-inline: 16px;
+  text-align: left;
+}
+
+.powerVoteLink span {
+  flex: 1;
+  min-width: 0;
+}
+
+.powerVoteLink svg:last-child {
+  flex-shrink: 0;
 }
 
 .powerVoteLink:hover,
@@ -478,10 +483,6 @@
 @media (max-width: 360px) {
   .embed {
     padding: 14px;
-  }
-
-  .header {
-    gap: 8px;
   }
 
   .row {

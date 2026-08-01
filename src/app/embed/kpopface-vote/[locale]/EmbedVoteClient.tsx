@@ -373,14 +373,6 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
         <div>
           <p className={styles.eyebrow}>KPOP COMPANY LEAGUE</p>
           <h1>{copy.title}</h1>
-          <p className={styles.subtitle}>{copy.subtitle}</p>
-        </div>
-        <div className={styles.powerVoteAction}>
-          <a className={styles.powerVoteLink} href={kclMainUrl} target="_top" rel="noopener noreferrer">
-            <Zap size={15} aria-hidden="true" />
-            <span>{copy.powerVoteLink}</span>
-            <ChevronRight size={16} aria-hidden="true" />
-          </a>
         </div>
       </header>
 
@@ -415,6 +407,14 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
           </button>
         </div>
       )}
+
+      <div className={styles.powerVoteAction}>
+        <a className={styles.powerVoteLink} href={kclMainUrl} target="_top" rel="noopener noreferrer">
+          <Zap size={15} aria-hidden="true" />
+          <span>{copy.powerVoteLink}</span>
+          <ChevronRight size={16} aria-hidden="true" />
+        </a>
+      </div>
 
       {activeCompany && (
         <div className={styles.holdOverlay} aria-live="polite" aria-atomic="true">
