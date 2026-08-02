@@ -5,6 +5,8 @@ import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import styles from './KpopfaceAdCard.module.scss';
 
+const KPOPFACE_URL = 'https://moony01.com/kpopface/';
+
 type KpopfaceAdCopy = {
   label: string;
   title: string;
@@ -107,7 +109,7 @@ export default function KpopfaceAdCard() {
 
   return (
     <Link
-      href={`/embed/kpopface-vote/${locale}`}
+      href={KPOPFACE_URL}
       className={styles.card}
       data-ad-slot="kpopface"
       aria-label={copy.ariaLabel}
