@@ -14,6 +14,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { CompanyRanking } from '@/types/league';
 import TopThreeCard from '../TopThreeCard';
 import LeagueRankingItem from '../LeagueRankingItem';
+import KpopfaceAdCard from '../KpopfaceAdCard';
 import styles from './PremierLeague.module.scss';
 
 interface PremierLeagueProps {
@@ -49,6 +50,9 @@ export default function PremierLeague({
           />
         ))}
       </div>
+
+      {/* 4위 목록 위 Kpopface 프로모션 슬롯 */}
+      <KpopfaceAdCard />
 
       {/* 4-10위 리스트 - T1.16: 10위도 일반 표시 */}
       {/* T1.XX: AnimatePresence 추가 - 순위 변동 시 새 아이템 애니메이션 처리 */}
