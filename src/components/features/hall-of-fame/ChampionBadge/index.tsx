@@ -10,6 +10,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import type { MonthlyChampion } from '@/types/hall-of-fame';
+import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import styles from './ChampionBadge.module.scss';
 
 interface ChampionBadgeProps {
@@ -23,6 +24,8 @@ interface ChampionBadgeProps {
 
 export default function ChampionBadge({ champion, size = 'medium', onClick }: ChampionBadgeProps) {
   const t = useTranslations('HallOfFame');
+  const logoUrl = getCompanyLogoUrl(champion.companyId, champion.companyLogoUrl, champion.companyName);
+  const logoBackground = getCompanyLogoBackground(champion.companyId, champion.companyName, logoUrl);
 
   // 월 이름 가져오기
   const monthKey = champion.month.toString() as
@@ -52,9 +55,9 @@ export default function ChampionBadge({ champion, size = 'medium', onClick }: Ch
       tabIndex={onClick ? 0 : undefined}
     >
       {/* 소속사 로고 */}
-      <div className={styles.logoWrapper} style={{ background: champion.companyLogo }}>
-        {champion.companyLogoUrl ? (
-          <img src={champion.companyLogoUrl} alt={champion.companyName} className={styles.logoImage} />
+      <div className={styles.logoWrapper} style={{ background: logoBackground }}>
+        {logoUrl ? (
+          <img src={logoUrl} alt={champion.companyName} className={styles.logoImage} />
         ) : (
           <span className={styles.logoText}>{champion.companyName.charAt(0)}</span>
         )}

@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Trophy } from 'lucide-react';
 import type { GrandChampion } from '@/types/hall-of-fame';
+import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import styles from './GrandChampionCard.module.scss';
 
 interface GrandChampionCardProps {
@@ -20,6 +21,8 @@ interface GrandChampionCardProps {
 
 export default function GrandChampionCard({ champion }: GrandChampionCardProps) {
   const t = useTranslations('HallOfFame');
+  const logoUrl = getCompanyLogoUrl(champion.companyId, champion.companyLogoUrl, champion.companyName);
+  const logoBackground = getCompanyLogoBackground(champion.companyId, champion.companyName, logoUrl);
 
   // 득표수 포맷팅
   const formatVotes = (votes: number): string => {
@@ -65,9 +68,9 @@ export default function GrandChampionCard({ champion }: GrandChampionCardProps) 
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5, type: 'spring' }}
       >
-        <div className={styles.logoWrapper} style={{ background: champion.companyLogo }}>
-          {champion.companyLogoUrl ? (
-            <img src={champion.companyLogoUrl} alt={champion.companyName} className={styles.logoImage} />
+        <div className={styles.logoWrapper} style={{ background: logoBackground }}>
+          {logoUrl ? (
+            <img src={logoUrl} alt={champion.companyName} className={styles.logoImage} />
           ) : (
             <span className={styles.logoText}>{champion.companyName.charAt(0)}</span>
           )}

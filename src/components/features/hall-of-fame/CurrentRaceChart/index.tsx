@@ -9,6 +9,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import type { YearlyWinCount } from '@/types/hall-of-fame';
+import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import styles from './CurrentRaceChart.module.scss';
 
 interface CurrentRaceChartProps {
@@ -65,6 +66,8 @@ export default function CurrentRaceChart({ year, data, maxWins = 12 }: CurrentRa
         {data.map((item, index) => {
           const barWidth = (item.winCount / maxWins) * 100;
           const color = getRankColor(item.rank);
+          const logoUrl = getCompanyLogoUrl(item.companyId, item.companyLogoUrl, item.companyName);
+          const logoBackground = getCompanyLogoBackground(item.companyId, item.companyName, logoUrl);
 
           return (
             <motion.div
@@ -81,9 +84,9 @@ export default function CurrentRaceChart({ year, data, maxWins = 12 }: CurrentRa
 
               {/* 소속사 정보 */}
               <div className={styles.companyInfo}>
-                <div className={styles.companyLogo} style={{ background: item.companyLogo }}>
-                  {item.companyLogoUrl ? (
-                    <img src={item.companyLogoUrl} alt={item.companyName} className={styles.logoImage} />
+                <div className={styles.companyLogo} style={{ background: logoBackground }}>
+                  {logoUrl ? (
+                    <img src={logoUrl} alt={item.companyName} className={styles.logoImage} />
                   ) : (
                     <span>{item.companyName.charAt(0)}</span>
                   )}

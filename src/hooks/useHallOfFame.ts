@@ -42,6 +42,7 @@ function calculateYearlyRace(champions: MonthlyChampion[]): YearlyWinCount[] {
         companyId: champion.companyId,
         companyName: champion.companyName,
         companyLogo: champion.companyLogo,
+        companyLogoUrl: champion.companyLogoUrl,
         winCount: 1,
         rank: 0,
       });
