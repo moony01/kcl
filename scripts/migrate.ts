@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment -- legacy migration script uses unchecked Supabase types */
 // @ts-nocheck
 import fs from 'fs';
 import path from 'path';

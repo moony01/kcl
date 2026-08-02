@@ -43,7 +43,11 @@ function LoginFormInner() {
   const [error, setError] = useState<string | null>(null);
   const [oauthLoading, setOauthLoading] = useState<string | null>(null);
   const [lastProvider, setLastProvider] = useState<string | null>(null);
-  const [conflictProvider, setConflictProvider] = useState<string | null>(null);
+  const [conflictDismissed, setConflictDismissed] = useState(false);
+
+  const queryConflictProvider =
+    searchParams.get('conflict') === 'true' ? searchParams.get('provider') : null;
+  const conflictProvider = conflictDismissed ? null : queryConflictProvider;
 
   // 마운트 시 마지막 프로바이더 및 충돌 정보 읽기
   useEffect(() => {
@@ -51,19 +55,13 @@ function LoginFormInner() {
     try {
       const saved = localStorage.getItem(LAST_PROVIDER_KEY);
       if (saved) {
-        setLastProvider(saved);
+        const timer = window.setTimeout(() => setLastProvider(saved), 0);
+        return () => window.clearTimeout(timer);
       }
     } catch {
       // localStorage 접근 실패 무시 (Private 브라우징 등)
     }
-
-    // URL params에서 충돌 정보 읽기 (?conflict=true&provider=google)
-    const isConflict = searchParams.get('conflict') === 'true';
-    const provider = searchParams.get('provider');
-    if (isConflict && provider) {
-      setConflictProvider(provider);
-    }
-  }, [searchParams]);
+  }, []);
 
   /**
    * OAuth 로그인 처리 (Google / Kakao)
@@ -72,7 +70,7 @@ function LoginFormInner() {
   const handleOAuthLogin = async (provider: OAuthProvider) => {
     setOauthLoading(provider);
     setError(null);
-    setConflictProvider(null);
+    setConflictDismissed(true);
 
     try {
       const { error } = await supabase.auth.signInWithOAuth({

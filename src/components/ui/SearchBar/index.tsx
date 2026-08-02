@@ -166,7 +166,8 @@ export default function SearchBar({ onSelect, placeholder }: SearchBarProps) {
 
   // 하이라이트 인덱스 리셋 (결과 변경 시)
   useEffect(() => {
-    setHighlightIndex(-1);
+    const timer = window.setTimeout(() => setHighlightIndex(-1), 0);
+    return () => window.clearTimeout(timer);
   }, [searchResults]);
 
   /** 인기 칩 클릭 핸들러 */

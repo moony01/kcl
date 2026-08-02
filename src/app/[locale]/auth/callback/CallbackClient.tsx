@@ -147,7 +147,28 @@ function CallbackHandler() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const t = useTranslations('Auth');
-  const [error, setError] = useState<string | null>(null);
+  const [timedOut, setTimedOut] = useState(false);
+
+  const queryError = searchParams.get('error');
+  const queryErrorDescription = searchParams.get('error_description');
+  const queryCode = searchParams.get('code');
+  const isProviderConflict = isProviderConflictError(queryErrorDescription);
+  const errorMessages: Record<string, string> = {
+    access_denied: t('error_oauth_access_denied'),
+    server_error: t('error_oauth_server'),
+    temporarily_unavailable: t('error_oauth_unavailable'),
+    invalid_request: t('error_oauth_invalid_request'),
+    unauthorized_client: t('error_oauth_unauthorized'),
+  };
+  const error = isProviderConflict
+    ? null
+    : queryError
+      ? errorMessages[queryError] || t('error_oauth_generic')
+      : !queryCode
+        ? t('error_oauth_generic')
+        : timedOut
+          ? t('error_oauth_timeout')
+          : null;
 
   useEffect(() => {
     const locale = pathname.split('/')[1] || 'en';
@@ -169,20 +190,11 @@ function CallbackHandler() {
         return;
       }
 
-      const errorMessages: Record<string, string> = {
-        'access_denied': t('error_oauth_access_denied'),
-        'server_error': t('error_oauth_server'),
-        'temporarily_unavailable': t('error_oauth_unavailable'),
-        'invalid_request': t('error_oauth_invalid_request'),
-        'unauthorized_client': t('error_oauth_unauthorized'),
-      };
-      setError(errorMessages[errorParam] || t('error_oauth_generic'));
       return;
     }
 
     const code = searchParams.get('code');
     if (!code) {
-      setError(t('error_oauth_generic'));
       return;
     }
 
@@ -273,7 +285,7 @@ function CallbackHandler() {
     const timeoutId = setTimeout(() => {
       if (!redirected) {
         clearInterval(pollInterval);
-        setError(t('error_oauth_timeout'));
+        setTimedOut(true);
       }
     }, 15000);
 
