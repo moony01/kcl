@@ -26,6 +26,7 @@ import {
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
 import type { CompanyRanking } from '@/types/league';
+import { getCompanyLogoBackground } from '@/lib/company-logos';
 import styles from './LeagueRankingItem.module.scss';
 
 interface LeagueRankingItemProps {
@@ -78,6 +79,7 @@ export default function LeagueRankingItem({
   // 2026년 개편: 승강 상태별 스타일 분기
   const promotionStatus = company.promotionStatus;
   const isPromotionHero = promotionStatus === 'promotion_direct';
+  const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, company.logoUrl);
 
   /**
    * 승강 상태별 태그 렌더링
@@ -137,7 +139,6 @@ export default function LeagueRankingItem({
         [styles.rankUpGlow]: company.rankChange > 0,
         [styles.rankDownGlow]: company.rankChange < 0,
       })}
-      whileHover={isPromotionHero ? { y: -4, scale: 1.01 } : { x: 4 }}
       transition={{ duration: 0.15 }}
       onClick={() => _onVote?.(company.companyId)}
     >
@@ -149,7 +150,7 @@ export default function LeagueRankingItem({
 
       {/* 회사 정보 */}
       <div className={styles.companyInfo}>
-        <div className={styles.logo} style={{ background: company.gradientColor }}>
+        <div className={styles.logo} style={{ background: logoBackground }}>
           {company.logoUrl ? (
             <img src={company.logoUrl} alt={company.nameEn} className={styles.logoImage} />
           ) : (

@@ -2,3 +2,9 @@
 @use 'base/reset';
 @use 'base/typography';
 // 추후 layout 및 components 추가 예정
+
+// Mystic Story의 공식 자산은 흰색 아웃라인이므로 흰색 로고 디스크에서
+// 동일한 로고 형태를 유지하면서 검은색으로 렌더링한다.
+img[src$='/images/company-logos/mystic-story.png'] {
+  filter: brightness(0);
+}

@@ -1,0 +1,73 @@
+/**
+ * Official company logo assets used across the ranking UI.
+ *
+ * The database still contains legacy fan-art URLs for some companies. Keep
+ * those URLs as a fallback for companies that are not in this registry, but
+ * prefer the verified brand assets below whenever a company ID or name is known.
+ */
+const OFFICIAL_COMPANY_LOGOS: Record<string, string> = {
+  'ba57c11a-bf5b-4058-93e8-449c572d72c2': '/images/company-logos/yg.svg',
+  'df715750-e434-441b-b361-3134b29d320f': '/images/company-logos/sm.jpg',
+  '9e920899-4937-4c61-9aa6-5539e4953d2b': '/images/company-logos/the-muze.png',
+  'b9858ae7-7021-4a84-98c5-beeb68fb91c2': '/images/company-logos/jyp.png',
+  'ec0fc96a-9c29-4dee-960b-0a4020d17241': '/images/company-logos/kq.jpg',
+  '3264d1b3-9d2f-4377-94a0-86c948e3cb2f': '/images/company-logos/asnd.png',
+  '0b2e0cb7-232f-4d73-ab77-427552523542': '/images/company-logos/p-nation.png',
+  '3b630eff-8b66-4c9b-97e7-2f6016bb0f58': '/images/company-logos/s2.png',
+  '80b0c28e-ec51-4872-bae3-c7e612072d86': '/images/company-logos/hybe.svg',
+  '7f87360a-a79f-44d6-83e7-f4ed347da2fb': '/images/company-logos/modhaus.png',
+};
+
+const OFFICIAL_COMPANY_LOGOS_BY_NAME: Record<string, string> = {
+  attrakt: '/images/company-logos/attrakt.svg',
+  wakeone: '/images/company-logos/wakeone.svg',
+  'wakeone entertainment': '/images/company-logos/wakeone.svg',
+  fantagio: '/images/company-logos/fantagio.png',
+  'fantagio entertainment': '/images/company-logos/fantagio.png',
+  cube: '/images/company-logos/cube.svg',
+  'cube entertainment': '/images/company-logos/cube.svg',
+  'high up': '/images/company-logos/high-up.svg',
+  'high up entertainment': '/images/company-logos/high-up.svg',
+  rbw: '/images/company-logos/rbw.jpg',
+  'rbw entertainment': '/images/company-logos/rbw.jpg',
+  woollim: '/images/company-logos/woollim.png',
+  'woollim entertainment': '/images/company-logos/woollim.png',
+  wm: '/images/company-logos/wm.jpg',
+  'wm entertainment': '/images/company-logos/wm.jpg',
+  'mystic story': '/images/company-logos/mystic-story.png',
+  'mystic story entertainment': '/images/company-logos/mystic-story.png',
+};
+
+const DARK_LOGO_BACKGROUNDS = new Set([
+  '/images/company-logos/wakeone.svg',
+  '/images/company-logos/high-up.svg',
+]);
+
+function normalizeCompanyName(name?: string | null): string {
+  return name?.trim().toLowerCase().replace(/\s+/g, ' ') || '';
+}
+
+export function getCompanyLogoUrl(
+  companyId: string,
+  fallbackLogoUrl?: string | null,
+  companyName?: string | null,
+): string {
+  const logoById = OFFICIAL_COMPANY_LOGOS[companyId];
+  if (logoById) return logoById;
+
+  const logoByName = OFFICIAL_COMPANY_LOGOS_BY_NAME[normalizeCompanyName(companyName)];
+  return logoByName || fallbackLogoUrl || '';
+}
+
+/**
+ * Keep logo discs to a strict black/white palette so the official mark keeps
+ * enough contrast regardless of the company ranking color.
+ */
+export function getCompanyLogoBackground(
+  companyId: string,
+  companyName?: string | null,
+  logoUrl?: string | null,
+): '#000' | '#fff' {
+  const resolvedLogoUrl = logoUrl || getCompanyLogoUrl(companyId, null, companyName);
+  return DARK_LOGO_BACKGROUNDS.has(resolvedLogoUrl) ? '#000' : '#fff';
+}

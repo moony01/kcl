@@ -4,7 +4,7 @@
  * 상위 3위 대형 카드 컴포넌트
  * - 금(1위), 은(2위), 동(3위) 메달 아이콘
  * - 화려한 그라데이션 배경
- * - 호버 시 스케일 효과
+ * - 호버 시 보라색 테두리 강조
  */
 
 'use client';
@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { Medal, Flame, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import classNames from 'classnames';
 import type { CompanyRanking } from '@/types/league';
+import { getCompanyLogoBackground } from '@/lib/company-logos';
 import styles from './TopThreeCard.module.scss';
 
 interface TopThreeCardProps {
@@ -47,6 +48,7 @@ export default function TopThreeCard({
   isSelected = false,
 }: TopThreeCardProps) {
   const medalColor = MEDAL_COLORS[rank];
+  const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, company.logoUrl);
 
   /** 순위 변동 아이콘 */
   const renderRankChange = () => {
@@ -82,7 +84,6 @@ export default function TopThreeCard({
       })}
       data-rank={rank}
       layout
-      whileHover={{ scale: 1.03, y: -4 }}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -103,7 +104,7 @@ export default function TopThreeCard({
 
       {/* 회사 로고 */}
       <div className={styles.logoWrapper}>
-        <div className={styles.logo} style={{ background: company.gradientColor }}>
+        <div className={styles.logo} style={{ background: logoBackground }}>
           {company.logoUrl ? (
             <img src={company.logoUrl} alt={company.nameEn} className={styles.logoImage} />
           ) : (
