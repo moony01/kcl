@@ -11,6 +11,7 @@ import type {
   GrandChampion,
   HallOfFameData,
 } from '@/types/hall-of-fame';
+import { getCompanyLogoUrl } from '@/lib/company-logos';
 
 /** 소속사 정보 (Mock) */
 const COMPANIES = {
@@ -182,6 +183,15 @@ const GRAND_CHAMPION_2025: GrandChampion = {
   decidedAt: '2026-01-01T00:00:00Z',
 };
 
+function withOfficialLogo<T extends { companyId: string; companyName: string; companyLogoUrl?: string }>(
+  item: T,
+): T {
+  return {
+    ...item,
+    companyLogoUrl: getCompanyLogoUrl(item.companyId, item.companyLogoUrl, item.companyName) || undefined,
+  };
+}
+
 /**
  * 연간 우승 횟수 계산
  * @param champions 월간 챔피언 목록
@@ -191,15 +201,17 @@ function calculateYearlyRace(champions: MonthlyChampion[]): YearlyWinCount[] {
   const countMap = new Map<string, YearlyWinCount>();
 
   for (const champion of champions) {
-    const existing = countMap.get(champion.companyId);
+    const championWithLogo = withOfficialLogo(champion);
+    const existing = countMap.get(championWithLogo.companyId);
     if (existing) {
       existing.winCount += 1;
     } else {
-      countMap.set(champion.companyId, {
-        year: champion.year,
-        companyId: champion.companyId,
-        companyName: champion.companyName,
-        companyLogo: champion.companyLogo,
+      countMap.set(championWithLogo.companyId, {
+        year: championWithLogo.year,
+        companyId: championWithLogo.companyId,
+        companyName: championWithLogo.companyName,
+        companyLogo: championWithLogo.companyLogo,
+        companyLogoUrl: championWithLogo.companyLogoUrl,
         winCount: 1,
         rank: 0,
       });
@@ -220,12 +232,13 @@ function calculateYearlyRace(champions: MonthlyChampion[]): YearlyWinCount[] {
  */
 export function getMockHallOfFameData(): HallOfFameData {
   const currentYear = 2026;
+  const currentYearMonthly = getMockMonthlyChampions(currentYear);
 
   return {
     currentYear,
-    latestGrandChampion: GRAND_CHAMPION_2025,
-    currentYearRace: calculateYearlyRace(MONTHLY_CHAMPIONS_2026),
-    currentYearMonthly: MONTHLY_CHAMPIONS_2026,
+    latestGrandChampion: withOfficialLogo(GRAND_CHAMPION_2025),
+    currentYearRace: calculateYearlyRace(currentYearMonthly),
+    currentYearMonthly,
   };
 }
 
@@ -233,8 +246,8 @@ export function getMockHallOfFameData(): HallOfFameData {
  * 특정 연도의 월간 챔피언 데이터 반환
  */
 export function getMockMonthlyChampions(year: number): MonthlyChampion[] {
-  if (year === 2025) return MONTHLY_CHAMPIONS_2025;
-  if (year === 2026) return MONTHLY_CHAMPIONS_2026;
+  if (year === 2025) return MONTHLY_CHAMPIONS_2025.map(withOfficialLogo);
+  if (year === 2026) return MONTHLY_CHAMPIONS_2026.map(withOfficialLogo);
   return [];
 }
 

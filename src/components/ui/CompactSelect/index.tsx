@@ -114,7 +114,8 @@ export default function CompactSelect({
       }, 220);
       return () => clearTimeout(timer);
     } else {
-      setCanScrollDown(false);
+      const timer = window.setTimeout(() => setCanScrollDown(false), 0);
+      return () => clearTimeout(timer);
     }
   }, [isOpen, showSearch, filteredOptions.length]);
 

@@ -133,8 +133,8 @@ export default function ShareButtons({
         // 카카오 JavaScript 키 (공개 키)
         window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY || '');
       }
-      setKakaoReady(true);
-      return;
+      const readyTimer = window.setTimeout(() => setKakaoReady(true), 0);
+      return () => window.clearTimeout(readyTimer);
     }
 
     // 카카오 SDK 동적 로드

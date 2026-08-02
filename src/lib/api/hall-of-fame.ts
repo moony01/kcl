@@ -14,6 +14,7 @@ import type {
   YearlyWinCount,
   GrandChampion,
 } from '@/types/hall-of-fame';
+import { getCompanyLogoUrl } from '@/lib/company-logos';
 
 /** DB 레코드 타입 */
 interface SeasonRecord {
@@ -42,7 +43,9 @@ function toMonthlyChampion(record: SeasonRecord): MonthlyChampion {
     companyId: record.champion_company_id,
     companyName: record.company?.name_en || 'Unknown',
     companyLogo: record.company?.gradient_color || '#8B5CF6',
-    companyLogoUrl: record.company?.logo_url || undefined,
+    companyLogoUrl: record.company
+      ? getCompanyLogoUrl(record.champion_company_id, record.company.logo_url, record.company.name_en) || undefined
+      : undefined,
     totalVotes: record.total_votes,
     decidedAt: record.decided_at,
   };

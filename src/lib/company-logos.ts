@@ -19,6 +19,26 @@ const OFFICIAL_COMPANY_LOGOS: Record<string, string> = {
 };
 
 const OFFICIAL_COMPANY_LOGOS_BY_NAME: Record<string, string> = {
+  hybe: '/images/company-logos/hybe.svg',
+  'hybe corporation': '/images/company-logos/hybe.svg',
+  sm: '/images/company-logos/sm.jpg',
+  'sm entertainment': '/images/company-logos/sm.jpg',
+  yg: '/images/company-logos/yg.svg',
+  'yg entertainment': '/images/company-logos/yg.svg',
+  jyp: '/images/company-logos/jyp.png',
+  'jyp entertainment': '/images/company-logos/jyp.png',
+  'the muze': '/images/company-logos/the-muze.png',
+  'the muze entertainment': '/images/company-logos/the-muze.png',
+  kq: '/images/company-logos/kq.jpg',
+  'kq entertainment': '/images/company-logos/kq.jpg',
+  asnd: '/images/company-logos/asnd.png',
+  'asnd entertainment': '/images/company-logos/asnd.png',
+  'p nation': '/images/company-logos/p-nation.png',
+  'p nation entertainment': '/images/company-logos/p-nation.png',
+  s2: '/images/company-logos/s2.png',
+  's2 entertainment': '/images/company-logos/s2.png',
+  modhaus: '/images/company-logos/modhaus.png',
+  'modhaus entertainment': '/images/company-logos/modhaus.png',
   attrakt: '/images/company-logos/attrakt.svg',
   wakeone: '/images/company-logos/wakeone.svg',
   'wakeone entertainment': '/images/company-logos/wakeone.svg',
@@ -44,7 +64,7 @@ const DARK_LOGO_BACKGROUNDS = new Set([
 ]);
 
 function normalizeCompanyName(name?: string | null): string {
-  return name?.trim().toLowerCase().replace(/\s+/g, ' ') || '';
+  return name?.trim().toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, ' ').trim() || '';
 }
 
 export function getCompanyLogoUrl(
@@ -68,6 +88,6 @@ export function getCompanyLogoBackground(
   companyName?: string | null,
   logoUrl?: string | null,
 ): '#000' | '#fff' {
-  const resolvedLogoUrl = logoUrl || getCompanyLogoUrl(companyId, null, companyName);
+  const resolvedLogoUrl = getCompanyLogoUrl(companyId, logoUrl, companyName);
   return DARK_LOGO_BACKGROUNDS.has(resolvedLogoUrl) ? '#000' : '#fff';
 }

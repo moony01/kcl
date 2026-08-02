@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { motion, useMotionValue, useAnimation, PanInfo } from 'framer-motion';
+import { useState, useRef, useEffect, type CSSProperties } from 'react';
+import { motion, useMotionValue, PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { CompanyType } from '@/lib/mock-data';
 import styles from './CompanySelector.module.scss';
@@ -13,6 +13,7 @@ interface CompanySelectorProps {
 }
 
 const DRAG_BUFFER = 50;
+type GlowStyle = CSSProperties & { '--glow-color': string };
 
 export default function CompanySelector({ companies, onSelect, selectedCompanyId }: CompanySelectorProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,9 +24,10 @@ export default function CompanySelector({ companies, onSelect, selectedCompanyId
   useEffect(() => {
     const idx = companies.findIndex(c => c.id === selectedCompanyId);
     if (idx >= 0 && idx !== currentIndex) {
-      setCurrentIndex(idx);
+      const timer = window.setTimeout(() => setCurrentIndex(idx), 0);
+      return () => window.clearTimeout(timer);
     }
-  }, [selectedCompanyId, companies]);
+  }, [selectedCompanyId, companies, currentIndex]);
 
   // Handle Index Change
   const updateIndex = (newIndex: number) => {
@@ -35,7 +37,7 @@ export default function CompanySelector({ companies, onSelect, selectedCompanyId
     onSelect(companies[wrappedIndex].id);
   };
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
     if (info.offset.x < -DRAG_BUFFER) {
       updateIndex(currentIndex + 1);
     } else if (info.offset.x > DRAG_BUFFER) {
@@ -94,8 +96,8 @@ export default function CompanySelector({ companies, onSelect, selectedCompanyId
               style={{
                 // Custom CSS variable for glow color based on company image flavor
                 // Note: extracting color might be hard, so just use primary or white
-                ['--glow-color' as any]: 'rgba(255, 255, 255, 0.6)' 
-              }}
+                '--glow-color': 'rgba(255, 255, 255, 0.6)',
+              } as GlowStyle}
               onClick={() => {
                 if (!isCenter) updateIndex(currentIndex + item.offset);
               }}

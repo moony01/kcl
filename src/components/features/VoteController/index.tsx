@@ -31,6 +31,7 @@ import { useVoteQuota } from '@/hooks/useVoteQuota';
 import { useAuth } from '@/hooks/useAuth';
 import VoteQuotaBar from '@/components/features/vote/VoteQuotaBar';
 import CompactSelect from '@/components/ui/CompactSelect';
+import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import styles from './VoteController.module.scss';
 
 /** 파워투표 설정 상수 */
@@ -347,6 +348,9 @@ export default function VoteController({
     );
   }
 
+  const logoUrl = getCompanyLogoUrl(company.id, company.logoUrl, company.name.en);
+  const logoBackground = getCompanyLogoBackground(company.id, company.name.en, logoUrl);
+
   /** 파워투표 게이지 진행률 (%) */
   const gaugeFill = (powerLevel / maxPowerLevel) * 100;
 
@@ -354,9 +358,9 @@ export default function VoteController({
     <div className={styles.voteController}>
       {/* 회사 정보 헤더 */}
       <div className={styles.companyHeader}>
-        <div className={styles.companyLogo} style={{ background: company.image }}>
-          {company.logoUrl ? (
-            <img src={company.logoUrl} alt={company.name.en} className={styles.logoImage} />
+        <div className={styles.companyLogo} style={{ background: logoBackground }}>
+          {logoUrl ? (
+            <img src={logoUrl} alt={company.name.en} className={styles.logoImage} />
           ) : (
             company.name.en.charAt(0)
           )}

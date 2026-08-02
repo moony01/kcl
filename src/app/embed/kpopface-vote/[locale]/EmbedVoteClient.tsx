@@ -12,7 +12,7 @@ import {
   submitVote,
   type KpopfaceEmbedVoteStatus,
 } from '@/lib/api';
-import { getCompanyLogoBackground } from '@/lib/company-logos';
+import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import type { CompanyRanking } from '@/types/league';
 import styles from './EmbedVoteClient.module.scss';
 
@@ -126,13 +126,14 @@ function CompanyRow({
     onPowerFinish();
   };
 
-  const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, company.logoUrl);
+  const logoUrl = getCompanyLogoUrl(company.companyId, company.logoUrl, company.nameEn);
+  const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, logoUrl);
 
   return (
     <li className={styles.row}>
       <span className={styles.rank}>{company.rank}</span>
       <span className={styles.logo} style={{ background: logoBackground }}>
-        {company.logoUrl ? <img src={company.logoUrl} alt="" /> : company.nameEn.slice(0, 1)}
+        {logoUrl ? <img src={logoUrl} alt="" /> : company.nameEn.slice(0, 1)}
       </span>
       <span className={styles.companyInfo}>
         <strong>{company.nameEn || company.nameKo}</strong>
