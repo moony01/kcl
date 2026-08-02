@@ -12,6 +12,7 @@ import {
   submitVote,
   type KpopfaceEmbedVoteStatus,
 } from '@/lib/api';
+import { getCompanyLogoBackground } from '@/lib/company-logos';
 import type { CompanyRanking } from '@/types/league';
 import styles from './EmbedVoteClient.module.scss';
 
@@ -25,25 +26,8 @@ const EMBED_PARENT_ORIGINS = new Set([
 const HOLD_MS_PER_VOTE = 70;
 const GAUGE_CIRCUMFERENCE = 2 * Math.PI * 45;
 
-// These are original KCL community badges, intentionally separate from each
-// company's official trademarks. Keep the iframe self-contained while leaving
-// the shared database logo URLs unchanged for other product surfaces.
-const KPOPFACE_EMBED_BADGE_PATHS: Record<string, string> = {
-  'ba57c11a-bf5b-4058-93e8-449c572d72c2': '/images/company-badges/yg-entertainment.png',
-  'df715750-e434-441b-b361-3134b29d320f': '/images/company-badges/sm-entertainment.png',
-  '9e920899-4937-4c61-9aa6-5539e4953d2b': '/images/company-badges/the-muze.png',
-  'b9858ae7-7021-4a84-98c5-beeb68fb91c2': '/images/company-badges/jyp-entertainment.png',
-  'ec0fc96a-9c29-4dee-960b-0a4020d17241': '/images/company-badges/kq-entertainment.png',
-  '3264d1b3-9d2f-4377-94a0-86c948e3cb2f': '/images/company-badges/asnd-entertainment.png',
-  '0b2e0cb7-232f-4d73-ab77-427552523542': '/images/company-badges/p-nation.png',
-  '3b630eff-8b66-4c9b-97e7-2f6016bb0f58': '/images/company-badges/s2-entertainment.png',
-  '80b0c28e-ec51-4872-bae3-c7e612072d86': '/images/company-badges/hybe.png',
-  '7f87360a-a79f-44d6-83e7-f4ed347da2fb': '/images/company-badges/modhaus.png',
-};
-
 type Copy = {
   title: string;
-  subtitle: string;
   remaining: string;
   completed: string;
   voteUnit: string;
@@ -66,25 +50,25 @@ type Copy = {
 
 const COPY: Record<string, Copy> = {
   ko: {
-    title: '내 진짜 원픽에 투표하기', subtitle: 'KPOP Company League 실시간 순위', remaining: 'KCL 공유 잔여표', completed: '완료', voteUnit: '표', holdHint: '길게 누르기', holding: '놓으면 투표됩니다', expand: '10위까지 보기', collapse: '접기', loginTitle: '오늘 투표를 모두 사용했어요', loginBody: 'KCL에 가입하면 매일 300표를 사용할 수 있어요.', login: 'KCL 로그인·회원가입', close: '닫기', voted: '{count}표 투표 완료', embedComplete: '오늘의 Kpopface 투표를 완료했어요.', loading: '불러오는 중', powerVoteLink: '100표 더 투표하기', powerCtaTitle: '30표 투표 완료!', powerCtaBody: 'KCL에서 최대 100표 파워투표를 이어가세요.', powerCtaButton: 'KCL에서 100표 파워투표하기',
+    title: '내 진짜 원픽에 투표하기', remaining: 'KCL 공유 잔여표', completed: '완료', voteUnit: '표', holdHint: '길게 누르기', holding: '놓으면 투표됩니다', expand: '10위까지 보기', collapse: '접기', loginTitle: '오늘 투표를 모두 사용했어요', loginBody: 'KCL에 가입하면 매일 300표를 사용할 수 있어요.', login: 'KCL 로그인·회원가입', close: '닫기', voted: '{count}표 투표 완료', embedComplete: '오늘의 Kpopface 투표를 완료했어요.', loading: '불러오는 중', powerVoteLink: '100표 더 투표하기', powerCtaTitle: '30표 투표 완료!', powerCtaBody: 'KCL에서 최대 100표 파워투표를 이어가세요.', powerCtaButton: 'KCL에서 100표 파워투표하기',
   },
   en: {
-    title: 'Vote for your real pick', subtitle: 'Live KPOP Company League ranking', remaining: 'KCL votes left', completed: 'Done', voteUnit: 'votes', holdHint: 'Hold to vote', holding: 'Release to vote', expand: 'Show top 10', collapse: 'Collapse', loginTitle: "You've used all votes for today", loginBody: 'Join KCL to use 300 votes every day.', login: 'Log in or sign up for KCL', close: 'Close', voted: '{count} votes cast', embedComplete: "You've completed today's Kpopface vote.", loading: 'Loading', powerVoteLink: 'Power vote with 100 votes on KCL', powerCtaTitle: '30 votes cast!', powerCtaBody: 'Keep the momentum going with up to 100 votes on KCL.', powerCtaButton: 'Power vote with 100 votes on KCL',
+    title: 'Vote for your real pick', remaining: 'KCL votes left', completed: 'Done', voteUnit: 'votes', holdHint: 'Hold to vote', holding: 'Release to vote', expand: 'Show top 10', collapse: 'Collapse', loginTitle: "You've used all votes for today", loginBody: 'Join KCL to use 300 votes every day.', login: 'Log in or sign up for KCL', close: 'Close', voted: '{count} votes cast', embedComplete: "You've completed today's Kpopface vote.", loading: 'Loading', powerVoteLink: 'Power vote with 100 votes on KCL', powerCtaTitle: '30 votes cast!', powerCtaBody: 'Keep the momentum going with up to 100 votes on KCL.', powerCtaButton: 'Power vote with 100 votes on KCL',
   },
   ja: {
-    title: '本当の推しに投票しよう', subtitle: 'KPOP Company League リアルタイムランキング', remaining: 'KCL残り投票数', completed: '完了', voteUnit: '票', holdHint: '長押しで投票', holding: '離すと投票されます', expand: '10位まで見る', collapse: '閉じる', loginTitle: '今日の投票を使い切りました', loginBody: 'KCLに登録すると毎日300票を使えます。', login: 'KCLにログイン・登録', close: '閉じる', voted: '{count}票を投票しました', embedComplete: '今日のKpopface投票は完了しました。', loading: '読み込み中', powerVoteLink: 'KCLで100票パワー投票する', powerCtaTitle: '30票投票完了！', powerCtaBody: 'KCLで最大100票のパワー投票を続けましょう。', powerCtaButton: 'KCLで100票パワー投票する',
+    title: '本当の推しに投票しよう', remaining: 'KCL残り投票数', completed: '完了', voteUnit: '票', holdHint: '長押しで投票', holding: '離すと投票されます', expand: '10位まで見る', collapse: '閉じる', loginTitle: '今日の投票を使い切りました', loginBody: 'KCLに登録すると毎日300票を使えます。', login: 'KCLにログイン・登録', close: '閉じる', voted: '{count}票を投票しました', embedComplete: '今日のKpopface投票は完了しました。', loading: '読み込み中', powerVoteLink: 'KCLで100票パワー投票する', powerCtaTitle: '30票投票完了！', powerCtaBody: 'KCLで最大100票のパワー投票を続けましょう。', powerCtaButton: 'KCLで100票パワー投票する',
   },
   zh: {
-    title: '为你真正的第一选择投票', subtitle: 'KPOP Company League 实时排名', remaining: 'KCL 剩余票数', completed: '完成', voteUnit: '票', holdHint: '长按投票', holding: '松开即可投票', expand: '查看前10名', collapse: '收起', loginTitle: '今天的票数已用完', loginBody: '注册KCL后每天可使用300票。', login: '登录或注册KCL', close: '关闭', voted: '已投 {count} 票', embedComplete: '今天的 Kpopface 投票已完成。', loading: '加载中', powerVoteLink: '前往 KCL 进行100票火力投票', powerCtaTitle: '已完成30票投票！', powerCtaBody: '前往 KCL 继续进行最多100票火力投票。', powerCtaButton: '前往 KCL 进行100票火力投票',
+    title: '为你真正的第一选择投票', remaining: 'KCL 剩余票数', completed: '完成', voteUnit: '票', holdHint: '长按投票', holding: '松开即可投票', expand: '查看前10名', collapse: '收起', loginTitle: '今天的票数已用完', loginBody: '注册KCL后每天可使用300票。', login: '登录或注册KCL', close: '关闭', voted: '已投 {count} 票', embedComplete: '今天的 Kpopface 投票已完成。', loading: '加载中', powerVoteLink: '前往 KCL 进行100票火力投票', powerCtaTitle: '已完成30票投票！', powerCtaBody: '前往 KCL 继续进行最多100票火力投票。', powerCtaButton: '前往 KCL 进行100票火力投票',
   },
   es: {
-    title: 'Vota por tu favorito de verdad', subtitle: 'Ranking en tiempo real de KPOP Company League', remaining: 'Votos KCL restantes', completed: 'Listo', voteUnit: 'votos', holdHint: 'Mantén para votar', holding: 'Suelta para votar', expand: 'Ver top 10', collapse: 'Cerrar', loginTitle: 'Has usado todos tus votos de hoy', loginBody: 'Regístrate en KCL para usar 300 votos al día.', login: 'Iniciar sesión o registrarse en KCL', close: 'Cerrar', voted: '{count} votos emitidos', embedComplete: 'Has completado tu voto de Kpopface de hoy.', loading: 'Cargando', powerVoteLink: 'Vota con 100 votos de poder en KCL', powerCtaTitle: '¡30 votos emitidos!', powerCtaBody: 'Sigue apoyando con hasta 100 votos en KCL.', powerCtaButton: 'Vota con 100 votos de poder en KCL',
+    title: 'Vota por tu favorito de verdad', remaining: 'Votos KCL restantes', completed: 'Listo', voteUnit: 'votos', holdHint: 'Mantén para votar', holding: 'Suelta para votar', expand: 'Ver top 10', collapse: 'Cerrar', loginTitle: 'Has usado todos tus votos de hoy', loginBody: 'Regístrate en KCL para usar 300 votos al día.', login: 'Iniciar sesión o registrarse en KCL', close: 'Cerrar', voted: '{count} votos emitidos', embedComplete: 'Has completado tu voto de Kpopface de hoy.', loading: 'Cargando', powerVoteLink: 'Vota con 100 votos de poder en KCL', powerCtaTitle: '¡30 votos emitidos!', powerCtaBody: 'Sigue apoyando con hasta 100 votos en KCL.', powerCtaButton: 'Vota con 100 votos de poder en KCL',
   },
   fr: {
-    title: 'Vote pour ton vrai favori', subtitle: 'Classement en direct de KPOP Company League', remaining: 'Votes KCL restants', completed: 'Fait', voteUnit: 'votes', holdHint: 'Maintiens pour voter', holding: 'Relâche pour voter', expand: 'Voir le top 10', collapse: 'Réduire', loginTitle: 'Tu as utilisé tous tes votes du jour', loginBody: 'Inscris-toi sur KCL pour utiliser 300 votes par jour.', login: 'Se connecter ou s’inscrire sur KCL', close: 'Fermer', voted: '{count} votes comptabilisés', embedComplete: 'Tu as terminé ton vote Kpopface du jour.', loading: 'Chargement', powerVoteLink: 'Voter avec 100 votes puissants sur KCL', powerCtaTitle: '30 votes comptabilisés !', powerCtaBody: 'Continue avec jusqu’à 100 votes sur KCL.', powerCtaButton: 'Voter avec 100 votes puissants sur KCL',
+    title: 'Vote pour ton vrai favori', remaining: 'Votes KCL restants', completed: 'Fait', voteUnit: 'votes', holdHint: 'Maintiens pour voter', holding: 'Relâche pour voter', expand: 'Voir le top 10', collapse: 'Réduire', loginTitle: 'Tu as utilisé tous tes votes du jour', loginBody: 'Inscris-toi sur KCL pour utiliser 300 votes par jour.', login: 'Se connecter ou s’inscrire sur KCL', close: 'Fermer', voted: '{count} votes comptabilisés', embedComplete: 'Tu as terminé ton vote Kpopface du jour.', loading: 'Chargement', powerVoteLink: 'Voter avec 100 votes puissants sur KCL', powerCtaTitle: '30 votes comptabilisés !', powerCtaBody: 'Continue avec jusqu’à 100 votes sur KCL.', powerCtaButton: 'Voter avec 100 votes puissants sur KCL',
   },
   de: {
-    title: 'Stimme für deinen echten Favoriten ab', subtitle: 'Live-Ranking der KPOP Company League', remaining: 'Verbleibende KCL-Stimmen', completed: 'Fertig', voteUnit: 'Stimmen', holdHint: 'Gedrückt halten', holding: 'Zum Abstimmen loslassen', expand: 'Top 10 anzeigen', collapse: 'Einklappen', loginTitle: 'Du hast alle Stimmen für heute genutzt', loginBody: 'Registriere dich bei KCL und nutze täglich 300 Stimmen.', login: 'Bei KCL anmelden oder registrieren', close: 'Schließen', voted: '{count} Stimmen gezählt', embedComplete: 'Du hast deine Kpopface-Stimme für heute abgegeben.', loading: 'Wird geladen', powerVoteLink: 'Mit 100 Stimmen auf KCL abstimmen', powerCtaTitle: '30 Stimmen gezählt!', powerCtaBody: 'Stimme auf KCL mit bis zu 100 Stimmen weiter ab.', powerCtaButton: 'Mit 100 Stimmen auf KCL abstimmen',
+    title: 'Stimme für deinen echten Favoriten ab', remaining: 'Verbleibende KCL-Stimmen', completed: 'Fertig', voteUnit: 'Stimmen', holdHint: 'Gedrückt halten', holding: 'Zum Abstimmen loslassen', expand: 'Top 10 anzeigen', collapse: 'Einklappen', loginTitle: 'Du hast alle Stimmen für heute genutzt', loginBody: 'Registriere dich bei KCL und nutze täglich 300 Stimmen.', login: 'Bei KCL anmelden oder registrieren', close: 'Schließen', voted: '{count} Stimmen gezählt', embedComplete: 'Du hast deine Kpopface-Stimme für heute abgegeben.', loading: 'Wird geladen', powerVoteLink: 'Mit 100 Stimmen auf KCL abstimmen', powerCtaTitle: '30 Stimmen gezählt!', powerCtaBody: 'Stimme auf KCL mit bis zu 100 Stimmen weiter ab.', powerCtaButton: 'Mit 100 Stimmen auf KCL abstimmen',
   },
 };
 
@@ -124,8 +108,6 @@ function CompanyRow({
   onPowerFinish: () => void;
   onPowerCancel: () => void;
 }) {
-  const badgeSource = KPOPFACE_EMBED_BADGE_PATHS[company.companyId] || company.logoUrl;
-
   const handlePointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
     try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Pointer capture is optional. */ }
@@ -144,11 +126,13 @@ function CompanyRow({
     onPowerFinish();
   };
 
+  const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, company.logoUrl);
+
   return (
     <li className={styles.row}>
       <span className={styles.rank}>{company.rank}</span>
-      <span className={styles.logo} style={{ background: company.gradientColor }}>
-        {badgeSource ? <img src={badgeSource} alt="" /> : company.nameEn.slice(0, 1)}
+      <span className={styles.logo} style={{ background: logoBackground }}>
+        {company.logoUrl ? <img src={company.logoUrl} alt="" /> : company.nameEn.slice(0, 1)}
       </span>
       <span className={styles.companyInfo}>
         <strong>{company.nameEn || company.nameKo}</strong>
@@ -391,6 +375,13 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
         <div>
           <p className={styles.eyebrow}>KPOP COMPANY LEAGUE</p>
           <h1>{copy.title}</h1>
+          <div className={styles.powerVoteAction}>
+            <a className={styles.powerVoteLink} href={kclMainUrl} target="_top" rel="noopener noreferrer">
+              <Zap size={15} aria-hidden="true" />
+              <span>{copy.powerVoteLink}</span>
+              <ChevronRight size={16} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </header>
 
@@ -425,14 +416,6 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
           </button>
         </div>
       )}
-
-      <div className={styles.powerVoteAction}>
-        <a className={styles.powerVoteLink} href={kclMainUrl} target="_top" rel="noopener noreferrer">
-          <Zap size={15} aria-hidden="true" />
-          <span>{copy.powerVoteLink}</span>
-          <ChevronRight size={16} aria-hidden="true" />
-        </a>
-      </div>
 
       {activeCompany && (
         <div className={styles.holdOverlay} aria-live="polite" aria-atomic="true">

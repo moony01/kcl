@@ -30,6 +30,7 @@ import type {
 } from '@/types/league';
 import type { CompaniesResponse } from '@/types/api';
 import { getCompanies } from '@/lib/api';
+import { getCompanyLogoUrl } from '@/lib/company-logos';
 
 /** SWR fetcher 함수: Supabase 직접 호출 */
 const fetcher = async (): Promise<CompaniesResponse> => {
@@ -174,7 +175,7 @@ function transformToCompanyRanking(
     companyName: company.name_en,
     nameKo: company.name_ko,
     nameEn: company.name_en,
-    logoUrl: company.logo_url || '',
+    logoUrl: getCompanyLogoUrl(company.id, company.logo_url, company.name_en),
     gradientColor: company.gradient_color || '#8B5CF6',
     rank: company.rank,
     previousRank: company.rank, // 초기값, 리그 분리 후 재계산
