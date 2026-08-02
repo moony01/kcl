@@ -3,7 +3,7 @@
  *
  * 1부 리그 탭 콘텐츠 스타일
  * - 골드 테마
- * - Top 3 그리드
+ * - Top 3 1열 목록
  *
  * @updated T1.16 - 10위 강등 위기 영역 제거 (SeasonHeader로 통합)
  */
@@ -50,15 +50,14 @@ $color-relegation: #dc3545;
   color: $color-gold;
 }
 
-// Top 3 그리드
+// Top 3 목록 - 4위 이후 목록과 동일한 1열 레이아웃
 .topThreeGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 12px;
 
-  // 모바일에서 1위를 크게 표시
+  // 모바일에서도 순위 순서를 유지
   @media (max-width: 767px) {
-    grid-template-columns: 1fr;
     gap: 16px;
 
     // 첫 번째 카드(1위) 강조
@@ -68,11 +67,11 @@ $color-relegation: #dc3545;
   }
 
   @media (min-width: 768px) {
-    gap: 16px;
+    gap: 12px;
   }
 
   @media (min-width: 1024px) {
-    gap: 20px;
+    gap: 14px;
   }
 }
 
