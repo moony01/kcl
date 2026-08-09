@@ -16,7 +16,6 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import type { CompanyType } from '@/lib/mock-data';
 
@@ -28,19 +27,15 @@ import type { CompaniesResponse } from '@/types/api';
 const BottomSheet = dynamic(() => import('@/components/ui/BottomSheet'), {
   ssr: false, // 모바일 전용, SSR 불필요
 });
-import StickyPanel from '@/components/ui/StickyPanel';
-import SearchBar from '@/components/ui/SearchBar';
 
 // Feature Components - 무거운 컴포넌트 지연 로드
 const VoteController = dynamic(() => import('@/components/features/VoteController'), {
   ssr: false,
 });
-import PremierLeague from '@/components/features/league/PremierLeague';
-import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
 const HomeComments = dynamic(() => import('@/components/features/home/HomeComments'), {
   ssr: false,
 });
-import { LeagueHeader } from '@/components/features/league/LeagueHeader';
+import VoteBoard from '@/components/features/vote/VoteBoard';
 
 import AdBanner from '@/components/common/AdBanner';
 import Modal from '@/components/common/Modal';
@@ -187,6 +182,13 @@ function getEventModalCopy(locale: string) {
   return copies[locale] ?? copies.en;
 }
 
+function normalizeVoteDockCompany(value?: string | null) {
+  return (value ?? '')
+    .toLocaleLowerCase()
+    .replace(/entertainment|records|label/g, '')
+    .replace(/[^a-z0-9가-힣]/g, '');
+}
+
 interface HomeClientProps {
   /** 서버에서 미리 fetch한 초기 데이터 (옵셔널, SSG에서는 사용 안 함) */
   initialData?: CompaniesResponse | null;
@@ -213,6 +215,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const didAutoSelectCompany = useRef(false);
+  const didApplyVoteDockSelection = useRef(false);
 
   // T1.102: 투표 컨텍스트(최애 그룹 자동 선택 또는 검색에서 선택된 아티스트)
   const [selectedSubLabelId, setSelectedSubLabelId] = useState<string | null>(null);
@@ -256,11 +259,6 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     fallbackData: initialData ?? undefined, // SSG에서는 undefined
   });
 
-  // 11위 이상 회사들 (더보기/접기 대상)
-  const companiesBelow11 = useMemo(() => {
-    return allCompanies.slice(10);
-  }, [allCompanies]);
-
   // T1.29: 선택된 회사 데이터를 allCompanies에서 파생 (항상 최신 데이터 반영)
   // 기존: selectedCompany state가 투표 시점 스냅샷 유지 → firepower 갱신 안 됨
   // 수정: selectedCompanyId만 state로 관리, 실제 데이터는 useMemo로 파생
@@ -297,6 +295,45 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
       })),
     };
   }, [selectedCompanyId, allCompanies]);
+
+  // Global Vote Dock CTA가 전달한 소속사를 기존 투표 흐름에서 선택한다.
+  useEffect(() => {
+    if (didApplyVoteDockSelection.current || allCompanies.length === 0) return;
+
+    const requestedCompany = new URLSearchParams(window.location.search).get('voteCompany');
+    didApplyVoteDockSelection.current = true;
+
+    if (!requestedCompany) return;
+
+    const normalizedRequest = normalizeVoteDockCompany(requestedCompany);
+    const matchedCompany = allCompanies.find((company) =>
+      [company.companyId, company.companyName, company.nameEn, company.nameKo].some(
+        (candidate) => normalizeVoteDockCompany(candidate) === normalizedRequest,
+      ),
+    );
+
+    if (!matchedCompany) return;
+
+    // URL로 명시한 선택이 프로필 기반 자동 선택보다 우선한다.
+    didAutoSelectCompany.current = true;
+    setSelectedCompanyId(matchedCompany.companyId);
+    setSelectedSubLabelId(null);
+    setSelectedArtistName(null);
+
+    const shouldOpenBottomSheet = window.innerWidth < 1024;
+    setIsMobile(shouldOpenBottomSheet);
+
+    if (shouldOpenBottomSheet) {
+      setIsSheetOpen(true);
+    } else {
+      window.requestAnimationFrame(() => {
+        document.getElementById('vote-station')?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      });
+    }
+  }, [allCompanies]);
 
   useEffect(() => {
     // 이미 자동 선택 완료됨
@@ -450,97 +487,27 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   return (
     <div className={styles.dashboardContainer}>
-      {/* 시즌 헤더 (h1 + D-day) */}
-      <div className={styles.leagueHeaderSection}>
-        <LeagueHeader />
-      </div>
-
-      {/* 검색창 */}
-      <div className={styles.searchSection}>
-        <SearchBar onSelect={handleSearchSelect} />
-      </div>
-
-      {/* 하단 영역: 리그 목록 + Battle Station (2열 레이아웃) */}
-      <div className={styles.contentLayout}>
-        {/* 좌측: 리그 순위 영역 */}
-        <section className={styles.leagueListSection}>
-          {/* 1~10위: PremierLeague 컴포넌트 */}
-          <PremierLeague
-            companies={premierLeague}
-            onVote={handleVote}
-            selectedCompanyId={selectedCompanyId}
-          />
-
-          {/* 11위 이상: 더보기/접기 토글 */}
-          {companiesBelow11.length > 0 && (
-            <div className={styles.expandSection}>
-              {/* 11위+ 아이템 목록 - 펼쳐지는 애니메이션 */}
-              <AnimatePresence initial={false}>
-                {isExpanded && (
-                  <motion.div
-                    key="below11"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className={styles.expandedList}
-                    style={{ overflow: 'hidden' }}
-                  >
-                    {companiesBelow11.map((company) => (
-                      <LeagueRankingItem
-                        key={company.companyId}
-                        company={company}
-                        onVote={handleVote}
-                        displayRank={company.rank}
-                        isSelected={selectedCompanyId === company.companyId}
-                      />
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* 더보기/접기 버튼 - 항상 목록 아래에 위치 */}
-              <button
-                type="button"
-                className={styles.expandToggleBtn}
-                onClick={handleToggleExpand}
-                aria-expanded={isExpanded}
-              >
-                <span>{isExpanded ? 'Collapse' : 'Show more'}</span>
-                <motion.svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  animate={{ rotate: isExpanded ? 180 : 0 }}
-                  transition={{ duration: 0.25, ease: 'easeOut' }}
-                  aria-hidden="true"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </motion.svg>
-              </button>
-            </div>
-          )}
-        </section>
-
-        {/* 우측: Battle Station 패널 (데스크톱 전용) */}
-        <aside className={styles.panelColumn}>
-          <StickyPanel isVisible={true} title="Battle Station">
-            <VoteController
-              company={selectedCompany}
-              onVoteSuccess={handleVoteSuccess}
-              onGuestQuotaExhausted={handleGuestQuotaExhausted}
-              autoSelectedSubLabelId={selectedSubLabelId}
-              selectedArtist={selectedArtistName || undefined}
-            />
-          </StickyPanel>
-        </aside>
-      </div>
+      <VoteBoard
+        premierLeague={premierLeague}
+        allCompanies={allCompanies}
+        selectedCompanyId={selectedCompanyId}
+        selectedCompany={selectedCompany}
+        selectedSubLabelId={selectedSubLabelId}
+        selectedArtistName={selectedArtistName}
+        isExpanded={isExpanded}
+        isSheetOpen={isSheetOpen}
+        isMobile={isMobile}
+        onVote={handleVote}
+        onSearchSelect={handleSearchSelect}
+        onVoteSuccess={handleVoteSuccess}
+        onGuestQuotaExhausted={handleGuestQuotaExhausted}
+        onToggleExpand={handleToggleExpand}
+        onSheetClose={() => setIsSheetOpen(false)}
+        voteControllerComponent={VoteController}
+        bottomSheetComponent={BottomSheet}
+        panelId="vote-station"
+        layoutClassName=""
+      />
 
       {/* 홈 광고 - 랭킹과 팬토크 사이 */}
       <AdBanner adSlot={AD_SLOTS.HOME_BOTTOM} adFormat="leaderboard" />
@@ -549,21 +516,6 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
       <section className={styles.commentsSection}>
         <HomeComments />
       </section>
-
-      {/* 모바일 투표 BottomSheet */}
-      <BottomSheet
-        isOpen={isSheetOpen && isMobile}
-        onClose={() => setIsSheetOpen(false)}
-        heightRatio={0.55}
-      >
-        <VoteController
-          company={selectedCompany}
-          onVoteSuccess={handleVoteSuccess}
-          onGuestQuotaExhausted={handleGuestQuotaExhausted}
-          autoSelectedSubLabelId={selectedSubLabelId}
-          selectedArtist={selectedArtistName || undefined}
-        />
-      </BottomSheet>
 
       <Modal
         isOpen={isEventModalOpen}

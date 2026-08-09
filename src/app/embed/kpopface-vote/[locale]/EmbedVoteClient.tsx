@@ -174,6 +174,7 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
   });
   const [embedStatus, setEmbedStatus] = useState<KpopfaceEmbedVoteStatus | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isKclModalSurface, setIsKclModalSurface] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const [showPowerCta, setShowPowerCta] = useState(false);
@@ -185,6 +186,16 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
   const containerRef = useRef<HTMLElement>(null);
   const holdRef = useRef<{ companyId: string; maxVotes: number; votes: number; startedAt: number; frameId: number | null } | null>(null);
   const celebrationTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const surfaceFrame = window.requestAnimationFrame(() => {
+      const isModal = new URLSearchParams(window.location.search).get('surface') === 'kcl-modal';
+      setIsKclModalSurface(isModal);
+      if (isModal) setIsExpanded(true);
+    });
+
+    return () => window.cancelAnimationFrame(surfaceFrame);
+  }, []);
 
   const refetchEmbedStatus = useCallback(async () => {
     const status = await getKpopfaceEmbedVoteStatus(user?.id);
@@ -371,18 +382,24 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
   const kclMainUrl = `https://kclhq.com/${locale}`;
 
   return (
-    <main ref={containerRef} className={styles.embed}>
+    <main
+      ref={containerRef}
+      className={styles.embed}
+      data-surface={isKclModalSurface ? 'kcl-modal' : undefined}
+    >
       <header className={styles.header}>
         <div>
           <p className={styles.eyebrow}>KPOP COMPANY LEAGUE</p>
           <h1>{copy.title}</h1>
-          <div className={styles.powerVoteAction}>
-            <a className={styles.powerVoteLink} href={kclMainUrl} target="_top" rel="noopener noreferrer">
-              <Zap size={15} aria-hidden="true" />
-              <span>{copy.powerVoteLink}</span>
-              <ChevronRight size={16} aria-hidden="true" />
-            </a>
-          </div>
+          {!isKclModalSurface && (
+            <div className={styles.powerVoteAction}>
+              <a className={styles.powerVoteLink} href={kclMainUrl} target="_top" rel="noopener noreferrer">
+                <Zap size={15} aria-hidden="true" />
+                <span>{copy.powerVoteLink}</span>
+                <ChevronRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+          )}
         </div>
       </header>
 
@@ -409,7 +426,7 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
         </div>
       )}
 
-      {allCompanies.length > 4 && (
+      {!isKclModalSurface && allCompanies.length > 4 && (
         <div className={styles.expandAction}>
           <button className={styles.expandButton} type="button" onClick={() => setIsExpanded((current) => !current)} aria-expanded={isExpanded}>
             {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -432,7 +449,7 @@ export default function EmbedVoteClient({ locale }: { locale: string }) {
         </div>
       )}
 
-      {showPowerCta && (
+      {showPowerCta && !isKclModalSurface && (
         <section className={styles.powerCta} role="dialog" aria-modal="false" aria-labelledby="embed-power-cta-title">
           <button className={styles.closeButton} type="button" onClick={() => setShowPowerCta(false)} aria-label={copy.close}><X size={18} /></button>
           <Zap size={24} aria-hidden="true" />

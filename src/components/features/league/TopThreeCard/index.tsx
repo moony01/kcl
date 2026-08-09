@@ -25,6 +25,8 @@ interface TopThreeCardProps {
   onVote?: () => void;
   /** 배틀스테이션에 선택된 상태인지 */
   isSelected?: boolean;
+  /** iframe surfaces can keep the familiar compact ranking density. */
+  compact?: boolean;
 }
 
 /** 순위별 메달 색상 */
@@ -46,6 +48,7 @@ export default function TopThreeCard({
   rank,
   onVote: _onVote,
   isSelected = false,
+  compact = false,
 }: TopThreeCardProps) {
   const medalColor = MEDAL_COLORS[rank];
   const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, company.logoUrl);
@@ -78,6 +81,7 @@ export default function TopThreeCard({
   return (
     <motion.article
       className={classNames(styles.card, {
+        [styles.compact]: compact,
         [styles.selected]: isSelected,
         [styles.rankUpGlow]: company.rankChange > 0,
         [styles.rankDownGlow]: company.rankChange < 0,

@@ -113,6 +113,41 @@
   line-height: 1;
 }
 
+.compact {
+  min-height: 54px;
+  height: 54px;
+  gap: 8px;
+  padding: 8px 88px 8px 12px;
+  border-radius: 10px;
+
+  .brandMark {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 0.76rem;
+  }
+
+  .subtitle {
+    font-size: 0.58rem;
+  }
+
+  .action {
+    right: 12px;
+    bottom: 8px;
+    font-size: 0.62rem;
+  }
+
+  .adBadge {
+    top: 6px;
+    right: 8px;
+    font-size: 0.54rem;
+  }
+}
+
 :global(:root[data-theme='dark']) {
   .card {
     background:

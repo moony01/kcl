@@ -220,6 +220,12 @@ describe('HomeClient vote context', () => {
     mocks.mockUseAuth.mockReset();
     mocks.mockFrom.mockReset();
     mocks.mockRefresh.mockReset();
+    window.history.replaceState({}, '', '/ko');
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      writable: true,
+      value: 1024,
+    });
 
     mocks.mockUseLeagueData.mockReturnValue({
       premierLeague: allCompanies,
@@ -292,6 +298,27 @@ describe('HomeClient vote context', () => {
     await waitFor(() => {
       expect(screen.getByTestId('modal')).toBeDefined();
       expect(screen.getByText('비로그인 100표 / 로그인 300표 (매일)')).toBeDefined();
+    });
+  });
+
+  it('Vote Dock 딥링크로 진입하면 해당 회사를 선택하고 모바일 투표창을 연다', async () => {
+    mocks.mockUseAuth.mockReturnValue({
+      profile: null,
+      isLoading: false,
+      isAuthenticated: false,
+    });
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      writable: true,
+      value: 390,
+    });
+    window.history.replaceState({}, '', '/ko?voteCompany=sm#vote-station');
+
+    renderHomeClient();
+
+    await waitFor(() => {
+      const bottomSheet = screen.getByTestId('bottom-sheet');
+      expect(bottomSheet.textContent).toContain('Selected Company: SM');
     });
   });
 });

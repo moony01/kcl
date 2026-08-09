@@ -183,6 +183,27 @@
   }
 }
 
+// Kpopface's legacy iframe starts compact and expands to the TOP 10 list.
+// Keep the shared board structure while removing page-only minimum whitespace
+// so the expanded state remains within the host's existing height contract.
+.compactEmbed {
+  min-height: 0;
+  gap: 8px;
+  padding-bottom: 0;
+
+  .leagueHeaderSection {
+    padding-top: 0;
+  }
+
+  .contentLayout {
+    gap: 12px;
+  }
+
+  .expandSection {
+    margin-top: 8px;
+  }
+}
+
 // ===== 라이트 모드 오버라이드 =====
 :global(:root:not([data-theme='dark'])) {
   .expandToggleBtn {

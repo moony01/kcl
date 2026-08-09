@@ -487,6 +487,36 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   animation: glowFade 2s ease-out forwards;
 }
 
+// Kpopface partner embed density. The shared board still uses the same
+// ranking component; only the compact surface trims vertical chrome so that
+// all ten rows remain reachable inside the existing iframe contract.
+.compact {
+  gap: 8px;
+  padding: 5px 10px;
+
+  .companyInfo {
+    gap: 8px;
+  }
+
+  .logo {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .companyName {
+    font-size: 0.82rem;
+  }
+
+  .voteCount {
+    font-size: 0.72rem;
+  }
+
+  .statusTag {
+    display: none;
+  }
+}
+
 @keyframes glowFade {
   0% {
     opacity: 1;

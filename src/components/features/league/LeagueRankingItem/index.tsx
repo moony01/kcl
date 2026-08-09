@@ -40,6 +40,8 @@ interface LeagueRankingItemProps {
   displayRank?: number;
   /** 배틀스테이션에 선택된 상태인지 */
   isSelected?: boolean;
+  /** iframe surfaces can keep the familiar compact ranking density. */
+  compact?: boolean;
 }
 
 export default function LeagueRankingItem({
@@ -48,6 +50,7 @@ export default function LeagueRankingItem({
   onDetail: _onDetail,
   displayRank,
   isSelected = false,
+  compact = false,
 }: LeagueRankingItemProps) {
   const t = useTranslations('League');
 
@@ -135,6 +138,7 @@ export default function LeagueRankingItem({
         [styles.promotion]: promotionStatus === 'promotion_direct' && !isPromotionHero,
         [styles.promotionHero]: isPromotionHero,
         [styles.selected]: isSelected,
+        [styles.compact]: compact,
         // T1.45: 순위 변동 글로우 효과
         [styles.rankUpGlow]: company.rankChange > 0,
         [styles.rankDownGlow]: company.rankChange < 0,

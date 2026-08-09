@@ -19,6 +19,7 @@ import Sidebar from '../Sidebar';
 import BottomNav from '../BottomNav';
 import Header from '../Header';
 import DisclaimerBanner from '@/components/common/DisclaimerBanner';
+import DailyVoteModal from '@/components/features/vote/DailyVoteModal';
 
 interface AppShellProps {
   children: ReactNode;
@@ -50,6 +51,9 @@ export default function AppShell({ children }: AppShellProps) {
       <div className={styles.bottomNavWrapper}>
         <BottomNav />
       </div>
+
+      {/* Global daily voting participation mockup */}
+      <DailyVoteModal />
     </div>
   );
 }

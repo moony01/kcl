@@ -1,3 +1,6 @@
+import '@/styles/main.scss';
+import '@/styles/layout/_app-shell.scss';
+
 export default function EmbedLayout({
   children,
 }: {
