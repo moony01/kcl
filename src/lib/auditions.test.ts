@@ -27,7 +27,7 @@ describe('audition content routing', () => {
   it('uses English cards on untranslated list pages without changing their locale', () => {
     const japaneseList = getAllAuditions('ja');
 
-    expect(japaneseList).toHaveLength(2);
+    expect(japaneseList).toHaveLength(5);
     expect(japaneseList.every((post) => post.locale === 'en')).toBe(true);
   });
 
@@ -35,7 +35,10 @@ describe('audition content routing', () => {
     const koreanList = getAllAuditions('ko');
 
     expect(koreanList.map((post) => post.slug)).toEqual([
+      'source-music-summer-audition-2026',
       '2026-yg-global-audition-osaka',
+      'jyp-online-audition',
+      'wakeone-next-wave-audition',
       'yg-online-audition',
     ]);
   });
