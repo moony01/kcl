@@ -1,173 +1,135 @@
-/**
- * MonthlyTimeline 스타일
- *
- * 월별 챔피언 타임라인/그리드
- */
-
 @use '../../../../styles/abstracts/variables' as *;
 
-$timeline-gold: #d4af37;
-$timeline-bg: rgba(255, 255, 255, 0.03);
-$timeline-border: rgba(255, 255, 255, 0.08);
-
 .container {
-  padding: 20px;
-  background: $timeline-bg;
-  border: 1px solid $timeline-border;
-  border-radius: 16px;
-  overflow: hidden;
-
-  @media (min-width: 768px) {
-    padding: 24px;
-  }
+  padding: 26px 0 0;
+  border-top: 1px solid $color-border;
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .title {
-  font-family: $font-display;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: $color-text;
   margin: 0;
-
-  @media (min-width: 768px) {
-    font-size: 1.25rem;
-  }
-}
-
-// 연도 네비게이션
-.yearNav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.navButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  color: $color-text-dim;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover:not(:disabled) {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: $timeline-gold;
-    color: $timeline-gold;
-  }
-
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-}
-
-.yearLabel {
+  color: $color-text;
   font-family: $font-display;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: $timeline-gold;
-  min-width: 50px;
-  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
 }
 
-// 월별 그리드 (4x3 레이아웃 = 12개월)
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+.yearTabs {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
 
-  @media (min-width: 480px) {
-    grid-template-columns: repeat(3, 1fr);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.yearTab {
+  min-width: 52px;
+  padding: 7px 8px 6px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: $color-text-dim;
+  font: inherit;
+  font-family: $font-display;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-text;
   }
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
+}
 
-  // 2단 레이아웃 내에서 4열 유지 (6열은 overflow 발생)
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.activeYear {
+  border-bottom-color: $color-primary;
+  color: $color-primary;
+}
+
+.recordList {
+  margin: 18px 0 0;
+  padding: 0;
+  border-top: 1px solid $color-border;
+  list-style: none;
 }
 
 .monthSlot {
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 0;
+  border-bottom: 1px solid $color-border;
 }
 
-// 빈 슬롯 (아직 결정되지 않은 월)
 .emptySlot {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  min-height: 58px;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.emptyMonth,
+.emptyStatus {
+  font-size: 0.68rem;
+  font-weight: 650;
 }
 
 .emptyMonth {
-  font-size: 0.75rem;
-  font-weight: 500;
   color: $color-text-dim;
-  text-transform: uppercase;
 }
 
-.emptyLabel {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.2);
+.emptyValue {
+  color: $color-text-dim;
+  font-size: 0.82rem;
 }
 
-// 라이트 모드 오버라이드
-$light-primary: #8B5CF6;
+.emptyStatus {
+  color: $color-text-dim;
+}
 
-:global(:root:not([data-theme='dark'])) {
-  .container {
-    background: rgba($light-primary, 0.03) !important;
-    border-color: rgba($light-primary, 0.1) !important;
+.inProgress {
+  .emptyStatus {
+    color: $color-primary;
+    font-weight: 750;
+  }
+}
+
+.upcoming,
+.noRecord {
+  .emptyValue,
+  .emptyStatus {
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .navButton {
-    background: rgba($light-primary, 0.06) !important;
-    border-color: rgba($light-primary, 0.12) !important;
-
-    &:hover:not(:disabled) {
-      background: rgba($light-primary, 0.12) !important;
-      border-color: $light-primary !important;
-      color: $light-primary !important;
-    }
-  }
-
-  .yearLabel {
-    color: $light-primary !important;
+  .yearTabs {
+    width: 100%;
   }
 
   .emptySlot {
-    background: rgba($light-primary, 0.02) !important;
-    border-color: rgba($light-primary, 0.1) !important;
-  }
-
-  .emptyLabel {
-    color: rgba($light-primary, 0.2) !important;
+    grid-template-columns: 52px minmax(0, 1fr) auto;
+    gap: 8px;
   }
 }

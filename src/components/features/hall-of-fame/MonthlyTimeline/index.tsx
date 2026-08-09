@@ -1,16 +1,13 @@
 /**
  * MonthlyTimeline 컴포넌트
  *
- * 월별 챔피언 타임라인/그리드를 표시합니다.
- * 해당 연도의 각 월별 우승자를 배지 형태로 보여줍니다.
+ * 해당 연도의 월별 우승 기록을 단일 리스트로 표시합니다.
  */
 
 'use client';
 
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { MonthlyChampion } from '@/types/hall-of-fame';
 import ChampionBadge from '../ChampionBadge';
 import styles from './MonthlyTimeline.module.scss';
@@ -18,16 +15,14 @@ import styles from './MonthlyTimeline.module.scss';
 interface MonthlyTimelineProps {
   /** 연도 */
   year: number;
+  /** 데이터 기준 현재 연도 */
+  currentYear: number;
   /** 월간 챔피언 목록 */
   champions: MonthlyChampion[];
-  /** 이전 연도로 이동 */
-  onPrevYear?: () => void;
-  /** 다음 연도로 이동 */
-  onNextYear?: () => void;
-  /** 이전 연도 존재 여부 */
-  hasPrevYear?: boolean;
-  /** 다음 연도 존재 여부 */
-  hasNextYear?: boolean;
+  /** 선택 가능한 아카이브 연도 */
+  availableYears: number[];
+  /** 연도 선택 */
+  onYearChange: (year: number) => void;
 }
 
 // 월 정보 (1-12)
@@ -35,13 +30,13 @@ const MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 export default function MonthlyTimeline({
   year,
+  currentYear,
   champions,
-  onPrevYear,
-  onNextYear,
-  hasPrevYear = false,
-  hasNextYear = false,
+  availableYears,
+  onYearChange,
 }: MonthlyTimelineProps) {
   const t = useTranslations('HallOfFame');
+  const now = new Date();
 
   // 월별 챔피언 맵 생성
   const championMap = useMemo(() => {
@@ -52,46 +47,47 @@ export default function MonthlyTimeline({
     return map;
   }, [champions]);
 
+  const getEmptyStatus = (month: number) => {
+    if (year === currentYear && year === now.getFullYear()) {
+      if (month === now.getMonth() + 1) {
+        return { label: t('in_progress'), className: styles.inProgress };
+      }
+      if (month > now.getMonth() + 1) {
+        return { label: t('upcoming'), className: styles.upcoming };
+      }
+    }
+
+    if (year > now.getFullYear()) {
+      return { label: t('upcoming'), className: styles.upcoming };
+    }
+
+    return { label: t('no_record'), className: styles.noRecord };
+  };
+
   return (
     <section className={styles.container}>
-      {/* 섹션 헤더 */}
       <header className={styles.header}>
-        <h3 className={styles.title}>
-          {year} {t('monthly_champions')}
-        </h3>
+        <h2 className={styles.title}>{t('archive_year', { year })}</h2>
 
-        {/* 연도 네비게이션 */}
-        <div className={styles.yearNav}>
-          <button
-            className={styles.navButton}
-            onClick={onPrevYear}
-            disabled={!hasPrevYear}
-            aria-label="Previous year"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <span className={styles.yearLabel}>{year}</span>
-          <button
-            className={styles.navButton}
-            onClick={onNextYear}
-            disabled={!hasNextYear}
-            aria-label="Next year"
-          >
-            <ChevronRight size={20} />
-          </button>
+        <div className={styles.yearTabs} aria-label={t('year_archive')}>
+          {availableYears.map((archiveYear) => (
+            <button
+              key={archiveYear}
+              type="button"
+              className={`${styles.yearTab} ${archiveYear === year ? styles.activeYear : ''}`}
+              onClick={() => onYearChange(archiveYear)}
+              aria-pressed={archiveYear === year}
+            >
+              {archiveYear}
+            </button>
+          ))}
         </div>
       </header>
 
-      {/* 월별 그리드 */}
-      <motion.div
-        className={styles.grid}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        key={year} // 연도 변경 시 애니메이션 재실행
-      >
+      <ul className={styles.recordList} key={year}>
         {MONTHS.map((month) => {
           const champion = championMap.get(month);
+          const emptyStatus = champion ? null : getEmptyStatus(month);
           const monthKey = month.toString() as
             | '1'
             | '2'
@@ -107,19 +103,20 @@ export default function MonthlyTimeline({
             | '12';
 
           return (
-            <div key={month} className={styles.monthSlot}>
+            <li key={month} className={styles.monthSlot}>
               {champion ? (
-                <ChampionBadge champion={champion} size="medium" />
+                <ChampionBadge champion={champion} />
               ) : (
-                <div className={styles.emptySlot}>
+                <div className={`${styles.emptySlot} ${emptyStatus?.className ?? ''}`}>
                   <span className={styles.emptyMonth}>{t(`months.${monthKey}`)}</span>
-                  <span className={styles.emptyLabel}>-</span>
+                  <span className={styles.emptyValue}>—</span>
+                  <span className={styles.emptyStatus}>{emptyStatus?.label}</span>
                 </div>
               )}
-            </div>
+            </li>
           );
         })}
-      </motion.div>
+      </ul>
     </section>
   );
 }
