@@ -16,7 +16,16 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Home, Trophy, Newspaper, LogIn, LogOut, Mail, Check } from 'lucide-react';
+import {
+  CalendarSearch,
+  Check,
+  Home,
+  LogIn,
+  LogOut,
+  Mail,
+  Newspaper,
+  Trophy,
+} from 'lucide-react';
 import classNames from 'classnames';
 import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
@@ -59,6 +68,12 @@ export default function Sidebar() {
       enabled: FEATURES.HALL_OF_FAME_PAGE,
     },
     { label: t('news'), icon: Newspaper, path: '/news', enabled: FEATURES.NEWS_PAGE },
+    {
+      label: t('auditions'),
+      icon: CalendarSearch,
+      path: '/auditions',
+      enabled: FEATURES.AUDITIONS_PAGE,
+    },
   ].filter((item) => item.enabled);
 
   return (

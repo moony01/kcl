@@ -16,14 +16,12 @@ vi.mock('next/link', () => {
     default: ({
       children,
       href,
-      className,
-    }: {
-      children: React.ReactNode;
+      ...anchorProps
+    }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
       href: string;
-      className?: string;
     }) => {
       return (
-        <a href={href} className={className}>
+        <a href={href} {...anchorProps}>
           {children}
         </a>
       );
@@ -55,6 +53,7 @@ const messages = {
     home: '홈',
     hall_of_fame: '명예의 전당',
     news: '뉴스',
+    auditions: '오디션',
     ranking: '랭킹',
     theme: '테마',
     login: '로그인',
@@ -71,10 +70,14 @@ describe('Navigation Components', () => {
       </NextIntlClientProvider>,
     );
 
-    // 활성 메뉴: 홈, 명예의 전당, 뉴스
+    // 활성 메뉴: 홈, 명예의 전당, 뉴스, 오디션
     expect(screen.getByText('홈')).toBeDefined();
     expect(screen.getByText('명예의 전당')).toBeDefined();
     expect(screen.getByText('뉴스')).toBeDefined();
+    expect(screen.getByText('오디션')).toBeDefined();
+    expect(screen.getByRole('link', { name: '오디션' }).getAttribute('href')).toBe(
+      '/ko/auditions',
+    );
 
     // 비노출 메뉴
     expect(screen.queryByText('통계')).toBeNull();
@@ -94,10 +97,12 @@ describe('Navigation Components', () => {
       </NextIntlClientProvider>,
     );
 
-    // 활성 메뉴: 홈, 명예의 전당, 뉴스
+    // 활성 메뉴: 홈, 명예의 전당, 뉴스, 오디션
     expect(screen.getByText('홈')).toBeDefined();
     expect(screen.getByText('명예의 전당')).toBeDefined();
     expect(screen.getByText('뉴스')).toBeDefined();
+    expect(screen.getByText('오디션')).toBeDefined();
+    expect(screen.getByText('오디션').closest('a')?.getAttribute('aria-label')).toBe('오디션');
 
     // 비노출 메뉴
     expect(screen.queryByText('통계')).toBeNull();

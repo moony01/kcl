@@ -32,6 +32,13 @@ export const FEATURES = {
   NEWS_PAGE: true,
 
   /**
+   * 오디션 정보 페이지 (Auditions)
+   * - 경로: /[locale]/auditions
+   * - 정적 콘텐츠 + 검색 색인용 상세 페이지
+   */
+  AUDITIONS_PAGE: true,
+
+  /**
    * 프로필/로그인 (Profile/Auth)
    * - 경로: /[locale]/my, /[locale]/login
    * - 상태: T1.70에서 활성화 (Google/Kakao OAuth + 이메일 로그인)
