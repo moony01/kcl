@@ -1,13 +1,15 @@
 /**
  * CurrentRaceChart 컴포넌트
  *
- * 현재 연도 우승 횟수 경쟁 현황을 표시하는 바 차트입니다.
+ * 현재 연도 상위 3개사의 우승 횟수를 기록표로 표시합니다.
  */
+
+/* eslint-disable @next/next/no-img-element -- DB 로고 URL은 외부 호스트와 크기가 고정되지 않습니다. */
 
 'use client';
 
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 import type { YearlyWinCount } from '@/types/hall-of-fame';
 import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import styles from './CurrentRaceChart.module.scss';
@@ -17,72 +19,32 @@ interface CurrentRaceChartProps {
   year: number;
   /** 경쟁 현황 데이터 */
   data: YearlyWinCount[];
-  /** 최대 우승 횟수 (바 너비 계산용) */
-  maxWins?: number;
 }
 
-export default function CurrentRaceChart({ year, data, maxWins = 12 }: CurrentRaceChartProps) {
+export default function CurrentRaceChart({ year, data }: CurrentRaceChartProps) {
   const t = useTranslations('HallOfFame');
-
-  // 순위별 색상
-  const getRankColor = (rank: number): string => {
-    switch (rank) {
-      case 1:
-        return '#D4AF37'; // Gold
-      case 2:
-        return '#C0C0C0'; // Silver
-      case 3:
-        return '#CD7F32'; // Bronze
-      default:
-        return '#666666';
-    }
-  };
-
-  // 순위 뱃지 텍스트
-  const getRankBadge = (rank: number): string => {
-    switch (rank) {
-      case 1:
-        return '1st';
-      case 2:
-        return '2nd';
-      case 3:
-        return '3rd';
-      default:
-        return `${rank}th`;
-    }
-  };
+  const locale = useLocale();
+  const leaders = data.slice(0, 3);
 
   return (
     <section className={styles.container}>
-      {/* 섹션 헤더 */}
       <header className={styles.header}>
-        <h3 className={styles.title}>
-          {year} {t('current_race')}
-        </h3>
+        <h2 className={styles.title}>{t('title_race', { year })}</h2>
+        <Link href={`/${locale}`} className={styles.voteCta}>
+          <span>{t('vote_cta')}</span>
+          <span aria-hidden="true">→</span>
+        </Link>
       </header>
 
-      {/* 바 차트 */}
-      <div className={styles.chartContainer}>
-        {data.map((item, index) => {
-          const barWidth = (item.winCount / maxWins) * 100;
-          const color = getRankColor(item.rank);
+      <ol className={styles.raceList}>
+        {leaders.map((item, index) => {
           const logoUrl = getCompanyLogoUrl(item.companyId, item.companyLogoUrl, item.companyName);
           const logoBackground = getCompanyLogoBackground(item.companyId, item.companyName, logoUrl);
 
           return (
-            <motion.div
-              key={item.companyId}
-              className={styles.barRow}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-            >
-              {/* 순위 뱃지 */}
-              <span className={styles.rankBadge} style={{ color }}>
-                {getRankBadge(item.rank)}
-              </span>
+            <li key={item.companyId} className={styles.raceRow}>
+              <span className={styles.rankNumber}>{item.rank || index + 1}</span>
 
-              {/* 소속사 정보 */}
               <div className={styles.companyInfo}>
                 <div className={styles.companyLogo} style={{ background: logoBackground }}>
                   {logoUrl ? (
@@ -91,35 +53,23 @@ export default function CurrentRaceChart({ year, data, maxWins = 12 }: CurrentRa
                     <span>{item.companyName.charAt(0)}</span>
                   )}
                 </div>
-                <span className={styles.companyName}>{item.companyName}</span>
+                <strong className={styles.companyName}>{item.companyName}</strong>
               </div>
 
-              {/* 바 */}
-              <div className={styles.barWrapper}>
-                <motion.div
-                  className={styles.bar}
-                  style={{ backgroundColor: color }}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${barWidth}%` }}
-                  transition={{ delay: index * 0.1 + 0.2, duration: 0.6, ease: 'easeOut' }}
-                />
+              <div className={styles.winCount}>
+                <strong>{item.winCount}</strong>
+                <span>{t('victories')}</span>
               </div>
-
-              {/* 우승 횟수 */}
-              <span className={styles.winCount} style={{ color }}>
-                {item.winCount} {t('victories')}
-              </span>
-            </motion.div>
+            </li>
           );
         })}
 
-        {/* 데이터 없음 */}
-        {data.length === 0 && (
-          <div className={styles.empty}>
-            <p>{t('no_champion_yet')}</p>
-          </div>
+        {leaders.length === 0 && (
+          <li className={styles.empty}>
+            <p>{t('race_empty')}</p>
+          </li>
         )}
-      </div>
+      </ol>
     </section>
   );
 }

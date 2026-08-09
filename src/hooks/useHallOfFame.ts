@@ -160,6 +160,12 @@ export function useHallOfFame(): UseHallOfFameReturn {
         result = await fetchFromMock();
       }
 
+      // API와 Mock 경로 모두 동일하게 현재 연도 월간 기록을 조회 캐시에 반영한다.
+      allChampionsRef.current = [
+        ...allChampionsRef.current.filter((champion) => champion.year !== result.currentYear),
+        ...result.currentYearMonthly,
+      ];
+
       setData(result);
 
       // 캐시 초기화

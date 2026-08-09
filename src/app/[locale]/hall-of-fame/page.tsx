@@ -1,10 +1,10 @@
 /**
  * Hall of Fame 페이지 (Server Component)
  *
- * SSG 빌드 시 정적 셸 + SEO 콘텐츠 생성, 데이터는 CSR(SWR)로 로드
+ * SSG 빌드 시 정적 셸을 생성하고 데이터는 CSR로 로드합니다.
  *
  * @updated Phase 5 - SSG/CSR 마이그레이션
- * @updated AdSense - SEO 콘텐츠 섹션 추가 (thin content 해소)
+ * 화면에는 기록 확인에 필요한 제목과 설명만 노출합니다.
  */
 
 import { Metadata } from 'next';
@@ -17,7 +17,7 @@ import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
 import styles from './hall-of-fame-seo.module.scss';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
@@ -35,54 +35,48 @@ interface HallOfFamePageProps {
  */
 export async function generateMetadata({ params }: HallOfFamePageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'HallOfFame' });
 
   return {
-    title: 'Hall of Fame - K-pop Champions',
-    description:
-      'See the legendary champions who topped the K-pop Company League. Hall of fame featuring all-time winners and their achievements.',
+    title: t('meta_title'),
+    description: t('meta_description'),
     openGraph: {
-      title: 'KCL Hall of Fame - K-pop Champions',
-      description:
-        'See the legendary champions who topped the K-pop Company League. All-time winners and achievements.',
+      title: t('meta_title'),
+      description: t('meta_description'),
       url: `https://www.kclhq.com/${locale}/hall-of-fame`,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'KCL Hall of Fame - K-pop Champions',
-      description: 'The legendary champions of the K-pop Company League.',
+      title: t('meta_title'),
+      description: t('meta_description'),
     },
     alternates: generateAlternates(locale, '/hall-of-fame'),
   };
 }
 
-/** Hall of Fame ItemList JSON-LD 스키마 */
-const hallOfFameJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'KCL Hall of Fame',
-  description: 'K-pop company champions history - legendary winners of the K-pop Company League',
-  url: 'https://www.kclhq.com/hall-of-fame',
-};
-
 /**
- * 명예의 전당 페이지 (정적 셸 + SEO 콘텐츠)
- * 상단 설명 + CSR 챔피언 데이터 + 하단 SEO 텍스트
+ * 명예의 전당 페이지 (정적 셸 + CSR 챔피언 데이터)
  */
 export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'HallOfFame' });
+  const hallOfFameJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: t('meta_title'),
+    description: t('meta_description'),
+    url: `https://www.kclhq.com/${locale}/hall-of-fame`,
+  };
 
   return (
     <>
       <JsonLd data={hallOfFameJsonLd} />
 
-      {/* SEO 헤더 섹션 - 서버 렌더링 */}
-      <header className={styles.seoHeader}>
-        <h1 className={styles.seoHeaderTitle}>{t('seo_title')}</h1>
-        <div className={styles.seoDivider} />
-        <p className={styles.seoHeaderSubtitle}>{t('seo_subtitle')}</p>
+      <header className={styles.pageHeader}>
+        <h1 className={styles.title}>{t('title')}</h1>
+        <p className={styles.description}>{t('meta_description')}</p>
       </header>
 
       {/* CSR 챔피언 데이터 영역 */}
@@ -91,27 +85,6 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
       {/* 명예의 전당 하단 광고 */}
       <AdBanner adSlot={AD_SLOTS.HOF_BOTTOM} adFormat="leaderboard" />
 
-      {/* SEO 콘텐츠 하단 섹션 */}
-      <section className={styles.seoSection}>
-        <div className={styles.seoGrid}>
-          <div className={styles.seoCard}>
-            <h2>{t('seo_how_title')}</h2>
-            <p>{t('seo_how_desc')}</p>
-          </div>
-          <div className={styles.seoCard}>
-            <h2>{t('seo_history_title')}</h2>
-            <p>{t('seo_history_desc')}</p>
-          </div>
-        </div>
-        <div className={styles.seoFullCard}>
-          <h2>{t('seo_legacy_title')}</h2>
-          <p>{t('seo_legacy_desc')}</p>
-        </div>
-        <div className={styles.seoFullCard}>
-          <h2>{t('seo_system_title')}</h2>
-          <p>{t('seo_system_desc')}</p>
-        </div>
-      </section>
     </>
   );
 }

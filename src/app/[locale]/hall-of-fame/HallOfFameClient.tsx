@@ -9,11 +9,9 @@
 
 'use client';
 
-import { useState, useCallback } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
-import { Trophy, RefreshCw, AlertCircle } from 'lucide-react';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { useHallOfFame } from '@/hooks/useHallOfFame';
-import ShareButtons from '@/components/common/ShareButtons';
 
 // Feature Components
 import GrandChampionCard from '@/components/features/hall-of-fame/GrandChampionCard';
@@ -24,43 +22,21 @@ import styles from './page.module.scss';
 
 /**
  * 로딩 스켈레톤 컴포넌트
- * 실제 레이아웃과 유사한 형태로 shimmer 애니메이션 표시
+ * 기록표의 행 구조를 유지하는 최소 스켈레톤
  */
 function LoadingSkeleton() {
+  const t = useTranslations('HallOfFame');
+
   return (
-    <div className={styles.skeletonContainer}>
-      {/* 헤더 스켈레톤 */}
-      <div className={styles.skeletonHeader}>
-        <div className={styles.skeletonTitle} />
-        <div className={styles.skeletonSubtitle} />
+    <div className={styles.skeletonContainer} role="status" aria-label={t('loading')}>
+      <div className={styles.skeletonTitle} />
+      <div className={styles.skeletonSummary} />
+      <div className={styles.skeletonTitle} />
+      <div className={styles.skeletonRows}>
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div key={index} className={styles.skeletonRow} />
+        ))}
       </div>
-
-      {/* Grand Champion 스켈레톤 */}
-      <div className={styles.skeletonChampion}>
-        <div className={styles.skeletonBadge} />
-        <div className={styles.skeletonLogo} />
-        <div className={styles.skeletonName} />
-        <div className={styles.skeletonStats} />
-      </div>
-
-      {/* 2단 레이아웃 스켈레톤 */}
-      <div className={styles.skeletonTwoColumn}>
-        <div className={styles.skeletonRace}>
-          <div className={styles.skeletonSectionTitle} />
-          <div className={styles.skeletonBar} />
-          <div className={styles.skeletonBar} />
-          <div className={styles.skeletonBar} />
-        </div>
-        <div className={styles.skeletonTimeline}>
-          <div className={styles.skeletonSectionTitle} />
-          <div className={styles.skeletonGrid}>
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className={styles.skeletonMonth} />
-            ))}
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 }
@@ -81,12 +57,10 @@ function ErrorState({ message, onRetry }: ErrorStateProps) {
   return (
     <div className={styles.errorContainer}>
       <div className={styles.errorContent}>
-        <AlertCircle className={styles.errorIcon} size={48} />
         <h2 className={styles.errorTitle}>{tCommon('error')}</h2>
         <p className={styles.errorMessage}>{message}</p>
         <button className={styles.retryButton} onClick={onRetry}>
-          <RefreshCw size={18} />
-          <span>재시도</span>
+          {t('retry')}
         </button>
       </div>
     </div>
@@ -103,9 +77,8 @@ function EmptyState() {
   return (
     <div className={styles.emptyContainer}>
       <div className={styles.emptyContent}>
-        <Trophy className={styles.emptyIcon} size={64} />
         <h2 className={styles.emptyTitle}>{t('no_champion_yet')}</h2>
-        <p className={styles.emptyMessage}>첫 번째 챔피언이 탄생할 때까지 기다려주세요!</p>
+        <p className={styles.emptyMessage}>{t('empty_description')}</p>
       </div>
     </div>
   );
@@ -115,98 +88,64 @@ function EmptyState() {
  * 명예의 전당 클라이언트 컴포넌트
  */
 export default function HallOfFameClient() {
-  const t = useTranslations('HallOfFame');
-  const locale = useLocale();
   const { data, isLoading, error, getMonthlyChampions, getYearlyRace, refresh } = useHallOfFame();
 
-  // 현재 선택된 연도 (Monthly Timeline용)
-  const [selectedYear, setSelectedYear] = useState<number>(2026);
-
-  // 연도 변경 핸들러
-  const handlePrevYear = useCallback(() => {
-    setSelectedYear((prev) => prev - 1);
-  }, []);
-
-  const handleNextYear = useCallback(() => {
-    setSelectedYear((prev) => prev + 1);
-  }, []);
+  // null이면 데이터가 제공하는 현재 연도를 그대로 사용한다.
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
   // 로딩 상태 - 스켈레톤 UI 표시
   if (isLoading) {
     return (
-      <main className={styles.container}>
+      <div className={styles.container}>
         <LoadingSkeleton />
-      </main>
+      </div>
     );
   }
 
   // 에러 상태 - 재시도 버튼 포함
   if (error) {
     return (
-      <main className={styles.container}>
+      <div className={styles.container}>
         <ErrorState message={error} onRetry={refresh} />
-      </main>
+      </div>
     );
   }
 
   // 데이터가 없는 경우
   if (!data) {
     return (
-      <main className={styles.container}>
+      <div className={styles.container}>
         <EmptyState />
-      </main>
+      </div>
     );
   }
 
-  // 선택된 연도의 데이터 가져오기
-  const monthlyChampions = getMonthlyChampions(selectedYear);
+  const activeYear = selectedYear ?? data.currentYear;
+  const firstArchiveYear = Math.min(2023, data.currentYear);
+  const availableYears = Array.from(
+    { length: data.currentYear - firstArchiveYear + 1 },
+    (_, index) => data.currentYear - index,
+  );
+  const monthlyChampions = getMonthlyChampions(activeYear);
   const yearlyRace = getYearlyRace(data.currentYear);
 
   return (
-    <main className={styles.container}>
-      {/* 페이지 헤더 - sr-only h1은 page.tsx에 있음 */}
-      <header className={styles.pageHeader}>
-        <h2 className={styles.title}>{t('title')}</h2>
-        <p className={styles.subtitle}>{t('subtitle')}</p>
-
-        {/* 공유 버튼 - 카카오톡 공유 시 동적 OG 이미지 사용 */}
-        <div className={styles.shareWrapper}>
-          <ShareButtons
-            title="KCL Hall of Fame - K-pop Champions"
-            description={t('subtitle')}
-            url={`https://www.kclhq.com/${locale}/hall-of-fame`}
-            imageUrl={`https://www.kclhq.com/${locale}/hall-of-fame/opengraph-image`}
-            size="sm"
-          />
-        </div>
-      </header>
-
-      {/* Grand Champion 섹션 */}
-      {data.latestGrandChampion && (
-        <section className={styles.grandChampionSection}>
-          <GrandChampionCard champion={data.latestGrandChampion} />
-        </section>
+    <div className={styles.container}>
+      {data.latestGrandChampion ? (
+        <GrandChampionCard champion={data.latestGrandChampion} />
+      ) : (
+        <EmptyState />
       )}
 
-      {/* Current Race + Monthly Timeline (2단 레이아웃) */}
-      <div className={styles.twoColumnLayout}>
-        {/* Current Race (현재 연도 경쟁 현황) */}
-        <section className={styles.raceSection}>
-          <CurrentRaceChart year={data.currentYear} data={yearlyRace} maxWins={12} />
-        </section>
+      <CurrentRaceChart year={data.currentYear} data={yearlyRace} />
 
-        {/* Monthly Timeline (월별 챔피언) */}
-        <section className={styles.timelineSection}>
-          <MonthlyTimeline
-            year={selectedYear}
-            champions={monthlyChampions}
-            onPrevYear={handlePrevYear}
-            onNextYear={handleNextYear}
-            hasPrevYear={selectedYear > 2023}
-            hasNextYear={selectedYear < data.currentYear}
-          />
-        </section>
-      </div>
-    </main>
+      <MonthlyTimeline
+        year={activeYear}
+        currentYear={data.currentYear}
+        champions={monthlyChampions}
+        availableYears={availableYears}
+        onYearChange={setSelectedYear}
+      />
+    </div>
   );
 }
