@@ -1,540 +1,138 @@
-/**
- * Hall of Fame 페이지 스타일
- *
- * Black & Gold 테마의 명예의 전당 레이아웃
- * - 스켈레톤 로딩 UI
- * - 에러/빈 상태 UI
- * - 반응형 레이아웃
- */
-
 @use '../../../styles/abstracts/variables' as *;
 
-// 디자인 토큰
-$hof-gold: #d4af37;
-$hof-gold-light: #f5d061;
-$hof-gold-dim: rgba(212, 175, 55, 0.3);
-$hof-bg-dark: #0a0a0a;
-$hof-primary: #8B5CF6;
-
-// ========================================
-// Shimmer 애니메이션
-// ========================================
 @keyframes shimmer {
-  0% {
+  from {
     background-position: 200% 0;
   }
-  100% {
+
+  to {
     background-position: -200% 0;
   }
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-// Shimmer 믹스인
-@mixin shimmer-effect {
+@mixin skeleton-block {
   background: linear-gradient(
-    90deg,
-    rgba($hof-gold, 0.05) 25%,
-    rgba($hof-gold, 0.1) 50%,
-    rgba($hof-gold, 0.05) 75%
+    100deg,
+    rgba(127, 127, 127, 0.08) 25%,
+    rgba(127, 127, 127, 0.18) 45%,
+    rgba(127, 127, 127, 0.08) 65%
   );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
-  border-radius: 8px;
+  background-size: 220% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
 }
 
-// ========================================
-// 메인 컨테이너
-// ========================================
 .container {
+  display: flex;
   width: 100%;
-  min-height: 100vh;
-  padding: 20px 0 100px;
-  display: flex;
   flex-direction: column;
-  gap: 32px;
+  padding-bottom: 52px;
 
-  @media (min-width: 768px) {
-    padding: 32px 0 60px;
-    gap: 40px;
+  @media (max-width: 767px) {
+    padding-bottom: 38px;
   }
 }
 
-// ========================================
-// 페이지 헤더
-// ========================================
-.pageHeader {
-  text-align: center;
-  padding: 20px 0;
-
-  @media (min-width: 768px) {
-    padding: 32px 0;
-  }
-}
-
-.title {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: $hof-gold;
-  margin: 0 0 8px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-
-  @media (min-width: 768px) {
-    font-size: 2.5rem;
-    letter-spacing: 6px;
-    margin-bottom: 12px;
-  }
-}
-
-.subtitle {
-  font-family: $font-display;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: $color-text-dim;
-  margin: 0;
-  letter-spacing: 2px;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
-}
-
-// 공유 버튼 래퍼
-.shareWrapper {
-  margin-top: 1.25rem;
-  display: flex;
-  justify-content: center;
-
-  // 골드 테마에 맞게 버튼 스타일 오버라이드
-  :global(.shareButtons) {
-    button {
-      border-color: rgba($hof-gold, 0.3);
-
-      &:hover {
-        border-color: $hof-gold;
-      }
-    }
-  }
-}
-
-// ========================================
-// 섹션 레이아웃
-// ========================================
-.grandChampionSection {
-  margin: 0;
-}
-
-.twoColumnLayout {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    gap: 32px;
-  }
-}
-
-.raceSection {
-  flex: 1;
-  min-width: 0;
-
-  @media (min-width: 1024px) {
-    flex: 0 0 45%;
-  }
-}
-
-.timelineSection {
-  flex: 1;
-  min-width: 0;
-
-  @media (min-width: 1024px) {
-    flex: 0 0 55%;
-  }
-}
-
-// ========================================
-// 스켈레톤 로딩 UI
-// ========================================
 .skeletonContainer {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 20px 0;
-
-  @media (min-width: 768px) {
-    gap: 40px;
-    padding: 32px 0;
-  }
+  gap: 14px;
+  padding: 24px 0 48px;
+  border-top: 1px solid $color-border;
 }
 
-// 헤더 스켈레톤
-.skeletonHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 20px 0;
+.skeletonTitle,
+.skeletonSummary,
+.skeletonRow {
+  @include skeleton-block;
+  border-radius: 4px;
 }
 
 .skeletonTitle {
-  @include shimmer-effect;
-  width: 280px;
-  height: 40px;
-
-  @media (min-width: 768px) {
-    width: 360px;
-    height: 48px;
-  }
-}
-
-.skeletonSubtitle {
-  @include shimmer-effect;
-  width: 180px;
-  height: 20px;
-}
-
-// Grand Champion 스켈레톤
-.skeletonChampion {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  padding: 32px 20px;
-  background: linear-gradient(135deg, rgba($hof-gold, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
-  border-radius: 16px;
-  border: 1px solid rgba($hof-gold, 0.1);
-}
-
-.skeletonBadge {
-  @include shimmer-effect;
   width: 160px;
-  height: 28px;
+  height: 18px;
+  margin-top: 10px;
 }
 
-.skeletonLogo {
-  @include shimmer-effect;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.skeletonName {
-  @include shimmer-effect;
-  width: 200px;
-  height: 32px;
-}
-
-.skeletonStats {
-  @include shimmer-effect;
-  width: 240px;
-  height: 24px;
-}
-
-// 2단 레이아웃 스켈레톤
-.skeletonTwoColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    gap: 32px;
-  }
-}
-
-.skeletonRace {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-  background: rgba(#1a1a2e, 0.5);
-  border-radius: 12px;
-
-  @media (min-width: 1024px) {
-    flex: 0 0 45%;
-  }
-}
-
-.skeletonSectionTitle {
-  @include shimmer-effect;
-  width: 150px;
-  height: 24px;
-  margin-bottom: 8px;
-}
-
-.skeletonBar {
-  @include shimmer-effect;
+.skeletonSummary {
   width: 100%;
-  height: 44px;
+  height: 70px;
 }
 
-.skeletonTimeline {
-  flex: 1;
+.skeletonRows {
+  border-top: 1px solid $color-border;
+}
+
+.skeletonRow {
+  height: 58px;
+  border-bottom: 1px solid $color-border;
+  border-radius: 0;
+}
+
+.errorContainer,
+.emptyContainer {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-  background: rgba(#1a1a2e, 0.5);
-  border-radius: 12px;
-
-  @media (min-width: 1024px) {
-    flex: 0 0 55%;
-  }
-}
-
-.skeletonGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-.skeletonMonth {
-  @include shimmer-effect;
-  aspect-ratio: 1;
-  min-height: 60px;
-}
-
-// Archives 스켈레톤
-.skeletonArchives {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.skeletonCarousel {
-  display: flex;
-  gap: 16px;
-  overflow: hidden;
-}
-
-.skeletonCard {
-  @include shimmer-effect;
-  flex-shrink: 0;
-  width: 200px;
-  height: 180px;
-
-  @media (min-width: 768px) {
-    width: 240px;
-    height: 200px;
-  }
-}
-
-// ========================================
-// 로딩 상태 (기존 스피너 - 폴백용)
-// ========================================
-.loadingContainer {
-  display: flex;
-  flex-direction: column;
+  min-height: 220px;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
-  gap: 16px;
-
-  p {
-    font-size: 0.9rem;
-    color: $color-text-dim;
-    margin: 0;
-  }
+  padding: 36px 20px;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
 }
 
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba($hof-gold, 0.2);
-  border-top-color: $hof-gold;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-// ========================================
-// 에러 상태
-// ========================================
-.errorContainer {
+.errorContent,
+.emptyContent {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  padding: 20px;
-}
-
-.errorContent {
-  display: flex;
+  max-width: 420px;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  max-width: 400px;
+  gap: 10px;
   text-align: center;
-  padding: 40px;
-  background: rgba(#1a1a2e, 0.6);
-  border-radius: 16px;
-  border: 1px solid rgba($color-danger, 0.2);
 }
 
-.errorIcon {
-  color: $color-danger;
-  opacity: 0.8;
-}
-
-.errorTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
+.errorTitle,
+.emptyTitle {
+  margin: 0;
   color: $color-text;
-  margin: 0;
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 750;
 }
 
-.errorMessage {
-  font-size: 0.9rem;
-  color: $color-text-dim;
+.errorMessage,
+.emptyMessage {
   margin: 0;
-  line-height: 1.5;
+  color: $color-text-dim;
+  font-size: 0.82rem;
+  line-height: 1.6;
 }
 
 .retryButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, $hof-gold 0%, darken($hof-gold, 15%) 100%);
-  color: #000;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
+  margin-top: 8px;
+  padding: 8px 13px;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  background: $color-surface;
+  color: $color-text;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba($hof-gold, 0.3);
+    border-color: $color-primary;
+    color: $color-primary;
   }
 
-  &:active {
-    transform: translateY(0);
-  }
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: rotate(180deg);
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
   }
 }
 
-// ========================================
-// 빈 상태
-// ========================================
-.emptyContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  padding: 20px;
-}
-
-.emptyContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  max-width: 400px;
-  text-align: center;
-  padding: 40px;
-  background: linear-gradient(135deg, rgba($hof-gold, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
-  border-radius: 16px;
-  border: 1px solid rgba($hof-gold, 0.1);
-}
-
-.emptyIcon {
-  color: $hof-gold;
-  opacity: 0.5;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.emptyTitle {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: $hof-gold;
-  margin: 0;
-}
-
-.emptyMessage {
-  font-size: 0.9rem;
-  color: $color-text-dim;
-  margin: 0;
-  line-height: 1.5;
-}
-
-// ========================================
-// 라이트 모드 오버라이드
-// 골드 테마 → 보라색 프리미엄 테마로 전환
-// ========================================
-:global(:root:not([data-theme='dark'])) {
-  .title {
-    color: $hof-primary !important;
-    font-family: $font-display !important;
-  }
-
-  .skeletonChampion {
-    background: linear-gradient(135deg, rgba($hof-primary, 0.04) 0%, rgba($hof-primary, 0.01) 100%) !important;
-    border-color: rgba($hof-primary, 0.1) !important;
-  }
-
-  .skeletonRace,
-  .skeletonTimeline {
-    background: rgba($hof-primary, 0.03) !important;
-  }
-
-  .errorContent {
-    background: #FFFFFF !important;
-    border-color: rgba($color-danger, 0.15) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
-  }
-
-  .retryButton {
-    background: linear-gradient(135deg, $hof-primary 0%, darken($hof-primary, 10%) 100%) !important;
-    color: #FFFFFF !important;
-  }
-
-  .emptyContent {
-    background: linear-gradient(135deg, rgba($hof-primary, 0.04) 0%, #FFFFFF 100%) !important;
-    border-color: rgba($hof-primary, 0.1) !important;
-  }
-
-  .emptyIcon {
-    color: $hof-primary !important;
-  }
-
-  .emptyTitle {
-    color: $hof-primary !important;
-    font-family: $font-display !important;
-  }
-
-  .spinner {
-    border-color: rgba($hof-primary, 0.2) !important;
-    border-top-color: $hof-primary !important;
+@media (prefers-reduced-motion: reduce) {
+  .skeletonTitle,
+  .skeletonSummary,
+  .skeletonRow {
+    animation: none;
   }
 }

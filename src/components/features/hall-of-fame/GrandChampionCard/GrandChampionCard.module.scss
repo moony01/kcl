@@ -1,337 +1,133 @@
-/**
- * GrandChampionCard 스타일
- *
- * Black & Gold 테마의 대상 수상자 카드
- * 최고 권위를 표현하는 프리미엄 디자인
- */
-
 @use '../../../../styles/abstracts/variables' as *;
 
-// 디자인 토큰
-$champion-gold: #d4af37;
-$champion-gold-light: #f5d061;
-$champion-gold-champagne: #f7e7ce;
-$champion-bg: #0a0a0a;
-$champion-border: rgba(212, 175, 55, 0.3);
+.container {
+  padding: 24px 0 28px;
+  border-top: 2px solid $color-primary;
+  border-bottom: 1px solid $color-border;
+  background: color-mix(in srgb, var(--color-primary) 4%, transparent);
+}
 
-.card {
-  position: relative;
+.title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 24px;
-  background: linear-gradient(180deg, $champion-bg 0%, #151515 100%);
-  border: 1px solid $champion-border;
-  border-radius: 20px;
-  overflow: hidden;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    padding: 56px 40px;
-    border-radius: 24px;
-  }
-}
-
-// 배경 장식 — 팬아트 이미지 배경 + 그라디언트 오버레이
-.backgroundDecor {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-
-  // 팬아트 이미지 레이어
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('/images/logos/hybe_fan_img.jpeg');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    opacity: 0.45;
-  }
-
-  // 하단 콘텐츠 영역 가독성을 위한 그라디언트 오버레이
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(10, 10, 10, 0.3) 30%,
-      rgba(10, 10, 10, 0.75) 60%,
-      rgba(10, 10, 10, 0.95) 100%
-    );
-  }
-}
-
-.glowEffect {
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200%;
-  height: 100%;
-  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-  z-index: 1;
-}
-
-.particles {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
-    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
-    radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
-  background-size:
-    60px 60px,
-    80px 80px,
-    100px 100px;
-  z-index: 1;
-}
-
-// 타이틀 배지
-.titleBadge {
-  display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, $champion-gold 0%, $champion-gold-light 100%);
-  border-radius: 20px;
-  margin-bottom: 24px;
-  z-index: 1;
-
-  span {
-    font-family: $font-display;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: $champion-bg;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+  margin: 0 0 18px;
+  color: $color-primary;
+  font-family: $font-display;
+  font-size: 0.9rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
 }
 
-.trophyIcon {
-  color: $champion-bg;
+.title::before {
+  width: 3px;
+  height: 1rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: $color-primary;
+  content: '';
 }
 
-// 로고 섹션
-.logoSection {
-  position: relative;
-  margin-bottom: 20px;
-  z-index: 1;
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 0 12px;
+}
+
+.identity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 13px;
+  padding-inline-start: 12px;
+  border-inline-start: 2px solid color-mix(in srgb, var(--color-primary) 36%, transparent);
 }
 
 .logoWrapper {
   display: flex;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
   overflow: hidden;
-  box-shadow:
-    0 0 0 4px rgba(212, 175, 55, 0.3),
-    0 0 40px rgba(212, 175, 55, 0.3),
-    0 8px 32px rgba(0, 0, 0, 0.4);
-
-  @media (min-width: 768px) {
-    width: 120px;
-    height: 120px;
-  }
+  border: 1px solid $color-border;
+  border-radius: 9px;
 }
 
-.logoText {
-  font-family: $font-display;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
-  @media (min-width: 768px) {
-    font-size: 3rem;
-  }
-}
-
-// 로고 이미지
 .logoImage {
   width: 100%;
   height: 100%;
-  padding: 12%;
-  box-sizing: border-box;
+  padding: 6px;
   object-fit: contain;
-  border-radius: inherit;
 }
 
-.shineEffect {
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  background: linear-gradient(
-    45deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 60%
-  );
-  // animation: shine 3s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes shine {
-  0%,
-  100% {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  50% {
-    transform: translateX(100%) rotate(45deg);
-  }
-}
-
-// 소속사 이름
-.companyName {
+.logoText {
+  color: #fff;
   font-family: $font-display;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: 800;
-  color: white;
-  margin: 0 0 8px;
-  z-index: 1;
-
-  @media (min-width: 768px) {
-    font-size: 2.2rem;
-  }
 }
 
-// 부제목
-.subtitle {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: $champion-gold;
-  margin: 0 0 24px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  z-index: 1;
-
-  @media (min-width: 768px) {
-    font-size: 1rem;
-    margin-bottom: 32px;
-  }
+.companyName {
+  overflow: hidden;
+  color: $color-text;
+  font-family: $font-display;
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-// 통계
 .stats {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  z-index: 1;
-
-  @media (min-width: 768px) {
-    gap: 40px;
-  }
+  flex: 0 0 auto;
+  gap: 32px;
+  margin: 0;
 }
 
 .statItem {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
+  align-items: flex-end;
+  gap: 3px;
 
-.statValue {
-  font-family: $font-display;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: $champion-gold;
+  dd,
+  dt {
+    margin: 0;
+  }
 
-  @media (min-width: 768px) {
-    font-size: 2.2rem;
+  dd {
+    color: $color-primary;
+    font-family: $font-display;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  dt {
+    color: $color-text-dim;
+    font-size: 0.66rem;
+    font-weight: 600;
   }
 }
 
-.statLabel {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: $color-text-dim;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.statDivider {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, $champion-border, transparent);
-}
-
-// ========================================
-// 라이트 모드 오버라이드
-// Black & Gold → 화이트 & 보라색 프리미엄 테마
-// ========================================
-$light-primary: #8B5CF6;
-$light-primary-dark: #7C3AED;
-
-:global(:root:not([data-theme='dark'])) {
-  .card {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F8F7FF 100%) !important;
-    border-color: rgba($light-primary, 0.15) !important;
-    box-shadow: 0 8px 32px rgba($light-primary, 0.08) !important;
+@media (max-width: 560px) {
+  .record {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
   }
 
-  // 라이트 모드: 배경 이미지 오버레이를 흰색 기반으로
-  .backgroundDecor {
-    &::after {
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(248, 247, 255, 0.6) 30%,
-        rgba(248, 247, 255, 0.85) 60%,
-        rgba(248, 247, 255, 0.98) 100%
-      ) !important;
-    }
+  .stats {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 28px;
   }
 
-  // 라이트 모드에서 글로우/파티클 효과 제거
-  .glowEffect {
-    display: none !important;
-  }
-
-  .particles {
-    display: none !important;
-  }
-
-  .titleBadge {
-    background: linear-gradient(135deg, $light-primary 0%, $light-primary-dark 100%) !important;
-
-    span {
-      color: #FFFFFF !important;
-    }
-  }
-
-  .trophyIcon {
-    color: #FFFFFF !important;
-  }
-
-  // 라이트 모드: 글로우 없이 깔끔한 테두리만
-  .logoWrapper {
-    box-shadow:
-      0 0 0 3px rgba($light-primary, 0.15),
-      0 4px 12px rgba(0, 0, 0, 0.06) !important;
-  }
-
-  .companyName {
-    color: #1F2937 !important;
-  }
-
-  .subtitle {
-    color: $light-primary !important;
-  }
-
-  .statValue {
-    color: $light-primary !important;
-  }
-
-  .statDivider {
-    background: linear-gradient(to bottom, transparent, rgba($light-primary, 0.2), transparent) !important;
+  .statItem {
+    align-items: flex-start;
   }
 }
