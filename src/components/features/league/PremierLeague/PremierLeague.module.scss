@@ -115,3 +115,15 @@ $light-primary: #8B5CF6;
     color: #D4AF37 !important; // 골드 유지
   }
 }
+
+.compact {
+  gap: 8px;
+
+  .topThreeGrid {
+    gap: 6px;
+  }
+
+  .rankingList {
+    gap: 4px;
+  }
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, Megaphone } from 'lucide-react';
+import classNames from 'classnames';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import styles from './KpopfaceAdCard.module.scss';
@@ -103,14 +104,14 @@ const KPOPFACE_AD_COPY: Record<string, KpopfaceAdCopy> = {
 };
 
 /** 4위 목록 위에 노출하는 Kpopface 프로모션 슬롯 */
-export default function KpopfaceAdCard() {
+export default function KpopfaceAdCard({ compact = false }: { compact?: boolean }) {
   const locale = useLocale();
   const copy = KPOPFACE_AD_COPY[locale] ?? KPOPFACE_AD_COPY.en;
 
   return (
     <Link
       href={KPOPFACE_URL}
-      className={styles.card}
+      className={classNames(styles.card, { [styles.compact]: compact })}
       data-ad-slot="kpopface"
       aria-label={copy.ariaLabel}
     >
