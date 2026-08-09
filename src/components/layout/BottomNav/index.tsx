@@ -13,7 +13,7 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, Trophy, Newspaper, User } from 'lucide-react';
+import { CalendarSearch, Home, Newspaper, Trophy, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
@@ -37,6 +37,12 @@ export default function BottomNav() {
       enabled: FEATURES.HALL_OF_FAME_PAGE,
     },
     { label: t('news'), href: '/news', icon: Newspaper, enabled: FEATURES.NEWS_PAGE },
+    {
+      label: t('auditions'),
+      href: '/auditions',
+      icon: CalendarSearch,
+      enabled: FEATURES.AUDITIONS_PAGE,
+    },
     // AUTH_SYSTEM 활성화 시 프로필/로그인 아이콘 추가
     ...(FEATURES.AUTH_SYSTEM
       ? [
@@ -66,6 +72,7 @@ export default function BottomNav() {
             <Link
               key={item.href}
               href={linkHref}
+              aria-label={item.label}
               className={classNames(styles.navItem, { [styles.active]: isActive })}
             >
               <div className={styles.iconWrapper}>

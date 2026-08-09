@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { FULL_URL, SUPPORTED_LOCALES, SupportedLocale } from '@/lib/constants';
+import { getAllActualAuditions, getAuditionLocales } from '@/lib/auditions';
 import { getAllNews } from '@/lib/news';
 
 /**
@@ -69,6 +70,23 @@ function generateStaticAlternates(path: string): Record<string, string> {
   return alternates;
 }
 
+/** Audition detail alternates include only translations that really exist. */
+function generateAuditionAlternates(slug: string): Record<string, string> {
+  const alternates: Record<string, string> = {};
+  const locales = getAuditionLocales(slug);
+
+  for (const locale of locales) {
+    alternates[locale] = `${FULL_URL}/${locale}/auditions/${slug}`;
+  }
+
+  const defaultLocale = locales.includes('en') ? 'en' : locales[0];
+  if (defaultLocale) {
+    alternates['x-default'] = `${FULL_URL}/${defaultLocale}/auditions/${slug}`;
+  }
+
+  return alternates;
+}
+
 /**
  * 정적 페이지 정의
  * 활성화된 기능 페이지만 포함 (FEATURES 플래그 참조)
@@ -92,6 +110,9 @@ const STATIC_PAGES: StaticPage[] = [
 
   // 뉴스 목록 - 활성화됨
   { path: '/news', priority: 0.8, changeFrequency: 'daily' },
+
+  // 오디션 정보 목록 - 활성화됨
+  { path: '/auditions', priority: 0.9, changeFrequency: 'daily' },
 
   // About & FAQ - AdSense 필수 페이지
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },
@@ -150,6 +171,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // 해당 언어의 뉴스가 없는 경우 스킵
       console.warn(`[sitemap] No news found for locale: ${locale}`);
     }
+  }
+
+  // 4. 오디션 상세 페이지 (실제 번역 파일이 있는 URL만)
+  for (const post of getAllActualAuditions()) {
+    const auditionPath = `/auditions/${post.slug}`;
+    const isActive = post.status !== 'closed';
+
+    sitemapEntries.push({
+      url: `${FULL_URL}/${post.locale}${auditionPath}`,
+      lastModified: new Date(post.updatedAt),
+      changeFrequency: isActive ? 'daily' : 'monthly',
+      priority: isActive ? 0.8 : 0.5,
+      alternates: {
+        languages: generateAuditionAlternates(post.slug),
+      },
+    });
   }
 
   return sitemapEntries;
