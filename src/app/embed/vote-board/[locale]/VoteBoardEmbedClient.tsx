@@ -8,6 +8,7 @@ import BottomSheet from '@/components/ui/BottomSheet';
 import VoteController from '@/components/features/VoteController';
 import VoteBoard from '@/components/features/vote/VoteBoard';
 import styles from '@/app/[locale]/page.module.scss';
+import embedStyles from './VoteBoardEmbedClient.module.scss';
 
 export type VoteBoardSurface = 'kcl-modal' | 'kpopface' | 'partner';
 
@@ -26,6 +27,16 @@ const TOP_TEN_COPY: Record<string, { expand: string; collapse: string }> = {
   es: { expand: 'Ver top 10', collapse: 'Cerrar' },
   fr: { expand: 'Voir le top 10', collapse: 'Réduire' },
   de: { expand: 'Top 10 anzeigen', collapse: 'Einklappen' },
+};
+
+const KPOPFACE_SIGNUP_COPY: Record<string, string> = {
+  ko: 'KCL 가입하고 매일 300표 받기',
+  en: 'Join KCL for 300 votes every day',
+  ja: 'KCLに登録して毎日300票を使う',
+  zh: '注册 KCL，每天获得 300 票',
+  es: 'Regístrate en KCL y consigue 300 votos diarios',
+  fr: 'Inscris-toi sur KCL pour 300 votes par jour',
+  de: 'Bei KCL registrieren und täglich 300 Stimmen erhalten',
 };
 
 const ALLOWED_SURFACES = new Set<VoteBoardSurface>(['kcl-modal', 'kpopface', 'partner']);
@@ -145,7 +156,15 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
       window.cancelAnimationFrame(frame);
       observer?.disconnect();
     };
-  }, [notifyResize, isExpanded, isMobile, isSheetOpen, options.showAds, allCompanies.length]);
+  }, [
+    notifyResize,
+    isExpanded,
+    isMobile,
+    isSheetOpen,
+    options.showAds,
+    options.surface,
+    allCompanies.length,
+  ]);
 
   const selectedCompany = useMemo(() => {
     if (!selectedCompanyId) return null;
@@ -179,6 +198,8 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
   }, []);
 
   const topTenCopy = TOP_TEN_COPY[locale] ?? TOP_TEN_COPY.en;
+  const signupLocale = KPOPFACE_SIGNUP_COPY[locale] ? locale : 'en';
+  const signupCopy = KPOPFACE_SIGNUP_COPY[signupLocale];
 
   if (isLoading && allCompanies.length === 0) {
     return (
@@ -227,6 +248,19 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
         testId="vote-board-embed"
         layoutClassName={styles.dashboardContainer}
       />
+
+      {options.surface === 'kpopface' && (
+        <div className={embedStyles.signupCtaContainer}>
+          <a
+            className={embedStyles.signupCta}
+            href={`/${signupLocale}/signup`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {signupCopy}
+          </a>
+        </div>
+      )}
     </div>
   );
 }

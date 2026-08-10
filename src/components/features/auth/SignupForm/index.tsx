@@ -24,7 +24,8 @@ export default function SignupForm() {
 
   /**
    * OAuth 회원가입 처리 (Google / Kakao)
-   * 콜백에서 온보딩 강제 이동을 위해 flow=signup 플래그를 전달합니다.
+   * flow=signup은 가입 진입 의도를 전달하지만, 콜백은 서버 프로필을 확인해
+   * 미완료 사용자만 온보딩으로 보냅니다.
    */
   const handleOAuthSignup = async (provider: 'google' | 'kakao') => {
     setOauthLoading(provider);

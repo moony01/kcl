@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
 import { getSupabase } from '@/lib/supabase/client';
+import { hasCompletedOnboarding } from '@/lib/auth/onboarding';
 import { useAuth } from '@/hooks/useAuth';
 import styles from './Onboarding.module.scss';
 
@@ -49,11 +50,15 @@ export default function OnboardingClient() {
   const isKo = locale === 'ko';
 
   const { user, isLoading, refreshProfile } = useAuth();
+  const userId = user?.id;
 
   /* ─── 닉네임 관련 state ─── */
   const [nickname, setNickname] = useState('');
   const [nicknameError, setNicknameError] = useState('');
-  const [isNicknameLoaded, setIsNicknameLoaded] = useState(false);
+  const [loadedProfileUserId, setLoadedProfileUserId] = useState<string | null>(null);
+  const [completedProfileUserId, setCompletedProfileUserId] = useState<string | null>(null);
+  const isNicknameLoaded = Boolean(userId && loadedProfileUserId === userId);
+  const hasCompletedProfile = Boolean(userId && completedProfileUserId === userId);
 
   /* ─── 그룹 검색 관련 state ─── */
   const [groups, setGroups] = useState<GroupRow[]>([]);
@@ -76,35 +81,51 @@ export default function OnboardingClient() {
     }
   }, [isLoading, user, router, locale]);
 
-  /** DB에서 현재 username 불러오기 (닉네임 기본값) */
+  /** DB에서 온보딩 완료 상태와 현재 username 불러오기 */
   useEffect(() => {
-    if (!user) {
+    if (!userId) {
       return;
     }
+    let cancelled = false;
 
     const fetchUsername = async () => {
       try {
         const supabase = getSupabase();
         const { data, error } = await supabase
           .from('kcl_user_profiles')
-          .select('username')
-          .eq('id', user.id)
+          .select('username, onboarding_completed')
+          .eq('id', userId)
           .maybeSingle();
 
+        if (cancelled) return;
         if (error && error.code !== 'PGRST116') {
-          console.error('[Onboarding] 닉네임 조회 실패:', error);
+          console.error('[Onboarding] 프로필 조회 실패:', error);
+          setNickname('');
+        } else if (hasCompletedOnboarding(data)) {
+          setCompletedProfileUserId(userId);
+          router.replace(`/${locale}`);
         } else if (data?.username) {
           setNickname(data.username);
+        } else {
+          setNickname('');
         }
       } catch (err) {
-        console.error('[Onboarding] 닉네임 조회 중 예외 발생:', err);
+        if (!cancelled) {
+          console.error('[Onboarding] 프로필 조회 중 예외 발생:', err);
+          setNickname('');
+        }
       } finally {
-        setIsNicknameLoaded(true);
+        if (!cancelled) {
+          setLoadedProfileUserId(userId);
+        }
       }
     };
 
     fetchUsername();
-  }, [user]);
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, router, locale]);
 
   /** 그룹 목록 조회 */
   useEffect(() => {
@@ -304,21 +325,31 @@ export default function OnboardingClient() {
       const supabase = getSupabase();
 
       /* 닉네임 + 선택된 그룹을 한 번에 저장 */
-      const updateData: { username: string; favorite_group_id?: string } = {
+      const updateData: {
+        username: string;
+        favorite_group_id?: string;
+        onboarding_completed: boolean;
+      } = {
         username: nickname.trim(),
+        onboarding_completed: true,
       };
 
       if (selectedGroup) {
         updateData.favorite_group_id = selectedGroup.id;
       }
 
-      const { error: updateError } = await supabase
+      const { data: updatedProfile, error: updateError } = await supabase
         .from('kcl_user_profiles')
         .update(updateData)
-        .eq('id', user.id);
+        .eq('id', user.id)
+        .select('id')
+        .maybeSingle();
 
-      if (updateError) {
-        console.error('[Onboarding] 프로필 저장 실패:', updateError);
+      if (updateError || updatedProfile?.id !== user.id) {
+        console.error(
+          '[Onboarding] 프로필 저장 실패:',
+          updateError || '수정된 프로필 행이 반환되지 않음',
+        );
         setIsSaving(false);
         return;
       }
@@ -348,13 +379,21 @@ export default function OnboardingClient() {
 
     try {
       const supabase = getSupabase();
-      const { error: updateError } = await supabase
+      const { data: updatedProfile, error: updateError } = await supabase
         .from('kcl_user_profiles')
-        .update({ username: nickname.trim() })
-        .eq('id', user.id);
+        .update({
+          username: nickname.trim(),
+          onboarding_completed: true,
+        })
+        .eq('id', user.id)
+        .select('id')
+        .maybeSingle();
 
-      if (updateError) {
-        console.error('[Onboarding] 닉네임 저장 실패:', updateError);
+      if (updateError || updatedProfile?.id !== user.id) {
+        console.error(
+          '[Onboarding] 닉네임 저장 실패:',
+          updateError || '수정된 프로필 행이 반환되지 않음',
+        );
         setIsSaving(false);
         return;
       }
@@ -373,7 +412,7 @@ export default function OnboardingClient() {
     nickname.trim().length <= NICKNAME_MAX_LENGTH;
 
   /** 로딩 상태 */
-  if (isLoading || (!user && !isLoading)) {
+  if (isLoading || (!user && !isLoading) || !isNicknameLoaded || hasCompletedProfile) {
     return (
       <div className={styles.container}>
         <div className={styles.loading}>{t('saving')}</div>
