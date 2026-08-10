@@ -21,24 +21,37 @@ import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { getSupabase } from '@/lib/supabase/client';
+import {
+  getAuthenticatedRedirect,
+  type OnboardingProfileState,
+} from '@/lib/auth/onboarding';
 
 /** 마지막 로그인 프로바이더 localStorage 키 */
 const LAST_PROVIDER_KEY = 'kcl_last_login_provider';
 
-const RETURN_TO_ORIGINS = new Set([
+const PRODUCTION_RETURN_TO_ORIGINS = new Set([
   'https://moony01.com',
   'https://www.moony01.com',
+]);
+
+const DEVELOPMENT_RETURN_TO_ORIGINS = new Set([
   'http://localhost:4000',
   'http://127.0.0.1:4000',
 ]);
 
-function getSafeReturnTo(value: string | null): string | null {
+export function getSafeReturnTo(
+  value: string | null,
+  environment: string | undefined = process.env.NODE_ENV,
+): string | null {
   if (!value) return null;
 
   try {
     const target = new URL(value);
     const isKpopfacePath = target.pathname === '/kpopface' || target.pathname.startsWith('/kpopface/');
-    if (RETURN_TO_ORIGINS.has(target.origin) && isKpopfacePath) {
+    const isAllowedOrigin =
+      PRODUCTION_RETURN_TO_ORIGINS.has(target.origin) ||
+      (environment === 'development' && DEVELOPMENT_RETURN_TO_ORIGINS.has(target.origin));
+    if (isAllowedOrigin && isKpopfacePath) {
       return target.href;
     }
   } catch {
@@ -48,21 +61,94 @@ function getSafeReturnTo(value: string | null): string | null {
   return null;
 }
 
+interface ResolveProfileRedirectInput {
+  locale: string;
+  userId: string;
+  accessToken: string;
+  returnTo?: string | null;
+  supabaseUrl?: string;
+  supabaseKey?: string;
+  signal?: AbortSignal;
+  fetchImpl?: typeof fetch;
+}
+
+/**
+ * Resolve the post-auth destination from the persisted profile marker.
+ * Unknown state fails closed to onboarding; the onboarding page rechecks the
+ * profile and sends completed users home without exposing the form.
+ */
+export async function resolveProfileRedirect({
+  locale,
+  userId,
+  accessToken,
+  returnTo,
+  supabaseUrl,
+  supabaseKey,
+  signal,
+  fetchImpl = fetch,
+}: ResolveProfileRedirectInput): Promise<string> {
+  const fallbackPath = getAuthenticatedRedirect({
+    locale,
+    profile: undefined,
+  });
+
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('[OAuth Callback] Supabase public 환경변수 누락');
+    return fallbackPath;
+  }
+
+  try {
+    const response = await fetchImpl(
+      `${supabaseUrl}/rest/v1/kcl_user_profiles?id=eq.${encodeURIComponent(userId)}&select=onboarding_completed`,
+      {
+        headers: {
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${accessToken}`,
+          'Accept': 'application/json',
+        },
+        signal,
+      },
+    );
+
+    if (!response.ok) {
+      console.warn('[OAuth Callback] 프로필 조회 실패:', response.status);
+      return fallbackPath;
+    }
+
+    const rows = (await response.json()) as OnboardingProfileState[];
+    return getAuthenticatedRedirect({
+      locale,
+      profile: rows?.[0],
+      returnTo,
+    });
+  } catch (error) {
+    if (!signal?.aborted) {
+      console.warn('[OAuth Callback] 프로필 조회 중 예외 발생:', error);
+    }
+    return fallbackPath;
+  }
+}
+
 /**
  * OAuth 콜백 URL 또는 Supabase 세션에서 프로바이더 이름 추출
  * Supabase 세션의 app_metadata.provider 필드를 사용
  */
-function getProviderFromSession(): string | null {
+export function getProviderFromSession(): string | null {
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith('sb-') && key.endsWith('-auth-token')) {
         const raw = localStorage.getItem(key);
         if (!raw) continue;
-        const parsed = JSON.parse(raw);
-        const provider = parsed?.user?.app_metadata?.provider;
-        if (provider && typeof provider === 'string') {
-          return provider;
+        try {
+          const parsed = JSON.parse(raw);
+          const provider = parsed?.user?.app_metadata?.provider;
+          if (provider && typeof provider === 'string') {
+            return provider;
+          }
+        } catch {
+          // One malformed project token must not hide a later valid token.
+          continue;
         }
       }
     }
@@ -116,7 +202,7 @@ let exchangingCode: string | null = null;
  * Supabase는 세션을 `sb-{project-ref}-auth-token` 키로 저장합니다.
  * 키 이름을 런타임에 동적 탐색하여 환경변수 인라인 문제를 우회합니다.
  */
-function getSessionFromStorage(): { userId: string; accessToken: string } | null {
+export function getSessionFromStorage(): { userId: string; accessToken: string } | null {
   try {
     // localStorage에서 sb-...-auth-token 패턴 키를 찾아 세션 읽기
     for (let i = 0; i < localStorage.length; i++) {
@@ -124,9 +210,14 @@ function getSessionFromStorage(): { userId: string; accessToken: string } | null
       if (key && key.startsWith('sb-') && key.endsWith('-auth-token')) {
         const raw = localStorage.getItem(key);
         if (!raw) continue;
-        const parsed = JSON.parse(raw);
-        if (parsed?.user?.id && parsed?.access_token) {
-          return { userId: parsed.user.id, accessToken: parsed.access_token };
+        try {
+          const parsed = JSON.parse(raw);
+          if (parsed?.user?.id && parsed?.access_token) {
+            return { userId: parsed.user.id, accessToken: parsed.access_token };
+          }
+        } catch {
+          // One malformed project token must not hide a later valid token.
+          continue;
         }
       }
     }
@@ -199,10 +290,28 @@ function CallbackHandler() {
     }
 
     const supabase = getSupabase();
-    const flow = searchParams.get('flow');
-    const forceOnboarding = flow === 'signup';
     const safeReturnTo = getSafeReturnTo(searchParams.get('returnTo'));
-    let redirected = false;
+    const profileAbortController = new AbortController();
+    let isResolving = false;
+    let hasNavigated = false;
+    let expired = false;
+    let cancelled = false;
+    let pollInterval: ReturnType<typeof setInterval> | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    const stopPolling = () => {
+      if (pollInterval !== null) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
+    };
+
+    const clearDeadline = () => {
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+    };
 
     /**
      * 프로필 조회 후 리다이렉트 경로 결정 + 이동
@@ -213,40 +322,40 @@ function CallbackHandler() {
      * fetch()로 Supabase REST API를 직접 호출하여 완전히 우회합니다.
      */
     const resolveAndRedirect = async (userId: string, accessToken: string) => {
-      if (redirected) return;
-      redirected = true;
+      if (isResolving || hasNavigated || expired || cancelled) return;
+      isResolving = true;
 
-      let redirectPath = `/${locale}`;
+      let redirectPath = getAuthenticatedRedirect({
+        locale,
+        profile: undefined,
+      });
 
-      if (forceOnboarding) {
-        redirectPath = `/${locale}/onboarding`;
-      } else if (safeReturnTo) {
-        redirectPath = safeReturnTo;
-      } else {
-        try {
-          // Supabase REST API로 프로필 직접 조회 (클라이언트 lock 우회)
-          const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-          const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-          const res = await fetch(
-            `${supabaseUrl}/rest/v1/kcl_user_profiles?id=eq.${userId}&select=favorite_group_id`,
-            {
-              headers: {
-                'apikey': supabaseKey || '',
-                'Authorization': `Bearer ${accessToken}`,
-                'Accept': 'application/json',
-              },
-            }
-          );
-          if (res.ok) {
-            const rows = await res.json();
-            if (!rows?.[0]?.favorite_group_id) {
-              redirectPath = `/${locale}/onboarding`;
-            }
-          }
-        } catch {
-          // 프로필 조회 실패 시 홈으로 이동
+      try {
+        // Supabase REST API로 프로필 직접 조회 (클라이언트 lock 우회)
+        // flow=signup, returnTo 등 클라이언트 파라미터보다 서버 프로필 상태를 우선한다.
+        redirectPath = await resolveProfileRedirect({
+          locale,
+          userId,
+          accessToken,
+          returnTo: safeReturnTo,
+          supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
+          supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+          signal: profileAbortController.signal,
+        });
+      } catch (error) {
+        // Defensive fallback: unknown state must not bypass onboarding or use returnTo.
+        if (!profileAbortController.signal.aborted && !cancelled && !expired) {
+          console.warn('[OAuth Callback] 프로필 조회 중 예외 발생:', error);
         }
+      } finally {
+        isResolving = false;
       }
+
+      // Cleanup/timeout may happen while fetch is pending. Late responses cannot navigate.
+      if (cancelled || expired || hasNavigated) return;
+      hasNavigated = true;
+      stopPolling();
+      clearDeadline();
 
       // 로그인 성공 시 마지막 프로바이더 localStorage 저장
       const provider = getProviderFromSession();
@@ -272,26 +381,31 @@ function CallbackHandler() {
     //    Supabase가 PKCE 교환 성공 시 localStorage에 세션을 저장하므로
     //    이를 직접 읽어서 리다이렉트를 트리거합니다.
     //    Strict Mode 두 번째 mount에서도 폴링이 정상 시작됩니다.
-    const pollInterval = setInterval(() => {
-      if (redirected) return;
+    pollInterval = setInterval(() => {
+      if (isResolving || hasNavigated || expired || cancelled) return;
       const session = getSessionFromStorage();
       if (session) {
-        clearInterval(pollInterval);
+        stopPolling();
         resolveAndRedirect(session.userId, session.accessToken);
       }
     }, 300);
 
     // 3) 최종 안전망: 15초 후에도 리다이렉트 안 됐으면 타임아웃
-    const timeoutId = setTimeout(() => {
-      if (!redirected) {
-        clearInterval(pollInterval);
+    timeoutId = setTimeout(() => {
+      timeoutId = null;
+      if (!hasNavigated) {
+        expired = true;
+        stopPolling();
+        profileAbortController.abort();
         setTimedOut(true);
       }
     }, 15000);
 
     return () => {
-      clearInterval(pollInterval);
-      clearTimeout(timeoutId);
+      cancelled = true;
+      stopPolling();
+      clearDeadline();
+      profileAbortController.abort();
     };
   }, [searchParams, pathname, t]);
 

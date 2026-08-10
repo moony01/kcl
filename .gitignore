@@ -58,3 +58,6 @@ wrangler.jsonc.*
 
 # Local git worktrees
 .worktrees/
+
+# Supabase CLI local link metadata (may contain connection details)
+supabase/.temp/

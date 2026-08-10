@@ -88,6 +88,7 @@ export interface UserProfile {
   bio: string | null;
   favorite_company_id: number | null;
   favorite_group_id: string | null;
+  onboarding_completed: boolean;
   total_votes: number;
   /** Pro 구독 상태 (T2.02: KCL Pro) */
   is_pro: boolean;
