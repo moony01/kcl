@@ -26,7 +26,6 @@ export interface HomeVoteState {
   votes: number;
   /** 서버 응답 또는 클라이언트 추정 잔여 quota */
   remaining: number;
-  message?: string;
 }
 
 export interface HomeCompanyListProps {
@@ -49,32 +48,6 @@ interface HomeCompanyCardProps {
   isVoteLoading: boolean;
   voteState?: HomeVoteState;
   onVote: (company: CompanyRanking) => void;
-}
-
-function getFeedbackMessage(
-  voteState: HomeVoteState | undefined,
-): string | null {
-  if (!voteState) return null;
-
-  if (voteState.status === 'loading') {
-    return voteState.votes.toLocaleString() + '표 투표 중…';
-  }
-
-  if (voteState.status === 'success') {
-    return (
-      '+' +
-      voteState.votes.toLocaleString() +
-      '표 반영 · 오늘 ' +
-      voteState.remaining.toLocaleString() +
-      '표 남음'
-    );
-  }
-
-  if (voteState.status === 'exhausted') {
-    return '오늘 투표권을 모두 사용했어요.';
-  }
-
-  return voteState.message || '투표에 실패했어요. 다시 눌러 주세요.';
 }
 
 function HomeCompanyCard({
@@ -104,8 +77,11 @@ function HomeCompanyCard({
     Math.max(0, (gaugeVotes / HOME_DIRECT_VOTE_UNIT) * 100),
   );
   const status = voteState?.status || (quotaRemaining <= 0 ? 'exhausted' : 'idle');
-  const hasVoteFeedback = voteState?.status === 'loading' || voteState?.status === 'success';
-  const feedbackMessage = getFeedbackMessage(voteState);
+  const scoreFeedback =
+    voteState?.status === 'loading' || voteState?.status === 'success'
+      ? voteState
+      : undefined;
+  const hasVoteFeedback = Boolean(scoreFeedback);
   const accentStyle = { '--company-accent': company.gradientColor } as CSSProperties;
 
   return (
@@ -132,6 +108,16 @@ function HomeCompanyCard({
           style={{ width: gaugePercent + '%' }}
           aria-hidden="true"
         />
+      )}
+      {scoreFeedback && scoreFeedback.votes > 0 && (
+        <span
+          key={`${scoreFeedback.status}-${scoreFeedback.votes}`}
+          className={styles.scorePopup}
+          data-testid={'vote-score-' + company.companyId}
+          aria-hidden="true"
+        >
+          +{scoreFeedback.votes.toLocaleString()}
+        </span>
       )}
       <span className={styles.accent} style={accentStyle} aria-hidden="true" />
 
@@ -166,15 +152,6 @@ function HomeCompanyCard({
         <span className={styles.voteCount}>
           {company.voteCount.toLocaleString()}표
         </span>
-        {feedbackMessage && (
-          <span
-            className={styles.feedbackLabel}
-            data-testid={'vote-status-' + company.companyId}
-            aria-live="polite"
-          >
-            {feedbackMessage}
-          </span>
-        )}
       </span>
     </button>
   );

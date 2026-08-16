@@ -277,9 +277,6 @@ export function useHomeDirectVoting({
           status: 'error',
           votes: 0,
           remaining: result?.remaining ?? currentRemaining,
-          message: isExhausted
-            ? '오늘 투표권을 모두 사용했어요.'
-            : '투표에 실패했어요. 다시 눌러 주세요.',
         },
       }));
       if (isEmbedLimit) void refreshPolicyStatus();

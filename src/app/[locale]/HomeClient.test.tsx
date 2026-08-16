@@ -220,7 +220,8 @@ describe('HomeClient simple company voting surface', () => {
       'width: 100%',
     );
     expect(screen.queryByRole('progressbar')).toBeNull();
-    expect(screen.getByText('100표 투표 중…')).toBeDefined();
+    expect(screen.getByTestId('vote-score-company-jyp').textContent).toBe('+100');
+    expect(screen.queryByText(/투표 중/)).toBeNull();
 
     resolveVote?.({
       success: true,
@@ -234,7 +235,8 @@ describe('HomeClient simple company voting surface', () => {
         'width: 100%',
       );
       expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('success');
-      expect(screen.getByText('+100표 반영 · 오늘 0표 남음')).toBeDefined();
+      expect(screen.getByTestId('vote-score-company-jyp').textContent).toBe('+100');
+      expect(screen.queryByText(/표 반영/)).toBeNull();
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(100);
     expect(mocks.mockRefresh).toHaveBeenCalled();
@@ -266,7 +268,8 @@ describe('HomeClient simple company voting surface', () => {
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(37);
     expect(screen.queryByRole('progressbar')).toBeNull();
-    expect(screen.getByText('+37표 반영 · 오늘 0표 남음')).toBeDefined();
+    expect(screen.getByTestId('vote-score-company-sm').textContent).toBe('+37');
+    expect(screen.queryByText(/표 반영/)).toBeNull();
   });
 
   it('투표 실패를 카드 안에 표시하고 성공 refresh를 실행하지 않는다', async () => {
@@ -281,8 +284,9 @@ describe('HomeClient simple company voting surface', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('error');
-      expect(screen.getByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeDefined();
+      expect(screen.queryByTestId('vote-score-company-jyp')).toBeNull();
     });
+    expect(screen.queryByText(/투표에 실패했어요/)).toBeNull();
     expect((screen.getByRole('button', { name: /JYP/ }) as HTMLButtonElement).disabled).toBe(false);
     expect(mocks.mockConsumeVote).not.toHaveBeenCalled();
     expect(mocks.mockRefresh).not.toHaveBeenCalled();
@@ -297,9 +301,10 @@ describe('HomeClient simple company voting surface', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('error');
-      expect(screen.getByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeDefined();
+      expect(screen.queryByTestId('vote-score-company-jyp')).toBeNull();
     });
 
+    expect(screen.queryByText(/투표에 실패했어요/)).toBeNull();
     expect((screen.getByRole('button', { name: /JYP/ }) as HTMLButtonElement).disabled).toBe(false);
     expect(mocks.mockRefresh).not.toHaveBeenCalled();
   });

@@ -6,6 +6,7 @@ const mocks = vi.hoisted(() => ({
   mutate: vi.fn(),
   submitVoteApi: vi.fn(),
   confetti: vi.fn(),
+  vibrate: vi.fn(),
 }));
 
 vi.mock('swr', () => ({
@@ -25,10 +26,13 @@ describe('useVote submit result boundary', () => {
     mocks.mutate.mockReset();
     mocks.submitVoteApi.mockReset();
     mocks.confetti.mockReset();
+    mocks.vibrate.mockReset();
+    vi.stubGlobal('navigator', { vibrate: mocks.vibrate });
     vi.spyOn(console, 'warn').mockImplementation(() => undefined);
   });
 
   afterEach(() => {
+    vi.unstubAllGlobals();
     vi.restoreAllMocks();
   });
 
@@ -83,5 +87,30 @@ describe('useVote submit result boundary', () => {
     expect(mocks.confetti).toHaveBeenCalledWith(
       expect.objectContaining({ colors: ['#111111', '#ffffff', '#FF5733'] }),
     );
+    expect(mocks.vibrate).toHaveBeenCalledWith(40);
+  });
+
+  it('does not run success effects when the server rejects the vote', async () => {
+    mocks.submitVoteApi.mockResolvedValue({
+      success: false,
+      voteScore: 0,
+      remaining: 100,
+      message: 'Vote rejected',
+      errorCode: 'SUPABASE_ERROR',
+    });
+
+    const { result } = renderHook(() => useVote());
+
+    await act(async () => {
+      await result.current.submitVote({
+        companyId: 'company-jyp',
+        votePower: 100,
+        effects: true,
+      });
+    });
+
+    expect(mocks.confetti).not.toHaveBeenCalled();
+    expect(mocks.vibrate).not.toHaveBeenCalled();
+    expect(result.current.isLoading).toBe(false);
   });
 });
