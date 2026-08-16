@@ -16,6 +16,11 @@
   }
 }
 
+.adSlot {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
 .card {
   @include mix.glass-panel;
   --company-accent: #8b5cf6;
@@ -33,6 +38,7 @@
   text-align: left;
   cursor: pointer;
   overflow: hidden;
+  isolation: isolate;
   transition:
     border-color 180ms ease,
     box-shadow 180ms ease,
@@ -75,14 +81,32 @@
   }
 }
 
+.feedbackFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 0;
+  max-width: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--company-accent) 30%, transparent),
+    color-mix(in srgb, $color-secondary 20%, transparent)
+  );
+  pointer-events: none;
+  transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .accent {
   position: absolute;
   inset: 0 auto 0 0;
+  z-index: 1;
   width: 4px;
   background: var(--company-accent);
 }
 
 .rank {
+  position: relative;
+  z-index: 1;
   min-width: 34px;
   color: $color-text-dim;
   font-family: $font-display;
@@ -92,6 +116,8 @@
 }
 
 .logo {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,9 +141,11 @@
 
 .content {
   display: flex;
+  position: relative;
+  z-index: 1;
   min-width: 0;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .identity {
@@ -129,8 +157,7 @@
 
 .companyName,
 .companyNameEn,
-.voteCount,
-.status {
+.voteCount {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -152,42 +179,6 @@
   color: $color-text-dim;
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
-}
-
-.gaugeTrack {
-  display: block;
-  width: 100%;
-  height: 7px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: color-mix(in srgb, $color-text 12%, transparent);
-}
-
-.gaugeFill {
-  display: block;
-  height: 100%;
-  min-width: 0;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--company-accent), $color-secondary);
-  transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.status {
-  color: $color-text-dim;
-  font-size: 0.68rem;
-  font-weight: 600;
-}
-
-.card[data-status='loading'] .status {
-  color: var(--company-accent);
-}
-
-.card[data-status='success'] .status {
-  color: $color-secondary;
-}
-
-.card[data-status='error'] .status {
-  color: $color-danger;
 }
 
 @media (max-width: 390px) {
@@ -215,7 +206,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .card,
-  .gaugeFill {
+  .feedbackFill {
     transition: none;
   }
 }

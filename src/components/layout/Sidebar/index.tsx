@@ -9,7 +9,7 @@
  *
  * 반응형:
  * - Mobile(<480px): 숨김
- * - Fold/Tablet(480px-1263px): 아이콘만 표시
+ * - Fold/Tablet(480px-1263px): 기본 아이콘 레일, hover/focus-within 시 확장
  * - Desktop(1264px+): 아이콘 + 레이블 고정
  */
 
@@ -78,7 +78,7 @@ export default function Sidebar() {
   ].filter((item) => item.enabled);
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={styles.sidebar} aria-label="주요 메뉴">
       {/* Logo Area */}
       <div className={styles.logoArea}>
         <Link
@@ -100,12 +100,13 @@ export default function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="사이트 탐색">
         {navItems.map((item) => (
           <Link
             key={item.label}
             href={`/${locale}${item.path === '/' ? '' : item.path}`}
             className={classNames(styles.navItem, { [styles.active]: isActive(item.path) })}
+            aria-label={item.label}
           >
             <div className={styles.iconWrapper}>
               <item.icon className={styles.icon} />
@@ -126,6 +127,7 @@ export default function Sidebar() {
                 className={classNames(styles.navItem, styles.contactBtn, {
                   [styles.contactCopied]: copied,
                 })}
+                aria-label={copied ? t('contact_copied') : t('contact')}
                 title={copied ? CONTACT_EMAIL : t('contact')}
               >
                 <div className={styles.iconWrapper}>
@@ -144,6 +146,7 @@ export default function Sidebar() {
               <Link
                 href={`/${locale}/my`}
                 className={classNames(styles.navItem, styles.profileItem)}
+                aria-label={profile?.username || t('my')}
               >
                 <div className={styles.iconWrapper}>
                   <span className={styles.avatarInitial}>
@@ -157,6 +160,7 @@ export default function Sidebar() {
               <button
                 onClick={signOut}
                 className={classNames(styles.navItem, styles.logoutBtn)}
+                aria-label={t('logout')}
               >
                 <div className={styles.iconWrapper}>
                   <LogOut className={styles.icon} />
@@ -169,6 +173,7 @@ export default function Sidebar() {
             <Link
               href={`/${locale}/login`}
               className={classNames(styles.navItem, styles.loginBtn)}
+              aria-label={t('login')}
             >
               <div className={styles.iconWrapper}>
                 <LogIn className={styles.icon} />

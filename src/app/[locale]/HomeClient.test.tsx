@@ -1,6 +1,11 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { getHomeDirectVoteAmount, HomeClient } from './HomeClient';
+import {
+  formatHomeDdayLabel,
+  formatHomeSeasonLabel,
+  getHomeDirectVoteAmount,
+  HomeClient,
+} from './HomeClient';
 
 const mocks = vi.hoisted(() => ({
   mockUseLeagueData: vi.fn(),
@@ -11,6 +16,7 @@ const mocks = vi.hoisted(() => ({
   mockConsumeVote: vi.fn(),
   mockRefetchStats: vi.fn(),
   mockRefresh: vi.fn(),
+  mockUseRefreshCountdown: vi.fn(),
 }));
 
 vi.mock('@/hooks/useLeagueData', () => ({
@@ -27,6 +33,14 @@ vi.mock('@/hooks/useVote', () => ({
 
 vi.mock('@/hooks/useVoteQuota', () => ({
   useVoteQuota: (...args: unknown[]) => mocks.mockUseVoteQuota(...args),
+}));
+
+vi.mock('@/hooks/useRefreshCountdown', () => ({
+  useRefreshCountdown: () => mocks.mockUseRefreshCountdown(),
+}));
+
+vi.mock('next-intl', () => ({
+  useLocale: () => 'ko',
 }));
 
 const allCompanies = [
@@ -103,9 +117,11 @@ describe('HomeClient simple company voting surface', () => {
     mocks.mockConsumeVote.mockReset();
     mocks.mockRefetchStats.mockReset();
     mocks.mockRefresh.mockReset();
+    mocks.mockUseRefreshCountdown.mockReset();
 
     mocks.mockUseLeagueData.mockReturnValue({
       allCompanies,
+      season: { year: 2026, month: 8, daysRemaining: 15 },
       isLoading: false,
       error: null,
       refresh: mocks.mockRefresh,
@@ -129,16 +145,27 @@ describe('HomeClient simple company voting surface', () => {
     mocks.mockConsumeVote.mockReturnValue(true);
     mocks.mockRefetchStats.mockResolvedValue(undefined);
     mocks.mockRefresh.mockResolvedValue(undefined);
+    mocks.mockUseRefreshCountdown.mockReturnValue({
+      countdown: 20,
+      isRefreshing: false,
+      reset: vi.fn(),
+    });
     setQuota();
   });
 
-  it('홈 렌더 트리에는 회사 카드만 남기고 검색/시즌/선택 패널을 렌더링하지 않는다', () => {
+  it('홈에는 작은 현재 시즌 라벨과 회사 카드만 남기고 검색/선택 패널을 렌더링하지 않는다', () => {
     renderHomeClient();
 
+    expect(screen.getByTestId('home-season-label').textContent).toBe('2026년 08시즌');
+    expect(screen.getByTestId('home-today-votes').textContent).toBe('오늘 100표 남음');
+    expect(screen.getByTestId('home-refresh-indicator').getAttribute('data-refreshing')).toBe(
+      'false',
+    );
+    expect(screen.getByTestId('home-refresh-icon')).toBeDefined();
+    expect(screen.getByTestId('home-season-dday').textContent).toBe('D-15');
     expect(screen.getByTestId('home-company-list')).toBeDefined();
     expect(screen.getAllByRole('button')).toHaveLength(2);
     expect(screen.queryByRole('textbox')).toBeNull();
-    expect(screen.queryByText(/시즌/)).toBeNull();
     expect(screen.queryByText('Battle Station')).toBeNull();
     expect(screen.queryByTestId('bottom-sheet')).toBeNull();
     expect(screen.queryByTestId('sticky-panel')).toBeNull();
@@ -172,13 +199,11 @@ describe('HomeClient simple company voting surface', () => {
         }),
       );
     });
-    expect(screen.getByTestId('vote-gauge-company-jyp').getAttribute('data-gauge-mode')).toBe(
-      'single-vote-feedback',
+    expect(screen.getByTestId('vote-feedback-company-jyp').getAttribute('style')).toContain(
+      'width: 100%',
     );
-    expect(screen.getByTestId('vote-gauge-company-jyp').getAttribute('aria-valuenow')).toBe(
-      '100',
-    );
-    expect(screen.getByText('100표 투표 중…')).toBeDefined();
+    expect(screen.queryByRole('progressbar')).toBeNull();
+    expect(screen.queryByText('100표 투표 중…')).toBeNull();
 
     resolveVote?.({
       success: true,
@@ -188,7 +213,9 @@ describe('HomeClient simple company voting surface', () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByText('+100표 반영 · 오늘 0표 남음')).toBeDefined();
+      expect(screen.getByTestId('vote-feedback-company-jyp').getAttribute('style')).toContain(
+        'width: 100%',
+      );
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(100);
     expect(mocks.mockRefresh).toHaveBeenCalled();
@@ -213,12 +240,13 @@ describe('HomeClient simple company voting surface', () => {
           votePower: 37,
         }),
       );
-      expect(screen.getByTestId('vote-gauge-company-sm').getAttribute('aria-valuenow')).toBe(
-        '37',
+      expect(screen.getByTestId('vote-feedback-company-sm').getAttribute('style')).toContain(
+        'width: 37%',
       );
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(37);
-    expect(screen.getByText('+37표 반영 · 오늘 0표 남음')).toBeDefined();
+    expect(screen.queryByRole('progressbar')).toBeNull();
+    expect(screen.queryByText('+37표 반영 · 오늘 0표 남음')).toBeNull();
   });
 
   it('투표 실패를 카드 안에 표시하고 성공 refresh를 실행하지 않는다', async () => {
@@ -232,13 +260,29 @@ describe('HomeClient simple company voting surface', () => {
     fireEvent.click(screen.getByRole('button', { name: /JYP/ }));
 
     await waitFor(() => {
-      expect(screen.getByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeDefined();
+      expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('error');
     });
     expect(mocks.mockConsumeVote).not.toHaveBeenCalled();
     expect(mocks.mockRefresh).not.toHaveBeenCalled();
-    expect(screen.getByTestId('vote-gauge-company-jyp').getAttribute('aria-valuenow')).toBe(
-      '0',
+    expect(screen.queryByRole('progressbar')).toBeNull();
+    expect(screen.queryByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeNull();
+  });
+
+  it('상단 refresh 상태가 갱신 중이면 회전 스피너와 상태 문구를 표시한다', () => {
+    mocks.mockUseRefreshCountdown.mockReturnValue({
+      countdown: 20,
+      isRefreshing: true,
+      reset: vi.fn(),
+    });
+
+    renderHomeClient();
+
+    expect(screen.getByTestId('home-refresh-indicator').getAttribute('data-refreshing')).toBe(
+      'true',
     );
+    expect(screen.getByTestId('home-refresh-spinner')).toBeDefined();
+    expect(screen.getByText('갱신 중…')).toBeDefined();
+    expect(screen.queryByTestId('home-refresh-icon')).toBeNull();
   });
 });
 
@@ -249,5 +293,21 @@ describe('getHomeDirectVoteAmount', () => {
     expect(getHomeDirectVoteAmount(37)).toBe(37);
     expect(getHomeDirectVoteAmount(0)).toBe(0);
     expect(getHomeDirectVoteAmount(-5)).toBe(0);
+  });
+});
+
+describe('formatHomeSeasonLabel', () => {
+  it('월을 항상 두 자리로 표시해 다음 시즌에도 같은 형식을 유지한다', () => {
+    expect(formatHomeSeasonLabel(2026, 8)).toBe('2026년 08시즌');
+    expect(formatHomeSeasonLabel(2027, 1)).toBe('2027년 01시즌');
+  });
+});
+
+describe('formatHomeDdayLabel', () => {
+  it('음수와 소수 일수를 안전하게 D-day 형식으로 보정한다', () => {
+    expect(formatHomeDdayLabel(15)).toBe('D-15');
+    expect(formatHomeDdayLabel(0)).toBe('D-0');
+    expect(formatHomeDdayLabel(-1)).toBe('D-0');
+    expect(formatHomeDdayLabel(1.9)).toBe('D-1');
   });
 });

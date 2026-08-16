@@ -30,6 +30,123 @@
   }
 }
 
+// 홈 단순화 표면에 남겨둔 최소 시즌 컨텍스트
+.homeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-height: 28px;
+  padding: 4px 0 0;
+}
+
+.seasonLabel {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 10px;
+  border: 1px solid rgba($color-primary, 0.22);
+  border-radius: 999px;
+  color: $color-text-dim;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.homeHeaderMeta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.todayVotes,
+.refreshIndicator,
+.seasonDday {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.todayVotes {
+  padding: 4px 9px;
+  border: 1px solid rgba($color-secondary, 0.28);
+  color: $color-secondary;
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.refreshIndicator {
+  gap: 4px;
+  padding: 4px 8px;
+  border: 1px solid rgba($color-text, 0.12);
+  color: $color-text-dim;
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.refreshIcon {
+  color: $color-primary;
+  animation: homeRefreshSpin 4s linear infinite;
+}
+
+.refreshIndicator[data-refreshing='true'] {
+  border-color: rgba($color-primary, 0.3);
+  color: $color-primary;
+
+  .refreshIcon {
+    animation-duration: 0.6s;
+  }
+}
+
+@keyframes homeRefreshSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.seasonDday {
+  padding: 4px 9px;
+  border: 1px solid rgba($color-primary, 0.26);
+  background: rgba($color-primary, 0.08);
+  color: $color-primary;
+  font-family: $font-display;
+  font-size: 0.7rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.seasonDday[data-urgent='true'] {
+  border-color: rgba($color-danger, 0.4);
+  background: rgba($color-danger, 0.1);
+  color: $color-danger;
+}
+
+@media (max-width: 560px) {
+  .homeHeader {
+    align-items: flex-start;
+  }
+
+  .homeHeaderMeta {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refreshIcon {
+    animation: none;
+  }
+}
+
 // 상단 영역: 시즌 헤더 + 검색 + 탭 (전체 너비)
 .headerSection {
   width: 100%;
