@@ -8,12 +8,14 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Loader2, RefreshCw } from 'lucide-react';
 import type { CompanyRanking } from '@/types/league';
 import type { CompaniesResponse } from '@/types/api';
 import { useLeagueData } from '@/hooks/useLeagueData';
 import { useAuth } from '@/hooks/useAuth';
 import { useVote } from '@/hooks/useVote';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
+import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
 import HomeCompanyList, {
   HOME_DIRECT_VOTE_UNIT,
   type HomeVoteState,
@@ -34,6 +36,19 @@ interface HomeClientProps {
 export function getHomeDirectVoteAmount(remaining: number): number {
   if (!Number.isFinite(remaining)) return 0;
   return Math.min(HOME_DIRECT_VOTE_UNIT, Math.max(0, Math.floor(remaining)));
+}
+
+/** 홈 상단에 표시할 현재 시즌 라벨을 YYYY년 MM시즌 형식으로 만듭니다. */
+export function formatHomeSeasonLabel(year: number, month: number): string {
+  return `${year}년 ${String(month).padStart(2, '0')}시즌`;
+}
+
+/** 홈 우측에 표시할 시즌 종료 D-day 배지입니다. */
+export function formatHomeDdayLabel(daysRemaining: number): string {
+  const days = Number.isFinite(daysRemaining)
+    ? Math.max(0, Math.floor(daysRemaining))
+    : 0;
+  return `D-${days}`;
 }
 
 function getSuccessfulVoteScore(
@@ -64,6 +79,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
   const { user, isLoading: isAuthLoading } = useAuth();
   const {
     allCompanies,
+    season,
     isLoading,
     error,
     refresh,
@@ -78,6 +94,10 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     refetchStats,
     isLoading: isQuotaLoading,
   } = useVoteQuota(user?.id);
+  const { countdown, isRefreshing } = useRefreshCountdown({
+    intervalMs: 20000,
+    refreshingDurationMs: 1500,
+  });
   const [voteStates, setVoteStates] = useState<Record<string, HomeVoteState>>({});
   const feedbackTimersRef = useRef<Record<string, ReturnType<typeof setTimeout> | undefined>>({});
 
@@ -239,6 +259,54 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   return (
     <div className={styles.dashboardContainer}>
+      <header className={styles.homeHeader} aria-label="현재 시즌">
+        <span className={styles.seasonLabel} data-testid="home-season-label">
+          {formatHomeSeasonLabel(season.year, season.month)}
+        </span>
+
+        <div className={styles.homeHeaderMeta}>
+          <span
+            className={styles.todayVotes}
+            data-testid="home-today-votes"
+            aria-label={`오늘 남은 투표권 ${quota.remaining.toLocaleString()}표`}
+          >
+            오늘 {quota.remaining.toLocaleString()}표 남음
+          </span>
+
+          <span
+            className={styles.refreshIndicator}
+            data-testid="home-refresh-indicator"
+            data-refreshing={isRefreshing}
+            aria-label={isRefreshing ? '데이터 갱신 중' : `다음 갱신까지 ${countdown}초`}
+          >
+            {isRefreshing ? (
+              <Loader2
+                className={styles.refreshIcon}
+                data-testid="home-refresh-spinner"
+                size={13}
+                aria-hidden="true"
+              />
+            ) : (
+              <RefreshCw
+                className={styles.refreshIcon}
+                data-testid="home-refresh-icon"
+                size={13}
+                aria-hidden="true"
+              />
+            )}
+            <span>{isRefreshing ? '갱신 중…' : `${countdown}초`}</span>
+          </span>
+
+          <span
+            className={styles.seasonDday}
+            data-testid="home-season-dday"
+            data-urgent={season.daysRemaining <= 1}
+          >
+            {formatHomeDdayLabel(season.daysRemaining)}
+          </span>
+        </div>
+      </header>
+
       <HomeCompanyList
         companies={allCompanies}
         quotaRemaining={quota.remaining}

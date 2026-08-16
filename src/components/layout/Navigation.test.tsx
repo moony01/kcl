@@ -70,6 +70,9 @@ describe('Navigation Components', () => {
       </NextIntlClientProvider>,
     );
 
+    expect(screen.getByRole('complementary', { name: '주요 메뉴' })).toBeDefined();
+    expect(screen.getByText('MEARROW')).toBeDefined();
+
     // 활성 메뉴: 홈, 명예의 전당, 뉴스, 오디션
     expect(screen.getByText('홈')).toBeDefined();
     expect(screen.getByText('명예의 전당')).toBeDefined();
