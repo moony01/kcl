@@ -16,9 +16,20 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VOTE_LIMITS } from '@/config/vote';
 import { getUserVoteStats } from '@/lib/api';
+import {
+  getTodayUTC,
+  VOTE_QUOTA_REFRESH_EVENT,
+  VOTE_QUOTA_STORAGE_KEY,
+} from '@/lib/vote-quota';
 
-/** localStorage 키 */
-const STORAGE_KEY = 'kcl_vote_quota';
+export {
+  getTodayUTC,
+  resetGuestVoteQuota,
+  VOTE_QUOTA_REFRESH_EVENT,
+  VOTE_QUOTA_STORAGE_KEY,
+} from '@/lib/vote-quota';
+
+const STORAGE_KEY = VOTE_QUOTA_STORAGE_KEY;
 
 /** 비로그인 일일 최대 투표권 */
 export const MAX_DAILY_VOTES = VOTE_LIMITS.GUEST_DAILY;
@@ -85,17 +96,6 @@ export interface UseVoteQuotaOptions {
   guestDailyLimit?: number;
   /** 출처별 비회원 잔여량 저장 키 */
   storageKey?: string;
-}
-
-/**
- * UTC 기준 오늘 날짜 문자열 반환 (YYYY-MM-DD)
- */
-function getTodayUTC(): string {
-  const now = new Date();
-  const year = now.getUTCFullYear();
-  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(now.getUTCDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
 }
 
 /**
@@ -295,6 +295,24 @@ export function useVoteQuota(
 
     return () => clearInterval(interval);
   }, [userId, fetchServerStats, guestDailyLimit, storageKey]);
+
+  /** 개발 도구 등 다른 탭/컨트롤의 게스트 quota 갱신 반영 */
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleQuotaRefresh = () => {
+      if (userId) return;
+
+      const stored = loadQuotaFromStorage(storageKey);
+      if (stored?.date !== getTodayUTC()) return;
+
+      setMax(guestDailyLimit);
+      setUsed(Math.min(stored.used, guestDailyLimit));
+    };
+
+    window.addEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
+    return () => window.removeEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
+  }, [userId, guestDailyLimit, storageKey]);
 
   /**
    * 투표권 사용 (클라이언트 측 낙관적 업데이트)

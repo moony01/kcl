@@ -16,6 +16,42 @@
   gap: 10px;
 }
 
+// Development-only auth/quota controls. The component is also guarded in JSX
+// so this block is never rendered by production builds.
+.developerTools {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.developerToolsLabel,
+.developerToolsHint {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.developerToolButton {
+  width: 100%;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.78rem;
+
+  &:hover {
+    background: var(--color-bg);
+  }
+}
+
 // OAuth 공통 버튼 스타일
 .oauthBtn {
   display: flex;

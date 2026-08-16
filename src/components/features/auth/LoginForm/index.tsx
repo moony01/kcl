@@ -17,8 +17,13 @@ import { useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import styles from './LoginForm.module.scss';
 import classNames from 'classnames';
-import { createClient } from '@/lib/supabase/client';
 import { FEATURES } from '@/config/features';
+import { resetGuestVoteQuota } from '@/lib/vote-quota';
+import {
+  isDevelopmentEnvironment,
+  isDevelopmentTestModeEnabled,
+  setDevelopmentTestModeEnabled,
+} from '@/lib/auth/development-test-mode';
 
 /** 마지막 로그인 프로바이더 localStorage 키 (CallbackClient와 공유) */
 const LAST_PROVIDER_KEY = 'kcl_last_login_provider';
@@ -38,8 +43,9 @@ const PROVIDER_DISPLAY_NAMES: Record<string, string> = {
 function LoginFormInner() {
   const t = useTranslations('Auth');
   const locale = useLocale();
-  const supabase = createClient();
   const searchParams = useSearchParams();
+  const isDevelopment = isDevelopmentEnvironment();
+  const [localTestMode, setLocalTestMode] = useState(() => isDevelopmentTestModeEnabled());
   const [error, setError] = useState<string | null>(null);
   const [oauthLoading, setOauthLoading] = useState<string | null>(null);
   const [lastProvider, setLastProvider] = useState<string | null>(null);
@@ -51,6 +57,8 @@ function LoginFormInner() {
 
   // 마운트 시 마지막 프로바이더 및 충돌 정보 읽기
   useEffect(() => {
+    setLocalTestMode(isDevelopmentTestModeEnabled());
+
     // localStorage에서 마지막 로그인 프로바이더 읽기
     try {
       const saved = localStorage.getItem(LAST_PROVIDER_KEY);
@@ -68,11 +76,18 @@ function LoginFormInner() {
    * PKCE 플로우를 사용하여 /auth/callback으로 리다이렉트
    */
   const handleOAuthLogin = async (provider: OAuthProvider) => {
+    if (isDevelopmentTestModeEnabled()) {
+      setError('OAuth is disabled while local test mode is active.');
+      return;
+    }
+
     setOauthLoading(provider);
     setError(null);
     setConflictDismissed(true);
 
     try {
+      const { createClient } = await import('@/lib/supabase/client');
+      const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
@@ -97,6 +112,15 @@ function LoginFormInner() {
       setError(t('error_generic'));
       setOauthLoading(null);
     }
+  };
+
+  const handleLocalTestModeToggle = () => {
+    if (!isDevelopment) return;
+
+    const nextValue = !localTestMode;
+    setDevelopmentTestModeEnabled(nextValue);
+    setLocalTestMode(nextValue);
+    window.location.reload();
   };
 
   /** 프로바이더 버튼에 "마지막 로그인" 뱃지를 표시할지 결정 */
@@ -142,7 +166,7 @@ function LoginFormInner() {
               { [styles.conflictHighlight]: isConflictTarget('google') },
             )}
             onClick={() => handleOAuthLogin('google')}
-            disabled={!!oauthLoading}
+            disabled={!!oauthLoading || localTestMode}
           >
             <svg
               className={styles.oauthIcon}
@@ -181,7 +205,7 @@ function LoginFormInner() {
                 { [styles.conflictHighlight]: isConflictTarget('kakao') },
               )}
               onClick={() => handleOAuthLogin('kakao')}
-              disabled={!!oauthLoading}
+              disabled={!!oauthLoading || localTestMode}
             >
               <svg
                 className={styles.oauthIcon}
@@ -203,6 +227,34 @@ function LoginFormInner() {
               )}>
                 {getProviderBadgeLabel('kakao', isConflictTarget('kakao'))}
               </span>
+            )}
+          </div>
+        )}
+
+        {isDevelopment && (
+          <div className={styles.developerTools} data-testid="developer-auth-tools">
+            <p className={styles.developerToolsLabel}>Development tools</p>
+            <button
+              type="button"
+              className={styles.developerToolButton}
+              data-testid="developer-test-mode-toggle"
+              aria-pressed={localTestMode}
+              onClick={handleLocalTestModeToggle}
+            >
+              {localTestMode ? 'Disable local test mode' : 'Enable local test mode'}
+            </button>
+            <button
+              type="button"
+              className={styles.developerToolButton}
+              data-testid="guest-quota-reset"
+              onClick={resetGuestVoteQuota}
+            >
+              Reset guest quota
+            </button>
+            {localTestMode && (
+              <p className={styles.developerToolsHint}>
+                Local test mode is guest-only; Supabase auth is disabled.
+              </p>
             )}
           </div>
         )}
