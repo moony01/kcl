@@ -11,7 +11,8 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { HomeClient } from './HomeClient';
 import { generateAlternates } from '@/lib/seo';
-import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_MARK_PATH, BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './seo-content.module.scss';
 
@@ -35,21 +36,19 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   const { locale } = await params;
 
   return {
-    title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
-    description:
-      "Prove your fandom's firepower! Vote and rank your favorite K-pop entertainment companies in the global league. Real-time rankings updated every season — join millions of fans worldwide.",
+    title: BRAND_TITLE,
+    description: BRAND_DESCRIPTION,
     openGraph: {
-      title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
-      description:
-        "Prove your fandom's firepower! Vote and rank your favorite K-pop entertainment companies in the global league. Real-time rankings updated every season — join millions of fans worldwide.",
-      url: `https://www.kclhq.com/${locale}`,
+      title: BRAND_TITLE,
+      description: BRAND_DESCRIPTION,
+      siteName: BRAND_NAME,
+      url: `${FULL_URL}/${locale}`,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
-      description:
-        "Prove your fandom's firepower! Vote and rank your favorite K-pop companies in the global league rankings.",
+      title: BRAND_TITLE,
+      description: BRAND_DESCRIPTION,
     },
     alternates: generateAlternates(locale, ''),
   };
@@ -59,15 +58,15 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'KCL - K-pop Company League',
-  url: 'https://www.kclhq.com',
-  description: 'Vote and rank K-pop entertainment companies',
+  name: BRAND_TITLE,
+  url: FULL_URL,
+  description: BRAND_DESCRIPTION,
   publisher: {
     '@type': 'Organization',
-    name: 'KCL',
+    name: BRAND_NAME,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.kclhq.com/images/logo.png',
+      url: `${FULL_URL}${BRAND_MARK_PATH}`,
     },
   },
 };

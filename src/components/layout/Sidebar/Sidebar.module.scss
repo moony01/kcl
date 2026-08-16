@@ -45,7 +45,7 @@ $sidebar-wide: 244px;
     // 호버 시 확장
     &:hover {
       width: $sidebar-wide;
-      box-shadow: 4px 0 20px rgba(139, 92, 246, 0.08);
+      box-shadow: 4px 0 20px var(--color-primary-glow);
 
       [data-theme='dark'] & {
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
@@ -91,6 +91,12 @@ $sidebar-wide: 244px;
   gap: 5px;
   text-decoration: none;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid $color-focus;
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
 }
 
 // Logo Wrapper
@@ -107,7 +113,7 @@ $sidebar-wide: 244px;
 .logoImage {
   display: block;
   width: 40px;
-  height: auto;
+  height: 40px;
 }
 
 // Logo Text
@@ -163,7 +169,7 @@ $sidebar-wide: 244px;
   cursor: pointer;
 
   &:hover {
-    background-color: rgba($color-text, 0.08);
+    background-color: $color-hover-surface;
 
     .icon {
       transform: scale(1.05);
@@ -186,6 +192,7 @@ $sidebar-wide: 244px;
       width: 3px;
       height: 24px;
       background: $color-primary;
+      box-shadow: 0 0 12px $color-primary-glow;
       border-radius: 2px;
     }
   }

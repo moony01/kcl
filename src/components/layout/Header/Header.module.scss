@@ -53,6 +53,12 @@
   gap: 0.5rem;
   text-decoration: none;
 
+  &:focus-visible {
+    outline: 3px solid $color-focus;
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
+
   // 사이드바 표시 시 로고 숨김
   @media (min-width: 480px) {
     display: none;
@@ -62,13 +68,14 @@
 .logoIcon {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .logoText {
   font-family: $font-display;
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   letter-spacing: -0.05em;
   background: $gradient-primary;
   -webkit-background-clip: text;
@@ -96,7 +103,7 @@
 
   &:hover {
     background: rgba($color-text, 0.1);
-    border-color: rgba($color-primary, 0.3);
+    border-color: rgba($color-primary-hover, 0.35);
   }
 
   // 태블릿+: 사이드바에 이미 있으므로 숨김 처리 가능
@@ -168,12 +175,12 @@
   &:hover {
     background: rgba($color-text, 0.1);
     color: $color-text;
-    border-color: rgba($color-primary, 0.3);
+    border-color: rgba($color-primary-hover, 0.35);
   }
 
   &:focus {
-    border-color: rgba($color-primary, 0.5);
-    box-shadow: 0 0 0 2px rgba($color-primary, 0.1);
+    border-color: $color-focus;
+    box-shadow: 0 0 0 3px rgba($color-focus, 0.18);
   }
 
   option {

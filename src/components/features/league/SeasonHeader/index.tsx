@@ -38,6 +38,7 @@ import {
 import Image from 'next/image';
 import type { SeasonInfo, CompanyRanking, PromotionBattle, PromotionBattles } from '@/types/league';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
+import { BRAND_NAME } from '@/lib/brand';
 import styles from './SeasonHeader.module.scss';
 import classNames from 'classnames';
 
@@ -319,7 +320,7 @@ export default function SeasonHeader({
             <Trophy className={styles.trophyIcon} size={22} />
           </motion.div>
           <h1 className={styles.title}>
-            <span className={styles.brand}>KPOP COMPANY LEAGUE</span>
+            <span className={styles.brand}>{BRAND_NAME}</span>
             <span className={styles.seasonInfo}>
               {t('title', { year: season.year, month: formatMonth(season.month) })}
             </span>

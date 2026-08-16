@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Trophy, RefreshCw, Loader2 } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
+import { BRAND_NAME, BRAND_POSITIONING } from '@/lib/brand';
 import styles from './LeagueHeader.module.scss';
 
 function getTimeUntilSeasonEnd(): number {
@@ -62,7 +63,7 @@ export function LeagueHeader() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
     >
-      {/* 좌측: 트로피 + h1 */}
+        {/* 좌측: 트로피 + h2 */}
       <div className={styles.titleGroup}>
         <motion.span
           animate={{
@@ -77,8 +78,8 @@ export function LeagueHeader() {
         </motion.span>
         <h2 className={styles.title}>
           <span className={styles.brand}>
-            <span className={styles.brandShort}>KCL</span>
-            <span className={styles.brandFull}>KPOP COMPANY LEAGUE</span>
+            <span className={styles.brandShort}>{BRAND_NAME}</span>
+            <span className={styles.brandFull}>{BRAND_POSITIONING.toUpperCase()}</span>
           </span>
           <span className={styles.seasonInfo}>{seasonLabel}</span>
         </h2>

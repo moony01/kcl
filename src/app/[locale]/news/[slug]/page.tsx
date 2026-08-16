@@ -9,6 +9,7 @@ import remarkGfm from 'remark-gfm';
 import { getNewsBySlug, getAllNewsParams, getRelatedNews } from '@/lib/news';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import ShareButtons from '@/components/common/ShareButtons';
 import NewsViewCounter from '@/components/news/NewsViewCounter';
@@ -76,12 +77,13 @@ export async function generateMetadata({ params }: NewsDetailPageProps): Promise
   const truncatedTitle = truncateTitle(post.title, 55);
 
   return {
-    title: `${truncatedTitle} | KCL News`,
+    title: `${truncatedTitle} | ${BRAND_NAME} News`,
     description: post.excerpt,
     openGraph: {
       title: post.title, // OG 태그는 전체 제목 허용 (70자까지)
       description: post.excerpt,
       type: 'article',
+      siteName: BRAND_NAME,
       publishedTime: post.date,
       images: post.thumbnail ? [post.thumbnail] : [],
     },
@@ -266,17 +268,17 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           description: post.excerpt,
           url: `https://www.kclhq.com/${locale}/news/${slug}`,
           datePublished: post.date,
-          image: post.thumbnail || 'https://www.kclhq.com/images/logo.png',
+          image: post.thumbnail || `https://www.kclhq.com${BRAND_MARK_PATH}`,
           author: {
             '@type': 'Organization',
-            name: 'KCL',
+            name: BRAND_NAME,
           },
           publisher: {
             '@type': 'Organization',
-            name: 'KCL - K-pop Company League',
+            name: BRAND_NAME,
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.kclhq.com/images/logo.png',
+              url: `https://www.kclhq.com${BRAND_MARK_PATH}`,
             },
           },
         }}
