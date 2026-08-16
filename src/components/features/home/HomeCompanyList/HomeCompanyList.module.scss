@@ -1,0 +1,221 @@
+@use '../../../../styles/abstracts/variables' as *;
+@use '../../../../styles/abstracts/mixins' as mix;
+
+.list {
+  width: 100%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+.card {
+  @include mix.glass-panel;
+  --company-accent: #8b5cf6;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 104px;
+  padding: 16px 18px 15px 16px;
+  gap: 12px;
+  border: 1px solid $color-border;
+  border-radius: 18px;
+  color: $color-text;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+
+  &:hover:not(:disabled) {
+    border-color: var(--company-accent);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--company-accent) 22%, transparent);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-focus;
+    outline-offset: 3px;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &[data-status='loading'] {
+    border-color: var(--company-accent);
+  }
+
+  &[data-status='success'] {
+    border-color: $color-secondary;
+  }
+
+  &[data-status='error'] {
+    border-color: $color-danger;
+  }
+
+  &[data-status='exhausted'] {
+    opacity: 0.72;
+  }
+}
+
+.accent {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--company-accent);
+}
+
+.rank {
+  min-width: 34px;
+  color: $color-text-dim;
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  color: #111;
+  font-size: 1.2rem;
+  font-weight: 800;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 16%);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  object-fit: contain;
+}
+
+.content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.identity {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.companyName,
+.companyNameEn,
+.voteCount,
+.status {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.companyName {
+  color: $color-text;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.companyNameEn {
+  color: $color-text-dim;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.voteCount {
+  color: $color-text-dim;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.gaugeTrack {
+  display: block;
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, $color-text 12%, transparent);
+}
+
+.gaugeFill {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--company-accent), $color-secondary);
+  transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.status {
+  color: $color-text-dim;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.card[data-status='loading'] .status {
+  color: var(--company-accent);
+}
+
+.card[data-status='success'] .status {
+  color: $color-secondary;
+}
+
+.card[data-status='error'] .status {
+  color: $color-danger;
+}
+
+@media (max-width: 390px) {
+  .card {
+    gap: 9px;
+    padding-right: 13px;
+    padding-left: 12px;
+  }
+
+  .rank {
+    min-width: 29px;
+    font-size: 0.84rem;
+  }
+
+  .logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .companyName {
+    font-size: 0.92rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .gaugeFill {
+    transition: none;
+  }
+}

@@ -30,6 +30,8 @@ interface SubmitVoteOptions {
   votePower?: number;
   /** Surface-specific server policy. */
   voteSource?: 'web' | 'kpopface_embed';
+  /** 홈처럼 최소 피드백만 필요한 표면은 confetti/vibration을 생략합니다. */
+  effects?: boolean;
 }
 
 export function useVote() {
@@ -72,6 +74,7 @@ export function useVote() {
       userId,
       votePower = 1,
       voteSource = 'web',
+      effects = true,
     } = options;
     const maxVotePower = voteSource === 'kpopface_embed'
       ? VOTE_LIMITS.KPOPFACE_EMBED_POWER_MAX
@@ -89,7 +92,9 @@ export function useVote() {
       if (result.success) {
         setLastVotedCompanyId(companyId);
         setLastVoteResult(result);
-        triggerGameEffects(companyColor || '#FFD700', normalizedVotePower);
+        if (effects) {
+          triggerGameEffects(companyColor || '#FFD700', normalizedVotePower);
+        }
 
         // 투표 성공 후 SWR 캐시 갱신하여 UI 즉시 반영
         await mutate('companies');
