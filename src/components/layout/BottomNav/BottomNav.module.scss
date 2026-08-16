@@ -33,7 +33,7 @@
   background: rgba($color-bg, 0.85);
   backdrop-filter: blur(20px);
   border: 1px solid rgba($color-text, 0.08);
-  box-shadow: 0 -4px 20px rgba(139, 92, 246, 0.08);
+  box-shadow: 0 -4px 20px var(--color-primary-glow);
 
   [data-theme='dark'] & {
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);

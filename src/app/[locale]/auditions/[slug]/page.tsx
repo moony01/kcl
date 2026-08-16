@@ -25,6 +25,7 @@ import {
   type AuditionPost,
 } from '@/lib/auditions';
 import { DEFAULT_LOCALE, FULL_URL } from '@/lib/constants';
+import { BRAND_NAME } from '@/lib/brand';
 import styles from './page.module.scss';
 
 interface AuditionDetailPageProps {
@@ -82,7 +83,7 @@ export async function generateMetadata({ params }: AuditionDetailPageProps): Pro
       description: post.excerpt,
       url: canonical,
       type: 'article',
-      siteName: 'KCL - K-pop Company League',
+      siteName: BRAND_NAME,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       images: [{ url: poster, alt: post.posterAlt }],
@@ -185,7 +186,7 @@ export default async function AuditionDetailPage({ params }: AuditionDetailPageP
     },
     publisher: {
       '@type': 'Organization',
-      name: 'KCL - K-pop Company League',
+      name: BRAND_NAME,
       url: FULL_URL,
     },
   };

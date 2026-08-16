@@ -1,35 +1,44 @@
-// 라이트 모드 (기본)
-// 게임 스타일 UI - 깔끔하고 경쟁적인 느낌
+// MEARROW brand tokens: Electric Blue + Volt Lime on a dark-neutral foundation.
 :root {
-  --color-primary: #8B5CF6;
-  --color-primary-glow: rgba(139, 92, 246, 0.4);
-  --color-secondary: #06B6D4;
-  --color-bg: #FAFBFF;
+  --color-primary: #315CFF;
+  --color-primary-hover: #2549D8;
+  --color-primary-glow: rgba(49, 92, 255, 0.35);
+  --color-secondary: #17213A;
+  --color-bg: #F5F7FF;
   --color-surface: #FFFFFF;
-  --color-text: #1A1A2E;
-  --color-text-dim: rgba(26, 26, 46, 0.55);
-  --color-panel-bg: rgba(139, 92, 246, 0.04);
-  --color-border: rgba(139, 92, 246, 0.1);
+  --color-text: #10131C;
+  --color-text-dim: rgba(16, 19, 28, 0.62);
+  --color-panel-bg: rgba(49, 92, 255, 0.05);
+  --color-border: rgba(16, 19, 28, 0.12);
+  --color-hover-surface: rgba(49, 92, 255, 0.08);
+  --color-focus: #315CFF;
   --color-danger: #EF4444;
-  --color-accent: #8B5CF6;
-  --shadow-sm: 0 1px 3px rgba(139, 92, 246, 0.06);
-  --shadow-md: 0 4px 16px rgba(139, 92, 246, 0.08);
-  --shadow-lg: 0 8px 32px rgba(139, 92, 246, 0.12);
+  --color-accent: #C7FF32;
+  --color-accent-contrast: #10131C;
+  --gradient-primary: linear-gradient(135deg, #315CFF 0%, #5C7CFF 58%, #C7FF32 120%);
+  --shadow-sm: 0 1px 3px rgba(16, 19, 28, 0.08);
+  --shadow-md: 0 4px 16px rgba(16, 19, 28, 0.1);
+  --shadow-lg: 0 8px 32px rgba(16, 19, 28, 0.14);
 }
 
 // 다크 모드
 [data-theme='dark'] {
-  --color-primary: #8B5CF6;
-  --color-primary-glow: rgba(139, 92, 246, 0.5);
-  --color-secondary: #00F0FF;
-  --color-bg: #050505;
-  --color-surface: #0a0a0a;
-  --color-text: #FFFFFF;
-  --color-text-dim: rgba(255, 255, 255, 0.6);
+  --color-primary: #315CFF;
+  --color-primary-hover: #5477FF;
+  --color-primary-glow: rgba(49, 92, 255, 0.5);
+  --color-secondary: #1A2540;
+  --color-bg: #080B14;
+  --color-surface: #101522;
+  --color-text: #F7F8FF;
+  --color-text-dim: rgba(247, 248, 255, 0.64);
   --color-panel-bg: rgba(255, 255, 255, 0.05);
   --color-border: rgba(255, 255, 255, 0.1);
   --color-danger: #FF3366;
-  --color-accent: #A78BFA;
+  --color-hover-surface: rgba(255, 255, 255, 0.08);
+  --color-focus: #8EA4FF;
+  --color-accent: #C7FF32;
+  --color-accent-contrast: #080B14;
+  --gradient-primary: linear-gradient(135deg, #315CFF 0%, #5477FF 58%, #C7FF32 120%);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);

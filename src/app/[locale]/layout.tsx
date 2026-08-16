@@ -27,6 +27,13 @@ const montserrat = Montserrat({
 
 import { Metadata, Viewport } from 'next';
 import { FULL_URL, ADSENSE_PUBLISHER_ID } from '@/lib/constants';
+import {
+  BRAND_DESCRIPTION,
+  BRAND_MARK_PATH,
+  BRAND_NAME,
+  BRAND_THEME_COLOR,
+  BRAND_TITLE,
+} from '@/lib/brand';
 
 /**
  * Next.js 14+에서 viewport는 별도로 export해야 함
@@ -37,7 +44,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: '#8B5CF6',
+  themeColor: BRAND_THEME_COLOR,
 };
 
 /**
@@ -47,26 +54,28 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(FULL_URL),
   title: {
-    template: '%s | KCL - K-pop Company League',
-    default: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
+    template: `%s | ${BRAND_NAME}`,
+    default: BRAND_TITLE,
   },
-  description:
-    "Prove your fandom's firepower! Vote for your favorite K-pop entertainment companies, compete in global league rankings, and support your artist in the ultimate fan showdown.",
+  description: BRAND_DESCRIPTION,
   openGraph: {
-    title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
-    description:
-      "Prove your fandom's firepower! Vote for your favorite K-pop entertainment companies, compete in global league rankings, and support your artist in the ultimate fan showdown.",
-    siteName: 'KCL - K-pop Company League',
+    title: BRAND_TITLE,
+    description: BRAND_DESCRIPTION,
+    siteName: BRAND_NAME,
     type: 'website',
     url: FULL_URL,
     // images는 opengraph-image.tsx에서 동적 생성됨
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KCL - K-pop Company League | Fan Voting & Global Rankings',
-    description:
-      "Prove your fandom's firepower! Vote for your favorite K-pop entertainment companies, compete in global league rankings, and support your artist in the ultimate fan showdown.",
+    title: BRAND_TITLE,
+    description: BRAND_DESCRIPTION,
     // images는 opengraph-image.tsx에서 동적 생성됨
+  },
+  icons: {
+    icon: [{ url: BRAND_MARK_PATH, type: 'image/svg+xml' }],
+    shortcut: BRAND_MARK_PATH,
+    apple: [{ url: BRAND_MARK_PATH, type: 'image/svg+xml' }],
   },
 };
 

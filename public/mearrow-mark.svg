@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>MEARROW mark</title>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="#315CFF"/>
+  <path d="M15 45V19H22L32 33L42 19H49V45H42V31L35.5 41H28.5L22 31V45H15Z" fill="#F7F8FF"/>
+  <path d="M29 46L38 37L43 42L52 33M44 33H52V41" stroke="#C7FF32" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

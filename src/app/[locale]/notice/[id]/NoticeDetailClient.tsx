@@ -11,6 +11,7 @@ import NoticeComments from '@/components/features/notice/NoticeComments';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
 import type { Announcement } from '@/types/announcement';
+import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
 import styles from './page.module.scss';
 
 interface NoticeDetailClientProps {
@@ -130,14 +131,14 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
                 url: `https://www.kclhq.com/${locale}/notice/${noticeId}`,
                 author: {
                   '@type': 'Organization',
-                  name: 'KCL',
+                  name: BRAND_NAME,
                 },
                 publisher: {
                   '@type': 'Organization',
-                  name: 'KCL - K-pop Company League',
+                  name: BRAND_NAME,
                   logo: {
                     '@type': 'ImageObject',
-                    url: 'https://www.kclhq.com/images/logo.png',
+                    url: `https://www.kclhq.com${BRAND_MARK_PATH}`,
                   },
                 },
               }}

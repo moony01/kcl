@@ -4,6 +4,7 @@
  */
 import { ImageResponse } from 'next/og';
 import { SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/constants';
+import { BRAND_NAME, BRAND_TAGLINE } from '@/lib/brand';
 
 /** OG 이미지 크기 설정 (권장 사이즈) */
 export const size = {
@@ -15,13 +16,13 @@ export const contentType = 'image/png';
 
 /** 언어별 타이틀 */
 const titles: Record<SupportedLocale, string> = {
-  ko: 'KCL 뉴스 & 인사이트',
-  en: 'KCL News & Insights',
-  ja: 'KCL ニュース & インサイト',
-  zh: 'KCL 新闻与洞察',
-  es: 'KCL Noticias e Insights',
-  fr: 'KCL Actualités et Analyses',
-  de: 'KCL Nachrichten & Insights',
+  ko: `${BRAND_NAME} 뉴스 & 인사이트`,
+  en: `${BRAND_NAME} News & Insights`,
+  ja: `${BRAND_NAME} ニュース & インサイト`,
+  zh: `${BRAND_NAME} 新闻与洞察`,
+  es: `${BRAND_NAME} Noticias e Insights`,
+  fr: `${BRAND_NAME} Actualités et Analyses`,
+  de: `${BRAND_NAME} Nachrichten & Insights`,
 };
 
 /** 언어별 부제목 */
@@ -64,7 +65,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%)',
+          background: 'linear-gradient(135deg, #080B14 0%, #315CFF 58%, #172B79 100%)',
           fontFamily: 'sans-serif',
           position: 'relative',
         }}
@@ -129,7 +130,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             fontWeight: 500,
           }}
         >
-          kclhq.com/news
+          {`kclhq.com/news · ${BRAND_TAGLINE}`}
         </div>
       </div>
     ),

@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/constants';
+import { BRAND_TITLE } from '@/lib/brand';
 
 function getPreferredLocale(): SupportedLocale {
   const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
@@ -38,7 +39,7 @@ export default function RootRedirectClient() {
       }}
     >
       <div>
-        <h1>KCL - K-pop Company League</h1>
+        <h1>{BRAND_TITLE}</h1>
         <p>Redirecting you to the best language for your browser…</p>
         <Link href="/en" style={{ color: '#f5a623' }}>
           Continue in English

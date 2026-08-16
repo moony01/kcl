@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES, FULL_URL } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './page.module.scss';
 
@@ -20,8 +21,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'About' });
 
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: `${t('title')} | ${BRAND_NAME}`,
+    description: BRAND_DESCRIPTION,
     alternates: generateAlternates(locale, '/about'),
   };
 }
@@ -36,13 +37,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const aboutJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: t('meta_title'),
-    description: t('meta_description'),
+    name: `${t('title')} | ${BRAND_NAME}`,
+    description: BRAND_DESCRIPTION,
     url: `${FULL_URL}/${locale}/about`,
     inLanguage: locale,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'KCL - K-pop Company League',
+      name: BRAND_TITLE,
       url: FULL_URL,
     },
   };

@@ -30,6 +30,7 @@ import classNames from 'classnames';
 import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
+import { BRAND_KOREAN_NAME, BRAND_NAME, BRAND_MARK_PATH } from '@/lib/brand';
 import styles from './Sidebar.module.scss';
 
 const CONTACT_EMAIL = '';
@@ -80,11 +81,21 @@ export default function Sidebar() {
     <aside className={styles.sidebar}>
       {/* Logo Area */}
       <div className={styles.logoArea}>
-        <Link href={`/${locale}`} className={styles.brand}>
+        <Link
+          href={`/${locale}`}
+          className={styles.brand}
+          aria-label={`${BRAND_NAME} (${BRAND_KOREAN_NAME}) 홈`}
+        >
           <div className={styles.logoWrapper}>
-            <img src="/kcl-logo.svg" alt="KCL" className={styles.logoImage} />
+            <img
+              src={BRAND_MARK_PATH}
+              alt=""
+              className={styles.logoImage}
+              width={40}
+              height={40}
+            />
           </div>
-          <span className={styles.logoText}>KCL</span>
+          <span className={styles.logoText}>{BRAND_NAME}</span>
         </Link>
       </div>
 

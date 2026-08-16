@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeClient from './NoticeClient';
 import AdBanner from '@/components/common/AdBanner';
@@ -33,8 +34,8 @@ export async function generateMetadata({
 const noticeJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: 'KCL Notices & Announcements',
-  description: 'Official announcements, updates, and events from K-pop Company League.',
+  name: `${BRAND_NAME} Notices & Announcements`,
+  description: BRAND_DESCRIPTION,
   url: 'https://www.kclhq.com/notice',
 };
 
