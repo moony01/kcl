@@ -85,9 +85,10 @@
 }
 
 .refreshIndicator {
-  // Reserve the widest label ("갱신 중…") so countdown changes do not move adjacent pills.
-  width: 78px;
-  flex: 0 0 78px;
+  // Reserve the longest label ("갱신 중…") so the right-aligned meta row
+  // does not move as the countdown changes from 10초 to 1초.
+  flex: 0 0 5.25rem;
+  width: 5.25rem;
   gap: 4px;
   justify-content: center;
   padding: 4px 8px;

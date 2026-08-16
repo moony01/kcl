@@ -26,9 +26,17 @@
 import { createContext, useEffect, useState, useCallback, useMemo } from 'react';
 import type { ReactNode } from 'react';
 import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
-import { getSupabase } from '@/lib/supabase/client';
+import {
+  clearDevelopmentTestMode,
+  isDevelopmentTestModeEnabled,
+} from '@/lib/auth/development-test-mode';
 
 const INVALID_REFRESH_TOKEN_REGEX = /invalid refresh token|refresh token not found/i;
+
+async function loadSupabase() {
+  const { getSupabase } = await import('@/lib/supabase/client');
+  return getSupabase();
+}
 
 /**
  * 비동기 작업 타임아웃 유틸
@@ -146,7 +154,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    */
   const fetchProfile = useCallback(async (userId: string) => {
     try {
-      const supabase = getSupabase();
+      const supabase = await loadSupabase();
       const profileQuery = supabase
         .from('kcl_user_profiles')
         .select('*')
@@ -188,12 +196,17 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    */
   const signOut = useCallback(async () => {
     try {
-      const supabase = getSupabase();
-      await supabase.auth.signOut();
+      // Local test mode is not a Supabase session. Do not initialize or call
+      // Supabase while it is enabled.
+      if (!isDevelopmentTestModeEnabled()) {
+        const supabase = await loadSupabase();
+        await supabase.auth.signOut();
+      }
     } catch (err) {
       console.error('[AuthProvider] 로그아웃 실패:', err);
     } finally {
       // 로그아웃 성공/실패 여부와 관계없이 클라이언트 상태 항상 초기화 (보안 우선)
+      clearDevelopmentTestMode();
       setUser(null);
       setProfile(null);
     }
@@ -204,8 +217,12 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    * Edge Function 호출로 앱 데이터 정리 + auth.users 삭제를 수행
    */
   const deleteAccount = useCallback(async (): Promise<{ success: boolean; error?: string }> => {
+    if (isDevelopmentTestModeEnabled()) {
+      return { success: false, error: '개발 테스트 모드에서는 계정 작업을 사용할 수 없습니다.' };
+    }
+
     try {
-      const supabase = getSupabase();
+      const supabase = await loadSupabase();
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) {
         return { success: false, error: '로그인 세션이 만료되었습니다.' };
@@ -246,64 +263,83 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    * 초기 세션 확인 + 인증 상태 변경 리스너 등록
    */
   useEffect(() => {
-    const supabase = getSupabase();
+    // Development test mode is intentionally guest-only. It must not create a
+    // fake User/Session or initialize a Supabase client.
+    if (isDevelopmentTestModeEnabled()) {
+      setUser(null);
+      setProfile(null);
+      setIsLoading(false);
+      return;
+    }
 
-    // 1. 현재 세션 확인 (페이지 로드 시)
-    const initSession = async () => {
-      try {
-        const sessionQuery = supabase.auth.getSession();
-        const { data: { session } } = await withTimeout<Awaited<ReturnType<typeof supabase.auth.getSession>>>(
-          sessionQuery,
-          8000,
-          'AuthProvider getSession',
-        );
-        if (session?.user) {
-          setUser(session.user);
-          await fetchProfile(session.user.id);
-        }
-      } catch (err) {
-        if (isInvalidRefreshTokenError(err)) {
-          console.warn('[AuthProvider] 만료/유효하지 않은 Refresh Token 감지. 로컬 세션을 정리합니다.');
-          try {
-            await supabase.auth.signOut({ scope: 'local' });
-          } catch {
-            // 로컬 정리가 목적이므로 signOut 실패는 무시
+    let disposed = false;
+    let subscription: { unsubscribe: () => void } | null = null;
+
+    const initializeAuth = async () => {
+      const supabase = await loadSupabase();
+      if (disposed) return;
+
+      // 1. 현재 세션 확인 (페이지 로드 시)
+      const initSession = async () => {
+        try {
+          const sessionQuery = supabase.auth.getSession();
+          const { data: { session } } = await withTimeout<Awaited<ReturnType<typeof supabase.auth.getSession>>>(
+            sessionQuery,
+            8000,
+            'AuthProvider getSession',
+          );
+          if (session?.user) {
+            setUser(session.user);
+            await fetchProfile(session.user.id);
           }
-          clearStaleSupabaseAuthStorage();
-          setUser(null);
-          setProfile(null);
+        } catch (err) {
+          if (isInvalidRefreshTokenError(err)) {
+            console.warn('[AuthProvider] 만료/유효하지 않은 Refresh Token 감지. 로컬 세션을 정리합니다.');
+            try {
+              await supabase.auth.signOut({ scope: 'local' });
+            } catch {
+              // 로컬 정리가 목적이므로 signOut 실패는 무시
+            }
+            clearStaleSupabaseAuthStorage();
+            setUser(null);
+            setProfile(null);
+          }
+          console.warn('[AuthProvider] 초기 세션 확인 실패:', err);
+        } finally {
+          setIsLoading(false);
         }
-        console.warn('[AuthProvider] 초기 세션 확인 실패:', err);
-      } finally {
-        setIsLoading(false);
-      }
+      };
+
+      void initSession();
+
+      // 2. 인증 상태 변경 리스너 (로그인/로그아웃/토큰 갱신)
+      const authSubscription = supabase.auth.onAuthStateChange(
+        async (event: AuthChangeEvent, session: Session | null) => {
+          if (session?.user) {
+            setUser(session.user);
+            // 신규 가입(SIGNED_IN) 또는 토큰 갱신 시 프로필 조회
+            // 주의: 여기서 await하면 Auth 상태 전환이 lock에 묶일 수 있으므로 non-blocking으로 실행
+            if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+              fetchProfile(session.user.id).catch((err) => {
+                console.warn('[AuthProvider] onAuthStateChange 프로필 조회 실패:', err);
+              });
+            }
+          } else {
+            setUser(null);
+            setProfile(null);
+          }
+          setIsLoading(false);
+        },
+      );
+      subscription = authSubscription.data.subscription;
     };
 
-    initSession();
-
-    // 2. 인증 상태 변경 리스너 (로그인/로그아웃/토큰 갱신)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event: AuthChangeEvent, session: Session | null) => {
-        if (session?.user) {
-          setUser(session.user);
-          // 신규 가입(SIGNED_IN) 또는 토큰 갱신 시 프로필 조회
-          // 주의: 여기서 await하면 Auth 상태 전환이 lock에 묶일 수 있으므로 non-blocking으로 실행
-          if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-            fetchProfile(session.user.id).catch((err) => {
-              console.warn('[AuthProvider] onAuthStateChange 프로필 조회 실패:', err);
-            });
-          }
-        } else {
-          setUser(null);
-          setProfile(null);
-        }
-        setIsLoading(false);
-      },
-    );
+    void initializeAuth();
 
     // 3. 클린업: 리스너 해제
     return () => {
-      subscription.unsubscribe();
+      disposed = true;
+      subscription?.unsubscribe();
     };
   }, [fetchProfile]);
 
