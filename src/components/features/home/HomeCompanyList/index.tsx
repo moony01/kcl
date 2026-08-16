@@ -1,13 +1,20 @@
 'use client';
 
 import type { CSSProperties } from 'react';
-import Image from 'next/image';
+import Image, { type ImageLoader } from 'next/image';
 import type { CompanyRanking } from '@/types/league';
 import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import styles from './HomeCompanyList.module.scss';
 
 /** 홈 카드 한 번의 직접투표 기준 단위입니다. */
 export const HOME_DIRECT_VOTE_UNIT = 100;
+
+/**
+ * next.config.mjs uses a custom image loader for the static export pipeline.
+ * Home logos are already public assets (or Supabase URLs), so keep their URL
+ * unchanged while satisfying next/image's required custom-loader contract.
+ */
+const homeLogoLoader: ImageLoader = ({ src }) => src;
 
 export type HomeVoteStatus = 'loading' | 'success' | 'error' | 'exhausted';
 
@@ -144,6 +151,7 @@ function HomeCompanyCard({
             className={styles.logoImage}
             width={48}
             height={48}
+            loader={homeLogoLoader}
             unoptimized
           />
         ) : (
