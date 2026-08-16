@@ -217,11 +217,25 @@ async function getDismissState(page) {
   }), STORAGE_KEYS);
 }
 
-async function expectSessionDismissed(page, action) {
+async function expectRenderOnlyDismissed(page, action) {
   const state = await getDismissState(page);
   assert(
-    state.daily === null && state.session === 'true',
-    `${action} did not write session-only dismiss state: ${JSON.stringify(state)}`,
+    state.daily === null && state.session === null,
+    `${action} wrote dismiss state unexpectedly: ${JSON.stringify(state)}`,
+  );
+}
+
+async function expectTodayDismissed(page) {
+  const state = await getDismissState(page);
+  const today = await page.evaluate(() => {
+    const date = new Date();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${date.getFullYear()}-${month}-${day}`;
+  });
+  assert(
+    state.daily === today && state.session === null,
+    `today dismiss did not write only the current local date: ${JSON.stringify(state)}`,
   );
 }
 
@@ -240,6 +254,17 @@ async function expectNoModal(page, reason) {
   await page.waitForTimeout(350);
   const count = await page.getByRole('dialog', { name: MODAL_TITLE }).count();
   assert(count === 0, `${reason}: expected no vote modal, found ${count}`);
+}
+
+async function expectRenderOnlyCloseAndNewsReentry(page, baseUrl, action, close) {
+  await goto(page, baseUrl, '/ko/news');
+  const dialog = await expectModal(page);
+  await close(dialog);
+  await expectNoModal(page, `after ${action}`);
+  await expectRenderOnlyDismissed(page, action);
+
+  await goto(page, baseUrl, '/ko/news/gangnam-style-6-billion');
+  await expectModal(page);
 }
 
 async function runIsolatedTest(browser, baseUrl, name, body) {
@@ -305,29 +330,61 @@ async function main() {
         },
       },
       {
-        name: 'close-persists-for-session',
+        name: 'close-reopens-on-news-reentry',
         run: async (page) => {
-          await goto(page, server.baseUrl, '/ko/news');
-          const dialog = await expectModal(page);
-          await dialog.getByRole('button', { name: '투표 모달 닫기' }).click();
-          await expectNoModal(page, 'after close');
-          await expectSessionDismissed(page, 'close');
-
-          await goto(page, server.baseUrl, '/ko/news/gangnam-style-6-billion');
-          await expectNoModal(page, 'after close and article navigation');
+          await expectRenderOnlyCloseAndNewsReentry(
+            page,
+            server.baseUrl,
+            'close',
+            (dialog) => dialog.getByRole('button', { name: '투표 모달 닫기' }).click(),
+          );
         },
       },
       {
-        name: 'escape-persists-for-session',
+        name: 'backdrop-reopens-on-news-reentry',
+        run: async (page) => {
+          await expectRenderOnlyCloseAndNewsReentry(
+            page,
+            server.baseUrl,
+            'backdrop close',
+            (dialog) =>
+              dialog.getByRole('button', { name: '투표 모달 배경 닫기' }).click(),
+          );
+        },
+      },
+      {
+        name: 'escape-reopens-on-news-reentry',
+        run: async (page) => {
+          await expectRenderOnlyCloseAndNewsReentry(
+            page,
+            server.baseUrl,
+            'Escape',
+            () => page.keyboard.press('Escape'),
+          );
+        },
+      },
+      {
+        name: 'cta-reopens-on-news-reentry',
+        run: async (page) => {
+          await expectRenderOnlyCloseAndNewsReentry(
+            page,
+            server.baseUrl,
+            'CTA',
+            (dialog) => dialog.getByRole('link', { name: '더 투표하러 가기' }).click(),
+          );
+        },
+      },
+      {
+        name: 'today-dismiss-suppresses-news-reentry',
         run: async (page) => {
           await goto(page, server.baseUrl, '/ko/news');
-          await expectModal(page);
-          await page.keyboard.press('Escape');
-          await expectNoModal(page, 'after Escape');
-          await expectSessionDismissed(page, 'Escape');
+          const dialog = await expectModal(page);
+          await dialog.getByRole('button', { name: '오늘 하루 보지 않기' }).click();
+          await expectNoModal(page, 'after today dismiss');
+          await expectTodayDismissed(page);
 
           await goto(page, server.baseUrl, '/ko/news/gangnam-style-6-billion');
-          await expectNoModal(page, 'after Escape and article navigation');
+          await expectNoModal(page, 'after today dismiss and article navigation');
         },
       },
       {
