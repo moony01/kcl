@@ -156,7 +156,17 @@ describe('HomeClient simple company voting surface', () => {
   it('홈에는 작은 현재 시즌 라벨과 회사 카드만 남기고 검색/선택 패널을 렌더링하지 않는다', () => {
     renderHomeClient();
 
-    expect(screen.getByTestId('home-season-label').textContent).toBe('2026년 08시즌');
+    const header = screen.getByRole('banner', { name: '현재 시즌' });
+    const seasonLabel = screen.getByTestId('home-season-label');
+    const quotaLabel = screen.getByTestId('home-today-votes');
+    const refreshIndicator = screen.getByTestId('home-refresh-indicator');
+    const ddayLabel = screen.getByTestId('home-season-dday');
+
+    expect(seasonLabel.textContent).toBe('2026년 08시즌');
+    expect(header.contains(seasonLabel)).toBe(true);
+    expect(header.contains(quotaLabel)).toBe(true);
+    expect(header.contains(refreshIndicator)).toBe(true);
+    expect(header.contains(ddayLabel)).toBe(true);
     expect(screen.getByTestId('home-today-votes').textContent).toBe('오늘 100표 남음');
     expect(screen.getByTestId('home-refresh-indicator').getAttribute('data-refreshing')).toBe(
       'false',
@@ -184,6 +194,13 @@ describe('HomeClient simple company voting surface', () => {
           resolveVote = resolve;
         }),
     );
+    let resolveRefresh: (() => void) | undefined;
+    mocks.mockRefresh.mockImplementation(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveRefresh = resolve;
+        }),
+    );
 
     renderHomeClient();
     fireEvent.click(screen.getByRole('button', { name: /JYP/ }));
@@ -194,7 +211,7 @@ describe('HomeClient simple company voting surface', () => {
           companyId: 'company-jyp',
           votePower: 100,
           voteSource: 'web',
-          effects: false,
+          effects: true,
           userId: null,
         }),
       );
@@ -203,7 +220,7 @@ describe('HomeClient simple company voting surface', () => {
       'width: 100%',
     );
     expect(screen.queryByRole('progressbar')).toBeNull();
-    expect(screen.queryByText('100표 투표 중…')).toBeNull();
+    expect(screen.getByText('100표 투표 중…')).toBeDefined();
 
     resolveVote?.({
       success: true,
@@ -216,9 +233,12 @@ describe('HomeClient simple company voting surface', () => {
       expect(screen.getByTestId('vote-feedback-company-jyp').getAttribute('style')).toContain(
         'width: 100%',
       );
+      expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('success');
+      expect(screen.getByText('+100표 반영 · 오늘 0표 남음')).toBeDefined();
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(100);
     expect(mocks.mockRefresh).toHaveBeenCalled();
+    resolveRefresh?.();
   });
 
   it('남은 quota가 100보다 적으면 잔여량만 서버에 전달한다', async () => {
@@ -246,7 +266,7 @@ describe('HomeClient simple company voting surface', () => {
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(37);
     expect(screen.queryByRole('progressbar')).toBeNull();
-    expect(screen.queryByText('+37표 반영 · 오늘 0표 남음')).toBeNull();
+    expect(screen.getByText('+37표 반영 · 오늘 0표 남음')).toBeDefined();
   });
 
   it('투표 실패를 카드 안에 표시하고 성공 refresh를 실행하지 않는다', async () => {
@@ -261,11 +281,27 @@ describe('HomeClient simple company voting surface', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('error');
+      expect(screen.getByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeDefined();
     });
+    expect((screen.getByRole('button', { name: /JYP/ }) as HTMLButtonElement).disabled).toBe(false);
     expect(mocks.mockConsumeVote).not.toHaveBeenCalled();
     expect(mocks.mockRefresh).not.toHaveBeenCalled();
     expect(screen.queryByRole('progressbar')).toBeNull();
-    expect(screen.queryByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeNull();
+  });
+
+  it('submit adapter rejection shows an error and releases the card', async () => {
+    mocks.mockSubmitVote.mockRejectedValue(new Error('network unavailable'));
+
+    renderHomeClient();
+    fireEvent.click(screen.getByRole('button', { name: /JYP/ }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /JYP/ }).getAttribute('data-status')).toBe('error');
+      expect(screen.getByText('투표에 실패했어요. 다시 눌러 주세요.')).toBeDefined();
+    });
+
+    expect((screen.getByRole('button', { name: /JYP/ }) as HTMLButtonElement).disabled).toBe(false);
+    expect(mocks.mockRefresh).not.toHaveBeenCalled();
   });
 
   it('상단 refresh 상태가 갱신 중이면 회전 스피너와 상태 문구를 표시한다', () => {

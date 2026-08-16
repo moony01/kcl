@@ -203,14 +203,20 @@ export function useHomeDirectVoting({
         },
       }));
 
-      const result = await submitVote({
-        companyId: company.companyId,
-        companyColor: company.gradientColor,
-        userId: user?.id ?? null,
-        votePower,
-        voteSource,
-        effects,
-      });
+      let result: Awaited<ReturnType<typeof submitVote>> = null;
+      try {
+        result = await submitVote({
+          companyId: company.companyId,
+          companyColor: company.gradientColor,
+          userId: user?.id ?? null,
+          votePower,
+          voteSource,
+          effects,
+        });
+      } catch {
+        // Keep the card in an explicit error state even if a caller-provided
+        // submit adapter rejects before returning a VoteResult.
+      }
 
       if (result?.success) {
         const consumed = getSuccessfulVoteScore(result.voteScore, votePower);
@@ -244,13 +250,15 @@ export function useHomeDirectVoting({
           },
         }));
 
-        try {
-          await Promise.resolve(refresh());
-        } catch {
-          // The vote already succeeded; a stale ranking refresh is harmless.
-        }
-        onVoteSuccess?.(company, consumed);
         scheduleFeedbackReset(company.companyId);
+        onVoteSuccess?.(company, consumed);
+
+        // Do not make the feedback lifetime depend on SWR/network latency.
+        try {
+          void Promise.resolve(refresh()).catch(() => undefined);
+        } catch {
+          // The vote already succeeded; a synchronous refresh failure is harmless.
+        }
         return;
       }
 

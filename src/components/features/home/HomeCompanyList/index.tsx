@@ -51,6 +51,32 @@ interface HomeCompanyCardProps {
   onVote: (company: CompanyRanking) => void;
 }
 
+function getFeedbackMessage(
+  voteState: HomeVoteState | undefined,
+): string | null {
+  if (!voteState) return null;
+
+  if (voteState.status === 'loading') {
+    return voteState.votes.toLocaleString() + '표 투표 중…';
+  }
+
+  if (voteState.status === 'success') {
+    return (
+      '+' +
+      voteState.votes.toLocaleString() +
+      '표 반영 · 오늘 ' +
+      voteState.remaining.toLocaleString() +
+      '표 남음'
+    );
+  }
+
+  if (voteState.status === 'exhausted') {
+    return '오늘 투표권을 모두 사용했어요.';
+  }
+
+  return voteState.message || '투표에 실패했어요. 다시 눌러 주세요.';
+}
+
 function HomeCompanyCard({
   company,
   quotaRemaining,
@@ -79,6 +105,7 @@ function HomeCompanyCard({
   );
   const status = voteState?.status || (quotaRemaining <= 0 ? 'exhausted' : 'idle');
   const hasVoteFeedback = voteState?.status === 'loading' || voteState?.status === 'success';
+  const feedbackMessage = getFeedbackMessage(voteState);
   const accentStyle = { '--company-accent': company.gradientColor } as CSSProperties;
 
   return (
@@ -139,6 +166,15 @@ function HomeCompanyCard({
         <span className={styles.voteCount}>
           {company.voteCount.toLocaleString()}표
         </span>
+        {feedbackMessage && (
+          <span
+            className={styles.feedbackLabel}
+            data-testid={'vote-status-' + company.companyId}
+            aria-live="polite"
+          >
+            {feedbackMessage}
+          </span>
+        )}
       </span>
     </button>
   );

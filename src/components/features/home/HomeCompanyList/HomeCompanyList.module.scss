@@ -66,14 +66,17 @@
 
   &[data-status='loading'] {
     border-color: var(--company-accent);
+    animation: voteCardLoading 1.2s ease-in-out infinite;
   }
 
   &[data-status='success'] {
     border-color: $color-secondary;
+    animation: voteCardSuccess 620ms ease-out;
   }
 
   &[data-status='error'] {
     border-color: $color-danger;
+    animation: voteCardError 420ms ease-out;
   }
 
   &[data-status='exhausted'] {
@@ -94,6 +97,15 @@
   );
   pointer-events: none;
   transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card[data-status='loading'] .feedbackFill {
+  animation: feedbackPulse 1.2s ease-in-out infinite;
+}
+
+.card[data-status='success'] .feedbackFill {
+  animation: feedbackReveal 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: left center;
 }
 
 .accent {
@@ -181,6 +193,123 @@
   font-variant-numeric: tabular-nums;
 }
 
+.feedbackLabel {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: $color-text-dim;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card[data-status='loading'] .feedbackLabel {
+  color: var(--company-accent);
+  animation: feedbackLabelPulse 1.2s ease-in-out infinite;
+}
+
+.card[data-status='success'] .feedbackLabel {
+  color: $color-secondary;
+  animation: feedbackLabelPop 520ms ease-out;
+}
+
+.card[data-status='error'] .feedbackLabel {
+  color: $color-danger;
+  animation: feedbackLabelShake 420ms ease-out;
+}
+
+@keyframes voteCardLoading {
+  0%,
+  100% {
+    box-shadow: 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 20px color-mix(in srgb, var(--company-accent) 22%, transparent);
+  }
+}
+
+@keyframes voteCardSuccess {
+  0% {
+    transform: scale(0.985);
+    box-shadow: 0 0 0 transparent;
+  }
+  55% {
+    transform: scale(1.012);
+    box-shadow: 0 0 28px color-mix(in srgb, $color-secondary 32%, transparent);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+@keyframes voteCardError {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes feedbackPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes feedbackReveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes feedbackLabelPulse {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes feedbackLabelPop {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes feedbackLabelShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-3px);
+  }
+  70% {
+    transform: translateX(3px);
+  }
+}
+
 @media (max-width: 390px) {
   .card {
     gap: 9px;
@@ -202,11 +331,17 @@
   .companyName {
     font-size: 0.92rem;
   }
+
+  .feedbackLabel {
+    font-size: 0.62rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .card,
-  .feedbackFill {
+  .feedbackFill,
+  .feedbackLabel {
     transition: none;
+    animation: none;
   }
 }

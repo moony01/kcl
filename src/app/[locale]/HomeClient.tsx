@@ -55,7 +55,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     onVote,
   } = useHomeDirectVoting({
     refresh,
-    policy: { voteSource: 'web', effects: false },
+    policy: { voteSource: 'web', effects: true },
   });
 
   if (isLoading && allCompanies.length === 0) {

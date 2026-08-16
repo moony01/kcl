@@ -32,11 +32,10 @@
 
 // 홈 단순화 표면에 남겨둔 최소 시즌 컨텍스트
 .homeHeader {
-  display: flex;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
-  flex-wrap: wrap;
   min-height: 28px;
   padding: 4px 0 0;
 }
@@ -60,6 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   gap: 6px;
   min-width: 0;
   margin-left: auto;
@@ -130,14 +130,18 @@
   color: $color-danger;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 390px) {
   .homeHeader {
+    grid-template-columns: 1fr;
     align-items: flex-start;
+    gap: 8px;
   }
 
   .homeHeaderMeta {
     width: 100%;
     margin-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }
 

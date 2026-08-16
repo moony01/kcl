@@ -96,8 +96,15 @@ export function useVote() {
           triggerGameEffects(companyColor || '#FFD700', normalizedVotePower);
         }
 
-        // 투표 성공 후 SWR 캐시 갱신하여 UI 즉시 반영
-        await mutate('companies');
+        // The RPC result is authoritative. Refreshing the ranking cache is a
+        // follow-up and must not turn a successful vote into a failed one.
+        try {
+          void Promise.resolve(mutate('companies')).catch((error: unknown) => {
+            console.warn('[useVote] Failed to refresh companies after vote:', error);
+          });
+        } catch (error: unknown) {
+          console.warn('[useVote] Failed to refresh companies after vote:', error);
+        }
 
         return result;
       } else {
