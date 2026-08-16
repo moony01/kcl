@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
@@ -6,6 +8,11 @@ import {
   getHomeDirectVoteAmount,
   HomeClient,
 } from './HomeClient';
+
+const homePageStyles = readFileSync(
+  resolve(process.cwd(), 'src/app/[locale]/page.module.scss'),
+  'utf8',
+);
 
 const mocks = vi.hoisted(() => ({
   mockUseLeagueData: vi.fn(),
@@ -324,6 +331,40 @@ describe('HomeClient simple company voting surface', () => {
     expect(screen.getByTestId('home-refresh-spinner')).toBeDefined();
     expect(screen.getByText('갱신 중…')).toBeDefined();
     expect(screen.queryByTestId('home-refresh-icon')).toBeNull();
+  });
+
+  it('countdown 상태가 바뀌어도 refresh meta slot 폭을 유지한다', () => {
+    const view = renderHomeClient();
+    const meta = screen.getByTestId('home-today-votes').parentElement;
+
+    expect(
+      Array.from(meta?.children ?? []).map((child) => child.getAttribute('data-testid')),
+    ).toEqual(['home-today-votes', 'home-refresh-indicator', 'home-season-dday']);
+
+    mocks.mockUseRefreshCountdown.mockReturnValue({
+      countdown: 1,
+      isRefreshing: false,
+      reset: vi.fn(),
+    });
+    view.rerender(<HomeClient />);
+    expect(screen.getByTestId('home-refresh-indicator').textContent).toContain('1초');
+    expect(screen.getByTestId('home-today-votes').parentElement).toBe(meta);
+
+    mocks.mockUseRefreshCountdown.mockReturnValue({
+      countdown: 1,
+      isRefreshing: true,
+      reset: vi.fn(),
+    });
+    view.rerender(<HomeClient />);
+    expect(screen.getByText('갱신 중…')).toBeDefined();
+    expect(screen.getByTestId('home-today-votes').parentElement).toBe(meta);
+
+    const refreshIndicatorRule = homePageStyles.match(
+      /\.refreshIndicator\s*\{([\s\S]*?)\n\}/,
+    )?.[1];
+
+    expect(refreshIndicatorRule).toMatch(/flex:\s*0 0 5\.25rem/);
+    expect(refreshIndicatorRule).toMatch(/width:\s*5\.25rem/);
   });
 });
 
