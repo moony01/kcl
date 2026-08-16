@@ -8,8 +8,8 @@
  * AUTH_SYSTEM 활성화 시 하단에 인증 영역을 표시합니다.
  *
  * 반응형:
- * - Mobile(<768px): 숨김
- * - Tablet(768px-1263px): 아이콘만 표시, 호버 시 확장
+ * - Mobile(<480px): 숨김
+ * - Fold/Tablet(480px-1263px): 아이콘만 표시
  * - Desktop(1264px+): 아이콘 + 레이블 고정
  */
 
