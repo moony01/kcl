@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import VoteController from './index';
+import { KPOPFACE_EMBED_VOTE_POLICY } from './votePolicy';
 import type { CompanyType } from '@/lib/mock-data';
 
 const mocks = vi.hoisted(() => ({
@@ -67,7 +68,7 @@ vi.mock('@/hooks/useVote', () => ({
 }));
 
 vi.mock('@/hooks/useVoteQuota', () => ({
-  useVoteQuota: () => mocks.mockUseVoteQuota(),
+  useVoteQuota: (...args: unknown[]) => mocks.mockUseVoteQuota(...args),
 }));
 
 vi.mock('@/components/features/vote/VoteQuotaBar', () => ({
@@ -114,6 +115,7 @@ describe('VoteController artist selection persistence', () => {
       useVote: mocks.mockConsumeVote,
       isLoading: false,
     });
+    mocks.mockUseVoteQuota.mockClear();
   });
 
   it('투표 성공 후 같은 회사 데이터가 새로고침되어도 사용자가 선택한 아티스트를 유지한다', async () => {
@@ -219,5 +221,37 @@ describe('VoteController artist selection persistence', () => {
       expect(mocks.mockOnGuestQuotaExhausted).toHaveBeenCalledTimes(1);
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(100);
+  });
+
+  it('Kpopface policy adapter uses the 30-vote quota and source-specific RPC', async () => {
+    mocks.mockUseAuth.mockReturnValue({ user: null, profile: null, isLoading: false });
+    mocks.mockUseVoteQuota.mockReturnValue({
+      quota: {
+        canVote: true,
+        remaining: 30,
+        max: 30,
+        used: 0,
+        hoursUntilReset: 12,
+        minutesUntilReset: 0,
+        mode: 'daily',
+      },
+      useVote: mocks.mockConsumeVote,
+      isLoading: false,
+    });
+    mocks.mockSubmitVote.mockResolvedValue({ success: true, voteScore: 1, remaining: 29 });
+
+    render(<VoteController company={smCompany} votePolicy={KPOPFACE_EMBED_VOTE_POLICY} />);
+
+    fireEvent.click(screen.getByRole('button', { name: /Vote/ }));
+
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledWith(
+        expect.objectContaining({ voteSource: 'kpopface_embed', votePower: 1 }),
+      );
+    });
+    expect(mocks.mockUseVoteQuota).toHaveBeenCalledWith(undefined, {
+      guestDailyLimit: 30,
+      storageKey: 'kcl_kpopface_embed_quota',
+    });
   });
 });

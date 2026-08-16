@@ -114,6 +114,18 @@ describe('DailyVoteModal', () => {
     expect(document.body.style.overflow).toBe('');
   });
 
+  it('홈에서는 이미 VoteBoard가 있으므로 모달을 노출하지 않는다', async () => {
+    mocks.pathname = '/ko';
+    render(<DailyVoteModal />);
+
+    await act(async () => {
+      await new Promise((resolve) => window.setTimeout(resolve, 30));
+    });
+
+    expect(screen.queryByRole('dialog', { name: '실시간 TOP 10 투표' })).toBeNull();
+    expect(document.body.style.overflow).toBe('');
+  });
+
   it('임베드 미지원 locale은 영어 임베드로 안전하게 대체한다', async () => {
     mocks.locale = 'pt';
     mocks.pathname = '/pt/news';

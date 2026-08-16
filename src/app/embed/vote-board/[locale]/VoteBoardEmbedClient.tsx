@@ -6,6 +6,10 @@ import type { CompanyRanking } from '@/types/league';
 import { useLeagueData } from '@/hooks/useLeagueData';
 import BottomSheet from '@/components/ui/BottomSheet';
 import VoteController from '@/components/features/VoteController';
+import {
+  KPOPFACE_EMBED_VOTE_POLICY,
+  WEB_VOTE_POLICY,
+} from '@/components/features/VoteController/votePolicy';
 import VoteBoard from '@/components/features/vote/VoteBoard';
 import styles from '@/app/[locale]/page.module.scss';
 import embedStyles from './VoteBoardEmbedClient.module.scss';
@@ -18,6 +22,12 @@ export interface VoteBoardEmbedOptions {
 }
 
 const EMBED_MESSAGE_SOURCE = 'kcl-kpopface-embed';
+const EMBED_PARENT_ORIGINS = new Set([
+  'https://moony01.com',
+  'https://www.moony01.com',
+  'http://localhost:4000',
+  'http://127.0.0.1:4000',
+]);
 
 const TOP_TEN_COPY: Record<string, { expand: string; collapse: string }> = {
   ko: { expand: '10위까지 보기', collapse: '접기' },
@@ -81,7 +91,35 @@ function toCompanyType(company: CompanyRanking): CompanyType {
   };
 }
 
-export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
+function getParentReturnUrl(locale: string): string {
+  if (typeof document === 'undefined') return `https://kclhq.com/${locale}`;
+
+  try {
+    const referrer = document.referrer ? new URL(document.referrer) : null;
+    if (referrer && EMBED_PARENT_ORIGINS.has(referrer.origin)) {
+      const suffix = locale === 'ko' ? '' : `${locale}/`;
+      return `${referrer.origin}/kpopface/${suffix}`;
+    }
+  } catch {
+    // Invalid referrer falls back to the KCL page.
+  }
+
+  return `https://kclhq.com/${locale}`;
+}
+
+function postEmbedMessage(message: Record<string, unknown>) {
+  if (typeof window === 'undefined' || window.parent === window) return;
+  window.parent.postMessage({ source: EMBED_MESSAGE_SOURCE, ...message }, '*');
+}
+
+export default function VoteBoardEmbedClient({
+  locale,
+  surfaceOverride,
+}: {
+  locale: string;
+  /** Compatibility routes can supply a safe default without rewriting the URL. */
+  surfaceOverride?: VoteBoardSurface;
+}) {
   const {
     premierLeague,
     allCompanies,
@@ -99,15 +137,21 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      setOptions(parseVoteBoardEmbedOptions(window.location.search));
+      const parsed = parseVoteBoardEmbedOptions(window.location.search);
+      const hasExplicitSurface = new URLSearchParams(window.location.search).has('surface');
+      setOptions({
+        ...parsed,
+        surface: surfaceOverride && !hasExplicitSurface ? surfaceOverride : parsed.surface,
+      });
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, []);
+  }, [surfaceOverride]);
 
   useEffect(() => {
     const updateViewport = () => setIsMobile(window.innerWidth < 1024);
@@ -137,10 +181,7 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
       || document.documentElement.scrollHeight,
     );
 
-    window.parent.postMessage(
-      { source: EMBED_MESSAGE_SOURCE, type: 'resize', height },
-      '*',
-    );
+    postEmbedMessage({ type: 'resize', height });
   }, []);
 
   useEffect(() => {
@@ -164,6 +205,7 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
     options.showAds,
     options.surface,
     allCompanies.length,
+    showLoginPrompt,
   ]);
 
   const selectedCompany = useMemo(() => {
@@ -190,8 +232,24 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
   );
 
   const handleVoteSuccess = useCallback(() => {
+    postEmbedMessage({ type: 'vote_success' });
     void refresh();
   }, [refresh]);
+
+  const handleKpopfaceQuotaExhausted = useCallback(() => {
+    if (options.surface === 'kpopface') {
+      setShowLoginPrompt(true);
+      postEmbedMessage({ type: 'quota_exhausted' });
+    }
+  }, [options.surface]);
+
+  const handleKpopfaceLogin = useCallback(() => {
+    const returnTo = getParentReturnUrl(locale);
+    postEmbedMessage({ type: 'auth_required', returnTo });
+    window.top?.location.assign(
+      `https://kclhq.com/${locale}/login?returnTo=${encodeURIComponent(returnTo)}`,
+    );
+  }, [locale]);
 
   const handleToggleExpand = useCallback(() => {
     setIsExpanded((previous) => !previous);
@@ -200,6 +258,9 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
   const topTenCopy = TOP_TEN_COPY[locale] ?? TOP_TEN_COPY.en;
   const signupLocale = KPOPFACE_SIGNUP_COPY[locale] ? locale : 'en';
   const signupCopy = KPOPFACE_SIGNUP_COPY[signupLocale];
+  const votePolicy = options.surface === 'kpopface'
+    ? KPOPFACE_EMBED_VOTE_POLICY
+    : WEB_VOTE_POLICY;
 
   if (isLoading && allCompanies.length === 0) {
     return (
@@ -236,10 +297,14 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
         onVote={handleVote}
         onSearchSelect={handleSearchSelect}
         onVoteSuccess={handleVoteSuccess}
+        onGuestQuotaExhausted={
+          options.surface === 'kpopface' ? handleKpopfaceQuotaExhausted : undefined
+        }
         onToggleExpand={handleToggleExpand}
         onSheetClose={() => setIsSheetOpen(false)}
         voteControllerComponent={VoteController}
         bottomSheetComponent={BottomSheet}
+        votePolicy={votePolicy}
         showKpopfaceAd={options.showAds}
         compactTopTen={options.surface === 'kpopface'}
         expandLabel={topTenCopy.expand}
@@ -260,6 +325,18 @@ export default function VoteBoardEmbedClient({ locale }: { locale: string }) {
             {signupCopy}
           </a>
         </div>
+      )}
+
+      {options.surface === 'kpopface' && showLoginPrompt && (
+        <section className={embedStyles.authPrompt} role="dialog" aria-modal="true">
+          <p>{KPOPFACE_SIGNUP_COPY[signupLocale]}</p>
+          <button type="button" onClick={handleKpopfaceLogin}>
+            {signupLocale === 'ko' ? 'KCL 로그인·회원가입' : 'Log in or sign up for KCL'}
+          </button>
+          <button type="button" onClick={() => setShowLoginPrompt(false)}>
+            {signupLocale === 'ko' ? '닫기' : 'Close'}
+          </button>
+        </section>
       )}
     </div>
   );

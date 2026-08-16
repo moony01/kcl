@@ -32,6 +32,11 @@ import { useAuth } from '@/hooks/useAuth';
 import VoteQuotaBar from '@/components/features/vote/VoteQuotaBar';
 import CompactSelect from '@/components/ui/CompactSelect';
 import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
+import {
+  WEB_VOTE_POLICY,
+  type VotePolicyAdapter,
+  type VotePolicyStatus,
+} from './votePolicy';
 import styles from './VoteController.module.scss';
 
 /** 파워투표 설정 상수 */
@@ -44,7 +49,7 @@ const POWER_VOTE = {
   FULL_CHARGE_MS: 3000,
 } as const;
 
-interface VoteControllerProps {
+export interface VoteControllerProps {
   /** 선택된 회사 데이터 */
   company: CompanyType | null;
   /** 검색에서 선택된 아티스트 (선택) */
@@ -57,6 +62,8 @@ interface VoteControllerProps {
   onGuestQuotaExhausted?: () => void;
   /** 표시 변형 - PC: full, Mobile: compact */
   variant?: 'full' | 'compact';
+  /** Surface-specific quota/source adapter; omitted for the normal KCL web policy. */
+  votePolicy?: VotePolicyAdapter;
 }
 
 export default function VoteController({
@@ -66,12 +73,56 @@ export default function VoteController({
   onVoteSuccess,
   onGuestQuotaExhausted,
   variant = 'full',
+  votePolicy = WEB_VOTE_POLICY,
 }: VoteControllerProps) {
   const t = useTranslations('Vote');
-  const { user, profile } = useAuth();
+  const { user, profile, isLoading: isAuthLoading } = useAuth();
   const { submitVote, isLoading } = useVote();
-  // 2026-06: 로그인 회원 300표, 비로그인 100표 (운영 override는 서버 dailyLimit 반영)
-  const { quota, useVote: consumeVote, isLoading: isQuotaLoading } = useVoteQuota(user?.id);
+  const { quota, useVote: consumeVote, isLoading: isQuotaLoading } = useVoteQuota(user?.id, {
+    guestDailyLimit: votePolicy.guestDailyLimit,
+    storageKey: votePolicy.storageKey,
+  });
+  const [policyStatus, setPolicyStatus] = useState<VotePolicyStatus | null>(null);
+
+  const refreshPolicyStatus = useCallback(async () => {
+    if (!votePolicy.readStatus) {
+      setPolicyStatus(null);
+      return null;
+    }
+
+    const nextStatus = await votePolicy.readStatus(user?.id);
+    setPolicyStatus(nextStatus);
+    return nextStatus;
+  }, [user?.id, votePolicy]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    if (!votePolicy.readStatus || isAuthLoading) {
+      setPolicyStatus(null);
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    void votePolicy.readStatus(user?.id).then((nextStatus) => {
+      if (!cancelled) setPolicyStatus(nextStatus);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isAuthLoading, user?.id, votePolicy]);
+
+  const effectiveRemaining = policyStatus?.remaining ?? quota.remaining;
+  const effectiveQuota = policyStatus
+    ? {
+        ...quota,
+        used: Math.max(quota.max - effectiveRemaining, 0),
+        remaining: effectiveRemaining,
+        canVote: policyStatus.canVote && effectiveRemaining > 0,
+      }
+    : quota;
 
   // 선택된 아티스트 상태 (초기값은 props에서 전달받거나 첫번째 아티스트)
   const [chosenArtist, setChosenArtist] = useState<string | null>(selectedArtist || null);
@@ -80,9 +131,13 @@ export default function VoteController({
   const [lastScore, setLastScore] = useState(1);
 
   // 모든 사용자가 롱프레스 파워투표를 사용할 수 있습니다. (최대 x100)
-  const maxPowerLevel = POWER_VOTE.MAX_LEVEL;
+  const maxPowerLevel = Math.min(
+    votePolicy.maxPowerLevel,
+    policyStatus?.maxVotePower ?? quota.remaining,
+  );
   /** 파워투표 가능 여부 */
-  const canPowerVote = maxPowerLevel > 1 && quota.remaining > 1;
+  const canVote = effectiveQuota.canVote && maxPowerLevel > 0;
+  const canPowerVote = maxPowerLevel > 1 && effectiveRemaining > 1;
   const stepInterval = Math.max(16, Math.round(POWER_VOTE.FULL_CHARGE_MS / Math.max(maxPowerLevel - 1, 1)));
 
   // T1.75: 선택된 서브레이블 상태 (null = 전체)
@@ -162,10 +217,10 @@ export default function VoteController({
    */
   const executeVote = useCallback(
     async (votePower: number) => {
-      if (!company || isLoading || !quota.canVote) return;
+      if (!company || isLoading || !canVote) return;
 
       // 남은 투표권과 최대 파워 레벨을 넘지 않도록 안전하게 보정
-      const maxAllowedPower = Math.min(maxPowerLevel, quota.remaining);
+      const maxAllowedPower = Math.min(maxPowerLevel, effectiveRemaining);
       const normalizedVotePower = Math.min(Math.max(votePower, 1), maxAllowedPower);
 
       if (normalizedVotePower <= 0) return;
@@ -175,6 +230,7 @@ export default function VoteController({
         companyColor: company.image,
         userId: user?.id,
         votePower: normalizedVotePower,
+        voteSource: votePolicy.voteSource,
       });
 
       if (result?.success) {
@@ -184,17 +240,32 @@ export default function VoteController({
         setShowSuccess(true);
         onVoteSuccess?.(company.id);
 
+        if (policyStatus) {
+          const nextRemaining = result.remaining ?? Math.max(effectiveRemaining - consumed, 0);
+          setPolicyStatus((current) => current && {
+            ...current,
+            canVote: nextRemaining > 0,
+            hasUsedEmbed: current.hasUsedEmbed === undefined
+              ? current.hasUsedEmbed
+              : nextRemaining <= 0,
+            remaining: nextRemaining,
+            maxVotePower: Math.min(current.maxVotePower, nextRemaining),
+          });
+        }
+
         setTimeout(() => {
           setShowSuccess(false);
         }, 1500);
+      } else if (result?.errorCode === 'EMBED_DAILY_LIMIT') {
+        void refreshPolicyStatus();
+        onGuestQuotaExhausted?.();
       } else if (
         result &&
-        !user &&
         (result.errorCode === 'RATE_LIMITED' ||
           result.remaining === 0 ||
           result.message.toLowerCase().includes('limit'))
       ) {
-        if (quota.remaining > 0) {
+        if (!user && quota.remaining > 0) {
           consumeVote(quota.remaining);
         }
         onGuestQuotaExhausted?.();
@@ -203,7 +274,8 @@ export default function VoteController({
     [
       company,
       isLoading,
-      quota.canVote,
+      canVote,
+      effectiveRemaining,
       quota.remaining,
       maxPowerLevel,
       submitVote,
@@ -211,6 +283,9 @@ export default function VoteController({
       onVoteSuccess,
       onGuestQuotaExhausted,
       user,
+      votePolicy.voteSource,
+      policyStatus,
+      refreshPolicyStatus,
     ],
   );
 
@@ -236,9 +311,9 @@ export default function VoteController({
    * 2. stepInterval마다 게이지 1칸씩 증가 (최대 100, 남은 투표권 상한)
    */
   const handlePointerDown = useCallback(() => {
-    if (!quota.canVote) return;
+    if (!canVote) return;
 
-    const maxChargePower = Math.min(maxPowerLevel, quota.remaining);
+    const maxChargePower = Math.min(maxPowerLevel, effectiveRemaining);
     if (!company || isLoading || maxChargePower <= 0) return;
 
     pressStartRef.current = Date.now();
@@ -270,10 +345,10 @@ export default function VoteController({
         }
       }, stepInterval);
     }, POWER_VOTE.HOLD_DELAY);
-  }, [company, isLoading, quota.canVote, quota.remaining, maxPowerLevel, stepInterval]);
+  }, [canVote, company, effectiveRemaining, isLoading, maxPowerLevel, stepInterval]);
 
   const handleVoteButtonClick = useCallback(() => {
-    if (!quota.canVote && !user) {
+    if (!canVote) {
       onGuestQuotaExhausted?.();
       return;
     }
@@ -283,10 +358,10 @@ export default function VoteController({
       return;
     }
 
-    if (quota.canVote) {
+    if (canVote) {
       executeVote(1);
     }
-  }, [executeVote, onGuestQuotaExhausted, quota.canVote, user]);
+  }, [canVote, executeVote, onGuestQuotaExhausted]);
 
   /**
    * 롱프레스 종료 (pointerup / pointerleave)
@@ -405,7 +480,7 @@ export default function VoteController({
       <div className={styles.voteButtonWrapper}>
         <motion.button
           className={classNames(styles.voteButton, {
-            [styles.disabled]: !quota.canVote,
+          [styles.disabled]: !canVote,
             [styles.pressing]: isPressing && powerLevel > 0,
           })}
           disabled={isLoading}
@@ -415,11 +490,11 @@ export default function VoteController({
           onPointerLeave={handlePointerLeave}
           onPointerCancel={handlePointerLeave}
           onContextMenu={(e) => e.preventDefault()}
-          whileHover={quota.canVote && !isPressing ? { scale: 1.02 } : {}}
+          whileHover={canVote && !isPressing ? { scale: 1.02 } : {}}
           style={{
             background: showSuccess
               ? 'var(--color-secondary)'
-              : !quota.canVote
+              : !canVote
                 ? 'var(--color-text-dim)'
                 : company.image,
           }}
@@ -454,7 +529,7 @@ export default function VoteController({
                 <Flame size={28} />
                 <span className={styles.powerNumber}>x{powerLevel}</span>
               </motion.div>
-            ) : !quota.canVote ? (
+            ) : !canVote ? (
               <motion.div
                 key="exhausted"
                 className={styles.exhaustedContent}
@@ -491,8 +566,8 @@ export default function VoteController({
       {/* 투표권 상태 바 */}
       {!isQuotaLoading && (
         <VoteQuotaBar
-          used={quota.used}
-          max={quota.max}
+          used={effectiveQuota.used}
+          max={effectiveQuota.max}
           hoursUntilReset={quota.hoursUntilReset}
           minutesUntilReset={quota.minutesUntilReset}
           variant={variant}

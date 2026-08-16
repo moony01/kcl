@@ -54,3 +54,38 @@
     }
   }
 }
+
+.authPrompt {
+  position: fixed;
+  z-index: 20;
+  inset: auto 16px 16px;
+  display: grid;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.24);
+
+  p {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  button {
+    min-height: 40px;
+    border: 0;
+    border-radius: 8px;
+    background: #7c3aed;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  button:last-child {
+    background: #f3f4f6;
+    color: #374151;
+  }
+}

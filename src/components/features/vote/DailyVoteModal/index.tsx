@@ -59,7 +59,10 @@ function getLocalDateKey(date = new Date()) {
 
 function shouldHideVoteModal(pathname: string) {
   const [, , section] = pathname.split('/');
-  return section ? HIDDEN_ROUTE_SEGMENTS.has(section) : false;
+  // HomeClient already owns the canonical VoteBoard, so the global nudge must
+  // not cover it. AppShell routes without a board keep the modal behavior.
+  if (!section) return true;
+  return HIDDEN_ROUTE_SEGMENTS.has(section);
 }
 
 function readStorage(storage: Storage, key: string) {

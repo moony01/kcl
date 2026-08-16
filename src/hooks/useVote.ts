@@ -28,6 +28,8 @@ interface SubmitVoteOptions {
   userId?: string | null;
   /** 파워투표 점수 (1~100, 기본값 1) */
   votePower?: number;
+  /** Surface-specific server policy. */
+  voteSource?: 'web' | 'kpopface_embed';
 }
 
 export function useVote() {
@@ -64,14 +66,24 @@ export function useVote() {
     if (isLoading) return null;
     setIsLoading(true);
 
-    const { companyId, companyColor, userId, votePower = 1 } = options;
-    const normalizedVotePower = Math.min(Math.max(Math.floor(votePower), 1), VOTE_LIMITS.POWER_MAX);
+    const {
+      companyId,
+      companyColor,
+      userId,
+      votePower = 1,
+      voteSource = 'web',
+    } = options;
+    const maxVotePower = voteSource === 'kpopface_embed'
+      ? VOTE_LIMITS.KPOPFACE_EMBED_POWER_MAX
+      : VOTE_LIMITS.POWER_MAX;
+    const normalizedVotePower = Math.min(Math.max(Math.floor(votePower), 1), maxVotePower);
 
     try {
       const result = await submitVoteApi({
         companyId,
         userId: userId || null,
         votePower: normalizedVotePower,
+        voteSource,
       });
 
       if (result.success) {

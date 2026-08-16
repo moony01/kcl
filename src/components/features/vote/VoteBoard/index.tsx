@@ -11,6 +11,7 @@ import SearchBar from '@/components/ui/SearchBar';
 import PremierLeague from '@/components/features/league/PremierLeague';
 import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
 import { LeagueHeader } from '@/components/features/league/LeagueHeader';
+import type { VotePolicyAdapter } from '@/components/features/VoteController/votePolicy';
 import styles from '@/app/[locale]/page.module.scss';
 
 export interface VoteControllerRenderProps {
@@ -19,6 +20,7 @@ export interface VoteControllerRenderProps {
   autoSelectedSubLabelId?: string | null;
   onVoteSuccess?: (companyId: string) => void;
   onGuestQuotaExhausted?: () => void;
+  votePolicy?: VotePolicyAdapter;
 }
 
 export interface BottomSheetRenderProps {
@@ -46,6 +48,7 @@ export interface VoteBoardProps {
   onSheetClose: () => void;
   voteControllerComponent: ComponentType<VoteControllerRenderProps>;
   bottomSheetComponent: ComponentType<BottomSheetRenderProps>;
+  votePolicy?: VotePolicyAdapter;
   showKpopfaceAd?: boolean;
   /** Kpopface keeps its compact TOP 4 + “Show top 10” interaction. */
   compactTopTen?: boolean;
@@ -80,6 +83,7 @@ export default function VoteBoard({
   onSheetClose,
   voteControllerComponent: VoteController,
   bottomSheetComponent: BottomSheet,
+  votePolicy,
   showKpopfaceAd = true,
   compactTopTen = false,
   expandLabel,
@@ -189,8 +193,9 @@ export default function VoteBoard({
               company={selectedCompany}
               onVoteSuccess={onVoteSuccess}
               onGuestQuotaExhausted={handleGuestQuotaExhausted}
-              autoSelectedSubLabelId={selectedSubLabelId}
-              selectedArtist={selectedArtistName || undefined}
+            autoSelectedSubLabelId={selectedSubLabelId}
+            selectedArtist={selectedArtistName || undefined}
+            votePolicy={votePolicy}
             />
           </StickyPanel>
         </aside>
@@ -203,6 +208,7 @@ export default function VoteBoard({
           onGuestQuotaExhausted={handleGuestQuotaExhausted}
           autoSelectedSubLabelId={selectedSubLabelId}
           selectedArtist={selectedArtistName || undefined}
+          votePolicy={votePolicy}
         />
       </BottomSheet>
     </div>
