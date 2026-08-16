@@ -85,7 +85,11 @@
 }
 
 .refreshIndicator {
+  // Reserve the widest label ("갱신 중…") so countdown changes do not move adjacent pills.
+  width: 78px;
+  flex: 0 0 78px;
   gap: 4px;
+  justify-content: center;
   padding: 4px 8px;
   border: 1px solid rgba($color-text, 0.12);
   color: $color-text-dim;
