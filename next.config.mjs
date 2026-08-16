@@ -38,6 +38,10 @@ const nextConfig = {
   },
   transpilePackages: ['next-image-export-optimizer'], // 이미지 최적화 패키지
   reactCompiler: !isDev, // 개발 모드에서 비활성화 (HMR 속도 개선)
+  // Worktrees have their own .next cache; never infer the parent checkout.
+  turbopack: {
+    root: __dirname,
+  },
   sassOptions: {
     includePaths: [
       path.join(__dirname, 'src/styles'),
