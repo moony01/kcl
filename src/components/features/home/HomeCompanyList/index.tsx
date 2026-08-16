@@ -26,7 +26,6 @@ export interface HomeVoteState {
   votes: number;
   /** 서버 응답 또는 클라이언트 추정 잔여 quota */
   remaining: number;
-  message?: string;
 }
 
 export interface HomeCompanyListProps {
@@ -78,7 +77,11 @@ function HomeCompanyCard({
     Math.max(0, (gaugeVotes / HOME_DIRECT_VOTE_UNIT) * 100),
   );
   const status = voteState?.status || (quotaRemaining <= 0 ? 'exhausted' : 'idle');
-  const hasVoteFeedback = voteState?.status === 'loading' || voteState?.status === 'success';
+  const scoreFeedback =
+    voteState?.status === 'loading' || voteState?.status === 'success'
+      ? voteState
+      : undefined;
+  const hasVoteFeedback = Boolean(scoreFeedback);
   const accentStyle = { '--company-accent': company.gradientColor } as CSSProperties;
 
   return (
@@ -105,6 +108,16 @@ function HomeCompanyCard({
           style={{ width: gaugePercent + '%' }}
           aria-hidden="true"
         />
+      )}
+      {scoreFeedback && scoreFeedback.votes > 0 && (
+        <span
+          key={`${scoreFeedback.status}-${scoreFeedback.votes}`}
+          className={styles.scorePopup}
+          data-testid={'vote-score-' + company.companyId}
+          aria-hidden="true"
+        >
+          +{scoreFeedback.votes.toLocaleString()}
+        </span>
       )}
       <span className={styles.accent} style={accentStyle} aria-hidden="true" />
 
