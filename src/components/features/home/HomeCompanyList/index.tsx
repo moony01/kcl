@@ -5,10 +5,11 @@ import Image, { type ImageLoader } from 'next/image';
 import type { CompanyRanking } from '@/types/league';
 import { getCompanyLogoBackground, getCompanyLogoUrl } from '@/lib/company-logos';
 import KpopfaceAdCard from '@/components/features/league/KpopfaceAdCard';
+import { HOME_DIRECT_VOTE_UNIT } from '@/lib/home-vote';
 import styles from './HomeCompanyList.module.scss';
 
-/** 홈 카드 한 번의 직접투표 기준 단위입니다. */
-export const HOME_DIRECT_VOTE_UNIT = 100;
+/** Shared with the embed entrypoint so the board has one vote scale. */
+export { HOME_DIRECT_VOTE_UNIT } from '@/lib/home-vote';
 
 /**
  * next.config.mjs uses a custom image loader for the static export pipeline.
@@ -36,6 +37,8 @@ export interface HomeCompanyListProps {
   isVoteLoading: boolean;
   voteStates: Record<string, HomeVoteState | undefined>;
   onVote: (company: CompanyRanking) => void;
+  /** Keep the host-specific ad policy while sharing the board itself. */
+  showKpopfaceAd?: boolean;
 }
 
 interface HomeCompanyCardProps {
@@ -149,13 +152,14 @@ export default function HomeCompanyList({
   isVoteLoading,
   voteStates,
   onVote,
+  showKpopfaceAd = true,
 }: HomeCompanyListProps) {
   return (
     <section className={styles.list} data-testid="home-company-list" aria-label="회사 투표 목록">
       <div className={styles.cards}>
         {companies.map((company) => (
           <Fragment key={company.companyId}>
-            {company.rank === 4 && (
+            {showKpopfaceAd && company.rank === 4 && (
               <div className={styles.adSlot} data-testid="home-kpopface-ad-slot">
                 <KpopfaceAdCard />
               </div>

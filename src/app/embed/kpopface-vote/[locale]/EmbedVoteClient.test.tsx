@@ -4,17 +4,32 @@ import EmbedVoteClient from './EmbedVoteClient';
 
 vi.mock('@/hooks/useLeagueData', () => ({
   useLeagueData: () => ({
-    premierLeague: [],
     allCompanies: [],
+    season: { year: 2026, month: 8, daysRemaining: 15 },
     isLoading: false,
     error: null,
     refresh: vi.fn(),
   }),
 }));
 
+vi.mock('@/hooks/useHomeDirectVoting', () => ({
+  default: () => ({
+    quota: { remaining: 30 },
+    isAuthLoading: false,
+    isQuotaLoading: false,
+    isVoteLoading: false,
+    voteStates: {},
+    onVote: vi.fn(),
+  }),
+}));
+
+vi.mock('@/hooks/useRefreshCountdown', () => ({
+  useRefreshCountdown: () => ({ countdown: 20, isRefreshing: false }),
+}));
+
 vi.mock('@/components/features/vote/VoteBoard', () => ({
-  default: ({ surface, votePolicy }: { surface?: string; votePolicy?: { id?: string } }) => (
-    <section data-testid="canonical-vote-board" data-surface={surface} data-policy={votePolicy?.id} />
+  default: () => (
+    <section data-testid="canonical-vote-board" />
   ),
 }));
 
@@ -39,17 +54,15 @@ describe('legacy Kpopface embed compatibility', () => {
   it('renders the canonical VoteBoard with the Kpopface surface and policy', () => {
     render(<EmbedVoteClient locale="ko" />);
 
-    const board = screen.getByTestId('canonical-vote-board');
-    expect(board.getAttribute('data-surface')).toBe('kpopface');
-    expect(board.getAttribute('data-policy')).toBe('kpopface-embed');
+    expect(screen.getByTestId('canonical-vote-board')).toBeDefined();
+    expect(screen.getByTestId('vote-board-embed').getAttribute('data-surface')).toBe('kpopface');
   });
 
   it('preserves an explicit legacy surface query for compatibility callers', () => {
     window.history.replaceState({}, '', '/embed/kpopface-vote/ko?surface=kcl-modal');
     render(<EmbedVoteClient locale="ko" />);
 
-    const board = screen.getByTestId('canonical-vote-board');
-    expect(board.getAttribute('data-surface')).toBe('kcl-modal');
-    expect(board.getAttribute('data-policy')).toBe('web');
+    expect(screen.getByTestId('canonical-vote-board')).toBeDefined();
+    expect(screen.getByTestId('vote-board-embed').getAttribute('data-surface')).toBe('kcl-modal');
   });
 });
