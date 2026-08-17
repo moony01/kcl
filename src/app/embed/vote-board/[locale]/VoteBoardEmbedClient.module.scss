@@ -1,3 +1,15 @@
+main.embedDashboard {
+  // The shared page shell reserves a viewport-sized canvas and mobile bottom
+  // navigation space. An iframe must size itself to the compact board content
+  // so the host does not receive a large blank area after the TOP 4 toggle.
+  width: 100%;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
 .signupCtaContainer {
   box-sizing: border-box;
   width: 100%;

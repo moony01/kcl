@@ -231,7 +231,7 @@ export default function VoteBoardEmbedClient({
   return (
     <div ref={containerRef}>
       <main
-        className={styles.dashboardContainer}
+        className={`${styles.dashboardContainer} ${embedStyles.embedDashboard}`}
         data-surface={options.surface}
         data-ads={options.showAds ? 'on' : 'off'}
         data-testid="vote-board-embed"
