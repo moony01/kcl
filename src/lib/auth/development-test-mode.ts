@@ -7,7 +7,8 @@
 import type { User } from '@supabase/supabase-js';
 
 export const DEVELOPMENT_TEST_MODE_STORAGE_KEY = 'kcl_dev_test_mode';
-export const DEVELOPMENT_TEST_USER_ID = '00000000-0000-4013-8013-000000000013';
+/** Provisioned once in Supabase as a development-only backend fixture. */
+export const DEVELOPMENT_TEST_USER_ID = 'c1192de6-89bd-45f7-9d91-e0eec631a589';
 
 /** A deterministic local-only user for exercising authenticated UI flows. */
 export function getDevelopmentTestUser(): User {
@@ -32,16 +33,12 @@ export function getDevelopmentTestUser(): User {
 /**
  * Return the user id that may safely be sent to persisted backend operations.
  *
- * The local developer session has no corresponding row in Supabase auth.users,
- * so vote writes must use the guest/fingerprint path instead of violating the
- * kcl_votes.user_id foreign key.
+ * The browser session is still local-only, but its deterministic id is backed
+ * by the development-only Supabase fixture so persisted operations can exercise
+ * the same foreign keys and member quota path as a real user.
  */
 export function getVoteBackendUserId(userId?: string | null): string | null {
-  if (!userId) return null;
-
-  return isDevelopmentTestModeEnabled() && userId === DEVELOPMENT_TEST_USER_ID
-    ? null
-    : userId;
+  return userId || null;
 }
 
 export function isDevelopmentEnvironment(): boolean {

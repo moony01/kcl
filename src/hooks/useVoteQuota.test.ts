@@ -68,7 +68,7 @@ describe('guest vote quota developer reset', () => {
     expect(result.current.quota.remaining).toBe(VOTE_LIMITS.GUEST_DAILY);
   });
 
-  it('uses the guest quota for the local developer session', async () => {
+  it('uses the member quota for the local developer session', async () => {
     window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
 
     const { act, renderHook, waitFor } = await import('@testing-library/react');
@@ -77,9 +77,9 @@ describe('guest vote quota developer reset', () => {
 
     await waitFor(() => expect(result.current.isLoading).toBe(false));
 
-    expect(result.current.quota.max).toBe(VOTE_LIMITS.GUEST_DAILY);
+    expect(result.current.quota.max).toBe(VOTE_LIMITS.MEMBER_DAILY);
     act(() => {
-      expect(result.current.useVote(VOTE_LIMITS.GUEST_DAILY)).toBe(true);
+    expect(result.current.useVote(VOTE_LIMITS.MEMBER_DAILY)).toBe(true);
     });
     expect(result.current.quota.remaining).toBe(0);
   });

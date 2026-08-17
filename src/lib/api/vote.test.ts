@@ -38,7 +38,7 @@ describe('submitVote developer session boundary', () => {
     vi.unstubAllEnvs();
   });
 
-  it('uses the guest fingerprint when the local developer session votes', async () => {
+  it('uses the provisioned member identity when the local developer session votes', async () => {
     window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
 
     const result = await submitVote({
@@ -50,9 +50,9 @@ describe('submitVote developer session boundary', () => {
     expect(mocks.rpc).toHaveBeenCalledWith(
       'submit_vote_secure',
       expect.objectContaining({
-        p_user_id: null,
+        p_user_id: DEVELOPMENT_TEST_USER_ID,
         p_daily_limit: 100,
-        p_fingerprint: expect.any(String),
+        p_fingerprint: null,
       }),
     );
   });

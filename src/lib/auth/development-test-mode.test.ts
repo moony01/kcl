@@ -35,11 +35,11 @@ describe('development test mode', () => {
     expect(user.app_metadata.provider).toBe('developer');
   });
 
-  it('routes the local developer user through the guest backend identity', () => {
+  it('routes the local developer user through the provisioned member identity', () => {
     vi.stubEnv('NODE_ENV', 'development');
     window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
 
-    expect(getVoteBackendUserId(DEVELOPMENT_TEST_USER_ID)).toBeNull();
+    expect(getVoteBackendUserId(DEVELOPMENT_TEST_USER_ID)).toBe(DEVELOPMENT_TEST_USER_ID);
     expect(getVoteBackendUserId('real-user-id')).toBe('real-user-id');
   });
 

@@ -15,7 +15,11 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VOTE_LIMITS } from '@/config/vote';
-import { getVoteBackendUserId } from '@/lib/auth/development-test-mode';
+import {
+  DEVELOPMENT_TEST_USER_ID,
+  getVoteBackendUserId,
+  isDevelopmentTestModeEnabled,
+} from '@/lib/auth/development-test-mode';
 import { getUserVoteStats } from '@/lib/api';
 import {
   getTodayUTC,
@@ -172,10 +176,12 @@ export function useVoteQuota(
   userId?: string | null,
   options: UseVoteQuotaOptions = {},
 ): UseVoteQuotaReturn {
-  // The local developer session is authenticated in the UI only. It has no
-  // Supabase auth.users row, so quota and vote writes use the guest backend
-  // identity/fingerprint path until a real OAuth session exists.
-  const backendUserId = getVoteBackendUserId(userId);
+  // The browser session is local-only, but its id is backed by a provisioned
+  // Supabase fixture. Keep quota state local because there is no browser JWT;
+  // vote writes still use the fixture id through submitVote().
+  const isLocalDeveloperSession =
+    isDevelopmentTestModeEnabled() && userId === DEVELOPMENT_TEST_USER_ID;
+  const backendUserId = isLocalDeveloperSession ? null : getVoteBackendUserId(userId);
   const guestDailyLimit = Math.max(
     1,
     Math.floor(options.guestDailyLimit ?? MAX_DAILY_VOTES),
@@ -183,7 +189,9 @@ export function useVoteQuota(
   const storageKey = options.storageKey ?? STORAGE_KEY;
   const enabled = options.enabled ?? true;
   const [used, setUsed] = useState<number>(0);
-  const [max, setMax] = useState<number>(guestDailyLimit);
+  const [max, setMax] = useState<number>(
+    isLocalDeveloperSession ? MAX_DAILY_VOTES_LOGIN : guestDailyLimit,
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [timeInfo, setTimeInfo] = useState<{ hours: number; minutes: number; formatted: string }>({
     hours: 0,
@@ -227,9 +235,14 @@ export function useVoteQuota(
       };
     }
 
-    if (backendUserId) {
-      // 로그인 모드: 서버 통계를 일일 한도로 사용
+    if (isLocalDeveloperSession) {
+      // Reset when a mounted hook transitions from guest to the local member fixture.
       // eslint-disable-next-line react-hooks/set-state-in-effect
+      setUsed(0);
+      setMax(MAX_DAILY_VOTES_LOGIN);
+      if (!cancelled) setIsLoading(false);
+    } else if (backendUserId) {
+      // 로그인 모드: 서버 통계를 일일 한도로 사용
       fetchServerStats().finally(() => {
         if (!cancelled) setIsLoading(false);
       });
@@ -257,7 +270,7 @@ export function useVoteQuota(
     return () => {
       cancelled = true;
     };
-  }, [backendUserId, enabled, fetchServerStats, guestDailyLimit, storageKey]);
+  }, [backendUserId, enabled, fetchServerStats, guestDailyLimit, isLocalDeveloperSession, storageKey]);
 
   /**
    * 리셋 시간 업데이트 (1분마다)
@@ -291,7 +304,10 @@ export function useVoteQuota(
       if (lastDate === today) return;
       lastDate = today;
 
-      if (backendUserId) {
+      if (isLocalDeveloperSession) {
+        setUsed(0);
+        setMax(MAX_DAILY_VOTES_LOGIN);
+      } else if (backendUserId) {
         // 로그인 모드: 서버에서 일일 통계 다시 가져오기 (UTC 자정 리셋)
         fetchServerStats();
       } else {
@@ -312,7 +328,7 @@ export function useVoteQuota(
     const interval = setInterval(checkDateChange, 60000);
 
     return () => clearInterval(interval);
-  }, [backendUserId, enabled, fetchServerStats, guestDailyLimit, storageKey]);
+  }, [backendUserId, enabled, fetchServerStats, guestDailyLimit, isLocalDeveloperSession, storageKey]);
 
   /** 개발 도구 등 다른 탭/컨트롤의 게스트 quota 갱신 반영 */
   useEffect(() => {
@@ -320,7 +336,7 @@ export function useVoteQuota(
     if (typeof window === 'undefined') return;
 
     const handleQuotaRefresh = () => {
-      if (backendUserId) return;
+      if (backendUserId || isLocalDeveloperSession) return;
 
       const stored = loadQuotaFromStorage(storageKey);
       if (stored?.date !== getTodayUTC()) return;
@@ -331,7 +347,7 @@ export function useVoteQuota(
 
     window.addEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
     return () => window.removeEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
-  }, [backendUserId, enabled, guestDailyLimit, storageKey]);
+  }, [backendUserId, enabled, guestDailyLimit, isLocalDeveloperSession, storageKey]);
 
   /**
    * 투표권 사용 (클라이언트 측 낙관적 업데이트)
@@ -341,7 +357,7 @@ export function useVoteQuota(
    */
   const useVote = useCallback(
     (count: number = 1): boolean => {
-      if (backendUserId) {
+      if (backendUserId || isLocalDeveloperSession) {
         // 로그인 모드: 서버 통계를 기반으로 낙관적으로 차감
         const newUsed = used + count;
         if (newUsed > max) return false;
@@ -382,17 +398,17 @@ export function useVoteQuota(
 
       return true;
     },
-    [backendUserId, guestDailyLimit, storageKey, used, max],
+    [backendUserId, guestDailyLimit, isLocalDeveloperSession, storageKey, used, max],
   );
 
   /**
    * 서버에서 최신 통계 다시 가져오기 (로그인 모드 전용)
    */
   const refetchStats = useCallback(async () => {
-    if (enabled && backendUserId) {
+    if (enabled && backendUserId && !isLocalDeveloperSession) {
       await fetchServerStats();
     }
-  }, [backendUserId, enabled, fetchServerStats]);
+  }, [backendUserId, enabled, fetchServerStats, isLocalDeveloperSession]);
 
   /**
    * 투표권 정보 계산
