@@ -1,11 +1,17 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { CompanyType } from '@/lib/mock-data';
+import type { CompanyRanking } from '@/types/league';
 import { useLeagueData } from '@/hooks/useLeagueData';
-import useHomeDirectVoting from '@/hooks/useHomeDirectVoting';
+import { useAuth } from '@/hooks/useAuth';
+import { useVoteQuota } from '@/hooks/useVoteQuota';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
+import BottomSheet from '@/components/ui/BottomSheet';
+import VoteController from '@/components/features/VoteController';
 import {
   KPOPFACE_EMBED_VOTE_POLICY,
+  WEB_VOTE_POLICY,
 } from '@/components/features/VoteController/votePolicy';
 import HomeBoardHeader from '@/components/features/home/HomeBoardHeader';
 import VoteBoard from '@/components/features/vote/VoteBoard';
@@ -27,6 +33,16 @@ const EMBED_PARENT_ORIGINS = new Set([
   'http://127.0.0.1:4000',
 ]);
 
+const TOP_TEN_COPY: Record<string, { expand: string; collapse: string }> = {
+  ko: { expand: '10위까지 보기', collapse: '접기' },
+  en: { expand: 'Show top 10', collapse: 'Collapse' },
+  ja: { expand: '10位まで見る', collapse: '閉じる' },
+  zh: { expand: '查看前10名', collapse: '收起' },
+  es: { expand: 'Ver top 10', collapse: 'Cerrar' },
+  fr: { expand: 'Voir le top 10', collapse: 'Réduire' },
+  de: { expand: 'Top 10 anzeigen', collapse: 'Einklappen' },
+};
+
 const KPOPFACE_SIGNUP_COPY: Record<string, string> = {
   ko: 'KCL 가입하고 매일 300표 받기',
   en: 'Join KCL for 300 votes every day',
@@ -39,11 +55,6 @@ const KPOPFACE_SIGNUP_COPY: Record<string, string> = {
 
 const ALLOWED_SURFACES = new Set<VoteBoardSurface>(['kcl-modal', 'kpopface', 'partner']);
 
-/**
- * Parse the small, intentionally allow-listed embed contract.
- * `ads=on` only enables the first-party Kpopface slot; it never accepts HTML
- * or URLs.
- */
 export function parseVoteBoardEmbedOptions(search: string): VoteBoardEmbedOptions {
   const params = new URLSearchParams(search);
   const requestedSurface = params.get('surface') as VoteBoardSurface | null;
@@ -52,6 +63,23 @@ export function parseVoteBoardEmbedOptions(search: string): VoteBoardEmbedOption
     surface:
       requestedSurface && ALLOWED_SURFACES.has(requestedSurface) ? requestedSurface : 'partner',
     showAds: params.get('ads') === 'on',
+  };
+}
+
+function toCompanyType(company: CompanyRanking): CompanyType {
+  return {
+    id: company.companyId,
+    name: { en: company.nameEn, ko: company.nameKo },
+    representative: company.artists,
+    firepower: company.voteCount,
+    rank: company.rank,
+    change: company.rankChange > 0 ? 'up' : company.rankChange < 0 ? 'down' : 'same',
+    image: company.gradientColor.startsWith('linear-gradient')
+      ? company.gradientColor
+      : `linear-gradient(135deg, ${company.gradientColor} 0%, #1A1A1A 100%)`,
+    logoUrl: company.logoUrl || undefined,
+    stockHistory: [],
+    subLabels: company.subLabels,
   };
 }
 
@@ -81,25 +109,37 @@ export default function VoteBoardEmbedClient({
   surfaceOverride,
 }: {
   locale: string;
-  /** Compatibility routes can supply a safe default without rewriting the URL. */
   surfaceOverride?: VoteBoardSurface;
 }) {
   const {
+    premierLeague,
     allCompanies,
     season,
     isLoading,
     error,
     refresh,
   } = useLeagueData({ refreshInterval: 20000 });
+  const { user } = useAuth();
   const [options, setOptions] = useState<VoteBoardEmbedOptions>({
     surface: 'partner',
     showAds: false,
   });
+  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
+  const [selectedSubLabelId, setSelectedSubLabelId] = useState<string | null>(null);
+  const [selectedArtistName, setSelectedArtistName] = useState<string | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { countdown, isRefreshing } = useRefreshCountdown({
     intervalMs: 20000,
     refreshingDurationMs: 1500,
+  });
+  const isKpopfaceSurface = options.surface === 'kpopface';
+  const { quota, refetchStats } = useVoteQuota(user?.id, {
+    guestDailyLimit: isKpopfaceSurface ? KPOPFACE_EMBED_VOTE_POLICY.guestDailyLimit : undefined,
+    storageKey: isKpopfaceSurface ? KPOPFACE_EMBED_VOTE_POLICY.storageKey : undefined,
   });
 
   useEffect(() => {
@@ -115,6 +155,52 @@ export default function VoteBoardEmbedClient({
     return () => window.cancelAnimationFrame(frame);
   }, [surfaceOverride]);
 
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(window.innerWidth < 1024);
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+    return () => window.removeEventListener('resize', updateViewport);
+  }, []);
+
+  useEffect(() => {
+    if (selectedCompanyId || allCompanies.length === 0) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      setSelectedCompanyId(allCompanies[0].companyId);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [allCompanies, selectedCompanyId]);
+
+  const selectedCompany = useMemo(() => {
+    if (!selectedCompanyId) return null;
+    const company = allCompanies.find((item) => item.companyId === selectedCompanyId);
+    return company ? toCompanyType(company) : null;
+  }, [allCompanies, selectedCompanyId]);
+
+  const handleVote = useCallback(
+    (companyId: string, artistName?: string | null) => {
+      if (!allCompanies.some((company) => company.companyId === companyId)) return;
+
+      setSelectedCompanyId(companyId);
+      setSelectedSubLabelId(null);
+      setSelectedArtistName(artistName ?? null);
+      if (isMobile) setIsSheetOpen(true);
+    },
+    [allCompanies, isMobile],
+  );
+
+  const handleSearchSelect = useCallback(
+    (companyId: string, artistName?: string) => handleVote(companyId, artistName),
+    [handleVote],
+  );
+
+  const handleVoteSuccess = useCallback(() => {
+    postEmbedMessage({ type: 'vote_success' });
+    void refetchStats();
+    void refresh();
+  }, [refetchStats, refresh]);
+
   const handleKpopfaceQuotaExhausted = useCallback(() => {
     if (options.surface === 'kpopface') {
       setShowLoginPrompt(true);
@@ -122,41 +208,19 @@ export default function VoteBoardEmbedClient({
     }
   }, [options.surface]);
 
-  const handleVoteSuccess = useCallback(() => {
-    postEmbedMessage({ type: 'vote_success' });
-  }, []);
+  const handleKpopfaceLogin = useCallback(() => {
+    const returnTo = getParentReturnUrl(locale);
+    postEmbedMessage({ type: 'auth_required', returnTo });
+    window.top?.location.assign(
+      `https://kclhq.com/${locale}/login?returnTo=${encodeURIComponent(returnTo)}`,
+    );
+  }, [locale]);
 
-  const isKpopfaceSurface = options.surface === 'kpopface';
-  const {
-    quota,
-    isAuthLoading,
-    isQuotaLoading,
-    isVoteLoading,
-    voteStates,
-    onVote,
-  } = useHomeDirectVoting({
-    refresh,
-    policy: isKpopfaceSurface
-      ? {
-          voteSource: KPOPFACE_EMBED_VOTE_POLICY.voteSource,
-          guestDailyLimit: KPOPFACE_EMBED_VOTE_POLICY.guestDailyLimit,
-          storageKey: KPOPFACE_EMBED_VOTE_POLICY.storageKey,
-          maxVotePower: KPOPFACE_EMBED_VOTE_POLICY.maxPowerLevel,
-          readStatus: KPOPFACE_EMBED_VOTE_POLICY.readStatus,
-          effects: false,
-          onVoteSuccess: handleVoteSuccess,
-          onQuotaExhausted: handleKpopfaceQuotaExhausted,
-        }
-      : {
-          voteSource: 'web',
-          effects: false,
-          onVoteSuccess: handleVoteSuccess,
-        },
-  });
+  const topTenCopy = TOP_TEN_COPY[locale] ?? TOP_TEN_COPY.en;
+  const signupLocale = KPOPFACE_SIGNUP_COPY[locale] ? locale : 'en';
+  const signupCopy = KPOPFACE_SIGNUP_COPY[signupLocale];
+  const votePolicy = isKpopfaceSurface ? KPOPFACE_EMBED_VOTE_POLICY : WEB_VOTE_POLICY;
 
-  // Keep partner iframes sized to the shared board. The host-side contract is
-  // intentionally the same as the legacy Kpopface embed, so existing hosts do
-  // not need to change their resize listener.
   const notifyResize = useCallback(() => {
     if (typeof window === 'undefined' || window.parent === window) return;
 
@@ -183,23 +247,15 @@ export default function VoteBoardEmbedClient({
     };
   }, [
     allCompanies.length,
+    isExpanded,
+    isMobile,
     isRefreshing,
+    isSheetOpen,
     notifyResize,
     options.showAds,
     options.surface,
     showLoginPrompt,
   ]);
-
-  const handleKpopfaceLogin = useCallback(() => {
-    const returnTo = getParentReturnUrl(locale);
-    postEmbedMessage({ type: 'auth_required', returnTo });
-    window.top?.location.assign(
-      `https://kclhq.com/${locale}/login?returnTo=${encodeURIComponent(returnTo)}`,
-    );
-  }, [locale]);
-
-  const signupLocale = KPOPFACE_SIGNUP_COPY[locale] ? locale : 'en';
-  const signupCopy = KPOPFACE_SIGNUP_COPY[signupLocale];
 
   if (isLoading && allCompanies.length === 0) {
     return (
@@ -237,14 +293,31 @@ export default function VoteBoardEmbedClient({
         />
 
         <VoteBoard
-          companies={allCompanies}
-          quotaRemaining={quota.remaining}
-          isAuthLoading={isAuthLoading}
-          isQuotaLoading={isQuotaLoading}
-          isVoteLoading={isVoteLoading}
-          voteStates={voteStates}
-          onVote={onVote}
+          premierLeague={premierLeague}
+          allCompanies={allCompanies}
+          selectedCompanyId={selectedCompanyId}
+          selectedCompany={selectedCompany}
+          selectedSubLabelId={selectedSubLabelId}
+          selectedArtistName={selectedArtistName}
+          isExpanded={isExpanded}
+          isSheetOpen={isSheetOpen}
+          isMobile={isMobile}
+          onVote={handleVote}
+          onSearchSelect={handleSearchSelect}
+          onVoteSuccess={handleVoteSuccess}
+          onGuestQuotaExhausted={isKpopfaceSurface ? handleKpopfaceQuotaExhausted : undefined}
+          onToggleExpand={() => setIsExpanded((current) => !current)}
+          onSheetClose={() => setIsSheetOpen(false)}
+          voteControllerComponent={VoteController}
+          bottomSheetComponent={BottomSheet}
+          votePolicy={votePolicy}
           showKpopfaceAd={options.showAds}
+          compactTopTen={isKpopfaceSurface}
+          expandLabel={topTenCopy.expand}
+          collapseLabel={topTenCopy.collapse}
+          surface={options.surface}
+          showLeagueHeader={false}
+          testId="shared-vote-board"
         />
       </main>
 

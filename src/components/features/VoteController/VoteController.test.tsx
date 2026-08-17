@@ -1,5 +1,5 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import VoteController from './index';
 import { KPOPFACE_EMBED_VOTE_POLICY } from './votePolicy';
 import type { CompanyType } from '@/lib/mock-data';
@@ -92,6 +92,10 @@ function forArtistText(artist: string) {
 }
 
 describe('VoteController artist selection persistence', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   beforeEach(() => {
     mocks.mockSubmitVote.mockReset();
     mocks.mockSubmitVote.mockResolvedValue({ success: true, voteScore: 1 });
@@ -253,5 +257,32 @@ describe('VoteController artist selection persistence', () => {
       guestDailyLimit: 30,
       storageKey: 'kcl_kpopface_embed_quota',
     });
+  });
+
+  it('short tap keeps the legacy one-vote contract', async () => {
+    render(<VoteController company={smCompany} />);
+    const voteButton = screen.getByRole('button', { name: /Vote/ });
+
+    fireEvent.click(voteButton);
+
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledWith(
+        expect.objectContaining({ companyId: 'company-sm', votePower: 1, voteSource: 'web' }),
+      );
+    });
+  });
+
+  it('after the 400ms hold threshold, charges the legacy power gauge up to 100', async () => {
+    vi.useFakeTimers();
+    render(<VoteController company={smCompany} />);
+    const voteButton = screen.getByRole('button', { name: /Vote/ });
+
+    await act(async () => {
+      fireEvent.pointerDown(voteButton, { pointerId: 1 });
+      vi.advanceTimersByTime(3_600);
+    });
+
+    expect(screen.getByText('x100')).toBeDefined();
+    fireEvent.pointerUp(voteButton, { pointerId: 1 });
   });
 });
