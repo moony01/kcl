@@ -46,7 +46,9 @@ function LoginFormInner() {
   const locale = useLocale();
   const searchParams = useSearchParams();
   const isDevelopment = isDevelopmentEnvironment();
-  const [localTestMode, setLocalTestMode] = useState(() => isDevelopmentTestModeEnabled());
+  // Keep the server and first client render identical. The browser-only marker
+  // is restored in the mount effect below to avoid a hydration mismatch.
+  const [localTestMode, setLocalTestMode] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [oauthLoading, setOauthLoading] = useState<string | null>(null);
   const [lastProvider, setLastProvider] = useState<string | null>(null);

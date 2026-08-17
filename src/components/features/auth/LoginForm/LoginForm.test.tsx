@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { renderToString } from 'react-dom/server';
 import LoginForm from './index';
 import { DEVELOPMENT_TEST_MODE_STORAGE_KEY } from '@/lib/auth/development-test-mode';
 import { VOTE_QUOTA_STORAGE_KEY } from '@/lib/vote-quota';
@@ -64,6 +65,16 @@ describe('LoginForm development controls', () => {
       true,
     );
     expect(mocks.createClient).not.toHaveBeenCalled();
+  });
+
+  it('keeps the server markup independent of the browser test-mode marker', () => {
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    const markup = renderToString(<LoginForm />);
+
+    expect(markup).toContain('Enable local test mode');
+    expect(markup).toContain('aria-pressed="false"');
+    expect(markup).not.toContain('disabled=""');
   });
 
   it('persists the toggle before refreshing and restores the active status', () => {
