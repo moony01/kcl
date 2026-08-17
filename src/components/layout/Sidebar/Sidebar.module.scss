@@ -24,6 +24,8 @@ $sidebar-wide: 244px;
   top: 0;
   left: 0;
   height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   background-color: rgba($color-bg, 0.95);
   border-right: 1px solid rgba($color-text, 0.08);
   // 카드/검색 레이어보다 위에 고정해 확장 레일이 가려지지 않도록 합니다.
@@ -33,7 +35,10 @@ $sidebar-wide: 244px;
   flex-direction: column;
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(20px);
-  overflow: hidden;
+  // 폴드 펼침처럼 세로 공간이 짧아져도 하단 인증 영역이 잘리지 않도록
+  // 실제 표시 viewport를 사용하고, 필요한 경우 사이드바 자체를 스크롤합니다.
+  overflow-x: hidden;
+  overflow-y: auto;
 
   // 모바일: 숨김
   display: none;
@@ -74,6 +79,7 @@ $sidebar-wide: 244px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  flex-shrink: 0;
   padding: 12px 4px;
   margin-bottom: 4px;
 }
@@ -145,9 +151,11 @@ $sidebar-wide: 244px;
 // 네비게이션 리스트
 .nav {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow-y: auto;
 }
 
 // 네비게이션 아이템 (공통)
@@ -267,6 +275,7 @@ $sidebar-wide: 244px;
 .authSection {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   gap: 4px;
   margin-top: auto;
   padding-top: 12px;
