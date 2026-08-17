@@ -34,12 +34,15 @@ vi.mock('@/hooks/useRefreshCountdown', () => ({
 vi.mock('@/components/features/vote/VoteBoard', () => ({
   default: ({
     showKpopfaceAd,
+    showSearchBar,
   }: {
     showKpopfaceAd?: boolean;
+    showSearchBar?: boolean;
   }) => (
     <section
       data-testid="shared-vote-board"
       data-ads={showKpopfaceAd ? 'on' : 'off'}
+      data-search={showSearchBar ? 'on' : 'off'}
     />
   ),
 }));
@@ -104,11 +107,13 @@ describe('VoteBoardEmbedClient Kpopface signup CTA', () => {
 
     const cta = await screen.findByRole('link', { name: label });
     const board = screen.getByTestId('vote-board-embed');
+    const sharedBoard = screen.getByTestId('shared-vote-board');
 
     expect(cta.getAttribute('href')).toBe(`/${locale}/signup`);
     expect(cta.getAttribute('target')).toBe('_blank');
     expect(cta.getAttribute('rel')).toBe('noopener noreferrer');
     expect(board.getAttribute('data-ads')).toBe('off');
+    expect(sharedBoard.getAttribute('data-search')).toBe('off');
     expect(board.contains(cta)).toBe(false);
     expect(board.compareDocumentPosition(cta) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
   });
@@ -125,6 +130,7 @@ describe('VoteBoardEmbedClient Kpopface signup CTA', () => {
     await waitFor(() => {
       expect(screen.getByTestId('vote-board-embed').getAttribute('data-surface')).toBe(surface);
     });
+    expect(screen.getByTestId('shared-vote-board').getAttribute('data-search')).toBe('off');
     expect(
       screen.queryByRole('link', { name: 'Join KCL for 300 votes every day' }),
     ).toBeNull();

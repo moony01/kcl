@@ -268,6 +268,7 @@ export default function VoteBoardEmbedClient({
           collapseLabel={topTenCopy.collapse}
           surface={options.surface}
           showLeagueHeader={false}
+          showSearchBar={false}
           interactionMode="direct"
           quotaController={{ quota, useVote: consumeVote, isLoading: isQuotaLoading }}
           testId="shared-vote-board"
