@@ -40,10 +40,11 @@ interface HomeClientProps {
 
 interface EventModalCopy {
   title: string;
-  lead: string;
-  highlight: string;
-  powerVoteTitle: string;
-  powerVote: string;
+  guestLabel: string;
+  guestVotes: string;
+  memberLabel: string;
+  memberVotes: string;
+  dailyLabel: string;
   note: string;
   primaryCta: string;
   closeCta: string;
@@ -51,21 +52,23 @@ interface EventModalCopy {
 
 const EVENT_MODAL_COPY: Record<string, EventModalCopy> = {
   ko: {
-    title: '오늘 비로그인 투표권을 모두 사용했어요',
-    lead: '로그인하면 매일 더 많은 투표권으로 최애 소속사를 계속 응원할 수 있어요.',
-    highlight: '비로그인 100표 / 로그인 300표 (매일)',
-    powerVoteTitle: '파워투표',
-    powerVote: '투표하기 버튼을 길게 눌러 한 번에 최대 100표까지 투표',
+    title: '비로그인 투표권을 모두 사용했어요',
+    guestLabel: '비로그인',
+    guestVotes: '100표',
+    memberLabel: '로그인',
+    memberVotes: '300표',
+    dailyLabel: '매일',
     note: '비로그인 투표권은 UTC 자정에 다시 충전됩니다.',
     primaryCta: '로그인 / 회원가입하기',
     closeCta: '닫기',
   },
   en: {
-    title: 'You used all guest votes for today',
-    lead: 'Sign in to keep supporting your favorite company with more daily voting power.',
-    highlight: 'Guest 100 votes / Member 300 votes daily',
-    powerVoteTitle: 'Power Vote',
-    powerVote: 'Long-press Vote to cast up to 100 votes at once',
+    title: 'You used all guest votes',
+    guestLabel: 'Guest',
+    guestVotes: '100 votes',
+    memberLabel: 'Logged in',
+    memberVotes: '300 votes',
+    dailyLabel: 'daily',
     note: 'Guest votes refresh at midnight UTC.',
     primaryCta: 'Log in / Sign up',
     closeCta: 'Close',
@@ -205,17 +208,18 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         title={eventModalCopy.title}
       >
         <div className={styles.eventModalContent}>
-          <p className={styles.eventModalLead}>{eventModalCopy.lead}</p>
-          <div className={styles.eventModalBenefitCard}>
-            <ul className={styles.eventBenefitList}>
-              <li className={styles.eventBenefitItem}>
-                <p className={styles.eventModalHighlight}>{eventModalCopy.highlight}</p>
-              </li>
-              <li className={styles.eventBenefitItem}>
-                <p className={styles.eventBenefitTitle}>{eventModalCopy.powerVoteTitle}</p>
-                <p className={styles.eventModalPowerVote}>{eventModalCopy.powerVote}</p>
-              </li>
-            </ul>
+          <div className={styles.eventVoteComparison} aria-label={eventModalCopy.title}>
+            <div className={styles.eventVoteOption}>
+              <span className={styles.eventVoteLabel}>{eventModalCopy.guestLabel}</span>
+              <strong className={styles.eventVoteAmount}>{eventModalCopy.guestVotes}</strong>
+            </div>
+            <div className={`${styles.eventVoteOption} ${styles.eventVoteOptionFeatured}`}>
+              <span className={styles.eventVoteLabel}>{eventModalCopy.memberLabel}</span>
+              <strong className={styles.eventVoteAmount}>
+                {eventModalCopy.memberVotes}
+                <small>{eventModalCopy.dailyLabel}</small>
+              </strong>
+            </div>
           </div>
           <p className={styles.eventModalNote}>{eventModalCopy.note}</p>
           <div className={styles.eventModalActions}>

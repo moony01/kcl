@@ -428,78 +428,60 @@
 .eventModalContent {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   color: $color-text;
   line-height: 1.55;
   text-align: left;
   padding: 0;
 }
 
-.eventModalBenefitCard {
-  padding: 12px 0 0;
-  border-top: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.eventBenefitList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.eventVoteComparison {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
 }
 
-.eventBenefitItem {
-  margin: 0;
+.eventVoteOption {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
   padding: 0;
-
-  & + & {
-    padding-top: 10px;
-    border-top: 1px solid rgba(148, 163, 184, 0.2);
-  }
 }
 
-.eventModalEmoji {
-  font-size: 1.9rem;
-  line-height: 1;
-  margin: -2px auto 2px;
-}
-.eventModalLead {
-  margin: 0;
-  font-size: 0.94rem;
-  color: $color-text;
-  font-weight: 500;
-  letter-spacing: -0.003em;
-}
-.eventModalHighlight {
-  display: block;
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: 800;
-  line-height: 1.35;
-  color: $color-primary;
-  text-align: left;
-  letter-spacing: 0.005em;
+.eventVoteOption + .eventVoteOption {
+  padding-left: 14px;
+  border-left: 1px solid rgba(148, 163, 184, 0.24);
 }
 
-.eventBenefitTitle {
-  margin: 0;
-  font-size: 0.92rem;
-  font-weight: 800;
-  line-height: 1.35;
-  color: $color-text;
-  letter-spacing: 0.005em;
-}
-
-.eventModalPowerVote {
-  margin: 2px 0 0;
-  font-size: 0.76rem;
-  font-weight: 500;
+.eventVoteLabel {
   color: $color-text-dim;
-  line-height: 1.45;
-  opacity: 1;
-  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.eventVoteAmount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: $color-text;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.eventVoteOptionFeatured .eventVoteAmount {
+  color: $color-primary;
+}
+
+.eventVoteAmount small {
+  color: $color-text-dim;
+  font-size: 0.7rem;
+  font-weight: 700;
 }
 
 .eventModalNote {
@@ -570,20 +552,16 @@
 }
 
 @media (max-width: 420px) {
-  .eventModalLead {
-    font-size: 0.96rem;
+  .eventVoteComparison {
+    gap: 10px;
   }
 
-  .eventModalHighlight {
-    font-size: 1rem;
+  .eventVoteOption {
+    gap: 5px;
   }
 
-  .eventBenefitTitle {
-    font-size: 1rem;
-  }
-
-  .eventModalPowerVote {
-    font-size: 0.7rem;
+  .eventVoteOption + .eventVoteOption {
+    padding-left: 10px;
   }
 
   .eventPrimaryBtn {
