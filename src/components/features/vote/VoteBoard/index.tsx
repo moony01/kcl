@@ -156,6 +156,7 @@ export default function VoteBoard({
     <div
       className={classNames(layoutClassName, {
         [styles.compactEmbed]: compactTopTen,
+        [styles.directMode]: isDirectMode && !compactTopTen,
       })}
       data-surface={surface}
       data-ads={showKpopfaceAd ? 'on' : 'off'}

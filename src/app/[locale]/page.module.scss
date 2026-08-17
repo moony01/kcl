@@ -204,6 +204,22 @@
   overflow: hidden; // 스와이프 시 넘침 방지
 }
 
+// Direct voting keeps the right side open on desktop for the next board
+// surface while preserving the full-width mobile layout.
+.directMode {
+  @media (min-width: 1024px) {
+    .contentLayout {
+      justify-content: flex-start;
+    }
+
+    .leagueListSection {
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+    }
+  }
+}
+
 // 스와이프 컨테이너 (1부/2부 리그 전환)
 .swipeContainer {
   width: 100%;

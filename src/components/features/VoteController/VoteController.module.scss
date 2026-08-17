@@ -52,7 +52,10 @@
 
   .gaugeOverlay {
     border-radius: inherit;
-    background: rgba(255, 255, 255, 0.24);
+    // The direct-vote cards use a very light surface, so the legacy white
+    // overlay was effectively invisible while holding a card.
+    background: linear-gradient(90deg, rgba(111, 45, 255, 0.58), rgba(168, 85, 247, 0.78));
+    box-shadow: inset -14px 0 18px -12px rgba(255, 255, 255, 0.8);
   }
 
   .successContent,
@@ -197,7 +200,8 @@
   top: 0;
   left: 0;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(90deg, rgba(111, 45, 255, 0.58), rgba(168, 85, 247, 0.78));
+  box-shadow: inset -14px 0 18px -12px rgba(255, 255, 255, 0.8);
   transition: width 0.06s linear;
   pointer-events: none;
   z-index: 0;
