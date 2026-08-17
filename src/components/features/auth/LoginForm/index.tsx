@@ -22,6 +22,7 @@ import { resetGuestVoteQuota } from '@/lib/vote-quota';
 import {
   isDevelopmentEnvironment,
   isDevelopmentTestModeEnabled,
+  reloadDevelopmentTestPage,
   setDevelopmentTestModeEnabled,
 } from '@/lib/auth/development-test-mode';
 
@@ -120,7 +121,7 @@ function LoginFormInner() {
     const nextValue = !localTestMode;
     setDevelopmentTestModeEnabled(nextValue);
     setLocalTestMode(nextValue);
-    window.location.reload();
+    reloadDevelopmentTestPage();
   };
 
   /** 프로바이더 버튼에 "마지막 로그인" 뱃지를 표시할지 결정 */
@@ -231,7 +232,7 @@ function LoginFormInner() {
           </div>
         )}
 
-        {isDevelopment && (
+        {process.env.NODE_ENV === 'development' && isDevelopment && (
           <div className={styles.developerTools} data-testid="developer-auth-tools">
             <p className={styles.developerToolsLabel}>Development tools</p>
             <button
@@ -251,11 +252,15 @@ function LoginFormInner() {
             >
               Reset guest quota
             </button>
-            {localTestMode && (
-              <p className={styles.developerToolsHint}>
-                Local test mode is guest-only; Supabase auth is disabled.
-              </p>
-            )}
+            <p
+              className={styles.developerToolsHint}
+              data-testid="developer-test-mode-status"
+              role="status"
+            >
+              {localTestMode
+                ? 'Local test mode active: guest-only; Supabase auth is disabled.'
+                : 'Local test mode inactive: Supabase OAuth is available.'}
+            </p>
           </div>
         )}
       </div>

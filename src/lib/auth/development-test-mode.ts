@@ -35,6 +35,18 @@ export function setDevelopmentTestModeEnabled(enabled: boolean): void {
   }
 }
 
+/**
+ * Reload the current page after changing the development-only marker.
+ *
+ * Keeping the browser side effect behind this helper makes the mode toggle
+ * easy to verify without touching the production authentication path.
+ */
+export function reloadDevelopmentTestPage(): void {
+  if (!isDevelopmentEnvironment() || typeof window === 'undefined') return;
+
+  window.location.reload();
+}
+
 export function clearDevelopmentTestMode(): void {
   if (typeof window === 'undefined') return;
 

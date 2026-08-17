@@ -6,6 +6,8 @@ import { DEVELOPMENT_TEST_MODE_STORAGE_KEY } from '@/lib/auth/development-test-m
 
 const mocks = vi.hoisted(() => ({
   getSupabase: vi.fn(),
+  getSession: vi.fn(),
+  onAuthStateChange: vi.fn(),
   signOut: vi.fn(),
 }));
 
@@ -32,11 +34,17 @@ describe('AuthProvider development test mode', () => {
     vi.stubEnv('NODE_ENV', 'development');
     window.localStorage.clear();
     mocks.getSupabase.mockReset();
+    mocks.getSession.mockReset();
+    mocks.onAuthStateChange.mockReset();
     mocks.signOut.mockReset();
+    mocks.getSession.mockResolvedValue({ data: { session: null } });
+    mocks.onAuthStateChange.mockReturnValue({
+      data: { subscription: { unsubscribe: vi.fn() } },
+    });
     mocks.getSupabase.mockReturnValue({
       auth: {
-        getSession: vi.fn(),
-        onAuthStateChange: vi.fn(),
+        getSession: mocks.getSession,
+        onAuthStateChange: mocks.onAuthStateChange,
         signOut: mocks.signOut,
       },
     });
@@ -78,5 +86,22 @@ describe('AuthProvider development test mode', () => {
     expect(window.localStorage.getItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY)).toBeNull();
     expect(mocks.getSupabase).not.toHaveBeenCalled();
     expect(mocks.signOut).not.toHaveBeenCalled();
+  });
+
+  it('does not treat a stale marker as test mode in production', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    render(
+      <AuthProvider>
+        <AuthProbe />
+      </AuthProvider>,
+    );
+
+    await waitFor(() => expect(screen.getByTestId('loading').textContent).toBe('false'));
+
+    expect(mocks.getSupabase).toHaveBeenCalledTimes(1);
+    expect(mocks.getSession).toHaveBeenCalledTimes(1);
+    expect(mocks.onAuthStateChange).toHaveBeenCalledTimes(1);
   });
 });

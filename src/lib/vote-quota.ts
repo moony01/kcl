@@ -1,4 +1,5 @@
 import { VOTE_LIMITS } from '@/config/vote';
+import { isDevelopmentEnvironment } from '@/lib/auth/development-test-mode';
 
 /** localStorage key for the anonymous guest quota. */
 export const VOTE_QUOTA_STORAGE_KEY = 'kcl_vote_quota';
@@ -21,7 +22,7 @@ export function getTodayUTC(): string {
  * This function deliberately has no Supabase or server dependency.
  */
 export function resetGuestVoteQuota(): void {
-  if (process.env.NODE_ENV !== 'development' || typeof window === 'undefined') return;
+  if (!isDevelopmentEnvironment() || typeof window === 'undefined') return;
 
   const data = {
     date: getTodayUTC(),
