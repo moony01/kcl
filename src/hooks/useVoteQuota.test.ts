@@ -7,6 +7,10 @@ import {
 } from '@/lib/vote-quota';
 import { VOTE_LIMITS } from '@/config/vote';
 
+vi.mock('@/lib/api', () => ({
+  getUserVoteStats: vi.fn(),
+}));
+
 describe('guest vote quota developer reset', () => {
   beforeEach(() => {
     vi.stubEnv('NODE_ENV', 'development');
@@ -39,5 +43,40 @@ describe('guest vote quota developer reset', () => {
     resetGuestVoteQuota();
 
     expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it('updates a mounted guest quota through the refresh event', async () => {
+    const { renderHook, act } = await import('@testing-library/react');
+    const { useVoteQuota } = await import('@/hooks/useVoteQuota');
+    const { result } = renderHook(() => useVoteQuota());
+
+    expect(result.current.isLoading).toBe(false);
+    act(() => {
+      expect(result.current.useVote(3)).toBe(true);
+    });
+    expect(result.current.quota.used).toBe(3);
+
+    act(() => {
+      resetGuestVoteQuota();
+    });
+
+    expect(result.current.quota.used).toBe(0);
+    expect(result.current.quota.remaining).toBe(VOTE_LIMITS.GUEST_DAILY);
+  });
+
+  it('is a no-op in production even when a local quota exists', () => {
+    window.localStorage.setItem(
+      VOTE_QUOTA_STORAGE_KEY,
+      JSON.stringify({ date: getTodayUTC(), used: 7, max: VOTE_LIMITS.GUEST_DAILY }),
+    );
+    const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
+    vi.stubEnv('NODE_ENV', 'production');
+
+    resetGuestVoteQuota();
+
+    expect(JSON.parse(window.localStorage.getItem(VOTE_QUOTA_STORAGE_KEY) ?? '')).toMatchObject({
+      used: 7,
+    });
+    expect(dispatchSpy).not.toHaveBeenCalledWith(expect.any(Event));
   });
 });
