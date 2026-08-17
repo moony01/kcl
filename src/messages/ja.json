@@ -267,6 +267,7 @@
       "vote": "投票する",
       "exhausted": "投票完了",
       "hold_hint": "長押しでパワー投票 (最大x{max})",
+      "card_hold_hint": "長押しして投票",
       "pro_hint": "✨ Proなら300票 · 5倍パワー",
       "pro_hint_cta": "Fan Power Passを見る"
     },

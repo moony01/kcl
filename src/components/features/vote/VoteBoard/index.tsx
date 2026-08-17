@@ -245,6 +245,19 @@ export default function VoteBoard({
           )}
         </section>
 
+        {isDirectMode && !compactTopTen && (
+          <aside className={styles.communityColumn} aria-hidden="true">
+            <button
+              type="button"
+              className={styles.communityButton}
+              data-testid="community-button-placeholder"
+              hidden
+            >
+              커뮤니티로 이동하기
+            </button>
+          </aside>
+        )}
+
         {!isDirectMode && (
           <aside id={panelId} className={styles.panelColumn}>
             <StickyPanel isVisible title="Battle Station">

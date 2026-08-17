@@ -267,6 +267,7 @@
       "vote": "Voter",
       "exhausted": "Voté",
       "hold_hint": "Maintenez pour Vote Puissant (x{max})",
+      "card_hold_hint": "Maintenez pour voter",
       "pro_hint": "✨ Pro a 300 votes · 5x plus fort",
       "pro_hint_cta": "Voir Fan Power Pass"
     },

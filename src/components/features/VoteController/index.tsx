@@ -525,6 +525,10 @@ export default function VoteController({
                   : company.image,
           }}
         >
+          {renderMode === 'card' && !showSuccess && !isPressing && (
+            <span className={styles.cardVoteHint}>{t('button.card_hold_hint')}</span>
+          )}
+
           {/* 파워투표 게이지 오버레이 */}
           {isPressing && powerLevel > 0 && (
             <div

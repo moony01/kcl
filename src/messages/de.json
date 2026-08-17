@@ -267,6 +267,7 @@
       "vote": "Abstimmen",
       "exhausted": "Abgestimmt",
       "hold_hint": "Halten für Power-Abstimmung (x{max})",
+      "card_hold_hint": "Zum Abstimmen gedrückt halten",
       "pro_hint": "✨ Pro hat 300 Stimmen · 5x stärker",
       "pro_hint_cta": "Fan Power Pass ansehen"
     },

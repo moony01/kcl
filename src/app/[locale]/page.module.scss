@@ -60,9 +60,15 @@
   align-items: center;
   justify-content: flex-end;
   flex-wrap: nowrap;
-  gap: 6px;
+  gap: 5px;
   min-width: 0;
   margin-left: auto;
+  padding: 3px;
+  border: 1px solid rgba($color-primary, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 4px 16px rgba(45, 55, 120, 0.08);
+  backdrop-filter: blur(12px);
 }
 
 .todayVotes,
@@ -76,10 +82,11 @@
 }
 
 .todayVotes {
-  padding: 4px 9px;
-  border: 1px solid rgba($color-secondary, 0.28);
+  padding: 5px 10px;
+  border: 1px solid rgba($color-secondary, 0.34);
+  background: rgba($color-secondary, 0.08);
   color: $color-secondary;
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
@@ -91,10 +98,11 @@
   width: 5.25rem;
   gap: 4px;
   justify-content: center;
-  padding: 4px 8px;
-  border: 1px solid rgba($color-text, 0.12);
+  padding: 5px 8px;
+  border: 1px solid rgba($color-text, 0.14);
+  background: rgba($color-text, 0.035);
   color: $color-text-dim;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -119,12 +127,12 @@
 }
 
 .seasonDday {
-  padding: 4px 9px;
-  border: 1px solid rgba($color-primary, 0.26);
-  background: rgba($color-primary, 0.08);
+  padding: 5px 10px;
+  border: 1px solid rgba($color-primary, 0.34);
+  background: rgba($color-primary, 0.12);
   color: $color-primary;
   font-family: $font-display;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
@@ -133,6 +141,18 @@
   border-color: rgba($color-danger, 0.4);
   background: rgba($color-danger, 0.1);
   color: $color-danger;
+}
+
+:global(:root[data-theme='dark']) {
+  .homeHeaderMeta {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(20, 20, 24, 0.78);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.24);
+  }
+
+  .refreshIndicator {
+    background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 @media (max-width: 390px) {
@@ -217,7 +237,21 @@
       width: 50%;
       max-width: 50%;
     }
+
+    .communityColumn {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+    }
   }
+}
+
+.communityColumn {
+  display: none;
+}
+
+.communityButton {
+  display: none;
 }
 
 // 스와이프 컨테이너 (1부/2부 리그 전환)

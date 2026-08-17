@@ -267,6 +267,7 @@
       "vote": "투표하기",
       "exhausted": "투표 완료",
       "hold_hint": "꾹 누르면 파워투표 (최대 x{max})",
+      "card_hold_hint": "길게 눌러 투표하기",
       "pro_hint": "✨ Pro면 300표 · 5배 더 강하게",
       "pro_hint_cta": "Fan Power Pass 보기"
     },
