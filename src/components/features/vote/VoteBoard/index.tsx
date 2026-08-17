@@ -1,16 +1,231 @@
+'use client';
+
+import { useMemo } from 'react';
+import type { ComponentType, ReactNode } from 'react';
+import classNames from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
+import type { CompanyType } from '@/lib/mock-data';
+import type { CompanyRanking } from '@/types/league';
+import StickyPanel from '@/components/ui/StickyPanel';
+import SearchBar from '@/components/ui/SearchBar';
+import PremierLeague from '@/components/features/league/PremierLeague';
+import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
+import { LeagueHeader } from '@/components/features/league/LeagueHeader';
+import type { VotePolicyAdapter } from '@/components/features/VoteController/votePolicy';
+import styles from '@/app/[locale]/page.module.scss';
+
+export interface VoteControllerRenderProps {
+  company: CompanyType | null;
+  selectedArtist?: string;
+  autoSelectedSubLabelId?: string | null;
+  onVoteSuccess?: (companyId: string) => void;
+  onGuestQuotaExhausted?: () => void;
+  votePolicy?: VotePolicyAdapter;
+}
+
+export interface BottomSheetRenderProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+  heightRatio?: number;
+}
+
+export interface VoteBoardProps {
+  premierLeague: CompanyRanking[];
+  allCompanies: CompanyRanking[];
+  selectedCompanyId: string | null;
+  selectedCompany: CompanyType | null;
+  selectedSubLabelId?: string | null;
+  selectedArtistName?: string | null;
+  isExpanded: boolean;
+  isSheetOpen: boolean;
+  isMobile: boolean;
+  onVote: (companyId: string, artistName?: string | null) => void;
+  onSearchSelect?: (companyId: string, artistName?: string) => void;
+  onVoteSuccess: (companyId?: string) => void;
+  onGuestQuotaExhausted?: () => void;
+  onToggleExpand: () => void;
+  onSheetClose: () => void;
+  voteControllerComponent: ComponentType<VoteControllerRenderProps>;
+  bottomSheetComponent: ComponentType<BottomSheetRenderProps>;
+  votePolicy?: VotePolicyAdapter;
+  showKpopfaceAd?: boolean;
+  /** Kpopface keeps its compact TOP 4 + “Show top 10” interaction. */
+  compactTopTen?: boolean;
+  expandLabel?: string;
+  collapseLabel?: string;
+  panelId?: string;
+  testId?: string;
+  surface?: string;
+  /** standalone embed shell or an existing page shell (empty string) */
+  layoutClassName?: string;
+  /** The current home shell owns the stable season/quota header. */
+  showLeagueHeader?: boolean;
+  /** Search remains available to legacy embed callers, not on the home surface. */
+  showSearchBar?: boolean;
+}
+
 /**
- * Canonical VoteBoard entrypoint.
+ * Legacy KCL vote board structure shared by the home and embed surfaces.
  *
- * The home company-card board is the product source of truth. Keep this
- * import path as a compatibility boundary for iframe and partner callers, but
- * do not maintain a second ranking/selection implementation here.
+ * Keep selection separate from voting: a ranking card selects a company, then
+ * VoteController owns the one-vote/long-press contract inside the desktop
+ * StickyPanel or mobile BottomSheet.
  */
-export {
-  default,
-  HOME_DIRECT_VOTE_UNIT,
-} from '@/components/features/home/HomeCompanyList';
-export type {
-  HomeCompanyListProps as VoteBoardProps,
-  HomeVoteState,
-  HomeVoteStatus,
-} from '@/components/features/home/HomeCompanyList';
+export default function VoteBoard({
+  premierLeague,
+  allCompanies,
+  selectedCompanyId,
+  selectedCompany,
+  selectedSubLabelId,
+  selectedArtistName,
+  isExpanded,
+  isSheetOpen,
+  isMobile,
+  onVote,
+  onSearchSelect,
+  onVoteSuccess,
+  onGuestQuotaExhausted,
+  onToggleExpand,
+  onSheetClose,
+  voteControllerComponent: VoteController,
+  bottomSheetComponent: BottomSheet,
+  votePolicy,
+  showKpopfaceAd = true,
+  compactTopTen = false,
+  expandLabel,
+  collapseLabel,
+  panelId,
+  testId,
+  surface,
+  layoutClassName,
+  showLeagueHeader = true,
+  showSearchBar = true,
+}: VoteBoardProps) {
+  const companiesBelow11 = useMemo(() => allCompanies.slice(10), [allCompanies]);
+  const companiesToReveal = compactTopTen ? [] : companiesBelow11;
+  const displayedPremierLeague = compactTopTen && !isExpanded
+    ? premierLeague.slice(0, 4)
+    : premierLeague;
+  const shouldShowExpansion = compactTopTen
+    ? premierLeague.length > 4
+    : companiesBelow11.length > 0;
+  const handleSearchSelect = onSearchSelect ?? onVote;
+  const handleGuestQuotaExhausted = onGuestQuotaExhausted ?? onSheetClose;
+
+  return (
+    <div
+      className={classNames(layoutClassName, {
+        [styles.compactEmbed]: compactTopTen,
+      })}
+      data-surface={surface}
+      data-ads={showKpopfaceAd ? 'on' : 'off'}
+      data-testid={testId}
+    >
+      {showLeagueHeader && (
+        <div className={styles.leagueHeaderSection}>
+          <LeagueHeader />
+        </div>
+      )}
+
+      {showSearchBar && (
+        <div className={styles.searchSection}>
+          <SearchBar onSelect={handleSearchSelect} />
+        </div>
+      )}
+
+      <div className={styles.contentLayout}>
+        <section className={styles.leagueListSection}>
+          <PremierLeague
+            companies={displayedPremierLeague}
+            onVote={onVote}
+            selectedCompanyId={selectedCompanyId}
+            showKpopfaceAd={showKpopfaceAd}
+            compact={compactTopTen}
+          />
+
+          {shouldShowExpansion && (
+            <div className={styles.expandSection}>
+              <AnimatePresence initial={false}>
+                {isExpanded && companiesToReveal.length > 0 && (
+                  <motion.div
+                    key="below11"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                    className={styles.expandedList}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    {companiesToReveal.map((company) => (
+                      <LeagueRankingItem
+                        key={company.companyId}
+                        company={company}
+                        onVote={onVote}
+                        displayRank={company.rank}
+                        isSelected={selectedCompanyId === company.companyId}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <button
+                type="button"
+                className={styles.expandToggleBtn}
+                onClick={onToggleExpand}
+                aria-expanded={isExpanded}
+              >
+                <span>
+                  {isExpanded
+                    ? (collapseLabel || 'Collapse')
+                    : (expandLabel || (compactTopTen ? 'Show top 10' : 'Show more'))}
+                </span>
+                <motion.svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  animate={{ rotate: isExpanded ? 180 : 0 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </motion.svg>
+              </button>
+            </div>
+          )}
+        </section>
+
+        <aside id={panelId} className={styles.panelColumn}>
+          <StickyPanel isVisible title="Battle Station">
+            <VoteController
+              company={selectedCompany}
+              onVoteSuccess={onVoteSuccess}
+              onGuestQuotaExhausted={handleGuestQuotaExhausted}
+              autoSelectedSubLabelId={selectedSubLabelId}
+              selectedArtist={selectedArtistName || undefined}
+              votePolicy={votePolicy}
+            />
+          </StickyPanel>
+        </aside>
+      </div>
+
+      <BottomSheet isOpen={isSheetOpen && isMobile} onClose={onSheetClose} heightRatio={0.55}>
+        <VoteController
+          company={selectedCompany}
+          onVoteSuccess={onVoteSuccess}
+          onGuestQuotaExhausted={handleGuestQuotaExhausted}
+          autoSelectedSubLabelId={selectedSubLabelId}
+          selectedArtist={selectedArtistName || undefined}
+          votePolicy={votePolicy}
+        />
+      </BottomSheet>
+    </div>
+  );
+}
