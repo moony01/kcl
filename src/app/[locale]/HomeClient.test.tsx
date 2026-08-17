@@ -13,6 +13,8 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('next-intl', () => ({
   useLocale: () => 'ko',
+  useTranslations: () => (_key: string, values?: { max?: number }) =>
+    `* 카드를 길게 누르고 ${values?.max ?? ''}표 투표하기`,
 }));
 
 vi.mock('next/dynamic', async () => {
@@ -147,6 +149,9 @@ describe('HomeClient legacy vote board surface', () => {
     render(<HomeClient />);
 
     expect(screen.getByTestId('home-season-label').textContent).toBe('2026년 08시즌');
+    expect(screen.getByTestId('home-vote-helper').textContent).toBe(
+      '* 카드를 길게 누르고 100표 투표하기',
+    );
     expect(screen.getByTestId('home-today-votes').textContent).toBe('오늘 100표 남음');
     expect(screen.getByTestId('home-refresh-indicator').textContent).toBe('20초');
     expect(screen.getByTestId('home-season-dday').textContent).toBe('D-15');

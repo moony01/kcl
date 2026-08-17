@@ -72,9 +72,9 @@ vi.mock('@/components/features/league/PremierLeague', () => ({
           data-testid={`ranking-card-${company.companyId}`}
           onClick={onVote ? () => onVote(company.companyId) : undefined}
         >
-          <button type="button">
+          <span data-testid={`ranking-label-${company.companyId}`}>
             Rank {company.nameEn}
-          </button>
+          </span>
           {renderDirectVote?.(company)}
         </article>
       ))}
@@ -123,16 +123,19 @@ function VoteControllerMock({
   autoSelectedSubLabelId,
   onVoteSuccess,
   renderMode,
+  voteSurfaceDescriptionId,
 }: VoteControllerRenderProps) {
   if (renderMode === 'card') {
     return (
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         data-testid={`direct-vote-${company?.id}`}
+        aria-describedby={voteSurfaceDescriptionId}
         onClick={() => company && onVoteSuccess?.(company.id)}
       >
-        Vote {company?.name.en}
-      </button>
+        <span data-testid={`card-body-${company?.id}`}>Vote {company?.name.en}</span>
+      </div>
     );
   }
 
@@ -188,7 +191,7 @@ describe('legacy VoteBoard selection surface', () => {
   it('selects a ranking card and displays the selected company in desktop StickyPanel', () => {
     const { onVote, rerender } = renderBoard();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Rank Company 1' }));
+    fireEvent.click(screen.getByTestId('ranking-label-company-1'));
     expect(onVote).toHaveBeenCalledWith('company-1');
 
     rerender(
@@ -230,17 +233,23 @@ describe('legacy VoteBoard selection surface', () => {
     );
   });
 
-  it('removes both selection panels and renders direct vote actions on cards', () => {
-    const { onVote, onVoteSuccess } = renderBoard({ interactionMode: 'direct' });
+  it('removes both selection panels and lets a card body click submit through the card surface', () => {
+    const { onVote, onVoteSuccess } = renderBoard({
+      interactionMode: 'direct',
+      voteSurfaceDescriptionId: 'home-vote-helper',
+    });
 
     expect(screen.queryByTestId('sticky-panel')).toBeNull();
     expect(screen.queryByTestId('bottom-sheet')).toBeNull();
     expect(screen.getAllByTestId(/direct-vote-company-/)).toHaveLength(4);
 
-    fireEvent.click(screen.getByTestId('ranking-card-company-1'));
+    const card = screen.getByTestId('ranking-card-company-1');
+    expect(card.querySelectorAll('button')).toHaveLength(0);
+    expect(screen.getByTestId('direct-vote-company-1').getAttribute('aria-describedby')).toBe(
+      'home-vote-helper',
+    );
+    fireEvent.click(screen.getByTestId('card-body-company-1'));
     expect(onVote).not.toHaveBeenCalled();
-
-    fireEvent.click(screen.getByTestId('direct-vote-company-1'));
     expect(onVoteSuccess).toHaveBeenCalledWith('company-1');
   });
 });

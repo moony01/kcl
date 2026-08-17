@@ -16,7 +16,9 @@ import { useLeagueData } from '@/hooks/useLeagueData';
 import { useAuth } from '@/hooks/useAuth';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
-import HomeBoardHeader from '@/components/features/home/HomeBoardHeader';
+import HomeBoardHeader, {
+  HOME_VOTE_HELPER_ID,
+} from '@/components/features/home/HomeBoardHeader';
 import VoteBoard from '@/components/features/vote/VoteBoard';
 import styles from './page.module.scss';
 
@@ -167,6 +169,8 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         quotaRemaining={quota.remaining}
         countdown={countdown}
         isRefreshing={isRefreshing}
+        showVoteHelper
+        voteHelperMax={100}
       />
 
       <VoteBoard
@@ -191,6 +195,7 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
         showLeagueHeader={false}
         showSearchBar={false}
         interactionMode="direct"
+        voteSurfaceDescriptionId={HOME_VOTE_HELPER_ID}
         quotaController={{ quota, useVote: consumeVote, isLoading: isQuotaLoading }}
       />
 

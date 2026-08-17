@@ -2,6 +2,10 @@ import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import VoteBoardEmbedClient, { parseVoteBoardEmbedOptions } from './VoteBoardEmbedClient';
 
+vi.mock('next-intl', () => ({
+  useTranslations: () => () => '',
+}));
+
 vi.mock('@/hooks/useLeagueData', () => ({
   useLeagueData: () => ({
     allCompanies: [],

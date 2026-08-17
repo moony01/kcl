@@ -23,7 +23,7 @@ vi.mock('next-intl', () => ({
       sub_label_all: 'All labels',
       'button.vote': 'Vote',
       'button.exhausted': 'No votes left',
-      'button.card_power_hint': 'Long-press the button to cast up to {max} votes at once',
+      card_power_hint: '* Long-press the card to vote {max} times',
     };
     return (translations[key] ?? values?.defaultValue ?? key).replace(
       '{max}',
@@ -263,11 +263,11 @@ describe('VoteController artist selection persistence', () => {
     });
   });
 
-  it('short tap on the dedicated card button keeps the legacy one-vote contract', async () => {
+  it('short tap on the full card vote surface keeps the legacy one-vote contract', async () => {
     render(<VoteController company={smCompany} renderMode="card" />);
-    const voteButton = screen.getByTestId('direct-vote-company-sm');
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
 
-    fireEvent.click(voteButton);
+    fireEvent.click(voteSurface);
 
     await waitFor(() => {
       expect(mocks.mockSubmitVote).toHaveBeenCalledWith(
@@ -276,36 +276,55 @@ describe('VoteController artist selection persistence', () => {
     });
   });
 
-  it('after the 400ms hold threshold, the dedicated card button charges the legacy power gauge up to 100', async () => {
+  it('after the 400ms hold threshold, the card vote surface charges the legacy power gauge up to 100', async () => {
     vi.useFakeTimers();
     render(<VoteController company={smCompany} renderMode="card" />);
-    const voteButton = screen.getByTestId('direct-vote-company-sm');
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
 
     await act(async () => {
-      fireEvent.pointerDown(voteButton, { pointerId: 1 });
+      fireEvent.pointerDown(voteSurface, { pointerId: 1 });
       vi.advanceTimersByTime(3_600);
     });
 
     expect(screen.getByText('x100')).toBeDefined();
     await act(async () => {
-      fireEvent.pointerUp(voteButton, { pointerId: 1 });
+      fireEvent.pointerUp(voteSurface, { pointerId: 1 });
     });
   });
 
-  it('keeps the helper copy outside the vote button and exposes it to assistive technology', () => {
-    render(<VoteController company={smCompany} renderMode="card" />);
+  it('keeps the card label decorative, avoids nested buttons, and connects the shared helper description', async () => {
+    render(
+      <>
+        <span id="home-vote-helper" data-testid="home-vote-helper" style={{ pointerEvents: 'none' }}>
+          * Long-press the card to vote 100 times
+        </span>
+        <VoteController
+          company={smCompany}
+          renderMode="card"
+          voteSurfaceDescriptionId="home-vote-helper"
+        />
+      </>,
+    );
 
-    const voteButton = screen.getByTestId('direct-vote-company-sm');
-    const helper = screen.getByTestId('direct-vote-hint-company-sm');
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
+    const label = screen.getByTestId('direct-vote-label-company-sm');
+    const helper = screen.getByTestId('home-vote-helper');
 
-    expect(helper.textContent).toBe('Long-press the button to cast up to 100 votes at once');
-    expect(voteButton.contains(helper)).toBe(false);
-    expect(voteButton.getAttribute('aria-label')).toBe('SM Vote');
-    expect(voteButton.getAttribute('aria-describedby')).toBe(helper.id);
-    expect(voteButton.querySelector('svg')).not.toBeNull();
+    expect(voteSurface.tagName).toBe('DIV');
+    expect(voteSurface.querySelectorAll('button')).toHaveLength(0);
+    expect(voteSurface.getAttribute('aria-label')).toBe('SM Vote');
+    expect(voteSurface.getAttribute('aria-describedby')).toBe(helper.id);
+    expect(label.textContent).toBe('Vote→');
+    expect(label.style.pointerEvents).toBe('none');
+    expect(helper.style.pointerEvents).toBe('none');
 
     fireEvent.click(helper);
     expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
+
+    fireEvent.click(label);
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledTimes(1);
+    });
   });
 
   it('keeps an exhausted direct-vote card visually unchanged and non-interactive', () => {
@@ -326,8 +345,10 @@ describe('VoteController artist selection persistence', () => {
 
     render(<VoteController company={smCompany} renderMode="card" />);
 
-    const voteButton = screen.getByRole('button', { name: 'SM Vote' });
-    expect((voteButton as HTMLButtonElement).disabled).toBe(true);
+    const voteSurface = screen.getByRole('button', { name: 'SM Vote' });
+    expect(voteSurface.tagName).toBe('DIV');
+    expect(voteSurface.getAttribute('aria-disabled')).toBe('true');
+    expect(voteSurface.querySelectorAll('button')).toHaveLength(0);
     expect(screen.queryByText('No votes left')).toBeNull();
     expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
   });

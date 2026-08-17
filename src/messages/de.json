@@ -257,6 +257,7 @@
     "success": "Abstimmung erfolgreich!",
     "error": "Abstimmung fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "daily_limit": "Sie haben Ihr tägliches Abstimmungslimit erreicht.",
+    "card_power_hint": "* Halte die Karte gedrückt, um {max} Stimmen abzugeben",
     "quota": {
       "title": "Heutige Stimmen",
       "remaining": "{remaining}/{max}",
@@ -268,7 +269,6 @@
       "exhausted": "Abgestimmt",
       "hold_hint": "Halten für Power-Abstimmung (x{max})",
       "card_hold_hint": "Zum Abstimmen gedrückt halten",
-      "card_power_hint": "Halte die Taste gedrückt, um bis zu {max} Stimmen auf einmal abzugeben",
       "pro_hint": "✨ Pro hat 300 Stimmen · 5x stärker",
       "pro_hint_cta": "Fan Power Pass ansehen"
     },

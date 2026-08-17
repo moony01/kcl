@@ -1,8 +1,11 @@
 'use client';
 
 import { Loader2, RefreshCw } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import type { SeasonInfo } from '@/types/league';
 import styles from '@/app/[locale]/page.module.scss';
+
+export const HOME_VOTE_HELPER_ID = 'home-vote-helper';
 
 export function formatHomeSeasonLabel(year: number, month: number): string {
   return `${year}년 ${String(month).padStart(2, '0')}시즌`;
@@ -20,6 +23,9 @@ export interface HomeBoardHeaderProps {
   quotaRemaining: number;
   countdown: number;
   isRefreshing: boolean;
+  /** Show the home-only card voting guidance below the season label. */
+  showVoteHelper?: boolean;
+  voteHelperMax?: number;
 }
 
 /** The small context row shared by the home board and every board embed. */
@@ -28,12 +34,31 @@ export default function HomeBoardHeader({
   quotaRemaining,
   countdown,
   isRefreshing,
+  showVoteHelper = false,
+  voteHelperMax = 100,
 }: HomeBoardHeaderProps) {
+  const t = useTranslations('Vote');
+
   return (
     <header className={styles.homeHeader} aria-label="현재 시즌">
-      <span className={styles.seasonLabel} data-testid="home-season-label">
-        {formatHomeSeasonLabel(season.year, season.month)}
-      </span>
+      <div className={styles.seasonContext}>
+        <span className={styles.seasonLabel} data-testid="home-season-label">
+          {formatHomeSeasonLabel(season.year, season.month)}
+        </span>
+        {showVoteHelper && (
+          <span
+            id={HOME_VOTE_HELPER_ID}
+            className={styles.homeVoteHelper}
+            data-testid={HOME_VOTE_HELPER_ID}
+            style={{ pointerEvents: 'none' }}
+          >
+            {t('card_power_hint', {
+              max: voteHelperMax,
+              defaultValue: `* Long-press the card to vote ${voteHelperMax} times`,
+            })}
+          </span>
+        )}
+      </div>
 
       <div className={styles.homeHeaderMeta}>
         <span

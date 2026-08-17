@@ -7,7 +7,7 @@
  * 기능:
  * - 선택된 소속사 정보 표시
  * - CompactSelect 기반 서브레이블/아티스트 선택 UI
- * - 대형 투표 버튼 + 파티클 효과
+ * - 패널 투표 버튼 또는 카드 전체 투표 surface + 파티클 효과
  * - 현재 화력 점수 표시
  * - 투표권 상태 표시 (VoteQuotaBar)
  *
@@ -20,7 +20,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Flame, Check, Timer, ArrowRight } from 'lucide-react';
+import { Zap, Flame, Check, Timer } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
@@ -63,8 +63,10 @@ export interface VoteControllerProps {
   onGuestQuotaExhausted?: () => void;
   /** 표시 변형 - PC: full, Mobile: compact */
   variant?: 'full' | 'compact';
-  /** 패널형 컨트롤러 또는 카드 표면에 얹는 직접투표 액션 */
+  /** 패널형 컨트롤러 또는 카드 전체를 덮는 직접투표 surface */
   renderMode?: 'panel' | 'card';
+  /** Accessible description element for a card vote surface, when the host renders one. */
+  voteSurfaceDescriptionId?: string;
   /** 여러 카드가 하나의 quota 상태를 공유할 때 주입하는 quota 컨트롤러 */
   quotaController?: Pick<UseVoteQuotaReturn, 'quota' | 'useVote' | 'isLoading'>;
   /** Surface-specific quota/source adapter; omitted for the normal KCL web policy. */
@@ -81,6 +83,7 @@ export default function VoteController({
   onGuestQuotaExhausted,
   variant = 'full',
   renderMode = 'panel',
+  voteSurfaceDescriptionId,
   quotaController,
   votePolicy = WEB_VOTE_POLICY,
 }: VoteControllerProps) {
@@ -413,7 +416,7 @@ export default function VoteController({
   }, [clearTimers, executeVote]);
 
   /**
-   * 포인터가 버튼을 벗어나면 취소
+   * 포인터가 투표 surface를 벗어나면 취소
    */
   const handlePointerLeave = useCallback(() => {
     if (isPressingRef.current) {
@@ -446,7 +449,6 @@ export default function VoteController({
 
   /** 파워투표 게이지 진행률 (%) */
   const gaugeFill = (powerLevel / maxPowerLevel) * 100;
-  const cardVoteHintId = `direct-vote-hint-${company.id}`;
 
   return (
     <div className={classNames(styles.voteController, {
@@ -497,115 +499,155 @@ export default function VoteController({
         />
       </div>}
 
-      {/* T1.85: 대형 투표 버튼 + 롱프레스 파워투표 게이지 */}
+      {/* T1.85: 투표 surface/버튼 + 롱프레스 파워투표 게이지 */}
       <div className={styles.voteButtonWrapper}>
-        <motion.button
-          type="button"
-          className={classNames(styles.voteButton, {
-            [styles.disabled]: !canVote,
-            [styles.pressing]: isPressing && powerLevel > 0,
-          })}
-          disabled={isLoading || (renderMode === 'card' && !canVote)}
-          onClick={handleVoteButtonClick}
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-          onPointerLeave={handlePointerLeave}
-          onPointerCancel={handlePointerLeave}
-          onContextMenu={(e) => e.preventDefault()}
-          whileHover={canVote && !isPressing ? { scale: 1.02 } : {}}
-          aria-label={renderMode === 'card' ? `${company.name.en} ${t('button.vote')}` : undefined}
-          aria-describedby={renderMode === 'card' ? cardVoteHintId : undefined}
-          data-testid={renderMode === 'card' ? `direct-vote-${company.id}` : undefined}
-          style={{
-            background: renderMode === 'card'
-              ? showSuccess
-                ? 'var(--color-secondary)'
-                : canVote
-                  ? 'var(--color-primary)'
-                  : 'var(--color-text-dim)'
-              : showSuccess
+        {renderMode === 'card' ? (
+          <motion.div
+            className={styles.voteSurface}
+            role="button"
+            tabIndex={0}
+            aria-disabled={!canVote}
+            aria-label={`${company.name.en} ${t('button.vote')}`}
+            aria-describedby={voteSurfaceDescriptionId}
+            data-testid={`direct-vote-${company.id}`}
+            onClick={canVote ? handleVoteButtonClick : undefined}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerLeave={handlePointerLeave}
+            onPointerCancel={handlePointerLeave}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                if (canVote) handleVoteButtonClick();
+              }
+            }}
+            onContextMenu={(event) => event.preventDefault()}
+            style={{
+              background: showSuccess ? 'var(--color-secondary)' : 'transparent',
+            }}
+          >
+            {!showSuccess && !isPressing && (
+              <span
+                className={styles.cardVoteAction}
+                data-testid={`direct-vote-label-${company.id}`}
+                aria-hidden="true"
+                style={{ pointerEvents: 'none' }}
+              >
+                <span>{t('button.vote')}</span>
+                <span aria-hidden="true">→</span>
+              </span>
+            )}
+
+            {/* 파워투표 게이지 오버레이 */}
+            {isPressing && powerLevel > 0 && (
+              <div
+                className={styles.gaugeOverlay}
+                style={{ width: `${gaugeFill}%` }}
+              />
+            )}
+
+            <AnimatePresence mode="wait">
+              {showSuccess ? (
+                <motion.div
+                  key="success"
+                  className={styles.successContent}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                >
+                  <Check size={32} strokeWidth={3} />
+                  <span>+{lastScore}</span>
+                </motion.div>
+              ) : isPressing && powerLevel > 0 ? (
+                <motion.div
+                  key="power"
+                  className={styles.powerContent}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                >
+                  <Flame size={28} />
+                  <span className={styles.powerNumber}>x{powerLevel}</span>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </motion.div>
+        ) : (
+          <motion.button
+            type="button"
+            className={classNames(styles.voteButton, {
+              [styles.disabled]: !canVote,
+              [styles.pressing]: isPressing && powerLevel > 0,
+            })}
+            disabled={isLoading}
+            onClick={handleVoteButtonClick}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerLeave={handlePointerLeave}
+            onPointerCancel={handlePointerLeave}
+            onContextMenu={(e) => e.preventDefault()}
+            whileHover={canVote && !isPressing ? { scale: 1.02 } : {}}
+            style={{
+              background: showSuccess
                 ? 'var(--color-secondary)'
                 : !canVote
                   ? 'var(--color-text-dim)'
                   : company.image,
-          }}
-        >
-          {renderMode === 'card' && !showSuccess && !isPressing && (
-            <span className={styles.cardVoteAction} aria-hidden="true">
-              <span>{t('button.vote')}</span>
-              <ArrowRight size={18} strokeWidth={2.5} />
-            </span>
-          )}
-
-          {/* 파워투표 게이지 오버레이 */}
-          {isPressing && powerLevel > 0 && (
-            <div
-              className={styles.gaugeOverlay}
-              style={{ width: `${gaugeFill}%` }}
-            />
-          )}
-
-          <AnimatePresence mode="wait">
-            {showSuccess ? (
-              <motion.div
-                key="success"
-                className={styles.successContent}
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.5, opacity: 0 }}
-              >
-                <Check size={32} strokeWidth={3} />
-                <span>+{lastScore}</span>
-              </motion.div>
-            ) : isPressing && powerLevel > 0 ? (
-              <motion.div
-                key="power"
-                className={styles.powerContent}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-              >
-                <Flame size={28} />
-                <span className={styles.powerNumber}>x{powerLevel}</span>
-              </motion.div>
-            ) : !canVote && renderMode === 'card' ? null : !canVote ? (
-              <motion.div
-                key="exhausted"
-                className={styles.exhaustedContent}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <Timer size={28} />
-                <span>{t('button.exhausted')}</span>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="vote"
-                className={styles.voteContent}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <div className={styles.voteMain}>
+            }}
+          >
+            <AnimatePresence mode="wait">
+              {showSuccess ? (
+                <motion.div
+                  key="success"
+                  className={styles.successContent}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                >
+                  <Check size={32} strokeWidth={3} />
+                  <span>+{lastScore}</span>
+                </motion.div>
+              ) : isPressing && powerLevel > 0 ? (
+                <motion.div
+                  key="power"
+                  className={styles.powerContent}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                >
                   <Flame size={28} />
-                  <span>{isLoading ? 'Sending...' : t('button.vote')}</span>
-                </div>
-                {canPowerVote && (
-                  <span className={styles.voteSubHint}>
-                    {t('button.hold_hint', { max: maxPowerLevel, defaultValue: `Hold for Power Vote (x${maxPowerLevel})` })}
-                  </span>
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.button>
-        {renderMode === 'card' && (
-          <span id={cardVoteHintId} className={styles.cardVoteHelper} data-testid={cardVoteHintId}>
-            {t('button.card_power_hint', {
-              max: votePolicy.maxPowerLevel,
-              defaultValue: `Long-press the button to cast up to ${votePolicy.maxPowerLevel} votes at once`,
-            })}
-          </span>
+                  <span className={styles.powerNumber}>x{powerLevel}</span>
+                </motion.div>
+              ) : !canVote ? (
+                <motion.div
+                  key="exhausted"
+                  className={styles.exhaustedContent}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Timer size={28} />
+                  <span>{t('button.exhausted')}</span>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="vote"
+                  className={styles.voteContent}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <div className={styles.voteMain}>
+                    <Flame size={28} />
+                    <span>{isLoading ? 'Sending...' : t('button.vote')}</span>
+                  </div>
+                  {canPowerVote && (
+                    <span className={styles.voteSubHint}>
+                      {t('button.hold_hint', { max: maxPowerLevel, defaultValue: `Hold for Power Vote (x${maxPowerLevel})` })}
+                    </span>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         )}
       </div>
       {/* 투표권 상태 바 */}

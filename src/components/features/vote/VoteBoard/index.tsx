@@ -19,6 +19,7 @@ export interface VoteControllerRenderProps {
   company: CompanyType | null;
   selectedArtist?: string;
   autoSelectedSubLabelId?: string | null;
+  voteSurfaceDescriptionId?: string;
   onVoteSuccess?: (companyId: string) => void;
   onGuestQuotaExhausted?: () => void;
   renderMode?: 'panel' | 'card';
@@ -40,6 +41,7 @@ export interface VoteBoardProps {
   selectedCompany: CompanyType | null;
   selectedSubLabelId?: string | null;
   selectedArtistName?: string | null;
+  voteSurfaceDescriptionId?: string;
   isExpanded: boolean;
   isSheetOpen: boolean;
   isMobile: boolean;
@@ -66,7 +68,7 @@ export interface VoteBoardProps {
   showLeagueHeader?: boolean;
   /** Search remains available to legacy embed callers, not on the home surface. */
   showSearchBar?: boolean;
-  /** Direct card voting removes the selection panel and overlays the legacy vote action on cards. */
+  /** Direct card voting removes the selection panel and renders a full-card vote surface. */
   interactionMode?: 'selection' | 'direct';
   /** Shared quota state prevents one quota fetch per visible company card. */
   quotaController?: VoteQuotaController;
@@ -92,9 +94,9 @@ function toCompanyType(company: CompanyRanking): CompanyType {
 /**
  * Legacy KCL vote board structure shared by the home and embed surfaces.
  *
- * Keep selection separate from voting: a ranking card selects a company, then
- * VoteController owns the one-vote/long-press contract inside the desktop
- * StickyPanel or mobile BottomSheet.
+ * In selection mode a ranking card selects a company and VoteController owns
+ * the panel contract. In direct mode VoteController owns the full-card
+ * one-vote/long-press surface.
  */
 export default function VoteBoard({
   premierLeague,
@@ -103,6 +105,7 @@ export default function VoteBoard({
   selectedCompany,
   selectedSubLabelId,
   selectedArtistName,
+  voteSurfaceDescriptionId,
   isExpanded,
   isSheetOpen,
   isMobile,
@@ -145,6 +148,7 @@ export default function VoteBoard({
         <VoteController
           company={toCompanyType(company)}
           renderMode="card"
+          voteSurfaceDescriptionId={voteSurfaceDescriptionId}
           quotaController={quotaController}
           onVoteSuccess={onVoteSuccess}
           onGuestQuotaExhausted={onGuestQuotaExhausted}
