@@ -276,6 +276,21 @@ describe('VoteController artist selection persistence', () => {
     });
   });
 
+  it('activates one vote from Enter and Space on an available card surface', async () => {
+    render(<VoteController company={smCompany} renderMode="card" />);
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
+
+    fireEvent.keyDown(voteSurface, { key: 'Enter' });
+    fireEvent.keyDown(voteSurface, { key: ' ' });
+
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledTimes(2);
+    });
+    expect(mocks.mockSubmitVote).toHaveBeenLastCalledWith(
+      expect.objectContaining({ companyId: 'company-sm', votePower: 1, voteSource: 'web' }),
+    );
+  });
+
   it('after the 400ms hold threshold, the card vote surface charges the legacy power gauge up to 100', async () => {
     vi.useFakeTimers();
     render(<VoteController company={smCompany} renderMode="card" />);
@@ -327,7 +342,7 @@ describe('VoteController artist selection persistence', () => {
     });
   });
 
-  it('keeps an exhausted direct-vote card visually unchanged and non-interactive', () => {
+  it('keeps an exhausted direct-vote card aria-disabled while routing card and keyboard activation to the guest quota callback', () => {
     mocks.mockUseAuth.mockReturnValue({ user: null, profile: null });
     mocks.mockUseVoteQuota.mockReturnValue({
       quota: {
@@ -343,13 +358,28 @@ describe('VoteController artist selection persistence', () => {
       isLoading: false,
     });
 
-    render(<VoteController company={smCompany} renderMode="card" />);
+    render(
+      <VoteController
+        company={smCompany}
+        renderMode="card"
+        onGuestQuotaExhausted={mocks.mockOnGuestQuotaExhausted}
+      />,
+    );
 
     const voteSurface = screen.getByRole('button', { name: 'SM Vote' });
     expect(voteSurface.tagName).toBe('DIV');
     expect(voteSurface.getAttribute('aria-disabled')).toBe('true');
     expect(voteSurface.querySelectorAll('button')).toHaveLength(0);
     expect(screen.queryByText('No votes left')).toBeNull();
+
+    fireEvent.pointerDown(voteSurface, { pointerId: 1 });
+    expect(screen.queryByText('x100')).toBeNull();
+
+    fireEvent.click(screen.getByTestId('direct-vote-label-company-sm'));
+    fireEvent.keyDown(voteSurface, { key: 'Enter' });
+    fireEvent.keyDown(voteSurface, { key: ' ' });
+
+    expect(mocks.mockOnGuestQuotaExhausted).toHaveBeenCalledTimes(3);
     expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
   });
 });

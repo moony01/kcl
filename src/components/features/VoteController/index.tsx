@@ -510,7 +510,7 @@ export default function VoteController({
             aria-label={`${company.name.en} ${t('button.vote')}`}
             aria-describedby={voteSurfaceDescriptionId}
             data-testid={`direct-vote-${company.id}`}
-            onClick={canVote ? handleVoteButtonClick : undefined}
+            onClick={handleVoteButtonClick}
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
             onPointerLeave={handlePointerLeave}
@@ -518,7 +518,7 @@ export default function VoteController({
             onKeyDown={(event) => {
               if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
-                if (canVote) handleVoteButtonClick();
+                handleVoteButtonClick();
               }
             }}
             onContextMenu={(event) => event.preventDefault()}
