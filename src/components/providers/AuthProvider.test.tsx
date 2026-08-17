@@ -2,7 +2,10 @@ import { act, render, screen, waitFor } from '@testing-library/react';
 import { useContext } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import AuthProvider, { AuthContext } from './AuthProvider';
-import { DEVELOPMENT_TEST_MODE_STORAGE_KEY } from '@/lib/auth/development-test-mode';
+import {
+  DEVELOPMENT_TEST_MODE_STORAGE_KEY,
+  DEVELOPMENT_TEST_USER_ID,
+} from '@/lib/auth/development-test-mode';
 
 const mocks = vi.hoisted(() => ({
   getSupabase: vi.fn(),
@@ -16,12 +19,13 @@ vi.mock('@/lib/supabase/client', () => ({
 }));
 
 function AuthProbe() {
-  const { isLoading, user, signOut } = useContext(AuthContext);
+  const { isLoading, user, profile, signOut } = useContext(AuthContext);
 
   return (
     <>
       <span data-testid="loading">{String(isLoading)}</span>
       <span data-testid="user">{user?.id ?? 'guest'}</span>
+      <span data-testid="profile">{profile?.username ?? 'none'}</span>
       <button type="button" onClick={() => void signOut()}>
         Sign out
       </button>
@@ -54,7 +58,7 @@ describe('AuthProvider development test mode', () => {
     vi.unstubAllEnvs();
   });
 
-  it('stays guest-only without initializing or calling Supabase', async () => {
+  it('provides a local authenticated user without initializing or calling Supabase', async () => {
     window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
 
     render(
@@ -65,7 +69,8 @@ describe('AuthProvider development test mode', () => {
 
     await waitFor(() => expect(screen.getByTestId('loading').textContent).toBe('false'));
 
-    expect(screen.getByTestId('user').textContent).toBe('guest');
+    expect(screen.getByTestId('user').textContent).toBe(DEVELOPMENT_TEST_USER_ID);
+    expect(screen.getByTestId('profile').textContent).toBe('Developer Test');
     expect(mocks.getSupabase).not.toHaveBeenCalled();
     expect(mocks.signOut).not.toHaveBeenCalled();
   });
@@ -84,6 +89,8 @@ describe('AuthProvider development test mode', () => {
     });
 
     expect(window.localStorage.getItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY)).toBeNull();
+    expect(screen.getByTestId('user').textContent).toBe('guest');
+    expect(screen.getByTestId('profile').textContent).toBe('none');
     expect(mocks.getSupabase).not.toHaveBeenCalled();
     expect(mocks.signOut).not.toHaveBeenCalled();
   });

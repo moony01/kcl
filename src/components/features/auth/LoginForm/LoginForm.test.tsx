@@ -8,7 +8,7 @@ import { VOTE_QUOTA_STORAGE_KEY } from '@/lib/vote-quota';
 const mocks = vi.hoisted(() => ({
   createClient: vi.fn(),
   signInWithOAuth: vi.fn(),
-  reloadDevelopmentTestPage: vi.fn(),
+  routerReplace: vi.fn(),
 }));
 
 vi.mock('next-intl', () => ({
@@ -18,22 +18,12 @@ vi.mock('next-intl', () => ({
 
 vi.mock('next/navigation', () => ({
   useSearchParams: () => new URLSearchParams(),
+  useRouter: () => ({ replace: mocks.routerReplace }),
 }));
 
 vi.mock('@/lib/supabase/client', () => ({
   createClient: mocks.createClient,
 }));
-
-vi.mock('@/lib/auth/development-test-mode', async () => {
-  const actual = await vi.importActual<typeof import('@/lib/auth/development-test-mode')>(
-    '@/lib/auth/development-test-mode',
-  );
-
-  return {
-    ...actual,
-    reloadDevelopmentTestPage: mocks.reloadDevelopmentTestPage,
-  };
-});
 
 describe('LoginForm development controls', () => {
   beforeEach(() => {
@@ -41,7 +31,7 @@ describe('LoginForm development controls', () => {
     window.localStorage.clear();
     mocks.createClient.mockReset();
     mocks.signInWithOAuth.mockReset();
-    mocks.reloadDevelopmentTestPage.mockReset();
+    mocks.routerReplace.mockReset();
     mocks.createClient.mockReturnValue({
       auth: { signInWithOAuth: mocks.signInWithOAuth },
     });
@@ -51,7 +41,7 @@ describe('LoginForm development controls', () => {
     vi.unstubAllEnvs();
   });
 
-  it('renders the controls only in development and keeps test mode guest-only', () => {
+  it('renders the controls only in development and exposes the local authenticated test session', () => {
     window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
 
     render(<LoginForm />);
@@ -59,7 +49,7 @@ describe('LoginForm development controls', () => {
     expect(screen.getByTestId('developer-auth-tools')).toBeDefined();
     expect(screen.getByTestId('guest-quota-reset')).toBeDefined();
     expect(screen.getByTestId('developer-test-mode-status').textContent).toContain(
-      'guest-only',
+      'local authenticated user',
     );
     expect((screen.getByRole('button', { name: 'google_login' }) as HTMLButtonElement).disabled).toBe(
       true,
@@ -72,25 +62,21 @@ describe('LoginForm development controls', () => {
 
     const markup = renderToString(<LoginForm />);
 
-    expect(markup).toContain('Enable local test mode');
+    expect(markup).toContain('Developer test login');
     expect(markup).toContain('aria-pressed="false"');
     expect(markup).not.toContain('disabled=""');
   });
 
-  it('persists the toggle before refreshing and restores the active status', () => {
-    const { unmount } = render(<LoginForm />);
+  it('activates the local developer login and routes to the local home', () => {
+    render(<LoginForm />);
 
     fireEvent.click(screen.getByTestId('developer-test-mode-toggle'));
 
     expect(window.localStorage.getItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY)).toBe('true');
-    expect(mocks.reloadDevelopmentTestPage).toHaveBeenCalledTimes(1);
-    expect(screen.getByTestId('developer-test-mode-status').textContent).toContain('guest-only');
-
-    unmount();
-    render(<LoginForm />);
-
-    expect(screen.getByTestId('developer-test-mode-toggle').getAttribute('aria-pressed')).toBe('true');
-    expect(screen.getByTestId('developer-test-mode-status').textContent).toContain('guest-only');
+    expect(mocks.routerReplace).toHaveBeenCalledWith('/ko');
+    expect(screen.getByTestId('developer-test-mode-status').textContent).toContain(
+      'local authenticated user',
+    );
   });
 
   it('resets only the local guest quota from the development control', () => {

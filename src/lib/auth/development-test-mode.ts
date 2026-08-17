@@ -1,11 +1,33 @@
 /**
  * Development-only local test mode.
  *
- * This marker is a browser-local switch, not an authentication session. It is
- * deliberately ignored outside development so it cannot affect production
- * authentication behavior.
+ * This marker is a browser-local developer test session. It is deliberately
+ * ignored outside development so it cannot affect production authentication.
  */
+import type { User } from '@supabase/supabase-js';
+
 export const DEVELOPMENT_TEST_MODE_STORAGE_KEY = 'kcl_dev_test_mode';
+export const DEVELOPMENT_TEST_USER_ID = '00000000-0000-4013-8013-000000000013';
+
+/** A deterministic local-only user for exercising authenticated UI flows. */
+export function getDevelopmentTestUser(): User {
+  return {
+    id: DEVELOPMENT_TEST_USER_ID,
+    app_metadata: { provider: 'developer', providers: ['developer'] },
+    user_metadata: {
+      name: 'Developer Test',
+      full_name: 'Developer Test',
+    },
+    aud: 'authenticated',
+    email: 'developer@localhost.test',
+    role: 'authenticated',
+    created_at: '2026-01-01T00:00:00.000Z',
+    updated_at: '2026-01-01T00:00:00.000Z',
+    email_confirmed_at: '2026-01-01T00:00:00.000Z',
+    identities: [],
+    is_anonymous: false,
+  };
+}
 
 export function isDevelopmentEnvironment(): boolean {
   return process.env.NODE_ENV === 'development';
@@ -35,12 +57,7 @@ export function setDevelopmentTestModeEnabled(enabled: boolean): void {
   }
 }
 
-/**
- * Reload the current page after changing the development-only marker.
- *
- * Keeping the browser side effect behind this helper makes the mode toggle
- * easy to verify without touching the production authentication path.
- */
+/** Backward-compatible page refresh helper for older development worktrees. */
 export function reloadDevelopmentTestPage(): void {
   if (!isDevelopmentEnvironment() || typeof window === 'undefined') return;
 

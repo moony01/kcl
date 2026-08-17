@@ -14,7 +14,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './LoginForm.module.scss';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
@@ -22,7 +22,6 @@ import { resetGuestVoteQuota } from '@/lib/vote-quota';
 import {
   isDevelopmentEnvironment,
   isDevelopmentTestModeEnabled,
-  reloadDevelopmentTestPage,
   setDevelopmentTestModeEnabled,
 } from '@/lib/auth/development-test-mode';
 
@@ -44,6 +43,7 @@ const PROVIDER_DISPLAY_NAMES: Record<string, string> = {
 function LoginFormInner() {
   const t = useTranslations('Auth');
   const locale = useLocale();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const isDevelopment = isDevelopmentEnvironment();
   // Keep the server and first client render identical. The browser-only marker
@@ -123,7 +123,9 @@ function LoginFormInner() {
     const nextValue = !localTestMode;
     setDevelopmentTestModeEnabled(nextValue);
     setLocalTestMode(nextValue);
-    reloadDevelopmentTestPage();
+    if (nextValue) {
+      router.replace(`/${locale}`);
+    }
   };
 
   /** 프로바이더 버튼에 "마지막 로그인" 뱃지를 표시할지 결정 */
@@ -244,7 +246,7 @@ function LoginFormInner() {
               aria-pressed={localTestMode}
               onClick={handleLocalTestModeToggle}
             >
-              {localTestMode ? 'Disable local test mode' : 'Enable local test mode'}
+              {localTestMode ? 'Disable developer test login' : 'Developer test login'}
             </button>
             <button
               type="button"
@@ -260,8 +262,8 @@ function LoginFormInner() {
               role="status"
             >
               {localTestMode
-                ? 'Local test mode active: guest-only; Supabase auth is disabled.'
-                : 'Local test mode inactive: Supabase OAuth is available.'}
+                ? 'Developer test login active: local authenticated user; Supabase auth is disabled.'
+                : 'Developer test login creates a local-only authenticated session.'}
             </p>
           </div>
         )}

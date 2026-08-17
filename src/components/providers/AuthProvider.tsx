@@ -28,6 +28,8 @@ import type { ReactNode } from 'react';
 import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import {
   clearDevelopmentTestMode,
+  DEVELOPMENT_TEST_USER_ID,
+  getDevelopmentTestUser,
   isDevelopmentTestModeEnabled,
 } from '@/lib/auth/development-test-mode';
 
@@ -103,6 +105,20 @@ export interface UserProfile {
   created_at: string;
   updated_at: string;
 }
+
+const DEVELOPMENT_TEST_PROFILE: UserProfile = {
+  id: DEVELOPMENT_TEST_USER_ID,
+  username: 'Developer Test',
+  avatar_url: null,
+  bio: 'Local development test account',
+  favorite_company_id: null,
+  favorite_group_id: null,
+  onboarding_completed: true,
+  total_votes: 0,
+  is_pro: false,
+  created_at: '2026-01-01T00:00:00.000Z',
+  updated_at: '2026-01-01T00:00:00.000Z',
+};
 
 /**
  * AuthContext에서 제공하는 인증 상태 및 메서드 타입
@@ -185,7 +201,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    * (닉네임 변경 등 프로필 업데이트 후 호출)
    */
   const refreshProfile = useCallback(async () => {
-    if (user?.id) {
+    if (user?.id && !isDevelopmentTestModeEnabled()) {
       await fetchProfile(user.id);
     }
   }, [user?.id, fetchProfile]);
@@ -263,11 +279,11 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    * 초기 세션 확인 + 인증 상태 변경 리스너 등록
    */
   useEffect(() => {
-    // Development test mode is intentionally guest-only. It must not create a
-    // fake User/Session or initialize a Supabase client.
+    // Development test mode creates a deterministic local-only user so
+    // authenticated UI flows can be exercised without Supabase credentials.
     if (isDevelopmentTestModeEnabled()) {
-      setUser(null);
-      setProfile(null);
+      setUser(getDevelopmentTestUser());
+      setProfile(DEVELOPMENT_TEST_PROFILE);
       setIsLoading(false);
       return;
     }
