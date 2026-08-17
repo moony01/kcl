@@ -268,6 +268,7 @@
       "exhausted": "已投票",
       "hold_hint": "长按进行强力投票 (最高x{max})",
       "card_hold_hint": "长按投票",
+      "card_power_hint": "长按按钮即可一次投出最多 {max} 票",
       "pro_hint": "✨ Pro会员300票 · 5倍更强",
       "pro_hint_cta": "查看Fan Power Pass"
     },

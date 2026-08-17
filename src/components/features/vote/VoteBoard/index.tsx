@@ -139,6 +139,7 @@ export default function VoteBoard({
   const handleSearchSelect = onSearchSelect ?? onVote ?? (() => undefined);
   const handleGuestQuotaExhausted = onGuestQuotaExhausted ?? onSheetClose;
   const isDirectMode = interactionMode === 'direct';
+  const cardSelectionHandler = isDirectMode ? undefined : onVote;
   const renderDirectVote = isDirectMode
     ? (company: CompanyRanking) => (
         <VoteController
@@ -179,7 +180,7 @@ export default function VoteBoard({
         <section className={styles.leagueListSection}>
           <PremierLeague
             companies={displayedPremierLeague}
-            onVote={onVote}
+            onVote={cardSelectionHandler}
             selectedCompanyId={selectedCompanyId}
             showKpopfaceAd={showKpopfaceAd}
             compact={compactTopTen}
@@ -203,7 +204,7 @@ export default function VoteBoard({
                       <LeagueRankingItem
                         key={company.companyId}
                         company={company}
-                        onVote={onVote}
+                        onVote={cardSelectionHandler}
                         displayRank={company.rank}
                         isSelected={selectedCompanyId === company.companyId}
                         directVote={renderDirectVote?.(company)}

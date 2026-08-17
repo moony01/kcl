@@ -20,7 +20,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Flame, Check, Timer } from 'lucide-react';
+import { Zap, Flame, Check, Timer, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { CompanyType } from '@/lib/mock-data';
@@ -446,6 +446,7 @@ export default function VoteController({
 
   /** 파워투표 게이지 진행률 (%) */
   const gaugeFill = (powerLevel / maxPowerLevel) * 100;
+  const cardVoteHintId = `direct-vote-hint-${company.id}`;
 
   return (
     <div className={classNames(styles.voteController, {
@@ -499,6 +500,7 @@ export default function VoteController({
       {/* T1.85: 대형 투표 버튼 + 롱프레스 파워투표 게이지 */}
       <div className={styles.voteButtonWrapper}>
         <motion.button
+          type="button"
           className={classNames(styles.voteButton, {
             [styles.disabled]: !canVote,
             [styles.pressing]: isPressing && powerLevel > 0,
@@ -512,12 +514,15 @@ export default function VoteController({
           onContextMenu={(e) => e.preventDefault()}
           whileHover={canVote && !isPressing ? { scale: 1.02 } : {}}
           aria-label={renderMode === 'card' ? `${company.name.en} ${t('button.vote')}` : undefined}
+          aria-describedby={renderMode === 'card' ? cardVoteHintId : undefined}
           data-testid={renderMode === 'card' ? `direct-vote-${company.id}` : undefined}
           style={{
             background: renderMode === 'card'
               ? showSuccess
                 ? 'var(--color-secondary)'
-                : 'transparent'
+                : canVote
+                  ? 'var(--color-primary)'
+                  : 'var(--color-text-dim)'
               : showSuccess
                 ? 'var(--color-secondary)'
                 : !canVote
@@ -526,7 +531,10 @@ export default function VoteController({
           }}
         >
           {renderMode === 'card' && !showSuccess && !isPressing && (
-            <span className={styles.cardVoteHint}>{t('button.card_hold_hint')}</span>
+            <span className={styles.cardVoteAction} aria-hidden="true">
+              <span>{t('button.vote')}</span>
+              <ArrowRight size={18} strokeWidth={2.5} />
+            </span>
           )}
 
           {/* 파워투표 게이지 오버레이 */}
@@ -591,7 +599,14 @@ export default function VoteController({
             )}
           </AnimatePresence>
         </motion.button>
-
+        {renderMode === 'card' && (
+          <span id={cardVoteHintId} className={styles.cardVoteHelper} data-testid={cardVoteHintId}>
+            {t('button.card_power_hint', {
+              max: votePolicy.maxPowerLevel,
+              defaultValue: `Long-press the button to cast up to ${votePolicy.maxPowerLevel} votes at once`,
+            })}
+          </span>
+        )}
       </div>
       {/* 투표권 상태 바 */}
       {renderMode === 'panel' && !isQuotaLoading && (

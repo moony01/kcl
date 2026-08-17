@@ -15,9 +15,8 @@
   padding: 4px 0;
 }
 
-// 카드 전체를 투표 표면으로 사용하는 직접투표 모드.
 // 카드의 기존 정보/순위 디자인은 부모 카드가 소유하고, 이 컨트롤러는
-// 투명한 버튼과 레거시 게이지·성공 모션만 얹습니다.
+// 우측 전용 버튼에만 레거시 게이지·성공 모션을 얹습니다.
 .cardMode {
   position: absolute;
   inset: 0;
@@ -28,27 +27,31 @@
 
   .voteButtonWrapper {
     position: absolute;
-    inset: 0;
-    display: block;
-    pointer-events: auto;
+    top: 50%;
+    right: 10px;
+    display: flex;
+    width: clamp(92px, 28%, 136px);
+    min-width: 0;
+    align-items: stretch;
+    gap: 2px;
+    pointer-events: none;
+    transform: translateY(-50%);
   }
 
   .voteButton {
+    flex: 0 0 auto;
     width: 100%;
-    height: 100%;
-    padding: 0;
-    border-radius: inherit;
-    background: transparent;
-    box-shadow: none;
+    height: 34px;
+    min-height: 34px;
+    padding: 6px 9px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.24);
+    pointer-events: auto;
   }
 
   .voteContent,
   .exhaustedContent {
     display: none;
-  }
-
-  .cardVoteHint {
-    display: inline-flex;
   }
 
   .voteButton.disabled,
@@ -74,6 +77,10 @@
   .powerContent,
   .exhaustedContent {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .cardVoteAction {
+    display: inline-flex;
   }
 }
 
@@ -234,25 +241,32 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.cardVoteHint {
-  position: absolute;
-  top: 50%;
-  right: 16px;
+.cardVoteAction {
+  position: relative;
   z-index: 1;
-  display: none;
+  display: inline-flex;
   align-items: center;
-  padding: 8px 13px;
-  border: 1px solid rgba(124, 58, 237, 0.28);
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.92), rgba(168, 85, 247, 0.9));
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.24);
+  justify-content: center;
+  gap: 4px;
   color: #fff;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.01em;
   pointer-events: none;
   white-space: nowrap;
-  transform: translateY(-50%);
+}
+
+.cardVoteHelper {
+  display: block;
+  min-width: 0;
+  color: $color-text-dim;
+  font-size: 0.57rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: right;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+  user-select: none;
 }
 
 // 일반 투표 상태: 메인 텍스트 + 서브 힌트를 column으로

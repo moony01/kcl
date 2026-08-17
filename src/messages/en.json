@@ -268,6 +268,7 @@
       "exhausted": "Voted",
       "hold_hint": "Hold for Power Vote (x{max})",
       "card_hold_hint": "Hold to vote",
+      "card_power_hint": "Long-press the button to cast up to {max} votes at once",
       "pro_hint": "✨ Pro gets 300 votes · 5x stronger",
       "pro_hint_cta": "See Fan Power Pass"
     },

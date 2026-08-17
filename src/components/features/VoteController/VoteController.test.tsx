@@ -15,7 +15,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('next-intl', () => ({
   useLocale: () => 'ko',
-  useTranslations: () => (key: string, values?: { defaultValue?: string }) => {
+  useTranslations: () => (key: string, values?: { defaultValue?: string; max?: number }) => {
     const translations: Record<string, string> = {
       select_artist: 'Select artist',
       who_fan: 'Who are you a fan of?',
@@ -23,8 +23,12 @@ vi.mock('next-intl', () => ({
       sub_label_all: 'All labels',
       'button.vote': 'Vote',
       'button.exhausted': 'No votes left',
+      'button.card_power_hint': 'Long-press the button to cast up to {max} votes at once',
     };
-    return values?.defaultValue ?? translations[key] ?? key;
+    return (translations[key] ?? values?.defaultValue ?? key).replace(
+      '{max}',
+      String(values?.max ?? ''),
+    );
   },
 }));
 
@@ -259,9 +263,9 @@ describe('VoteController artist selection persistence', () => {
     });
   });
 
-  it('short tap keeps the legacy one-vote contract', async () => {
-    render(<VoteController company={smCompany} />);
-    const voteButton = screen.getByRole('button', { name: /Vote/ });
+  it('short tap on the dedicated card button keeps the legacy one-vote contract', async () => {
+    render(<VoteController company={smCompany} renderMode="card" />);
+    const voteButton = screen.getByTestId('direct-vote-company-sm');
 
     fireEvent.click(voteButton);
 
@@ -272,10 +276,10 @@ describe('VoteController artist selection persistence', () => {
     });
   });
 
-  it('after the 400ms hold threshold, charges the legacy power gauge up to 100', async () => {
+  it('after the 400ms hold threshold, the dedicated card button charges the legacy power gauge up to 100', async () => {
     vi.useFakeTimers();
-    render(<VoteController company={smCompany} />);
-    const voteButton = screen.getByRole('button', { name: /Vote/ });
+    render(<VoteController company={smCompany} renderMode="card" />);
+    const voteButton = screen.getByTestId('direct-vote-company-sm');
 
     await act(async () => {
       fireEvent.pointerDown(voteButton, { pointerId: 1 });
@@ -283,7 +287,25 @@ describe('VoteController artist selection persistence', () => {
     });
 
     expect(screen.getByText('x100')).toBeDefined();
-    fireEvent.pointerUp(voteButton, { pointerId: 1 });
+    await act(async () => {
+      fireEvent.pointerUp(voteButton, { pointerId: 1 });
+    });
+  });
+
+  it('keeps the helper copy outside the vote button and exposes it to assistive technology', () => {
+    render(<VoteController company={smCompany} renderMode="card" />);
+
+    const voteButton = screen.getByTestId('direct-vote-company-sm');
+    const helper = screen.getByTestId('direct-vote-hint-company-sm');
+
+    expect(helper.textContent).toBe('Long-press the button to cast up to 100 votes at once');
+    expect(voteButton.contains(helper)).toBe(false);
+    expect(voteButton.getAttribute('aria-label')).toBe('SM Vote');
+    expect(voteButton.getAttribute('aria-describedby')).toBe(helper.id);
+    expect(voteButton.querySelector('svg')).not.toBeNull();
+
+    fireEvent.click(helper);
+    expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
   });
 
   it('keeps an exhausted direct-vote card visually unchanged and non-interactive', () => {

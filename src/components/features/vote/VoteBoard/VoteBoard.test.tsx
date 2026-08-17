@@ -61,18 +61,22 @@ vi.mock('@/components/features/league/PremierLeague', () => ({
     renderDirectVote,
   }: {
     companies: CompanyRanking[];
-    onVote: (companyId: string) => void;
+    onVote?: (companyId: string) => void;
     showKpopfaceAd?: boolean;
     renderDirectVote?: (company: CompanyRanking) => ReactNode;
   }) => (
     <section data-testid="premier-league">
       {companies.map((company) => (
-        <div key={company.companyId}>
-          <button type="button" onClick={() => onVote(company.companyId)}>
+        <article
+          key={company.companyId}
+          data-testid={`ranking-card-${company.companyId}`}
+          onClick={onVote ? () => onVote(company.companyId) : undefined}
+        >
+          <button type="button">
             Rank {company.nameEn}
           </button>
           {renderDirectVote?.(company)}
-        </div>
+        </article>
       ))}
       {showKpopfaceAd && <div data-testid="kpopface-ad-slot" />}
     </section>
@@ -113,7 +117,25 @@ const selectedCompany: CompanyType = {
   stockHistory: [],
 };
 
-function VoteControllerMock({ company, selectedArtist, autoSelectedSubLabelId }: VoteControllerRenderProps) {
+function VoteControllerMock({
+  company,
+  selectedArtist,
+  autoSelectedSubLabelId,
+  onVoteSuccess,
+  renderMode,
+}: VoteControllerRenderProps) {
+  if (renderMode === 'card') {
+    return (
+      <button
+        type="button"
+        data-testid={`direct-vote-${company?.id}`}
+        onClick={() => company && onVoteSuccess?.(company.id)}
+      >
+        Vote {company?.name.en}
+      </button>
+    );
+  }
+
   return (
     <div data-testid="vote-controller">
       {company?.name.en ?? 'none'}
@@ -129,6 +151,7 @@ function BottomSheetMock({ isOpen, children }: BottomSheetRenderProps) {
 
 function renderBoard(overrides: Partial<ComponentProps<typeof VoteBoard>> = {}) {
   const onVote = vi.fn();
+  const onVoteSuccess = vi.fn();
   const props: ComponentProps<typeof VoteBoard> = {
     premierLeague: companies,
     allCompanies: companies,
@@ -138,7 +161,7 @@ function renderBoard(overrides: Partial<ComponentProps<typeof VoteBoard>> = {}) 
     isSheetOpen: false,
     isMobile: false,
     onVote,
-    onVoteSuccess: vi.fn(),
+    onVoteSuccess,
     onToggleExpand: vi.fn(),
     onSheetClose: vi.fn(),
     voteControllerComponent: VoteControllerMock,
@@ -149,7 +172,7 @@ function renderBoard(overrides: Partial<ComponentProps<typeof VoteBoard>> = {}) 
     ...overrides,
   };
 
-  return { ...render(<VoteBoard {...props} />), onVote };
+  return { ...render(<VoteBoard {...props} />), onVote, onVoteSuccess };
 }
 
 describe('legacy VoteBoard selection surface', () => {
@@ -208,10 +231,16 @@ describe('legacy VoteBoard selection surface', () => {
   });
 
   it('removes both selection panels and renders direct vote actions on cards', () => {
-    renderBoard({ interactionMode: 'direct' });
+    const { onVote, onVoteSuccess } = renderBoard({ interactionMode: 'direct' });
 
     expect(screen.queryByTestId('sticky-panel')).toBeNull();
     expect(screen.queryByTestId('bottom-sheet')).toBeNull();
-    expect(screen.getAllByTestId('vote-controller')).toHaveLength(4);
+    expect(screen.getAllByTestId(/direct-vote-company-/)).toHaveLength(4);
+
+    fireEvent.click(screen.getByTestId('ranking-card-company-1'));
+    expect(onVote).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByTestId('direct-vote-company-1'));
+    expect(onVoteSuccess).toHaveBeenCalledWith('company-1');
   });
 });
