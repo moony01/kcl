@@ -30,6 +30,170 @@
   }
 }
 
+// 홈 단순화 표면에 남겨둔 최소 시즌 컨텍스트
+.homeHeader {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 28px;
+  padding: 4px 0 0;
+}
+
+.seasonContext {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.seasonLabel {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 10px;
+  border: 1px solid rgba($color-primary, 0.22);
+  border-radius: 999px;
+  color: $color-text-dim;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.homeVoteHelper {
+  max-width: 100%;
+  color: $color-text-dim;
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: normal;
+  user-select: none;
+}
+
+.homeHeaderMeta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 5px;
+  min-width: 0;
+  margin-left: auto;
+  padding: 3px;
+  border: 1px solid rgba($color-primary, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 4px 16px rgba(45, 55, 120, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.todayVotes,
+.refreshIndicator,
+.seasonDday {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.todayVotes {
+  padding: 5px 10px;
+  border: 1px solid rgba($color-secondary, 0.34);
+  background: rgba($color-secondary, 0.08);
+  color: $color-secondary;
+  font-size: 0.74rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.refreshIndicator {
+  // Reserve the longest label ("갱신 중…") so the right-aligned meta row
+  // does not move as the countdown changes from 10초 to 1초.
+  flex: 0 0 5.25rem;
+  width: 5.25rem;
+  gap: 4px;
+  justify-content: center;
+  padding: 5px 8px;
+  border: 1px solid rgba($color-text, 0.14);
+  background: rgba($color-text, 0.035);
+  color: $color-text-dim;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.refreshIcon {
+  color: $color-primary;
+  animation: homeRefreshSpin 4s linear infinite;
+}
+
+.refreshIndicator[data-refreshing='true'] {
+  border-color: rgba($color-primary, 0.3);
+  color: $color-primary;
+
+  .refreshIcon {
+    animation-duration: 0.6s;
+  }
+}
+
+@keyframes homeRefreshSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.seasonDday {
+  padding: 5px 10px;
+  border: 1px solid rgba($color-primary, 0.34);
+  background: rgba($color-primary, 0.12);
+  color: $color-primary;
+  font-family: $font-display;
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.seasonDday[data-urgent='true'] {
+  border-color: rgba($color-danger, 0.4);
+  background: rgba($color-danger, 0.1);
+  color: $color-danger;
+}
+
+:global(:root[data-theme='dark']) {
+  .homeHeaderMeta {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(20, 20, 24, 0.78);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.24);
+  }
+
+  .refreshIndicator {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (max-width: 390px) {
+  .homeHeader {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .homeHeaderMeta {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refreshIcon {
+    animation: none;
+  }
+}
+
 // 상단 영역: 시즌 헤더 + 검색 + 탭 (전체 너비)
 .headerSection {
   width: 100%;
@@ -76,6 +240,36 @@
   min-width: 0; // flex item overflow 방지
   width: 100%;
   overflow: hidden; // 스와이프 시 넘침 방지
+}
+
+// Direct voting keeps the right side open on desktop for the next board
+// surface while preserving the full-width mobile layout.
+.directMode {
+  @media (min-width: 1024px) {
+    .contentLayout {
+      justify-content: flex-start;
+    }
+
+    .leagueListSection {
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+    }
+
+    .communityColumn {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+    }
+  }
+}
+
+.communityColumn {
+  display: none;
+}
+
+.communityButton {
+  display: none;
 }
 
 // 스와이프 컨테이너 (1부/2부 리그 전환)
@@ -234,102 +428,83 @@
 .eventModalContent {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   color: $color-text;
   line-height: 1.55;
   text-align: left;
-  padding: 2px 0 0;
-}
-
-.eventModalBenefitCard {
-  padding: 10px 10px 8px;
-  border-radius: 14px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  background:
-    linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(6, 182, 212, 0.08)),
-    #ffffff;
-}
-
-.eventBenefitList {
-  margin: 0;
   padding: 0;
-  list-style: none;
+}
+
+.eventVoteComparison {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.22);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.eventVoteOption {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: baseline;
   gap: 8px;
-}
-
-.eventBenefitItem {
-  margin: 0;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.12);
-}
-
-.eventModalEmoji {
-  font-size: 1.9rem;
-  line-height: 1;
-  margin: -2px auto 2px;
-}
-.eventModalLead {
-  margin: 0;
-  font-size: 1rem;
-  color: $color-text;
-  font-weight: 500;
-  letter-spacing: -0.003em;
-}
-.eventModalHighlight {
-  display: block;
-  margin: 0;
   padding: 0;
-  font-size: 1.08rem;
-  font-weight: 800;
-  line-height: 1.35;
-  color: #111827;
-  text-align: left;
-  letter-spacing: 0.005em;
 }
 
-.eventBenefitTitle {
-  margin: 0;
-  font-size: 1.08rem;
-  font-weight: 800;
-  line-height: 1.35;
-  color: #111827;
-  letter-spacing: 0.005em;
+.eventVoteOption + .eventVoteOption {
+  padding-left: 14px;
+  border-left: 1px solid rgba(148, 163, 184, 0.24);
 }
 
-.eventModalPowerVote {
-  margin: 2px 0 0;
+.eventVoteLabel {
+  color: $color-text-dim;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.eventVoteAmount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: $color-text;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.eventVoteOptionFeatured .eventVoteAmount {
+  color: $color-primary;
+}
+
+.eventVoteAmount small {
+  color: $color-text-dim;
   font-size: 0.7rem;
-  font-weight: 500;
-  color: #475569;
-  line-height: 1.45;
-  opacity: 1;
-  text-align: left;
+  font-weight: 700;
 }
 
 .eventModalNote {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.76rem;
   color: $color-text-dim;
   opacity: 1;
 }
 .eventModalActions {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  margin-top: 6px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
 }
 .eventPrimaryBtn,
 .eventSecondaryBtn,
 .eventDismissBtn {
-  width: 100%;
+  width: auto;
   border-radius: 12px;
   border: 1px solid transparent;
-  padding: 13px 16px;
-  font-size: 1rem;
+  padding: 11px 14px;
+  font-size: 0.9rem;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
@@ -341,6 +516,7 @@
   }
 }
 .eventPrimaryBtn {
+  width: 100%;
   background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
   color: #fff;
   box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
@@ -365,10 +541,10 @@
   background: transparent;
   border: none;
   color: #64748b;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 500;
   opacity: 1;
-  padding: 6px;
+  padding: 11px 8px;
 
   &:hover {
     color: #334155;
@@ -376,20 +552,16 @@
 }
 
 @media (max-width: 420px) {
-  .eventModalLead {
-    font-size: 0.96rem;
+  .eventVoteComparison {
+    gap: 10px;
   }
 
-  .eventModalHighlight {
-    font-size: 1rem;
+  .eventVoteOption {
+    gap: 5px;
   }
 
-  .eventBenefitTitle {
-    font-size: 1rem;
-  }
-
-  .eventModalPowerVote {
-    font-size: 0.7rem;
+  .eventVoteOption + .eventVoteOption {
+    padding-left: 10px;
   }
 
   .eventPrimaryBtn {

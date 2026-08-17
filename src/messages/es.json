@@ -257,6 +257,7 @@
     "success": "¡Voto exitoso!",
     "error": "Error al votar. Por favor intenta de nuevo.",
     "daily_limit": "Has alcanzado tu límite diario de votos.",
+    "card_power_hint": "* Mantén pulsada la tarjeta para votar {max} veces",
     "quota": {
       "title": "Votos de Hoy",
       "remaining": "{remaining}/{max}",
@@ -267,6 +268,7 @@
       "vote": "Votar",
       "exhausted": "Votado",
       "hold_hint": "Mantén para Voto Potenciado (x{max})",
+      "card_hold_hint": "Mantén pulsado para votar",
       "pro_hint": "✨ Pro tiene 300 votos · 5x más fuerte",
       "pro_hint_cta": "Ver Fan Power Pass"
     },

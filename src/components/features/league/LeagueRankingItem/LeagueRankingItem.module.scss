@@ -29,13 +29,18 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   background: $color-panel-bg;
   border: 1px solid $color-border;
   border-radius: 12px;
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
   cursor: pointer;
 
   &:hover {
     background: rgba($color-text, 0.03);
     border-color: $color-primary;
     box-shadow: 0 4px 12px rgba($color-primary, 0.15);
+    filter: brightness(1.02);
+
+    .logo {
+      transform: scale(1.04);
+    }
   }
 
   // 강등 위기 스타일
@@ -285,6 +290,7 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   color: white;
   flex-shrink: 0;
   overflow: hidden;
+  transition: transform 0.2s ease;
 
   @media (min-width: 768px) {
     width: 40px;
@@ -407,7 +413,7 @@ $color-promotion-chance: #eab308;     // 승격 기회 (2부 2위) - 골드색
   gap: 4px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: $color-text-dim;
+  color: $color-text;
 
   svg {
     color: #ff6b35;

@@ -13,6 +13,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import {
   Flame,
   TrendingUp,
@@ -42,6 +43,8 @@ interface LeagueRankingItemProps {
   isSelected?: boolean;
   /** iframe surfaces can keep the familiar compact ranking density. */
   compact?: boolean;
+  /** Legacy vote action rendered as a full-card overlay in direct mode. */
+  directVote?: ReactNode;
 }
 
 export default function LeagueRankingItem({
@@ -51,6 +54,7 @@ export default function LeagueRankingItem({
   displayRank,
   isSelected = false,
   compact = false,
+  directVote,
 }: LeagueRankingItemProps) {
   const t = useTranslations('League');
 
@@ -143,8 +147,9 @@ export default function LeagueRankingItem({
         [styles.rankUpGlow]: company.rankChange > 0,
         [styles.rankDownGlow]: company.rankChange < 0,
       })}
+      data-company-id={company.companyId}
       transition={{ duration: 0.15 }}
-      onClick={() => _onVote?.(company.companyId)}
+      onClick={directVote ? undefined : () => _onVote?.(company.companyId)}
     >
       {/* 순위 - T1.56: displayRank가 있으면 우선 사용 (2부 리그 독립 순위) */}
       <div className={styles.rank}>
@@ -163,18 +168,16 @@ export default function LeagueRankingItem({
         </div>
         <div className={styles.textInfo}>
           <h4 className={styles.companyName}>{company.nameEn}</h4>
+          <span className={styles.voteCount}>
+            <Flame size={12} />
+            {company.voteCount.toLocaleString()}
+          </span>
           {/* 2026년 개편: 승강 상태별 태그 표시 */}
           {renderPromotionTag()}
         </div>
       </div>
 
-      {/* 투표 수 */}
-      <div className={styles.voteInfo}>
-        <span className={styles.voteCount}>
-          <Flame size={12} />
-          {company.voteCount.toLocaleString()}
-        </span>
-      </div>
+      {directVote}
 
     </motion.article>
   );

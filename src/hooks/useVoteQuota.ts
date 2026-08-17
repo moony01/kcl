@@ -16,9 +16,20 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VOTE_LIMITS } from '@/config/vote';
 import { getUserVoteStats } from '@/lib/api';
+import {
+  getTodayUTC,
+  VOTE_QUOTA_REFRESH_EVENT,
+  VOTE_QUOTA_STORAGE_KEY,
+} from '@/lib/vote-quota';
 
-/** localStorage 키 */
-const STORAGE_KEY = 'kcl_vote_quota';
+export {
+  getTodayUTC,
+  resetGuestVoteQuota,
+  VOTE_QUOTA_REFRESH_EVENT,
+  VOTE_QUOTA_STORAGE_KEY,
+} from '@/lib/vote-quota';
+
+const STORAGE_KEY = VOTE_QUOTA_STORAGE_KEY;
 
 /** 비로그인 일일 최대 투표권 */
 export const MAX_DAILY_VOTES = VOTE_LIMITS.GUEST_DAILY;
@@ -85,17 +96,8 @@ export interface UseVoteQuotaOptions {
   guestDailyLimit?: number;
   /** 출처별 비회원 잔여량 저장 키 */
   storageKey?: string;
-}
-
-/**
- * UTC 기준 오늘 날짜 문자열 반환 (YYYY-MM-DD)
- */
-function getTodayUTC(): string {
-  const now = new Date();
-  const year = now.getUTCFullYear();
-  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(now.getUTCDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
+  /** 외부 quota 컨트롤러를 주입하는 카드에서는 내부 조회/타이머를 비활성화 */
+  enabled?: boolean;
 }
 
 /**
@@ -174,6 +176,7 @@ export function useVoteQuota(
     Math.floor(options.guestDailyLimit ?? MAX_DAILY_VOTES),
   );
   const storageKey = options.storageKey ?? STORAGE_KEY;
+  const enabled = options.enabled ?? true;
   const [used, setUsed] = useState<number>(0);
   const [max, setMax] = useState<number>(guestDailyLimit);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -189,7 +192,7 @@ export function useVoteQuota(
    * 서버에서 로그인 사용자 투표 통계 가져오기
    */
   const fetchServerStats = useCallback(async () => {
-    if (!userId) return;
+    if (!enabled || !userId) return;
 
     try {
       const stats = await getUserVoteStats(userId);
@@ -203,7 +206,7 @@ export function useVoteQuota(
       console.error('[useVoteQuota] Failed to fetch server stats:', error);
       setMax(MAX_DAILY_VOTES_LOGIN);
     }
-  }, [userId]);
+  }, [enabled, userId]);
 
   /**
    * 초기화: 모드에 따라 다른 소스에서 데이터 로드
@@ -212,6 +215,12 @@ export function useVoteQuota(
    */
   useEffect(() => {
     let cancelled = false;
+
+    if (!enabled) {
+      return () => {
+        cancelled = true;
+      };
+    }
 
     if (userId) {
       // 로그인 모드: 서버 통계를 일일 한도로 사용
@@ -243,12 +252,14 @@ export function useVoteQuota(
     return () => {
       cancelled = true;
     };
-  }, [userId, fetchServerStats, guestDailyLimit, storageKey]);
+  }, [enabled, userId, fetchServerStats, guestDailyLimit, storageKey]);
 
   /**
    * 리셋 시간 업데이트 (1분마다)
    */
   useEffect(() => {
+    if (!enabled) return;
+
     const updateTimeInfo = () => {
       setTimeInfo(getTimeUntilMidnightUTC());
     };
@@ -257,7 +268,7 @@ export function useVoteQuota(
     const interval = setInterval(updateTimeInfo, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [enabled]);
 
   /**
    * 날짜 변경 체크 (1분마다)
@@ -265,6 +276,8 @@ export function useVoteQuota(
    * - 로그인: 서버에서 최신 통계 다시 가져오기
    */
   useEffect(() => {
+    if (!enabled) return;
+
     /** 날짜 변경 기준점 */
     let lastDate = getTodayUTC();
 
@@ -294,7 +307,26 @@ export function useVoteQuota(
     const interval = setInterval(checkDateChange, 60000);
 
     return () => clearInterval(interval);
-  }, [userId, fetchServerStats, guestDailyLimit, storageKey]);
+  }, [enabled, userId, fetchServerStats, guestDailyLimit, storageKey]);
+
+  /** 개발 도구 등 다른 탭/컨트롤의 게스트 quota 갱신 반영 */
+  useEffect(() => {
+    if (!enabled) return;
+    if (typeof window === 'undefined') return;
+
+    const handleQuotaRefresh = () => {
+      if (userId) return;
+
+      const stored = loadQuotaFromStorage(storageKey);
+      if (stored?.date !== getTodayUTC()) return;
+
+      setMax(guestDailyLimit);
+      setUsed(Math.min(stored.used, guestDailyLimit));
+    };
+
+    window.addEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
+    return () => window.removeEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
+  }, [enabled, userId, guestDailyLimit, storageKey]);
 
   /**
    * 투표권 사용 (클라이언트 측 낙관적 업데이트)
@@ -352,10 +384,10 @@ export function useVoteQuota(
    * 서버에서 최신 통계 다시 가져오기 (로그인 모드 전용)
    */
   const refetchStats = useCallback(async () => {
-    if (userId) {
+    if (enabled && userId) {
       await fetchServerStats();
     }
-  }, [userId, fetchServerStats]);
+  }, [enabled, userId, fetchServerStats]);
 
   /**
    * 투표권 정보 계산

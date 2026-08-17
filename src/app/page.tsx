@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import RootRedirectClient from './RootRedirectClient';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_TITLE } from '@/lib/brand';
 
-const ROOT_TITLE = 'KCL - K-pop Company League';
-const ROOT_DESCRIPTION =
-  'Vote and rank your favorite K-pop entertainment companies in the global K-pop Company League.';
+const ROOT_TITLE = BRAND_TITLE;
+const ROOT_DESCRIPTION = BRAND_DESCRIPTION;
 
 const rootLanguages: Record<string, string> = Object.fromEntries(
   SUPPORTED_LOCALES.map((locale) => [locale, `${FULL_URL}/${locale}`]),

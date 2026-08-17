@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { generateDynamicAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_NAME } from '@/lib/brand';
 import { getPublishedAnnouncementIds } from '@/lib/api/announcements';
 import NoticeDetailClient from './NoticeDetailClient';
 
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: NoticeDetailPageProps): Promi
   const t = await getTranslations({ locale, namespace: 'Notice' });
 
   return {
-    title: `${t('title')} | KCL`,
+    title: `${t('title')} | ${BRAND_NAME}`,
     description: t('subtitle'),
     alternates: generateDynamicAlternates(locale, '/notice', (await params).id),
   };

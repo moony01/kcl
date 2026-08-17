@@ -15,6 +15,71 @@
   padding: 4px 0;
 }
 
+// 카드의 기존 정보/순위 디자인은 부모 카드가 소유하고, 이 컨트롤러는
+// 카드 전체를 덮는 투명한 투표 surface에 레거시 게이지·성공 모션만 얹습니다.
+.cardMode {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: block;
+  padding: 0;
+  pointer-events: none;
+
+  .voteButtonWrapper {
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .voteSurface {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: inherit;
+    box-shadow: none;
+    overflow: hidden;
+    cursor: pointer;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+
+    &[aria-disabled='true'] {
+      cursor: default;
+    }
+
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  .gaugeOverlay {
+    border-radius: inherit;
+    // The direct-vote cards use a very light surface, so the legacy white
+    // overlay was effectively invisible while holding a card.
+    background: linear-gradient(90deg, rgba(111, 45, 255, 0.58), rgba(168, 85, 247, 0.78));
+    box-shadow: inset -14px 0 18px -12px rgba(255, 255, 255, 0.8);
+  }
+
+  .successContent,
+  .powerContent,
+  .exhaustedContent {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .cardVoteAction {
+    display: inline-flex;
+  }
+}
+
 // 빈 상태
 .emptyState {
   display: flex;
@@ -150,7 +215,8 @@
   top: 0;
   left: 0;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(90deg, rgba(111, 45, 255, 0.58), rgba(168, 85, 247, 0.78));
+  box-shadow: inset -14px 0 18px -12px rgba(255, 255, 255, 0.8);
   transition: width 0.06s linear;
   pointer-events: none;
   z-index: 0;
@@ -169,6 +235,25 @@
   font-size: 1.1rem;
   font-weight: 700;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.cardVoteAction {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: $color-primary;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  white-space: nowrap;
+  text-shadow: none;
+  transform: translateY(-50%);
 }
 
 // 일반 투표 상태: 메인 텍스트 + 서브 힌트를 column으로

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
 import styles from './terms.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -19,11 +20,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Legal' });
-
   return {
-    title: t('terms_title'),
-    description: t('terms_description'),
+    title: `${BRAND_NAME} Terms of Service`,
+    description: BRAND_DESCRIPTION,
     alternates: generateAlternates(locale, '/terms'),
   };
 }

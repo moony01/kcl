@@ -116,6 +116,13 @@
   transform: scale(1.04);
 }
 
+.closeButton:focus-visible,
+.todayButton:focus-visible,
+.moreVotesButton:focus-visible {
+  outline: 3px solid var(--color-focus, #315cff);
+  outline-offset: 3px;
+}
+
 .iframeShell {
   flex: 1 1 auto;
   min-height: 0;
@@ -167,8 +174,12 @@
 
 .moreVotesButton {
   color: #fff;
-  background: linear-gradient(135deg, #8b5cf6 0%, #5b21b6 100%);
-  box-shadow: 0 10px 24px rgba(91, 33, 182, 0.28);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary, #315cff) 0%,
+    var(--color-primary-hover, #2549d8) 100%
+  );
+  box-shadow: 0 10px 24px var(--color-primary-glow, rgba(49, 92, 255, 0.28));
 }
 
 .moreVotesButton span {
@@ -179,7 +190,7 @@
 .moreVotesButton:hover,
 .moreVotesButton:focus-visible {
   color: #fff;
-  box-shadow: 0 12px 28px rgba(91, 33, 182, 0.36);
+  box-shadow: 0 12px 28px var(--color-primary-glow, rgba(49, 92, 255, 0.36));
   transform: translateY(-1px);
 }
 

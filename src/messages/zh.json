@@ -257,6 +257,7 @@
     "success": "投票成功！",
     "error": "投票失败。请重试。",
     "daily_limit": "您已达到每日投票限制。",
+    "card_power_hint": "* 长按卡片投出 {max} 票",
     "quota": {
       "title": "今日投票券",
       "remaining": "{remaining}/{max}",
@@ -267,6 +268,7 @@
       "vote": "投票",
       "exhausted": "已投票",
       "hold_hint": "长按进行强力投票 (最高x{max})",
+      "card_hold_hint": "长按投票",
       "pro_hint": "✨ Pro会员300票 · 5倍更强",
       "pro_hint_cta": "查看Fan Power Pass"
     },

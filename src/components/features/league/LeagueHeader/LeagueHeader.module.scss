@@ -4,7 +4,7 @@
 $color-gold: #d4af37;
 $color-gold-light: #f5e4a1;
 $color-gold-dark: #b8860b;
-$light-primary: #8b5cf6;
+$light-primary: $color-primary;
 
 // ===== 전체 바 =====
 .infoBar {
@@ -57,21 +57,14 @@ $light-primary: #8b5cf6;
   letter-spacing: 0.5px;
   white-space: nowrap;
 
-  // 다크 모드: 골드 그라디언트
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    $color-gold-light 40%,
-    $color-gold 60%,
-    #ffffff 100%
-  );
+  background: $gradient-primary;
   background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 4s linear infinite;
 
-  // 라이트 모드: 퍼플 단색
+  // 라이트 모드: Electric Blue 단색
   [data-theme='light'] & {
     background: none;
     -webkit-text-fill-color: unset;
@@ -94,7 +87,7 @@ $light-primary: #8b5cf6;
   }
 }
 
-// 모바일~소형: "KCL" 축약 표시
+// 모바일~소형: "MEARROW" 축약 표시
 .brandShort {
   display: inline;
 
@@ -103,7 +96,7 @@ $light-primary: #8b5cf6;
   }
 }
 
-// 640px+: "KPOP COMPANY LEAGUE" 풀 텍스트
+// 640px+: "K-POP TALENT NETWORK" 포지셔닝 표시
 .brandFull {
   display: none;
 

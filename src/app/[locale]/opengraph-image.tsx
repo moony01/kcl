@@ -5,6 +5,7 @@
  */
 import { ImageResponse } from 'next/og';
 import { SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/constants';
+import { BRAND_NAME, BRAND_POSITIONING, BRAND_TAGLINE } from '@/lib/brand';
 
 /** OG 이미지 크기 설정 (권장 사이즈) */
 export const size = {
@@ -16,24 +17,24 @@ export const contentType = 'image/png';
 
 /** 언어별 타이틀 */
 const titles: Record<SupportedLocale, string> = {
-  ko: 'K-POP 기획사 리그',
-  en: 'K-Pop Company League',
-  ja: 'K-POP企画社リーグ',
-  zh: 'K-POP娱乐公司联赛',
-  es: 'Liga de Compañías K-Pop',
-  fr: 'Ligue des Agences K-Pop',
-  de: 'K-Pop Agentur Liga',
+  ko: BRAND_POSITIONING,
+  en: BRAND_POSITIONING,
+  ja: BRAND_POSITIONING,
+  zh: BRAND_POSITIONING,
+  es: BRAND_POSITIONING,
+  fr: BRAND_POSITIONING,
+  de: BRAND_POSITIONING,
 };
 
 /** 언어별 부제목 */
 const subtitles: Record<SupportedLocale, string> = {
-  ko: '팬덤의 화력을 증명하세요!',
-  en: "Prove Your Fandom's Firepower!",
-  ja: 'ファンダムのパワーを証明しよう!',
-  zh: '证明你的粉丝力量!',
-  es: '¡Demuestra el poder de tu fandom!',
-  fr: 'Prouvez la puissance de votre fandom!',
-  de: 'Beweise die Stärke deines Fandoms!',
+  ko: BRAND_TAGLINE,
+  en: BRAND_TAGLINE,
+  ja: BRAND_TAGLINE,
+  zh: BRAND_TAGLINE,
+  es: BRAND_TAGLINE,
+  fr: BRAND_TAGLINE,
+  de: BRAND_TAGLINE,
 };
 
 /**
@@ -65,7 +66,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c026d3 100%)',
+          background: 'linear-gradient(135deg, #080B14 0%, #172B79 54%, #315CFF 100%)',
           fontFamily: 'sans-serif',
           position: 'relative',
         }}
@@ -83,7 +84,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
           }}
         />
 
-        {/* KCL 로고 텍스트 */}
+        {/* MEARROW 로고 텍스트 */}
         <div
           style={{
             fontSize: 80,
@@ -94,7 +95,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             marginBottom: 8,
           }}
         >
-          KCL
+          {BRAND_NAME}
         </div>
 
         {/* 타이틀 */}
@@ -147,7 +148,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             fontWeight: 500,
           }}
         >
-          kclhq.com
+          {`kclhq.com · ${BRAND_NAME}`}
         </div>
       </div>
     ),

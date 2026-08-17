@@ -12,6 +12,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import HallOfFameClient from './HallOfFameClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
@@ -35,21 +36,20 @@ interface HallOfFamePageProps {
  */
 export async function generateMetadata({ params }: HallOfFamePageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'HallOfFame' });
-
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: `${BRAND_NAME} Hall of Fame`,
+    description: BRAND_DESCRIPTION,
     openGraph: {
-      title: t('meta_title'),
-      description: t('meta_description'),
+      title: `${BRAND_NAME} Hall of Fame`,
+      description: BRAND_DESCRIPTION,
       url: `https://www.kclhq.com/${locale}/hall-of-fame`,
       type: 'website',
+      siteName: BRAND_NAME,
     },
     twitter: {
       card: 'summary_large_image',
-      title: t('meta_title'),
-      description: t('meta_description'),
+      title: `${BRAND_NAME} Hall of Fame`,
+      description: BRAND_DESCRIPTION,
     },
     alternates: generateAlternates(locale, '/hall-of-fame'),
   };
@@ -65,8 +65,8 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
   const hallOfFameJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: t('meta_title'),
-    description: t('meta_description'),
+    name: `${BRAND_NAME} Hall of Fame`,
+    description: BRAND_DESCRIPTION,
     url: `https://www.kclhq.com/${locale}/hall-of-fame`,
   };
 

@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { JsonLd } from '@/components/common/JsonLd';
 import { getAllAuditions, type AuditionMeta } from '@/lib/auditions';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_NAME } from '@/lib/brand';
 import { generateAlternates } from '@/lib/seo';
 import styles from './page.module.scss';
 
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: AuditionsPageProps): Promise<
       description: t('subtitle'),
       url: `${FULL_URL}/${locale}/auditions`,
       type: 'website',
-      siteName: 'KCL - K-pop Company League',
+      siteName: BRAND_NAME,
     },
     twitter: {
       card: 'summary_large_image',

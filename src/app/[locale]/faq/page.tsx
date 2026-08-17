@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
-import { SUPPORTED_LOCALES, FULL_URL } from '@/lib/constants';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import FaqClient from './FaqClient';
 
@@ -17,11 +18,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'FAQ' });
-
   return {
-    title: t('meta_title'),
-    description: t('meta_description'),
+    title: `FAQ | ${BRAND_NAME}`,
+    description: BRAND_DESCRIPTION,
     alternates: generateAlternates(locale, '/faq'),
   };
 }

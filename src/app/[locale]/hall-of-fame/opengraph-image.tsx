@@ -4,6 +4,7 @@
  */
 import { ImageResponse } from 'next/og';
 import { SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/constants';
+import { BRAND_NAME, BRAND_TAGLINE } from '@/lib/brand';
 
 /** OG 이미지 크기 설정 (권장 사이즈) */
 export const size = {
@@ -64,7 +65,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #b45309 0%, #f59e0b 50%, #fcd34d 100%)',
+          background: 'linear-gradient(135deg, #080B14 0%, #172B79 58%, #315CFF 100%)',
           fontFamily: 'sans-serif',
           position: 'relative',
         }}
@@ -81,6 +82,19 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
               'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 50%)',
           }}
         />
+
+        {/* 브랜드명 */}
+        <div
+          style={{
+            fontSize: 42,
+            fontWeight: 900,
+            color: '#C7FF32',
+            letterSpacing: '3px',
+            marginBottom: 18,
+          }}
+        >
+          {BRAND_NAME}
+        </div>
 
         {/* 트로피 이모지 */}
         <div
@@ -142,7 +156,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             fontWeight: 500,
           }}
         >
-          kclhq.com/hall-of-fame
+          {`kclhq.com/hall-of-fame · ${BRAND_TAGLINE}`}
         </div>
       </div>
     ),

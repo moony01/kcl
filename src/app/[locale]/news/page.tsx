@@ -5,6 +5,7 @@ import { getAllNews } from '@/lib/news';
 import NewsGridClient from './NewsGridClient';
 import { generateAlternates } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './page.module.scss';
 
@@ -34,15 +35,16 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
     title: t('title'),
     description: t('subtitle'),
     openGraph: {
-      title: 'KCL News - K-pop Industry Insights',
+      title: `${BRAND_NAME} News - K-pop Industry Insights`,
       description:
         'Latest news and analysis from the K-pop entertainment industry. Stay updated with company updates and trends.',
       url: `https://www.kclhq.com/${locale}/news`,
       type: 'website',
+      siteName: BRAND_NAME,
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'KCL News - K-pop Industry Insights',
+      title: `${BRAND_NAME} News - K-pop Industry Insights`,
       description: 'Latest news and analysis from the K-pop entertainment industry.',
     },
     alternates: generateAlternates(locale, '/news'),
@@ -69,7 +71,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
   const newsListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'KCL News',
+    name: `${BRAND_NAME} News`,
     description: 'Latest news and analysis from the K-pop entertainment industry',
     url: `https://www.kclhq.com/${locale}/news`,
     numberOfItems: posts.length,

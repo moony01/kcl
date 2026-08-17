@@ -257,6 +257,7 @@
     "success": "投票成功！",
     "error": "投票に失敗しました。もう一度お試しください。",
     "daily_limit": "本日の投票上限に達しました。",
+    "card_power_hint": "* カードを長押しして{max}票投票",
     "quota": {
       "title": "本日の投票権",
       "remaining": "{remaining}/{max}",
@@ -267,6 +268,7 @@
       "vote": "投票する",
       "exhausted": "投票完了",
       "hold_hint": "長押しでパワー投票 (最大x{max})",
+      "card_hold_hint": "長押しして投票",
       "pro_hint": "✨ Proなら300票 · 5倍パワー",
       "pro_hint_cta": "Fan Power Passを見る"
     },

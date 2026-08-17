@@ -11,14 +11,20 @@ import SearchBar from '@/components/ui/SearchBar';
 import PremierLeague from '@/components/features/league/PremierLeague';
 import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
 import { LeagueHeader } from '@/components/features/league/LeagueHeader';
+import type { VotePolicyAdapter } from '@/components/features/VoteController/votePolicy';
+import type { VoteQuotaController } from '@/components/features/VoteController';
 import styles from '@/app/[locale]/page.module.scss';
 
 export interface VoteControllerRenderProps {
   company: CompanyType | null;
   selectedArtist?: string;
   autoSelectedSubLabelId?: string | null;
+  voteSurfaceDescriptionId?: string;
   onVoteSuccess?: (companyId: string) => void;
   onGuestQuotaExhausted?: () => void;
+  renderMode?: 'panel' | 'card';
+  quotaController?: VoteQuotaController;
+  votePolicy?: VotePolicyAdapter;
 }
 
 export interface BottomSheetRenderProps {
@@ -35,10 +41,11 @@ export interface VoteBoardProps {
   selectedCompany: CompanyType | null;
   selectedSubLabelId?: string | null;
   selectedArtistName?: string | null;
+  voteSurfaceDescriptionId?: string;
   isExpanded: boolean;
   isSheetOpen: boolean;
   isMobile: boolean;
-  onVote: (companyId: string, artistName?: string | null) => void;
+  onVote?: (companyId: string, artistName?: string | null) => void;
   onSearchSelect?: (companyId: string, artistName?: string) => void;
   onVoteSuccess: (companyId?: string) => void;
   onGuestQuotaExhausted?: () => void;
@@ -46,6 +53,7 @@ export interface VoteBoardProps {
   onSheetClose: () => void;
   voteControllerComponent: ComponentType<VoteControllerRenderProps>;
   bottomSheetComponent: ComponentType<BottomSheetRenderProps>;
+  votePolicy?: VotePolicyAdapter;
   showKpopfaceAd?: boolean;
   /** Kpopface keeps its compact TOP 4 + “Show top 10” interaction. */
   compactTopTen?: boolean;
@@ -56,11 +64,39 @@ export interface VoteBoardProps {
   surface?: string;
   /** standalone embed shell or an existing page shell (empty string) */
   layoutClassName?: string;
+  /** The current home shell owns the stable season/quota header. */
+  showLeagueHeader?: boolean;
+  /** Search remains available to legacy embed callers, not on the home surface. */
+  showSearchBar?: boolean;
+  /** Direct card voting removes the selection panel and renders a full-card vote surface. */
+  interactionMode?: 'selection' | 'direct';
+  /** Shared quota state prevents one quota fetch per visible company card. */
+  quotaController?: VoteQuotaController;
+}
+
+function toCompanyType(company: CompanyRanking): CompanyType {
+  return {
+    id: company.companyId,
+    name: { en: company.nameEn, ko: company.nameKo },
+    representative: company.artists,
+    firepower: company.voteCount,
+    rank: company.rank,
+    change: company.rankChange > 0 ? 'up' : company.rankChange < 0 ? 'down' : 'same',
+    image: company.gradientColor.startsWith('linear-gradient')
+      ? company.gradientColor
+      : `linear-gradient(135deg, ${company.gradientColor} 0%, #1A1A1A 100%)`,
+    logoUrl: company.logoUrl || undefined,
+    stockHistory: [],
+    subLabels: company.subLabels,
+  };
 }
 
 /**
- * KCL 메인 투표보드의 단일 UI 기준입니다.
- * 홈은 이 컴포넌트를 직접 렌더링하고, 외부 사용처는 vote-board embed를 iframe으로 사용합니다.
+ * Legacy KCL vote board structure shared by the home and embed surfaces.
+ *
+ * In selection mode a ranking card selects a company and VoteController owns
+ * the panel contract. In direct mode VoteController owns the full-card
+ * one-vote/long-press surface.
  */
 export default function VoteBoard({
   premierLeague,
@@ -69,6 +105,7 @@ export default function VoteBoard({
   selectedCompany,
   selectedSubLabelId,
   selectedArtistName,
+  voteSurfaceDescriptionId,
   isExpanded,
   isSheetOpen,
   isMobile,
@@ -80,6 +117,7 @@ export default function VoteBoard({
   onSheetClose,
   voteControllerComponent: VoteController,
   bottomSheetComponent: BottomSheet,
+  votePolicy,
   showKpopfaceAd = true,
   compactTopTen = false,
   expandLabel,
@@ -88,41 +126,69 @@ export default function VoteBoard({
   testId,
   surface,
   layoutClassName,
+  showLeagueHeader = true,
+  showSearchBar = true,
+  interactionMode = 'selection',
+  quotaController,
 }: VoteBoardProps) {
   const companiesBelow11 = useMemo(() => allCompanies.slice(10), [allCompanies]);
   const companiesToReveal = compactTopTen ? [] : companiesBelow11;
   const displayedPremierLeague = compactTopTen && !isExpanded
     ? premierLeague.slice(0, 4)
     : premierLeague;
-  const shouldShowExpansion = compactTopTen ? premierLeague.length > 4 : companiesBelow11.length > 0;
-  const handleSearchSelect = onSearchSelect ?? onVote;
+  const shouldShowExpansion = compactTopTen
+    ? premierLeague.length > 4
+    : companiesBelow11.length > 0;
+  const handleSearchSelect = onSearchSelect ?? onVote ?? (() => undefined);
   const handleGuestQuotaExhausted = onGuestQuotaExhausted ?? onSheetClose;
+  const isDirectMode = interactionMode === 'direct';
+  const cardSelectionHandler = isDirectMode ? undefined : onVote;
+  const renderDirectVote = isDirectMode
+    ? (company: CompanyRanking) => (
+        <VoteController
+          company={toCompanyType(company)}
+          renderMode="card"
+          voteSurfaceDescriptionId={voteSurfaceDescriptionId}
+          quotaController={quotaController}
+          onVoteSuccess={onVoteSuccess}
+          onGuestQuotaExhausted={onGuestQuotaExhausted}
+          votePolicy={votePolicy}
+        />
+      )
+    : undefined;
 
   return (
     <div
       className={classNames(layoutClassName, {
         [styles.compactEmbed]: compactTopTen,
+        [styles.directMode]: isDirectMode && !compactTopTen,
       })}
       data-surface={surface}
       data-ads={showKpopfaceAd ? 'on' : 'off'}
+      data-interaction-mode={interactionMode}
       data-testid={testId}
     >
-      <div className={styles.leagueHeaderSection}>
-        <LeagueHeader />
-      </div>
+      {showLeagueHeader && (
+        <div className={styles.leagueHeaderSection}>
+          <LeagueHeader />
+        </div>
+      )}
 
-      <div className={styles.searchSection}>
-        <SearchBar onSelect={handleSearchSelect} />
-      </div>
+      {showSearchBar && (
+        <div className={styles.searchSection}>
+          <SearchBar onSelect={handleSearchSelect} />
+        </div>
+      )}
 
       <div className={styles.contentLayout}>
         <section className={styles.leagueListSection}>
           <PremierLeague
             companies={displayedPremierLeague}
-            onVote={onVote}
+            onVote={cardSelectionHandler}
             selectedCompanyId={selectedCompanyId}
             showKpopfaceAd={showKpopfaceAd}
             compact={compactTopTen}
+            renderDirectVote={renderDirectVote}
           />
 
           {shouldShowExpansion && (
@@ -142,9 +208,10 @@ export default function VoteBoard({
                       <LeagueRankingItem
                         key={company.companyId}
                         company={company}
-                        onVote={onVote}
+                        onVote={cardSelectionHandler}
                         displayRank={company.rank}
                         isSelected={selectedCompanyId === company.companyId}
+                        directVote={renderDirectVote?.(company)}
                       />
                     ))}
                   </motion.div>
@@ -183,28 +250,47 @@ export default function VoteBoard({
           )}
         </section>
 
-        <aside id={panelId} className={styles.panelColumn}>
-          <StickyPanel isVisible title="Battle Station">
-            <VoteController
-              company={selectedCompany}
-              onVoteSuccess={onVoteSuccess}
-              onGuestQuotaExhausted={handleGuestQuotaExhausted}
-              autoSelectedSubLabelId={selectedSubLabelId}
-              selectedArtist={selectedArtistName || undefined}
-            />
-          </StickyPanel>
-        </aside>
+        {isDirectMode && !compactTopTen && (
+          <aside className={styles.communityColumn} aria-hidden="true">
+            <button
+              type="button"
+              className={styles.communityButton}
+              data-testid="community-button-placeholder"
+              hidden
+            >
+              커뮤니티로 이동하기
+            </button>
+          </aside>
+        )}
+
+        {!isDirectMode && (
+          <aside id={panelId} className={styles.panelColumn}>
+            <StickyPanel isVisible title="Battle Station">
+              <VoteController
+                company={selectedCompany}
+                onVoteSuccess={onVoteSuccess}
+                onGuestQuotaExhausted={handleGuestQuotaExhausted}
+                autoSelectedSubLabelId={selectedSubLabelId}
+                selectedArtist={selectedArtistName || undefined}
+                votePolicy={votePolicy}
+              />
+            </StickyPanel>
+          </aside>
+        )}
       </div>
 
-      <BottomSheet isOpen={isSheetOpen && isMobile} onClose={onSheetClose} heightRatio={0.55}>
-        <VoteController
-          company={selectedCompany}
-          onVoteSuccess={onVoteSuccess}
-          onGuestQuotaExhausted={handleGuestQuotaExhausted}
-          autoSelectedSubLabelId={selectedSubLabelId}
-          selectedArtist={selectedArtistName || undefined}
-        />
-      </BottomSheet>
+      {!isDirectMode && (
+        <BottomSheet isOpen={isSheetOpen && isMobile} onClose={onSheetClose} heightRatio={0.55}>
+          <VoteController
+            company={selectedCompany}
+            onVoteSuccess={onVoteSuccess}
+            onGuestQuotaExhausted={handleGuestQuotaExhausted}
+            autoSelectedSubLabelId={selectedSubLabelId}
+            selectedArtist={selectedArtistName || undefined}
+            votePolicy={votePolicy}
+          />
+        </BottomSheet>
+      )}
     </div>
   );
 }

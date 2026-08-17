@@ -49,7 +49,6 @@ const HIDDEN_ROUTE_SEGMENTS = new Set([
 ]);
 const SUPPORTED_EMBED_LOCALES = new Set(['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de']);
 const DAILY_DISMISS_KEY = 'kcl-daily-vote-modal-dismissed-date';
-const SESSION_DISMISS_KEY = 'kcl-daily-vote-modal-dismissed-session';
 
 function getLocalDateKey(date = new Date()) {
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -59,7 +58,10 @@ function getLocalDateKey(date = new Date()) {
 
 function shouldHideVoteModal(pathname: string) {
   const [, , section] = pathname.split('/');
-  return section ? HIDDEN_ROUTE_SEGMENTS.has(section) : false;
+  // HomeClient already owns the canonical VoteBoard, so the global nudge must
+  // not cover it. AppShell routes without a board keep the modal behavior.
+  if (!section) return true;
+  return HIDDEN_ROUTE_SEGMENTS.has(section);
 }
 
 function readStorage(storage: Storage, key: string) {
@@ -87,14 +89,12 @@ export default function DailyVoteModal() {
   const [isOpen, setIsOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  const dismissForSession = useCallback(() => {
-    writeStorage(window.sessionStorage, SESSION_DISMISS_KEY, 'true');
+  const closeModal = useCallback(() => {
     setIsOpen(false);
   }, []);
 
   const dismissForToday = useCallback(() => {
     writeStorage(window.localStorage, DAILY_DISMISS_KEY, getLocalDateKey());
-    writeStorage(window.sessionStorage, SESSION_DISMISS_KEY, 'true');
     setIsOpen(false);
   }, []);
 
@@ -107,9 +107,7 @@ export default function DailyVoteModal() {
 
       const dismissedToday =
         readStorage(window.localStorage, DAILY_DISMISS_KEY) === getLocalDateKey();
-      const dismissedThisSession =
-        readStorage(window.sessionStorage, SESSION_DISMISS_KEY) === 'true';
-      setIsOpen(!dismissedToday && !dismissedThisSession);
+      setIsOpen(!dismissedToday);
     });
 
     return () => window.cancelAnimationFrame(restoreFrame);
@@ -122,7 +120,7 @@ export default function DailyVoteModal() {
     document.body.style.overflow = 'hidden';
     const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') dismissForSession();
+      if (event.key === 'Escape') closeModal();
     };
     window.addEventListener('keydown', handleEscape);
 
@@ -131,7 +129,7 @@ export default function DailyVoteModal() {
       window.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = previousOverflow;
     };
-  }, [dismissForSession, isHiddenRoute, isOpen]);
+  }, [closeModal, isHiddenRoute, isOpen]);
 
   if (!isOpen || isHiddenRoute) return null;
 
@@ -140,7 +138,7 @@ export default function DailyVoteModal() {
       <button
         type="button"
         className={styles.backdrop}
-        onClick={dismissForSession}
+        onClick={closeModal}
         aria-label={copy.backdropAriaLabel}
         tabIndex={-1}
       />
@@ -166,7 +164,7 @@ export default function DailyVoteModal() {
             ref={closeButtonRef}
             type="button"
             className={styles.closeButton}
-            onClick={dismissForSession}
+            onClick={closeModal}
             aria-label={copy.closeAriaLabel}
           >
             <X size={20} aria-hidden="true" />
@@ -189,7 +187,7 @@ export default function DailyVoteModal() {
           <a
             className={styles.moreVotesButton}
             href={`/${locale}#vote-station`}
-            onClick={dismissForSession}
+            onClick={closeModal}
           >
             <Flame size={18} aria-hidden="true" />
             <span>{copy.moreVotes}</span>

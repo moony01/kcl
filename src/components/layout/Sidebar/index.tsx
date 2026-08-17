@@ -8,8 +8,8 @@
  * AUTH_SYSTEM 활성화 시 하단에 인증 영역을 표시합니다.
  *
  * 반응형:
- * - Mobile(<768px): 숨김
- * - Tablet(768px-1263px): 아이콘만 표시, 호버 시 확장
+ * - Mobile(<480px): 숨김
+ * - Fold/Tablet(480px-1263px): 기본 아이콘 레일, hover/focus-within 시 확장
  * - Desktop(1264px+): 아이콘 + 레이블 고정
  */
 
@@ -30,6 +30,7 @@ import classNames from 'classnames';
 import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
+import { BRAND_KOREAN_NAME, BRAND_NAME, BRAND_MARK_PATH } from '@/lib/brand';
 import styles from './Sidebar.module.scss';
 
 const CONTACT_EMAIL = '';
@@ -77,24 +78,35 @@ export default function Sidebar() {
   ].filter((item) => item.enabled);
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className={styles.sidebar} aria-label="주요 메뉴">
       {/* Logo Area */}
       <div className={styles.logoArea}>
-        <Link href={`/${locale}`} className={styles.brand}>
+        <Link
+          href={`/${locale}`}
+          className={styles.brand}
+          aria-label={`${BRAND_NAME} (${BRAND_KOREAN_NAME}) 홈`}
+        >
           <div className={styles.logoWrapper}>
-            <img src="/kcl-logo.svg" alt="KCL" className={styles.logoImage} />
+            <img
+              src={BRAND_MARK_PATH}
+              alt=""
+              className={styles.logoImage}
+              width={40}
+              height={40}
+            />
           </div>
-          <span className={styles.logoText}>KCL</span>
+          <span className={styles.logoText}>{BRAND_NAME}</span>
         </Link>
       </div>
 
       {/* Navigation */}
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="사이트 탐색">
         {navItems.map((item) => (
           <Link
             key={item.label}
             href={`/${locale}${item.path === '/' ? '' : item.path}`}
             className={classNames(styles.navItem, { [styles.active]: isActive(item.path) })}
+            aria-label={item.label}
           >
             <div className={styles.iconWrapper}>
               <item.icon className={styles.icon} />
@@ -115,6 +127,7 @@ export default function Sidebar() {
                 className={classNames(styles.navItem, styles.contactBtn, {
                   [styles.contactCopied]: copied,
                 })}
+                aria-label={copied ? t('contact_copied') : t('contact')}
                 title={copied ? CONTACT_EMAIL : t('contact')}
               >
                 <div className={styles.iconWrapper}>
@@ -133,6 +146,7 @@ export default function Sidebar() {
               <Link
                 href={`/${locale}/my`}
                 className={classNames(styles.navItem, styles.profileItem)}
+                aria-label={profile?.username || t('my')}
               >
                 <div className={styles.iconWrapper}>
                   <span className={styles.avatarInitial}>
@@ -146,6 +160,7 @@ export default function Sidebar() {
               <button
                 onClick={signOut}
                 className={classNames(styles.navItem, styles.logoutBtn)}
+                aria-label={t('logout')}
               >
                 <div className={styles.iconWrapper}>
                   <LogOut className={styles.icon} />
@@ -158,6 +173,7 @@ export default function Sidebar() {
             <Link
               href={`/${locale}/login`}
               className={classNames(styles.navItem, styles.loginBtn)}
+              aria-label={t('login')}
             >
               <div className={styles.iconWrapper}>
                 <LogIn className={styles.icon} />

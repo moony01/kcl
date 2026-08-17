@@ -1,6 +1,7 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import VoteController from './index';
+import { KPOPFACE_EMBED_VOTE_POLICY } from './votePolicy';
 import type { CompanyType } from '@/lib/mock-data';
 
 const mocks = vi.hoisted(() => ({
@@ -14,7 +15,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('next-intl', () => ({
   useLocale: () => 'ko',
-  useTranslations: () => (key: string, values?: { defaultValue?: string }) => {
+  useTranslations: () => (key: string, values?: { defaultValue?: string; max?: number }) => {
     const translations: Record<string, string> = {
       select_artist: 'Select artist',
       who_fan: 'Who are you a fan of?',
@@ -22,8 +23,12 @@ vi.mock('next-intl', () => ({
       sub_label_all: 'All labels',
       'button.vote': 'Vote',
       'button.exhausted': 'No votes left',
+      card_power_hint: '* Long-press the card to vote {max} times',
     };
-    return values?.defaultValue ?? translations[key] ?? key;
+    return (translations[key] ?? values?.defaultValue ?? key).replace(
+      '{max}',
+      String(values?.max ?? ''),
+    );
   },
 }));
 
@@ -67,7 +72,7 @@ vi.mock('@/hooks/useVote', () => ({
 }));
 
 vi.mock('@/hooks/useVoteQuota', () => ({
-  useVoteQuota: () => mocks.mockUseVoteQuota(),
+  useVoteQuota: (...args: unknown[]) => mocks.mockUseVoteQuota(...args),
 }));
 
 vi.mock('@/components/features/vote/VoteQuotaBar', () => ({
@@ -91,6 +96,10 @@ function forArtistText(artist: string) {
 }
 
 describe('VoteController artist selection persistence', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   beforeEach(() => {
     mocks.mockSubmitVote.mockReset();
     mocks.mockSubmitVote.mockResolvedValue({ success: true, voteScore: 1 });
@@ -114,6 +123,7 @@ describe('VoteController artist selection persistence', () => {
       useVote: mocks.mockConsumeVote,
       isLoading: false,
     });
+    mocks.mockUseVoteQuota.mockClear();
   });
 
   it('투표 성공 후 같은 회사 데이터가 새로고침되어도 사용자가 선택한 아티스트를 유지한다', async () => {
@@ -219,5 +229,157 @@ describe('VoteController artist selection persistence', () => {
       expect(mocks.mockOnGuestQuotaExhausted).toHaveBeenCalledTimes(1);
     });
     expect(mocks.mockConsumeVote).toHaveBeenCalledWith(100);
+  });
+
+  it('Kpopface policy adapter uses the 30-vote quota and source-specific RPC', async () => {
+    mocks.mockUseAuth.mockReturnValue({ user: null, profile: null, isLoading: false });
+    mocks.mockUseVoteQuota.mockReturnValue({
+      quota: {
+        canVote: true,
+        remaining: 30,
+        max: 30,
+        used: 0,
+        hoursUntilReset: 12,
+        minutesUntilReset: 0,
+        mode: 'daily',
+      },
+      useVote: mocks.mockConsumeVote,
+      isLoading: false,
+    });
+    mocks.mockSubmitVote.mockResolvedValue({ success: true, voteScore: 1, remaining: 29 });
+
+    render(<VoteController company={smCompany} votePolicy={KPOPFACE_EMBED_VOTE_POLICY} />);
+
+    fireEvent.click(screen.getByRole('button', { name: /Vote/ }));
+
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledWith(
+        expect.objectContaining({ voteSource: 'kpopface_embed', votePower: 1 }),
+      );
+    });
+    expect(mocks.mockUseVoteQuota).toHaveBeenCalledWith(undefined, {
+      guestDailyLimit: 30,
+      storageKey: 'kcl_kpopface_embed_quota',
+    });
+  });
+
+  it('short tap on the full card vote surface keeps the legacy one-vote contract', async () => {
+    render(<VoteController company={smCompany} renderMode="card" />);
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
+
+    fireEvent.click(voteSurface);
+
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledWith(
+        expect.objectContaining({ companyId: 'company-sm', votePower: 1, voteSource: 'web' }),
+      );
+    });
+  });
+
+  it('activates one vote from Enter and Space on an available card surface', async () => {
+    render(<VoteController company={smCompany} renderMode="card" />);
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
+
+    fireEvent.keyDown(voteSurface, { key: 'Enter' });
+    fireEvent.keyDown(voteSurface, { key: ' ' });
+
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledTimes(2);
+    });
+    expect(mocks.mockSubmitVote).toHaveBeenLastCalledWith(
+      expect.objectContaining({ companyId: 'company-sm', votePower: 1, voteSource: 'web' }),
+    );
+  });
+
+  it('after the 400ms hold threshold, the card vote surface charges the legacy power gauge up to 100', async () => {
+    vi.useFakeTimers();
+    render(<VoteController company={smCompany} renderMode="card" />);
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
+
+    await act(async () => {
+      fireEvent.pointerDown(voteSurface, { pointerId: 1 });
+      vi.advanceTimersByTime(3_600);
+    });
+
+    expect(screen.getByText('x100')).toBeDefined();
+    await act(async () => {
+      fireEvent.pointerUp(voteSurface, { pointerId: 1 });
+    });
+  });
+
+  it('keeps the card label decorative, avoids nested buttons, and connects the shared helper description', async () => {
+    render(
+      <>
+        <span id="home-vote-helper" data-testid="home-vote-helper" style={{ pointerEvents: 'none' }}>
+          * Long-press the card to vote 100 times
+        </span>
+        <VoteController
+          company={smCompany}
+          renderMode="card"
+          voteSurfaceDescriptionId="home-vote-helper"
+        />
+      </>,
+    );
+
+    const voteSurface = screen.getByTestId('direct-vote-company-sm');
+    const label = screen.getByTestId('direct-vote-label-company-sm');
+    const helper = screen.getByTestId('home-vote-helper');
+
+    expect(voteSurface.tagName).toBe('DIV');
+    expect(voteSurface.querySelectorAll('button')).toHaveLength(0);
+    expect(voteSurface.getAttribute('aria-label')).toBe('SM Vote');
+    expect(voteSurface.getAttribute('aria-describedby')).toBe(helper.id);
+    expect(label.textContent).toBe('Vote→');
+    expect(label.style.pointerEvents).toBe('none');
+    expect(helper.style.pointerEvents).toBe('none');
+
+    fireEvent.click(helper);
+    expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
+
+    fireEvent.click(label);
+    await waitFor(() => {
+      expect(mocks.mockSubmitVote).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('keeps an exhausted direct-vote card aria-disabled while routing card and keyboard activation to the guest quota callback', () => {
+    mocks.mockUseAuth.mockReturnValue({ user: null, profile: null });
+    mocks.mockUseVoteQuota.mockReturnValue({
+      quota: {
+        canVote: false,
+        remaining: 0,
+        max: 100,
+        used: 100,
+        hoursUntilReset: 12,
+        minutesUntilReset: 0,
+        mode: 'guest',
+      },
+      useVote: mocks.mockConsumeVote,
+      isLoading: false,
+    });
+
+    render(
+      <VoteController
+        company={smCompany}
+        renderMode="card"
+        onGuestQuotaExhausted={mocks.mockOnGuestQuotaExhausted}
+      />,
+    );
+
+    const voteSurface = screen.getByRole('button', { name: 'SM Vote' });
+    expect(voteSurface.tagName).toBe('DIV');
+    expect(voteSurface.getAttribute('aria-disabled')).toBe('true');
+    expect(voteSurface.querySelectorAll('button')).toHaveLength(0);
+    expect(screen.queryByText('No votes left')).toBeNull();
+
+    fireEvent.pointerDown(voteSurface, { pointerId: 1 });
+    expect(screen.queryByText('x100')).toBeNull();
+
+    fireEvent.click(screen.getByTestId('direct-vote-label-company-sm'));
+    fireEvent.keyDown(voteSurface, { key: 'Enter' });
+    fireEvent.keyDown(voteSurface, { key: ' ' });
+
+    expect(mocks.mockOnGuestQuotaExhausted).toHaveBeenCalledTimes(3);
+    expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
   });
 });

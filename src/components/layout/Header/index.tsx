@@ -12,6 +12,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
+import { BRAND_KOREAN_NAME, BRAND_NAME, BRAND_MARK_PATH } from '@/lib/brand';
 
 export default function Header() {
   const locale = useLocale();
@@ -28,15 +29,19 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerInner}>
         {/* 모바일 로고 (480px 이상에서는 사이드바에 로고가 있으므로 숨김) */}
-        <Link href="/" className={styles.logoWrapper}>
+        <Link
+          href="/"
+          className={styles.logoWrapper}
+          aria-label={`${BRAND_NAME} (${BRAND_KOREAN_NAME}) 홈`}
+        >
           <img
-            src="/kcl-logo.svg"
-            alt="KCL Logo"
+            src={BRAND_MARK_PATH}
+            alt=""
             className={styles.logoIcon}
             width={28}
             height={28}
           />
-          <span className={styles.logoText}>KCL</span>
+          <span className={styles.logoText}>{BRAND_NAME}</span>
         </Link>
 
         <div className={styles.controls}>

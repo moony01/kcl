@@ -2,37 +2,45 @@ import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import VoteBoardEmbedClient, { parseVoteBoardEmbedOptions } from './VoteBoardEmbedClient';
 
+vi.mock('next-intl', () => ({
+  useTranslations: () => () => '',
+}));
+
 vi.mock('@/hooks/useLeagueData', () => ({
   useLeagueData: () => ({
-    premierLeague: [],
     allCompanies: [],
+    season: { year: 2026, month: 8, daysRemaining: 15 },
     isLoading: false,
     error: null,
     refresh: vi.fn(),
   }),
 }));
 
+vi.mock('@/hooks/useHomeDirectVoting', () => ({
+  default: () => ({
+    quota: { remaining: 100 },
+    isAuthLoading: false,
+    isQuotaLoading: false,
+    isVoteLoading: false,
+    voteStates: {},
+    onVote: vi.fn(),
+  }),
+}));
+
+vi.mock('@/hooks/useRefreshCountdown', () => ({
+  useRefreshCountdown: () => ({ countdown: 20, isRefreshing: false }),
+}));
+
 vi.mock('@/components/features/vote/VoteBoard', () => ({
   default: ({
-    testId,
-    surface,
     showKpopfaceAd,
   }: {
-    testId?: string;
-    surface?: string;
     showKpopfaceAd?: boolean;
   }) => (
     <section
-      data-testid={testId}
-      data-surface={surface}
+      data-testid="shared-vote-board"
       data-ads={showKpopfaceAd ? 'on' : 'off'}
-    >
-      <ol>
-        <li data-rank="3">Rank 3</li>
-        <li data-rank="4">Rank 4</li>
-      </ol>
-      <button type="button">Show top 10</button>
-    </section>
+    />
   ),
 }));
 

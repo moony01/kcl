@@ -29,7 +29,7 @@ $bronze: #cd7f32;
   overflow: hidden;
   box-sizing: border-box;
   cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.3s ease, filter 0.2s ease;
 
   // 1위 카드 특별 스타일
   &[data-rank='1'] {
@@ -78,6 +78,11 @@ $bronze: #cd7f32;
   &:hover {
     border-color: $color-primary !important;
     box-shadow: 0 4px 20px rgba($color-primary, 0.2) !important;
+    filter: brightness(1.02);
+
+    .logo {
+      transform: scale(1.04);
+    }
   }
 
   // T1.45: 순위 상승 글로우 오버레이
@@ -186,6 +191,7 @@ $bronze: #cd7f32;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   position: relative;
   z-index: 1;
+  transition: transform 0.2s ease;
 
   @media (min-width: 768px) {
     width: 40px;

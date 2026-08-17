@@ -3,6 +3,7 @@
 // Only SCSS variable definitions.
 
 $color-primary: var(--color-primary);
+$color-primary-hover: var(--color-primary-hover);
 $color-primary-glow: var(--color-primary-glow);
 $color-secondary: var(--color-secondary);
 $color-bg: var(--color-bg);
@@ -10,6 +11,8 @@ $color-text: var(--color-text);
 $color-text-dim: var(--color-text-dim);
 $color-panel-bg: var(--color-panel-bg);
 $color-border: var(--color-border);
+$color-hover-surface: var(--color-hover-surface);
+$color-focus: var(--color-focus);
 $color-danger: var(--color-danger);
 
 // 승강 시스템 색상 (2026년 개편)
@@ -37,5 +40,5 @@ $shadow-md: var(--shadow-md);
 $shadow-lg: var(--shadow-lg);
 
 // Gradients
-$gradient-primary: linear-gradient(135deg, $color-primary 0%, #7C3AED 100%);
+$gradient-primary: var(--gradient-primary);
 $gradient-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);

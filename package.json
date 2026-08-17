@@ -13,7 +13,8 @@
     "start": "next start",
     "lint": "eslint",
     "pretest": "pnpm generate:content",
-    "test": "vitest"
+    "test": "vitest",
+    "test:browser:news-popup": "node scripts/news-popup-browser-smoke.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -22,6 +22,28 @@ function getTodayKey() {
   return `${now.getFullYear()}-${month}-${day}`;
 }
 
+async function expectRenderOnlyClose(close: () => void) {
+  const firstRender = render(<DailyVoteModal />);
+  await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
+
+  close();
+
+  await waitFor(() => {
+    expect(screen.queryByRole('dialog', { name: '실시간 TOP 10 투표' })).toBeNull();
+  });
+  expect(window.localStorage.getItem('kcl-daily-vote-modal-dismissed-date')).toBeNull();
+  expect(window.sessionStorage.getItem('kcl-daily-vote-modal-dismissed-session')).toBeNull();
+
+  firstRender.unmount();
+  const remount = render(<DailyVoteModal />);
+  await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
+
+  remount.unmount();
+  mocks.pathname = '/ko/news/gangnam-style-6-billion';
+  render(<DailyVoteModal />);
+  await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
+}
+
 describe('DailyVoteModal', () => {
   beforeEach(() => {
     mocks.locale = 'ko';
@@ -54,9 +76,9 @@ describe('DailyVoteModal', () => {
     expect(window.localStorage.getItem('kcl-daily-vote-modal-dismissed-date')).toBe(
       getTodayKey(),
     );
+    expect(window.sessionStorage.getItem('kcl-daily-vote-modal-dismissed-session')).toBeNull();
 
     unmount();
-    window.sessionStorage.clear();
     render(<DailyVoteModal />);
     await act(async () => {
       await new Promise((resolve) => window.setTimeout(resolve, 30));
@@ -66,31 +88,30 @@ describe('DailyVoteModal', () => {
     expect(document.body.style.overflow).toBe('');
   });
 
-  it('닫기와 Escape는 현재 세션에서 다시 열리지 않도록 기억한다', async () => {
-    const firstRender = render(<DailyVoteModal />);
-    await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
-
-    fireEvent.click(screen.getByRole('button', { name: '투표 모달 닫기' }));
-    expect(window.sessionStorage.getItem('kcl-daily-vote-modal-dismissed-session')).toBe(
-      'true',
-    );
-
-    firstRender.unmount();
-    render(<DailyVoteModal />);
-    await act(async () => {
-      await new Promise((resolve) => window.setTimeout(resolve, 30));
+  it('X는 현재 렌더만 닫고 remount와 뉴스 재진입에서 다시 연다', async () => {
+    await expectRenderOnlyClose(() => {
+      fireEvent.click(screen.getByRole('button', { name: '투표 모달 닫기' }));
     });
-    expect(screen.queryByRole('dialog', { name: '실시간 TOP 10 투표' })).toBeNull();
+  });
 
-    window.sessionStorage.clear();
-    const secondRender = render(<DailyVoteModal />);
-    await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
-    fireEvent.keyDown(window, { key: 'Escape' });
-
-    await waitFor(() => {
-      expect(screen.queryByRole('dialog', { name: '실시간 TOP 10 투표' })).toBeNull();
+  it('배경은 현재 렌더만 닫고 remount와 뉴스 재진입에서 다시 연다', async () => {
+    await expectRenderOnlyClose(() => {
+      fireEvent.click(screen.getByRole('button', { name: '투표 모달 배경 닫기' }));
     });
-    secondRender.unmount();
+  });
+
+  it('Escape는 현재 렌더만 닫고 remount와 뉴스 재진입에서 다시 연다', async () => {
+    await expectRenderOnlyClose(() => {
+      fireEvent.keyDown(window, { key: 'Escape' });
+    });
+  });
+
+  it('하단 CTA는 현재 렌더만 닫고 remount와 뉴스 재진입에서 다시 연다', async () => {
+    await expectRenderOnlyClose(() => {
+      const cta = screen.getByRole('link', { name: '더 투표하러 가기' });
+      cta.addEventListener('click', (event) => event.preventDefault(), { once: true });
+      fireEvent.click(cta);
+    });
   });
 
   it('하단 CTA는 기존 KCL 투표 영역으로 연결한다', async () => {
@@ -104,6 +125,18 @@ describe('DailyVoteModal', () => {
 
   it('인증 경로에서는 모달을 노출하거나 본문 스크롤을 잠그지 않는다', async () => {
     mocks.pathname = '/ko/login';
+    render(<DailyVoteModal />);
+
+    await act(async () => {
+      await new Promise((resolve) => window.setTimeout(resolve, 30));
+    });
+
+    expect(screen.queryByRole('dialog', { name: '실시간 TOP 10 투표' })).toBeNull();
+    expect(document.body.style.overflow).toBe('');
+  });
+
+  it('홈에서는 이미 VoteBoard가 있으므로 모달을 노출하지 않는다', async () => {
+    mocks.pathname = '/ko';
     render(<DailyVoteModal />);
 
     await act(async () => {
