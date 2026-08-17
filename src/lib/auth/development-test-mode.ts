@@ -29,6 +29,21 @@ export function getDevelopmentTestUser(): User {
   };
 }
 
+/**
+ * Return the user id that may safely be sent to persisted backend operations.
+ *
+ * The local developer session has no corresponding row in Supabase auth.users,
+ * so vote writes must use the guest/fingerprint path instead of violating the
+ * kcl_votes.user_id foreign key.
+ */
+export function getVoteBackendUserId(userId?: string | null): string | null {
+  if (!userId) return null;
+
+  return isDevelopmentTestModeEnabled() && userId === DEVELOPMENT_TEST_USER_ID
+    ? null
+    : userId;
+}
+
 export function isDevelopmentEnvironment(): boolean {
   return process.env.NODE_ENV === 'development';
 }

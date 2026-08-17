@@ -4,6 +4,7 @@ import {
   DEVELOPMENT_TEST_MODE_STORAGE_KEY,
   DEVELOPMENT_TEST_USER_ID,
   getDevelopmentTestUser,
+  getVoteBackendUserId,
   isDevelopmentTestModeEnabled,
   setDevelopmentTestModeEnabled,
 } from './development-test-mode';
@@ -32,6 +33,14 @@ describe('development test mode', () => {
     expect(user.id).toBe(DEVELOPMENT_TEST_USER_ID);
     expect(user.email).toBe('developer@localhost.test');
     expect(user.app_metadata.provider).toBe('developer');
+  });
+
+  it('routes the local developer user through the guest backend identity', () => {
+    vi.stubEnv('NODE_ENV', 'development');
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    expect(getVoteBackendUserId(DEVELOPMENT_TEST_USER_ID)).toBeNull();
+    expect(getVoteBackendUserId('real-user-id')).toBe('real-user-id');
   });
 
   it('ignores an existing marker in production', () => {

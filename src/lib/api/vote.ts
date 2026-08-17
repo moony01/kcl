@@ -13,6 +13,7 @@
  */
 
 import { VOTE_LIMITS } from '@/config/vote';
+import { getVoteBackendUserId } from '@/lib/auth/development-test-mode';
 import { getSupabase } from '@/lib/supabase/client';
 
 const GUEST_VOTER_ID_KEY = 'kcl_guest_voter_id';
@@ -88,7 +89,8 @@ export async function getKpopfaceEmbedVoteStatus(
   userId?: string | null,
 ): Promise<KpopfaceEmbedVoteStatus | null> {
   const supabase = getSupabase();
-  const fingerprint = userId ? null : getGuestVoteFingerprint();
+  const backendUserId = getVoteBackendUserId(userId);
+  const fingerprint = backendUserId ? null : getGuestVoteFingerprint();
 
   try {
     const { data, error } = await supabase.rpc('get_kpopface_embed_vote_status', {
@@ -139,7 +141,7 @@ export async function submitVote(params: SubmitVoteParams): Promise<VoteResult> 
     ? KPOPFACE_EMBED_POWER_MAX
     : VOTE_LIMITS.POWER_MAX;
   const votePower = Math.min(Math.max(Math.floor(params.votePower || 1), 1), maxVotePower);
-  const userId = params.userId || null;
+  const userId = getVoteBackendUserId(params.userId);
   const fingerprint = userId ? null : getGuestVoteFingerprint();
 
   if (!companyId) {

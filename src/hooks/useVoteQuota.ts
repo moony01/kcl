@@ -15,6 +15,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { VOTE_LIMITS } from '@/config/vote';
+import { getVoteBackendUserId } from '@/lib/auth/development-test-mode';
 import { getUserVoteStats } from '@/lib/api';
 import {
   getTodayUTC,
@@ -171,6 +172,10 @@ export function useVoteQuota(
   userId?: string | null,
   options: UseVoteQuotaOptions = {},
 ): UseVoteQuotaReturn {
+  // The local developer session is authenticated in the UI only. It has no
+  // Supabase auth.users row, so quota and vote writes use the guest backend
+  // identity/fingerprint path until a real OAuth session exists.
+  const backendUserId = getVoteBackendUserId(userId);
   const guestDailyLimit = Math.max(
     1,
     Math.floor(options.guestDailyLimit ?? MAX_DAILY_VOTES),
@@ -192,10 +197,10 @@ export function useVoteQuota(
    * 서버에서 로그인 사용자 투표 통계 가져오기
    */
   const fetchServerStats = useCallback(async () => {
-    if (!enabled || !userId) return;
+    if (!enabled || !backendUserId) return;
 
     try {
-      const stats = await getUserVoteStats(userId);
+      const stats = await getUserVoteStats(backendUserId);
       if (stats) {
         setUsed(stats.dailyUsed);
         setMax(stats.dailyLimit);
@@ -206,7 +211,7 @@ export function useVoteQuota(
       console.error('[useVoteQuota] Failed to fetch server stats:', error);
       setMax(MAX_DAILY_VOTES_LOGIN);
     }
-  }, [enabled, userId]);
+  }, [backendUserId, enabled]);
 
   /**
    * 초기화: 모드에 따라 다른 소스에서 데이터 로드
@@ -222,7 +227,7 @@ export function useVoteQuota(
       };
     }
 
-    if (userId) {
+    if (backendUserId) {
       // 로그인 모드: 서버 통계를 일일 한도로 사용
       // eslint-disable-next-line react-hooks/set-state-in-effect
       fetchServerStats().finally(() => {
@@ -252,7 +257,7 @@ export function useVoteQuota(
     return () => {
       cancelled = true;
     };
-  }, [enabled, userId, fetchServerStats, guestDailyLimit, storageKey]);
+  }, [backendUserId, enabled, fetchServerStats, guestDailyLimit, storageKey]);
 
   /**
    * 리셋 시간 업데이트 (1분마다)
@@ -286,7 +291,7 @@ export function useVoteQuota(
       if (lastDate === today) return;
       lastDate = today;
 
-      if (userId) {
+      if (backendUserId) {
         // 로그인 모드: 서버에서 일일 통계 다시 가져오기 (UTC 자정 리셋)
         fetchServerStats();
       } else {
@@ -307,7 +312,7 @@ export function useVoteQuota(
     const interval = setInterval(checkDateChange, 60000);
 
     return () => clearInterval(interval);
-  }, [enabled, userId, fetchServerStats, guestDailyLimit, storageKey]);
+  }, [backendUserId, enabled, fetchServerStats, guestDailyLimit, storageKey]);
 
   /** 개발 도구 등 다른 탭/컨트롤의 게스트 quota 갱신 반영 */
   useEffect(() => {
@@ -315,7 +320,7 @@ export function useVoteQuota(
     if (typeof window === 'undefined') return;
 
     const handleQuotaRefresh = () => {
-      if (userId) return;
+      if (backendUserId) return;
 
       const stored = loadQuotaFromStorage(storageKey);
       if (stored?.date !== getTodayUTC()) return;
@@ -326,7 +331,7 @@ export function useVoteQuota(
 
     window.addEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
     return () => window.removeEventListener(VOTE_QUOTA_REFRESH_EVENT, handleQuotaRefresh);
-  }, [enabled, userId, guestDailyLimit, storageKey]);
+  }, [backendUserId, enabled, guestDailyLimit, storageKey]);
 
   /**
    * 투표권 사용 (클라이언트 측 낙관적 업데이트)
@@ -336,7 +341,7 @@ export function useVoteQuota(
    */
   const useVote = useCallback(
     (count: number = 1): boolean => {
-      if (userId) {
+      if (backendUserId) {
         // 로그인 모드: 서버 통계를 기반으로 낙관적으로 차감
         const newUsed = used + count;
         if (newUsed > max) return false;
@@ -377,17 +382,17 @@ export function useVoteQuota(
 
       return true;
     },
-    [guestDailyLimit, storageKey, userId, used, max],
+    [backendUserId, guestDailyLimit, storageKey, used, max],
   );
 
   /**
    * 서버에서 최신 통계 다시 가져오기 (로그인 모드 전용)
    */
   const refetchStats = useCallback(async () => {
-    if (enabled && userId) {
+    if (enabled && backendUserId) {
       await fetchServerStats();
     }
-  }, [enabled, userId, fetchServerStats]);
+  }, [backendUserId, enabled, fetchServerStats]);
 
   /**
    * 투표권 정보 계산

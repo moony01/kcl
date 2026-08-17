@@ -6,6 +6,10 @@ import {
   VOTE_QUOTA_STORAGE_KEY,
 } from '@/lib/vote-quota';
 import { VOTE_LIMITS } from '@/config/vote';
+import {
+  DEVELOPMENT_TEST_MODE_STORAGE_KEY,
+  DEVELOPMENT_TEST_USER_ID,
+} from '@/lib/auth/development-test-mode';
 
 vi.mock('@/lib/api', () => ({
   getUserVoteStats: vi.fn(),
@@ -62,6 +66,22 @@ describe('guest vote quota developer reset', () => {
 
     expect(result.current.quota.used).toBe(0);
     expect(result.current.quota.remaining).toBe(VOTE_LIMITS.GUEST_DAILY);
+  });
+
+  it('uses the guest quota for the local developer session', async () => {
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    const { act, renderHook, waitFor } = await import('@testing-library/react');
+    const { useVoteQuota } = await import('@/hooks/useVoteQuota');
+    const { result } = renderHook(() => useVoteQuota(DEVELOPMENT_TEST_USER_ID));
+
+    await waitFor(() => expect(result.current.isLoading).toBe(false));
+
+    expect(result.current.quota.max).toBe(VOTE_LIMITS.GUEST_DAILY);
+    act(() => {
+      expect(result.current.useVote(VOTE_LIMITS.GUEST_DAILY)).toBe(true);
+    });
+    expect(result.current.quota.remaining).toBe(0);
   });
 
   it('is a no-op in production even when a local quota exists', () => {
