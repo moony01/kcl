@@ -28,6 +28,7 @@ import { FEATURES } from '@/config/features';
 import { VOTE_LIMITS } from '@/config/vote';
 import { useVote } from '@/hooks/useVote';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
+import type { UseVoteQuotaReturn } from '@/hooks/useVoteQuota';
 import { useAuth } from '@/hooks/useAuth';
 import VoteQuotaBar from '@/components/features/vote/VoteQuotaBar';
 import CompactSelect from '@/components/ui/CompactSelect';
@@ -62,9 +63,15 @@ export interface VoteControllerProps {
   onGuestQuotaExhausted?: () => void;
   /** 표시 변형 - PC: full, Mobile: compact */
   variant?: 'full' | 'compact';
+  /** 패널형 컨트롤러 또는 카드 표면에 얹는 직접투표 액션 */
+  renderMode?: 'panel' | 'card';
+  /** 여러 카드가 하나의 quota 상태를 공유할 때 주입하는 quota 컨트롤러 */
+  quotaController?: Pick<UseVoteQuotaReturn, 'quota' | 'useVote' | 'isLoading'>;
   /** Surface-specific quota/source adapter; omitted for the normal KCL web policy. */
   votePolicy?: VotePolicyAdapter;
 }
+
+export type VoteQuotaController = Pick<UseVoteQuotaReturn, 'quota' | 'useVote' | 'isLoading'>;
 
 export default function VoteController({
   company,
@@ -73,15 +80,26 @@ export default function VoteController({
   onVoteSuccess,
   onGuestQuotaExhausted,
   variant = 'full',
+  renderMode = 'panel',
+  quotaController,
   votePolicy = WEB_VOTE_POLICY,
 }: VoteControllerProps) {
   const t = useTranslations('Vote');
   const { user, profile, isLoading: isAuthLoading } = useAuth();
   const { submitVote, isLoading } = useVote();
-  const { quota, useVote: consumeVote, isLoading: isQuotaLoading } = useVoteQuota(user?.id, {
-    guestDailyLimit: votePolicy.guestDailyLimit,
-    storageKey: votePolicy.storageKey,
-  });
+  const internalQuotaOptions = quotaController
+    ? {
+        guestDailyLimit: votePolicy.guestDailyLimit,
+        storageKey: votePolicy.storageKey,
+        enabled: false,
+      }
+    : {
+        guestDailyLimit: votePolicy.guestDailyLimit,
+        storageKey: votePolicy.storageKey,
+      };
+  const internalQuotaController = useVoteQuota(user?.id, internalQuotaOptions);
+  const activeQuotaController = quotaController ?? internalQuotaController;
+  const { quota, useVote: consumeVote, isLoading: isQuotaLoading } = activeQuotaController;
   const [policyStatus, setPolicyStatus] = useState<VotePolicyStatus | null>(null);
 
   const refreshPolicyStatus = useCallback(async () => {
@@ -430,9 +448,11 @@ export default function VoteController({
   const gaugeFill = (powerLevel / maxPowerLevel) * 100;
 
   return (
-    <div className={styles.voteController}>
+    <div className={classNames(styles.voteController, {
+      [styles.cardMode]: renderMode === 'card',
+    })}>
       {/* 회사 정보 헤더 */}
-      <div className={styles.companyHeader}>
+      {renderMode === 'panel' && <div className={styles.companyHeader}>
         <div className={styles.companyLogo} style={{ background: logoBackground }}>
           {logoUrl ? (
             <img src={logoUrl} alt={company.name.en} className={styles.logoImage} />
@@ -447,10 +467,10 @@ export default function VoteController({
             <span>{company.firepower.toLocaleString()}</span>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* T2.0: 서브레이블 CompactSelect */}
-      {hasSubLabels && company.subLabels && (
+      {renderMode === 'panel' && hasSubLabels && company.subLabels && (
         <CompactSelect
           label={t('sub_label_title')}
           value={selectedSubLabel}
@@ -465,7 +485,7 @@ export default function VoteController({
       )}
 
       {/* T2.0: 아티스트 CompactSelect */}
-      <div className={styles.questionSection}>
+      {renderMode === 'panel' && <div className={styles.questionSection}>
         <CompactSelect
           label={t('who_fan')}
           value={chosenArtist}
@@ -474,7 +494,7 @@ export default function VoteController({
           placeholder={t('select_artist')}
           clearable={true}
         />
-      </div>
+      </div>}
 
       {/* T1.85: 대형 투표 버튼 + 롱프레스 파워투표 게이지 */}
       <div className={styles.voteButtonWrapper}>
@@ -491,11 +511,15 @@ export default function VoteController({
           onPointerCancel={handlePointerLeave}
           onContextMenu={(e) => e.preventDefault()}
           whileHover={canVote && !isPressing ? { scale: 1.02 } : {}}
+          aria-label={renderMode === 'card' ? `${company.name.en} ${t('button.vote')}` : undefined}
+          data-testid={renderMode === 'card' ? `direct-vote-${company.id}` : undefined}
           style={{
             background: showSuccess
               ? 'var(--color-secondary)'
               : !canVote
                 ? 'var(--color-text-dim)'
+                : renderMode === 'card'
+                  ? 'transparent'
                 : company.image,
           }}
         >
@@ -564,7 +588,7 @@ export default function VoteController({
 
       </div>
       {/* 투표권 상태 바 */}
-      {!isQuotaLoading && (
+      {renderMode === 'panel' && !isQuotaLoading && (
         <VoteQuotaBar
           used={effectiveQuota.used}
           max={effectiveQuota.max}
@@ -578,7 +602,7 @@ export default function VoteController({
       )}
 
       {/* 선택된 아티스트 컨텍스트 */}
-      {chosenArtist && (
+      {renderMode === 'panel' && chosenArtist && (
         <motion.p
           className={styles.forArtist}
           initial={{ opacity: 0, y: 10 }}

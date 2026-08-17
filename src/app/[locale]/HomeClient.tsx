@@ -2,23 +2,20 @@
  * KCL home client surface.
  *
  * The home keeps the current brand/header shell, while the vote surface uses
- * the legacy selection-first board. A ranking card selects a company; the
- * existing VoteController then owns voting inside the responsive panel.
+ * the legacy ranking cards with the vote action attached directly to each card.
  */
 
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import type { CompanyType } from '@/lib/mock-data';
 import type { CompaniesResponse } from '@/types/api';
 import { useLeagueData } from '@/hooks/useLeagueData';
 import { useAuth } from '@/hooks/useAuth';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
 import { useRefreshCountdown } from '@/hooks/useRefreshCountdown';
-import { getSupabase } from '@/lib/supabase/client';
 import HomeBoardHeader from '@/components/features/home/HomeBoardHeader';
 import VoteBoard from '@/components/features/vote/VoteBoard';
 import styles from './page.module.scss';
@@ -80,43 +77,10 @@ function normalizeVoteDockCompany(value?: string | null) {
     .replace(/[^a-z0-9가-힣]/g, '');
 }
 
-function toCompanyTypeFromRanking(company: {
-  companyId: string;
-  nameEn: string;
-  nameKo: string;
-  artists: { en: string[]; ko: string[] };
-  voteCount: number;
-  rank: number;
-  rankChange: number;
-  gradientColor: string;
-  logoUrl: string;
-  subLabels?: Array<{
-    id: string;
-    nameEn: string;
-    nameKo: string;
-    artists: { en: string[]; ko: string[] };
-  }>;
-}): CompanyType {
-  return {
-    id: company.companyId,
-    name: { en: company.nameEn, ko: company.nameKo },
-    representative: company.artists,
-    firepower: company.voteCount,
-    rank: company.rank,
-    change: company.rankChange > 0 ? 'up' : company.rankChange < 0 ? 'down' : 'same',
-    image: company.gradientColor.startsWith('linear-gradient')
-      ? company.gradientColor
-      : `linear-gradient(135deg, ${company.gradientColor} 0%, #1A1A1A 100%)`,
-    logoUrl: company.logoUrl || undefined,
-    stockHistory: [],
-    subLabels: company.subLabels,
-  };
-}
-
-/** Restore the legacy selection/panel flow while retaining the current home shell. */
+/** Keep the legacy home shell while making each ranking card the vote surface. */
 export function HomeClient({ initialData }: HomeClientProps = {}) {
   const locale = useLocale();
-  const { user, profile, isLoading: isAuthLoading, isAuthenticated } = useAuth();
+  const { user, isLoading: isAuthLoading, isAuthenticated } = useAuth();
   const {
     premierLeague,
     allCompanies,
@@ -128,41 +92,26 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     refreshInterval: 20000,
     fallbackData: initialData ?? undefined,
   });
-  const { quota, refetchStats } = useVoteQuota(user?.id);
+  const {
+    quota,
+    useVote: consumeVote,
+    refetchStats,
+    isLoading: isQuotaLoading,
+  } = useVoteQuota(user?.id);
   const { countdown, isRefreshing } = useRefreshCountdown({
     intervalMs: 20000,
     refreshingDurationMs: 1500,
   });
-  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
-  const [selectedSubLabelId, setSelectedSubLabelId] = useState<string | null>(null);
-  const [selectedArtistName, setSelectedArtistName] = useState<string | null>(null);
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
-  const didAutoSelectCompany = useRef(false);
-  const didApplyVoteDockSelection = useRef(false);
 
   const eventModalCopy = EVENT_MODAL_COPY[locale] ?? EVENT_MODAL_COPY.en;
+  const handleVote = useCallback(() => undefined, []);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const selectedCompany = useMemo(() => {
-    if (!selectedCompanyId) return null;
-    const ranking = allCompanies.find((company) => company.companyId === selectedCompanyId);
-    return ranking ? toCompanyTypeFromRanking(ranking) : null;
-  }, [allCompanies, selectedCompanyId]);
-
-  useEffect(() => {
-    if (didApplyVoteDockSelection.current || allCompanies.length === 0) return;
+    if (allCompanies.length === 0) return;
 
     const requestedCompany = new URLSearchParams(window.location.search).get('voteCompany');
-    didApplyVoteDockSelection.current = true;
     if (!requestedCompany) return;
 
     const normalizedRequest = normalizeVoteDockCompany(requestedCompany);
@@ -173,87 +122,13 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
     );
     if (!matchedCompany) return;
 
-    didAutoSelectCompany.current = true;
-    setSelectedCompanyId(matchedCompany.companyId);
-    setSelectedSubLabelId(null);
-    setSelectedArtistName(null);
-    const shouldOpenBottomSheet = window.innerWidth < 1024;
-    setIsMobile(shouldOpenBottomSheet);
-    if (shouldOpenBottomSheet) {
-      setIsSheetOpen(true);
-    } else {
-      window.requestAnimationFrame(() => {
-        document.getElementById('vote-station')?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-      });
-    }
+    window.requestAnimationFrame(() => {
+      const target = Array.from(
+        document.querySelectorAll<HTMLElement>('[data-company-id]'),
+      ).find((element) => element.dataset.companyId === matchedCompany.companyId);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
   }, [allCompanies]);
-
-  useEffect(() => {
-    if (didAutoSelectCompany.current || selectedCompanyId || isAuthLoading) return;
-    if (isAuthenticated && !profile) return;
-    if (!profile?.favorite_group_id || allCompanies.length === 0) {
-      didAutoSelectCompany.current = true;
-      return;
-    }
-
-    const selectFavoriteCompany = async () => {
-      try {
-        const supabase = getSupabase();
-        const { data: groupData, error: groupError } = await supabase
-          .from('kcl_groups')
-          .select('company_id, name_en')
-          .eq('id', profile.favorite_group_id)
-          .single();
-
-        if (groupError || !groupData?.company_id) return;
-
-        const directMatch = allCompanies.find(
-          (company) => company.companyId === groupData.company_id,
-        );
-        if (directMatch) {
-          setSelectedCompanyId(directMatch.companyId);
-          setSelectedArtistName(groupData.name_en || null);
-          return;
-        }
-
-        const { data: companyData } = await supabase
-          .from('kcl_companies')
-          .select('parent_company_id')
-          .eq('id', groupData.company_id)
-          .single();
-        const parentMatch = allCompanies.find(
-          (company) => company.companyId === companyData?.parent_company_id,
-        );
-        if (parentMatch) {
-          setSelectedCompanyId(parentMatch.companyId);
-          setSelectedSubLabelId(groupData.company_id);
-          setSelectedArtistName(groupData.name_en || null);
-        }
-      } catch {
-        // A missing favorite-group lookup must not block the public vote board.
-      } finally {
-        didAutoSelectCompany.current = true;
-      }
-    };
-
-    void selectFavoriteCompany();
-  }, [allCompanies, isAuthLoading, isAuthenticated, profile, selectedCompanyId]);
-
-  const handleVote = useCallback(
-    (companyId: string, artistName?: string | null) => {
-      if (!allCompanies.some((company) => company.companyId === companyId)) return;
-
-      didAutoSelectCompany.current = true;
-      setSelectedCompanyId(companyId);
-      setSelectedSubLabelId(null);
-      setSelectedArtistName(artistName ?? null);
-      if (isMobile) setIsSheetOpen(true);
-    },
-    [allCompanies, isMobile],
-  );
 
   const handleVoteSuccess = useCallback(() => {
     void refetchStats();
@@ -262,7 +137,6 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
 
   const handleGuestQuotaExhausted = useCallback(() => {
     if (isAuthLoading || isAuthenticated) return;
-    setIsSheetOpen(false);
     setIsEventModalOpen(true);
   }, [isAuthLoading, isAuthenticated]);
 
@@ -298,24 +172,26 @@ export function HomeClient({ initialData }: HomeClientProps = {}) {
       <VoteBoard
         premierLeague={premierLeague}
         allCompanies={allCompanies}
-        selectedCompanyId={selectedCompanyId}
-        selectedCompany={selectedCompany}
-        selectedSubLabelId={selectedSubLabelId}
-        selectedArtistName={selectedArtistName}
+        selectedCompanyId={null}
+        selectedCompany={null}
+        selectedSubLabelId={null}
+        selectedArtistName={null}
         isExpanded={isExpanded}
-        isSheetOpen={isSheetOpen}
-        isMobile={isMobile}
+        isSheetOpen={false}
+        isMobile={false}
         onVote={handleVote}
         onVoteSuccess={handleVoteSuccess}
         onGuestQuotaExhausted={handleGuestQuotaExhausted}
         onToggleExpand={() => setIsExpanded((current) => !current)}
-        onSheetClose={() => setIsSheetOpen(false)}
+        onSheetClose={() => undefined}
         voteControllerComponent={VoteController}
         bottomSheetComponent={BottomSheet}
         panelId="vote-station"
         layoutClassName=""
         showLeagueHeader={false}
         showSearchBar={false}
+        interactionMode="direct"
+        quotaController={{ quota, useVote: consumeVote, isLoading: isQuotaLoading }}
       />
 
       <Modal

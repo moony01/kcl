@@ -10,6 +10,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 import { Medal, Flame, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import classNames from 'classnames';
 import type { CompanyRanking } from '@/types/league';
@@ -27,6 +28,8 @@ interface TopThreeCardProps {
   isSelected?: boolean;
   /** iframe surfaces can keep the familiar compact ranking density. */
   compact?: boolean;
+  /** Legacy vote action rendered as a full-card overlay in direct mode. */
+  directVote?: ReactNode;
 }
 
 /** 순위별 메달 색상 */
@@ -49,6 +52,7 @@ export default function TopThreeCard({
   onVote: _onVote,
   isSelected = false,
   compact = false,
+  directVote,
 }: TopThreeCardProps) {
   const medalColor = MEDAL_COLORS[rank];
   const logoBackground = getCompanyLogoBackground(company.companyId, company.nameEn, company.logoUrl);
@@ -87,6 +91,7 @@ export default function TopThreeCard({
         [styles.rankDownGlow]: company.rankChange < 0,
       })}
       data-rank={rank}
+      data-company-id={company.companyId}
       layout
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
@@ -98,7 +103,7 @@ export default function TopThreeCard({
           ease: [0.4, 0, 0.2, 1],
         },
       }}
-      onClick={_onVote}
+      onClick={directVote ? undefined : _onVote}
     >
       {/* 메달 뱃지 */}
       <div className={styles.medalBadge} style={{ background: medalColor }}>
@@ -135,6 +140,8 @@ export default function TopThreeCard({
           <p className={styles.hourlyVotes}>+{company.voteCountHourly.toLocaleString()}/h</p>
         )}
       </div>
+
+      {directVote}
 
     </motion.article>
   );

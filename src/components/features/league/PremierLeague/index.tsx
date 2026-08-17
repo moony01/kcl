@@ -10,6 +10,7 @@
 
 'use client';
 
+import type { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import type { CompanyRanking } from '@/types/league';
@@ -22,13 +23,15 @@ interface PremierLeagueProps {
   /** 1부 리그 소속사들 (1-10위) */
   companies: CompanyRanking[];
   /** 투표 핸들러 */
-  onVote: (companyId: string) => void;
+  onVote?: (companyId: string) => void;
   /** 선택된 회사 ID (배틀스테이션에 표시 중인 회사) */
   selectedCompanyId?: string | null;
   /** Kpopface 프로모션 슬롯 표시 여부 (메인 화면은 기본 표시) */
   showKpopfaceAd?: boolean;
   /** iframe surfaces can keep the familiar compact ranking density. */
   compact?: boolean;
+  /** Optional full-card direct vote action. */
+  renderDirectVote?: (company: CompanyRanking) => ReactNode;
 }
 
 export default function PremierLeague({
@@ -37,6 +40,7 @@ export default function PremierLeague({
   selectedCompanyId,
   showKpopfaceAd = true,
   compact = false,
+  renderDirectVote,
 }: PremierLeagueProps) {
   // T1.XX: 배열 index 기준으로 분류 (rank는 전체 firepower 순위라서 사용 불가)
   // companies는 이미 firepower 순으로 정렬되어 있음
@@ -52,9 +56,10 @@ export default function PremierLeague({
             key={company.companyId}
             company={company}
             rank={(index + 1) as 1 | 2 | 3}
-            onVote={() => onVote(company.companyId)}
+            onVote={onVote ? () => onVote(company.companyId) : undefined}
             isSelected={selectedCompanyId === company.companyId}
             compact={compact}
+            directVote={renderDirectVote?.(company)}
           />
         ))}
       </div>
@@ -87,6 +92,7 @@ export default function PremierLeague({
                 displayRank={index + 4}
                 isSelected={selectedCompanyId === company.companyId}
                 compact={compact}
+                directVote={renderDirectVote?.(company)}
               />
             </motion.div>
           ))}

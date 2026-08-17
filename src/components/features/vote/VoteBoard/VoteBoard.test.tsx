@@ -58,16 +58,21 @@ vi.mock('@/components/features/league/PremierLeague', () => ({
     companies,
     onVote,
     showKpopfaceAd,
+    renderDirectVote,
   }: {
     companies: CompanyRanking[];
     onVote: (companyId: string) => void;
     showKpopfaceAd?: boolean;
+    renderDirectVote?: (company: CompanyRanking) => ReactNode;
   }) => (
     <section data-testid="premier-league">
       {companies.map((company) => (
-        <button key={company.companyId} type="button" onClick={() => onVote(company.companyId)}>
-          Rank {company.nameEn}
-        </button>
+        <div key={company.companyId}>
+          <button type="button" onClick={() => onVote(company.companyId)}>
+            Rank {company.nameEn}
+          </button>
+          {renderDirectVote?.(company)}
+        </div>
       ))}
       {showKpopfaceAd && <div data-testid="kpopface-ad-slot" />}
     </section>
@@ -200,5 +205,13 @@ describe('legacy VoteBoard selection surface', () => {
     expect(screen.getByTestId('bottom-sheet').textContent).toContain(
       'Company 1 / Artist / label-1',
     );
+  });
+
+  it('removes both selection panels and renders direct vote actions on cards', () => {
+    renderBoard({ interactionMode: 'direct' });
+
+    expect(screen.queryByTestId('sticky-panel')).toBeNull();
+    expect(screen.queryByTestId('bottom-sheet')).toBeNull();
+    expect(screen.getAllByTestId('vote-controller')).toHaveLength(4);
   });
 });

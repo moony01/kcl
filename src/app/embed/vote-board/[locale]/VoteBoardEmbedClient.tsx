@@ -1,8 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { CompanyType } from '@/lib/mock-data';
-import type { CompanyRanking } from '@/types/league';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLeagueData } from '@/hooks/useLeagueData';
 import { useAuth } from '@/hooks/useAuth';
 import { useVoteQuota } from '@/hooks/useVoteQuota';
@@ -66,23 +64,6 @@ export function parseVoteBoardEmbedOptions(search: string): VoteBoardEmbedOption
   };
 }
 
-function toCompanyType(company: CompanyRanking): CompanyType {
-  return {
-    id: company.companyId,
-    name: { en: company.nameEn, ko: company.nameKo },
-    representative: company.artists,
-    firepower: company.voteCount,
-    rank: company.rank,
-    change: company.rankChange > 0 ? 'up' : company.rankChange < 0 ? 'down' : 'same',
-    image: company.gradientColor.startsWith('linear-gradient')
-      ? company.gradientColor
-      : `linear-gradient(135deg, ${company.gradientColor} 0%, #1A1A1A 100%)`,
-    logoUrl: company.logoUrl || undefined,
-    stockHistory: [],
-    subLabels: company.subLabels,
-  };
-}
-
 function getParentReturnUrl(locale: string): string {
   if (typeof document === 'undefined') return `https://kclhq.com/${locale}`;
 
@@ -124,12 +105,7 @@ export default function VoteBoardEmbedClient({
     surface: 'partner',
     showAds: false,
   });
-  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
-  const [selectedSubLabelId, setSelectedSubLabelId] = useState<string | null>(null);
-  const [selectedArtistName, setSelectedArtistName] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { countdown, isRefreshing } = useRefreshCountdown({
@@ -137,7 +113,12 @@ export default function VoteBoardEmbedClient({
     refreshingDurationMs: 1500,
   });
   const isKpopfaceSurface = options.surface === 'kpopface';
-  const { quota, refetchStats } = useVoteQuota(user?.id, {
+  const {
+    quota,
+    useVote: consumeVote,
+    refetchStats,
+    isLoading: isQuotaLoading,
+  } = useVoteQuota(user?.id, {
     guestDailyLimit: isKpopfaceSurface ? KPOPFACE_EMBED_VOTE_POLICY.guestDailyLimit : undefined,
     storageKey: isKpopfaceSurface ? KPOPFACE_EMBED_VOTE_POLICY.storageKey : undefined,
   });
@@ -155,44 +136,16 @@ export default function VoteBoardEmbedClient({
     return () => window.cancelAnimationFrame(frame);
   }, [surfaceOverride]);
 
-  useEffect(() => {
-    const updateViewport = () => setIsMobile(window.innerWidth < 1024);
-    updateViewport();
-    window.addEventListener('resize', updateViewport);
-    return () => window.removeEventListener('resize', updateViewport);
-  }, []);
-
-  useEffect(() => {
-    if (selectedCompanyId || allCompanies.length === 0) return;
-
-    const frame = window.requestAnimationFrame(() => {
-      setSelectedCompanyId(allCompanies[0].companyId);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, [allCompanies, selectedCompanyId]);
-
-  const selectedCompany = useMemo(() => {
-    if (!selectedCompanyId) return null;
-    const company = allCompanies.find((item) => item.companyId === selectedCompanyId);
-    return company ? toCompanyType(company) : null;
-  }, [allCompanies, selectedCompanyId]);
-
-  const handleVote = useCallback(
-    (companyId: string, artistName?: string | null) => {
-      if (!allCompanies.some((company) => company.companyId === companyId)) return;
-
-      setSelectedCompanyId(companyId);
-      setSelectedSubLabelId(null);
-      setSelectedArtistName(artistName ?? null);
-      if (isMobile) setIsSheetOpen(true);
-    },
-    [allCompanies, isMobile],
-  );
+  const handleVote = useCallback(() => undefined, []);
 
   const handleSearchSelect = useCallback(
-    (companyId: string, artistName?: string) => handleVote(companyId, artistName),
-    [handleVote],
+    (companyId: string) => {
+      const target = Array.from(
+        document.querySelectorAll<HTMLElement>('[data-company-id]'),
+      ).find((element) => element.dataset.companyId === companyId);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    },
+    [],
   );
 
   const handleVoteSuccess = useCallback(() => {
@@ -248,9 +201,7 @@ export default function VoteBoardEmbedClient({
   }, [
     allCompanies.length,
     isExpanded,
-    isMobile,
     isRefreshing,
-    isSheetOpen,
     notifyResize,
     options.showAds,
     options.surface,
@@ -295,19 +246,19 @@ export default function VoteBoardEmbedClient({
         <VoteBoard
           premierLeague={premierLeague}
           allCompanies={allCompanies}
-          selectedCompanyId={selectedCompanyId}
-          selectedCompany={selectedCompany}
-          selectedSubLabelId={selectedSubLabelId}
-          selectedArtistName={selectedArtistName}
+          selectedCompanyId={null}
+          selectedCompany={null}
+          selectedSubLabelId={null}
+          selectedArtistName={null}
           isExpanded={isExpanded}
-          isSheetOpen={isSheetOpen}
-          isMobile={isMobile}
+          isSheetOpen={false}
+          isMobile={false}
           onVote={handleVote}
           onSearchSelect={handleSearchSelect}
           onVoteSuccess={handleVoteSuccess}
           onGuestQuotaExhausted={isKpopfaceSurface ? handleKpopfaceQuotaExhausted : undefined}
           onToggleExpand={() => setIsExpanded((current) => !current)}
-          onSheetClose={() => setIsSheetOpen(false)}
+          onSheetClose={() => undefined}
           voteControllerComponent={VoteController}
           bottomSheetComponent={BottomSheet}
           votePolicy={votePolicy}
@@ -317,6 +268,8 @@ export default function VoteBoardEmbedClient({
           collapseLabel={topTenCopy.collapse}
           surface={options.surface}
           showLeagueHeader={false}
+          interactionMode="direct"
+          quotaController={{ quota, useVote: consumeVote, isLoading: isQuotaLoading }}
           testId="shared-vote-board"
         />
       </main>

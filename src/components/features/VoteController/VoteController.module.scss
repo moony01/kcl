@@ -15,6 +15,53 @@
   padding: 4px 0;
 }
 
+// 카드 전체를 투표 표면으로 사용하는 직접투표 모드.
+// 카드의 기존 정보/순위 디자인은 부모 카드가 소유하고, 이 컨트롤러는
+// 투명한 버튼과 레거시 게이지·성공 모션만 얹습니다.
+.cardMode {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: block;
+  padding: 0;
+  pointer-events: none;
+
+  .voteButtonWrapper {
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: auto;
+  }
+
+  .voteButton {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border-radius: inherit;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .voteContent {
+    opacity: 0;
+  }
+
+  .voteSubHint {
+    display: none;
+  }
+
+  .gaugeOverlay {
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.24);
+  }
+
+  .successContent,
+  .powerContent,
+  .exhaustedContent {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+}
+
 // 빈 상태
 .emptyState {
   display: flex;

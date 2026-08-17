@@ -12,6 +12,7 @@ import PremierLeague from '@/components/features/league/PremierLeague';
 import LeagueRankingItem from '@/components/features/league/LeagueRankingItem';
 import { LeagueHeader } from '@/components/features/league/LeagueHeader';
 import type { VotePolicyAdapter } from '@/components/features/VoteController/votePolicy';
+import type { VoteQuotaController } from '@/components/features/VoteController';
 import styles from '@/app/[locale]/page.module.scss';
 
 export interface VoteControllerRenderProps {
@@ -20,6 +21,8 @@ export interface VoteControllerRenderProps {
   autoSelectedSubLabelId?: string | null;
   onVoteSuccess?: (companyId: string) => void;
   onGuestQuotaExhausted?: () => void;
+  renderMode?: 'panel' | 'card';
+  quotaController?: VoteQuotaController;
   votePolicy?: VotePolicyAdapter;
 }
 
@@ -40,7 +43,7 @@ export interface VoteBoardProps {
   isExpanded: boolean;
   isSheetOpen: boolean;
   isMobile: boolean;
-  onVote: (companyId: string, artistName?: string | null) => void;
+  onVote?: (companyId: string, artistName?: string | null) => void;
   onSearchSelect?: (companyId: string, artistName?: string) => void;
   onVoteSuccess: (companyId?: string) => void;
   onGuestQuotaExhausted?: () => void;
@@ -63,6 +66,27 @@ export interface VoteBoardProps {
   showLeagueHeader?: boolean;
   /** Search remains available to legacy embed callers, not on the home surface. */
   showSearchBar?: boolean;
+  /** Direct card voting removes the selection panel and overlays the legacy vote action on cards. */
+  interactionMode?: 'selection' | 'direct';
+  /** Shared quota state prevents one quota fetch per visible company card. */
+  quotaController?: VoteQuotaController;
+}
+
+function toCompanyType(company: CompanyRanking): CompanyType {
+  return {
+    id: company.companyId,
+    name: { en: company.nameEn, ko: company.nameKo },
+    representative: company.artists,
+    firepower: company.voteCount,
+    rank: company.rank,
+    change: company.rankChange > 0 ? 'up' : company.rankChange < 0 ? 'down' : 'same',
+    image: company.gradientColor.startsWith('linear-gradient')
+      ? company.gradientColor
+      : `linear-gradient(135deg, ${company.gradientColor} 0%, #1A1A1A 100%)`,
+    logoUrl: company.logoUrl || undefined,
+    stockHistory: [],
+    subLabels: company.subLabels,
+  };
 }
 
 /**
@@ -101,6 +125,8 @@ export default function VoteBoard({
   layoutClassName,
   showLeagueHeader = true,
   showSearchBar = true,
+  interactionMode = 'selection',
+  quotaController,
 }: VoteBoardProps) {
   const companiesBelow11 = useMemo(() => allCompanies.slice(10), [allCompanies]);
   const companiesToReveal = compactTopTen ? [] : companiesBelow11;
@@ -110,8 +136,21 @@ export default function VoteBoard({
   const shouldShowExpansion = compactTopTen
     ? premierLeague.length > 4
     : companiesBelow11.length > 0;
-  const handleSearchSelect = onSearchSelect ?? onVote;
+  const handleSearchSelect = onSearchSelect ?? onVote ?? (() => undefined);
   const handleGuestQuotaExhausted = onGuestQuotaExhausted ?? onSheetClose;
+  const isDirectMode = interactionMode === 'direct';
+  const renderDirectVote = isDirectMode
+    ? (company: CompanyRanking) => (
+        <VoteController
+          company={toCompanyType(company)}
+          renderMode="card"
+          quotaController={quotaController}
+          onVoteSuccess={onVoteSuccess}
+          onGuestQuotaExhausted={onGuestQuotaExhausted}
+          votePolicy={votePolicy}
+        />
+      )
+    : undefined;
 
   return (
     <div
@@ -120,6 +159,7 @@ export default function VoteBoard({
       })}
       data-surface={surface}
       data-ads={showKpopfaceAd ? 'on' : 'off'}
+      data-interaction-mode={interactionMode}
       data-testid={testId}
     >
       {showLeagueHeader && (
@@ -142,6 +182,7 @@ export default function VoteBoard({
             selectedCompanyId={selectedCompanyId}
             showKpopfaceAd={showKpopfaceAd}
             compact={compactTopTen}
+            renderDirectVote={renderDirectVote}
           />
 
           {shouldShowExpansion && (
@@ -164,6 +205,7 @@ export default function VoteBoard({
                         onVote={onVote}
                         displayRank={company.rank}
                         isSelected={selectedCompanyId === company.companyId}
+                        directVote={renderDirectVote?.(company)}
                       />
                     ))}
                   </motion.div>
@@ -202,30 +244,34 @@ export default function VoteBoard({
           )}
         </section>
 
-        <aside id={panelId} className={styles.panelColumn}>
-          <StickyPanel isVisible title="Battle Station">
-            <VoteController
-              company={selectedCompany}
-              onVoteSuccess={onVoteSuccess}
-              onGuestQuotaExhausted={handleGuestQuotaExhausted}
-              autoSelectedSubLabelId={selectedSubLabelId}
-              selectedArtist={selectedArtistName || undefined}
-              votePolicy={votePolicy}
-            />
-          </StickyPanel>
-        </aside>
+        {!isDirectMode && (
+          <aside id={panelId} className={styles.panelColumn}>
+            <StickyPanel isVisible title="Battle Station">
+              <VoteController
+                company={selectedCompany}
+                onVoteSuccess={onVoteSuccess}
+                onGuestQuotaExhausted={handleGuestQuotaExhausted}
+                autoSelectedSubLabelId={selectedSubLabelId}
+                selectedArtist={selectedArtistName || undefined}
+                votePolicy={votePolicy}
+              />
+            </StickyPanel>
+          </aside>
+        )}
       </div>
 
-      <BottomSheet isOpen={isSheetOpen && isMobile} onClose={onSheetClose} heightRatio={0.55}>
-        <VoteController
-          company={selectedCompany}
-          onVoteSuccess={onVoteSuccess}
-          onGuestQuotaExhausted={handleGuestQuotaExhausted}
-          autoSelectedSubLabelId={selectedSubLabelId}
-          selectedArtist={selectedArtistName || undefined}
-          votePolicy={votePolicy}
-        />
-      </BottomSheet>
+      {!isDirectMode && (
+        <BottomSheet isOpen={isSheetOpen && isMobile} onClose={onSheetClose} heightRatio={0.55}>
+          <VoteController
+            company={selectedCompany}
+            onVoteSuccess={onVoteSuccess}
+            onGuestQuotaExhausted={handleGuestQuotaExhausted}
+            autoSelectedSubLabelId={selectedSubLabelId}
+            selectedArtist={selectedArtistName || undefined}
+            votePolicy={votePolicy}
+          />
+        </BottomSheet>
+      )}
     </div>
   );
 }
