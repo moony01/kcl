@@ -285,4 +285,28 @@ describe('VoteController artist selection persistence', () => {
     expect(screen.getByText('x100')).toBeDefined();
     fireEvent.pointerUp(voteButton, { pointerId: 1 });
   });
+
+  it('keeps an exhausted direct-vote card visually unchanged and non-interactive', () => {
+    mocks.mockUseAuth.mockReturnValue({ user: null, profile: null });
+    mocks.mockUseVoteQuota.mockReturnValue({
+      quota: {
+        canVote: false,
+        remaining: 0,
+        max: 100,
+        used: 100,
+        hoursUntilReset: 12,
+        minutesUntilReset: 0,
+        mode: 'guest',
+      },
+      useVote: mocks.mockConsumeVote,
+      isLoading: false,
+    });
+
+    render(<VoteController company={smCompany} renderMode="card" />);
+
+    const voteButton = screen.getByRole('button', { name: 'SM Vote' });
+    expect((voteButton as HTMLButtonElement).disabled).toBe(true);
+    expect(screen.queryByText('No votes left')).toBeNull();
+    expect(mocks.mockSubmitVote).not.toHaveBeenCalled();
+  });
 });

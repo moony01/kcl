@@ -168,17 +168,13 @@ export default function LeagueRankingItem({
         </div>
         <div className={styles.textInfo}>
           <h4 className={styles.companyName}>{company.nameEn}</h4>
+          <span className={styles.voteCount}>
+            <Flame size={12} />
+            {company.voteCount.toLocaleString()}
+          </span>
           {/* 2026년 개편: 승강 상태별 태그 표시 */}
           {renderPromotionTag()}
         </div>
-      </div>
-
-      {/* 투표 수 */}
-      <div className={styles.voteInfo}>
-        <span className={styles.voteCount}>
-          <Flame size={12} />
-          {company.voteCount.toLocaleString()}
-        </span>
       </div>
 
       {directVote}

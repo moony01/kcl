@@ -42,8 +42,16 @@
     box-shadow: none;
   }
 
-  .voteContent {
-    opacity: 0;
+  .voteContent,
+  .exhaustedContent {
+    display: none;
+  }
+
+  .voteButton.disabled,
+  .voteButton:disabled {
+    opacity: 1;
+    cursor: default;
+    box-shadow: none;
   }
 
   .voteSubHint {

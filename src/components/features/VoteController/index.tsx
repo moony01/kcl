@@ -500,10 +500,10 @@ export default function VoteController({
       <div className={styles.voteButtonWrapper}>
         <motion.button
           className={classNames(styles.voteButton, {
-          [styles.disabled]: !canVote,
+            [styles.disabled]: !canVote,
             [styles.pressing]: isPressing && powerLevel > 0,
           })}
-          disabled={isLoading}
+          disabled={isLoading || (renderMode === 'card' && !canVote)}
           onClick={handleVoteButtonClick}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
@@ -514,13 +514,15 @@ export default function VoteController({
           aria-label={renderMode === 'card' ? `${company.name.en} ${t('button.vote')}` : undefined}
           data-testid={renderMode === 'card' ? `direct-vote-${company.id}` : undefined}
           style={{
-            background: showSuccess
-              ? 'var(--color-secondary)'
-              : !canVote
-                ? 'var(--color-text-dim)'
-                : renderMode === 'card'
-                  ? 'transparent'
-                : company.image,
+            background: renderMode === 'card'
+              ? showSuccess
+                ? 'var(--color-secondary)'
+                : 'transparent'
+              : showSuccess
+                ? 'var(--color-secondary)'
+                : !canVote
+                  ? 'var(--color-text-dim)'
+                  : company.image,
           }}
         >
           {/* 파워투표 게이지 오버레이 */}
@@ -553,7 +555,7 @@ export default function VoteController({
                 <Flame size={28} />
                 <span className={styles.powerNumber}>x{powerLevel}</span>
               </motion.div>
-            ) : !canVote ? (
+            ) : !canVote && renderMode === 'card' ? null : !canVote ? (
               <motion.div
                 key="exhausted"
                 className={styles.exhaustedContent}
