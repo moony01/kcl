@@ -167,8 +167,8 @@
   }
 
   &:focus {
-    border-bottom-color: #8b5cf6;
-    box-shadow: 0 2px 0 0 #8b5cf6;
+    border-bottom-color: $color-primary;
+    box-shadow: 0 2px 0 0 $color-primary;
   }
 }
 
@@ -619,7 +619,7 @@
   }
 
   &:focus {
-    border-color: #8b5cf6;
+    border-color: $color-primary;
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
   }
 

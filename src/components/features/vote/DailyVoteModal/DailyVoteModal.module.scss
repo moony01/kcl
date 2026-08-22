@@ -30,7 +30,7 @@
   overflow: hidden;
   color: var(--color-text, #1a1a2e);
   background: var(--color-surface, #fff);
-  border: 1px solid color-mix(in srgb, var(--color-primary, #8b5cf6) 24%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary, #315cff) 24%, transparent);
   border-radius: 24px;
   box-shadow: 0 28px 90px rgba(16, 11, 32, 0.42);
   flex-direction: column;
@@ -55,7 +55,7 @@
   align-items: center;
   gap: 7px;
   margin-bottom: 6px;
-  color: var(--color-primary, #8b5cf6);
+  color: var(--color-primary, #315cff);
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.12em;
@@ -112,7 +112,7 @@
 .closeButton:hover,
 .closeButton:focus-visible {
   color: var(--color-text, #1a1a2e);
-  background: color-mix(in srgb, var(--color-primary, #8b5cf6) 14%, transparent);
+  background: color-mix(in srgb, var(--color-primary, #315cff) 14%, transparent);
   transform: scale(1.04);
 }
 
@@ -169,7 +169,7 @@
 .todayButton:hover,
 .todayButton:focus-visible {
   color: var(--color-text, #1a1a2e);
-  background: color-mix(in srgb, var(--color-primary, #8b5cf6) 11%, transparent);
+  background: color-mix(in srgb, var(--color-primary, #315cff) 11%, transparent);
 }
 
 .moreVotesButton {

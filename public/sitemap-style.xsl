@@ -38,7 +38,7 @@
           }
           h1 {
             font-size: 2rem;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            background: linear-gradient(90deg, #315cff, #5477ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
@@ -59,7 +59,7 @@
           .stat-value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #8b5cf6;
+            color: #315cff;
           }
           .stat-label {
             font-size: 0.75rem;
