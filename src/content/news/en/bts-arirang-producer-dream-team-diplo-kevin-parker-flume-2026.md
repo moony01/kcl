@@ -71,9 +71,9 @@ Kevin Parker said at the 2025 SXSW panel: "The BTS members know exactly what the
 
 This marks the complete erasure of the "niche pop star" label that Western music circles briefly attached to BTS in the early 2020s.
 
-## KCL's Industry Analysis
+## MEARROW's Industry Analysis
 
-From the lens of KCL (K-pop Company League), this producer lineup dramatically strengthens HYBE's strategic positioning.
+From the lens of MEARROW (K-pop Talent Network), this producer lineup dramatically strengthens HYBE's strategic positioning.
 
 **Cross-genre streaming spillover**: The fanbases of each producer now have a gateway into BTS. Diplo fans, Tame Impala devotees, JPEGMAFIA listeners — all are statistically likely to engage with BTS content for the first time. Forbes has labeled this strategy "fandom cross-pollination."
 

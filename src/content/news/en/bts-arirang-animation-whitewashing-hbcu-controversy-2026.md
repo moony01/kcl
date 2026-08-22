@@ -93,7 +93,7 @@ This silence follows a pattern. Korean entertainment companies generally avoid e
 
 The calculation HYBE appears to be making: the core fanbase is mobilized, the controversy has not crossed into mainstream media coverage, and the album speaks for itself. Whether that calculation holds depends on whether the whitewashing story gets picked up beyond K-pop Twitter.
 
-## KCL's Take: The Contradiction At The Heart Of ARIRANG
+## MEARROW's Take: The Contradiction At The Heart Of ARIRANG
 
 Here is what makes this controversy genuinely painful rather than merely complicated: **ARIRANG's entire conceptual premise is about not being erased.**
 

@@ -30,7 +30,7 @@ HYBE's May 2025 sale of its entire 9.38% stake in SM Entertainment to Tencent Mu
 
 ## What ONECEAD Really Means for the Industry
 
-KCL views ONECEAD not as a mere joint venture, but as **the starting point of K-pop's "China 2.0" era**. The first takeaway is JYP's strategic brilliance. Through its LAPONE Entertainment joint venture in Japan — which produced successful acts like JO1 and INI — JYP already proved the "discover local talent, launch globally" model works. ONECEAD is that Japan playbook, replicated for China.
+MEARROW views ONECEAD not as a mere joint venture, but as **the starting point of K-pop's "China 2.0" era**. The first takeaway is JYP's strategic brilliance. Through its LAPONE Entertainment joint venture in Japan — which produced successful acts like JO1 and INI — JYP already proved the "discover local talent, launch globally" model works. ONECEAD is that Japan playbook, replicated for China.
 
 The second is the shifting competitive landscape. While HYBE stepped back from China by selling its SM stake to Tencent, JYP went the opposite direction and partnered with Tencent directly. SM, now with Tencent as its second-largest shareholder, finds its independent China strategy increasingly constrained. The result: **JYP has seized the most favorable position in the Chinese market** among the Big 4.
 

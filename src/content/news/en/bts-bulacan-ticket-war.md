@@ -46,11 +46,11 @@ That cross-market echo is the bigger signal. Bulacan was not an isolated spike c
 
 [Related: BTS Dynamite Japan streams showed why old hits can still move markets](/en/news/bts-dynamite-japan-streams)
 
-## KCL's View: The Scarcity Is The Product Test
+## MEARROW's View: The Scarcity Is The Product Test
 
 ### Two nights are not just capacity; they are evidence
 
-KCL reads the Bulacan sellout as a market test, not only a fandom celebration. The Philippine Sports Stadium date gives BTS a large local stage, but the useful question for the industry is whether two nights were enough to measure demand or only enough to expose unmet demand. When fans immediately start asking for another show, the shortage becomes part of the marketing engine.
+MEARROW reads the Bulacan sellout as a market test, not only a fandom celebration. The Philippine Sports Stadium date gives BTS a large local stage, but the useful question for the industry is whether two nights were enough to measure demand or only enough to expose unmet demand. When fans immediately start asking for another show, the shortage becomes part of the marketing engine.
 
 This is where BTS remain structurally different from most K-pop acts. Many groups can sell urgency during comeback week. Fewer can turn a ticket queue into a regional news cycle months before the performance. The Bulacan story links three assets at once: a reunited global act, a Southeast Asian fanbase willing to fight through process friction, and a touring system where scarcity itself becomes proof of scale.
 

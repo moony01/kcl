@@ -42,11 +42,11 @@ In K-pop, a comeback is no longer just about streaming. When two acts arrive at 
 
 It will take longer than a few hours to judge which songs age better. But it will not take long to see which company designed a more effective use of fan focus. SM is selling the symbolism of a **first full album**. HYBE is selling the stickiness of a **pre-release-to-EP** funnel. Both are coherent strategies. But when they occupy the same slot, the market usually magnifies one faster than the other.
 
-## How KCL reads NCT WISH vs CORTIS
+## How MEARROW reads NCT WISH vs CORTIS
 
 ### Fifth-gen competition has moved from debut wars to scheduling wars
 
-From KCL's view, this is the real takeaway. Fifth-generation boy-group competition is no longer just about who debuts, or even who charts first. It is about **who arrives at which hour, in what release format, and under what corporate story**. NCT WISH is growing inside SM's anniversary-wide brand architecture. CORTIS is stacking already-proven purchase power onto a longer global rollout. Neither team is being sold on talent alone. Their operating systems have become part of the product.
+From MEARROW's view, this is the real takeaway. Fifth-generation boy-group competition is no longer just about who debuts, or even who charts first. It is about **who arrives at which hour, in what release format, and under what corporate story**. NCT WISH is growing inside SM's anniversary-wide brand architecture. CORTIS is stacking already-proven purchase power onto a longer global rollout. Neither team is being sold on talent alone. Their operating systems have become part of the product.
 
 ## The real numbers start showing after 7 p.m.
 

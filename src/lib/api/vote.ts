@@ -72,7 +72,7 @@ export interface VoteResult {
 export interface KpopfaceEmbedVoteStatus {
   canVote: boolean;
   hasUsedEmbed: boolean;
-  /** Shared KCL daily votes still available. */
+  /** Shared MEARROW daily votes still available. */
   remaining: number;
   dailyLimit: number;
   /** The maximum value the current long press may submit. */

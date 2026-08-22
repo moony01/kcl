@@ -58,7 +58,7 @@ The bull case rests on the ARIRANG World Tour: 82 shows across 34 cities in 23 c
 ![Infographic contrasting HYBE stock crash with BTS record-breaking streaming metrics](/images/news/hybe-stock-bts-paradox-1.png)
 _K-pop's most successful album launch and its biggest single-day stock crash unfolded on the same timeline_
 
-## KCL's Take: The BTS Paradox
+## MEARROW's Take: The BTS Paradox
 
 The real issue isn't whether BTS has lost its pull. It's a **structural crack in how K-pop companies are valued**. In an era where digital streaming drives the revenue engine, the stock market still prices companies on "how many people physically showed up." Spotify's 110 million streams are a milestone, but on the trading floor, they couldn't outweigh the 40,000 standing at Gwanghwamun.
 

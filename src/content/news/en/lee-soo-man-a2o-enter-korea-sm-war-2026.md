@@ -62,7 +62,7 @@ The K-pop landscape Lee Soo-man is returning to in 2026 is more complex than it 
 
 In one return, Lee Soo-man has opened a three-front war.
 
-## KCL's Take on Lee Soo-man's Return
+## MEARROW's Take on Lee Soo-man's Return
 
 The system Lee Soo-man built is not complicated to describe: rigorous trainee development → structured debut → fandom infrastructure → global scaling. That framework is essentially what HYBE, JYP, and their competitors run today. Lee Soo-man built the original. Everyone else followed.
 

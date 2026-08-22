@@ -70,7 +70,7 @@ Before March 11, 2026, the K-pop girl group Hot 100 ceiling was 10 entries. It i
 
 [Related: BLACKPINK 'DEADLINE' Sells 1.77M First Week — K-Pop Girl Group Sales Record Shattered](/en/news/blackpink-deadline-ep-record-sales-yg-2026)
 
-## KCL's Take
+## MEARROW's Take
 
 Three things stand out from the "GO" milestone.
 

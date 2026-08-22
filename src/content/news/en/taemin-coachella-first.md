@@ -42,11 +42,11 @@ Rolling Stone UK described Taemin as `the idol's idol`, while Forbes framed the 
 
 The more durable part of the reaction is visual: the opening break-out sequence, the sweat-soaked styling, the costume transition, and the decision to push unreleased songs into a high-pressure slot. `Taemin Coachella` became less of a one-off search term and more of a package of clips people kept replaying, reposting, and reinterpreting.
 
-## KCL's view on Taemin at Coachella
+## MEARROW's view on Taemin at Coachella
 
 ### The biggest thing that changed is the expectation line
 
-KCL does not see this story as only "the first Korean male solo artist at Coachella." The more important shift is the new expectation around what a male K-pop soloist is supposed to do on a U.S. festival stage. The bar is no longer just getting booked. It is whether you can hold attention, build mythology, and sell future music in the same set. Taemin placed that bar noticeably higher.
+MEARROW does not see this story as only "the first Korean male solo artist at Coachella." The more important shift is the new expectation around what a male K-pop soloist is supposed to do on a U.S. festival stage. The bar is no longer just getting booked. It is whether you can hold attention, build mythology, and sell future music in the same set. Taemin placed that bar noticeably higher.
 
 ## The next chapter starts after Coachella
 

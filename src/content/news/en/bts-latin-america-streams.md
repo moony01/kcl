@@ -44,11 +44,11 @@ MK reported that HYBE framed the Latin market as a business axis connected to th
 
 The business case is straightforward but difficult to execute. Latin American fans are highly organized, but the market is not frictionless. Ticket access, pricing, official merch distribution, venue capacity, exchange rates, and city-by-city logistics can turn demand into frustration fast. The same fandom that can produce millions of streams can also expose weak infrastructure when fans feel locked out. The Mexico ticket pressure around BTS is a reminder that demand without access becomes a reputational risk.
 
-## What KCL Sees In The Shift
+## What MEARROW Sees In The Shift
 
 ### This is not just a BTS victory lap
 
-KCL reads the `BTS ARIRANG` numbers as a preview of the next export model. The old version of K-pop globalization was company-led: agencies selected markets, built promotions, and treated fans as the receiving end. The new version is more circular. Fans create the signal first, data confirms the signal second, and companies follow with tours, campaigns, and investment after the market has already proven itself.
+MEARROW reads the `BTS ARIRANG` numbers as a preview of the next export model. The old version of K-pop globalization was company-led: agencies selected markets, built promotions, and treated fans as the receiving end. The new version is more circular. Fans create the signal first, data confirms the signal second, and companies follow with tours, campaigns, and investment after the market has already proven itself.
 
 That gives Latin America unusual leverage. If Brazil and Mexico can outrank Korea in first-week streaming for the biggest K-pop comeback of the year, the region has earned a stronger place in planning rooms. Future album rollouts should not only add Spanish captions after launch. They should consider release timing, local media, regional retail, fan communication, and tour capacity from the beginning.
 

@@ -50,11 +50,11 @@ Being a BIGHIT MUSIC group obviously matters. But that alone does not explain wh
 
 CORTIS kept adding scenes to its narrative: U.S. sports-event stages, major festival lineups, international media attention, and fans who respond by buying early and heavily. In the rookie market, a one-week viral moment is useful. What really changes valuation is when fans behave as if the next chapter is inevitable. That is what `GREENGREEN` pre-orders look like right now.
 
-## What KCL is actually watching
+## What MEARROW is actually watching
 
 ### The rookie baseline just moved
 
-From KCL’s perspective, the biggest takeaway is not simply that CORTIS is winning. It is that the rookie boy-group baseline in 2026 is getting more expensive and more global. Seven-figure pre-orders used to be a comeback-week shock. CORTIS is making it look possible a month in advance.
+From MEARROW’s perspective, the biggest takeaway is not simply that CORTIS is winning. It is that the rookie boy-group baseline in 2026 is getting more expensive and more global. Seven-figure pre-orders used to be a comeback-week shock. CORTIS is making it look possible a month in advance.
 
 ### It is also a warning to trainees and labels
 

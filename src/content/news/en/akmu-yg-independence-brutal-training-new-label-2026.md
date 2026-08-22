@@ -107,7 +107,7 @@ Chan-hyuk writes and produces everything. That was true at YG too. But now the t
 
 The trade is obvious: resources for freedom. The question is whether it's worth it.
 
-## KCL's Read on AKMU's Gamble
+## MEARROW's Read on AKMU's Gamble
 
 AKMU's independence move is unusual in K-pop — and it's only possible because of what AKMU uniquely is.
 
@@ -123,6 +123,6 @@ Whether that belief translates into their strongest work yet, or whether the abs
 
 After twelve years, AKMU is making their first truly independent record. Yang Hyun-suk came to their house, had dinner, and still couldn't stop them.
 
-KCL will be watching.
+MEARROW will be watching.
 
 [Related: Yang Hyun-suk Returns to the Audition Stage — What Is YG Building Next?](/en/news/yg-yang-hyunsuk-audition-return)

@@ -73,13 +73,13 @@ According to casting directors, these are the types that **fail in the first rou
 
 **5. SNS History Issues** - Past controversial social media posts. Agencies **investigate applicants' online history** before auditions.
 
-## KCL's Perspective: Agency Rankings and Training Philosophy
+## MEARROW's Perspective: Agency Rankings and Training Philosophy
 
-Looking at KCL (K-pop Company League) agency ranking data, an interesting pattern emerges. **Agencies with systematic training programs tend to have better long-term artist performance.**
+Looking at MEARROW (K-pop Talent Network) agency ranking data, an interesting pattern emerges. **Agencies with systematic training programs tend to have better long-term artist performance.**
 
 It's not about "agencies that select outstanding trainees," but rather **"agencies that turn ordinary trainees into stars"** that are truly prestigious. This comes down to the difference in systems that **select trainees with good attitudes** and **elevate their skills through systematic training**.
 
-A common thread among agencies maintaining top positions in KCL rankings is their **high emphasis on character evaluation**. This is a strategic choice that considers **long-term artist longevity** over short-term results.
+A common thread among agencies maintaining top positions in MEARROW rankings is their **high emphasis on character evaluation**. This is a strategic choice that considers **long-term artist longevity** over short-term results.
 
 ## In Closing: Practical Advice for Aspiring Trainees
 
@@ -95,4 +95,4 @@ If you're preparing for auditions right now, remember:
 
 **5. Only apply through official channels** - HYBE, SM, JYP, and YG only accept applications through their official websites or emails. Beware of scams promising "guaranteed acceptance."
 
-The journey toward becoming a K-pop idol is long and challenging. But with the **right attitude** and **relentless effort**, that dream can certainly come true. KCL is rooting for your challenge.
+The journey toward becoming a K-pop idol is long and challenging. But with the **right attitude** and **relentless effort**, that dream can certainly come true. MEARROW is rooting for your challenge.

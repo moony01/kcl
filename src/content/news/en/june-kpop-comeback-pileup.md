@@ -52,11 +52,11 @@ But louder is not always better for agencies. Attention is not infinite, and fan
 
 That is why the real contest is pacing. Agencies are no longer only competing at the level of songs and visuals. They are competing at the level of calendar architecture: teaser timing, pre-release hooks, performance scheduling, fan-platform prompts and how quickly a release creates a second headline after launch day.
 
-## KCL View: The Calendar Became The Product
+## MEARROW View: The Calendar Became The Product
 
 ### June will reward the teams that can extend attention after day one
 
-KCL reads this June comeback pileup as a stress test for modern K-pop rollout design. The old assumption was that a strong comeback could dominate its window if the song, concept and fandom were powerful enough. June 2026 makes that assumption weaker. The window itself is unstable.
+MEARROW reads this June comeback pileup as a stress test for modern K-pop rollout design. The old assumption was that a strong comeback could dominate its window if the song, concept and fandom were powerful enough. June 2026 makes that assumption weaker. The window itself is unstable.
 
 The acts with the best chance are not only the ones with the biggest names. They are the ones with the most repeatable story. MAMAMOO has reunion emotion. BOYNEXTDOOR has the first-full-album milestone. BABYMONSTER has summer-single velocity. SHINee and Treasure bring veteran and label-brand weight. Each campaign has a hook, but the hook has to survive beyond the first social-media spike.
 

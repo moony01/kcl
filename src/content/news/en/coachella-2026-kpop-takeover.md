@@ -71,7 +71,7 @@ The full Asian lineup exceeds nine acts:
 
 Compare this to 2019, when BLACKPINK stood alone as the only K-pop act at Coachella. In seven years, the Asian lineup has expanded more than ninefold.
 
-## KCL's Take on Coachella 2026
+## MEARROW's Take on Coachella 2026
 
 Coachella's expansion of K-pop isn't about diversity optics. It's a business calculation. Coachella 2026 is sold out. K-pop fandoms' purchasing power and social media mobilization directly contribute to the festival's revenue model — and that's already been proven.
 

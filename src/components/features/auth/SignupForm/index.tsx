@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SignupForm - KCL 회원가입 폼 컴포넌트
+ * SignupForm - MEARROW 회원가입 폼 컴포넌트
  *
  * OAuth(Google/Kakao) 회원가입만 지원합니다.
  * 정적 빌드 호환을 위해 모든 인증은 클라이언트 사이드에서 처리됩니다.

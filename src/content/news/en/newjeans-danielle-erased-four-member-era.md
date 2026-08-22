@@ -32,9 +32,9 @@ The four-member structure appears all but confirmed, yet one person's decision r
 
 If Minji returns, NewJeans can reorganize as a four-member act and resume activities. But if she also departs, the group faces an even more drastic reduction to three. K-pop history has seen groups successfully rebound after member departures — BIGBANG, Apink, GOT7 — but none of those journeys were smooth. Whatever Minji decides, it will define the character of "NewJeans 2.0."
 
-## KCL's Perspective on the Four-Member Era
+## MEARROW's Perspective on the Four-Member Era
 
-From KCL's (K-pop Company League) standpoint, this situation carries meaning far beyond a simple lineup change. It once again proves that **K-pop's power structure prioritizes corporate legal and strategic judgment over individual artist agency**. Under the HYBE-ADOR system, each artist's options collapsed into a binary: stay or be removed.
+From MEARROW's (K-pop Talent Network) standpoint, this situation carries meaning far beyond a simple lineup change. It once again proves that **K-pop's power structure prioritizes corporate legal and strategic judgment over individual artist agency**. Under the HYBE-ADOR system, each artist's options collapsed into a binary: stay or be removed.
 
 Simultaneously, this case dramatically illustrates the **tension between contract enforceability and artist rights**. After a court upheld the contract's validity in 2025, the option of "independence" for NewJeans members effectively ceased to exist. Danielle's case will likely serve as a critical precedent for future idol group contract disputes.
 

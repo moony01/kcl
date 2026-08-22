@@ -1,5 +1,5 @@
 /**
- * KCL voting policy constants.
+ * MEARROW voting policy constants.
  *
  * Keep UI defaults and client-side guards aligned with Supabase RPC policy.
  * Server-side enforcement lives in `submit_vote_secure` / `get_user_vote_stats`.

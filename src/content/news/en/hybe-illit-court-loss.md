@@ -54,11 +54,11 @@ That signal depends on follow-through. A win lets the company frame itself as di
 
 This is where the `HYBE ILLIT lawsuit` becomes bigger than one court file. HYBE is already navigating an unusually legalistic era: ADOR disputes, Min Hee-jin litigation, label-management conflicts, and constant arguments over how far fan speech can go before it becomes organized harm. The more HYBE litigates, the more each courtroom result becomes part of the brand story.
 
-## What KCL Is Watching Now
+## What MEARROW Is Watching Now
 
 ### The next move is narrative discipline
 
-KCL reads this ruling as a warning about strategy, not as a final verdict on ILLIT's identity. If HYBE continues to treat every reputational wound as a courtroom problem, it risks teaching fans to judge its artist management through legal scoreboards. That is a bad arena for a rookie-facing girl group. The stronger move may be more precise: reserve litigation for claims with clear evidence and provable damage, while letting ILLIT's music, performance language, and audience growth answer the softer copycat frame over time.
+MEARROW reads this ruling as a warning about strategy, not as a final verdict on ILLIT's identity. If HYBE continues to treat every reputational wound as a courtroom problem, it risks teaching fans to judge its artist management through legal scoreboards. That is a bad arena for a rookie-facing girl group. The stronger move may be more precise: reserve litigation for claims with clear evidence and provable damage, while letting ILLIT's music, performance language, and audience growth answer the softer copycat frame over time.
 
 Belift Lab also has to separate artist protection from defensive overexposure. ILLIT does need protection from targeted rumor campaigns. But the group also needs space to become more than a case study in HYBE's internal and external battles. Every time the company makes ILLIT the face of another legal headline, the audience is reminded of the accusation before it is reminded of the music.
 

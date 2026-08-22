@@ -54,11 +54,11 @@ This is the detail that can get lost when every headline becomes about volume. T
 
 That is why `NO TRAGEDY` feels more meaningful than a simple "career high." It reads like the moment when growth stopped being a projection and started becoming evidence.
 
-## KCL's View on TWS's Million-Seller Jump
+## MEARROW's View on TWS's Million-Seller Jump
 
 ### This is when "promising" turns into pressure
 
-KCL's read is simple: TWS is now entering the part of the cycle where success becomes heavier, not easier. The million-seller label gives the group prestige, but it also strips away some of the protection that comes with being called a rookie. Once the market sees a group move at this speed, every next release gets judged against scale, not only charm. That can be useful for Pledis. It can also become dangerous if the company mistakes early velocity for infinite elasticity.
+MEARROW's read is simple: TWS is now entering the part of the cycle where success becomes heavier, not easier. The million-seller label gives the group prestige, but it also strips away some of the protection that comes with being called a rookie. Once the market sees a group move at this speed, every next release gets judged against scale, not only charm. That can be useful for Pledis. It can also become dangerous if the company mistakes early velocity for infinite elasticity.
 
 The smarter takeaway is not that TWS has already reached its final tier. It is that the business conversation around the group has changed faster than the branding conversation. Fans may still enjoy the freshness and warmth that made TWS easy to root for, but the sales data is already placing the act into a more competitive class. That changes how comeback budgets, tour planning, promotional risk and even creative patience get evaluated from here.
 

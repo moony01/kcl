@@ -38,11 +38,11 @@ _A world-tour map with mainland China left dark captures the most visible unfini
 
 It is only half true to say China is no longer what it once was for K-pop. The Korea Times, citing Korea Customs data, reported that album exports to China jumped from $4.31 million to $17.63 million in the first four months of 2025. Yonhap also reported that total K-pop album exports topped $300 million in 2025 for the first time, with China reclaiming the No. 2 spot at $69.7 million. In other words, the fandom demand is still there. What remains broken is the route into the market. That is why a BTS-scale tour leaving mainland China blank immediately reads as an industry signal, not just a scheduling detail.
 
-## How KCL reads the BTS China gap
+## How MEARROW reads the BTS China gap
 
 ### The group is back, but market trust is not
 
-KCL does not see this as a simple omission on BTS’ calendar. It looks more like a quiet admission that K-pop has learned how to grow without full China access, but still has not truly replaced what China can mean at scale. The U.S. brings prestige. Japan brings consistency. China, when it opens, can expand touring, album sales, platform deals and brand partnerships at the same time. The real question now is not whether China eventually reopens. It is which artists will be allowed back first, and under what conditions.
+MEARROW does not see this as a simple omission on BTS’ calendar. It looks more like a quiet admission that K-pop has learned how to grow without full China access, but still has not truly replaced what China can mean at scale. The U.S. brings prestige. Japan brings consistency. China, when it opens, can expand touring, album sales, platform deals and brand partnerships at the same time. The real question now is not whether China eventually reopens. It is which artists will be allowed back first, and under what conditions.
 
 ## What the next phase depends on
 

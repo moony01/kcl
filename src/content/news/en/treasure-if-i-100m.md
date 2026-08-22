@@ -40,7 +40,7 @@ The `100 million` view mark also changes how `NEW WAV` is read. Allkpop reported
 
 A strong album figure says the core fandom bought in. A fast video milestone says the visual campaign created ongoing attention. Regional iTunes and album-chart movement say the rollout is not trapped in one domestic lane. None of those alone would settle TREASURE’s 2026 position. Together, they make the comeback feel like a coordinated push rather than one lucky headline.
 
-This is where YG’s larger boy-group strategy becomes relevant. KCL has already been watching how the company is preparing its next male act. [Related: YG’s five-member September boy group bet shows the label is optimizing for clarity](/en/news/yg-boygroup-september-bet). TREASURE’s current run now becomes part of the same label-wide question: can YG move with enough speed and discipline to keep established acts, new releases and future rookies in one connected momentum cycle?
+This is where YG’s larger boy-group strategy becomes relevant. MEARROW has already been watching how the company is preparing its next male act. [Related: YG’s five-member September boy group bet shows the label is optimizing for clarity](/en/news/yg-boygroup-september-bet). TREASURE’s current run now becomes part of the same label-wide question: can YG move with enough speed and discipline to keep established acts, new releases and future rookies in one connected momentum cycle?
 
 ## The Fandom Test Is Now Different
 
@@ -52,11 +52,11 @@ This is why the `IF I` number is useful even if someone does not treat view coun
 
 The risk is that fast milestones can create faster pressure. Once a group proves it can move at this pace, every next comeback gets compared against the same clock. A slower second week can look like decline, even if the song performs well by normal standards. That is the cost of turning speed into a brand signal.
 
-## KCL’s View: This Is YG’s Speed Audit
+## MEARROW’s View: This Is YG’s Speed Audit
 
 ### The milestone matters because it measures execution, not only popularity
 
-KCL reads `IF I` as a speed audit for TREASURE and YG. The music video hitting `100 million` views in `11 days, 22 hours and 49 minutes` is the headline. The deeper story is that the comeback produced several forms of measurable action at once: views, album movement, short-form spread, fan reposting and media pickup.
+MEARROW reads `IF I` as a speed audit for TREASURE and YG. The music video hitting `100 million` views in `11 days, 22 hours and 49 minutes` is the headline. The deeper story is that the comeback produced several forms of measurable action at once: views, album movement, short-form spread, fan reposting and media pickup.
 
 That mix is exactly what agencies want from a 2026 K-pop rollout. Songs cannot only exist as music. They have to become visuals, challenges, numbers, clips and repeatable narratives almost immediately. `IF I` appears to have done that faster than any other K-pop music video this year, at least by the Soompi/YG-reported timing.
 

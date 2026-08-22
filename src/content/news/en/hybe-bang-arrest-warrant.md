@@ -42,7 +42,7 @@ Public perception amplifies the shock. Bang is still widely recognized as the ar
 
 Still, current distrust cannot determine whether the 2019 allegations are true. Public fatigue with HYBE may intensify the reaction, but it cannot replace a court's finding of fact. Those are different layers, and mixing them is how analysis turns into factional noise. [Related: Min Hee-jin Offered to Walk Away From $18 Million — HYBE's Answer Was Even More Telling](/en/news/min-heejin-18m-deal-rejected)
 
-## KCL's Take on the Real Risk
+## MEARROW's Take on the Real Risk
 
 ### Artist power cannot cancel out governance weakness
 

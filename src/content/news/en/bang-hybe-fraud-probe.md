@@ -54,7 +54,7 @@ Bang still occupies a rare place in K-pop's public imagination: he is both the f
 
 That shift in public mood matters because it changes how every new procedural update is received. It does not, however, decide whether the 2019 allegations are true. Current distrust, fatigue, or fandom loyalty cannot substitute for evidence. The public may read the rejected warrant as proof that the case is collapsing, or as proof that bigger evidence is coming. Both reactions can coexist. Neither establishes the historical facts on its own.
 
-## KCL's view on what became more dangerous
+## MEARROW's view on what became more dangerous
 
 ### HYBE is now being tested as a system, not as a fandom machine
 

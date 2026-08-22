@@ -42,11 +42,11 @@ AP reported that BTS opened the `ARIRANG` world tour in Goyang on April 9 by fil
 
 HYBE's legal rationale is straightforward: trademark protection, consumer confusion, and low-quality counterfeit goods. Fans' emotional objection is also straightforward: freebies do not feel like the same thing as bootleg commerce. That is why this controversy cuts deeper than a standard IP dispute. The harder question is who gets to define what counts as a legitimate object of memory at a BTS show. Is the concert experience only what flows through the official sales circuit, or can fandom still build its own parallel layer of meaning around it?
 
-## How KCL Reads The BTS Fan-Made Merch Crackdown
+## How MEARROW Reads The BTS Fan-Made Merch Crackdown
 
 ### HYBE is saying more than 'no counterfeits'
 
-From KCL's perspective, the company is drawing a broader boundary than a simple anti-bootleg line. What HYBE appears to be building is an official circuit for nearly every spendable or collectible touchpoint around BTS: venue access, nearby pickup, platform-linked commerce, pop-up consumption, and tour-adjacent merchandise. That is a powerful business model. But the more fully it encloses the live experience, the more directly it collides with the informal creativity that fandoms have historically used to make concerts feel communal rather than corporate.
+From MEARROW's perspective, the company is drawing a broader boundary than a simple anti-bootleg line. What HYBE appears to be building is an official circuit for nearly every spendable or collectible touchpoint around BTS: venue access, nearby pickup, platform-linked commerce, pop-up consumption, and tour-adjacent merchandise. That is a powerful business model. But the more fully it encloses the live experience, the more directly it collides with the informal creativity that fandoms have historically used to make concerts feel communal rather than corporate.
 
 ## One Question Is Left
 

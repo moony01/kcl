@@ -4,7 +4,7 @@
  * 브라우저 환경에서 사용하는 Supabase 클라이언트입니다.
  * SSG/CSR 마이그레이션: API Routes 대신 브라우저에서 직접 Supabase를 호출합니다.
  *
- * 주의: KCL은 output: 'export' (정적 빌드)를 사용하므로
+ * 주의: MEARROW는 output: 'export' (정적 빌드)를 사용하므로
  * @supabase/ssr의 createBrowserClient 대신 @supabase/supabase-js의 createClient를 사용합니다.
  * - createBrowserClient: 쿠키 기반 세션 저장 → 서버 미들웨어 필요 (정적 빌드 비호환)
  * - createClient: localStorage 기반 세션 저장 → 정적 빌드 호환

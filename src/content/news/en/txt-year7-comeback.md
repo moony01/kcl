@@ -42,11 +42,11 @@ The timing is brutal in the best possible way. BTS already reset the scale of th
 
 Korea JoongAng Daily reported that TXT plans to unveil the first stage for the new EP through a comeback showcase, which means the group is pushing straight into performance mode instead of lingering in teaser space. Korea Times also reported on March 27 that TXT will headline `KCON LA 2026` alongside NCT 127 and ZEROBASEONE. In other words, this is not a comeback designed to peak in Seoul and fade. The release is already wired into a bigger live-performance runway.
 
-## KCL’s View On TXT’s Year-7 Comeback
+## MEARROW’s View On TXT’s Year-7 Comeback
 
 ### The Real Threat Is Not Age, But Timing Power
 
-KCL does not think the key question here is whether TXT can still be popular in year seven. That is the wrong frame. The sharper question is whether the group can redefine its next phase quickly enough, right after renewal, inside a label calendar that is already crowded with larger headlines. With Japan dates lined up, a major U.S. festival locked in, and the BTS aftershock still in the air, TXT’s job is not simply to reassure fans. It is to prove that its next chapter is an expansion story.
+MEARROW does not think the key question here is whether TXT can still be popular in year seven. That is the wrong frame. The sharper question is whether the group can redefine its next phase quickly enough, right after renewal, inside a label calendar that is already crowded with larger headlines. With Japan dates lined up, a major U.S. festival locked in, and the BTS aftershock still in the air, TXT’s job is not simply to reassure fans. It is to prove that its next chapter is an expansion story.
 
 ## The Next Test Is Not First-Week Noise
 

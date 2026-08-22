@@ -52,11 +52,11 @@ That kind of first-day concentration matters because it shows how comeback scarc
 
 The broader lesson is not that every girl group can copy BLACKPINK’s scale. It is that physical albums remain a prestige object when the comeback narrative is strong enough. In a streaming-first global market, K-pop is still turning packaging, collectability and fandom participation into a scoreboard that fans can see and move together.
 
-## KCL’s View: Physical Albums Became A Fandom Operating System
+## MEARROW’s View: Physical Albums Became A Fandom Operating System
 
 ### The product is not only music, it is proof of belonging
 
-KCL reads the 49.53 million-copy first half as a fandom operating-system story. The CD is no longer just a playback object. It is a receipt, a lottery ticket, a collectible, a display piece, a fan-call entry, a photocard hunt and a public signal that one community can move numbers on command.
+MEARROW reads the 49.53 million-copy first half as a fandom operating-system story. The CD is no longer just a playback object. It is a receipt, a lottery ticket, a collectible, a display piece, a fan-call entry, a photocard hunt and a public signal that one community can move numbers on command.
 
 That makes the market powerful, but also fragile. If agencies overload fans with versions, random inclusions and repetitive purchase incentives, short-term sales can rise while trust erodes. The healthier version of this boom is not “sell more copies at any cost.” It is building album campaigns where collectors feel rewarded instead of exhausted.
 

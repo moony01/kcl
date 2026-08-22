@@ -46,9 +46,9 @@ Industry consensus points to Min launching an independent label and recruiting t
 
 HYBE won't go quietly, of course. An appeal is virtually certain, and the main NewJeans contract lawsuit is still ongoing. For HYBE, the NewJeans IP is worth thousands of billions of won — making the ₩25.5B put option loss pale in comparison to the potential loss of NewJeans entirely.
 
-## KCL's Take on the Put Option Ruling
+## MEARROW's Take on the Put Option Ruling
 
-From KCL's (K-pop Company League) perspective, this ruling directly impacts our core evaluation metrics of **corporate governance and talent risk management**.
+From MEARROW's (K-pop Talent Network) perspective, this ruling directly impacts our core evaluation metrics of **corporate governance and talent risk management**.
 
 HYBE's market capitalization has fallen over 60% from its peak since the Min Heejin dispute began in 2024 — regardless of musical achievements. This case is a textbook example of how management disputes can destroy corporate value. For investors, this ruling signals that "HYBE's risk profile hasn't cleared."
 

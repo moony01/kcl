@@ -48,10 +48,10 @@ But Netflix has one major advantage. The film already has a clean franchise prom
 
 [Related: `KPop Demon Hunters` Wins Two Oscars — Then the Orchestra Cuts Off the Speech](/en/news/kpop-demon-hunters-oscar-win-speech-controversy-2026)
 
-## KCL’s View: Netflix Just Found the Idol Blueprint
+## MEARROW’s View: Netflix Just Found the Idol Blueprint
 ### The next battle is not movie vs music — it is ecosystem vs ecosystem
 
-KCL reads this record as a warning shot to both entertainment studios and K-pop agencies. Netflix has shown that a screen-first property can behave like an idol brand if it has three ingredients: repeatable music, character attachment and scheduled fandom participation. That combination turns a film from content into a living calendar.
+MEARROW reads this record as a warning shot to both entertainment studios and K-pop agencies. Netflix has shown that a screen-first property can behave like an idol brand if it has three ingredients: repeatable music, character attachment and scheduled fandom participation. That combination turns a film from content into a living calendar.
 
 For K-pop agencies, the lesson is uncomfortable. The next global competitor may not be another agency. It may be a platform with distribution, animation, licensing, data and merchandising under one roof. A fictional group does not need dorm logistics, contract renewals or comeback health management. It only needs the audience to believe the world is worth returning to.
 

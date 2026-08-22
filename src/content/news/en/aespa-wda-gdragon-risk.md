@@ -64,15 +64,15 @@ Current public perception is split. Some fans argue that the stage outfit likely
 
 ### Current perception does not rewrite verified facts
 
-There is a boundary KCL will keep clear. Today's public anger does not determine the facts of the Macau shirt incident, nor does it automatically prove or disprove older claims, viral comparisons, or reputation debates attached to G-Dragon. Public perception and historical fact are separate layers.
+There is a boundary MEARROW will keep clear. Today's public anger does not determine the facts of the Macau shirt incident, nor does it automatically prove or disprove older claims, viral comparisons, or reputation debates attached to G-Dragon. Public perception and historical fact are separate layers.
 
 But perception still changes reception. When an artist enters a collaboration days after an agency apology, the audience does not arrive empty. Some listeners will focus only on the song. Others will hear the feature through a trust problem that already exists. That does not make `WDA` guilty by association. It does make the rollout harder to manage.
 
-## KCL's Read On aespa WDA
+## MEARROW's Read On aespa WDA
 
 ### SM chose voltage over comfort
 
-KCL reads this as an aggressive choice, not a careless one. SM could have let `WDA` function as a clean aespa-only pre-release before `LEMONADE`. Instead, the company now has a track carrying one of K-pop's biggest names, one of its most recognizable fourth-generation girl groups, and one of the loudest timing questions of the week.
+MEARROW reads this as an aggressive choice, not a careless one. SM could have let `WDA` function as a clean aespa-only pre-release before `LEMONADE`. Instead, the company now has a track carrying one of K-pop's biggest names, one of its most recognizable fourth-generation girl groups, and one of the loudest timing questions of the week.
 
 The business logic is clear. Aespa already has scale. What the group needs in this cycle is a release that feels unavoidable. G-Dragon can help provide that by making `WDA` bigger than a fandom event. The cost is that the comeback discussion becomes less controllable, less pristine, and more exposed to global accountability language.
 

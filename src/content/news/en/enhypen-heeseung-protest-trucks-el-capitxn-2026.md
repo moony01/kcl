@@ -90,7 +90,7 @@ Korean ENGENE and broader Korean K-pop communities have largely rejected this fr
 
 Both positions have internal logic. Neither has moved the company.
 
-## KCL's Take
+## MEARROW's Take
 
 Three things stand out from this week's ENGENE situation.
 

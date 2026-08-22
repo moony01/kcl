@@ -32,7 +32,7 @@ StarNews reported that after the pre-release stage for `CELEBRATION`, some fans 
 ![Kim Chaewon neck hiatus shown through an empty K-pop practice studio](/images/news/chaewon-neck-hiatus-1.png)
 _A ChatGPT-generated editorial image showing an empty rehearsal room, marked dance positions and a paused comeback schedule._
 
-That does not prove the choreography caused Chaewon's condition. KCL is not making that claim. The important point is different: once fans have visible performance footage, a medical notice and a physically demanding comeback aesthetic in the same week, the public conversation will connect them. Agencies cannot control that connection after the fact. They can only respond through schedule choices, choreography edits and visible care.
+That does not prove the choreography caused Chaewon's condition. MEARROW is not making that claim. The important point is different: once fans have visible performance footage, a medical notice and a physically demanding comeback aesthetic in the same week, the public conversation will connect them. Agencies cannot control that connection after the fact. They can only respond through schedule choices, choreography edits and visible care.
 
 ### The burden of proof has shifted to management
 
@@ -54,11 +54,11 @@ LE SSERAFIM has performed through pressure before, but comeback-week absences cr
 
 The group does not need to prove toughness right now. It needs to prove professionalism. Those are not the same thing.
 
-## KCL's View On The Kim Chaewon Neck Hiatus
+## MEARROW's View On The Kim Chaewon Neck Hiatus
 
 ### The real risk is fan trust, not one missing schedule
 
-From KCL's perspective, the most important metric is not whether one music show is missed. It is whether fans believe Source Music is making recovery the first priority even when a major album is about to land. In 2026, K-pop audiences are far less willing to treat artist pain as the cost of a strong stage. They notice choreography strain, schedule density and management language more quickly than labels sometimes expect.
+From MEARROW's perspective, the most important metric is not whether one music show is missed. It is whether fans believe Source Music is making recovery the first priority even when a major album is about to land. In 2026, K-pop audiences are far less willing to treat artist pain as the cost of a strong stage. They notice choreography strain, schedule density and management language more quickly than labels sometimes expect.
 
 That makes this a trust test. If Chaewon's return is handled carefully and the group adapts without forcing the same physical load onto the remaining members, the comeback can still recover its narrative. If the company appears to rush the timeline, the `PUREFLOW` era may be remembered less for its music than for what fans thought the stage demanded from the artists.
 

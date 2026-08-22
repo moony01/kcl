@@ -42,11 +42,11 @@ The Korea Times also noted that KATSEYE earned three nominations and multiple K-
 
 E! reported that fan voting runs through May 8 on `VoteAMAs.com` and the `@AMAs` Instagram account, while the ceremony airs live from MGM Grand Garden Arena in Las Vegas on May 25. That means the story now splits in two. One track is fan mobilization. The other is whether BTS can convert the nomination into a second win in the category after its 2021 breakthrough. Getting into the room and walking out with the trophy are very different headlines.
 
-## KCL's View on BTS and the AMAs
+## MEARROW's View on BTS and the AMAs
 
 ### The word used to explain BTS is changing again
 
-KCL does not read this as another routine BTS nomination piece. The more revealing point is that the U.S. mainstream appears willing to classify BTS once more as a current top-tier pop competitor, not merely the most successful act inside a foreign-genre bucket. `K-pop representative group` is still true. But `Artist of the Year` is a room where that description alone is not enough. BTS is moving beyond that framing again.
+MEARROW does not read this as another routine BTS nomination piece. The more revealing point is that the U.S. mainstream appears willing to classify BTS once more as a current top-tier pop competitor, not merely the most successful act inside a foreign-genre bucket. `K-pop representative group` is still true. But `Artist of the Year` is a room where that description alone is not enough. BTS is moving beyond that framing again.
 
 ## The Only Real Question Left
 

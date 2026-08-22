@@ -50,7 +50,7 @@ The "all nationalities welcome" clause is real. But what comes after document sc
 
 [Related: What Big 4 Agencies Actually Look for in Trainee Applicants](/en/news/big4-trainee-requirements-attitude)
 
-## KCL's Take: YG's Next Generation Bet
+## MEARROW's Take: YG's Next Generation Bet
 
 BLACKPINK's last album dropped in 2022. WINNER and iKON are navigating post-military-hiatus schedules. YG's active artist lineup is the thinnest of the Big 4 — by a significant margin.
 
@@ -62,4 +62,4 @@ The slogan "GO! DEBUT" is deliberate. Not "GO! TRAIN." Not "GO! AUDITION." The i
 
 Yang Hyun-suk said he'll personally review the first round of documents — but if tens of thousands applied globally, can that commitment hold? Or is this announcement itself a calculated marketing move, leveraging the most recognizable name in Korean entertainment history to generate buzz?
 
-Either way, the door that YG kept shut for 30 years has now opened. When the results of this audition emerge, the next chapter of K-pop's generational competition may already be written. KCL will be watching.
+Either way, the door that YG kept shut for 30 years has now opened. When the results of this audition emerge, the next chapter of K-pop's generational competition may already be written. MEARROW will be watching.

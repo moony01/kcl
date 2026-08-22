@@ -59,7 +59,7 @@ JYP Entertainment's strategy is crystal clear:
 
 This isn't simply a concert recorded and put in theaters. It's **a systematic pipeline converting tour IP into film IP**.
 
-## KCL's Take: The Future of Concert Cinema
+## MEARROW's Take: The Future of Concert Cinema
 
 K-pop physical album sales plunged 19% in 2024. As the album era's decline accelerates, live experiences and visual content are emerging as critical new revenue pillars.
 

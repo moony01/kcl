@@ -42,11 +42,11 @@ For years, aespa has been judged on concept density, visuals, and the force of i
 
 That is also why the reaction accelerated so quickly. The tour does not start until August, but pre-orders, city planning, budget talk, and route-sharing began in April. This is no longer a one-listen event. It is a season that fans begin buying into before the first full performance window even opens. If aespa can sustain that structure, `LEMONADE` may become more than a successful record. It could become a reference point for which girl-group act can command the most expensive demand in the second half of 2026.
 
-## KCL's Take on aespa's `LEMONADE` Cycle
+## MEARROW's Take on aespa's `LEMONADE` Cycle
 
 ### The real win here is that SM made it impossible to separate the comeback from the business story
 
-KCL sees the smart move in the timing. Most acts finish the comeback reveal first and attach the tour later. aespa did the opposite, linking the world tour almost immediately after the album announcement. That sequencing shifts the conversation from "how good will the music be?" to "how large can this demand become?" It turns artistic anticipation into a business narrative with almost no delay.
+MEARROW sees the smart move in the timing. Most acts finish the comeback reveal first and attach the tour later. aespa did the opposite, linking the world tour almost immediately after the album announcement. That sequencing shifts the conversation from "how good will the music be?" to "how large can this demand become?" It turns artistic anticipation into a business narrative with almost no delay.
 
 ### That is why the first real verdict may come in May, not August
 

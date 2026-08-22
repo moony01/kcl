@@ -68,11 +68,11 @@ The word `QUINTESSENCE` gives the comeback elegance, but it also raises the burd
 
 That is why the final days before release matter. A trailer, a sampler, and track names can build heat, but they also sharpen expectations. Fans are no longer asking whether Taeyang is back. They are asking what version of Taeyang was worth this long a wait.
 
-## KCL's View On Taeyang's Comeback Test
+## MEARROW's View On Taeyang's Comeback Test
 
 ### This is a solo album with group-era consequences
 
-KCL reads `Taeyang QUINTESSENCE` as a hinge point between solo artistry and BIGBANG's 2026 valuation. The album can succeed as music and still do something bigger for the market: prove that BIGBANG's members can create present-tense demand separately before the anniversary project asks fans to pay together.
+MEARROW reads `Taeyang QUINTESSENCE` as a hinge point between solo artistry and BIGBANG's 2026 valuation. The album can succeed as music and still do something bigger for the market: prove that BIGBANG's members can create present-tense demand separately before the anniversary project asks fans to pay together.
 
 That distinction matters. Legacy acts often survive through memory. Premium legacy acts convert memory into new spending. If Taeyang delivers a full album that feels current, The Black Label and the broader BIGBANG ecosystem get a stronger argument for bigger venues, higher ticket confidence, and a cleaner international story.
 

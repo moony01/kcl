@@ -82,9 +82,9 @@ None of this was in the marketing plan. All of it is free earned media worth mor
 ![BTS Arirang SWIM lead single — Spotify SWIMSIDE global campaign and Netflix documentary The Return](/images/news/bts-arirang-swim-spotify-documentary-netflix-2026-1.png)
 _Image: AI-generated via ChatGPT_
 
-## The KCL Read: Three Fronts, One Architecture
+## The MEARROW Read: Three Fronts, One Architecture
 
-KCL's analytical framework identifies what's structurally unusual here.
+MEARROW's analytical framework identifies what's structurally unusual here.
 
 Traditional K-pop comebacks follow a sequential logic: album → MV → variety appearances → concert. Each piece feeds the next.
 

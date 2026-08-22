@@ -54,11 +54,11 @@ The fan-letter frame is not just sentimental. In K-pop, loyalty is infrastructur
 
 But this also raises the bar. Fans who feel addressed directly do not want vague appreciation. They want evidence: better stages, clear promotion, member visibility, and songs that justify the language of gratitude. The phrase "fan letter" can be powerful, but only if the campaign behaves like one.
 
-## KCL's View On ITZY Motto
+## MEARROW's View On ITZY Motto
 
 ### The comeback is a brand repair test without calling itself one
 
-KCL reads `ITZY Motto` as a strategic identity check. ITZY is not a rookie trying to introduce a color. The group is a known brand trying to decide which parts of its original message still have commercial force. That is harder than debuting with confidence. A new group can be understood through one hook. A seven-year group has to manage memory, fatigue, nostalgia, criticism, and loyal expectation at the same time.
+MEARROW reads `ITZY Motto` as a strategic identity check. ITZY is not a rookie trying to introduce a color. The group is a known brand trying to decide which parts of its original message still have commercial force. That is harder than debuting with confidence. A new group can be understood through one hook. A seven-year group has to manage memory, fatigue, nostalgia, criticism, and loyal expectation at the same time.
 
 The strongest part of this rollout is that it does not run away from the group's past. Instead of pretending ITZY is a completely different act, `Motto` reframes the old self-belief language through a more relational lens. The message is no longer only "choose yourself." It is closer to "we learned to choose ourselves because this bond kept holding." That is a more adult version of the same brand promise.
 

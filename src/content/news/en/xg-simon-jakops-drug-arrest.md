@@ -47,7 +47,7 @@ _Image: AI-generated_
 
 What had appeared to be a personal legal matter began to look like the visible edge of something systemic.
 
-## KCL's Take: Can XG Survive Without Its Architect?
+## MEARROW's Take: Can XG Survive Without Its Architect?
 
 XG holds a genuinely unusual position in K-pop history: seven women signed to a Japanese label, performing English-language hip-hop and R&B with a growing global fanbase. That identity was designed, from the ground up, by Simon Jakops.
 

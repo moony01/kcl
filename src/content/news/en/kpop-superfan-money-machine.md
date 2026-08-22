@@ -54,11 +54,11 @@ Tencent Music's first-quarter 2026 earnings release adds another clue. The compa
 
 The strategic message is simple: whoever controls the fan relationship controls more than a notification feed. They control purchase timing, translation, live access, community heat, data feedback and the emotional lane between one comeback and the next.
 
-## KCL's View On Superfan Platforms
+## MEARROW's View On Superfan Platforms
 
 ### The winner is the company that creates habits
 
-KCL reads the platform war as a habit war. The most valuable fan is not simply the loudest fan on release day. It is the fan whose daily routine includes checking the artist, joining live moments, buying access products, responding to community cues and carrying those signals back to X, TikTok, Reddit, YouTube and offline events.
+MEARROW reads the platform war as a habit war. The most valuable fan is not simply the loudest fan on release day. It is the fan whose daily routine includes checking the artist, joining live moments, buying access products, responding to community cues and carrying those signals back to X, TikTok, Reddit, YouTube and offline events.
 
 That is why the Weverse data feels bigger than normal app metrics. A 12 million MAU platform with 303 million combined posts and comments is not just measuring fandom. It is shaping the pathway from casual interest to paid participation. Weverse says about 15 percent of users became more active over time after using features such as DM and LIVE, and that 20 percent of current superfans started from more casual stages. If that pattern holds, the platform is not merely serving superfans. It is manufacturing them.
 

@@ -54,11 +54,11 @@ Strong revenue can calm investors, but it cannot answer a governance question by
 
 This is the part fans sometimes resist. Loving an artist does not require defending every corporate process around that artist. At the same time, criticizing a corporate investigation does not erase the scale of what HYBE has built. Both can be true: BTS can be commercially historic, and HYBE's chairman can still face a serious regulatory cloud.
 
-## KCL's View On The HYBE Investor-Fraud Investigation
+## MEARROW's View On The HYBE Investor-Fraud Investigation
 
 ### The real risk is trust compression
 
-KCL sees this as a trust-compression story. HYBE is being squeezed from three sides at once. Fans want the BTS era to feel celebratory. Investors want the Q1 rebound to signal durable growth. Regulators want clarity on whether pre-IPO shareholders were misled. None of those audiences reads the same headline the same way, but each one affects the others.
+MEARROW sees this as a trust-compression story. HYBE is being squeezed from three sides at once. Fans want the BTS era to feel celebratory. Investors want the Q1 rebound to signal durable growth. Regulators want clarity on whether pre-IPO shareholders were misled. None of those audiences reads the same headline the same way, but each one affects the others.
 
 If prosecutors eventually decide there is no chargeable case, HYBE may frame the episode as an overextended investigation that failed to justify detention. If the case strengthens, every future earnings beat will carry a governance discount. That is the real danger. A company can survive one bad headline. It has a harder time thriving when every good headline arrives with a legal asterisk.
 

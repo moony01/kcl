@@ -59,7 +59,7 @@ K-pop owes substantial creative debts to Black American music — in rhythm, in 
 
 This specific case is different in form but not in kind. It's not overt mockery. It's something quieter and more systemic: using a Black historical space as the backdrop for a story about Korean identity, while visually erasing the Black people from that space. It's erasure by omission rather than by insult — which makes it, in some ways, harder to confront directly.
 
-## KCL's Take
+## MEARROW's Take
 
 BTS's decision to build an album around the 1896 Howard recording was genuinely ambitious and historically interesting. The history deserves attention. The connection between Korean diasporic music and America's HBCU landscape is a story worth telling.
 

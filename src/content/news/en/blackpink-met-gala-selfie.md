@@ -50,11 +50,11 @@ That tension is visible in the way fans consume BLACKPINK now. Every collective 
 
 From a business perspective, that ease is valuable. It lowers the emotional cost of waiting. Fans who feel the group is still socially intact are more willing to tolerate gaps, solo cycles, and staggered schedules. But the same mechanism can turn against the brand if symbolic reunions become the main product. The more powerful the photo, the more obvious the absence of a larger group chapter becomes afterward.
 
-## KCL's View On BLACKPINK's Met Gala Takeover
+## MEARROW's View On BLACKPINK's Met Gala Takeover
 
 ### The group brand won because it did not have to shout
 
-KCL reads this as a brand-concentration moment. BLACKPINK did not need to dominate the Met Gala through a coordinated group arrival. The members appeared as separate fashion entities first, which made the later group image feel more spontaneous and more valuable. The strategy was not announced, but the effect was real: four individual red carpets created anticipation, then one informal photo converted that attention back into BLACKPINK.
+MEARROW reads this as a brand-concentration moment. BLACKPINK did not need to dominate the Met Gala through a coordinated group arrival. The members appeared as separate fashion entities first, which made the later group image feel more spontaneous and more valuable. The strategy was not announced, but the effect was real: four individual red carpets created anticipation, then one informal photo converted that attention back into BLACKPINK.
 
 That matters for the wider K-pop market because many agencies are trying to build solo scalability without weakening the original team. BLACKPINK remain the most visible case study. Their challenge is not whether individual members can command attention. They already can. The harder challenge is whether those individual lanes keep feeding the group rather than replacing it.
 

@@ -23,7 +23,7 @@ The one-spot slide from last week's `No. 4` position matters less than the floor
 
 `ARIRANG` already made the obvious history earlier in the cycle. It debuted at `No. 1` on the Billboard 200 and became BTS's seventh chart-topping album. Soompi, Korea JoongAng Daily and Seoul Economic Daily all reported the same core debut figure: `641,000 equivalent album units` in the opening week, with the Billboard 200 combining album sales, streaming-equivalent albums and track-equivalent albums.
 
-Then came the bigger flex: the album spent its first three weeks at `No. 1`, a first for a K-pop album. That record gave BTS a clean trophy line. But trophies can sometimes flatten the story. The sixth-week top-five hold shows something more operational. BTS did not simply arrive with a massive one-week push. KCL reads the hold as a sign that repeat listening, physical demand and public curiosity may still be working together well after the opening week.
+Then came the bigger flex: the album spent its first three weeks at `No. 1`, a first for a K-pop album. That record gave BTS a clean trophy line. But trophies can sometimes flatten the story. The sixth-week top-five hold shows something more operational. BTS did not simply arrive with a massive one-week push. MEARROW reads the hold as a sign that repeat listening, physical demand and public curiosity may still be working together well after the opening week.
 
 ![BTS ARIRANG Billboard 200 momentum shown through global fan data screens](/images/news/bts-arirang-six-weeks-1.png)
 _A ChatGPT-generated editorial visualization of ARIRANG's six-week Billboard 200 momentum and global fan attention._
@@ -44,11 +44,11 @@ The Billboard 200 does not reward one behavior. Equivalent album units combine p
 
 The sixth-week `56,000` unit figure is lower than the debut, as expected. The important part is where that lower number still lands. Remaining top five means BTS has built a release that can descend without disappearing. In a market where K-pop headlines often focus on first-day sales, first-week sales and first-hour YouTube milestones, that slower descent may be the more valuable signal.
 
-## KCL's View On BTS ARIRANG Billboard 200 Momentum
+## MEARROW's View On BTS ARIRANG Billboard 200 Momentum
 
 ### The league is shifting from peak size to holding power.
 
-KCL reads this as a change in how elite K-pop campaigns will be judged. Peak size still matters because it creates the first story. Holding power matters because it proves that the story did not depend only on launch mechanics. `BTS ARIRANG Billboard 200` performance may now give HYBE a cleaner argument to investors, promoters and global partners: BTS can still turn Korean-rooted pop into sustained U.S. chart demand after a long hiatus.
+MEARROW reads this as a change in how elite K-pop campaigns will be judged. Peak size still matters because it creates the first story. Holding power matters because it proves that the story did not depend only on launch mechanics. `BTS ARIRANG Billboard 200` performance may now give HYBE a cleaner argument to investors, promoters and global partners: BTS can still turn Korean-rooted pop into sustained U.S. chart demand after a long hiatus.
 
 That does not mean every agency should chase the same blueprint. In fact, the dangerous lesson would be to treat ARIRANG as a checklist. The smarter lesson is that a release needs a reason to keep living after release week. For BTS, that reason is cultural identity, reunion pressure, live-market scale and a fandom that can turn participation into memory. For other companies, the question is sharper: what does your album still have once the countdown clock disappears?
 

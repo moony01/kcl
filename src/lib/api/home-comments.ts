@@ -1,5 +1,5 @@
 /**
- * KCL 메인 페이지 댓글 Supabase API 레이어
+ * MEARROW 메인 페이지 댓글 Supabase API 레이어
  * 클라이언트 사이드에서 홈 댓글 CRUD 처리
  * 뉴스 댓글(news-comments.ts)과 동일 패턴, slug 없는 글로벌 댓글
  */

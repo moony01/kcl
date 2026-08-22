@@ -52,9 +52,9 @@ Respond, and it reads as acknowledging the similarity. Stay silent, and it looks
 
 Industry insiders note that ILLIT should have established a clearly differentiated musical and visual direction from their debut. The irony is that 'Magnetic' — their breakout debut hit — may have become a trap. Its early success reinforced the existing formula, making it harder to pivot away from the very comparisons that now haunt the group.
 
-## KCL's Perspective on the ILLIT-NewJeans Saga
+## MEARROW's Perspective on the ILLIT-NewJeans Saga
 
-From KCL's analytical lens, this situation strikes at the heart of **IP strategy and risk management** in the K-pop industry.
+From MEARROW's analytical lens, this situation strikes at the heart of **IP strategy and risk management** in the K-pop industry.
 
 "Concept similarity" has always been a gray area in K-pop. The line between following a trend and copying a specific artist is inherently blurry. But when a court acknowledges similarity and AI systems literally confuse two groups, it signals a **failure in establishing IP distinctiveness** at the agency level.
 

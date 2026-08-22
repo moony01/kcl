@@ -59,9 +59,9 @@ This isn't a Tzuyu-specific problem. Inappropriate and abusive messages through 
 
 Netizens widely praised Tzuyu's response for striking at the heart of this dynamic. "Save your money" isn't just a witty retort — it's a pointed observation about the absurdity of paying to be cruel.
 
-## What KCL Reads Into Tzuyu's Two Lines
+## What MEARROW Reads Into Tzuyu's Two Lines
 
-KCL sees two significant signals in this incident.
+MEARROW sees two significant signals in this incident.
 
 First, **the way idols respond to hate is evolving**. In the past, the playbook was silence — or at best, a legal notice from the agency. But Tzuyu didn't wait for JYP Entertainment's PR team. She responded personally, with wit and composure. This aligns with a broader trend among K-pop artists who are increasingly setting boundaries in their own voice, empowered by direct communication platforms like Bubble. The intermediary is disappearing. Artists are speaking for themselves.
 

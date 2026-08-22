@@ -38,9 +38,9 @@ This isn't just an online spat — the **numbers** tell a much more serious stor
 
 With K-pop physical album sales declining for the first time in nine years in 2024, losing Southeast Asia could be catastrophic for the industry. Some #SEAblings participants have already declared boycotts of Korean cultural content — a warning sign that threatens not just K-pop, but the entire Korean Wave including K-dramas and K-beauty.
 
-## KCL's Take: K-Pop's Cultural Diplomacy Crisis
+## MEARROW's Take: K-Pop's Cultural Diplomacy Crisis
 
-KCL views this incident as a **structural problem** within the K-pop industry finally surfacing. K-pop generates enormous revenue from global markets, yet lacks any meaningful **cultural respect framework or communication system** for the international fans who generate that revenue.
+MEARROW views this incident as a **structural problem** within the K-pop industry finally surfacing. K-pop generates enormous revenue from global markets, yet lacks any meaningful **cultural respect framework or communication system** for the international fans who generate that revenue.
 
 Entertainment agencies are well aware of Southeast Asia's economic value through tour revenue and album sales. Yet virtually none have issued official statements addressing racist remarks within fan communities, nor do they operate cultural understanding programs. This crisis is the price of that neglect.
 

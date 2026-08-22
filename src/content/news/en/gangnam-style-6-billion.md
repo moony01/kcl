@@ -54,11 +54,11 @@ This is why the record should not be read as an instruction to recreate the hors
 
 That question also sits behind newer platform experiments. [Related: BTS turned a two-day Spotify video window into a test of fandom distribution](/en/news/bts-normal-spotify-window). BTS can deliberately redirect a massive audience through one service. “Gangnam Style” represents the opposite kind of power: an open video whose audience kept widening long after the launch plan ended.
 
-## KCL’s view: the record belongs to culture as much as scale
+## MEARROW’s view: the record belongs to culture as much as scale
 
 ### K-pop’s biggest YouTube number still comes from participation, not polish
 
-KCL reads 6 billion as a durability record disguised as a view count. The number is historic because it is the highest in K-pop, but its business value lies in how slowly and broadly it was built. It proves that catalog can remain an active discovery product when audiences are given something simple to repeat and distinctive enough to remember.
+MEARROW reads 6 billion as a durability record disguised as a view count. The number is historic because it is the highest in K-pop, but its business value lies in how slowly and broadly it was built. It proves that catalog can remain an active discovery product when audiences are given something simple to repeat and distinctive enough to remember.
 
 There is also a warning inside the celebration. View counts invite the industry to chase larger dashboards, but “Gangnam Style” did not become durable because viewers were instructed to admire its production budget. People copied it. They parodied it. They brought the move into spaces where PSY and P Nation had no control over the presentation. The loss of control was part of the distribution.
 

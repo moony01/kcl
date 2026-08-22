@@ -52,10 +52,10 @@ BGYO told Al Jazeera that social media is as central to the job as training, wit
 
 This is where the next K-pop strategy problem begins. Global agencies can spend more money, but they cannot easily manufacture local belonging. A Seoul-made act can tour Manila, Bangkok or Jakarta and still generate huge demand. Yet a homegrown act can make those markets feel like the center of the story, not a stop on somebody else’s world tour.
 
-## KCL’s View: The Rival Is Not Anti-K-pop — It Is Post-K-pop
+## MEARROW’s View: The Rival Is Not Anti-K-pop — It Is Post-K-pop
 ### The next competition is for daily fandom time
 
-KCL reads this shift as a post-K-pop moment, not an anti-K-pop backlash. Southeast Asian pop scenes are not rejecting K-pop’s influence. They are absorbing the parts that work and rebuilding the emotional product around local identity. That is more dangerous than simple competition because it turns K-pop’s own success into training material for the next wave.
+MEARROW reads this shift as a post-K-pop moment, not an anti-K-pop backlash. Southeast Asian pop scenes are not rejecting K-pop’s influence. They are absorbing the parts that work and rebuilding the emotional product around local identity. That is more dangerous than simple competition because it turns K-pop’s own success into training material for the next wave.
 
 For Korean agencies, the answer is not to treat SEA pop as a temporary fad. The smarter response is to rethink Southeast Asia as a co-creation market: local songwriting, local language strategy, deeper partnerships, regional trainees with real creative agency and fan campaigns that do not feel copy-pasted from Seoul.
 

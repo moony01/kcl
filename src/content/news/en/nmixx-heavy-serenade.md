@@ -54,11 +54,11 @@ That is why `Heavy Serenade` has a difficult job. If the comeback is too safe, i
 
 The risk is that expectation can outrun the song. When fans spend weeks decoding trailers, track lists and a cappella fragments, the final release has to answer a conversation larger than the music file itself. That is the upside and danger of this campaign. JYP has made the comeback feel like a puzzle; now the solution has to feel worth the wait.
 
-## KCL's View On NMIXX Heavy Serenade
+## MEARROW's View On NMIXX Heavy Serenade
 
 ### JYP is testing conversion, not only curiosity
 
-KCL reads this campaign as a conversion test. `Crescendo` created early attention. The a cappella highlight medley kept vocal credibility at the center. The May 11 countdown live gives fans one more synchronized moment before release. Each piece is designed to move listeners from "I am curious" to "I need to be there when it drops."
+MEARROW reads this campaign as a conversion test. `Crescendo` created early attention. The a cappella highlight medley kept vocal credibility at the center. The May 11 countdown live gives fans one more synchronized moment before release. Each piece is designed to move listeners from "I am curious" to "I need to be there when it drops."
 
 For JYP, that distinction matters. NMIXX already has respect as a performance-heavy act. The bigger question is whether that respect can turn into repeatable campaign scale: pre-release buzz, title-track replay, tour momentum and a clear lane inside the 2026 girl-group field. If `Heavy Serenade` converts all four, NMIXX stops being the act people call interesting and becomes the act rivals have to schedule around.
 

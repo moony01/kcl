@@ -73,9 +73,9 @@ Another JYP trainee emphasizes **the importance of the waiting room**:
 
 > "They're watching how you talk to other applicants in the waiting room, how you greet the staff. The audition starts before you even get on stage."
 
-## KCL Analysis: Agencies with Higher Debut Rates
+## MEARROW Analysis: Agencies with Higher Debut Rates
 
-Based on KCL (K-pop Company League) data, here are characteristics that affect **trainee-to-debut conversion rates**.
+Based on MEARROW (K-pop Talent Network) data, here are characteristics that affect **trainee-to-debut conversion rates**.
 
 | Factor | High Debut Rate Agencies | Low Debut Rate Agencies |
 |--------|--------------------------|-------------------------|
@@ -92,7 +92,7 @@ The doors to 2026 auditions are wide open.
 
 JYP's final open audition, HYBE's 8-label unified audition, Source Music's first boy group recruitment... All these opportunities are happening **right now**. What matters isn't perfect skills. It's the **courage to challenge** and the **willingness to learn**.
 
-To all of you dreaming of becoming K-pop idols, apply now. KCL supports your journey.
+To all of you dreaming of becoming K-pop idols, apply now. MEARROW supports your journey.
 
 ---
 

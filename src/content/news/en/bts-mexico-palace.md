@@ -40,9 +40,9 @@ _AI-generated editorial image by ChatGPT, created without real faces or identifi
 
 The numbers explain why this became more than a celebrity visit. Three stadium dates are already enormous. Selling them out in minutes is bigger. Having over a million people chase a reported 150,000-ticket supply is the kind of mismatch that creates public frustration, secondary-market anxiety, and pressure for institutional attention. El Financiero also reported that a later ticket release drew a virtual queue above half a million people for a limited number of additional seats.
 
-For KCL, that mismatch is the heart of the story. K-pop is often discussed as a digital-first export because streaming, social video, and fandom platforms move so fast. But the Mexico case proves the offline side is now just as important. When demand concentrates in one city, the bottleneck becomes physical: seats, roads, hotels, security, crowd management, and government optics. A fandom can trend globally on X in minutes, but a city still has to absorb the bodies.
+For MEARROW, that mismatch is the heart of the story. K-pop is often discussed as a digital-first export because streaming, social video, and fandom platforms move so fast. But the Mexico case proves the offline side is now just as important. When demand concentrates in one city, the bottleneck becomes physical: seats, roads, hotels, security, crowd management, and government optics. A fandom can trend globally on X in minutes, but a city still has to absorb the bodies.
 
-## KCL's View Of The BTS Palacio Nacional Signal
+## MEARROW's View Of The BTS Palacio Nacional Signal
 
 ### Soft power is no longer only a Seoul story
 

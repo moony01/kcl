@@ -56,13 +56,13 @@ The world tour launching after the album release will run for nearly a full year
 
 [Related: Stray Kids Make History as First K-Pop Act to Top Global Box Office](/en/news/stray-kids-dominate-kpop-first-global-box-office)
 
-## KCL's Take: What 'ARIRANG' Is Really Betting On
+## MEARROW's Take: What 'ARIRANG' Is Really Betting On
 
 If 'ARIRANG' succeeds, it won't just be a win for BTS — it will raise the ceiling for K-pop as a whole. No K-pop album has ever gone toe-to-toe with the Diplo-JPEGMAFIA creative ecosystem in the American mainstream market. If 'SWIM' cracks the Billboard Hot 100 at a meaningful chart position, the story won't be "K-pop idol succeeds in America" — it will be "the global pop landscape just shifted."
 
 The risk is real, however. Three years is a long time in the attention economy. ARMY's loyalty is unquestioned, but the general audience is different. Millions who first encountered BTS through 'Dynamite' and 'Butter' may find the alternative-pop texture of 'SWIM' disorienting. Whether HYBE's bet on artistic ambition over commercial safety pays off is the central question hanging over March 20th.
 
-From KCL's perspective, 'ARIRANG' is a declaration: BTS is choosing to move through K-pop's grammar, not just within it. If it works, this becomes the most significant leap in K-pop history. If it doesn't, the attempt itself leaves the industry with a question that won't go away: how far can K-pop actually go?
+From MEARROW's perspective, 'ARIRANG' is a declaration: BTS is choosing to move through K-pop's grammar, not just within it. If it works, this becomes the most significant leap in K-pop history. If it doesn't, the attempt itself leaves the industry with a question that won't go away: how far can K-pop actually go?
 
 ## The Next Chapter Begins
 

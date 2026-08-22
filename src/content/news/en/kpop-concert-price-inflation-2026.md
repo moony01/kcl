@@ -77,7 +77,7 @@ The cause is structural. The return cycle of second- and third-generation legend
 
 A fan attending BTS, TWICE, and Stray Kids concerts in Korea alone would spend a minimum of $350–$500. Add overseas shows with flights and hotels, and the bill runs into the thousands. The statistic that the average K-pop concert ticket across U.S. listings is $1,118 is already redefining who can afford to be a concert-going K-pop fan.
 
-## KCL's Take: The Inflection Point of K-pop's Live Economy
+## MEARROW's Take: The Inflection Point of K-pop's Live Economy
 
 The rise in K-pop concert ticket prices is simultaneously a sign of maturity and a warning signal.
 

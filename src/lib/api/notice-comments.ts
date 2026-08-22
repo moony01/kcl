@@ -1,5 +1,5 @@
 /**
- * KCL 공지사항 댓글 Supabase API 레이어
+ * MEARROW 공지사항 댓글 Supabase API 레이어
  * 클라이언트 사이드에서 공지사항 댓글 CRUD 처리
  * news-comments.ts 패턴을 복제 (slug → announcement_id)
  */

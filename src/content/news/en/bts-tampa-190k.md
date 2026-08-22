@@ -54,11 +54,11 @@ That venue milestone deserves more attention than it is getting. Coastal capital
 
 That is one reason the Sun Bowl stop feels more strategic than decorative. A group that can normalize stadium behavior in places outside the most obvious pop capitals gives the whole industry new planning data. Promoters watch that. Local governments watch that. Competing agencies definitely watch that. When the first Korean act enters a venue with this level of civic preparation around it, the result is not merely symbolic. It becomes a case study.
 
-## KCL's View On BTS's Tampa Signal
+## MEARROW's View On BTS's Tampa Signal
 
 ### The ceiling question in America has changed
 
-KCL does not read Tampa as proof that BTS remains popular. That argument is too small for the evidence on the table. The sharper takeaway is that BTS is helping move K-pop deeper into the American stadium grid without stripping out the Korean center of the product. That combination is what makes this moment commercially dangerous for everyone else. It raises the bar on two fronts at once: scale and specificity.
+MEARROW does not read Tampa as proof that BTS remains popular. That argument is too small for the evidence on the table. The sharper takeaway is that BTS is helping move K-pop deeper into the American stadium grid without stripping out the Korean center of the product. That combination is what makes this moment commercially dangerous for everyone else. It raises the bar on two fronts at once: scale and specificity.
 
 For years, one of the quiet fears around K-pop expansion was that the farther the genre traveled, the more it would need to translate itself into something softer, blander, or more legible to mainstream U.S. pop grammar. BTS's Tampa stop suggests a more powerful route. The group can bring the audience to its concept instead of running from the concept for safety. That does not mean every act can do the same thing tomorrow. It does mean the most successful act in the field is expanding the range of what now looks possible.
 

@@ -75,7 +75,7 @@ _이미지: ChatGPT AI 생성_
 
 [관련: 블랙핑크 'Deadline' 초동 177만장 — K팝 걸그룹 역사를 다시 쓰다](/ko/news/blackpink-deadline-ep-record-sales-yg-2026)
 
-## KCL이 주목하는 포인트
+## MEARROW가 주목하는 포인트
 
 'GO'의 핫 100 #63과 11번째 차트인 기록은 세 가지 층위에서 읽힌다.
 

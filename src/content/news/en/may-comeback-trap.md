@@ -44,11 +44,11 @@ I.O.I is the strange card in this month. The project group was formed through `P
 
 That can be powerful, but it also creates a measurement problem. A normal comeback is judged through first-week sales, music-show points, streaming charts, and teaser velocity. A reunion project also carries sentiment, nostalgia, and cross-fandom curiosity. If I.O.I cuts through the noise, it will not prove that nostalgia beats scale every time. It will prove that a clear emotional story can survive a crowded algorithm.
 
-## KCL's View: The Winner May Be The One Fans Remember In June
+## MEARROW's View: The Winner May Be The One Fans Remember In June
 
 ### Compression rewards story, not just scale
 
-KCL does not see this as a simple six-way race. The real contest is narrative retention. BABYMONSTER has the YG tour-and-collectible angle. NMIXX has the performance credibility question. ITZY has member solos inside a comeback package. I.O.I has the reunion. LE SSERAFIM has a full-album reset after pre-releasing `CELEBRATION`, which Soompi reported arrived on April 24 ahead of the May 22 album. aespa has the biggest closing-week question because StarNews reported that `LEMONADE` is a 10-track second full-length album and the group's first full album in about two years.
+MEARROW does not see this as a simple six-way race. The real contest is narrative retention. BABYMONSTER has the YG tour-and-collectible angle. NMIXX has the performance credibility question. ITZY has member solos inside a comeback package. I.O.I has the reunion. LE SSERAFIM has a full-album reset after pre-releasing `CELEBRATION`, which Soompi reported arrived on April 24 ahead of the May 22 album. aespa has the biggest closing-week question because StarNews reported that `LEMONADE` is a 10-track second full-length album and the group's first full album in about two years.
 
 Those are not identical products. They are different answers to the same problem: how do you make fans remember one release after five more campaigns hit their feed? In a normal month, scale can dominate. In this month, distinctiveness may matter more. The act with the cleanest story may get the longest tail.
 

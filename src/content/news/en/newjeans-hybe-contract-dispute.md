@@ -31,11 +31,11 @@ This dispute sent a powerful wake-up call throughout the K-pop industry. **First
 
 **Third, the politicization of fandom communities** intensified. While fandoms previously focused solely on supporting artists, they now actively voice opinions on corporate management and industry systems. Hashtag campaigns, encouragement to participate in shareholder meetings, and even fans sending inquiries to investor relations departments emerged as new phenomena.
 
-## KCL's Perspective on This Dispute
+## MEARROW's Perspective on This Dispute
 
-KCL (K-pop Company League) is a ranking system that comprehensively evaluates K-pop agencies' capabilities and performance. This dispute raised the need for a new evaluation metric: **'Agency Risk.'** No matter how exceptional an artist lineup or revenue performance may be, image damage and business disruption risks from internal conflicts directly impact corporate value.
+MEARROW (K-pop Talent Network) is a ranking system that comprehensively evaluates K-pop agencies' capabilities and performance. This dispute raised the need for a new evaluation metric: **'Agency Risk.'** No matter how exceptional an artist lineup or revenue performance may be, image damage and business disruption risks from internal conflicts directly impact corporate value.
 
-HYBE remains the top K-pop company by revenue, but this dispute increased stock volatility and raised governance concerns in ESG (Environmental, Social, and Governance) evaluations. Meanwhile, competitors like SM, JYP, and YG differentiated themselves with messages like "We prioritize trust with our artists." KCL is also reviewing enhanced evaluation models that reflect **governance stability, artist relations, and risk management capabilities**.
+HYBE remains the top K-pop company by revenue, but this dispute increased stock volatility and raised governance concerns in ESG (Environmental, Social, and Governance) evaluations. Meanwhile, competitors like SM, JYP, and YG differentiated themselves with messages like "We prioritize trust with our artists." MEARROW is also reviewing enhanced evaluation models that reflect **governance stability, artist relations, and risk management capabilities**.
 
 ## 2026 Outlook and Lessons for the K-pop Industry
 

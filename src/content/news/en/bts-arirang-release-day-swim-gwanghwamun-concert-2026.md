@@ -73,7 +73,7 @@ The ARIRANG rollout doesn't stop today or tomorrow.
 
 The compressed rollout — album March 20, concert stream March 21, documentary March 27, tour April 9 — is designed so each format feeds a different segment of the global ARMY without competition.
 
-## KCL's Take: Why Today Is Different
+## MEARROW's Take: Why Today Is Different
 
 Military service comebacks have happened before in K-pop. BIGBANG did it. SHINEE did it. But BTS at this scale is genuinely unprecedented. 3.45 million Spotify pre-saves is the highest recorded in K-pop history. A Netflix livestream directed by the Super Bowl director. An 82-show stadium world tour. A documentary with a Hollywood-caliber director. This isn't a comeback — it's a coordinated global media event.
 

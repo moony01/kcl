@@ -65,7 +65,7 @@ The crucial point: **selected artists may not need to move to Korea at all.** Th
 
 [Related: 2026 K-Pop Audition Calendar & Guide](/en/news/2026-kpop-audition-guide)
 
-## KCL's Take: Is K-Pop Still 'Korean'?
+## MEARROW's Take: Is K-Pop Still 'Korean'?
 
 ### How Far Does the 'K' Extend?
 
@@ -75,7 +75,7 @@ Until now, K-pop was made in Korea, in Korean, with Korean artists at the center
 
 HYBE's multi-home strategy flips that premise. If you can recruit Indians in India, train them in India, and debut them in Hindi or English — is that still K-pop?
 
-KCL's answer: **"K-pop is not a genre — it's a system."** Systematic trainee development, precision visual planning, global fandom building — if this methodology is K-pop's essence, then it's K-pop regardless of where it's made. Bang Si-hyuk is exporting the system itself.
+MEARROW's answer: **"K-pop is not a genre — it's a system."** Systematic trainee development, precision visual planning, global fandom building — if this methodology is K-pop's essence, then it's K-pop regardless of where it's made. Bang Si-hyuk is exporting the system itself.
 
 ## India's Next K-Pop Star
 

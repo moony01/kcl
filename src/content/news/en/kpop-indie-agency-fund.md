@@ -44,11 +44,11 @@ The Korea Times reported that K-pop exports rose 32.4 percent year over year in 
 
 Those numbers turn the fund into more than a culture-policy headline. If K-pop's export engine keeps growing while the bottom half cannot afford enough international attempts, the market becomes louder but narrower. Fans get more global content, but mostly from companies already built to distribute it. The risk is not that smaller acts disappear overnight. The risk is that they debut, show promise, and then cannot afford the second or third foreign touchpoint where fandom usually becomes durable.
 
-## KCL's View: Funding Is Only The First Gate
+## MEARROW's View: Funding Is Only The First Gate
 
 ### The winners will be the agencies that turn support into repeatable proof
 
-KCL reads the Global Leap Forward Support project as a useful intervention, not a rescue fantasy. A grant can fund a showcase, but it cannot replace positioning. It can pay for a music video, but it cannot invent a fandom language. It can open a market test, but it cannot force that market to stay. The agencies that benefit most will be the ones that treat the money as an operating experiment: choose a market, measure the response, collect fan behavior, and return with a clearer second move.
+MEARROW reads the Global Leap Forward Support project as a useful intervention, not a rescue fantasy. A grant can fund a showcase, but it cannot replace positioning. It can pay for a music video, but it cannot invent a fandom language. It can open a market test, but it cannot force that market to stay. The agencies that benefit most will be the ones that treat the money as an operating experiment: choose a market, measure the response, collect fan behavior, and return with a clearer second move.
 
 That is why the selected cohort should be watched beyond the first press cycle. If Rescene converts KCON exposure into repeat U.S. engagement, if Xikers deepens Japan without becoming generic, if TUNEXX makes India feel like a real route rather than a novelty stop, the fund will look smarter than its budget size. If the money becomes scattered promotion with no learning loop, the project may create pretty overseas photos and little structural change.
 

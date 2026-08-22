@@ -64,15 +64,15 @@ Bubble's strength lies in **intimacy**. While messages are actually sent 1:N, th
 
 Fandomly, which emerged in 2024, is a platform that puts **AI-based communication** at the forefront. AI analyzes artist schedules to recommend optimal timing for fans to write support messages, and automatically translates fan messages to deliver to artists. While still small in scale, it's attracting industry attention for its technological innovation.
 
-## KCL's Perspective on AI Fandom Platform Trends
+## MEARROW's Perspective on AI Fandom Platform Trends
 
-KCL (K-pop Company League) data provides interesting insights.
+MEARROW (K-pop Talent Network) data provides interesting insights.
 
-Analysis of the **correlation between fandom platform investment and Firepower** shows that artists from agencies actively investing in AI-based fan services tend to record higher firepower scores in KCL rankings. This suggests that technology investment directly impacts fandom activity and loyalty.
+Analysis of the **correlation between fandom platform investment and Firepower** shows that artists from agencies actively investing in AI-based fan services tend to record higher firepower scores in MEARROW rankings. This suggests that technology investment directly impacts fandom activity and loyalty.
 
 Notably, HYBE, SM, and JYP—all positioned in the **upper tiers of the Premier League**—either operate their own fandom platforms or have strategic partnerships. In contrast, smaller agencies relying solely on social media without their own platforms show relatively lower fandom cohesion.
 
-KCL is considering introducing a **'Fandom Tech Index'** as a new evaluation metric. This is because the era has arrived where competitive advantage is determined not just by fan numbers, but by how effectively agencies communicate with their fandoms.
+MEARROW is considering introducing a **'Fandom Tech Index'** as a new evaluation metric. This is because the era has arrived where competitive advantage is determined not just by fan numbers, but by how effectively agencies communicate with their fandoms.
 
 ## Conclusion: Technology Is Just a Tool; Connection Is the Core
 

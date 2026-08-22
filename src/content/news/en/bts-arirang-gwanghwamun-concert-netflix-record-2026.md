@@ -1,6 +1,6 @@
 ---
 title: '"Purple Gwanghwamun" — BTS Returns After 1,250 Days in First-Ever K-Pop Concert at Historic Palace Gate'
-excerpt: "On March 21, BTS performed at Seoul's Gwanghwamun Square — the first K-pop act ever at this 600-year-old landmark — as Netflix streamed the show to 190 countries in what the platform called 'the biggest watch party in the world.' KCL breaks down the historic comeback concert."
+excerpt: "On March 21, BTS performed at Seoul's Gwanghwamun Square — the first K-pop act ever at this 600-year-old landmark — as Netflix streamed the show to 190 countries in what the platform called 'the biggest watch party in the world.' MEARROW breaks down the historic comeback concert."
 date: '2026-03-21'
 category: 'Artist'
 thumbnail: '/images/news/bts-arirang-gwanghwamun-concert-netflix-record-2026-thumbnail.png'
@@ -88,9 +88,9 @@ Traditionally, K-pop live events have lived on YouTube (free, ad-supported, fand
 
 Expect other K-pop agencies to explore similar partnerships. SM Entertainment, JYP, and YG all have artists capable of comparable live events. BTS and HYBE have set the precedent.
 
-### KCL Perspective: HYBE's Firepower Index
+### MEARROW Perspective: HYBE's Firepower Index
 
-In KCL (K-pop Company League) terms, HYBE's Firepower Index — which tracks combined artist activity, global engagement, and market influence — is tracking for a sharp upward movement. BTS's return to active status with a concurrent Netflix partnership, world tour, and new album is a multi-vector activation: album sales, streaming numbers, concert revenue, Weverse traffic, and HYBE stock price all moving simultaneously.
+In MEARROW (K-pop Talent Network) terms, HYBE's Firepower Index — which tracks combined artist activity, global engagement, and market influence — is tracking for a sharp upward movement. BTS's return to active status with a concurrent Netflix partnership, world tour, and new album is a multi-vector activation: album sales, streaming numbers, concert revenue, Weverse traffic, and HYBE stock price all moving simultaneously.
 
 Competitor agencies face a familiar challenge: when BTS is active, the global spotlight narrows. Hearts2Hearts (SM), Stray Kids and NMIXX (JYP), and BLACKPINK's anticipated comeback (YG) must all compete for airspace in a cycle dominated by BTS. This is not unprecedented — BTS has always created this gravity — but 2026 represents its return after the longest K-pop had ever operated without them at full force.
 

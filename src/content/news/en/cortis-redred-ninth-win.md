@@ -44,7 +44,7 @@ Earlier in May, StarNews reported that `REDRED` entered Spotify's `Weekly Top So
 
 ### A close win is more useful than a clean coronation
 
-The temptation is to treat nine trophies as the whole headline. KCL reads the number differently. The important part is that the ninth win did not arrive as a neat coronation. It came through a close race, one day after another close race, while major girl groups and established acts were still crowding the May calendar. That makes the result a better test of stamina.
+The temptation is to treat nine trophies as the whole headline. MEARROW reads the number differently. The important part is that the ninth win did not arrive as a neat coronation. It came through a close race, one day after another close race, while major girl groups and established acts were still crowding the May calendar. That makes the result a better test of stamina.
 
 Rookie success is often front-loaded. A label can spend heavily on teasers, stockpile preorders, push short-form clips and concentrate fandom energy into the first two weeks. The third and fourth weeks are harsher. Casual listeners drift. Voting fatigue begins. New releases pull attention away. If the song keeps winning anyway, the market has to ask what is actually sticking.
 
@@ -54,10 +54,10 @@ CORTIS is benefiting from BIGHIT MUSIC's system, but the current run is not usef
 
 That mix is difficult for competitors because it cannot be answered with one tactic. A rival cannot simply buy a louder teaser schedule or chase one viral dance clip and expect the same result. The modern rookie race is becoming a retention race. The winner is not the act that creates the loudest opening week. It is the act that keeps giving fans new reasons to return after the first headline has already been posted.
 
-## KCL's View On The Ninth Trophy
+## MEARROW's View On The Ninth Trophy
 
 ### The number is loud, but the system is louder
 
-KCL sees `CORTIS REDRED` as one of the clearest fifth-generation case studies of how a rookie era can extend itself. The ninth trophy is the public-facing number. Under it sits a larger system: a title track with domestic staying power, a b-side turning into fan language, global platform data strong enough for international repetition, and a fandom that understands how to keep a close race alive.
+MEARROW sees `CORTIS REDRED` as one of the clearest fifth-generation case studies of how a rookie era can extend itself. The ninth trophy is the public-facing number. Under it sits a larger system: a title track with domestic staying power, a b-side turning into fan language, global platform data strong enough for international repetition, and a fandom that understands how to keep a close race alive.
 
 That does not mean CORTIS has solved the long game. The next comeback will still have to prove that `REDRED` was not a one-era spike. The members will need identity beyond scoreboard shock. The fandom will need to keep converting excitement into patience. But for now, the ninth win has made one thing uncomfortable for rivals: the rookie bar is no longer debut impact. It is whether a group can make one song feel bigger in week four than it looked in week one.

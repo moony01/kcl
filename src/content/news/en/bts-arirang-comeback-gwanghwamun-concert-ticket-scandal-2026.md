@@ -74,9 +74,9 @@ BTS announced the **ARIRANG World Tour**, scheduled from April 2026 through Marc
 
 The math is straightforward: three years of pent-up demand, a fanbase that grew during the hiatus, and an album designed for a global audience. The Gwanghwamun concert is the signal flare. The world tour is what follows.
 
-## KCL's Read on the Comeback
+## MEARROW's Read on the Comeback
 
-KCL data shows something counterintuitive about the military hiatus period: BTS streaming figures and social media mentions were **up 127%** compared to pre-enlistment levels in the six months following the final member's discharge. Absence created scarcity. Scarcity intensified demand.
+MEARROW data shows something counterintuitive about the military hiatus period: BTS streaming figures and social media mentions were **up 127%** compared to pre-enlistment levels in the six months following the final member's discharge. Absence created scarcity. Scarcity intensified demand.
 
 The title choice — ARIRANG — is also strategically precise. For Korean fans, it carries centuries of emotional and cultural weight. For international fans, it introduces a new cultural vocabulary, one that positions BTS as artists rooted in Korean identity while speaking universally. That's a harder trick to pull off than it sounds.
 

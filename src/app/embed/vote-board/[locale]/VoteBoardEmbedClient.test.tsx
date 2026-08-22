@@ -89,13 +89,13 @@ describe('parseVoteBoardEmbedOptions', () => {
 
 describe('VoteBoardEmbedClient Kpopface signup CTA', () => {
   it.each([
-    ['ko', 'KCL 가입하고 매일 300표 받기'],
-    ['en', 'Join KCL for 300 votes every day'],
-    ['ja', 'KCLに登録して毎日300票を使う'],
-    ['zh', '注册 KCL，每天获得 300 票'],
-    ['es', 'Regístrate en KCL y consigue 300 votos diarios'],
-    ['fr', 'Inscris-toi sur KCL pour 300 votes par jour'],
-    ['de', 'Bei KCL registrieren und täglich 300 Stimmen erhalten'],
+    ['ko', 'MEARROW 가입하고 매일 300표 받기'],
+    ['en', 'Join MEARROW for 300 votes every day'],
+    ['ja', 'MEARROWに登録して毎日300票を使う'],
+    ['zh', '注册 MEARROW，每天获得 300 票'],
+    ['es', 'Regístrate en MEARROW y consigue 300 votos diarios'],
+    ['fr', 'Inscris-toi sur MEARROW pour 300 votes par jour'],
+    ['de', 'Bei MEARROW registrieren und täglich 300 Stimmen erhalten'],
   ])('renders the localized %s CTA after the compact board', async (locale, label) => {
     window.history.replaceState(
       {},
@@ -132,7 +132,7 @@ describe('VoteBoardEmbedClient Kpopface signup CTA', () => {
     });
     expect(screen.getByTestId('shared-vote-board').getAttribute('data-search')).toBe('off');
     expect(
-      screen.queryByRole('link', { name: 'Join KCL for 300 votes every day' }),
+      screen.queryByRole('link', { name: 'Join MEARROW for 300 votes every day' }),
     ).toBeNull();
   });
 });

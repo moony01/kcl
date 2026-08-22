@@ -50,11 +50,11 @@ K-pop selection is not a single gate. It is a chain of gates: audition, contract
 
 [Related: What Big 4 Agencies Actually Look for in Trainee Applicants](/en/news/big4-trainee-requirements-attitude)
 
-## KCL's View: The Reboot Format Is A Mirror
+## MEARROW's View: The Reboot Format Is A Mirror
 
 ### The industry is quietly admitting its waste problem
 
-KCL reads The Scout as more than another audition program. It is a sign that K-pop now has enough trained, semi-known, and previously debuted talent to build a full show around second chances. That is both hopeful and uncomfortable. Hopeful, because it means the industry may be finding new ways to recover artists who slipped through. Uncomfortable, because it reveals how much human capital the idol system leaves behind.
+MEARROW reads The Scout as more than another audition program. It is a sign that K-pop now has enough trained, semi-known, and previously debuted talent to build a full show around second chances. That is both hopeful and uncomfortable. Hopeful, because it means the industry may be finding new ways to recover artists who slipped through. Uncomfortable, because it reveals how much human capital the idol system leaves behind.
 
 The no-elimination branding is smart, but the real test is whether the show gives contestants leverage after the cameras turn off. A concert and album production can matter if they create work, fans, and market proof. They matter less if they become a final episode prize with no follow-through.
 

@@ -50,13 +50,13 @@ The early reaction around `BOOMPALA` is visibly split across fan spaces. Some li
 
 ### The health context makes the debate sharper
 
-The uncomfortable layer is timing. Kim Chaewon's temporary hiatus had already made this comeback feel physically and emotionally loaded before release day. That does not make `BOOMPALA` responsible for the health story, and KCL is not drawing that causal line. It does mean the public is receiving the song through a more sensitive frame. Choreography, workload, stage formation, and promotional pressure are no longer background details. They are part of how fans judge the era.
+The uncomfortable layer is timing. Kim Chaewon's temporary hiatus had already made this comeback feel physically and emotionally loaded before release day. That does not make `BOOMPALA` responsible for the health story, and MEARROW is not drawing that causal line. It does mean the public is receiving the song through a more sensitive frame. Choreography, workload, stage formation, and promotional pressure are no longer background details. They are part of how fans judge the era.
 
-## KCL's View On LE SSERAFIM BOOMPALA
+## MEARROW's View On LE SSERAFIM BOOMPALA
 
 ### The number buys attention, not consensus
 
-KCL reads the `435,675` figure as a launch permit, not a final verdict. It gives LE SSERAFIM enough commercial proof to survive a noisy first reaction, but it also raises the next bar. If `BOOMPALA` keeps generating clips, music-show momentum, and repeat listening, the first-day sales will look like the opening chapter of a strong era. If the conversation burns hot for a week and then thins out, the number will look more like fandom loyalty doing emergency work.
+MEARROW reads the `435,675` figure as a launch permit, not a final verdict. It gives LE SSERAFIM enough commercial proof to survive a noisy first reaction, but it also raises the next bar. If `BOOMPALA` keeps generating clips, music-show momentum, and repeat listening, the first-day sales will look like the opening chapter of a strong era. If the conversation burns hot for a week and then thins out, the number will look more like fandom loyalty doing emergency work.
 
 ### Source Music is testing a riskier kind of comeback engineering
 

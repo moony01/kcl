@@ -1,7 +1,7 @@
 /**
  * Feature Flags 설정
  *
- * KCL 앱의 기능 ON/OFF 제어
+ * MEARROW 앱의 기능 ON/OFF 제어
  * Phase별로 기능을 점진적으로 활성화할 때 사용합니다.
  *
  * @usage

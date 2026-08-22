@@ -52,11 +52,11 @@ That detail is important because it shows the difference between audience and fa
 
 This is why BTS tour stops keep becoming civic stories. The group's live business does not rely only on stage time. It activates local communities before arrival and leaves behind media traces after departure. Every fan project gives local reporters a human angle. Every transit advisory gives non-fans a reason to notice. Every sold-out night gives the industry another data point.
 
-## KCL's View On The Stanford Takeover
+## MEARROW's View On The Stanford Takeover
 
 ### The real product is coordinated attention
 
-KCL reads the Stanford run as another proof that BTS's post-hiatus tour is operating at city scale, not only venue scale. Tampa showed the raw stadium restart. Mexico City showed civic attention and Latin American demand. Stanford now tests a different market: a wealthy, transit-complicated, tech-adjacent region where the fanbase has enough density to turn three dates into a local event system.
+MEARROW reads the Stanford run as another proof that BTS's post-hiatus tour is operating at city scale, not only venue scale. Tampa showed the raw stadium restart. Mexico City showed civic attention and Latin American demand. Stanford now tests a different market: a wealthy, transit-complicated, tech-adjacent region where the fanbase has enough density to turn three dates into a local event system.
 
 That matters for the rest of K-pop because the ceiling is moving. It is no longer enough to ask whether a group can sell a large venue. The harder question is whether the group can make the area around the venue reorganize itself. Can local media cover the visit before the show? Can fan groups build welcome campaigns? Can transit agencies issue special warnings? Can restaurants, shops, and event organizers catch the overflow?
 

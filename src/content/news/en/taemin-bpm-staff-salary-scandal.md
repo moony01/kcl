@@ -52,9 +52,9 @@ The deeper issue is **settlement transparency**. Artists often have limited visi
 
 [Related: SM Did It Again — Xiumin's KBS Ban and the JYJ Pattern That Won't Die](/en/news/sm-xiumin-kbs-ban-jyj-pattern)
 
-## KCL's Take
+## MEARROW's Take
 
-KCL sees three signals in this story.
+MEARROW sees three signals in this story.
 
 **First, artists are increasingly willing to protect themselves.** Taemin pushed for contract termination despite time remaining on the deal. This is a meaningful shift from the era when K-pop idols largely deferred to their agencies, even under unfair conditions. It reflects a growing maturity in artist rights awareness — a slow but real evolution since the JYJ era.
 

@@ -62,7 +62,7 @@ Major K-pop agencies posted congratulatory messages. BTS's official account wrot
 
 Industry analysts are more measured. The double Oscar win is unambiguously historic. But the played-off speech has reopened a specific question: at what point does receiving an award transition into being fully accepted? One observer put it plainly: "The trophies say K-pop has arrived. The microphone being turned down says something hasn't fully changed yet."
 
-## The KCL Read — Trophies and Microphone Volume
+## The MEARROW Read — Trophies and Microphone Volume
 
 Grammy in February. Two Oscars in March. Billboard Hot 100 number one in 2025. By every objective metric, KPop Demon Hunters represents K-pop's most complete commercial and critical crossover achievement.
 

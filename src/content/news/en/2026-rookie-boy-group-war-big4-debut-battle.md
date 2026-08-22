@@ -87,11 +87,11 @@ The 2023–2025 girl group rush has saturated the market. Pivoting to boy groups
 **4. Lee Soo-man's Non-Compete Expiration**
 Analysts suggest that the return of K-pop's greatest producer has accelerated other agencies' debut timelines as a catalyst effect.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 The real significance of this war lies in **who will dominate K-pop in the 2030s**. Just as BTS debuted in 2013 and reshaped the global music landscape a decade later, one of the boy groups debuting in 2026 could become the BTS of the 2030s.
 
-KCL is closely monitoring how each agency's rookie project will impact Premier League and Challengers League rankings. Whether SM proves the Kakao regime's track record through SMTR25, whether YG breaks a six-year drought to create a second BIGBANG, whether Lee Soo-man proves he can produce hits outside SM — all eyes are on H2 2026.
+MEARROW is closely monitoring how each agency's rookie project will impact Premier League and Challengers League rankings. Whether SM proves the Kakao regime's track record through SMTR25, whether YG breaks a six-year drought to create a second BIGBANG, whether Lee Soo-man proves he can produce hits outside SM — all eyes are on H2 2026.
 
 ## The Bottom Line
 

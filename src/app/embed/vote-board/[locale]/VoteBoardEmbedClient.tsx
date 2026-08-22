@@ -13,6 +13,7 @@ import {
 } from '@/components/features/VoteController/votePolicy';
 import HomeBoardHeader from '@/components/features/home/HomeBoardHeader';
 import VoteBoard from '@/components/features/vote/VoteBoard';
+import { BRAND_NAME } from '@/lib/brand';
 import styles from '@/app/[locale]/page.module.scss';
 import embedStyles from './VoteBoardEmbedClient.module.scss';
 
@@ -42,13 +43,13 @@ const TOP_TEN_COPY: Record<string, { expand: string; collapse: string }> = {
 };
 
 const KPOPFACE_SIGNUP_COPY: Record<string, string> = {
-  ko: 'KCL 가입하고 매일 300표 받기',
-  en: 'Join KCL for 300 votes every day',
-  ja: 'KCLに登録して毎日300票を使う',
-  zh: '注册 KCL，每天获得 300 票',
-  es: 'Regístrate en KCL y consigue 300 votos diarios',
-  fr: 'Inscris-toi sur KCL pour 300 votes par jour',
-  de: 'Bei KCL registrieren und täglich 300 Stimmen erhalten',
+  ko: `${BRAND_NAME} 가입하고 매일 300표 받기`,
+  en: `Join ${BRAND_NAME} for 300 votes every day`,
+  ja: `${BRAND_NAME}に登録して毎日300票を使う`,
+  zh: `注册 ${BRAND_NAME}，每天获得 300 票`,
+  es: `Regístrate en ${BRAND_NAME} y consigue 300 votos diarios`,
+  fr: `Inscris-toi sur ${BRAND_NAME} pour 300 votes par jour`,
+  de: `Bei ${BRAND_NAME} registrieren und täglich 300 Stimmen erhalten`,
 };
 
 const ALLOWED_SURFACES = new Set<VoteBoardSurface>(['kcl-modal', 'kpopface', 'partner']);
@@ -74,7 +75,7 @@ function getParentReturnUrl(locale: string): string {
       return `${referrer.origin}/kpopface/${suffix}`;
     }
   } catch {
-    // Invalid referrer falls back to the KCL page.
+    // Invalid referrer falls back to the MEARROW page.
   }
 
   return `https://kclhq.com/${locale}`;
@@ -292,7 +293,9 @@ export default function VoteBoardEmbedClient({
         <section className={embedStyles.authPrompt} role="dialog" aria-modal="true">
           <p>{KPOPFACE_SIGNUP_COPY[signupLocale]}</p>
           <button type="button" onClick={handleKpopfaceLogin}>
-            {signupLocale === 'ko' ? 'KCL 로그인·회원가입' : 'Log in or sign up for KCL'}
+            {signupLocale === 'ko'
+              ? `${BRAND_NAME} 로그인·회원가입`
+              : `Log in or sign up for ${BRAND_NAME}`}
           </button>
           <button type="button" onClick={() => setShowLoginPrompt(false)}>
             {signupLocale === 'ko' ? '닫기' : 'Close'}

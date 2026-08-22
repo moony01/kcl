@@ -35,7 +35,7 @@ That is why the wording matters. A `special appearance` can be enough for casual
 
 ### The AMAs benefit from uncertainty
 
-KCL sees the ambiguity as useful broadcast design. If the organizers confirmed everything at once, the story would peak early. By holding back the exact format, the show keeps BTS fans refreshing updates and keeps general music media repeating the question. That is not an accident; award shows survive on pre-show attention now as much as on the live telecast itself.
+MEARROW sees the ambiguity as useful broadcast design. If the organizers confirmed everything at once, the story would peak early. By holding back the exact format, the show keeps BTS fans refreshing updates and keeps general music media repeating the question. That is not an accident; award shows survive on pre-show attention now as much as on the live telecast itself.
 
 For the AMAs, BTS are not only celebrities on a lineup card. They are an attention engine. Their presence can move search traffic, social clips, livestream chatter, global time-zone planning, and press headlines before the first award is handed out. The ceremony gets suspense for free because the fandom fills the silence with theories.
 
@@ -70,11 +70,11 @@ The `Best Male K-Pop Artist` category places BTS beside ATEEZ, ENHYPEN, Stray Ki
 
 BTS sit in both places at once. That double placement is why the AMAs can use them as a bridge: genre recognition for K-pop fans, mainstream recognition for broader viewers, and broadcast suspense for everyone else.
 
-## KCL's View On The AMA Tease
+## MEARROW's View On The AMA Tease
 
 ### The real product is not the appearance, it is anticipation
 
-KCL reads the 2026 AMAs announcement as a lesson in modern fandom economics. The product is not only the live BTS moment. It is the five-day anxiety spiral before it: voting chatter, performance speculation, camera-time debates, media repetition, and the emotional memory of what BTS already did at this awards show.
+MEARROW reads the 2026 AMAs announcement as a lesson in modern fandom economics. The product is not only the live BTS moment. It is the five-day anxiety spiral before it: voting chatter, performance speculation, camera-time debates, media repetition, and the emotional memory of what BTS already did at this awards show.
 
 That is why the missing word may be the strongest part of the rollout. "Performance" would have delivered clarity. "Special appearance" delivers suspense. In a market where attention is harder to hold than ever, suspense can be more valuable than certainty.
 

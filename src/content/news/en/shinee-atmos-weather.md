@@ -50,15 +50,15 @@ That history adds weight to the current comeback. Many fans are clearly relieved
 
 ### Current perception is not the same as historical fact
 
-KCL will keep the layers separate. The current public mood around Key does not determine what happened in the earlier controversy, nor does supportive fan reaction erase the need for careful public accountability. What it does change is reception. A comeback after a visible pause is always heard through two tracks at once: the music itself and the public's willingness to let the artist re-enter the room.
+MEARROW will keep the layers separate. The current public mood around Key does not determine what happened in the earlier controversy, nor does supportive fan reaction erase the need for careful public accountability. What it does change is reception. A comeback after a visible pause is always heard through two tracks at once: the music itself and the public's willingness to let the artist re-enter the room.
 
 That is why `Atmos` feels more delicate than a normal SHINee release. It has the joy of a group return, the pressure of a legacy act, and the test of whether a member's comeback can be absorbed through group trust rather than reopening the entire controversy every time a teaser drops.
 
-## KCL's View On SHINee Atmos
+## MEARROW's View On SHINee Atmos
 
 ### Legacy groups now have to prove motion, not memory
 
-KCL reads `SHINee Atmos` as a smart but exposed rollout. The smart part is the sequencing. Three KSPO Dome nights before a six-track EP gives SHINee a live emotional runway that most younger groups cannot buy. The exposed part is the expectation. A second-generation group with SHINee's reputation cannot return with music that feels like a museum label. The comeback has to sound current without flattening the group's identity into trend-chasing.
+MEARROW reads `SHINee Atmos` as a smart but exposed rollout. The smart part is the sequencing. Three KSPO Dome nights before a six-track EP gives SHINee a live emotional runway that most younger groups cannot buy. The exposed part is the expectation. A second-generation group with SHINee's reputation cannot return with music that feels like a museum label. The comeback has to sound current without flattening the group's identity into trend-chasing.
 
 That is where the weather concept helps. Atmosphere is not a fixed object. It moves, presses, clears and changes. For SHINee, that gives the comeback room to be elegant, strange, bright or unsettled without betraying the name. If the title track uses that flexibility well, `Atmos` can become more than a comeback schedule. It can become proof that veteran K-pop still has experimental oxygen.
 

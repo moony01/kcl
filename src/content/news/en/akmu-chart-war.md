@@ -56,11 +56,11 @@ The chart victory also lands differently because AKMU is no longer just "the YG 
 
 That does not mean every idol can copy the route. AKMU's advantage is rare. They are writers, performers, siblings, television-era public figures, and digital-chart regulars in one package. Most idol teams depend on company infrastructure in a way AKMU does not. Still, the post-YG success changes what "leaving the system" can mean in Korean pop. It is no longer only a risk story.
 
-## KCL's View On The AKMU Chart War
+## MEARROW's View On The AKMU Chart War
 
 ### The market is splitting into two scoreboards
 
-KCL reads this week as a scoreboard split. One side is the global fandom economy: album variants, tour demand, short-form clips, fan platforms, and social ranking. The other side is domestic public listening: songs that Koreans keep replaying because they feel culturally close, lyrically distinct, or emotionally useful.
+MEARROW reads this week as a scoreboard split. One side is the global fandom economy: album variants, tour demand, short-form clips, fan platforms, and social ranking. The other side is domestic public listening: songs that Koreans keep replaying because they feel culturally close, lyrically distinct, or emotionally useful.
 
 The global industry is still expanding. IFPI reported that recorded music revenue reached $31.7 billion in 2025, with paid streaming and regional growth continuing to drive the market. K-pop agencies are right to chase that scale. But AKMU is showing the opposite pressure at the same time: the Korean public is still a scarce asset, and it cannot be forced into existence by budget alone.
 

@@ -42,11 +42,11 @@ Public sentiment is split in two directions. One side says recovery comes first.
 
 That distinction matters. Public emotion does not determine Manon's recovery timeline, future participation, or contractual status. It only shows how fans are processing a prolonged lack of clarity. Facts still have to come from official updates and actual activity. That is why the real issue here is not speculation itself. It is whether the group and its labels can communicate clearly enough to keep speculation from becoming the dominant storyline.
 
-## KCL's Take on KATSEYE WILD
+## MEARROW's Take on KATSEYE WILD
 
 ### HYBE x Geffen is being tested on narrative management, not just music
 
-KCL does not see this as just another comeback missing one member. The more important question is how a global idol project handles a visible gap when the fan base is multinational and hyper-online. Silence can sometimes hold in a domestic market. In a hybrid system like KATSEYE's, silence gets expensive faster. Even if the music lands, weak communication invites a much harsher interpretation war.
+MEARROW does not see this as just another comeback missing one member. The more important question is how a global idol project handles a visible gap when the fan base is multinational and hyper-online. Silence can sometimes hold in a domestic market. In a hybrid system like KATSEYE's, silence gets expensive faster. Even if the music lands, weak communication invites a much harsher interpretation war.
 
 ## The Next Turning Point Comes Before August 14
 

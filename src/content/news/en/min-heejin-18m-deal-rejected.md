@@ -58,7 +58,7 @@ HYBE's court deposit means the appeal moves forward. Depending on the outcome, t
 
 Some legal observers believe HYBE may selectively drop certain smaller claims — particularly those targeting fans — as the reputational cost of maintaining them continues to mount. However, the core lawsuits connected to Min Hee-jin personally are widely expected to continue.
 
-## The KCL Angle
+## The MEARROW Angle
 
 Strip away the personalities and the headlines, and this dispute is really about one question: **how much creative autonomy can a director hold in a K-pop major label structure before the system rejects it?**
 

@@ -35,9 +35,9 @@ A report by Mirae Asset Securities in October 2025 projected HYBE's 2026 revenue
 
 Forbes and Korea JoongAng Daily evaluated that "BTS's return will serve as an opportunity to prove that K-pop has completely settled as a global mainstream genre beyond a temporary fad." Now, K-pop has officially opened the 'stadium tour era,' touring stadiums around the world beyond arena tours.
 
-## The Meaning of BTS's Return from KCL's Perspective
+## The Meaning of BTS's Return from MEARROW's Perspective
 
-From the perspective of KCL (K-pop Company League), BTS's return will raise HYBE's firepower index to an unprecedented level. This is an event that solidifies HYBE's status as standing shoulder to shoulder with the global Big 3 labels, beyond the competition between the domestic Big 4 agencies.
+From the perspective of MEARROW (K-pop Talent Network), BTS's return will raise HYBE's firepower index to an unprecedented level. This is an event that solidifies HYBE's status as standing shoulder to shoulder with the global Big 3 labels, beyond the competition between the domestic Big 4 agencies.
 
 In terms of fandom economics, this album will breathe life into the entire industrial ecosystem, recording more than 3 million copies in first-week sales and hundreds of billions of won in related merchandise sales. Small and medium-sized agencies will also have the opportunity to grow together by utilizing the global market infrastructure that BTS has expanded.
 

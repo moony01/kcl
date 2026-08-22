@@ -62,9 +62,9 @@ Legal experts analyze that this case may have originated from **differing interp
 
 Looking at past celebrity tax controversies, most were resolved civilly after payment of additional taxes, though some cases did lead to criminal indictment.
 
-## KCL's Perspective on Celebrity Risk Management
+## MEARROW's Perspective on Celebrity Risk Management
 
-From the KCL (K-pop Company League) perspective, this incident once again highlights the issue of **risk management in entertainment companies**.
+From the MEARROW (K-pop Talent Network) perspective, this incident once again highlights the issue of **risk management in entertainment companies**.
 
 **Key Implications:**
 

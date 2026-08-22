@@ -56,13 +56,13 @@ Given these precedents, Wanna One's reunion with **all 11 members participating*
 
 K-pop industry experts forecast that if the Wanna One case succeeds, **reunion activity among other project groups will become more active**. With EXO's full-group comeback and BTS's world tour signaling a year of "legend returns" in the second half of 2026, Wanna One's reunion serves as the opening act for this trend.
 
-## KCL's View on Project Group Fandom Longevity
+## MEARROW's View on Project Group Fandom Longevity
 
-KCL's data reveals a noteworthy phenomenon: **project groups with shorter active periods tend to have higher 'nostalgia indices' among fans**, resulting in explosive initial buzz when they reunite.
+MEARROW's data reveals a noteworthy phenomenon: **project groups with shorter active periods tend to have higher 'nostalgia indices' among fans**, resulting in explosive initial buzz when they reunite.
 
 Wanna One was active for just 18 months, but the records they achieved during that time are overwhelming. Their debut album **'1¹¹=1(TO BE ONE)'** set the then-second-highest first-week sales record, and their concert tours recorded **consecutive 100% sellouts**. The intensity of that brief activity period is what drives the fandom that persists even 7 years later.
 
-KCL is developing a new analytical model using this **'fandom retention rate'** data to predict the success potential of project group reunions.
+MEARROW is developing a new analytical model using this **'fandom retention rate'** data to predict the success potential of project group reunions.
 
 ## A Miracle Born from 7 Years of Waiting
 

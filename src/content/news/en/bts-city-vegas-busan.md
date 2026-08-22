@@ -49,11 +49,11 @@ If Las Vegas is the money city, Busan is the story city. The moment Weverse list
 
 The biggest strength of the city format is that it expands beyond the stadium seat map. Fans without concert tickets can still enter through hotel tie-ins, pop-ups, media installations, F&B collaborations, and late-night event programming. That changes the purchase logic. Fans are no longer just buying a concert. They are buying a `BTS week`. In that sense, `THE CITY` is not a side product of the tour. It is a separate revenue engine built around the tour.
 
-## The KCL View on BTS THE CITY
+## The MEARROW View on BTS THE CITY
 
 ### HYBE is not selling seat count anymore. It is selling time-in-city
 
-KCL sees the core shift here as a move from event growth to stay-duration growth. The longer fans remain inside a city, the more BTS-linked spending can spread across hotels, transit, restaurants, offline retail and tourism routes. This is where K-pop starts looking less like a concert business and more like a destination business.
+MEARROW sees the core shift here as a move from event growth to stay-duration growth. The longer fans remain inside a city, the more BTS-linked spending can spread across hotels, transit, restaurants, offline retail and tourism routes. This is where K-pop starts looking less like a concert business and more like a destination business.
 
 ### The next competition may be about who can build the bigger destination
 

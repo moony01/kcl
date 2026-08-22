@@ -56,7 +56,7 @@ The moment a member leaves, the nature of those products changes. Fans paid for 
 
 K-pop has navigated member exits before. When EXO's Kris, Luhan, and Tao departed through legal disputes, the merchandising of their images was pulled relatively quickly. BELIFT's approach differed. Maintaining OT7 sales immediately after the announcement struck fans as asking for a breakup gift — after announcing the breakup.
 
-## KCL's Read: The Real Failure Was Communication
+## MEARROW's Read: The Real Failure Was Communication
 
 Reading BELIFT's moves as simple corporate greed captures only half the picture.
 

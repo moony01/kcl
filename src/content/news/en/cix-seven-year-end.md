@@ -62,11 +62,11 @@ That should make the ending more instructive, not less. K-pop training often tea
 
 None of that erases the achievement. Seven years in an idol group is real work. It is also a reminder that the industry does not hand permanent identity to everyone who survives the trainee system. If anything, trainees should read this as a call to build more than performance skill. They need emotional stamina, career flexibility, language ability, and a plan for life beyond one group name.
 
-## KCL's View On CIX And The Seven-Year Wall
+## MEARROW's View On CIX And The Seven-Year Wall
 
 ### The market remembers songs, but companies measure continuity
 
-KCL reads the CIX ending as a mid-market warning signal. The group did not vanish because nobody cared. It ended in the space between care and scale. That is the uncomfortable zone many K-pop companies are now managing. A group can have devoted listeners, respected music, and years of shared memory, yet still face a contract renewal equation that does not tilt toward continuation.
+MEARROW reads the CIX ending as a mid-market warning signal. The group did not vanish because nobody cared. It ended in the space between care and scale. That is the uncomfortable zone many K-pop companies are now managing. A group can have devoted listeners, respected music, and years of shared memory, yet still face a contract renewal equation that does not tilt toward continuation.
 
 The strongest lesson sits in the contrast between C9's statement and Seunghun's letter. The agency language was procedural. The idol language was existential. One side mapped contracts, enlistment, and support periods. The other side asked what remains when a person who has sung and danced since childhood steps away from the only professional identity fans know.
 

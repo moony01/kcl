@@ -50,15 +50,15 @@ BTS receives a different benefit. The group can reopen the *Arirang* conversatio
 
 The strategy is powerful because it makes the first moment scarce. It is risky for the same reason. Fans are global, platform habits vary, and the conversation will immediately spill into short clips, screenshots, translations and reaction posts elsewhere. The window may concentrate official viewing on Spotify, but it cannot contain the culture around the release.
 
-That tension creates the real test. If the two-day lead makes the wider Sunday release feel bigger, the exclusivity will have worked as a spark. If fans experience the first look mainly as an obstacle, the campaign may generate attention while weakening the emotional promise of access. KCL is not assuming either result before the window opens; the meaningful evidence will be how the conversation travels from Friday to Sunday.
+That tension creates the real test. If the two-day lead makes the wider Sunday release feel bigger, the exclusivity will have worked as a spark. If fans experience the first look mainly as an obstacle, the campaign may generate attention while weakening the emotional promise of access. MEARROW is not assuming either result before the window opens; the meaningful evidence will be how the conversation travels from Friday to Sunday.
 
 The rollout also arrives while BTS is already proving that one event can activate much more than a venue. [Related: BTS's London return became a citywide fandom test](/en/news/bts-london-stadium-record). The same operating logic appears here at smaller scale: give fans one central moment, then design multiple paths for participation around it.
 
-## KCL's view: a B-side just became a distribution laboratory
+## MEARROW's view: a B-side just became a distribution laboratory
 
 ### Smaller teams cannot copy BTS's scale, but they can copy the sequence
 
-KCL reads the “Normal” campaign as a platform experiment disguised as a visual joke. Its sequence is unusually clean: interrupt attention with an image, delay the explanation, reveal a platform-specific first look, then reopen distribution two days later. Every step creates a new reason to talk about the same song.
+MEARROW reads the “Normal” campaign as a platform experiment disguised as a visual joke. Its sequence is unusually clean: interrupt attention with an image, delay the explanation, reveal a platform-specific first look, then reopen distribution two days later. Every step creates a new reason to talk about the same song.
 
 Most artists cannot buy mysterious newspaper placements and expect the internet to investigate. They can still learn from the architecture. A rollout works harder when the visual hook, deadline and required fan action point in the same direction. Too many campaigns scatter attention across unrelated concept photos, challenges and preorder reminders. “Normal” compresses the message into one question: do you want to see it first?
 

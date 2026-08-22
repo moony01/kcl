@@ -70,7 +70,7 @@ On social media, the response has been pointed: *"Bekuh Boom is a HYBE employee 
 
 It is a logical concern in the context of K-pop's entertainment-industry politics, where label warfare is real and proven. It is also worth noting that writers work across multiple labels all the time, and HYBE employment would not inherently invalidate Bekuh Boom's account of past treatment at YG. Both things can be true.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 Bekuh Boom's allegations are one-sided, unverified, and — so far — unanswered by YG or BLACKPINK. None of that makes them wrong. It makes them unresolved.
 

@@ -22,6 +22,6 @@ The culture of "Birthday Cafes," where fans voluntarily rent and decorate cafes 
 
 Recently, a culture of donating in the artist's name instead of giving gifts (tributes) has taken root. Fandom energy is evolving into creating social value through rice wreaths, forest creation, and flood relief donations. This not only enhances the artist's image but also has a positive impact on society as a whole.
 
-## KCL's Perspective
+## MEARROW's Perspective
 
-KCL quantifies this fandom activity into the 'Fandom Activity Index' and reflects it in rankings. Our goal is to build a comprehensive evaluation system that encompasses not just sales revenue, but also fandom solidarity and social contribution.
+MEARROW quantifies this fandom activity into the 'Fandom Activity Index' and reflects it in rankings. Our goal is to build a comprehensive evaluation system that encompasses not just sales revenue, but also fandom solidarity and social contribution.

@@ -69,7 +69,7 @@ On April 25, aespa takes the Tokyo Dome stage.
 
 For a K-pop girl group, filling one of Japan's five major dome venues represents the highest commercial tier in the industry. Tokyo Dome holds approximately 55,000 people. A sold-out run would certify aespa as **an artist who survived controversy**. A weak showing would signal that the accumulated controversies had begun to erode actual consumer behavior.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 aespa's crisis is a textbook case of how K-pop media and fandom consume idol "mistakes."
 
@@ -85,4 +85,4 @@ Saying "a crisis arrived" is easy. Recording how it was overcome is far harder.
 
 aespa's 2025–2026 story isn't over. Tokyo Dome in April. A full studio album later in 2026. The next chapter has already begun.
 
-KCL will be watching.
+MEARROW will be watching.

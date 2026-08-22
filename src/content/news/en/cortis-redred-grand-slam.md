@@ -54,11 +54,11 @@ The physical layer is just as loud. The Chosun Ilbo's English service reported t
 
 That comparison is the real business hook. CORTIS is not simply having a bigger second era. It is compressing the timeline of scale. A milestone that previously took months now takes days. If labels are looking for the next fifth-generation benchmark, this is the part they will underline: speed, not only size.
 
-## KCL's View On The REDRED Market Signal
+## MEARROW's View On The REDRED Market Signal
 
 ### Rookie success now needs three proofs
 
-KCL reads the `REDRED` run as a new checklist for premium rookie momentum. One proof is fandom force: music-show voting, organized streaming, repeat purchases and the social pressure that keeps a campaign visible. The second proof is public-chart leakage: the moment a song begins escaping the fandom boundary and starts appearing in broader listening spaces. The third proof is global platform translation: whether the domestic story can be repeated in English, Japanese, Thai, Spanish and fan-edited formats fast enough to become international.
+MEARROW reads the `REDRED` run as a new checklist for premium rookie momentum. One proof is fandom force: music-show voting, organized streaming, repeat purchases and the social pressure that keeps a campaign visible. The second proof is public-chart leakage: the moment a song begins escaping the fandom boundary and starts appearing in broader listening spaces. The third proof is global platform translation: whether the domestic story can be repeated in English, Japanese, Thai, Spanish and fan-edited formats fast enough to become international.
 
 CORTIS has shown all three in the same window. That does not guarantee permanent dominance, but it changes the burden of comparison. Rival rookies cannot answer this only with a good first-week number or one viral clip. They now have to show whether their systems can turn attention into trophies, public listening, albums and exportable streaming data at the same time.
 

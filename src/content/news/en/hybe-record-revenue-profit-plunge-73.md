@@ -56,7 +56,7 @@ What pulled Q4 back into the black was **content revenue**. BTS members Jimin an
 
 Ironically, these numbers also prove that HYBE still **depends on BTS** — even when the group isn't active as a unit.
 
-## KCL's Take on HYBE's Earnings
+## MEARROW's Take on HYBE's Earnings
 
 HYBE's 2025 results send a critical message to the entire K-pop industry.
 

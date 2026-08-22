@@ -40,9 +40,9 @@ This action stems from the 2023 contractual dispute when Baekhyun, Chen, and Xiu
 
 The intended audience for this message extends far beyond EXO-CBX. It reaches every current SM artist and every trainee considering a contract with the company. Broadcast activity is a lifeline for K-pop idols. The fact that an agency can allegedly manipulate this lifeline reveals how powerless even the most successful idols can be in the face of corporate interests.
 
-## KCL's Take: What This Means for the Industry
+## MEARROW's Take: What This Means for the Industry
 
-From KCL's (K-pop Company League) perspective, this incident strikes at the core of two critical metrics: **corporate governance** and **artist rights**. While SM Entertainment maintains industry-leading capabilities in music production and artist development, recurring disputes over artist treatment and allegations of unfair practices threaten to erode the company's long-term value.
+From MEARROW's (K-pop Talent Network) perspective, this incident strikes at the core of two critical metrics: **corporate governance** and **artist rights**. While SM Entertainment maintains industry-leading capabilities in music production and artist development, recurring disputes over artist treatment and allegations of unfair practices threaten to erode the company's long-term value.
 
 For investors, this represents tangible risk. When the Fair Trade Commission (FTC) launched its subcontracting investigation into the Big 4 agencies in 2023, share prices across the board dropped. Artist rights controversies aren't merely fandom issues — they directly impact ESG (Environmental, Social, Governance) evaluations.
 

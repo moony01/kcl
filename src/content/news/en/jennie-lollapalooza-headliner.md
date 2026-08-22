@@ -36,7 +36,7 @@ This year’s lineup also includes aespa, i-dle, and rookie boy group CORTIS, br
 
 That is why the post-`Ruby` timing matters. The question hanging over her solo cycle was whether it would stay as a streaming-and-headline story or turn into a durable live-market position. A Lollapalooza headline booking looks like the most expensive interim answer possible. American festivals can applaud numbers easily. They are much slower to hand over marquee placement.
 
-## KCL’s read: K-pop is moving beyond tours into cultural real estate
+## MEARROW’s read: K-pop is moving beyond tours into cultural real estate
 
 ### Festivals test a different kind of power
 

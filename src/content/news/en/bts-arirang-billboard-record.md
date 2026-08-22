@@ -48,11 +48,11 @@ The Billboard story is not happening alone. Starnews separately reported that `A
 
 The live business is also adding oxygen. Reports say BTS began the North American leg of the `ARIRANG` world tour in Tampa on April 25, with 31 concerts across 12 cities and Stanford Stadium shows scheduled for May 16, 17, and 19. A tour does not automatically create chart stability, but it does keep the era visible. Every city produces clips, setlist debates, merch photos, local-news attention, and fresh emotional reasons to revisit the album.
 
-## KCL's Take On BTS ARIRANG Billboard Pressure
+## MEARROW's Take On BTS ARIRANG Billboard Pressure
 
 ### The real record is attention depth
 
-KCL reads this week as a warning to companies that treat albums as short promotional vehicles. The K-pop market has spent years optimizing teasers, preorders, photocard versions, dance challenges, and first-week fandom mobilization. Those tools still matter. But `ARIRANG` is showing a different advantage: attention depth. The album is giving fans enough musical and narrative material to keep arguing, streaming, collecting, and showing up after the launch window has closed.
+MEARROW reads this week as a warning to companies that treat albums as short promotional vehicles. The K-pop market has spent years optimizing teasers, preorders, photocard versions, dance challenges, and first-week fandom mobilization. Those tools still matter. But `ARIRANG` is showing a different advantage: attention depth. The album is giving fans enough musical and narrative material to keep arguing, streaming, collecting, and showing up after the launch window has closed.
 
 That matters for the wider business because 2026 is crowded with comeback, tour, and festival supply. Fans cannot give every release seven weeks of active attention. The acts that win will not be the ones that make the loudest first splash. They will be the ones that create a reason to return after the algorithm has already moved on.
 

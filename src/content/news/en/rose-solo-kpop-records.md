@@ -59,7 +59,7 @@ iHeartRadio operates the largest radio network in the United States. A K-pop act
 
 [Related: BLACKPINK's 'GO' enters Billboard Hot 100 at No. 63, setting K-pop girl group record](/en/news/blackpink-go-billboard-hot100-11th-entry-record-2026)
 
-## KCL's Take — The Solo Era Has Truly Arrived
+## MEARROW's Take — The Solo Era Has Truly Arrived
 
 ### Not Escaping a Group's Shadow, But Drawing a New Map
 

@@ -23,7 +23,7 @@ That uncertainty is part of the hook. A confirmed title track would make this a 
 
 Red Velvet's summer reputation was not built from one song. It was built from a pattern: bright hooks, off-center concepts, and seasonal singles that made the group feel different from the safer girl-group lane around them. Pinkvilla pointed to `Red Flavor`, `Power Up` and `Umpah Umpah` as the kind of summer memory fans are now bringing back into the August conversation.
 
-But nostalgia is not enough by itself. A 2026 comeback has to do more than remind listeners that Red Velvet once owned summer. It has to turn memory into behavior: pre-saves, edits, reaction videos, chart pushes, stage clips, and the kind of casual replay that makes a song leave the fandom bubble. KCL reads the "summer queen" label as a business asset only if it can make old fans act now and make newer K-pop listeners understand why the title mattered in the first place.
+But nostalgia is not enough by itself. A 2026 comeback has to do more than remind listeners that Red Velvet once owned summer. It has to turn memory into behavior: pre-saves, edits, reaction videos, chart pushes, stage clips, and the kind of casual replay that makes a song leave the fandom bubble. MEARROW reads the "summer queen" label as a business asset only if it can make old fans act now and make newer K-pop listeners understand why the title mattered in the first place.
 
 ## The Contract Layer Makes This Return Different
 
@@ -46,11 +46,11 @@ That creates a clean but unforgiving test. If Red Velvet lean too heavily into n
 
 [Related: June K-pop comeback pileup showed why release timing is now part of the product](/en/news/june-kpop-comeback-pileup)
 
-## KCL's View: This Is A Loyalty Stress Test
+## MEARROW's View: This Is A Loyalty Stress Test
 
 ### The fandom is not only waiting; it is being measured
 
-KCL reads this comeback report as a loyalty stress test. Red Velvet's name still travels because the group has a distinct sonic memory. But memory and active demand are different currencies. The August conversation will reveal how many fans are ready to move from "I miss them" to "I will push this campaign today." That difference is what labels actually need to see.
+MEARROW reads this comeback report as a loyalty stress test. Red Velvet's name still travels because the group has a distinct sonic memory. But memory and active demand are different currencies. The August conversation will reveal how many fans are ready to move from "I miss them" to "I will push this campaign today." That difference is what labels actually need to see.
 
 The solo-era context makes the test sharper. Irene, Seulgi, Wendy, Joy and Yeri each carry separate audience signals now. A full-group comeback has to combine those signals without making the group feel like a temporary anniversary project. If SM and the members can make the rollout feel like a present-tense chapter, not just a reunion checkpoint, Red Velvet could turn a long wait into renewed leverage.
 

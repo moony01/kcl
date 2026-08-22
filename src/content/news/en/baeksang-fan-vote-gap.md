@@ -15,7 +15,7 @@ Baeksang Popularity Award voting was supposed to be a side race before the serio
 
 The 62nd Baeksang Arts Awards' Naver Popularity Award vote ran from noon on April 24 until 11:59 p.m. KST on May 5, according to Cineplay and BizEnter. The rules were simple but revealing: each Naver account could cast one free vote per day in the male category and one free vote per day in the female category. That meant the winner would not be decided by one viral night. It would be decided by whether fans could return, remind, coordinate, and repeat for 12 straight days.
 
-That structure is familiar to K-pop. Music-show voting, streaming guides, birthday billboard campaigns, album-buying teams, and app-based popularity polls have trained fandoms to treat affection as schedule management. A casual supporter might vote once. A disciplined fandom turns voting into a calendar. That is why this Baeksang result matters for KCL: it shows the same operating logic escaping music and landing inside Korea's broader entertainment awards circuit.
+That structure is familiar to K-pop. Music-show voting, streaming guides, birthday billboard campaigns, album-buying teams, and app-based popularity polls have trained fandoms to treat affection as schedule management. A casual supporter might vote once. A disciplined fandom turns voting into a calendar. That is why this Baeksang result matters for MEARROW: it shows the same operating logic escaping music and landing inside Korea's broader entertainment awards circuit.
 
 ### The nominee pool made the win harder to dismiss
 
@@ -48,11 +48,11 @@ K-pop has always exported idols into acting, musicals, variety, fashion, and adv
 
 That is why idol agencies should care about Baeksang's popularity numbers. YoonA and Park Jihoon are not agency rookies chasing attention through a new single. They are proof that idol-origin fandom can survive career migration. If that fandom follows an artist into acting awards, it can also follow them into musicals, brand campaigns, paid fan meetings, streaming premieres, and global promotions.
 
-## KCL's View On The Baeksang Fan Vote Gap
+## MEARROW's View On The Baeksang Fan Vote Gap
 
 ### Fandom infrastructure is becoming portable
 
-KCL reads this result as a portability story. In older entertainment logic, a singer's fandom, an actor's audience, and an award show's viewers were treated as separate groups. The Baeksang vote shows that those borders are weaker than they look. A K-pop fandom trained inside voting apps can move into a prestige awards context and immediately understand the mechanics.
+MEARROW reads this result as a portability story. In older entertainment logic, a singer's fandom, an actor's audience, and an award show's viewers were treated as separate groups. The Baeksang vote shows that those borders are weaker than they look. A K-pop fandom trained inside voting apps can move into a prestige awards context and immediately understand the mechanics.
 
 That creates a business advantage. Artists with active fandom infrastructure can bring attention to platforms, broadcasters, sponsors, and ceremonies that are not strictly music products. For Baeksang, idol-linked voters create traffic and social buzz before the ceremony. For the artists, the award becomes another public proof of relevance. For agencies, it is a reminder that fan relationship management cannot stop when an idol steps into acting.
 

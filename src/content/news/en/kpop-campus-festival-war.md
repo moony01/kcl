@@ -48,11 +48,11 @@ Even the Big Four conversation points in the same direction. Reuters, carried by
 
 Campus festivals are the grassroots version of that shift. They are smaller than KCON, less formal than a Big Four mega-festival, and more chaotic than a ticketed arena tour. But that is precisely why they matter. They show whether K-pop can operate as a lived social environment, not only a broadcast product or a fan-club economy.
 
-## KCL's View On The Campus Festival War
+## MEARROW's View On The Campus Festival War
 
 ### The cheapest-looking stage may produce the most honest data
 
-KCL reads the 2026 university festival rush as a public-audience stress test. The core metric is not only applause. It is conversion quality. Did the crowd stay? Did the chorus travel? Did the artist create a clip that non-fans could understand without context? Did the campus brand benefit from the booking? Those are the questions agencies should care about, because the next growth layer of K-pop will depend on general-audience contact points, not only deeper monetization of existing fandoms.
+MEARROW reads the 2026 university festival rush as a public-audience stress test. The core metric is not only applause. It is conversion quality. Did the crowd stay? Did the chorus travel? Did the artist create a clip that non-fans could understand without context? Did the campus brand benefit from the booking? Those are the questions agencies should care about, because the next growth layer of K-pop will depend on general-audience contact points, not only deeper monetization of existing fandoms.
 
 This also matters for trainees and smaller companies. The campus stage rewards different skills from a music-video set. It rewards breath control, crowd reading, quick recovery, humor, and the ability to make an unfamiliar audience feel included fast. That is why university festivals are not just seasonal gigs. They are rehearsal rooms with thousands of witnesses.
 

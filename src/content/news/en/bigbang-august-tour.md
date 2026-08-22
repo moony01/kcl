@@ -42,11 +42,11 @@ BIGBANG debuted in August 2006, so launching a tour in August 2026 is more than 
 
 The story does not stop with BIGBANG alone. YG has already spread its 2026 board across BLACKPINK, BABYMONSTER, TREASURE, and a new boy group pipeline. If BIGBANG can still reopen the premium live-market conversation in August, then YG gets reclassified from a company preserving old glory to one that can still cash in on legacy IP at scale. [Related: Coachella 2026 Wasn't Just About K-Pop Showing Up — It Was About K-Pop Changing the Weight of the Stage](/en/news/coachella-2026-kpop-takeover)
 
-## KCL's View on BIGBANG's August Tour
+## MEARROW's View on BIGBANG's August Tour
 
 ### The core question is not reunion. It is pricing power.
 
-KCL reads this not as a sentimental reunion story but as a **market reclassification signal**. Coachella re-established the name. August now has to prove the price tag. If the first dates, the venues, and the new album all hold at premium level, BIGBANG will do more than celebrate its past. It will force the 2026 K-pop live market to recalculate what a legacy act can still be worth.
+MEARROW reads this not as a sentimental reunion story but as a **market reclassification signal**. Coachella re-established the name. August now has to prove the price tag. If the first dates, the venues, and the new album all hold at premium level, BIGBANG will do more than celebrate its past. It will force the 2026 K-pop live market to recalculate what a legacy act can still be worth.
 
 ## The next headline will come from the first city, not the quote
 

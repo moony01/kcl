@@ -20,7 +20,7 @@ Within hours, side-by-side clips of both moments were circulating on Weibo. The 
 Chinese users escalated quickly. "Why didn't G-Dragon say Chinese New Year?" "Is he claiming East Asian culture as universally shared while erasing China?" The phrase "anti-China" entered the discourse. The topic spread from Weibo to Xiaohongshu, and into Korean and international fan spaces.
 
 ![G-Dragon's "Lunar New Year" greeting at Dubai's Krazy Super Concert sparks Chinese fan backlash — K-pop's cultural politics at the center](/images/news/gdragon-lunar-new-year-china-fan-controversy-1.png)
-_Image source: KCL editorial_
+_Image source: MEARROW editorial_
 
 ## The Weight of 770,000 Copies
 
@@ -56,7 +56,7 @@ For G-Dragon's defenders — including many Chinese fans who saw nothing wrong w
 
 The result: the controversy split G-Dragon's fanbase along exactly the fault line that K-pop's China market has always operated on. The line between fandom and nationalism.
 
-## KCL's Take: The Structural Trap K-Pop Can't Escape
+## MEARROW's Take: The Structural Trap K-Pop Can't Escape
 
 This incident didn't happen in a vacuum. It's a concentrated expression of a structural problem that K-pop has faced since the mid-2010s: the industry's dependence on China's enormous consumer base creates leverage that Chinese nationalist sentiment can activate with alarming speed and low threshold.
 

@@ -68,11 +68,11 @@ For trainees and aspiring idols, this is the part worth studying. BABYMONSTER's 
 
 That is why this story matters beyond one fandom. The industry keeps telling trainees that content matters. It does. But `CHOOM` shows that the live stage is still where companies test whether an act can become a business, not just a feed.
 
-## KCL's View On BABYMONSTER's Live-Market Bet
+## MEARROW's View On BABYMONSTER's Live-Market Bet
 
 ### YG is moving before the category gets even more crowded
 
-KCL reads the `BABYMONSTER CHOOM tour` expansion as a speed play. YG knows that the global girl-group lane will not get quieter. BABYMONSTER are competing with major fourth- and fifth-generation acts, reunion cycles, solo projects and festival brands. Waiting for a perfect moment would only push the group into a more crowded calendar.
+MEARROW reads the `BABYMONSTER CHOOM tour` expansion as a speed play. YG knows that the global girl-group lane will not get quieter. BABYMONSTER are competing with major fourth- and fifth-generation acts, reunion cycles, solo projects and festival brands. Waiting for a perfect moment would only push the group into a more crowded calendar.
 
 The stronger move is to convert attention while it is still hot. The EP gives the tour a name, the Seoul sellout gives the story credibility, the Asia-Oceania map gives fans something to organize around, and future North America, South America and Europe dates keep the global promise open. That is a full campaign architecture, not a simple itinerary.
 

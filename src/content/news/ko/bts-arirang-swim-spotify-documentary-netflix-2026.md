@@ -80,9 +80,9 @@ SWIMSIDE 팝업과 더불어, 전 세계에서 예상치 못한 현상들이 발
 ![BTS ARIRANG SWIM 타이틀곡 — 스포티파이 SWIMSIDE 글로벌 캠페인과 넷플릭스 다큐멘터리 The Return](/images/news/bts-arirang-swim-spotify-documentary-netflix-2026-1.png)
 _이미지: ChatGPT AI 생성_
 
-## KCL 분석: 세 개의 전선이 말하는 것
+## MEARROW 분석: 세 개의 전선이 말하는 것
 
-KCL의 관점에서 보면, BTS ARIRANG 마케팅 구조는 기존 K-pop 컴백의 문법을 완전히 뒤집었다.
+MEARROW의 관점에서 보면, BTS ARIRANG 마케팅 구조는 기존 K-pop 컴백의 문법을 완전히 뒤집었다.
 
 전통적인 K-pop 컴백은 **음악 → 이후 미디어**의 순서를 따른다. 앨범 발매 → 뮤직비디오 → 예능 출연 → 콘서트 순이다.
 

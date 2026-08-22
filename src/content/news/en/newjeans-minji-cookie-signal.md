@@ -64,11 +64,11 @@ That split will shape reception even if the facts remain simple. A return announ
 
 At the same time, Minji's present-day public perception does not decide the truth of the 2024 dispute. The legal and historical facts of that conflict remain a separate layer from how fans feel about her now. The important point for this story is reception: the way current sympathy, skepticism, and exhaustion will determine whether a NewJeans comeback feels like recovery or damage control.
 
-## KCL's View On The ADOR Cookie Signal
+## MEARROW's View On The ADOR Cookie Signal
 
 ### NewJeans now has to relaunch trust before music
 
-KCL reads this as a trust rehearsal. ADOR may eventually need a comeback announcement, track list, concept photos, and a release date, but the first product being tested is not a song. It is permission. Can the label talk about Minji on official NewJeans channels without triggering immediate rejection? Can fans accept a four-member future if the fifth-member image is gone? Can a group built on naturalness return through a process that now feels heavily managed?
+MEARROW reads this as a trust rehearsal. ADOR may eventually need a comeback announcement, track list, concept photos, and a release date, but the first product being tested is not a song. It is permission. Can the label talk about Minji on official NewJeans channels without triggering immediate rejection? Can fans accept a four-member future if the fifth-member image is gone? Can a group built on naturalness return through a process that now feels heavily managed?
 
 Those questions are commercial, not only emotional. A NewJeans comeback would need streaming, album sales, brand confidence, media framing, and fan labor. If the fandom enters the rollout angry or divided, every teaser becomes harder to interpret. If the fandom enters with cautious relief, ADOR has a runway.
 

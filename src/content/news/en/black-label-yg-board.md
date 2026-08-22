@@ -60,11 +60,11 @@ The criticism has been consistent: fans want more frequent comebacks, clearer pr
 
 That is the emotional gap driving the click. Investors hear "cleaner governance." Fans hear "will my artist finally release music?" Those are not the same question, and THE BLACK LABEL now has to answer both.
 
-## KCL's Take on THE BLACK LABEL's Independence
+## MEARROW's Take on THE BLACK LABEL's Independence
 
 ### This is a business reset, not proof of an artist reset
 
-KCL reads this as a governance milestone with an artist-risk shadow. The board exit strengthens THE BLACK LABEL's IPO story. It gives the company a cleaner argument to investors: independent board, diluted old-parent influence, management with public-listing experience, and a roster with global recognition.
+MEARROW reads this as a governance milestone with an artist-risk shadow. The board exit strengthens THE BLACK LABEL's IPO story. It gives the company a cleaner argument to investors: independent board, diluted old-parent influence, management with public-listing experience, and a roster with global recognition.
 
 But the competitive test is not paperwork. In K-pop, company value is ultimately converted through release cadence, touring, IP expansion, fan retention, and the ability to build new acts without starving existing ones. If THE BLACK LABEL uses independence to increase execution speed, the move could become one of 2026's most important business pivots. If the company remains slow, fans will read the board change as corporate theater.
 

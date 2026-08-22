@@ -44,11 +44,11 @@ Fans notice stacked calendars before investors do. A four-week release run like 
 
 That pressure can actually make the month bigger. Scarcity creates heat. Every fandom wants to prove that its group did not merely survive the crowding but used it to dominate. Yet the deeper effect is strategic. The agency that wins May may not be the one with the loudest opening-day spike. It may be the one that stretches release-week curiosity into a full summer ecosystem: streams, albums, viral performance clips, ticket demand, and a story that keeps growing after the next group arrives.
 
-## KCL's Take on the May Girl-Group Market War
+## MEARROW's Take on the May Girl-Group Market War
 
 ### The real winner may be the act that turns momentum into duration
 
-KCL does not see May 2026 as a clean winner-take-all sprint. It looks more like a sorting mechanism. `BABYMONSTER` is testing explosive acceleration. `NMIXX` is testing whether a group can feed a comeback through an already-moving tour machine. `LE SSERAFIM` is testing narrative sequencing and global routing at the same time. `aespa` is testing whether a premium concept act can make the jump from comeback anticipation to an even more expensive live cycle.
+MEARROW does not see May 2026 as a clean winner-take-all sprint. It looks more like a sorting mechanism. `BABYMONSTER` is testing explosive acceleration. `NMIXX` is testing whether a group can feed a comeback through an already-moving tour machine. `LE SSERAFIM` is testing narrative sequencing and global routing at the same time. `aespa` is testing whether a premium concept act can make the jump from comeback anticipation to an even more expensive live cycle.
 
 That is why the sharpest question is not "who wins the month?" but "who still owns the conversation when June numbers settle and summer tickets go on sale?" If May 2026 proves anything, it is that the girl-group battlefield has become less about one release and more about who can build the most durable commercial weather around an era.
 

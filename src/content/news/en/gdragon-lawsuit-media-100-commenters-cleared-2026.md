@@ -62,7 +62,7 @@ G-Dragon's legal campaign is running alongside arguably the most active period o
 
 The juxtaposition is striking: an artist who spent nearly two years under the shadow of unproven drug allegations is simultaneously pursuing legal accountability for those who spread them and preparing to headline some of the world's largest music stages. The narrative — wrongly accused, cleared, and now fighting back — is structurally compelling in a way that a quiet return could never be.
 
-## KCL's Take
+## MEARROW's Take
 
 This is being read in some quarters as personal revenge. It is also something else: the first large-scale test of whether the K-pop defamation ecosystem can be held legally accountable.
 

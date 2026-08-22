@@ -54,11 +54,11 @@ K-pop companies have spent years learning how physical goods travel: albums, lig
 
 The lesson is not that every group needs stamps. The lesson is that mature fandoms need anniversary formats that feel official without feeling tired. BLACKPINK's stamp set works because the group has enough history to compress into a postal object and enough global demand to make that object move.
 
-## KCL's View On The Korea Post Signal
+## MEARROW's View On The Korea Post Signal
 
 ### BLACKPINK is being archived while still monetized
 
-KCL reads this as a business signal more than a cute anniversary note. The strongest K-pop acts now operate in two timelines at once. One timeline is active: new music, touring, charts, brand deals and solo moves. The other is archival: museums, commemorative objects, institutional partnerships and anniversary products that tell fans the artist already belongs to history.
+MEARROW reads this as a business signal more than a cute anniversary note. The strongest K-pop acts now operate in two timelines at once. One timeline is active: new music, touring, charts, brand deals and solo moves. The other is archival: museums, commemorative objects, institutional partnerships and anniversary products that tell fans the artist already belongs to history.
 
 BLACKPINK is doing both. `DEADLINE` gave the group a live commercial cycle in 2026, while the Korea Post issue gives the decade a public-memory frame. That pairing is valuable because it lets YG monetize the present without treating the past as finished. A fan can support the comeback and preserve the myth at the same time.
 

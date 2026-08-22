@@ -75,7 +75,7 @@ When the 2023 re-signing was announced, the dominant industry narrative was that
 
 [Related: BIGBANG Is Back — 20th Anniversary World Tour, Coachella, and YG's Full 2026 Masterplan](/en/news/yg-bigbang-20th-anniversary-world-tour-2026)
 
-## YG Entertainment — Where They Stand in KCL
+## YG Entertainment — Where They Stand in MEARROW
 
 ### 2026: YG's Full Lineup Activation
 
@@ -114,7 +114,7 @@ This number goes beyond a sales record:
 
 BLACKPINK holds both first and second place. Breaking your own record after a three-plus-year hiatus defies the conventional wisdom that fandom loyalty decays proportionally with time.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 'Deadline's 1.77M first-week sales transcend BLACKPINK's individual record. They answer **structural questions about the K-pop girl group market**.
 
@@ -124,4 +124,4 @@ Second, **where is the ceiling for girl group first-week sales?** 1.77M is the n
 
 Third, **does YG's multi-IP strategy work?** Running BIGBANG and BLACKPINK simultaneously while each member pursues independent activities — whether this structure is sustainable will become clearer in the second half of 2026.
 
-What BLACKPINK proved with 'Deadline' is simple. The throne of K-pop's girl group market still belongs to BLACKPINK. How competing groups respond to reclaim it — KCL will be watching.
+What BLACKPINK proved with 'Deadline' is simple. The throne of K-pop's girl group market still belongs to BLACKPINK. How competing groups respond to reclaim it — MEARROW will be watching.

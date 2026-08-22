@@ -32,12 +32,12 @@ Today’s fandom often rewards unscripted honesty more than polished messaging. 
 
 [Related: Taemin BPM staff salary scandal analysis](/en/news/taemin-bpm-staff-salary-scandal)
 
-## KCL View: This Is a Governance Problem, Not a Binary War
+## MEARROW View: This Is a Governance Problem, Not a Binary War
 ### “Company vs artist” is too simplistic
 Reducing this to “label oppression” or “idol recklessness” misses the operational issue: transparent live-policy governance and fast post-incident communication. Without visible standards, each takedown fuels speculation.
 
 ### Practical way forward
-KCL suggests three steps: publish clearer livestream policy boundaries, standardize minimum disclosure when content is removed, and preserve an artist-led clarification channel to reduce one-sided control narratives. Fandom does not demand total freedom; it demands understandable rules.
+MEARROW suggests three steps: publish clearer livestream policy boundaries, standardize minimum disclosure when content is removed, and preserve an artist-led clarification channel to reduce one-sided control narratives. Fandom does not demand total freedom; it demands understandable rules.
 
 ## The Open Question
 This incident is bigger than one deleted stream. It tests how K-pop institutions can preserve trust in a global fandom era where authenticity and risk management are both non-negotiable.

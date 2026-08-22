@@ -58,11 +58,11 @@ The Seoul shows from May 29 to 31 are not a side note. They are the proof-of-dem
 
 For I.O.I, that matters because the group occupies a special place in K-pop's history. It was one of the clearest demonstrations that a short-lived project group could leave a disproportionately large mark. If the concerts land with force, the comeback stops being a beautiful exception and starts looking like a case study.
 
-## KCL's View on the I.O.I Return
+## MEARROW's View on the I.O.I Return
 
 ### The real hook is not happiness. It is unfinished feeling.
 
-KCL does not read this as a simple "the legends are back" story. The more powerful reading is that I.O.I still carries unresolved emotional capital. Fans never got a long middle era with this group. They got acceleration, fragmentation, and then memory. `LOOP` works as a title because it quietly admits the structure of the comeback itself: the audience is returning to an old point, but not as the same people, and not with the same conditions.
+MEARROW does not read this as a simple "the legends are back" story. The more powerful reading is that I.O.I still carries unresolved emotional capital. Fans never got a long middle era with this group. They got acceleration, fragmentation, and then memory. `LOOP` works as a title because it quietly admits the structure of the comeback itself: the audience is returning to an old point, but not as the same people, and not with the same conditions.
 
 That is why the missing members are not just a disappointment to be footnoted away. They sharpen the comeback's meaning. This reunion is not about restoring the past perfectly. It is about testing how much of that past can still feel alive when reality refuses to line up neatly.
 

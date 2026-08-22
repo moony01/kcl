@@ -56,11 +56,11 @@ That is where BTS still has an advantage that raw streaming numbers cannot fully
 
 There is also a business lesson for smaller artists. A city takeover is not created by printing more merchandise after a venue sells out. It starts with a fan culture that already has rituals people want to practice together. The official program can organize those rituals, but it cannot fake the trust underneath them.
 
-## KCL's view: a stadium show is now a platform
+## MEARROW's view: a stadium show is now a platform
 
 ### The next touring race will be measured outside the venue
 
-KCL reads the London result as a change in what a top-tier K-pop tour is expected to do. Ticket sales remain the gate. The stronger model uses the concert as a platform that connects travel, food, retail, fan-made exchange and local cultural institutions. A stadium performance can then support several days of attention without asking fans to spend longer at the venue.
+MEARROW reads the London result as a change in what a top-tier K-pop tour is expected to do. Ticket sales remain the gate. The stronger model uses the concert as a platform that connects travel, food, retail, fan-made exchange and local cultural institutions. A stadium performance can then support several days of attention without asking fans to spend longer at the venue.
 
 That creates opportunity and pressure. Host cities gain visitors and cultural activity. Korean businesses get a concentrated audience. Fans receive more ways to meet. But every extra pop-up and collaboration also competes for the same wallet. If the surrounding program becomes a shopping obstacle course, the warmth that made it valuable will disappear.
 

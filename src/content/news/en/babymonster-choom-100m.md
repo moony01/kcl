@@ -54,11 +54,11 @@ Hanteo News reported that BABYMONSTER opened additional Seoul concert seats afte
 
 That is the bigger picture behind `100 million in 13 days`. The number is no longer just a brag for MONSTIEZ. It is a demand forecast. YG can use it when selling the group to promoters, platforms, brand partners and markets that want evidence before committing to scale. But evidence cuts both ways. If BABYMONSTER is already being positioned as a touring and video engine, every future release has to feed that engine.
 
-## KCL's View On BABYMONSTER CHOOM 100M
+## MEARROW's View On BABYMONSTER CHOOM 100M
 
 ### The real win is conversion, not views
 
-KCL reads `BABYMONSTER CHOOM 100M` as a conversion story. The group converted a comeback into subscribers, subscribers into repeat video demand, video demand into stronger tour logic, and tour logic back into the myth that BABYMONSTER is built for the stage. That loop is exactly what entertainment companies want from a young global act.
+MEARROW reads `BABYMONSTER CHOOM 100M` as a conversion story. The group converted a comeback into subscribers, subscribers into repeat video demand, video demand into stronger tour logic, and tour logic back into the myth that BABYMONSTER is built for the stage. That loop is exactly what entertainment companies want from a young global act.
 
 For trainees and aspiring idols, the lesson is blunt. Viral visibility helps, but it is not enough. BABYMONSTER's current momentum works because the group can attach platform numbers to performance readiness. The public sees views. The company sees a live product, a subscriber base, a tour route and a campaign structure that can be repeated if the members keep delivering.
 

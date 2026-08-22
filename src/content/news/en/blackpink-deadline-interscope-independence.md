@@ -55,13 +55,13 @@ YG is the first among the Big 4 to break free from major label dependency. If BL
 
 SM Entertainment has already been investing in self-distribution capabilities, and HYBE has been strengthening its D2C (Direct-to-Consumer) strategy through Weverse. BLACKPINK's precedent could accelerate this industry-wide shift.
 
-## What This Means Through the KCL Lens
+## What This Means Through the MEARROW Lens
 
-From KCL's perspective, this distribution switch is more than a business headline. It's a **signal that the competitive framework for K-pop agencies is evolving**.
+From MEARROW's perspective, this distribution switch is more than a business headline. It's a **signal that the competitive framework for K-pop agencies is evolving**.
 
 Until now, global market success was heavily influenced by which major label you partnered with. But what BLACKPINK is proving is different — **when you have sufficient fandom power and brand equity, the artist chooses the distributor, not the other way around**.
 
-This shift will also impact how we evaluate K-pop agencies. "How big is your overseas label deal?" may matter less than **"How strong is your self-distribution capability?"** as a competitive metric. This is a variable worth tracking closely in KCL's agency analysis framework.
+This shift will also impact how we evaluate K-pop agencies. "How big is your overseas label deal?" may matter less than **"How strong is your self-distribution capability?"** as a competitive metric. This is a variable worth tracking closely in MEARROW's agency analysis framework.
 
 ## Looking Ahead
 

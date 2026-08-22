@@ -70,7 +70,7 @@ If ooak records debuts an act — and if that act carries even some of the visua
 
 That is not hypothetical pressure. It is the actual structural situation going into this comeback.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 NewJeans' 2026 comeback has to prove three things simultaneously.
 

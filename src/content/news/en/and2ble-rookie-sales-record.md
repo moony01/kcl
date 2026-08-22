@@ -42,11 +42,11 @@ A brand-new rookie can be messy. Fans may accept uneven interviews, awkward stag
 
 That is why AND2BLE's opening numbers are double-edged. The group can use them to argue that the waiting audience was real. But high expectations arrive immediately with the same data. If the next stages feel ordinary, the conversation can turn from `record-breaking rookie` to `front-loaded debut` very quickly.
 
-## KCL View: This Is A Retention Test Now
+## MEARROW View: This Is A Retention Test Now
 
 ### The debut has already done the easy loud part
 
-KCL reads AND2BLE's first week as a retention test disguised as a victory lap. The debut has already done the easy loud part: a big album number, fast trophies and enough news velocity to make the group unavoidable for a moment. The hard part begins after the market stops reacting to the word `debut`.
+MEARROW reads AND2BLE's first week as a retention test disguised as a victory lap. The debut has already done the easy loud part: a big album number, fast trophies and enough news velocity to make the group unavoidable for a moment. The hard part begins after the market stops reacting to the word `debut`.
 
 The next signal is not only another number. It is behavior. Do fans keep pushing fancams after the trophy headline? Do casual listeners remember the title track without being reminded by sales posts? Do international fan accounts translate stage moments quickly enough to keep the global loop alive? Do Korean platforms show any stickiness beyond fandom ordering power?
 

@@ -68,11 +68,11 @@ The April and May calendar has been crowded with major comeback energy from TWS,
 
 That context makes the achievement cleaner. The group did not need an empty calendar to look strong. It held attention while other acts were fighting for the same broadcast clips, social feeds, and fan budgets. That is the kind of resilience that matters more than a one-day spike.
 
-## KCL's View On The New NCT WISH Problem
+## MEARROW's View On The New NCT WISH Problem
 
 ### SM now has to promote them like a front-line asset
 
-KCL reads `NCT WISH Ode to Love` as a promotion problem for SM, but in the best possible sense. The company now has evidence that the youngest unit can pull album demand, digital attention, and broadcast trophies at the same time. That means future scheduling cannot treat NCT WISH as a junior add-on to the larger NCT architecture.
+MEARROW reads `NCT WISH Ode to Love` as a promotion problem for SM, but in the best possible sense. The company now has evidence that the youngest unit can pull album demand, digital attention, and broadcast trophies at the same time. That means future scheduling cannot treat NCT WISH as a junior add-on to the larger NCT architecture.
 
 The next move should be clearer international routing, stronger platform storytelling, and fewer assumptions that the unit needs to wait its turn behind older names. Waiting too long would waste the moment. The group has already shown that its audience can move fast when the release package feels complete.
 

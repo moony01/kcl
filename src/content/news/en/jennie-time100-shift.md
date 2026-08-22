@@ -42,11 +42,11 @@ That split reaction is part of what makes the story interesting. Fans see confir
 
 With that comes pressure. Lists like TIME100 do not simply reward a successful cycle. They raise the standard for what comes next. Once an artist enters that zone, the question stops being whether she has potential. The question becomes whether she can keep justifying the influence label across music, live performance, brand power, and cultural relevance. Jennie is now much closer to that test. The market is ready to judge her less as a promising crossover act and more as someone expected to keep shaping the room she walks into.
 
-## KCL’s read on Jennie TIME100
+## MEARROW’s read on Jennie TIME100
 
 ### The real story is reclassification, not celebration
 
-KCL does not read `TIME100 Jennie` as a simple prestige win. The more important development is the shift in how mainstream U.S. media is now describing her. Earlier phases of the K-pop global story often centered on introducing artists from Korea to a broader Western audience. Jennie is entering a different coordinate. She still represents K-pop at a symbolic level, but she is also increasingly legible outside that frame. That distinction matters because the most expensive moment in any crossover story is not initial popularity. It is the moment an artist stops needing the origin label in every sentence.
+MEARROW does not read `TIME100 Jennie` as a simple prestige win. The more important development is the shift in how mainstream U.S. media is now describing her. Earlier phases of the K-pop global story often centered on introducing artists from Korea to a broader Western audience. Jennie is entering a different coordinate. She still represents K-pop at a symbolic level, but she is also increasingly legible outside that frame. That distinction matters because the most expensive moment in any crossover story is not initial popularity. It is the moment an artist stops needing the origin label in every sentence.
 
 ## The next benchmark is already moving
 

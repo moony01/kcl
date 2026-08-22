@@ -52,11 +52,11 @@ The showcase setup makes that clear. Weverse posted official details for `&TEAM 
 
 USEN's *encore* and StarNews both tied the comeback to the upcoming `2026 &TEAM CONCERT TOUR 'BLAZE THE WAY'`. USEN specified a May 13 start at K-Arena Yokohama and described the run as spanning `11 Asian cities`, including a first Singapore date. Even without over-reading one tour announcement, the sequencing is revealing. Album spike first, then performance expansion. That is classic idol-business logic: turn release-week intensity into ticketing confidence before the emotional peak cools off.
 
-## The KCL View On &TEAM's `We on Fire` Breakout
+## The MEARROW View On &TEAM's `We on Fire` Breakout
 
 ### This may be the cleanest proof yet that K-pop is becoming a system, not a passport
 
-KCL does not read `We on Fire` as only an &TEAM success story. It reads more like evidence that the most powerful Korean entertainment companies are getting better at building acts that can travel between identity layers without losing commercial force. &TEAM is Japanese in origin, HYBE in system design, and increasingly K-pop in how the market talks about its scale. That combination used to confuse industry categories. Now it is starting to look like an advantage.
+MEARROW does not read `We on Fire` as only an &TEAM success story. It reads more like evidence that the most powerful Korean entertainment companies are getting better at building acts that can travel between identity layers without losing commercial force. &TEAM is Japanese in origin, HYBE in system design, and increasingly K-pop in how the market talks about its scale. That combination used to confuse industry categories. Now it is starting to look like an advantage.
 
 ### If that advantage keeps compounding, other companies will copy the route fast
 

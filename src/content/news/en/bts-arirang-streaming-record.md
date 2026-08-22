@@ -36,11 +36,11 @@ The danger for the K-pop business is false benchmarking. A smaller agency can lo
 
 There is also a fatigue problem. If every major release is framed as a record attempt, fans become unpaid campaign staff before they become listeners. BTS can survive that because the group has emotional history deep enough to make participation feel meaningful. For younger groups, forcing the same scoreboard language too early can make the music feel like homework. The `ARIRANG` lesson is not that every comeback should chase 1.5 billion streams. It is that scale works when the campaign gives fans a story worth repeating.
 
-## KCL's view on the BTS ARIRANG streaming record
+## MEARROW's view on the BTS ARIRANG streaming record
 
 ### The scoreboard is moving from sales to sustained attention
 
-KCL reads this as a repricing event for K-pop companies. Album sales still matter, especially in Korea and Japan, but the global premium is shifting toward sustained attention across streaming, touring, video, and city-scale fan experiences. HYBE's strongest asset is not only BTS's fandom size. It is the ability to convert one release into a synchronized media economy: Spotify streams, Billboard units, documentary traffic, tour demand, merchandise movement, and tourism all reinforcing one another.
+MEARROW reads this as a repricing event for K-pop companies. Album sales still matter, especially in Korea and Japan, but the global premium is shifting toward sustained attention across streaming, touring, video, and city-scale fan experiences. HYBE's strongest asset is not only BTS's fandom size. It is the ability to convert one release into a synchronized media economy: Spotify streams, Billboard units, documentary traffic, tour demand, merchandise movement, and tourism all reinforcing one another.
 
 That creates a league-table problem for everyone else. SM, JYP, YG, Starship, Cube, and the newer global-label hybrids are not competing only on who has the next hit song. They are competing on who can build a repeatable attention engine without burning out fans or flattening artists into metrics. BTS just showed the top end of that model. The next question is whether K-pop can develop several versions of it, or whether `ARIRANG` becomes the exception that makes every other campaign look smaller.
 

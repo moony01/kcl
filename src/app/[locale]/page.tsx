@@ -1,7 +1,7 @@
 /**
  * HomePage (리그 시스템)
  *
- * KCL 리그 시스템 메인 페이지
+ * MEARROW 리그 시스템 메인 페이지
  * SSG 빌드 시 정적 셸 생성, 데이터는 CSR(SWR)로 로드
  *
  * @updated Phase 5 - SSG/CSR 마이그레이션

@@ -65,11 +65,11 @@ Despite all these barriers, there are international idols who broke through to b
 
 Their common strategies can be distilled into three principles: **1) Never give up on Korean**, **2) Don't reject the culture — absorb it**, **3) Work twice as hard as everyone else**.
 
-## KCL's Perspective on the Global Trainee Era
+## MEARROW's Perspective on the Global Trainee Era
 
-KCL's agency ranking data reveals a fascinating correlation: **groups with higher percentages of foreign members tend to show stronger global streaming metrics**. The fact that HYBE — which actively operates multinational groups like &TEAM (8 Japanese members), ENHYPEN (2 Japanese members), and NiziU (all Japanese) — leads in global revenue growth is no coincidence.
+MEARROW's agency ranking data reveals a fascinating correlation: **groups with higher percentages of foreign members tend to show stronger global streaming metrics**. The fact that HYBE — which actively operates multinational groups like &TEAM (8 Japanese members), ENHYPEN (2 Japanese members), and NiziU (all Japanese) — leads in global revenue growth is no coincidence.
 
-The future of K-pop will be determined not by **"where you're from"** but by **"how prepared you are."** KCL tracks this flow of global talent through data, providing objective analysis of each agency's global strategy and its outcomes.
+The future of K-pop will be determined not by **"where you're from"** but by **"how prepared you are."** MEARROW tracks this flow of global talent through data, providing objective analysis of each agency's global strategy and its outcomes.
 
 ## If Your Dream Can Cross Borders
 

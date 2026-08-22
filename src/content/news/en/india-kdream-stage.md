@@ -42,11 +42,11 @@ The macro backdrop makes the Delhi moment easier to read. The 2026 Overseas Hall
 ![India K-pop crowd energy on a Delhi championship stage under blue and magenta lights](/images/news/india-kdream-stage-1.png)
 _Delhi looked less like a fan outpost and more like a live test of how far India's K-pop infrastructure can scale._
 
-## KCL's Take On The India K-pop Signal
+## MEARROW's Take On The India K-pop Signal
 
 ### The real shift is from fandom consumption to talent infrastructure
 
-KCL does not read `K-Dream Stage` as merely another overseas fandom celebration. The sharper interpretation is that India is moving into the part of the K-pop value chain where companies start asking operational questions. Where do you scout? Who trains locally? Which brands sponsor? Which language mix travels best? Which cities can consistently fill a venue? Those are not fan-club questions. They are system questions. Once they enter the conversation, the market has crossed into a different phase.
+MEARROW does not read `K-Dream Stage` as merely another overseas fandom celebration. The sharper interpretation is that India is moving into the part of the K-pop value chain where companies start asking operational questions. Where do you scout? Who trains locally? Which brands sponsor? Which language mix travels best? Which cities can consistently fill a venue? Those are not fan-club questions. They are system questions. Once they enter the conversation, the market has crossed into a different phase.
 
 ### This is where trainees and mid-size labels should pay attention
 

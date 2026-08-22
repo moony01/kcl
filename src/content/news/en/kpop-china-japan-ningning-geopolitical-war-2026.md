@@ -70,7 +70,7 @@ If the Ningning precedent holds, every K-pop group with a Chinese member is expo
 
 If this pattern solidifies, K-pop's multi-national lineup model — one of the industry's most effective globalization strategies — becomes structurally incoherent. Chinese members confined to Chinese market activities. Japanese members confined to Japanese market activities. That's not a global group. That's a fragmented roster.
 
-## KCL's Take
+## MEARROW's Take
 
 K-pop presents itself as cultural export. But it operates in the same geopolitical space as every other traded product between China, Japan, and South Korea. The industry's long-standing posture — "we're in the music business, not politics" — is becoming unsustainable when market access is explicitly tied to diplomatic standing.
 

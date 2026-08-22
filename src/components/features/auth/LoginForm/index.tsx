@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * LoginForm - KCL 로그인 폼 컴포넌트
+ * LoginForm - MEARROW 로그인 폼 컴포넌트
  *
  * OAuth(Google/Kakao) 로그인만 지원합니다.
  * 정적 빌드 호환을 위해 모든 인증은 클라이언트 사이드에서 처리됩니다.

@@ -1,6 +1,6 @@
 ---
 title: "Bomb Threats, Gas Guns, and a Terror Alert: The Full Story of BTS Gwanghwamun's Unprecedented Security Operation"
-excerpt: "As 260,000 fans descended on Seoul's Gwanghwamun Square for BTS's comeback concert, South Korean authorities raised the terror alert level, deployed 15,000 security personnel with anti-drone systems, and arrested concertgoers carrying gas guns, stun guns, and knives. KCL breaks down the largest security operation in K-pop history."
+excerpt: "As 260,000 fans descended on Seoul's Gwanghwamun Square for BTS's comeback concert, South Korean authorities raised the terror alert level, deployed 15,000 security personnel with anti-drone systems, and arrested concertgoers carrying gas guns, stun guns, and knives. MEARROW breaks down the largest security operation in K-pop history."
 date: '2026-03-21'
 category: 'Artist'
 thumbnail: '/images/news/bts-arirang-concert-terror-alert-weapons-security-2026-thumbnail.png'
@@ -129,9 +129,9 @@ Each stadium date in New York, Los Angeles, London, Paris, Tokyo, and São Paulo
 
 The precedent is set. For every future large-scale K-pop event — not just BTS, but potentially Stray Kids, BLACKPINK, aespa, and others operating at stadium scale — the Gwanghwamun operation defines the new baseline for what responsible security looks like.
 
-### KCL Perspective
+### MEARROW Perspective
 
-In KCL (K-pop Company League) terms, today's events reinforce a structural point about HYBE's position: BTS does not merely generate revenue. BTS generates national-scale logistical requirements. That is both a measure of their influence and a constraint that no other K-pop act currently faces at the same magnitude.
+In MEARROW (K-pop Talent Network) terms, today's events reinforce a structural point about HYBE's position: BTS does not merely generate revenue. BTS generates national-scale logistical requirements. That is both a measure of their influence and a constraint that no other K-pop act currently faces at the same magnitude.
 
 The security costs for the ARIRANG tour will be significant. HYBE and partner promoters globally will be building security budgets that reflect today's Gwanghwamun template — not the pre-military-service BTS tour model from 2019.
 

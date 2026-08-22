@@ -66,13 +66,13 @@ Putting both into the same weekend makes the label “K-pop” more flexible and
 
 This is where the weekend becomes more interesting than a simple “K-pop is popular” headline. K-pop’s global reach is no longer one lane. It can look like Stray Kids commanding a performance-heavy fandom. It can look like Jennie carrying solo celebrity gravity. It can look like KATSEYE testing whether K-pop-shaped training and global-pop positioning can share the same stage vocabulary.
 
-For KCL, that ambiguity is not a weakness. It is the market’s next shape. The more K-pop expands into festivals, sports events, fashion platforms and streaming campaigns, the less useful the old border becomes. The stronger question is which parts of the K-pop machine travel: choreography precision, fandom coordination, visual storytelling, platform strategy or the emotional contract between artists and fans.
+For MEARROW, that ambiguity is not a weakness. It is the market’s next shape. The more K-pop expands into festivals, sports events, fashion platforms and streaming campaigns, the less useful the old border becomes. The stronger question is which parts of the K-pop machine travel: choreography precision, fandom coordination, visual storytelling, platform strategy or the emotional contract between artists and fans.
 
-## KCL's View On Gov Ball's K-pop Weekend
+## MEARROW's View On Gov Ball's K-pop Weekend
 
 ### The real win is repeatable festival grammar
 
-KCL reads Gov Ball 2026 as a test of repeatability. One loud festival weekend is valuable, but the industry will care more if the format can be repeated without needing a once-in-a-year lineup collision. Can K-pop acts keep converting casual festival crowds? Can promoters program them across different stages without isolating them as niche slots? Can fanbases support the moment without exhausting themselves before the next campaign begins?
+MEARROW reads Gov Ball 2026 as a test of repeatability. One loud festival weekend is valuable, but the industry will care more if the format can be repeated without needing a once-in-a-year lineup collision. Can K-pop acts keep converting casual festival crowds? Can promoters program them across different stages without isolating them as niche slots? Can fanbases support the moment without exhausting themselves before the next campaign begins?
 
 The answer will not come from one setlist. It will come from the afterlife of the weekend: clips that keep moving, press that reaches outside fandom circles, sponsor interest, tour-routing confidence and whether future festivals treat K-pop acts as structural draws rather than decorative global flavor.
 

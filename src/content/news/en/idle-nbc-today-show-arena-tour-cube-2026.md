@@ -66,11 +66,11 @@ The full contract renewal carries particular weight. In K-pop, a seven-year grou
 
 In May 2025, the group officially rebranded from (G)I-DLE to **i-dle**, marking their seventh anniversary. They expanded into the Japanese market and released the special EP [We Are i-dle], signaling a new chapter.
 
-## CUBE Entertainment — Where They Stand in KCL
+## CUBE Entertainment — Where They Stand in MEARROW
 
 ### The Powerhouse Outside the Big 4
 
-CUBE Entertainment isn't part of K-pop's "Big 4" (HYBE, SM, JYP, YG), but i-dle's success is shaking that boundary. In the KCL league, CUBE's ranking is directly tied to i-dle's performance.
+CUBE Entertainment isn't part of K-pop's "Big 4" (HYBE, SM, JYP, YG), but i-dle's success is shaking that boundary. In the MEARROW league, CUBE's ranking is directly tied to i-dle's performance.
 
 CUBE's current artist portfolio:
 
@@ -109,10 +109,10 @@ i-dle's North American arena tour doesn't exist in a vacuum. 2026 is shaping up 
 
 In this competition, i-dle holds a unique differentiator: **self-production**. Member Soyeon leads songwriting, composition, and production — a structure unmatched among K-pop girl groups. Their Today Show appearance is proof that this independent creative identity resonates in the American market.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 The Today Show tour announcement transcends i-dle's individual achievement. It's a partial answer to a bigger question: **can CUBE Entertainment break through the Big 4 ceiling?**
 
 In an industry where the Big 4 agencies dominate through massive capital and global infrastructure, a mid-tier agency like CUBE pulling off an arena tour with a single group is a challenge to K-pop's structural hierarchy. It could prove that artistic talent and musical independence can overcome the advantages of scale.
 
-The risk remains. If CUBE's high i-dle dependency isn't offset by successful next-generation group development, this success could be temporary. What CUBE does next in the second half of 2026 — KCL will be watching closely.
+The risk remains. If CUBE's high i-dle dependency isn't offset by successful next-generation group development, this success could be temporary. What CUBE does next in the second half of 2026 — MEARROW will be watching closely.

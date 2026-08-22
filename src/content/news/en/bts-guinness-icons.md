@@ -56,11 +56,11 @@ Being listed in Pop Culture near Taylor Swift, Beyonce, Drake, Elton John and Pa
 
 For K-pop companies, that matters because it changes the benchmark for ambition. The target is not only a No. 1 debut, a viral dance challenge or a sold-out arena. The harder target is becoming culturally durable enough that a record institution can archive the act while the charts are still proving present demand.
 
-## KCL's View: No. 8 Is Where The Story Gets More Useful
+## MEARROW's View: No. 8 Is Where The Story Gets More Useful
 
 ### Durability beats peak worship
 
-KCL reads the current moment as a warning against peak worship. The industry loves launch-week trophies because they are easy to market. Week-eight strength is harder to package, but it is more valuable. It shows whether a release can keep fans organized after the countdown ends, whether the album still creates repeat behavior, and whether cultural prestige can keep reinforcing commercial performance.
+MEARROW reads the current moment as a warning against peak worship. The industry loves launch-week trophies because they are easy to market. Week-eight strength is harder to package, but it is more valuable. It shows whether a release can keep fans organized after the countdown ends, whether the album still creates repeat behavior, and whether cultural prestige can keep reinforcing commercial performance.
 
 That is why the Guinness-Billboard overlap is so clickable. It is not just "BTS made another list." It is "BTS made the list while the numbers are still alive." For trainees, rookie teams and smaller agencies, the lesson is practical: the goal is not only to create a loud opening. The goal is to build a story that fans can keep defending, explaining and expanding after the first week has lost its novelty.
 

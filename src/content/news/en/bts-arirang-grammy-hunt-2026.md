@@ -64,7 +64,7 @@ The Academy has also historically resisted creating a separate K-pop category, a
 
 Industry observers quoted in Korean media have flagged another variable: the Grammy season runs on a different timeline than K-pop's moment. ARIRANG releases in March 2026. Grammy consideration would be for the 2027 ceremony. A lot can change in ten months — including whether the broader cultural conversation about K-pop's place in American music continues to intensify.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 The Grammy story around BTS is not new. It has been running since 2021, refreshed each awards season with a new cycle of nominations and a new round of losses. What is new with ARIRANG is the intentionality.
 

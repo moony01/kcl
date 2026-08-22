@@ -1,5 +1,5 @@
 /**
- * KCL home client surface.
+ * MEARROW home client surface.
  *
  * The home keeps the current brand/header shell, while the vote surface uses
  * the legacy ranking cards with the vote action attached directly to each card.

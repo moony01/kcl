@@ -14,6 +14,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import styles from './ShareButtons.module.scss';
+import { BRAND_NAME, BRAND_POSITIONING } from '@/lib/brand';
 
 /** X(Twitter) 아이콘 SVG */
 function XIcon({ size = 18 }: { size?: number }) {
@@ -108,7 +109,7 @@ interface ShareButtonsProps {
  *
  * @example
  * <ShareButtons
- *   title="BTS가 KCL 1월 챔피언으로 선정!"
+ *   title="BTS가 MEARROW 1월 챔피언으로 선정!"
  *   url="https://kclhq.com/news/bts-january-champion"
  * />
  */
@@ -177,7 +178,7 @@ export default function ShareButtons({
       objectType: 'feed',
       content: {
         title: title,
-        description: description || 'KCL - K-pop Company League',
+        description: description || `${BRAND_NAME} - ${BRAND_POSITIONING}`,
         imageUrl: imageUrl || 'https://www.kclhq.com/en/opengraph-image',
         link: {
           mobileWebUrl: shareUrl,

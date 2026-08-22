@@ -44,11 +44,11 @@ The Goyang run drew approximately 132,000 concertgoers across three nights, or a
 
 Before the Goyang shows had even fully cleared, JoongAng reported that 46 tour dates were already sold out and that 2.4 million tickets had been moved for 41 North American and European dates alone, citing Live Nation. That scale matters because the Goyang incident does not live inside Korea only. It reframes how people read every upcoming checkpoint on the `BTS world tour` and, by extension, every K-pop mega-tour leaning harder on anti-scalping systems, physical authentication, and crowd-control choreography. Once fans see a breach happen at the launch site, they stop assuming the process is airtight elsewhere.
 
-## KCL's View on the Real Weak Point
+## MEARROW's View on the Real Weak Point
 
 ### K-pop has scaled its tours faster than it has matured its gate infrastructure
 
-KCL does not read this as a one-day oddity. The more revealing interpretation is that K-pop's live business has become elite in demand generation and increasingly sophisticated in monetization, but still uneven in the physical mechanics of entry control. Ticket restrictions got stricter. Identity checks got tougher. Government anti-scalping measures got louder. Yet the system still rested on one of the simplest objects in the chain being handled flawlessly under pressure. That is exactly the kind of mismatch that only becomes visible when an artist reaches the outer edge of the market.
+MEARROW does not read this as a one-day oddity. The more revealing interpretation is that K-pop's live business has become elite in demand generation and increasingly sophisticated in monetization, but still uneven in the physical mechanics of entry control. Ticket restrictions got stricter. Identity checks got tougher. Government anti-scalping measures got louder. Yet the system still rested on one of the simplest objects in the chain being handled flawlessly under pressure. That is exactly the kind of mismatch that only becomes visible when an artist reaches the outer edge of the market.
 
 ### Security confidence is part of the premium product now
 

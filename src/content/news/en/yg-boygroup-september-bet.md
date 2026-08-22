@@ -54,11 +54,11 @@ For aspiring idols, that changes how the announcement should be read. The headli
 
 In other words, trainees should not overread the fantasy that a September team was assembled overnight. But they also should not miss the broader signal. YG is tightening the connection between scouting, public communication and launch timing. That makes its pipeline feel more transparent than before, even if the final internal decisions are still closely guarded.
 
-## KCL's View on the Five-Member Bet
+## MEARROW's View on the Five-Member Bet
 
 ### YG may be optimizing for clarity before scale
 
-KCL reads this as a strategy story before it becomes a music story. Plenty of agencies can announce a boy group. The harder part is making the market understand, within seconds, why this group exists and how it differs from the last one. By choosing a five-member structure and saying so early, YG is doing some of that work in advance. The company is telling fans to expect concentration, not sprawl.
+MEARROW reads this as a strategy story before it becomes a music story. Plenty of agencies can announce a boy group. The harder part is making the market understand, within seconds, why this group exists and how it differs from the last one. By choosing a five-member structure and saying so early, YG is doing some of that work in advance. The company is telling fans to expect concentration, not sprawl.
 
 That matters in a year when multiple players are building new male acts across the industry. The rookie fight is getting louder, but louder is not always better. A smaller team can move faster in branding, faster in member recognition and faster in narrative discipline if the songs and performance level arrive on time.
 

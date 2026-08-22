@@ -42,11 +42,11 @@ Why would the Big Four cooperate at all? Because a large destination festival cr
 
 This is not the end of rivalry. It is a shift in where the rivalry happens. The question stops being who wins a chart week and becomes who can hold attention, travel demand, and fan spending inside a self-owned ecosystem. Even inside the same event, each company will still compete over lineup placement, sponsor power, broadcast value, and who benefits most from the global spotlight.
 
-## How KCL reads the `Fanomenon` gamble
+## How MEARROW reads the `Fanomenon` gamble
 
 ### If it works, Korea turns from comeback factory into event hub
 
-KCL sees this as a structural pivot rather than a simple collaboration headline. If `Fanomenon` works, Korea does not just remain the place where idols debut and albums launch. It becomes a destination fans schedule travel around. That would pull tourism, city branding, policy support, and platform partnerships into the same K-pop equation. In practical terms, the flagship export would start shifting from the `release` to the `destination`.
+MEARROW sees this as a structural pivot rather than a simple collaboration headline. If `Fanomenon` works, Korea does not just remain the place where idols debut and albums launch. It becomes a destination fans schedule travel around. That would pull tourism, city branding, policy support, and platform partnerships into the same K-pop equation. In practical terms, the flagship export would start shifting from the `release` to the `destination`.
 
 ### The first real stress test will be politics inside the partnership
 

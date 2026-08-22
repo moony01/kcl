@@ -44,11 +44,11 @@ On fan spaces including r/bangtan, same-day discussion quickly moved from whethe
 
 This is why the `80+` market number matters. A local collab can be cute. A global rollout tests logistics, regional hype, reseller behavior, and brand safety at the same time. It also lets Oreo borrow the emotional timing around BTS's 13th anniversary without relying only on a television commercial or one celebrity post.
 
-## KCL View: BTS Oreo Is A Distribution Lesson
+## MEARROW View: BTS Oreo Is A Distribution Lesson
 
 ### The playbook is bigger than BTS
 
-KCL reads this as a distribution story first and a food story second. BTS bring the heat, but the structure is what other agencies and brands will study: a cultural flavor with a simple explanation, a color code fans already understand, collectible details that reward repeat purchase, and a launch calendar that gives social media several waves instead of one spike.
+MEARROW reads this as a distribution story first and a food story second. BTS bring the heat, but the structure is what other agencies and brands will study: a cultural flavor with a simple explanation, a color code fans already understand, collectible details that reward repeat purchase, and a launch calendar that gives social media several waves instead of one spike.
 
 The risk is equally clear. If shelves are empty, fans will turn the hunt into frustration. If the product is easy to find but not distinctive, it becomes one more limited flavor. The sweet spot is harder: enough scarcity to feel like an event, enough supply to keep the fandom from feeling used, and enough cultural specificity to make the cookie feel like more than purple packaging.
 

@@ -52,11 +52,11 @@ Guinness also used the members' solo achievements to widen the frame. The articl
 
 This is the part other companies will study closely. Solo expansion usually threatens group identity if the public starts seeing the members as separate products. BLACKPINK's case has been different. The solo brands create new entry points, then the group record book absorbs that attention back into a larger story. The group no longer needs every fan to enter through the same song or the same era. It only needs the ecosystem to keep pointing back to BLACKPINK as the source code.
 
-## KCL's View: This Is The Memory Machine
+## MEARROW's View: This Is The Memory Machine
 
 ### The next K-pop race is not only peak numbers
 
-KCL reads the Guinness ICON moment as a lesson in memory management. K-pop companies are already good at making a launch feel urgent. The harder job is making a career feel cumulative. BLACKPINK's advantage is that every new number appears to reinforce older numbers instead of replacing them. The group can talk about YouTube and Spotify, albums and awards, solos and group milestones, fashion visibility and fandom organization without those lanes cancelling each other out.
+MEARROW reads the Guinness ICON moment as a lesson in memory management. K-pop companies are already good at making a launch feel urgent. The harder job is making a career feel cumulative. BLACKPINK's advantage is that every new number appears to reinforce older numbers instead of replacing them. The group can talk about YouTube and Spotify, albums and awards, solos and group milestones, fashion visibility and fandom organization without those lanes cancelling each other out.
 
 That is why this story should matter to rookies and trainees too. A debut team cannot copy 100 million subscribers. A small agency cannot manufacture 16.9 billion streams. But the operating principle is clear: build proof that compounds. A viral clip should lead to a track people revisit. A solo moment should strengthen the group identity. A fandom campaign should create evidence that remains useful after the hashtag ends.
 

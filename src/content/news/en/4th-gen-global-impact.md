@@ -22,6 +22,6 @@ Achievements on the global music platform Spotify are even more notable. Followi
 
 The scale of world tours, which gauges the size of a fandom, is also expanding. 4th generation girl groups like IVE and LE SSERAFIM are showing off their strong ticket power by selling out arena-sized venues from their very first world tours.
 
-## Impact on KCL Rankings
+## Impact on MEARROW Rankings
 
-These global achievements act as crucial variables in the KCL (K-pop Company League) ranking calculations. We plan to continuously increase the weight of global data, such as Spotify streaming indices and Billboard chart entries, rather than relying solely on domestic album sales.
+These global achievements act as crucial variables in the MEARROW (K-pop Talent Network) ranking calculations. We plan to continuously increase the weight of global data, such as Spotify streaming indices and Billboard chart entries, rather than relying solely on domestic album sales.

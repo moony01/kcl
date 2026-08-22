@@ -50,7 +50,7 @@ That is a trust signal, not a medical conclusion. Fans do not have access to Seu
 
 ### Concern should not become fake certainty
 
-KCL is not claiming that promotions, choreography, travel, or any specific schedule caused the injury or delayed recovery. The verified fact is narrower: JYP said Seungmin has a left ankle stress fracture, is focusing on treatment and recovery, and will not attend Governors Ball because long flights and confined travel are being minimized.
+MEARROW is not claiming that promotions, choreography, travel, or any specific schedule caused the injury or delayed recovery. The verified fact is narrower: JYP said Seungmin has a left ankle stress fracture, is focusing on treatment and recovery, and will not attend Governors Ball because long flights and confined travel are being minimized.
 
 That boundary matters. K-pop discourse often jumps from concern to accusation too quickly. But the opposite mistake is also weak: treating every health notice as an isolated inconvenience. The real story sits between those extremes. An artist's body has become a visible business variable inside a global festival campaign.
 
@@ -62,11 +62,11 @@ For trainees and younger idols watching this story, the lesson is uncomfortable.
 
 The industry often sells endurance as proof of professionalism. That is only half true. Real professionalism also includes recovery timing, medical caution, and the courage to remove an artist from a dream stage before the risk becomes larger. Stray Kids at Governors Ball will still be a major moment. Seungmin not being there may be the part that teaches the harsher lesson.
 
-## KCL's View On The Seven-Member Stage
+## MEARROW's View On The Seven-Member Stage
 
 ### The right decision can still carry a cost
 
-KCL reads JYP's decision as necessary, but not consequence-free. Protecting Seungmin's recovery is the correct priority. It also changes the product being delivered to fans and festivalgoers. That is the difficult part of global K-pop now: a company can make the healthier call and still face a major narrative shift because the stage is already sold, scheduled, and emotionally loaded.
+MEARROW reads JYP's decision as necessary, but not consequence-free. Protecting Seungmin's recovery is the correct priority. It also changes the product being delivered to fans and festivalgoers. That is the difficult part of global K-pop now: a company can make the healthier call and still face a major narrative shift because the stage is already sold, scheduled, and emotionally loaded.
 
 The strongest version of this outcome is simple. Seungmin gets real rest. Stray Kids deliver a sharp seven-member festival set. Fans treat the absence as care rather than collapse. The company communicates future updates with enough specificity to keep speculation from filling every blank space.
 

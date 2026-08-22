@@ -46,11 +46,11 @@ Depth changes how labels should read catalog value. A one-song miracle can be ex
 
 [Related: BTS Guinness Icons showed why record culture keeps compounding](/en/news/bts-guinness-icons)
 
-## KCL's View: Catalog Memory Is Becoming A Market Weapon
+## MEARROW's View: Catalog Memory Is Becoming A Market Weapon
 
 ### The industry keeps overvaluing the opening week
 
-KCL reads the 900 million mark as a warning against peak obsession. First-week numbers still matter, but they often reward mobilization more than durability. Catalog streaming rewards something harder to manufacture: repeat usefulness. A song has to survive mood shifts, platform changes, fanbase aging, new competitor releases and the simple boredom that kills most viral tracks.
+MEARROW reads the 900 million mark as a warning against peak obsession. First-week numbers still matter, but they often reward mobilization more than durability. Catalog streaming rewards something harder to manufacture: repeat usefulness. A song has to survive mood shifts, platform changes, fanbase aging, new competitor releases and the simple boredom that kills most viral tracks.
 
 That is where BTS have an advantage smaller agencies should study carefully. The group does not only release songs; it gives fans records, anniversaries, cultural status and emotional context to keep reactivating those songs. Every new milestone becomes fresh content for old music. Every old hit becomes supporting evidence for new claims about the group's global scale. The catalog and the current news cycle keep feeding each other.
 

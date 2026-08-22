@@ -44,11 +44,11 @@ The Korea Customs Service attributed the rise partly to the global expansion of 
 
 But this is also the weak point. The same system that creates export records can create waste, resale distortions and pressure to buy more versions than fans can reasonably use. The winning companies will be the ones that treat the album as a premium fan object without turning the collector economy into a trust problem. A $120 million quarter is impressive. It also raises the standard for sustainability, transparency and value.
 
-## KCL's View: The Album Is Becoming A Market Signal
+## MEARROW's View: The Album Is Becoming A Market Signal
 
 ### The crown moved because the buyer changed
 
-KCL sees this quarter as a warning to anyone still reading K-pop through Korea-Japan-U.S. expansion in that order. The U.S. taking the top export position suggests a deeper shift in fan behavior: Western fans are moving from attention to possession. That is the moment when fandom stops being only a social-media metric and becomes a supply-chain metric.
+MEARROW sees this quarter as a warning to anyone still reading K-pop through Korea-Japan-U.S. expansion in that order. The U.S. taking the top export position suggests a deeper shift in fan behavior: Western fans are moving from attention to possession. That is the moment when fandom stops being only a social-media metric and becomes a supply-chain metric.
 
 For companies, the next advantage may come from boring operational details. Faster official shipping, fewer region locks, smarter bundles, cleaner environmental claims and localized retail drops could matter as much as teaser strategy. For trainees and new groups, the lesson is sharper: global demand now rewards artists who can turn a fandom into repeatable rituals, not only viral moments.
 

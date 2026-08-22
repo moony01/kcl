@@ -50,7 +50,7 @@ The 2026 K-pop calendar in North America is brutally dense. BTS is back on the r
 
 If you are outside the Big 4, a North American arena run is not just about ticket revenue. It is a map for investors, a proof-of-scale image for the market, and a story you attach to the next artist you debut. That is why bad venue sizing does not read like a simple booking error. It reads like strategy recoil. The i-dle situation is landing harder for exactly that reason. The question is no longer just "What happened to this tour?" It is "How big can a mid-tier K-pop company safely book North America in 2026?"
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 ### The real damage is narrative trust
 

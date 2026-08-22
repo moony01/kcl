@@ -83,9 +83,9 @@ Youngseo was different. She immediately applied for **THE BLACK LABEL's audition
 
 She proved that one failure isn't the end.
 
-## KCL's View on THE BLACK LABEL's Training Philosophy
+## MEARROW's View on THE BLACK LABEL's Training Philosophy
 
-According to KCL (K-pop Company League) data, THE BLACK LABEL maintains a **top ranking in artist completeness**. The defining characteristic of this label, led by producer Teddy, is **"nurturing that brings out individual colors."**
+According to MEARROW (K-pop Talent Network) data, THE BLACK LABEL maintains a **top ranking in artist completeness**. The defining characteristic of this label, led by producer Teddy, is **"nurturing that brings out individual colors."**
 
 As seen in Annie and Youngseo's cases, THE BLACK LABEL accepts trainees from **diverse backgrounds**. Whether from a chaebol family or a survival show dropout, what matters is **skill and determination**. A flexible system that allows 7 years of remote training or starting fresh after a pre-debut contract termination.
 
@@ -107,4 +107,4 @@ In the end, what matters isn't **your background**. Not your origins, not your a
 
 We hope ALLDAY PROJECT Annie's story becomes a small **beacon of hope** for you today.
 
-KCL supports everyone chasing their dreams. 🌟
+MEARROW supports everyone chasing their dreams. 🌟

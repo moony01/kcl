@@ -84,7 +84,7 @@ Behind the dazzling numbers, cracks in the fandom are visible.
 
 Yet the market doesn't care about fan discourse. 25-minute sellout. Simultaneous Billboard No. 1. A tour projected at $440 million. No matter how divided the fandom gets, the commercial response is overwhelming.
 
-## KCL's Perspective on BLACKPINK's Deadline
+## MEARROW's Perspective on BLACKPINK's Deadline
 
 This comeback represents more than an album release — it showcases a **new business model for the K-pop industry**.
 

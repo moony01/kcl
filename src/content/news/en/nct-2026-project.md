@@ -42,11 +42,11 @@ The most practical part of the rollout is the offline flow. The pop-up lands in 
 
 That is why the teaser hit quickly. It did not rely on one shocking revelation. It worked because it snapped scattered unit schedules back into a single brand language. For a group with this many branches, coherence is now a product in itself. The anniversary frame gives SM a way to sell memory while also defending future revenue lines.
 
-## How KCL Reads NCT 2026
+## How MEARROW Reads NCT 2026
 
 ### SM is reintroducing NCT as an operating system
 
-From KCL's perspective, the core of `NCT 2026` is not romance about a full-group reunion. It is operational design. NCT used to symbolize expansion: more members, more units, more experiments. In 2026, the challenge is the opposite. How do you make a giant brand legible again after years of scale, overlapping sub-unit identities, and visible contract change? The answer SM seems to be testing is this: do not ask fans to follow separate teams. Ask them to read the year as one coordinated season.
+From MEARROW's perspective, the core of `NCT 2026` is not romance about a full-group reunion. It is operational design. NCT used to symbolize expansion: more members, more units, more experiments. In 2026, the challenge is the opposite. How do you make a giant brand legible again after years of scale, overlapping sub-unit identities, and visible contract change? The answer SM seems to be testing is this: do not ask fans to follow separate teams. Ask them to read the year as one coordinated season.
 
 ## The Next Phase Starts Here
 

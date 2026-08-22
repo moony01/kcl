@@ -38,11 +38,11 @@ The Associated Press reported that more than 40,000 fans filled the stadium on o
 
 The Korea Times cited critics arguing that Korea's digital music market is now worth about 2 trillion won, yet the country still lacks enough dedicated 50,000-seat-class infrastructure. That criticism lands because the schedule keeps proving it true. BTS, BLACKPINK, SEVENTEEN and global touring giants like Coldplay keep circling the same limited handful of venues. The business has scaled globally. Korea's home-stage system has not scaled with it at the same speed.
 
-## KCL's view on the BTS Goyang venue squeeze
+## MEARROW's view on the BTS Goyang venue squeeze
 
 ### Korea does not need bigger stars. It needs bigger stages.
 
-KCL does not read this story as a simple victory lap about BTS filling Goyang. The more revealing point is how quickly Korea's infrastructure hits its ceiling when BTS-level demand shows up. Goyang is a strong venue. But a healthy live market should not depend on one stadium becoming the default answer for every mega-show. If K-pop is now a stadium-touring export industry, Korea needs more domestic stages that can absorb that scale reliably.
+MEARROW does not read this story as a simple victory lap about BTS filling Goyang. The more revealing point is how quickly Korea's infrastructure hits its ceiling when BTS-level demand shows up. Goyang is a strong venue. But a healthy live market should not depend on one stadium becoming the default answer for every mega-show. If K-pop is now a stadium-touring export industry, Korea needs more domestic stages that can absorb that scale reliably.
 
 ## The next question is whether Korea can handle the act after BTS
 

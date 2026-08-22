@@ -66,7 +66,7 @@ World Music Awards put a specific label on this: *"BTS reclaims their record for
 
 2.4 million tickets is just the ticket revenue. The multiplier effect — hotel stays, restaurants, transportation, merchandise, and local retail spending by fans who travel to attend concerts — has historically pushed the real economic impact to several times the face-value ticket revenue. That's what happened with the Eras Tour. That's what economists expect to happen here.
 
-## Three Things KCL Is Watching
+## Three Things MEARROW Is Watching
 
 **First, the demand gap.** 2.4 million tickets sold means demand was substantially higher. Reports of site crashes during sales and emerging secondary market prices suggest the true global audience would fill several times more venues. How HYBE and Live Nation navigate the ethical questions around accessibility — and whether resale regulations will apply — will be a story throughout the tour.
 

@@ -52,11 +52,11 @@ Social reaction has been immediate because the headline collapses four fandom wo
 
 That part is also feeding the chatter. Multiple reports tied the initiative closely to Park Jin-young's committee role and earlier public ambition to create a festival that could surpass Coachella. Even in fan spaces, the reaction is not only "Can this happen?" but also "How did he get all four to agree?" That question matters because the `Fanomenon` conversation is already bigger than branding. It is turning into a test of whether K-pop can act like an industry coalition when the prize is global infrastructure rather than just another chart week.
 
-## KCL's View On The Real Bet
+## MEARROW's View On The Real Bet
 
 ### This is a control story more than a culture story
 
-KCL reads this less as a flashy dream-project headline and more as a control play. For years, K-pop companies proved they could export artists into global systems built by others: Western festivals, overseas promoters, third-party ticketing ecosystems, and platform partners. A joint festival reverses that direction. Instead of asking for a slot inside somebody else's machine, the Big Four would be trying to build a machine that everyone else has to enter on their terms.
+MEARROW reads this less as a flashy dream-project headline and more as a control play. For years, K-pop companies proved they could export artists into global systems built by others: Western festivals, overseas promoters, third-party ticketing ecosystems, and platform partners. A joint festival reverses that direction. Instead of asking for a slot inside somebody else's machine, the Big Four would be trying to build a machine that everyone else has to enter on their terms.
 
 ### The hardest part will not be the lineup
 

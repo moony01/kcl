@@ -40,7 +40,7 @@ T.O.P opted out of group activities. His reasons remain largely his own. Some ob
 
 While BIGBANG marks 20 years on one of the world's biggest festival stages, T.O.P opens a different kind of stage — quieter, more personal, entirely self-constructed. The two don't cancel each other out. They represent something more complex: a group legacy and an individual artistic identity existing simultaneously, neither needing the other to be valid.
 
-## KCL's Take: The K-Pop System's Limits Are Being Tested
+## MEARROW's Take: The K-Pop System's Limits Are Being Tested
 
 K-pop's structural logic is built around agency control — debuts, comebacks, hiatuses, all choreographed within a system. T.O.P stepped outside that system entirely. Independent label, self-produced, no agency overhead. This is not a K-pop idol making a comeback. It's a musician returning on his own terms.
 

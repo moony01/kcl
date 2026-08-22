@@ -114,7 +114,7 @@ describe('DailyVoteModal', () => {
     });
   });
 
-  it('하단 CTA는 기존 KCL 투표 영역으로 연결한다', async () => {
+  it('하단 CTA는 기존 MEARROW 투표 영역으로 연결한다', async () => {
     render(<DailyVoteModal />);
     await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
 

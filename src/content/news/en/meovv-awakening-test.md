@@ -54,11 +54,11 @@ There is a reason this feels different from a simple poster. The words are actio
 
 The danger is that K-pop audiences have become extremely good at separating atmosphere from substance. A teaser can trend because it looks expensive. A comeback survives because the song, choreography, performances, and release plan keep creating reasons to return. THE BLACK LABEL has cleared the first hurdle. The next one is harder.
 
-## KCL's View On The MEOVV Comeback Signal
+## MEARROW's View On The MEOVV Comeback Signal
 
 ### Mystery is valuable only when it creates movement
 
-KCL reads this as a high-upside, high-accountability moment for MEOVV. The teaser did what a teaser should do: it made the group feel active, sharpened the brand, and gave fans a puzzle without overexplaining the answer. In a visual-first market, that matters. The best K-pop campaigns do not only announce music. They make the audience feel as if the era has already started.
+MEARROW reads this as a high-upside, high-accountability moment for MEOVV. The teaser did what a teaser should do: it made the group feel active, sharpened the brand, and gave fans a puzzle without overexplaining the answer. In a visual-first market, that matters. The best K-pop campaigns do not only announce music. They make the audience feel as if the era has already started.
 
 But THE BLACK LABEL's test is no longer whether it can make something look premium. It can. The test is whether the company can move from premium imagery to reliable cadence. That word matters because fans do not only judge one comeback. They judge whether a company can maintain an artist's temperature across months. For a group like MEOVV, whose appeal depends on cool distance, the label has to be especially careful not to let distance become absence.
 

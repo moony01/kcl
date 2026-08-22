@@ -54,7 +54,7 @@ What made the response notable was that it didn't stay defensive. Indonesian gir
 
 [Related: How the 4th Generation Is Reshaping K-Pop's Global Reach](/en/news/4th-gen-global-impact)
 
-## What KCL Sees in This Conflict's Structure
+## What MEARROW Sees in This Conflict's Structure
 
 ### K-Pop's Core Contradiction in Global Expansion
 
@@ -68,7 +68,7 @@ The DAY6 incident didn't create this tension. It detonated it.
 
 Throughout the 30 days that this conflict ran, no official statement came from JYP Entertainment or from DAY6. Racist commentary was circulating under an artist's name, drawing in millions of people across an entire region — and the agency that manages that artist said nothing.
 
-From KCL's perspective, this silence isn't simply a PR failure. It's the erosion of trust capital — the accumulated goodwill that turns casual listeners into lifelong fans. Once it's spent, it doesn't come back easily.
+From MEARROW's perspective, this silence isn't simply a PR failure. It's the erosion of trust capital — the accumulated goodwill that turns casual listeners into lifelong fans. Once it's spent, it doesn't come back easily.
 
 ## The Ground Is Shifting
 

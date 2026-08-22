@@ -42,11 +42,11 @@ That is where the April 28 headline becomes more complicated than a victory lap.
 
 There is another reason to resist easy triumphalism. A market can become larger and more fragile at the same time. If more export value is being driven by a smaller set of blockbuster acts, then the headline number may hide rising dependence on a few artists, a few fandoms and a few release windows that can still overpower the market by themselves. That is especially relevant in a year when BTS is active again and top-tier touring is pulling global attention back toward the very biggest names. A single quarter can tell you where the energy is. It cannot guarantee that the new hierarchy is evenly distributed across the rest of the field.
 
-## KCL's View On The New Export Map
+## MEARROW's View On The New Export Map
 
 ### America beating Japan once is not the deepest story
 
-KCL reads this less as a one-quarter upset and more as a planning signal. If the U.S. is now the biggest market for Korean album exports, the implications run beyond a country ranking. Release timing, version design, retailer partnerships, logistics, marketing spend and even city-level tour strategy start to look different when agencies believe North American physical demand is not a side effect of global fandom but one of its core engines. The old model treated America as the place that mattered most for streaming prestige and brand optics while Japan mattered most for reliable packaged revenue. The new quarter suggests those categories are starting to bleed into each other.
+MEARROW reads this less as a one-quarter upset and more as a planning signal. If the U.S. is now the biggest market for Korean album exports, the implications run beyond a country ranking. Release timing, version design, retailer partnerships, logistics, marketing spend and even city-level tour strategy start to look different when agencies believe North American physical demand is not a side effect of global fandom but one of its core engines. The old model treated America as the place that mattered most for streaming prestige and brand optics while Japan mattered most for reliable packaged revenue. The new quarter suggests those categories are starting to bleed into each other.
 
 ### That creates pressure on every mid-tier label
 

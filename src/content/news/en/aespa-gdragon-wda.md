@@ -68,11 +68,11 @@ The feature should not be read as SM borrowing credibility because aespa lacks i
 
 That tension is the asset. If the collaboration sounded too seamless, it would be less interesting. The useful question is not whether every listener loved the pairing on first play. The useful question is whether the pairing made `LEMONADE` harder to ignore. On that metric, the answer is already leaning yes.
 
-## KCL's View On The WDA Bet
+## MEARROW's View On The WDA Bet
 
 ### SM is testing collaboration as market architecture
 
-KCL reads `WDA` as more than a guest-feature headline. It is a market architecture test. The song connects one of K-pop's most recognizable legacy figures with a group whose brand is already built around synthetic identity, digital mythology and global visual scale. That combination lets SM test several markets at once: Korean media, Chinese platforms, older BIGBANG-era attention, aespa fandom loyalty and Western curiosity around high-concept K-pop.
+MEARROW reads `WDA` as more than a guest-feature headline. It is a market architecture test. The song connects one of K-pop's most recognizable legacy figures with a group whose brand is already built around synthetic identity, digital mythology and global visual scale. That combination lets SM test several markets at once: Korean media, Chinese platforms, older BIGBANG-era attention, aespa fandom loyalty and Western curiosity around high-concept K-pop.
 
 The risk is clear. A collaboration this visible can make the album feel dependent on the guest. It can also distract from the members if the public conversation becomes only about G-Dragon. But the upside is just as clear: one pre-release created enough narrative density that `LEMONADE` now enters May 29 with a bigger question attached to it.
 

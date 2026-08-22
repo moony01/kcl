@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * AuthProvider - KCL 인증 상태 관리 프로바이더
+ * AuthProvider - MEARROW 인증 상태 관리 프로바이더
  *
  * Supabase Auth의 세션 상태를 감지하고, 로그인된 사용자의 프로필 정보를
  * kcl_user_profiles 테이블에서 자동으로 조회하여 앱 전체에 제공합니다.
@@ -100,7 +100,7 @@ export interface UserProfile {
   favorite_group_id: string | null;
   onboarding_completed: boolean;
   total_votes: number;
-  /** Pro 구독 상태 (T2.02: KCL Pro) */
+  /** Pro 구독 상태 (T2.02: MEARROW Pro) */
   is_pro: boolean;
   created_at: string;
   updated_at: string;

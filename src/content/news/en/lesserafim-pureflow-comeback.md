@@ -42,11 +42,11 @@ This reveal did not come out of nowhere. On April 8 KST, Soompi reported that LE
 
 In LE SSERAFIM’s Reddit community, the immediate conversation mixed excitement with structural curiosity. Fans quoted the album description about opening a new chapter, while others zeroed in on the same operational question: why `pt.1`, and how far is this rollout going? That tells you something important. The fandom is not consuming this as one more comeback with a nice visual package. It is reading the architecture of an era in real time.
 
-## KCL's Take On LE SSERAFIM's PUREFLOW Rollout
+## MEARROW's Take On LE SSERAFIM's PUREFLOW Rollout
 
 ### The smartest move is leading with celebration and hiding the weight underneath
 
-KCL thinks the elegance of this strategy lies in the bait-and-switch. Most acts announce maturity with heavier words and darker marketing. LE SSERAFIM does the opposite by putting `Celebration` first. On the surface, it sounds bright and social. Underneath, the official explanation is about accepting change and gaining strength after confronting fear. That means the group is translating a more complex internal shift into a cleaner public-facing entry point. It is not selling happiness as much as a new method of handling pressure.
+MEARROW thinks the elegance of this strategy lies in the bait-and-switch. Most acts announce maturity with heavier words and darker marketing. LE SSERAFIM does the opposite by putting `Celebration` first. On the surface, it sounds bright and social. Underneath, the official explanation is about accepting change and gaining strength after confronting fear. That means the group is translating a more complex internal shift into a cleaner public-facing entry point. It is not selling happiness as much as a new method of handling pressure.
 
 ### In the fourth-generation girl-group race, the next sentence matters more than the next teaser
 

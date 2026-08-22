@@ -67,9 +67,9 @@ This isn't simply a story of "different members, different music." After Yeji's 
 
 At the same time, JYP's other flagship act Stray Kids announced a farewell tour ahead of military enlistment. JYP needs ITZY members' solo activities to fill the Stray Kids vacuum. The precise one-year spacing between Yeji and Yuna's solos reads clearly in this context.
 
-## KCL's Take on the ITZY Solo Experiment
+## MEARROW's Take on the ITZY Solo Experiment
 
-KCL views ITZY's solo projects not as simple individual activities, but as JYP's **portfolio rebalancing strategy**.
+MEARROW views ITZY's solo projects not as simple individual activities, but as JYP's **portfolio rebalancing strategy**.
 
 The 4th-generation K-pop girl group market in 2026 is extremely crowded. aespa, LE SSERAFIM, NewJeans, IVE, and (G)I-DLE are locked in fierce group-level competition, while the solo market remains relatively untapped. Rosé and Jennie proved the "4th-gen soloist" model viable by charting on the Billboard Hot 100 without the BLACKPINK name.
 

@@ -110,9 +110,9 @@ This gap doesn't close quickly. It took years to build Weverse and additional ye
 
 Within a single month — album, livestream, podcast, documentary — all detonating simultaneously. This isn't coincidence. It's a **cross-platform media promotion strategy**. The album drives attention. Netflix captures traffic. Spotify retains engagement.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
-The HYBE × Spotify partnership poses clear questions for the KCL landscape.
+The HYBE × Spotify partnership poses clear questions for the MEARROW landscape.
 
 First, **has the competitive arena for K-pop companies shifted?** First-week sales, chart positions, concert attendance — these were the traditional metrics for evaluating K-pop companies. HYBE is adding **media platform reach** as a new dimension. Spotify's 751M, Netflix's 300M+, Weverse's 12M — combined, that's over **1 billion potential touchpoints**.
 
@@ -120,4 +120,4 @@ Second, **can SM, JYP, and YG close this gap?** You can't build a Weverse from s
 
 Third, **will the transition from artist-dependence to platform-dependence succeed?** In 2026, with BTS back, everything works. The real test comes after the BTS tour ends. Can platforms and content alone sustain revenue without a flagship artist actively promoting? That is HYBE 2.0's true challenge.
 
-HYBE partnering with Spotify isn't a music company signing a content deal. It's **a media empire claiming its next territory.** The competitive dynamics of K-pop's Big 4 are fundamentally changing — and KCL will continue tracking this shift.
+HYBE partnering with Spotify isn't a music company signing a content deal. It's **a media empire claiming its next territory.** The competitive dynamics of K-pop's Big 4 are fundamentally changing — and MEARROW will continue tracking this shift.

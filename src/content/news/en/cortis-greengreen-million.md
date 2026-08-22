@@ -54,11 +54,11 @@ For aspiring idols, this is a harsher story than it first appears. CORTIS is not
 
 This does not mean every trainee needs to become a producer overnight. It does mean the old rookie fantasy is shrinking. A debut team now has to carry a narrative that can survive beyond a music-show stage: why these members, why this sound, why this fandom, why now.
 
-## KCL's View On The CORTIS Sales Surge
+## MEARROW's View On The CORTIS Sales Surge
 
 ### The real shift is expectation, not celebration
 
-KCL reads `CORTIS GREENGREEN` as an expectation reset. The industry will celebrate the `1,196,961` number because it is clean and shareable. The deeper effect is less comfortable. Once a rookie group sells like this on day one, patience becomes thinner. The next comeback will not be judged against a normal second-year curve. It will be judged against the idea that CORTIS is already a market-setting act.
+MEARROW reads `CORTIS GREENGREEN` as an expectation reset. The industry will celebrate the `1,196,961` number because it is clean and shareable. The deeper effect is less comfortable. Once a rookie group sells like this on day one, patience becomes thinner. The next comeback will not be judged against a normal second-year curve. It will be judged against the idea that CORTIS is already a market-setting act.
 
 That is a powerful position, but it is not a soft one. High first-day sales bring prestige, and they also bring pressure around retention. If the album's later first-week total, streaming stamina and fan-event momentum hold, CORTIS can turn this into a durable tier change. If the number becomes the whole story, the market will move on to asking whether the launch was front-loaded.
 

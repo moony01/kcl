@@ -62,11 +62,11 @@ HYBE’s own guidance points to a stronger second quarter, with BTS tour results
 
 But there is still a difference between proving demand and proving clean earnings power. The first quarter did the former emphatically. The second quarter now has to do the latter with fewer excuses available.
 
-## KCL’s View On HYBE Q1 2026
+## MEARROW’s View On HYBE Q1 2026
 
 ### This was a scale quarter, not a simplicity quarter
 
-KCL’s read is that HYBE just showed the market two truths at once. First, BTS still bends the revenue curve in a way almost no act on earth can. Second, HYBE is now large and layered enough that one quarter can contain blockbuster album demand, rising platform activity, merchandise acceleration and a headline loss without any of those facts fully canceling the others out.
+MEARROW’s read is that HYBE just showed the market two truths at once. First, BTS still bends the revenue curve in a way almost no act on earth can. Second, HYBE is now large and layered enough that one quarter can contain blockbuster album demand, rising platform activity, merchandise acceleration and a headline loss without any of those facts fully canceling the others out.
 
 That is why the most interesting part of the report is not the red number by itself. It is the business architecture underneath it. A company that can post a record first quarter before fully recognizing the revenue lift from an 85-show global tour is operating at unusual scale. The real question is whether HYBE can make that scale look cleaner, steadier and easier to trust once the non-recurring noise fades.
 

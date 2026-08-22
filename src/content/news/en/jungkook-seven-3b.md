@@ -40,10 +40,10 @@ The timing also changes the reading. This milestone did not arrive on release we
 
 That is where K-pop companies should pay attention. The next streaming race will not be decided only by who can mobilize the loudest first 24 hours. It will be decided by which tracks can become reusable assets: songs that fans replay, algorithms keep recommending, casual listeners save, and media outlets revisit whenever a new record falls. [Related: BLACKPINK Got the Guinness ICON Stamp — 16.9 Billion Streams Changed the Scoreboard](/en/news/blackpink-guinness-icon)
 
-## KCL’s View: Jungkook Just Raised The Solo Benchmark
+## MEARROW’s View: Jungkook Just Raised The Solo Benchmark
 ### The ceiling moved from debut impact to catalog proof
 
-KCL reads the 3 billion milestone as a benchmark shift for the solo-idol economy. A successful solo debut used to mean the artist could temporarily step outside the group brand without losing attention. Jungkook’s `Seven` now suggests something larger: the right solo song can become a long-term global catalog engine while still strengthening the group’s wider mythology.
+MEARROW reads the 3 billion milestone as a benchmark shift for the solo-idol economy. A successful solo debut used to mean the artist could temporarily step outside the group brand without losing attention. Jungkook’s `Seven` now suggests something larger: the right solo song can become a long-term global catalog engine while still strengthening the group’s wider mythology.
 
 That is not easy to copy. Most idol solo projects are built around identity confirmation: here is the member’s color, voice, look and fan message. `Seven` worked because it did those things while also behaving like an exportable pop single. It gave ARMY a rallying point, but it gave casual listeners a low-friction song. That combination is why the number matters more than the bragging rights.
 

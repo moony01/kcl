@@ -56,11 +56,11 @@ Particularly noteworthy is that the winning song 'Golden' **contains Korean lyri
 
 **Third, the elevation of K-pop's cultural status.** A Grammy win means more than a music award. It represents official recognition from the mainstream American music industry, directly impacting K-pop artists' **US tour scale, brand deals, and media exposure**.
 
-## KCL's Perspective on K-pop's Grammy Journey
+## MEARROW's Perspective on K-pop's Grammy Journey
 
-KCL's agency global influence index reveals an interesting pattern: **agencies with higher investments in visual content (dramas, films, documentaries) show faster global recognition growth rates**. HYBE's active use of Weverse documentary series and SM's construction of culture technology (CT)-based universes follow the same logic.
+MEARROW's agency global influence index reveals an interesting pattern: **agencies with higher investments in visual content (dramas, films, documentaries) show faster global recognition growth rates**. HYBE's active use of Weverse documentary series and SM's construction of culture technology (CT)-based universes follow the same logic.
 
-'Golden's' Grammy win proves this strategy is the right answer. Going forward, KCL will track a new metric — the **'Media Crossover Index'** — by agency, quantifying the synergy created by the fusion of music and visual media.
+'Golden's' Grammy win proves this strategy is the right answer. Going forward, MEARROW will track a new metric — the **'Media Crossover Index'** — by agency, quantifying the synergy created by the fusion of music and visual media.
 
 ## The First Trophy, But Certainly Not the Last
 

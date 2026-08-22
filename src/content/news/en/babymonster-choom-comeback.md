@@ -52,11 +52,11 @@ The timing is not accidental. YG is entering a loud year in which its legacy sto
 
 That challenge gets sharper because `May 2026` is crowded. The K-pop field is full of comeback traffic, and clutter changes how releases are judged. In a quiet month, a solid EP can survive on fandom force alone. In a loud month, the question becomes harsher: what is the one image, one movement, or one sonic idea that casual listeners remember after the scroll moves on? YG clearly believes `CHOOM` can answer that with performance. The title itself is effectively a thesis statement. If the choreography and stage identity do not hit immediately, the whole campaign risks looking overbuilt. If they do hit, YG suddenly has a much longer runway than one release week.
 
-## KCL's Take on `BABYMONSTER CHOOM`
+## MEARROW's Take on `BABYMONSTER CHOOM`
 
 ### This is the point where hype has to become structure
 
-From KCL’s perspective, the most important thing about `BABYMONSTER CHOOM` is not whether it opens big. Most major YG-backed comebacks are expected to open big. The real issue is whether this rollout turns BABYMONSTER into a group that can hold attention across multiple release beats, multiple markets, and a tour cycle that stretches well beyond Korea. That is a different standard. It is closer to infrastructure than buzz.
+From MEARROW’s perspective, the most important thing about `BABYMONSTER CHOOM` is not whether it opens big. Most major YG-backed comebacks are expected to open big. The real issue is whether this rollout turns BABYMONSTER into a group that can hold attention across multiple release beats, multiple markets, and a tour cycle that stretches well beyond Korea. That is a different standard. It is closer to infrastructure than buzz.
 
 ### If `CHOOM` lands, the rest of YG's 2026 story gets louder fast
 

@@ -80,9 +80,9 @@ But here's what the lovestagram incident actually reveals about IVE's position: 
 
 [Related: IVE Dethrones BTS — 'BANG BANG' Shatters All-Time Perfect All-Kill Record](/en/news/ive-bang-bang-pak-record-starship-kakao-2026)
 
-## KCL's Take: The Rumor Mill as a Fame Thermometer
+## MEARROW's Take: The Rumor Mill as a Fame Thermometer
 
-At KCL, we track K-pop companies — and dating rumors are a useful (if imperfect) proxy for an artist's cultural reach. The fact that Yujin's phone wallpaper generated 27,000+ views in a day isn't primarily a story about dating. It's a story about **how intensely the public monitors IVE's members at this moment in their career**.
+At MEARROW, we track K-pop companies — and dating rumors are a useful (if imperfect) proxy for an artist's cultural reach. The fact that Yujin's phone wallpaper generated 27,000+ views in a day isn't primarily a story about dating. It's a story about **how intensely the public monitors IVE's members at this moment in their career**.
 
 From a company analysis perspective, Starship's handling of this moment matters. A clumsy overreaction could inflame the rumor. Silence, paired with Yujin's continued professional output, is the correct play. So far, that's exactly what's happening.
 

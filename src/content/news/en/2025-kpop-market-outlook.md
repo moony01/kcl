@@ -27,4 +27,4 @@ Fandom platforms like HYBE's Weverse and SM's Bubble are evolving beyond simple 
 
 ## Conclusion: Towards Sustainable Growth
 
-The K-Pop industry has now established itself not as a 'passing fad' but as a 'genre' and 'system'. 2025 will be a crucial period to prove how flexibly this system can be applied to various cultures. Platforms like KCL (K-pop Company League) are expected to contribute to increasing transparency in company valuations and revitalizing the investment ecosystem.
+The K-Pop industry has now established itself not as a 'passing fad' but as a 'genre' and 'system'. 2025 will be a crucial period to prove how flexibly this system can be applied to various cultures. Platforms like MEARROW (K-pop Talent Network) are expected to contribute to increasing transparency in company valuations and revitalizing the investment ecosystem.

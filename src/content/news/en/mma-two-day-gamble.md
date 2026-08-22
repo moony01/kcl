@@ -68,11 +68,11 @@ For agencies, the upside is obvious: more slots, more broadcast value and more c
 
 That pressure is not bad if the event is designed well. It can push teams to build performances with clearer concepts, cleaner camera grammar and more durable hooks. The problem comes when the weekend grows faster than the storytelling. Bigger stages do not automatically create bigger meaning.
 
-## KCL's View On MMA 2026
+## MEARROW's View On MMA 2026
 
 ### The winner is the format, not only the lineup
 
-KCL reads MMA 2026’s two-day move as a test of format power. The lineup will matter, of course, but the more important question is whether the show can make fans treat the weekend itself as the headline. If fans wake up after day one already arguing about what day two might reveal, the expansion will have worked.
+MEARROW reads MMA 2026’s two-day move as a test of format power. The lineup will matter, of course, but the more important question is whether the show can make fans treat the weekend itself as the headline. If fans wake up after day one already arguing about what day two might reveal, the expansion will have worked.
 
 That is the difference between adding hours and creating architecture. A strong two-day MMA should make each day feel necessary. It should give audiences a reason to compare, return and keep the conversation alive without feeling tricked into watching filler.
 

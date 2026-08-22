@@ -77,13 +77,13 @@ Some analysts argue the distraction could dampen the clean rollout HYBE envision
 
 Pre-orders for *ARIRANG* have already hit **4.06 million copies** in the first week of tracking—a K-pop record—suggesting the frenzy is, if anything, only adding fuel.
 
-## KCL's Analysis: Cross-Fandom Collisions
+## MEARROW's Analysis: Cross-Fandom Collisions
 
-From KCL's (K-pop Company League) analytical perspective, this episode illustrates the volatile dynamics when two of Korea's most powerful fan armies intersect.
+From MEARROW's (K-pop Talent Network) analytical perspective, this episode illustrates the volatile dynamics when two of Korea's most powerful fan armies intersect.
 
 The ARMY-MY crossover—the combined fandom of BTS and aespa—is normally one of the most synergistic in K-pop. But a dating rumor cuts directly across those alliances, creating internal fractures on both sides: fans who are supportive of the idols' personal lives versus those who hold more traditional expectations of parasocial exclusivity.
 
-KCL data indicates that idol dating speculation, on average, causes a 15–20% short-term spike in streaming activity and social media mentions. However, the longer-term impact on fandom retention is negative for a subset of dedicated fans—a variable that affects HYBE and SM's stock-price-sensitive calculations more acutely than most agencies.
+MEARROW data indicates that idol dating speculation, on average, causes a 15–20% short-term spike in streaming activity and social media mentions. However, the longer-term impact on fandom retention is negative for a subset of dedicated fans—a variable that affects HYBE and SM's stock-price-sensitive calculations more acutely than most agencies.
 
 ## Why Both Companies Are Staying Silent—And Will Continue To
 

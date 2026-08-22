@@ -42,11 +42,11 @@ The Associated Press reported that BTS kicked off its world tour in Goyang on Ap
 
 Any superstar can produce one explosive chart week. What changes the market is when touring, charts, video, and fan discourse move together for multiple weeks. BTS is now using `ARIRANG` to define the post-hiatus standard rather than merely celebrate a successful return. In the current K-pop market, the most valuable asset is not momentary buzz. It is the ability to keep translating buzz into new forms of measurable demand.
 
-## How KCL reads the SWIM milestone
+## How MEARROW reads the SWIM milestone
 
 ### This says more about fan operations than raw fandom size
 
-KCL does not read the `BTS SWIM 100 million views` milestone as a vanity statistic. The more important story is how the fandom is sequencing its effort. BTS has re-established a release pattern in which album sales trigger streaming strength, streaming strength extends into video consumption, and every platform keeps the next one alive. That is a warning shot for the rest of the industry. Global K-pop competition is moving away from "how much sold on day one" and toward "who can still dominate multiple platforms three weeks later."
+MEARROW does not read the `BTS SWIM 100 million views` milestone as a vanity statistic. The more important story is how the fandom is sequencing its effort. BTS has re-established a release pattern in which album sales trigger streaming strength, streaming strength extends into video consumption, and every platform keeps the next one alive. That is a warning shot for the rest of the industry. Global K-pop competition is moving away from "how much sold on day one" and toward "who can still dominate multiple platforms three weeks later."
 
 ## The next number may not take longer
 

@@ -38,11 +38,11 @@ It would be easy to flatten this into a simple BTS exceptionalism story. But wha
 
 For years, K-pop's U.S. wins were often summarized through first-week rank and opening-sales totals. `ARIRANG` changes the emphasis. The stronger question now is not just how high an album enters, but how long it stays. BTS has already made seven Billboard 200 No. 1 albums, but this time the market will likely remember the second week as much as the debut. That is a signal that U.S. competition for K-pop is moving from breakthrough moments to retention battles.
 
-## How KCL Reads BTS's Second Week At No. 1
+## How MEARROW Reads BTS's Second Week At No. 1
 
 ### BTS did not just add another record. They changed the terms of evaluation.
 
-From KCL's perspective, the biggest takeaway is not that BTS topped another chart. It is that the U.S. market is treating this album less like comeback curiosity and more like a repeat-consumption product. Once a second week holds, the release starts moving beyond obligation buying and into recurring listening and recurring spend. That is the threshold more K-pop companies will now chase, because flashy entry is not enough if the market clears the act out immediately after launch.
+From MEARROW's perspective, the biggest takeaway is not that BTS topped another chart. It is that the U.S. market is treating this album less like comeback curiosity and more like a repeat-consumption product. Once a second week holds, the release starts moving beyond obligation buying and into recurring listening and recurring spend. That is the threshold more K-pop companies will now chase, because flashy entry is not enough if the market clears the act out immediately after launch.
 
 ## The Next Test Is Bigger Than Week Three
 

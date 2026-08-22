@@ -95,7 +95,7 @@ But the question fans are asking hasn't been answered.
 
 **Why couldn't he do both?**
 
-## The KCL Take
+## The MEARROW Take
 
 Member departures are not new in K-pop. But this situation has qualities that set it apart.
 
@@ -109,4 +109,4 @@ When these three factors collide, ENGENE isn't just grieving a member's departur
 
 BELIFT LAB has not addressed these concerns. The silence grows louder with every hour.
 
-What Heeseung's solo chapter looks like, and whether ENHYPEN's six-member era finds its footing — KCL will be watching.
+What Heeseung's solo chapter looks like, and whether ENHYPEN's six-member era finds its footing — MEARROW will be watching.

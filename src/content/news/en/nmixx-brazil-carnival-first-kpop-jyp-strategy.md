@@ -51,7 +51,7 @@ Here's the playbook in sequence:
 
 This isn't a one-year project. It's a **three-year-plus roadmap**.
 
-## KCL's Analysis — What Latin Expansion Means for K-Pop
+## MEARROW's Analysis — What Latin Expansion Means for K-Pop
 
 K-pop's global expansion has historically centered on the US, Japan, and Southeast Asia. Latin America was seen as a market with passionate fans but limited monetization potential.
 

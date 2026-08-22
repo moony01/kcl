@@ -50,13 +50,13 @@ The casting is not random. Shakira has a World Cup history that casual football 
 
 That combination matters because FIFA does not need only applause inside the stadium. It needs a global replay loop. Shakira can travel across Latin America, football audiences, and official tournament music. Madonna can trigger legacy media and pop-culture commentary. BTS can activate fan translation accounts, short-form edits, reaction videos, and country-by-country watch behavior.
 
-For K-pop, the symbolism is unusually direct. BTS are not appearing as a regional guest, a pre-match novelty, or a cultural add-on. They are listed as co-headliners beside two of the most recognizable pop names in the world. In KCL terms, that is a status shift: K-pop is no longer asking to be included in global event programming. It is being used as one of the tools that makes the programming global.
+For K-pop, the symbolism is unusually direct. BTS are not appearing as a regional guest, a pre-match novelty, or a cultural add-on. They are listed as co-headliners beside two of the most recognizable pop names in the world. In MEARROW terms, that is a status shift: K-pop is no longer asking to be included in global event programming. It is being used as one of the tools that makes the programming global.
 
-## KCL Sees A Platform Shift
+## MEARROW Sees A Platform Shift
 
 ### K-pop is becoming event infrastructure
 
-KCL reads this booking as part of a larger platform shift. The old export story was simple: Korean music traveled overseas, built fanbases, and proved demand through concerts, albums, and streaming. The new story is more aggressive. K-pop is becoming infrastructure for other global events that want instant online participation.
+MEARROW reads this booking as part of a larger platform shift. The old export story was simple: Korean music traveled overseas, built fanbases, and proved demand through concerts, albums, and streaming. The new story is more aggressive. K-pop is becoming infrastructure for other global events that want instant online participation.
 
 That is why the World Cup booking connects with recent BTS data stories. Latin American streaming strength, sold-out tour demand, and social-media density are not separate achievements when viewed from a broadcast executive's desk. They are signals that BTS can move attention across countries before the performance even happens. A World Cup final wants that kind of pre-event electricity.
 

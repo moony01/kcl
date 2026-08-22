@@ -42,11 +42,11 @@ JYP's gain here is larger than a celebratory press cycle. A tour at this scale s
 
 This result arrives while the broader K-pop touring economy is under real scrutiny. Ticket-price fatigue, oversupply fears, and debate over whether the market has been stretched too far have all been part of the 2026 conversation. Against that background, TWICE's numbers function like a rebuttal. They do not prove every K-pop act can tour at this level, but they do show that top-tier demand has not disappeared. It has become more selective, more route-sensitive, and more dependent on acts with years of fan trust already banked. [Related: Why 2026 K-pop Concert Prices Started Feeling Like a Breaking Point](/en/news/kpop-concert-price-inflation-2026)
 
-## KCL's View On The TWICE North America Record
+## MEARROW's View On The TWICE North America Record
 
 ### The ceiling moved, but only for groups that earn the right to test it
 
-KCL does not read this as a feel-good number floating in isolation. We read it as evidence that the North American market has matured enough to reward consistency over novelty. TWICE did not arrive as a new discovery. The group arrived with a long catalog, a stable identity, a fandom used to showing up, and a tour machine strong enough to make repetition look normal. That is the real competitive advantage. Once a group turns repeated arena attendance into habit, it stops being dependent on hype spikes.
+MEARROW does not read this as a feel-good number floating in isolation. We read it as evidence that the North American market has matured enough to reward consistency over novelty. TWICE did not arrive as a new discovery. The group arrived with a long catalog, a stable identity, a fandom used to showing up, and a tour machine strong enough to make repetition look normal. That is the real competitive advantage. Once a group turns repeated arena attendance into habit, it stops being dependent on hype spikes.
 
 ### Other agencies will study this route very closely
 

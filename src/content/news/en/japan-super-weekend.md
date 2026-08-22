@@ -52,7 +52,7 @@ That gap changes strategy. A Korean comeback may still define the narrative, but
 
 When venue supply is tight, success can become harder to read. A sold-out Korean show may prove demand, but it may also hide how much demand was left outside the ticketing queue. A smaller venue may look intimate, but it can understate an act's real market weight. A foreign stadium run, by contrast, gives the company a clearer number to show investors, sponsors, and future promoters.
 
-That is why Japan's super weekend matters to KCL. It reveals a mismatch between K-pop's creative center and its live-business ceiling. The music may still begin in Seoul. The proof of scale often happens where the venue map is larger.
+That is why Japan's super weekend matters to MEARROW. It reveals a mismatch between K-pop's creative center and its live-business ceiling. The music may still begin in Seoul. The proof of scale often happens where the venue map is larger.
 
 ## The Next Wave Is Already On The Calendar
 
@@ -68,11 +68,11 @@ The lazy reading would be that every K-pop company should simply add more Japan 
 
 For newer acts, Japan is not a shortcut. It is a long compounding game. The label that treats it as a single tour stop will get a single tour stop. The label that treats it as a second home market can eventually build weekends like this.
 
-## KCL's View: Japan Is Becoming The Live-Market Mirror
+## MEARROW's View: Japan Is Becoming The Live-Market Mirror
 
 ### The mirror shows both strength and dependence
 
-KCL reads the 420,000 weekend as a positive signal with an uncomfortable edge. The positive side is obvious: K-pop demand in Japan remains enormous, diverse, and commercially useful. The uncomfortable side is that the genre's live ceiling is being demonstrated outside its home country more often than inside it.
+MEARROW reads the 420,000 weekend as a positive signal with an uncomfortable edge. The positive side is obvious: K-pop demand in Japan remains enormous, diverse, and commercially useful. The uncomfortable side is that the genre's live ceiling is being demonstrated outside its home country more often than inside it.
 
 That does not weaken K-pop. It clarifies the business. In 2026, the most valuable K-pop companies are not only the ones that create hit songs. They are the ones that can move fandom across venue systems, travel routes, language markets, and ticketing habits. Japan just gave the industry a clean case study.
 
@@ -80,4 +80,4 @@ That does not weaken K-pop. It clarifies the business. In 2026, the most valuabl
 
 One weekend can be a headline. A repeatable weekend becomes infrastructure. That is the real challenge after TVXQ, TWICE, aespa, and DAY6 turned Japan into a simultaneous K-pop concert grid. If more labels can build artists with enough local depth to share the same calendar without cannibalizing each other, Japan will stop being described as a foreign market and start looking like K-pop's most reliable live operating base.
 
-The headline number was 420,000. The real number KCL is watching is how many times Japan can do it again.
+The headline number was 420,000. The real number MEARROW is watching is how many times Japan can do it again.

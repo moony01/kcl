@@ -44,11 +44,11 @@ Soompi and allkpop both traced the comeback setup back to MAMAMOO's long full-gr
 
 But memory is not a free asset. It raises the standard. A group with MAMAMOO's reputation cannot sell a reunion that feels under-rehearsed, under-produced, or too dependent on old songs. The strongest version of this tour is not a museum piece. It is a live proof that four separate adult careers can still lock into one stage language. That is why the empty seats before ticketing matter as much as the cheering clips after opening night.
 
-## KCL's View On MAMAMOO 4WARD
+## MEARROW's View On MAMAMOO 4WARD
 
 ### RBW is selling trust, not just seats
 
-KCL sees the real product as trust. The audience wants the songs, but it also wants evidence that RBW understands the size of the moment. That means clear ticketing, strong city routing, production that respects the group's live reputation, and a comeback cycle that does not treat the tour as a nostalgia cash-out. For older K-pop acts, the commercial question is brutal: can a group age without being repackaged as a memory brand?
+MEARROW sees the real product as trust. The audience wants the songs, but it also wants evidence that RBW understands the size of the moment. That means clear ticketing, strong city routing, production that respects the group's live reputation, and a comeback cycle that does not treat the tour as a nostalgia cash-out. For older K-pop acts, the commercial question is brutal: can a group age without being repackaged as a memory brand?
 
 MAMAMOO has a better chance than most because its original appeal was never built only on youth. The group sold contrast, vocals, humor, and stage presence. Those traits can age well if the production gives them room. If `4WARD` converts anniversary emotion into sellable live demand, it becomes a template for third-generation acts entering their mature touring years. If it stumbles, it will remind agencies that fans can love a group and still reject a poorly handled reunion.
 

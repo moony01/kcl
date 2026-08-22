@@ -42,11 +42,11 @@ Current public perception is clearly split. In April 2025, S2 Entertainment issu
 
 It is important to draw a hard line here. A warmer response to KISS OF LIFE in 2026 does not erase the discomfort people felt in 2025. On the other hand, the existence of that controversy does not make current achievements unreal. Public perception and the weight of past events operate on different layers. The real work is not choosing one and deleting the other. It is understanding why this comeback is being read in such a complicated way.
 
-## KCL's view on KISS OF LIFE's first win
+## MEARROW's view on KISS OF LIFE's first win
 
 ### This is not a forgiveness certificate. It is the market lifting a hold.
 
-KCL's read is straightforward. KISS OF LIFE has not been pushed out of the market, and their stage competitiveness is still sellable. But this first win is not the end of the story. It feels more like the market lifting a hold. The fandom moved again, but the broader public has not fully forgotten. That is why the next release now matters even more. If the next comeback delivers a similar conversion rate, the return becomes a trend. If not, today's trophy may remain a survival proof rather than the start of a new dominant phase.
+MEARROW's read is straightforward. KISS OF LIFE has not been pushed out of the market, and their stage competitiveness is still sellable. But this first win is not the end of the story. It feels more like the market lifting a hold. The fandom moved again, but the broader public has not fully forgotten. That is why the next release now matters even more. If the next comeback delivers a similar conversion rate, the return becomes a trend. If not, today's trophy may remain a survival proof rather than the start of a new dominant phase.
 
 ## "They are back" is still a sentence in progress
 

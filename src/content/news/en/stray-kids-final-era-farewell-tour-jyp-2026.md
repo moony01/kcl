@@ -55,7 +55,7 @@ Stray Kids recently topped the **global box office** with their concert film, 'S
 
 This box office success is expected to amplify ticket demand for 'The Final Era' tour to explosive levels.
 
-## KCL's Take on Stray Kids' Final Chapter
+## MEARROW's Take on Stray Kids' Final Chapter
 
 Stray Kids' farewell tour carries significance beyond a mere concert series. It marks the **opening act of the 4th-generation military enlistment era**.
 

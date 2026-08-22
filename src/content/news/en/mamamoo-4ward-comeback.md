@@ -36,11 +36,11 @@ The comeback is also tied to the road. Allkpop reported that `MAMAMOO 2026 WORLD
 
 For a group like MAMAMOO, that matters because their strongest asset has never been only concept design. It is vocal trust. Fans expect live weight, chemistry, ad-libs, and the feeling that four separate careers can still lock into one stage. A new single before tour dates is therefore less like a bonus release and more like a rehearsal in public.
 
-## KCL View: The Second Act Is The Product
+## MEARROW View: The Second Act Is The Product
 
 ### Mature groups are competing on continuity now
 
-KCL reads `4WARD` as a case study in second-act K-pop. The industry is full of groups that survive contract cycles, solo paths, agency shifts, and long intervals, but survival is not the same as momentum. The next premium category is continuity: can a group return without feeling frozen in its peak era?
+MEARROW reads `4WARD` as a case study in second-act K-pop. The industry is full of groups that survive contract cycles, solo paths, agency shifts, and long intervals, but survival is not the same as momentum. The next premium category is continuity: can a group return without feeling frozen in its peak era?
 
 MAMAMOO's answer is to make the number four carry the campaign. It tells longtime fans that the quartet bond is intact, while the wordplay of `forward` prevents the comeback from sounding like pure memory. That is smart positioning. The risk is that the concept is so emotionally clean that the music must carry real bite. If `4 Flowers` feels too safe, the story becomes pleasant. If the song gives the vocals room to surprise, the comeback becomes durable.
 

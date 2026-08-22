@@ -42,9 +42,9 @@ Third, the learning effect from the Tzuyu incident is showing up. In February 20
 
 [Related: How Tzuyu Clapped Back at a Body Shamer — and What It Meant](/en/news/tzuyu-body-shaming-clap-back)
 
-## KCL's Take: A Possible Inflection Point
+## MEARROW's Take: A Possible Inflection Point
 
-KCL doesn't read the Karina situation as just another viral moment. It looks like the start of an internal reckoning within K-pop fandom culture.
+MEARROW doesn't read the Karina situation as just another viral moment. It looks like the start of an internal reckoning within K-pop fandom culture.
 
 The usual arc of K-pop body-shaming controversies has been: mockery → defense → silence. This time the arc looked more like: mockery → internal critique → structural challenge. That difference might seem minor, but it isn't. Each time fandom communities publicly reject their own toxicity, they create pressure — however slight — on the agencies that have long profited from treating idol bodies as tools.
 

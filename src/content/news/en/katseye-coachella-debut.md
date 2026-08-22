@@ -42,11 +42,11 @@ Coachella proved one thing clearly: KATSEYE is no longer just a survival-show pr
 
 What remains unproven is just as important. If KATSEYE wants to scale for the long term, it needs narrative management as disciplined as its performance planning. How much should be explained when a member steps away? What does a credible roadmap for recovery or return look like? Is the group still being framed around a six-member story, or is a new equilibrium already being built? KATSEYE's biggest risk right now is not lack of star power. It is audience fatigue created by prolonged uncertainty.
 
-## KCL's Take on KATSEYE at Coachella
+## MEARROW's Take on KATSEYE at Coachella
 
 ### What HYBE exported was not just a group, but an operating model
 
-KCL does not see this `KATSEYE Coachella debut` as just another trophy line on a resume. The deeper point is that a K-pop company is now applying the same compression, speed, and storyline engineering to a non-Korean-majority group that it once reserved for domestic idol launches. Coachella was the largest public test of whether that operating model can survive global scrutiny. On pure buzz, it already passed.
+MEARROW does not see this `KATSEYE Coachella debut` as just another trophy line on a resume. The deeper point is that a K-pop company is now applying the same compression, speed, and storyline engineering to a non-Korean-majority group that it once reserved for domestic idol launches. Coachella was the largest public test of whether that operating model can survive global scrutiny. On pure buzz, it already passed.
 
 The harder stage comes next. A multinational group also inherits a multinational expectation map. Silence turns into distrust faster when the audience is global, hyper-online, and emotionally invested. KATSEYE proved it can command a stage at Coachella. The next proof point is whether it can handle the explanation burden that comes after the applause.
 
