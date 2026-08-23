@@ -13,8 +13,6 @@
     "build": "pnpm clean:build && next build && node scripts/postbuild.mjs",
     "pages:build:production": "pnpm check:deploy-env && pnpm test:browser:deploy && pnpm build",
     "workers:build": "node scripts/build-workers.mjs",
-    "workers:preview": "pnpm workers:build && pnpm exec opennextjs-cloudflare preview --env preview",
-    "workers:deploy:preview": "pnpm check:deploy-env && pnpm workers:build && pnpm exec opennextjs-cloudflare deploy --env preview",
     "workers:deploy:production": "pnpm check:deploy-env && pnpm workers:build && pnpm exec opennextjs-cloudflare deploy --env production",
     "start": "next start",
     "lint": "eslint",

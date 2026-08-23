@@ -55,6 +55,7 @@ export default function RelatedNewsGrid({ posts, locale }: RelatedNewsGridProps)
                 width={400}
                 height={210}
                 sizes="(max-width: 768px) 100vw, 250px"
+                unoptimized={process.env.NEXT_PUBLIC_RUNTIME_TARGET === 'workers'}
               />
             ) : (
               <div className={styles.relatedPlaceholder}>

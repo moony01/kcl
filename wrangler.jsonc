@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "mearrow-web-preview",
+  "name": "mearrow-web",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-21",
   "compatibility_flags": ["nodejs_compat"],
@@ -13,9 +13,6 @@
     "enabled": true
   },
   "env": {
-    "preview": {
-      "name": "mearrow-web-preview"
-    },
     "production": {
       "name": "mearrow-web"
     }
