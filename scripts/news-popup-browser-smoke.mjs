@@ -259,7 +259,7 @@ async function expectNoModal(page, reason) {
 async function expectRenderOnlyCloseAndNewsReentry(page, baseUrl, action, close) {
   await goto(page, baseUrl, '/ko/news');
   const dialog = await expectModal(page);
-  await close(dialog);
+  await close(dialog, page);
   await expectNoModal(page, `after ${action}`);
   await expectRenderOnlyDismissed(page, action);
 
@@ -347,8 +347,12 @@ async function main() {
             page,
             server.baseUrl,
             'backdrop close',
-            (dialog) =>
-              dialog.getByRole('button', { name: '투표 모달 배경 닫기' }).click(),
+            async (_dialog, currentPage) => {
+              const backdrop = currentPage.getByRole('button', { name: '투표 모달 배경 닫기' });
+              const box = await backdrop.boundingBox();
+              assert(box, 'vote modal backdrop has no layout box');
+              await currentPage.mouse.click(box.x + 10, box.y + 10);
+            },
           );
         },
       },
