@@ -4,7 +4,7 @@ import { Newspaper } from 'lucide-react';
 import { getAllNews } from '@/lib/news';
 import NewsGridClient from './NewsGridClient';
 import { generateAlternates } from '@/lib/seo';
-import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './page.module.scss';
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
       title: `${BRAND_NAME} News - K-pop Industry Insights`,
       description:
         'Latest news and analysis from the K-pop entertainment industry. Stay updated with company updates and trends.',
-      url: `https://www.kclhq.com/${locale}/news`,
+      url: `${FULL_URL}/${locale}/news`,
       type: 'website',
       siteName: BRAND_NAME,
     },
@@ -73,12 +73,12 @@ export default async function NewsPage({ params }: NewsPageProps) {
     '@type': 'ItemList',
     name: `${BRAND_NAME} News`,
     description: 'Latest news and analysis from the K-pop entertainment industry',
-    url: `https://www.kclhq.com/${locale}/news`,
+    url: `${FULL_URL}/${locale}/news`,
     numberOfItems: posts.length,
     itemListElement: posts.map((post, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `https://www.kclhq.com/${locale}/news/${post.slug}`,
+      url: `${FULL_URL}/${locale}/news/${post.slug}`,
       name: post.title,
     })),
   };

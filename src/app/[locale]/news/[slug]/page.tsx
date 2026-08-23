@@ -8,7 +8,7 @@ import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getNewsBySlug, getAllNewsParams, getRelatedNews } from '@/lib/news';
 import { generateDynamicAlternates } from '@/lib/seo';
-import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import ShareButtons from '@/components/common/ShareButtons';
@@ -177,9 +177,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           </div>
           <ShareButtons
             title={post.title}
-            url={`https://www.kclhq.com/${locale}/news/${slug}`}
+            url={`${FULL_URL}/${locale}/news/${slug}`}
             description={post.excerpt}
-            imageUrl={post.thumbnail ? `https://www.kclhq.com${post.thumbnail}` : undefined}
+            imageUrl={post.thumbnail ? `${FULL_URL}${post.thumbnail}` : undefined}
             size="sm"
           />
         </div>
@@ -230,9 +230,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         <p className={styles.sharePrompt}>{t('sharePrompt')}</p>
         <ShareButtons
           title={post.title}
-          url={`https://www.kclhq.com/${locale}/news/${slug}`}
+          url={`${FULL_URL}/${locale}/news/${slug}`}
           description={post.excerpt}
-          imageUrl={post.thumbnail ? `https://www.kclhq.com${post.thumbnail}` : undefined}
+          imageUrl={post.thumbnail ? `${FULL_URL}${post.thumbnail}` : undefined}
           size="md"
         />
       </div>
@@ -271,9 +271,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           '@type': 'Article',
           headline: post.title,
           description: post.excerpt,
-          url: `https://www.kclhq.com/${locale}/news/${slug}`,
+          url: `${FULL_URL}/${locale}/news/${slug}`,
           datePublished: post.date,
-          image: post.thumbnail || `https://www.kclhq.com${BRAND_MARK_PATH}`,
+          image: post.thumbnail || `${FULL_URL}${BRAND_MARK_PATH}`,
           author: {
             '@type': 'Organization',
             name: BRAND_NAME,
@@ -283,7 +283,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             name: BRAND_NAME,
             logo: {
               '@type': 'ImageObject',
-              url: `https://www.kclhq.com${BRAND_MARK_PATH}`,
+              url: `${FULL_URL}${BRAND_MARK_PATH}`,
             },
           },
         }}

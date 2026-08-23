@@ -14,6 +14,7 @@ import {
 import HomeBoardHeader from '@/components/features/home/HomeBoardHeader';
 import VoteBoard from '@/components/features/vote/VoteBoard';
 import { BRAND_NAME } from '@/lib/brand';
+import { SITE_URL } from '@/lib/constants';
 import styles from '@/app/[locale]/page.module.scss';
 import embedStyles from './VoteBoardEmbedClient.module.scss';
 
@@ -66,7 +67,7 @@ export function parseVoteBoardEmbedOptions(search: string): VoteBoardEmbedOption
 }
 
 function getParentReturnUrl(locale: string): string {
-  if (typeof document === 'undefined') return `https://kclhq.com/${locale}`;
+  if (typeof document === 'undefined') return `${SITE_URL}/${locale}`;
 
   try {
     const referrer = document.referrer ? new URL(document.referrer) : null;
@@ -78,7 +79,7 @@ function getParentReturnUrl(locale: string): string {
     // Invalid referrer falls back to the MEARROW page.
   }
 
-  return `https://kclhq.com/${locale}`;
+  return `${SITE_URL}/${locale}`;
 }
 
 function postEmbedMessage(message: Record<string, unknown>) {
@@ -166,7 +167,7 @@ export default function VoteBoardEmbedClient({
     const returnTo = getParentReturnUrl(locale);
     postEmbedMessage({ type: 'auth_required', returnTo });
     window.top?.location.assign(
-      `https://kclhq.com/${locale}/login?returnTo=${encodeURIComponent(returnTo)}`,
+      `${SITE_URL}/${locale}/login?returnTo=${encodeURIComponent(returnTo)}`,
     );
   }, [locale]);
 

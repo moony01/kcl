@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generateAlternates } from '@/lib/seo';
-import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeClient from './NoticeClient';
@@ -36,7 +36,7 @@ const noticeJsonLd = {
   '@type': 'WebPage',
   name: `${BRAND_NAME} Notices & Announcements`,
   description: BRAND_DESCRIPTION,
-  url: 'https://www.kclhq.com/notice',
+  url: `${FULL_URL}/notice`,
 };
 
 /**

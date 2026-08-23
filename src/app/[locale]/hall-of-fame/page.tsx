@@ -11,7 +11,7 @@ import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import HallOfFameClient from './HallOfFameClient';
 import { generateAlternates } from '@/lib/seo';
-import { SUPPORTED_LOCALES } from '@/lib/constants';
+import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import AdBanner from '@/components/common/AdBanner';
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: HallOfFamePageProps): Promise
     openGraph: {
       title: `${BRAND_NAME} Hall of Fame`,
       description: BRAND_DESCRIPTION,
-      url: `https://www.kclhq.com/${locale}/hall-of-fame`,
+      url: `${FULL_URL}/${locale}/hall-of-fame`,
       type: 'website',
       siteName: BRAND_NAME,
     },
@@ -67,7 +67,7 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
     '@type': 'ItemList',
     name: `${BRAND_NAME} Hall of Fame`,
     description: BRAND_DESCRIPTION,
-    url: `https://www.kclhq.com/${locale}/hall-of-fame`,
+    url: `${FULL_URL}/${locale}/hall-of-fame`,
   };
 
   return (

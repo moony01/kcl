@@ -31,6 +31,38 @@ function describeError(error) {
   return error instanceof Error ? error.message : String(error);
 }
 
+async function assertSeoEndpoints(baseUrl) {
+  const canonicalSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://mearrow.com').replace(
+    /\/+$/,
+    '',
+  );
+  const [robotsResponse, sitemapResponse] = await Promise.all([
+    fetch(`${baseUrl}/robots.txt`),
+    fetch(`${baseUrl}/sitemap.xml`),
+  ]);
+  const robotsText = await robotsResponse.text();
+  const sitemapText = await sitemapResponse.text();
+
+  assert(robotsResponse.status < 500, `robots.txt returned HTTP ${robotsResponse.status}`);
+  assert(sitemapResponse.status < 500, `sitemap.xml returned HTTP ${sitemapResponse.status}`);
+  assert(
+    robotsText.includes(`Sitemap: ${canonicalSiteUrl}/sitemap.xml`),
+    `robots.txt does not point to ${canonicalSiteUrl}/sitemap.xml`,
+  );
+  assert(
+    sitemapText.includes(`<loc>${canonicalSiteUrl}/`),
+    `sitemap.xml does not contain ${canonicalSiteUrl} URLs`,
+  );
+  assert(!/https?:\/\/(?:www\.)?kclhq\.com/i.test(`${robotsText}\n${sitemapText}`),
+    'robots.txt or sitemap.xml still contains the legacy kclhq.com host');
+
+  return {
+    canonicalSiteUrl,
+    robotsStatus: robotsResponse.status,
+    sitemapStatus: sitemapResponse.status,
+  };
+}
+
 async function waitForServer(baseUrl, child) {
   const deadline = Date.now() + 120_000;
   while (Date.now() < deadline) {
@@ -144,6 +176,7 @@ async function main() {
     const companyCount = await page.locator('[data-company-id]').count();
     assert(companyCount > 0, 'home rendered no company cards');
     assert(!(await page.getByText('Failed to load data').count()), 'home rendered data-load failure');
+    const seoEndpoints = await assertSeoEndpoints(server.baseUrl);
 
     const newsResponse = await page.goto(`${server.baseUrl}/en/news?deploy-browser-smoke=news`, {
       waitUntil: 'domcontentloaded',
@@ -195,6 +228,7 @@ async function main() {
           browser: browserPath,
           baseUrl: server.baseUrl,
           companyCount,
+          ...seoEndpoints,
           supabaseResponses: supabaseResponses.map(({ status, url }) => ({ status, url })),
           newsImage: imageSources[0],
         },
