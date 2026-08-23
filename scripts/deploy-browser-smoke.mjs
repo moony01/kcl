@@ -136,7 +136,7 @@ async function main() {
     });
 
     const homeResponse = await page.goto(`${server.baseUrl}/ko?deploy-browser-smoke=home`, {
-      waitUntil: 'networkidle',
+      waitUntil: 'domcontentloaded',
       timeout: 30_000,
     });
     assert(homeResponse && homeResponse.status() < 500, `home returned HTTP ${homeResponse?.status()}`);
@@ -146,7 +146,7 @@ async function main() {
     assert(!(await page.getByText('Failed to load data').count()), 'home rendered data-load failure');
 
     const newsResponse = await page.goto(`${server.baseUrl}/en/news?deploy-browser-smoke=news`, {
-      waitUntil: 'networkidle',
+      waitUntil: 'domcontentloaded',
       timeout: 30_000,
     });
     assert(newsResponse && newsResponse.status() < 500, `news list returned HTTP ${newsResponse?.status()}`);
@@ -160,10 +160,20 @@ async function main() {
       `news image is not WebP-backed: ${imageSources[0]}`,
     );
     await newsImage.waitFor({ state: 'visible', timeout: 15_000 });
+    await page.waitForFunction(
+      () => {
+        const image = document.querySelector('img[src*="/images/news/"]');
+        return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0;
+      },
+      undefined,
+      { timeout: 15_000 },
+    );
+    const firstNewsImageLoaded = await newsImage.evaluate((image) => image.complete && image.naturalWidth > 0);
+    assert(firstNewsImageLoaded, `news image failed to load: ${imageSources[0]}`);
 
     const detailResponse = await page.goto(
       `${server.baseUrl}/ko/news/${NEWS_SLUG}?deploy-browser-smoke=detail`,
-      { waitUntil: 'networkidle', timeout: 30_000 },
+      { waitUntil: 'domcontentloaded', timeout: 30_000 },
     );
     assert(detailResponse && detailResponse.status() < 500, `news detail returned HTTP ${detailResponse?.status()}`);
     const detailMain = page.getByRole('main').last();

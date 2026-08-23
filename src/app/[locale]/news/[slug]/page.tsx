@@ -148,6 +148,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
               height={630}
               priority
               sizes="(max-width: 768px) 100vw, 800px"
+              unoptimized={process.env.NEXT_PUBLIC_RUNTIME_TARGET === 'workers'}
             />
           ) : (
             <div className={styles.heroPlaceholder}>
@@ -200,6 +201,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
                       width={800}
                       height={450}
                       sizes="(max-width: 768px) 100vw, 800px"
+                      unoptimized={process.env.NEXT_PUBLIC_RUNTIME_TARGET === 'workers'}
                       style={{ width: '100%', height: 'auto' }}
                     />
                   </span>

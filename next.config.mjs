@@ -61,6 +61,8 @@ const nextConfig = {
   },
   env: {
     NEXT_PUBLIC_BASE_PATH: '', // SSG: Cloudflare Pages 기본 경로
+    // Workers 빌드에서는 Pages 전용 optimizer 산출물이 없으므로 원본 WebP를 사용합니다.
+    NEXT_PUBLIC_RUNTIME_TARGET: isWorkers ? 'workers' : 'pages',
     // next-image-export-optimizer 설정
     nextImageExportOptimizer_imageFolderPath: 'public/images',
     nextImageExportOptimizer_exportFolderPath: 'out',
