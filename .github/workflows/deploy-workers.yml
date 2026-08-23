@@ -51,11 +51,29 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check deployment environment
+        run: pnpm check:deploy-env
+
       - name: Lint
         run: pnpm lint
 
       - name: Unit tests
         run: pnpm test --run
+
+      - name: Install Chromium for browser gate
+        run: pnpm dlx playwright@1.58.2 install chromium
+
+      - name: Browser data smoke test
+        run: |
+          browser_path="$(find "$HOME/.cache/ms-playwright" -type f -path '*/chrome-linux64/chrome' -print -quit)"
+          test -n "$browser_path"
+          DEPLOY_BROWSER_PATH="$browser_path" pnpm test:browser:deploy
+
+      - name: Browser news modal smoke test
+        run: |
+          browser_path="$(find "$HOME/.cache/ms-playwright" -type f -path '*/chrome-linux64/chrome' -print -quit)"
+          test -n "$browser_path"
+          NEWS_POPUP_BROWSER_PATH="$browser_path" pnpm test:browser:news-popup
 
       - name: Build Workers bundle
         run: pnpm workers:build

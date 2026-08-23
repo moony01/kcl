@@ -102,6 +102,24 @@ kcl/
 
 Deployed on Cloudflare Pages as a fully static site (`output: 'export'`).
 
+Production deployment is browser-gated. Never run a direct Pages upload from a
+shell that does not have the public Supabase variables loaded; the static client
+would render the site shell but cannot load live league data.
+
+```bash
+pnpm check:deploy-env
+DEPLOY_BROWSER_PATH=/path/to/chrome pnpm test:browser:deploy
+pnpm build
+pnpm exec wrangler pages deploy out --project-name kcl --branch main
+```
+
+`test:browser:deploy` starts the development server, checks that live Supabase
+data renders company cards, verifies a news image is WebP-backed, and checks an
+English news detail through the locale fallback. A failed browser gate blocks
+the production deployment. The GitHub Actions workflow
+`.github/workflows/deploy-pages.yml` runs the same gate before a manual Pages
+production deployment.
+
 The `.github/workflows/kcl-league-promotion.yml` workflow runs on the 1st of every month (UTC 00:00) to:
 1. Snapshot season rankings
 2. Record the monthly champion
