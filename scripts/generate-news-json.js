@@ -37,6 +37,10 @@ const PUBLIC_API_OUTPUT = path.join(PUBLIC_API_DIR, 'news.json');
 const PUBLIC_CONTENT_OUTPUT_DIR = path.join(PUBLIC_API_DIR, 'news-content');
 // Pages와 Workers가 서로 다른 본문 로더를 사용하도록 빌드마다 생성
 const RUNTIME_OUTPUT = path.join(OUTPUT_DIR, 'news-runtime.ts');
+const PUBLIC_SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://mearrow.com').replace(
+  /\/+$/,
+  '',
+);
 
 /**
  * 디렉토리가 없으면 재귀적으로 생성
@@ -238,7 +242,7 @@ function main() {
       slug: item.slug,
       date: item.date,
       category: item.category,
-      url: `https://www.kclhq.com/en/news/${item.slug}`,
+      url: `${PUBLIC_SITE_URL}/en/news/${item.slug}`,
     }));
   fs.writeFileSync(PUBLIC_API_OUTPUT, JSON.stringify(publicApiData, null, 2), 'utf8');
 

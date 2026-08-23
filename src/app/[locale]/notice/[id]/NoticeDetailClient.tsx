@@ -12,6 +12,7 @@ import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
 import type { Announcement } from '@/types/announcement';
 import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
+import { FULL_URL } from '@/lib/constants';
 import styles from './page.module.scss';
 
 interface NoticeDetailClientProps {
@@ -128,7 +129,7 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
                 headline: notice.title,
                 datePublished: notice.created_at,
                 dateModified: notice.updated_at,
-                url: `https://www.kclhq.com/${locale}/notice/${noticeId}`,
+                url: `${FULL_URL}/${locale}/notice/${noticeId}`,
                 author: {
                   '@type': 'Organization',
                   name: BRAND_NAME,
@@ -138,7 +139,7 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
                   name: BRAND_NAME,
                   logo: {
                     '@type': 'ImageObject',
-                    url: `https://www.kclhq.com${BRAND_MARK_PATH}`,
+                    url: `${FULL_URL}${BRAND_MARK_PATH}`,
                   },
                 },
               }}

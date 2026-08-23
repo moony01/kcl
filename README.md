@@ -2,11 +2,11 @@
 
 > Content becomes opportunity. A K-pop talent network with community voting, news, and multilingual support.
 
-[![Live](https://img.shields.io/badge/Live-kclhq.com-blue)](https://kclhq.com/)
+[![Live](https://img.shields.io/badge/Live-mearrow.com-blue)](https://mearrow.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Cloudflare Pages](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://kclhq.com/)
+[![Cloudflare Pages](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://mearrow.com/)
 
-🌐 **Live**: https://kclhq.com
+🌐 **Live**: https://mearrow.com
 
 ---
 

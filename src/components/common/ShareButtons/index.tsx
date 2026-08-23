@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import styles from './ShareButtons.module.scss';
 import { BRAND_NAME, BRAND_POSITIONING } from '@/lib/brand';
+import { FULL_URL } from '@/lib/constants';
 
 /** X(Twitter) 아이콘 SVG */
 function XIcon({ size = 18 }: { size?: number }) {
@@ -110,7 +111,7 @@ interface ShareButtonsProps {
  * @example
  * <ShareButtons
  *   title="BTS가 MEARROW 1월 챔피언으로 선정!"
- *   url="https://kclhq.com/news/bts-january-champion"
+ *   url="https://mearrow.com/en/news/bts-january-champion"
  * />
  */
 export default function ShareButtons({
@@ -179,7 +180,7 @@ export default function ShareButtons({
       content: {
         title: title,
         description: description || `${BRAND_NAME} - ${BRAND_POSITIONING}`,
-        imageUrl: imageUrl || 'https://www.kclhq.com/en/opengraph-image',
+        imageUrl: imageUrl || `${FULL_URL}/en/opengraph-image`,
         link: {
           mobileWebUrl: shareUrl,
           webUrl: shareUrl,

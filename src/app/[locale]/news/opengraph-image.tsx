@@ -3,7 +3,7 @@
  * Next.js ImageResponse를 사용하여 언어별 OG 이미지 생성
  */
 import { ImageResponse } from 'next/og';
-import { SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/constants';
+import { SITE_URL, SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/constants';
 import { BRAND_NAME, BRAND_TAGLINE } from '@/lib/brand';
 
 /** OG 이미지 크기 설정 (권장 사이즈) */
@@ -13,6 +13,8 @@ export const size = {
 };
 
 export const contentType = 'image/png';
+
+const SITE_HOST = SITE_URL.replace(/^https?:\/\//, '').replace(/\/+$/, '');
 
 /** 언어별 타이틀 */
 const titles: Record<SupportedLocale, string> = {
@@ -130,7 +132,7 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
             fontWeight: 500,
           }}
         >
-          {`kclhq.com/news · ${BRAND_TAGLINE}`}
+          {`${SITE_HOST}/news · ${BRAND_TAGLINE}`}
         </div>
       </div>
     ),

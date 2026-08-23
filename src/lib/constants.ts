@@ -3,11 +3,11 @@
  *
  * 환경 변수 우선순위:
  * 1. NEXT_PUBLIC_SITE_URL (권장)
- * 2. 프로덕션 기본값: https://www.kclhq.com
+ * 2. 프로덕션 기본값: https://mearrow.com
  *
- * Cloudflare Pages 환경 변수 설정 필수!
+ * 배포 환경에서는 NEXT_PUBLIC_SITE_URL을 명시적으로 주입한다.
  */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kclhq.com';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://mearrow.com';
 
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
