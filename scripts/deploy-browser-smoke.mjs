@@ -52,7 +52,7 @@ async function waitForServer(baseUrl, child) {
 }
 
 function stopServer(child) {
-  if (child.exitCode !== null) return;
+  if (!child || child.exitCode !== null) return;
   try {
     if (process.platform !== 'win32' && child.pid) {
       process.kill(-child.pid, 'SIGTERM');
