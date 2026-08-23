@@ -95,6 +95,9 @@ function isIgnorableConsoleError(message) {
     message.includes('AdSense head tag') ||
     message.includes('googlesyndication.com') ||
     message.includes('google-analytics.com') ||
+    // React Grab is dev-only; its unpkg script can emit a CORS error in CI.
+    (message.includes('unpkg.com/react-grab/dist/index.global.js') &&
+      message.includes('CORS policy')) ||
     message.includes('Failed to load resource:')
   );
 }
