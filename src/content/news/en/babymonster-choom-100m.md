@@ -3,7 +3,7 @@ title: "100 Million in 13 Days - BABYMONSTER Just Made YG's Problem Bigger"
 excerpt: "BABYMONSTER CHOOM 100M turns a 13-day YouTube sprint into YG's next fandom, tour, and rookie-market pressure test."
 date: '2026-05-19'
 category: 'Tech & Culture'
-thumbnail: '/images/news/babymonster-choom-100m-thumbnail.png'
+thumbnail: '/images/news/babymonster-choom-100m-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ Views can be bought, boosted, debated or dismissed by rival fandoms. Subscriptio
 
 Allkpop and Fan N Star reported that `CHOOM` topped YouTube's global daily trending music video chart shortly after release, entered the platform's most-viewed-within-24-hours lane, and moved past 15 million views within half a day. Those early signals explain why YG can keep treating BABYMONSTER like a performance-first act rather than a standard rookie content feed.
 
-![BABYMONSTER CHOOM 100M fandom data network and arena lights](/images/news/babymonster-choom-100m-1.png)
+![BABYMONSTER CHOOM 100M fandom data network and arena lights](/images/news/babymonster-choom-100m-1.webp)
 _A ChatGPT-generated editorial image visualizing K-pop fandom attention, YouTube velocity and live-stage pressure without real faces or official logos._
 
 The group is not only asking fans to stream a music video. It is asking them to imagine the song onstage. That is where `CHOOM` becomes commercially useful: the concept translates into choreography clips, music-show stages, dance practice cuts, short-form challenges and tour anticipation. A view count gets the headline, but performance portability keeps the campaign alive.
@@ -54,11 +54,11 @@ Hanteo News reported that BABYMONSTER opened additional Seoul concert seats afte
 
 That is the bigger picture behind `100 million in 13 days`. The number is no longer just a brag for MONSTIEZ. It is a demand forecast. YG can use it when selling the group to promoters, platforms, brand partners and markets that want evidence before committing to scale. But evidence cuts both ways. If BABYMONSTER is already being positioned as a touring and video engine, every future release has to feed that engine.
 
-## KCL's View On BABYMONSTER CHOOM 100M
+## MEARROW's View On BABYMONSTER CHOOM 100M
 
 ### The real win is conversion, not views
 
-KCL reads `BABYMONSTER CHOOM 100M` as a conversion story. The group converted a comeback into subscribers, subscribers into repeat video demand, video demand into stronger tour logic, and tour logic back into the myth that BABYMONSTER is built for the stage. That loop is exactly what entertainment companies want from a young global act.
+MEARROW reads `BABYMONSTER CHOOM 100M` as a conversion story. The group converted a comeback into subscribers, subscribers into repeat video demand, video demand into stronger tour logic, and tour logic back into the myth that BABYMONSTER is built for the stage. That loop is exactly what entertainment companies want from a young global act.
 
 For trainees and aspiring idols, the lesson is blunt. Viral visibility helps, but it is not enough. BABYMONSTER's current momentum works because the group can attach platform numbers to performance readiness. The public sees views. The company sees a live product, a subscriber base, a tour route and a campaign structure that can be repeated if the members keep delivering.
 

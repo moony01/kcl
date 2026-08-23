@@ -3,7 +3,7 @@ title: 'IVE Dethrones BTS — ''BANG BANG'' Shatters All-Time Perfect All-Kill R
 excerpt: 'IVE''s pre-release single ''BANG BANG'' reached 916 hourly Perfect All-Kills on March 7, surpassing BTS''s all-time record of 913. The first girl group ever to achieve 6 PAK songs, plus 6 music show wins — Starship and Kakao''s chart dominance has reached historic levels.'
 date: '2026-03-08'
 category: 'Artist'
-thumbnail: '/images/news/ive-bang-bang-pak-record-starship-kakao-2026-thumbnail.png'
+thumbnail: '/images/news/ive-bang-bang-pak-record-starship-kakao-2026-thumbnail.webp'
 ---
 
 On March 7, IVE's pre-release single **'BANG BANG'** reached **916 hourly Perfect All-Kills (PAK)**, surpassing BTS's all-time record of 913 hours. K-pop chart history has been rewritten.
@@ -28,7 +28,7 @@ PAK is the hardest chart metric to achieve in K-pop. Fandom streaming alone can'
 
 'BANG BANG' achieved title-track-level chart performance despite being only a pre-release single. The fact that these numbers came before the album's actual title track was even released proves IVE's mainstream influence currently stands in a league of its own in K-pop.
 
-![IVE BANG BANG Perfect All-Kill record](/images/news/ive-bang-bang-pak-record-starship-kakao-2026-1.png)
+![IVE BANG BANG Perfect All-Kill record](/images/news/ive-bang-bang-pak-record-starship-kakao-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## First Girl Group — The 6-Song PAK Club
@@ -102,9 +102,9 @@ IVE surpassing BTS's PAK record carries deep symbolic weight. BTS commands the l
 
 BTS's strength lies in explosive mobilization powered by a global fandom. IVE's strength lies in **penetration into Korea's general public**. Non-fans listen to IVE songs — and that is precisely why PAK happens every single time.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
-IVE's all-time PAK record poses clear questions for the KCL landscape.
+IVE's all-time PAK record poses clear questions for the MEARROW landscape.
 
 First, **has Starship earned Big 4-level status?** On chart performance alone from a single group, Starship stands shoulder-to-shoulder with SM, YG, and JYP. Factor in parent company Kakao's resources, and the Starship-Kakao alliance arguably already wields Big 4-level influence.
 
@@ -112,4 +112,4 @@ Second, **is a generational shift in chart dominance underway?** A 4th-generatio
 
 Third, **how far can IVE go?** IVE is the only group in K-pop history to achieve PAK on every single released since debut. If this undefeated streak continues with their next album, IVE will be cemented as one of the most successful girl groups in K-pop history by chart performance alone.
 
-IVE surpassing BTS isn't just one group breaking another's record. **It's a signal that K-pop's chart power structure is shifting.** The rise of the Starship-Kakao alliance is cracking the Big 4 framework — and KCL will continue tracking this transformation.
+IVE surpassing BTS isn't just one group breaking another's record. **It's a signal that K-pop's chart power structure is shifting.** The rise of the Starship-Kakao alliance is cracking the Big 4 framework — and MEARROW will continue tracking this transformation.

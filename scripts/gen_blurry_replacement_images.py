@@ -234,8 +234,8 @@ def gen_hybe_bang_thumbnail():
     draw.text((20, HEIGHT - 30), "KCL · K-POP CULTURE LENS · BUSINESS", font=tag_font, fill=(120, 80, 80, 180))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.70, grain_intensity=8)
-    out_path = os.path.join(OUTPUT_DIR, "hybe-bang-arrest-warrant-thumbnail.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "hybe-bang-arrest-warrant-thumbnail.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -352,8 +352,8 @@ def gen_hybe_bang_body():
     draw.text((WIDTH - (bbox_rt[2] - bbox_rt[0]) - 20, HEIGHT - 32), right_tag, font=tag_font, fill=(140, 140, 160, 200))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.60, grain_intensity=8)
-    out_path = os.path.join(OUTPUT_DIR, "hybe-bang-arrest-warrant-1.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "hybe-bang-arrest-warrant-1.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -477,8 +477,8 @@ def gen_bigbang_thumbnail():
     draw.text((20, HEIGHT - 30), "KCL · K-POP CULTURE LENS · ARTIST", font=tag_font, fill=(130, 110, 60, 200))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.65, grain_intensity=9)
-    out_path = os.path.join(OUTPUT_DIR, "bigbang-august-tour-thumbnail.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "bigbang-august-tour-thumbnail.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -597,8 +597,8 @@ def gen_bigbang_body():
     draw.text((20, HEIGHT - 30), "KCL · K-POP CULTURE LENS · April 20, 2026", font=tag_font, fill=(140, 130, 100, 200))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.60, grain_intensity=9)
-    out_path = os.path.join(OUTPUT_DIR, "bigbang-august-tour-1.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "bigbang-august-tour-1.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -713,8 +713,8 @@ def gen_nct_wish_cortis_thumbnail():
     draw.text((tx, HEIGHT - 42), "6:00 PM KST · April 20, 2026", font=time_font, fill=(255, 220, 80, 255))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.60, grain_intensity=8)
-    out_path = os.path.join(OUTPUT_DIR, "nct-wish-cortis-clash-thumbnail.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "nct-wish-cortis-clash-thumbnail.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -835,8 +835,8 @@ def gen_nct_wish_cortis_body():
     draw.text((sbx, HEIGHT - 32), sub_btxt, font=sub_font2, fill=(180, 180, 200, 200))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.60, grain_intensity=8)
-    out_path = os.path.join(OUTPUT_DIR, "nct-wish-cortis-clash-1.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "nct-wish-cortis-clash-1.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -962,8 +962,8 @@ def gen_idle_thumbnail():
     draw.text((20, HEIGHT - 30), "KCL · K-POP CULTURE LENS · MARKET TREND", font=tag_font, fill=(100, 100, 120, 180))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.70, grain_intensity=10)
-    out_path = os.path.join(OUTPUT_DIR, "idle-us-tour-cancelled-thumbnail.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "idle-us-tour-cancelled-thumbnail.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -1058,8 +1058,8 @@ def gen_idle_body():
     draw.text((nx, HEIGHT - 45), note, font=note_font, fill=(140, 140, 160, 200))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.65, grain_intensity=10)
-    out_path = os.path.join(OUTPUT_DIR, "idle-us-tour-cancelled-1.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "idle-us-tour-cancelled-1.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -1171,8 +1171,8 @@ def gen_taemin_thumbnail():
               fill=(120, 80, 160, 180))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.72, grain_intensity=9)
-    out_path = os.path.join(OUTPUT_DIR, "taemin-coachella-first-thumbnail.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "taemin-coachella-first-thumbnail.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 
@@ -1276,8 +1276,8 @@ def gen_taemin_body():
               fill=(140, 120, 160, 200))
 
     result = apply_vignette_and_grain(img, vignette_strength=0.65, grain_intensity=9)
-    out_path = os.path.join(OUTPUT_DIR, "taemin-coachella-first-1.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "taemin-coachella-first-1.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Saved: {out_path}")
     return out_path
 

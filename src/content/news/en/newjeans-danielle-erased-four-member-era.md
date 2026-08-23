@@ -3,7 +3,7 @@ title: '"Danielle, Completely Erased" — NewJeans'' Four-Member Era Is Now Irre
 excerpt: 'ADOR has wiped all traces of Danielle and Min Hee-jin from NewJeans'' official channels. Profile photos, banners, Spotify — the transition to a four-member lineup has entered the point of no return.'
 date: '2026-02-11'
 category: 'Industry'
-thumbnail: '/images/news/newjeans-danielle-erased-four-member-era-thumbnail.png'
+thumbnail: '/images/news/newjeans-danielle-erased-four-member-era-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ Behind this "erasure" lies cold business logic. In late 2025, ADOR confirmed tha
 
 In this context, maintaining Danielle's image on official channels creates contradictions both legally and from a branding perspective. Continuing to use a terminated artist's likeness could itself become a litigation risk, and preserving the "five-member NewJeans" image could foster false expectations among fans. ADOR's judgment was a **"clean cut"** — painful but fast, decisive, and irreversible.
 
-![An image symbolizing ADOR's strategic decision](/images/news/newjeans-danielle-erased-four-member-era-1.png)
+![An image symbolizing ADOR's strategic decision](/images/news/newjeans-danielle-erased-four-member-era-1.webp)
 _The removal of a member from official channels was not a simple image change but a strategic verdict_
 
 ## Minji's Decision — The Final Variable
@@ -32,9 +32,9 @@ The four-member structure appears all but confirmed, yet one person's decision r
 
 If Minji returns, NewJeans can reorganize as a four-member act and resume activities. But if she also departs, the group faces an even more drastic reduction to three. K-pop history has seen groups successfully rebound after member departures — BIGBANG, Apink, GOT7 — but none of those journeys were smooth. Whatever Minji decides, it will define the character of "NewJeans 2.0."
 
-## KCL's Perspective on the Four-Member Era
+## MEARROW's Perspective on the Four-Member Era
 
-From KCL's (K-pop Company League) standpoint, this situation carries meaning far beyond a simple lineup change. It once again proves that **K-pop's power structure prioritizes corporate legal and strategic judgment over individual artist agency**. Under the HYBE-ADOR system, each artist's options collapsed into a binary: stay or be removed.
+From MEARROW's (K-pop Talent Network) standpoint, this situation carries meaning far beyond a simple lineup change. It once again proves that **K-pop's power structure prioritizes corporate legal and strategic judgment over individual artist agency**. Under the HYBE-ADOR system, each artist's options collapsed into a binary: stay or be removed.
 
 Simultaneously, this case dramatically illustrates the **tension between contract enforceability and artist rights**. After a court upheld the contract's validity in 2025, the option of "independence" for NewJeans members effectively ceased to exist. Danielle's case will likely serve as a critical precedent for future idol group contract disputes.
 

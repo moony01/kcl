@@ -9,7 +9,7 @@
  * <JsonLd data={{
  *   "@context": "https://schema.org",
  *   "@type": "WebSite",
- *   "name": "KCL"
+ *   "name": "MEARROW"
  * }} />
  * ```
  */

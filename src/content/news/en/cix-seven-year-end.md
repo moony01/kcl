@@ -3,7 +3,7 @@ title: 'CIX Just Hit the 7-Year Wall - And Seunghun Said the Quiet Part Out Loud
 excerpt: 'CIX disbandment turned into a harsher K-pop warning when Seunghun retirement exposed the cost behind the seven-year wall.'
 date: '2026-05-06'
 category: 'Industry'
-thumbnail: '/images/news/cix-seven-year-end-thumbnail.png'
+thumbnail: '/images/news/cix-seven-year-end-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ The C9 announcement explained what would happen to the team. Seunghun's letter e
 
 The line that traveled fastest was the one about putting down the singer title for a while. It did not read like a clean solo pivot, a label transfer, or a promise to return next season. It read like someone who had spent most of his life training, debuting, promoting, competing, and waiting had finally reached a point where the stage itself needed distance.
 
-![CIX disbandment rehearsal room symbolizing Seunghun retirement](/images/news/cix-seven-year-end-1.png)
+![CIX disbandment rehearsal room symbolizing Seunghun retirement](/images/news/cix-seven-year-end-1.webp)
 _A ChatGPT-generated editorial image of an empty rehearsal room, symbolizing the quiet aftermath of a group ending._
 
 That emotional specificity is why the story moved beyond CIX's core fandom. Plenty of groups pause, rebrand, or dissolve. Fewer idols say so plainly that they are scared of life outside the work they have done since childhood. Seunghun's message pulled the business event back into human scale.
@@ -62,11 +62,11 @@ That should make the ending more instructive, not less. K-pop training often tea
 
 None of that erases the achievement. Seven years in an idol group is real work. It is also a reminder that the industry does not hand permanent identity to everyone who survives the trainee system. If anything, trainees should read this as a call to build more than performance skill. They need emotional stamina, career flexibility, language ability, and a plan for life beyond one group name.
 
-## KCL's View On CIX And The Seven-Year Wall
+## MEARROW's View On CIX And The Seven-Year Wall
 
 ### The market remembers songs, but companies measure continuity
 
-KCL reads the CIX ending as a mid-market warning signal. The group did not vanish because nobody cared. It ended in the space between care and scale. That is the uncomfortable zone many K-pop companies are now managing. A group can have devoted listeners, respected music, and years of shared memory, yet still face a contract renewal equation that does not tilt toward continuation.
+MEARROW reads the CIX ending as a mid-market warning signal. The group did not vanish because nobody cared. It ended in the space between care and scale. That is the uncomfortable zone many K-pop companies are now managing. A group can have devoted listeners, respected music, and years of shared memory, yet still face a contract renewal equation that does not tilt toward continuation.
 
 The strongest lesson sits in the contrast between C9's statement and Seunghun's letter. The agency language was procedural. The idol language was existential. One side mapped contracts, enlistment, and support periods. The other side asked what remains when a person who has sung and danced since childhood steps away from the only professional identity fans know.
 

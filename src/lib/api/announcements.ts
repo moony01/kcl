@@ -1,10 +1,11 @@
 /**
- * KCL 공지사항 Supabase API 레이어
+ * MEARROW 공지사항 Supabase API 레이어
  * 클라이언트 사이드에서 Supabase를 통해 공지사항 데이터 조회
  * 빌드 타임에서는 서버 클라이언트를 통해 정적 페이지 생성용 데이터 조회
  */
 
 import { createClient } from '@/lib/supabase/client';
+import { BRAND_NAME } from '@/lib/brand';
 import type { Announcement, AnnouncementCategory, AnnouncementListItem } from '@/types/announcement';
 
 export const SIGNUP_EVENT_NOTICE_ID = 'event-signup-double-votes-2026-02';
@@ -17,39 +18,39 @@ interface EventNoticeCopy {
 function getEventNoticeCopy(locale = 'ko'): EventNoticeCopy {
   const copies: Record<string, EventNoticeCopy> = {
     ko: {
-      title: 'KCL 일일 투표권 안내',
+      title: `${BRAND_NAME} 일일 투표권 안내`,
       content:
-        '<p><strong>KCL 일일 투표권은 비로그인 100표, 로그인 회원 300표입니다.</strong></p><p>투표권은 매일 UTC 자정에 다시 충전됩니다.</p><p>파워투표는 한 번에 최대 100표까지 사용할 수 있습니다.</p><p>로그인하고 최애 소속사를 더 오래 응원해보세요.</p>',
+        `<p><strong>${BRAND_NAME} 일일 투표권은 비로그인 100표, 로그인 회원 300표입니다.</strong></p><p>투표권은 매일 UTC 자정에 다시 충전됩니다.</p><p>파워투표는 한 번에 최대 100표까지 사용할 수 있습니다.</p><p>로그인하고 최애 소속사를 더 오래 응원해보세요.</p>`,
     },
     en: {
-      title: 'KCL daily vote guide',
+      title: `${BRAND_NAME} daily vote guide`,
       content:
-        '<p><strong>KCL gives guests 100 votes and signed-in members 300 votes daily.</strong></p><p>Votes refresh every day at midnight UTC.</p><p>Power Vote lets you cast up to 100 votes at once.</p><p>Sign in and support your favorite company for longer.</p>',
+        `<p><strong>${BRAND_NAME} gives guests 100 votes and signed-in members 300 votes daily.</strong></p><p>Votes refresh every day at midnight UTC.</p><p>Power Vote lets you cast up to 100 votes at once.</p><p>Sign in and support your favorite company for longer.</p>`,
     },
     ja: {
-      title: 'KCLデイリー投票権ガイド',
+      title: `${BRAND_NAME}デイリー投票権ガイド`,
       content:
-        '<p><strong>KCLではゲストは毎日100票、ログイン会員は毎日300票を利用できます。</strong></p><p>投票権は毎日UTC午前0時に再チャージされます。</p><p>パワー投票では一度に最大100票まで使用できます。</p><p>ログインして推しの事務所をもっと長く応援しましょう。</p>',
+        `<p><strong>${BRAND_NAME}ではゲストは毎日100票、ログイン会員は毎日300票を利用できます。</strong></p><p>投票権は毎日UTC午前0時に再チャージされます。</p><p>パワー投票では一度に最大100票まで使用できます。</p><p>ログインして推しの事務所をもっと長く応援しましょう。</p>`,
     },
     zh: {
-      title: 'KCL 每日投票权指南',
+      title: `${BRAND_NAME} 每日投票权指南`,
       content:
-        '<p><strong>KCL 游客每天 100 票，登录会员每天 300 票。</strong></p><p>投票权会在每天 UTC 午夜刷新。</p><p>火力投票一次最多可使用 100 票。</p><p>登录后可以更久地支持你喜爱的公司。</p>',
+        `<p><strong>${BRAND_NAME} 游客每天 100 票，登录会员每天 300 票。</strong></p><p>投票权会在每天 UTC 午夜刷新。</p><p>火力投票一次最多可使用 100 票。</p><p>登录后可以更久地支持你喜爱的公司。</p>`,
     },
     es: {
-      title: 'Guía de votos diarios de KCL',
+      title: `Guía de votos diarios de ${BRAND_NAME}`,
       content:
-        '<p><strong>KCL ofrece 100 votos diarios a invitados y 300 votos diarios a miembros con sesión iniciada.</strong></p><p>Los votos se recargan cada día a medianoche UTC.</p><p>El Voto Poderoso permite emitir hasta 100 votos de una vez.</p><p>Inicia sesión y apoya por más tiempo a tu empresa favorita.</p>',
+        `<p><strong>${BRAND_NAME} ofrece 100 votos diarios a invitados y 300 votos diarios a miembros con sesión iniciada.</strong></p><p>Los votos se recargan cada día a medianoche UTC.</p><p>El Voto Poderoso permite emitir hasta 100 votos de una vez.</p><p>Inicia sesión y apoya por más tiempo a tu empresa favorita.</p>`,
     },
     fr: {
-      title: 'Guide des votes quotidiens KCL',
+      title: `Guide des votes quotidiens ${BRAND_NAME}`,
       content:
-        '<p><strong>KCL offre 100 votes par jour aux visiteurs et 300 votes par jour aux membres connectés.</strong></p><p>Les votes se rechargent chaque jour à minuit UTC.</p><p>Le Vote Puissant permet de lancer jusqu\u2019à 100 votes en une fois.</p><p>Connectez-vous et soutenez plus longtemps votre entreprise favorite.</p>',
+        `<p><strong>${BRAND_NAME} offre 100 votes par jour aux visiteurs et 300 votes par jour aux membres connectés.</strong></p><p>Les votes se rechargent chaque jour à minuit UTC.</p><p>Le Vote Puissant permet de lancer jusqu\u2019à 100 votes en une fois.</p><p>Connectez-vous et soutenez plus longtemps votre entreprise favorite.</p>`,
     },
     de: {
-      title: 'KCL-Leitfaden für tägliche Stimmen',
+      title: `${BRAND_NAME}-Leitfaden für tägliche Stimmen`,
       content:
-        '<p><strong>KCL gibt Gästen täglich 100 Stimmen und eingeloggten Mitgliedern täglich 300 Stimmen.</strong></p><p>Stimmen werden jeden Tag um Mitternacht UTC aufgefüllt.</p><p>Power-Voting erlaubt bis zu 100 Stimmen auf einmal.</p><p>Melde dich an und unterstütze dein Lieblingsunternehmen länger.</p>',
+        `<p><strong>${BRAND_NAME} gibt Gästen täglich 100 Stimmen und eingeloggten Mitgliedern täglich 300 Stimmen.</strong></p><p>Stimmen werden jeden Tag um Mitternacht UTC aufgefüllt.</p><p>Power-Voting erlaubt bis zu 100 Stimmen auf einmal.</p><p>Melde dich an und unterstütze dein Lieblingsunternehmen länger.</p>`,
     },
   };
 

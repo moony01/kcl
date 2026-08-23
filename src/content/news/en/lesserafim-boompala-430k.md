@@ -3,7 +3,7 @@ title: "LE SSERAFIM Sold 435,675 in One Day - But BOOMPALA's Real Problem Is Not
 excerpt: "LE SSERAFIM BOOMPALA opened with 435,675 Hanteo sales, but PUREFLOW pt.1 now faces a bigger test: whether debate becomes demand."
 date: "2026-05-23"
 category: "Industry"
-thumbnail: "/images/news/lesserafim-boompala-430k-thumbnail.png"
+thumbnail: "/images/news/lesserafim-boompala-430k-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ ChosunBiz and allkpop both described `BOOMPALA` as a Latin house-based track tha
 
 That is probably the point. `BOOMPALA` is not trying to win only through elegant subtlety. It is designed to travel through short-form clips, dance challenges, reaction edits, and argument. A chorus that some listeners find repetitive can still be useful if it is easy to imitate and hard to ignore. The question is whether that repeatability turns into affection after the first shock fades. A sample can open the door, but it cannot do the whole comeback's work by itself.
 
-![LE SSERAFIM BOOMPALA comeback stage split between sales momentum and fan debate](/images/news/lesserafim-boompala-430k-1.png)
+![LE SSERAFIM BOOMPALA comeback stage split between sales momentum and fan debate](/images/news/lesserafim-boompala-430k-1.webp)
 _A ChatGPT-generated editorial image representing the split between release-day celebration and fan debate around `BOOMPALA`._
 
 ## PUREFLOW Is Selling A New Kind Of Fear
@@ -50,13 +50,13 @@ The early reaction around `BOOMPALA` is visibly split across fan spaces. Some li
 
 ### The health context makes the debate sharper
 
-The uncomfortable layer is timing. Kim Chaewon's temporary hiatus had already made this comeback feel physically and emotionally loaded before release day. That does not make `BOOMPALA` responsible for the health story, and KCL is not drawing that causal line. It does mean the public is receiving the song through a more sensitive frame. Choreography, workload, stage formation, and promotional pressure are no longer background details. They are part of how fans judge the era.
+The uncomfortable layer is timing. Kim Chaewon's temporary hiatus had already made this comeback feel physically and emotionally loaded before release day. That does not make `BOOMPALA` responsible for the health story, and MEARROW is not drawing that causal line. It does mean the public is receiving the song through a more sensitive frame. Choreography, workload, stage formation, and promotional pressure are no longer background details. They are part of how fans judge the era.
 
-## KCL's View On LE SSERAFIM BOOMPALA
+## MEARROW's View On LE SSERAFIM BOOMPALA
 
 ### The number buys attention, not consensus
 
-KCL reads the `435,675` figure as a launch permit, not a final verdict. It gives LE SSERAFIM enough commercial proof to survive a noisy first reaction, but it also raises the next bar. If `BOOMPALA` keeps generating clips, music-show momentum, and repeat listening, the first-day sales will look like the opening chapter of a strong era. If the conversation burns hot for a week and then thins out, the number will look more like fandom loyalty doing emergency work.
+MEARROW reads the `435,675` figure as a launch permit, not a final verdict. It gives LE SSERAFIM enough commercial proof to survive a noisy first reaction, but it also raises the next bar. If `BOOMPALA` keeps generating clips, music-show momentum, and repeat listening, the first-day sales will look like the opening chapter of a strong era. If the conversation burns hot for a week and then thins out, the number will look more like fandom loyalty doing emergency work.
 
 ### Source Music is testing a riskier kind of comeback engineering
 

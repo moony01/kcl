@@ -1,6 +1,6 @@
-# KCL — K-Pop Company League
+# MEARROW — K-pop Talent Network
 
-> K-Pop entertainment company ranking platform with season-based leagues and multilingual support.
+> Content becomes opportunity. A K-pop talent network with community voting, news, and multilingual support.
 
 [![Live](https://img.shields.io/badge/Live-kclhq.com-blue)](https://kclhq.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -12,7 +12,7 @@
 
 ## About
 
-KCL is a fan-driven ranking platform for K-Pop entertainment companies. Users vote each month to determine which companies dominate the 1st and 2nd divisions of the league. At the end of each season, promotion and relegation are applied automatically, and a Hall of Fame records each month's champion.
+MEARROW is a K-pop talent network where content, community, and opportunity connect. Its initial community layer includes fan-driven company rankings: users vote each month to determine which companies lead the 1st and 2nd divisions of the league. At the end of each season, promotion and relegation are applied automatically, and a Hall of Fame records each month's champion.
 
 ## Features
 

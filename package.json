@@ -9,7 +9,11 @@
     "dev": "next dev",
     "prebuild": "pnpm generate:content",
     "clean:build": "node -e \"const fs=require('fs'); for (const dir of ['.next','out']) fs.rmSync(dir,{recursive:true,force:true});\"",
-    "build": "pnpm clean:build && next build && next-image-export-optimizer && node scripts/inject-sitemap-style.js",
+    "build": "pnpm clean:build && next build && node scripts/postbuild.mjs",
+    "workers:build": "node scripts/build-workers.mjs",
+    "workers:preview": "pnpm workers:build && pnpm exec opennextjs-cloudflare preview --env preview",
+    "workers:deploy:preview": "pnpm workers:build && pnpm exec opennextjs-cloudflare deploy --env preview",
+    "workers:deploy:production": "pnpm workers:build && pnpm exec opennextjs-cloudflare deploy --env production",
     "start": "next start",
     "lint": "eslint",
     "pretest": "pnpm generate:content",
@@ -27,7 +31,7 @@
     "gray-matter": "^4.0.3",
     "isomorphic-dompurify": "3.0.0-rc.2",
     "lucide-react": "^0.562.0",
-    "next": "16.1.1",
+    "next": "16.2.11",
     "next-image-export-optimizer": "^1.20.1",
     "next-intl": "^4.7.0",
     "next-themes": "^0.4.6",
@@ -44,6 +48,7 @@
     "zod": "^4.3.5"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.2",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.1",
     "@types/node": "^20",
@@ -53,10 +58,11 @@
     "@vitejs/plugin-react": "^5.1.2",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.1",
+    "eslint-config-next": "16.2.11",
     "jsdom": "^27.4.0",
     "sharp": "^0.34.5",
     "typescript": "^5",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.17",
+    "wrangler": "^4.125.0"
   }
 }

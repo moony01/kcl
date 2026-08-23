@@ -3,7 +3,7 @@ title: "'WILD' Is Coming, But Manon Is Still Missing - The Costliest Void Inside
 excerpt: "KATSEYE's new EP WILD arrives on August 14. But after Coachella, the bigger story is whether HYBE x Geffen can manage Manon's absence without losing trust."
 date: '2026-04-16'
 category: 'Industry'
-thumbnail: '/images/news/katseye-wild-manon-thumbnail.png'
+thumbnail: '/images/news/katseye-wild-manon-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Taken together, Korea JoongAng Daily and Billboard Canada show that the breakout
 
 Most groups use a hot streak to drown out discomfort. KATSEYE did the opposite. The stronger the Coachella moment looked, the more visible the missing seat became. The reaction was not, "The stage went well, so let's move on." It was, "If the group is rising this fast, why does the explanation still feel this thin?" That is why `WILD` created more questions than celebration.
 
-![KATSEYE WILD absence symbolized by five lit profile boards](/images/news/katseye-wild-manon-1.png)
+![KATSEYE WILD absence symbolized by five lit profile boards](/images/news/katseye-wild-manon-1.webp)
 _A visual metaphor for a comeback cycle where five bright signals and one unlit space are being read at the same time._
 
 ## How the Public Is Reading This Gap
@@ -42,11 +42,11 @@ Public sentiment is split in two directions. One side says recovery comes first.
 
 That distinction matters. Public emotion does not determine Manon's recovery timeline, future participation, or contractual status. It only shows how fans are processing a prolonged lack of clarity. Facts still have to come from official updates and actual activity. That is why the real issue here is not speculation itself. It is whether the group and its labels can communicate clearly enough to keep speculation from becoming the dominant storyline.
 
-## KCL's Take on KATSEYE WILD
+## MEARROW's Take on KATSEYE WILD
 
 ### HYBE x Geffen is being tested on narrative management, not just music
 
-KCL does not see this as just another comeback missing one member. The more important question is how a global idol project handles a visible gap when the fan base is multinational and hyper-online. Silence can sometimes hold in a domestic market. In a hybrid system like KATSEYE's, silence gets expensive faster. Even if the music lands, weak communication invites a much harsher interpretation war.
+MEARROW does not see this as just another comeback missing one member. The more important question is how a global idol project handles a visible gap when the fan base is multinational and hyper-online. Silence can sometimes hold in a domestic market. In a hybrid system like KATSEYE's, silence gets expensive faster. Even if the music lands, weak communication invites a much harsher interpretation war.
 
 ## The Next Turning Point Comes Before August 14
 

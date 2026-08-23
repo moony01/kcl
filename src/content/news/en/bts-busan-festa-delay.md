@@ -3,7 +3,7 @@ title: "BTS' Busan Homecoming Drew 110,000 — But a 75-Minute Delay Exposed the
 excerpt: "BTS marked its 13th anniversary in Busan with 110,000 fans over two nights, but HYBE's 75-minute delay apology shows the real challenge is city-scale fan logistics."
 date: '2026-06-14'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-busan-festa-delay-thumbnail.png'
+thumbnail: '/images/news/bts-busan-festa-delay-thumbnail.webp'
 active: true
 ---
 
@@ -31,14 +31,14 @@ The first night was scheduled to begin at `7 p.m.` on June 12. The show began at
 
 The old question was whether K-pop could fill venues this large. BTS answered that years ago. The current question is harder: can agencies, venues, transit corridors, merchandise teams, fan-benefit systems and city partners all move at the same speed as fandom demand?
 
-![A purple-lit Busan stadium night with huge K-pop concert crowds moving through gates](/images/news/bts-busan-festa-delay-1.png)
+![A purple-lit Busan stadium night with huge K-pop concert crowds moving through gates](/images/news/bts-busan-festa-delay-1.webp)
 _An AI-rendered editorial image of Busan concert logistics under purple stadium light._
 
 ## The City Format Raises the Stakes
 
 ### THE CITY turns one concert into many moving parts
 
-This is where `BTS THE CITY ARIRANG-BUSAN` becomes important. Khan reported that the offline city event spread across Busan landmarks, including a drone show over Gwangandaegyo Bridge, a light show at Busan Cinema Center, and BTS messages at major sites such as Busan Eurasia Platform and the Gwangbok-ro media facade. That is exactly the kind of expansion KCL flagged earlier: BTS is not only selling a seat inside a stadium anymore. It is selling a full destination experience around the stadium.
+This is where `BTS THE CITY ARIRANG-BUSAN` becomes important. Khan reported that the offline city event spread across Busan landmarks, including a drone show over Gwangandaegyo Bridge, a light show at Busan Cinema Center, and BTS messages at major sites such as Busan Eurasia Platform and the Gwangbok-ro media facade. That is exactly the kind of expansion MEARROW flagged earlier: BTS is not only selling a seat inside a stadium anymore. It is selling a full destination experience around the stadium.
 
 That strategy is powerful because it widens the revenue map. Fans spend on travel, lodging, transport, food, retail, pop-ups, merchandise, and time inside the city. It also widens the risk map. Every added experience creates another queue, another timing dependency, another crowd-flow issue, and another place where a small bottleneck can become a headline.
 
@@ -50,11 +50,11 @@ For fans, a delay can feel like disrespect even when the show itself eventually 
 
 BTS fans are unusually organized, but organization should not become free labor for the event system. If tens of thousands of fans are expected to show up early, collect benefits, buy goods and navigate city programming, then the event design has to assume that all of those behaviors will happen at once. Anything less turns loyalty into congestion.
 
-## KCL's Read on the Busan Signal
+## MEARROW's Read on the Busan Signal
 
 ### BTS proved demand again; HYBE exposed the next ceiling
 
-KCL reads Busan as a split verdict. On the artist side, BTS' position is still extraordinary. A domestic two-night stop drawing about `110,000` fans, tied to a debut anniversary and broadcast through live viewing in more than `80` countries, is not normal artist activity. It is a national-scale fan system with international reach.
+MEARROW reads Busan as a split verdict. On the artist side, BTS' position is still extraordinary. A domestic two-night stop drawing about `110,000` fans, tied to a debut anniversary and broadcast through live viewing in more than `80` countries, is not normal artist activity. It is a national-scale fan system with international reach.
 
 On the operator side, however, Busan shows the next ceiling for K-pop's biggest companies. The competition is moving from pure demand generation to demand handling. That sounds less glamorous than chart records or stadium photos, but it may decide which companies can scale the next decade of live K-pop.
 

@@ -3,7 +3,7 @@ title: "K-pop Just Invaded the World Cup Soundtrack — But TWS Is the Real Test
 excerpt: "K-pop World Cup soundtrack buzz now has Lisa, TWS and Korea's football campaign in one frame. The real story is fandom as sports strategy."
 date: '2026-06-10'
 category: 'Industry'
-thumbnail: '/images/news/kpop-world-cup-soundtrack-thumbnail.png'
+thumbnail: '/images/news/kpop-world-cup-soundtrack-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The clearest Korean case is TWS. A Weverse notice announced the digital single `
 
 That also explains the mixed reaction. Some fans see the assignment as a fast credibility lift for a young Pledis boy group. Others question whether a relatively new team should be placed so close to a World Cup campaign before the public has fully settled on its identity. Both reactions are useful to the company. Praise creates momentum; doubt creates debate; debate keeps the release visible.
 
-![K-pop World Cup soundtrack strategy room overlooking a football stadium with global fandom data](/images/news/kpop-world-cup-soundtrack-1.png)
+![K-pop World Cup soundtrack strategy room overlooking a football stadium with global fandom data](/images/news/kpop-world-cup-soundtrack-1.webp)
 _Image: AI-generated via ChatGPT, representing the fusion of K-pop fandom strategy and global football audiences_
 
 ## Lisa Shows the Global Version of the Same Play
@@ -40,11 +40,11 @@ For Korean entertainment companies, this changes the ambition. A World Cup-linke
 
 ### Sports is becoming a distribution channel
 
-KCL has been tracking the same pattern in live events: K-pop is moving into spaces that were not built for idol fandom first. [Related: Gov Ball Just Became K-pop's Weekend — 3 Acts, One NYC Test Nobody Can Ignore](/en/news/gov-ball-kpop-weekend). Festivals, brand collaborations and now football soundtracks all work because they place idol systems in front of audiences that did not intentionally enter a fandom space.
+MEARROW has been tracking the same pattern in live events: K-pop is moving into spaces that were not built for idol fandom first. [Related: Gov Ball Just Became K-pop's Weekend — 3 Acts, One NYC Test Nobody Can Ignore](/en/news/gov-ball-kpop-weekend). Festivals, brand collaborations and now football soundtracks all work because they place idol systems in front of audiences that did not intentionally enter a fandom space.
 
 The risk is that these placements can look bigger than they actually are. A World Cup headline guarantees attention, not loyalty. If the song is generic, fans will stream it once and move on. If the campaign leans too heavily on national symbolism without giving the group a memorable hook, the artist becomes a logo carrier rather than a beneficiary. The best version gives both sides what they need: football gets emotional lift; the artist gets identity expansion.
 
-## KCL's Take: The Real Test Is Conversion
+## MEARROW's Take: The Real Test Is Conversion
 
 ### Can stadium attention become returning fandom?
 

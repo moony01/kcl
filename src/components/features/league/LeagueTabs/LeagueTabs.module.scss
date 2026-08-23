@@ -142,10 +142,10 @@
 }
 
 // ===== 라이트 모드 스타일 오버라이드 =====
-// 흰색 배경 + 보라색(로고 색상) 테마
-$light-primary: #8B5CF6;
-$light-primary-light: #A78BFA;
-$light-primary-dark: #7C3AED;
+// 흰색 배경 + MEARROW 블루 테마
+$light-primary: #315CFF;
+$light-primary-light: #8EA4FF;
+$light-primary-dark: #2549D8;
 
 :global(:root:not([data-theme='dark'])) {
   .tabList {

@@ -3,7 +3,7 @@ title: "ITZY Finally Found Its Motto - But The 7-Year Fan Letter Has A Catch"
 excerpt: "ITZY Motto turns a 12th EP comeback into a seven-year fan loyalty test while the Tunnel Vision tour keeps pressure high."
 date: '2026-05-19'
 category: 'Artist'
-thumbnail: '/images/news/itzy-motto-identity-thumbnail.png'
+thumbnail: '/images/news/itzy-motto-identity-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The track list makes the comeback more complicated than a normal group release. 
 
 That structure gives the EP two engines. One engine is the group comeback, where ITZY has to make the public hear one shared direction. The other is the member-specific layer, where fans can attach identity, bias memory, and concert anticipation to individual tracks. The risk is fragmentation: if the solos dominate conversation, the comeback can feel more like a package of member moments than a unified era. The opportunity is deeper inventory. A tour audience does not only need one title track; it needs songs that make each member feel visible on stage.
 
-![ITZY Motto comeback identity shown through anonymous rehearsal silhouettes](/images/news/itzy-motto-identity-1.png)
+![ITZY Motto comeback identity shown through anonymous rehearsal silhouettes](/images/news/itzy-motto-identity-1.webp)
 _A ChatGPT-generated editorial visualization of ITZY's comeback pressure and fan-response energy, without real faces or official logos._
 
 ### The sound is being sold as mystery, not volume
@@ -54,11 +54,11 @@ The fan-letter frame is not just sentimental. In K-pop, loyalty is infrastructur
 
 But this also raises the bar. Fans who feel addressed directly do not want vague appreciation. They want evidence: better stages, clear promotion, member visibility, and songs that justify the language of gratitude. The phrase "fan letter" can be powerful, but only if the campaign behaves like one.
 
-## KCL's View On ITZY Motto
+## MEARROW's View On ITZY Motto
 
 ### The comeback is a brand repair test without calling itself one
 
-KCL reads `ITZY Motto` as a strategic identity check. ITZY is not a rookie trying to introduce a color. The group is a known brand trying to decide which parts of its original message still have commercial force. That is harder than debuting with confidence. A new group can be understood through one hook. A seven-year group has to manage memory, fatigue, nostalgia, criticism, and loyal expectation at the same time.
+MEARROW reads `ITZY Motto` as a strategic identity check. ITZY is not a rookie trying to introduce a color. The group is a known brand trying to decide which parts of its original message still have commercial force. That is harder than debuting with confidence. A new group can be understood through one hook. A seven-year group has to manage memory, fatigue, nostalgia, criticism, and loyal expectation at the same time.
 
 The strongest part of this rollout is that it does not run away from the group's past. Instead of pretending ITZY is a completely different act, `Motto` reframes the old self-belief language through a more relational lens. The message is no longer only "choose yourself." It is closer to "we learned to choose ourselves because this bond kept holding." That is a more adult version of the same brand promise.
 

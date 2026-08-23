@@ -3,7 +3,7 @@ title: "MAMAMOO's '4WARD' Isn't Just A Comeback — It's A Second-Act Test"
 excerpt: "MAMAMOO 4WARD brings '4 Flowers,' a June 4 release and a world-tour reset after the group's long recording gap."
 date: "2026-06-03"
 category: "Artist"
-thumbnail: "/images/news/mamamoo-4ward-comeback-thumbnail.png"
+thumbnail: "/images/news/mamamoo-4ward-comeback-thumbnail.webp"
 active: true
 ---
 
@@ -25,7 +25,7 @@ The confirmed schedule gives the story urgency. Allkpop reported that `4WARD` an
 
 That gap changes the stakes. A normal comeback can rely on rhythm: teasers, concept photos, music show stages, fan signs, chart tracking. A comeback after more than three years has to answer a different question: can the fan base move quickly after being asked to wait? The first 24 to 72 hours will say more than the teaser aesthetic. Playlist traction, YouTube replay behavior, fan-made edits, and Korean chart stability will show whether the reunion is only sentimental or commercially active.
 
-![MAMAMOO 4WARD comeback editorial stage image](/images/news/mamamoo-4ward-comeback-1.png)
+![MAMAMOO 4WARD comeback editorial stage image](/images/news/mamamoo-4ward-comeback-1.webp)
 _ChatGPT-generated editorial image representing the polished comeback-stage mood around MAMAMOO's `4WARD` rollout._
 
 ## The Tour Makes This Bigger Than One Song
@@ -36,11 +36,11 @@ The comeback is also tied to the road. Allkpop reported that `MAMAMOO 2026 WORLD
 
 For a group like MAMAMOO, that matters because their strongest asset has never been only concept design. It is vocal trust. Fans expect live weight, chemistry, ad-libs, and the feeling that four separate careers can still lock into one stage. A new single before tour dates is therefore less like a bonus release and more like a rehearsal in public.
 
-## KCL View: The Second Act Is The Product
+## MEARROW View: The Second Act Is The Product
 
 ### Mature groups are competing on continuity now
 
-KCL reads `4WARD` as a case study in second-act K-pop. The industry is full of groups that survive contract cycles, solo paths, agency shifts, and long intervals, but survival is not the same as momentum. The next premium category is continuity: can a group return without feeling frozen in its peak era?
+MEARROW reads `4WARD` as a case study in second-act K-pop. The industry is full of groups that survive contract cycles, solo paths, agency shifts, and long intervals, but survival is not the same as momentum. The next premium category is continuity: can a group return without feeling frozen in its peak era?
 
 MAMAMOO's answer is to make the number four carry the campaign. It tells longtime fans that the quartet bond is intact, while the wordplay of `forward` prevents the comeback from sounding like pure memory. That is smart positioning. The risk is that the concept is so emotionally clean that the music must carry real bite. If `4 Flowers` feels too safe, the story becomes pleasant. If the song gives the vocals room to surprise, the comeback becomes durable.
 

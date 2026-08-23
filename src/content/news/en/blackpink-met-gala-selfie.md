@@ -3,7 +3,7 @@ title: "One Bathroom Selfie Did What Four Red Carpets Couldn't - BLACKPINK Hijac
 excerpt: "BLACKPINK Met Gala 2026 turned four solo red carpets into one viral group-image test for K-pop fashion power."
 date: '2026-05-13'
 category: 'Tech & Culture'
-thumbnail: '/images/news/blackpink-met-gala-selfie-thumbnail.png'
+thumbnail: '/images/news/blackpink-met-gala-selfie-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ E! Online described the moment as a rule-breaking bathroom selfie, while other e
 
 That is why the selfie worked harder than a standard press image. It did not need a stage, choreography, music-video budget, or comeback countdown. It needed four members in the same visual field. For a group whose recent years have been shaped by solo launches, fashion deals, acting schedules, touring, and contract discourse, the sight of all four together carries emotional information by itself. It answers a question fans keep asking even when no one says it out loud: does BLACKPINK still feel like a unit when the cameras are not asking them to perform as one?
 
-![BLACKPINK Met Gala mirror selfie moment visualized through anonymous high-fashion silhouettes](/images/news/blackpink-met-gala-selfie-1.png)
+![BLACKPINK Met Gala mirror selfie moment visualized through anonymous high-fashion silhouettes](/images/news/blackpink-met-gala-selfie-1.webp)
 _ChatGPT-generated editorial image representing the viral group-photo energy around BLACKPINK's 2026 Met Gala appearance, without real faces, official logos, or readable text._
 
 ## Fashion Power Is Now K-pop Infrastructure
@@ -50,11 +50,11 @@ That tension is visible in the way fans consume BLACKPINK now. Every collective 
 
 From a business perspective, that ease is valuable. It lowers the emotional cost of waiting. Fans who feel the group is still socially intact are more willing to tolerate gaps, solo cycles, and staggered schedules. But the same mechanism can turn against the brand if symbolic reunions become the main product. The more powerful the photo, the more obvious the absence of a larger group chapter becomes afterward.
 
-## KCL's View On BLACKPINK's Met Gala Takeover
+## MEARROW's View On BLACKPINK's Met Gala Takeover
 
 ### The group brand won because it did not have to shout
 
-KCL reads this as a brand-concentration moment. BLACKPINK did not need to dominate the Met Gala through a coordinated group arrival. The members appeared as separate fashion entities first, which made the later group image feel more spontaneous and more valuable. The strategy was not announced, but the effect was real: four individual red carpets created anticipation, then one informal photo converted that attention back into BLACKPINK.
+MEARROW reads this as a brand-concentration moment. BLACKPINK did not need to dominate the Met Gala through a coordinated group arrival. The members appeared as separate fashion entities first, which made the later group image feel more spontaneous and more valuable. The strategy was not announced, but the effect was real: four individual red carpets created anticipation, then one informal photo converted that attention back into BLACKPINK.
 
 That matters for the wider K-pop market because many agencies are trying to build solo scalability without weakening the original team. BLACKPINK remain the most visible case study. Their challenge is not whether individual members can command attention. They already can. The harder challenge is whether those individual lanes keep feeding the group rather than replacing it.
 

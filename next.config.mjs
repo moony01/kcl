@@ -10,6 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const isDev = process.env.NODE_ENV === 'development';
+const isWorkers = process.env.NEXT_RUNTIME_TARGET === 'workers';
+const useStaticExport = !isDev && !isWorkers;
 
 /**
  * Next.js 설정
@@ -21,16 +23,17 @@ const isDev = process.env.NODE_ENV === 'development';
  * - Phase 5: 페이지 컴포넌트 정리 (Luna) ✅
  * - Phase 6: 빌드/배포 설정 (Max) ✅
  *
- * 배포 아키텍처: Cloudflare Pages (정적 호스팅)
- * - 빌드 출력: out/ 디렉토리
- * - 환경 변수: NEXT_PUBLIC_* 만 사용
+ * 배포 아키텍처:
+ * - 기존 Pages 빌드: output: 'export' → out/ 디렉토리
+ * - Workers 빌드: OpenNext가 SSR/ISR 런타임을 생성
+ * - Workers 빌드는 NEXT_RUNTIME_TARGET=workers로 명시
  *
  * 개발 모드에서는 output: export 비활성화 (동적 라우트 지원)
  */
 const nextConfig = {
-  // 프로덕션 빌드에서만 정적 export 활성화
-  // 개발 모드에서는 동적 라우트(커뮤니티 게시글 등) 지원을 위해 비활성화
-  ...(isDev ? {} : { output: 'export' }),
+  // 기존 Pages 배포는 정적 export를 유지하고, Workers 빌드에서는
+  // OpenNext가 SSR/ISR용 Next 런타임을 생성하도록 output 설정을 비활성화합니다.
+  ...(useStaticExport ? { output: 'export' } : {}),
   images: {
     loader: 'custom', // next-image-export-optimizer 사용
     imageSizes: [400],
@@ -41,6 +44,14 @@ const nextConfig = {
   // Worktrees have their own .next cache; never infer the parent checkout.
   turbopack: {
     root: __dirname,
+    ...(isWorkers
+      ? {
+          // Workers bundle size reduction: avoid bundling next/og's resvg/wasm runtime.
+          resolveAlias: {
+            'next/og': './src/lib/workers-og-shim.ts',
+          },
+        }
+      : {}),
   },
   sassOptions: {
     includePaths: [

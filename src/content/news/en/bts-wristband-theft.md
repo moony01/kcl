@@ -3,7 +3,7 @@ title: 'A Man Ran Off With 500 BTS Wristbands — The Security Gap Is Bigger Tha
 excerpt: '500 wristbands were stolen at BTS’s Goyang show. The bigger story is how fragile K-pop concert security looks at BTS scale.'
 date: '2026-04-26'
 category: 'Industry'
-thumbnail: '/images/news/bts-wristband-theft-thumbnail.png'
+thumbnail: '/images/news/bts-wristband-theft-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ This concert weekend was never meant to operate like a casual walk-in event. Wee
 
 Once 500 of those bands disappear, the question is no longer only whether the thief gets caught. The question becomes whether gate staff can confidently distinguish legitimate attendees from people trying to exploit confusion during a high-volume entry window. Even if organizers invalidate the stolen batch internally, the theft still creates friction. Fans hear "wristbands stolen" and wonder whether their own verification will slow down, whether scammers will start circulating fake offers, and whether the entry line itself becomes the place where the whole system gets stress-tested in public.
 
-![BTS wristband theft scene at a rain-soaked stadium gate with purple bands scattered on the ground](/images/news/bts-wristband-theft-1.png)
+![BTS wristband theft scene at a rain-soaked stadium gate with purple bands scattered on the ground](/images/news/bts-wristband-theft-1.webp)
 _The object itself was small. The vulnerability it revealed was not._
 
 ## Why This Became Industry News So Fast
@@ -44,11 +44,11 @@ The Goyang run drew approximately 132,000 concertgoers across three nights, or a
 
 Before the Goyang shows had even fully cleared, JoongAng reported that 46 tour dates were already sold out and that 2.4 million tickets had been moved for 41 North American and European dates alone, citing Live Nation. That scale matters because the Goyang incident does not live inside Korea only. It reframes how people read every upcoming checkpoint on the `BTS world tour` and, by extension, every K-pop mega-tour leaning harder on anti-scalping systems, physical authentication, and crowd-control choreography. Once fans see a breach happen at the launch site, they stop assuming the process is airtight elsewhere.
 
-## KCL's View on the Real Weak Point
+## MEARROW's View on the Real Weak Point
 
 ### K-pop has scaled its tours faster than it has matured its gate infrastructure
 
-KCL does not read this as a one-day oddity. The more revealing interpretation is that K-pop's live business has become elite in demand generation and increasingly sophisticated in monetization, but still uneven in the physical mechanics of entry control. Ticket restrictions got stricter. Identity checks got tougher. Government anti-scalping measures got louder. Yet the system still rested on one of the simplest objects in the chain being handled flawlessly under pressure. That is exactly the kind of mismatch that only becomes visible when an artist reaches the outer edge of the market.
+MEARROW does not read this as a one-day oddity. The more revealing interpretation is that K-pop's live business has become elite in demand generation and increasingly sophisticated in monetization, but still uneven in the physical mechanics of entry control. Ticket restrictions got stricter. Identity checks got tougher. Government anti-scalping measures got louder. Yet the system still rested on one of the simplest objects in the chain being handled flawlessly under pressure. That is exactly the kind of mismatch that only becomes visible when an artist reaches the outer edge of the market.
 
 ### Security confidence is part of the premium product now
 

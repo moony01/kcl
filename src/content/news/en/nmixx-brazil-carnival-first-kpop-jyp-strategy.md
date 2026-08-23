@@ -3,7 +3,7 @@ title: "JYP Breaks Into Carnival — NMIXX Makes K-Pop History Before 2 Million 
 excerpt: "NMIXX became the first K-pop act ever to perform at Brazil's Carnival, taking the stage at Pabllo Vittar's legendary Bloco da Pabllo in São Paulo's Ibirapuera Park. This isn't just a concert — it's the opening move in JYP's ambitious Latin America strategy."
 date: '2026-02-16'
 category: 'Tech & Culture'
-thumbnail: '/images/news/nmixx-brazil-carnival-first-kpop-jyp-strategy-thumbnail.png'
+thumbnail: '/images/news/nmixx-brazil-carnival-first-kpop-jyp-strategy-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ NMIXX's Carnival appearance didn't happen overnight. Back in August 2025, NMIXX 
 
 "MEXE" fused NMIXX's signature 'MIXX POP' sound with Brazilian pop styling. The most striking element: **lyrics in both Korean and Portuguese**, with joint vocals from both artists and Latin-style choreography. It was a deliberate demolition of the wall between K-pop and Latin pop.
 
-![NMIXX's historic Carnival stage — where K-pop met Latin pop](/images/news/nmixx-brazil-carnival-first-kpop-jyp-strategy-1.png)
+![NMIXX's historic Carnival stage — where K-pop met Latin pop](/images/news/nmixx-brazil-carnival-first-kpop-jyp-strategy-1.webp)
 _K-pop takes the stage at South America's biggest festival — NMIXX writes a new chapter in history_
 
 This collaboration wasn't a musical experiment — it was **strategic groundwork**. Build a connection with Brazilian fans through "MEXE," then detonate it live in front of 2 million at Carnival. The planning was meticulous.
@@ -51,7 +51,7 @@ Here's the playbook in sequence:
 
 This isn't a one-year project. It's a **three-year-plus roadmap**.
 
-## KCL's Analysis — What Latin Expansion Means for K-Pop
+## MEARROW's Analysis — What Latin Expansion Means for K-Pop
 
 K-pop's global expansion has historically centered on the US, Japan, and Southeast Asia. Latin America was seen as a market with passionate fans but limited monetization potential.
 

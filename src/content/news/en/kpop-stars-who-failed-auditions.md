@@ -3,7 +3,7 @@ title: 'K-pop Stars Who Failed Auditions Before Making It Big - Stories of Persi
 excerpt: 'Jungkook was rejected by 7 agencies. Suzy failed JYP auditions 3 times. Discover the hidden rejection stories of today''s top K-pop stars and their journeys of perseverance.'
 date: '2026-02-03'
 category: 'Trainee System'
-thumbnail: '/images/news/kpop-stars-who-failed-auditions-thumbnail.png'
+thumbnail: '/images/news/kpop-stars-who-failed-auditions-thumbnail.webp'
 ---
 
 The crushing weight of hearing "maybe next time" instead of "congratulations" is something only those who've experienced it truly understand.
@@ -32,7 +32,7 @@ Failure isn't just about setbacks. Many successful idols confess that "the exper
 
 **Kang Daniel** shares a similar journey. After being rejected by several major agencies, he joined MMO Entertainment and appeared on 'Produce 101 Season 2,' where he earned the **highest number of votes in the show's history**, becoming Wanna One's center. "Every time I was rejected, I asked myself, 'What am I lacking?' That process shaped who I am."
 
-![A dancer practicing alone in a studio](/images/news/kpop-stars-who-failed-auditions-1.png)
+![A dancer practicing alone in a studio](/images/news/kpop-stars-who-failed-auditions-1.webp)
 _Behind countless rejections lies the sweat and tears shed alone in practice rooms_
 
 ## Success Stories After Changing Agencies
@@ -59,15 +59,15 @@ In the K-pop industry, "age" is a sensitive issue. Since most idols debut in the
 
 **Solar (MAMAMOO)** spent **7 years as a trainee**. After going through numerous agencies without landing a debut opportunity, she was already 24 when she finally debuted with MAMAMOO at RBW. Yet she led MAMAMOO to become a **representative 3rd generation girl group** and continues to thrive as a solo artist.
 
-## KCL Data on 'Comeback Success Rates'
+## MEARROW Data on 'Comeback Success Rates'
 
-According to KCL (K-pop Company League) analysis, interesting patterns emerge.
+According to MEARROW (K-pop Talent Network) analysis, interesting patterns emerge.
 
 **About 35% of currently active idols have auditioned for 2 or more agencies**, and **15% of these were rejected by 3 or more agencies**. Even more interesting: **idols with retry experience have an average career span 1.4 times longer**.
 
 This is attributed to the stronger **resilience** and **goal orientation** of idols who have experienced rejection. The experience of overcoming failure becomes the driving force to persevere through tough times after debut.
 
-Top-ranked agencies on KCL are aware of this. Recently, there's a growing trend of viewing **"retriers" more favorably than "first-time passers"** in auditions.
+Top-ranked agencies on MEARROW are aware of this. Recently, there's a growing trend of viewing **"retriers" more favorably than "first-time passers"** in auditions.
 
 ## Conclusion: Today's Rejection Builds Tomorrow's Success
 
@@ -79,4 +79,4 @@ Rejection doesn't mean "you can't do it"—it might mean **"this isn't your plac
 
 **Don't give up. Try again. K-pop history has been written by those who refused to quit.**
 
-KCL supports your journey. 🌟
+MEARROW supports your journey. 🌟

@@ -3,7 +3,7 @@ title: "K-pop's Cheapest Stage Just Became Its Most Dangerous - Campuses Are Ste
 excerpt: "K-pop university festivals are turning May campuses into public-stage tests for RIIZE, ILLIT, Cortis and rookies."
 date: '2026-05-12'
 category: 'Industry'
-thumbnail: '/images/news/kpop-campus-festival-war-thumbnail.png'
+thumbnail: '/images/news/kpop-campus-festival-war-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ For a rookie or pre-debut act, that is a sharper test than a polished teaser. A 
 
 This is especially important in 2026, when the comeback and debut calendar is brutally crowded. A rookie can disappear inside teaser traffic in hours. A campus performance can create a human receipt: people were there, phones went up, the hook landed, and a crowd that did not arrive as loyal buyers still paid attention.
 
-![K-pop university festivals turning campus stages into live-market tests](/images/news/kpop-campus-festival-war-1.png)
+![K-pop university festivals turning campus stages into live-market tests](/images/news/kpop-campus-festival-war-1.webp)
 _ChatGPT-generated editorial image visualizing campus festival planning, crowd routing and social buzz around K-pop university festivals, without real faces or official logos._
 
 ## May Is Becoming A Festival Infrastructure Month
@@ -48,11 +48,11 @@ Even the Big Four conversation points in the same direction. Reuters, carried by
 
 Campus festivals are the grassroots version of that shift. They are smaller than KCON, less formal than a Big Four mega-festival, and more chaotic than a ticketed arena tour. But that is precisely why they matter. They show whether K-pop can operate as a lived social environment, not only a broadcast product or a fan-club economy.
 
-## KCL's View On The Campus Festival War
+## MEARROW's View On The Campus Festival War
 
 ### The cheapest-looking stage may produce the most honest data
 
-KCL reads the 2026 university festival rush as a public-audience stress test. The core metric is not only applause. It is conversion quality. Did the crowd stay? Did the chorus travel? Did the artist create a clip that non-fans could understand without context? Did the campus brand benefit from the booking? Those are the questions agencies should care about, because the next growth layer of K-pop will depend on general-audience contact points, not only deeper monetization of existing fandoms.
+MEARROW reads the 2026 university festival rush as a public-audience stress test. The core metric is not only applause. It is conversion quality. Did the crowd stay? Did the chorus travel? Did the artist create a clip that non-fans could understand without context? Did the campus brand benefit from the booking? Those are the questions agencies should care about, because the next growth layer of K-pop will depend on general-audience contact points, not only deeper monetization of existing fandoms.
 
 This also matters for trainees and smaller companies. The campus stage rewards different skills from a music-video set. It rewards breath control, crowd reading, quick recovery, humor, and the ability to make an unfamiliar audience feel included fast. That is why university festivals are not just seasonal gigs. They are rehearsal rooms with thousands of witnesses.
 

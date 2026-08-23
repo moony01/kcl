@@ -3,7 +3,7 @@ title: "10 Cities, Then the Cancellations — Why i-dle's North America Tour Pan
 excerpt: "Multiple i-dle Syncopation dates now show cancelled on ticketing pages. The bigger story is what that says about K-pop's 2026 arena gamble."
 date: "2026-04-19"
 category: "Market Trend"
-thumbnail: "/images/news/idle-us-tour-cancelled-thumbnail.png"
+thumbnail: "/images/news/idle-us-tour-cancelled-thumbnail.webp"
 active: true
 ---
 
@@ -37,7 +37,7 @@ On April 13, CUBE confirmed that i-dle would return with a new album in July and
 
 Three theories immediately took over fan discussion. First, that the arena sizing was too aggressive. Second, that North American logistics and production costs became too heavy. Third, that some dates may be headed for a platform or venue reset. But one line needs to stay clear: **the only confirmed fact right now is that multiple North American dates are displaying cancellation language online. The cause has not been officially confirmed.** The theories are loud. The verified explanation is still missing.
 
-![Empty arena after i-dle North America cancellation shock](/images/news/idle-us-tour-cancelled-1.png)
+![Empty arena after i-dle North America cancellation shock](/images/news/idle-us-tour-cancelled-1.webp)
 _Image: A symbolic ChatGPT-generated rendering of the empty-arena mood around i-dle's North America tour scare_
 
 ## This Is Bigger Than One Group
@@ -50,7 +50,7 @@ The 2026 K-pop calendar in North America is brutally dense. BTS is back on the r
 
 If you are outside the Big 4, a North American arena run is not just about ticket revenue. It is a map for investors, a proof-of-scale image for the market, and a story you attach to the next artist you debut. That is why bad venue sizing does not read like a simple booking error. It reads like strategy recoil. The i-dle situation is landing harder for exactly that reason. The question is no longer just "What happened to this tour?" It is "How big can a mid-tier K-pop company safely book North America in 2026?"
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 ### The real damage is narrative trust
 

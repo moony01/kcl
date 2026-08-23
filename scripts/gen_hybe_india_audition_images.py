@@ -357,8 +357,8 @@ def generate_thumbnail():
     final_arr = add_grain(np.clip(final_arr, 0, 255).astype(np.uint8), intensity=8)
 
     result = Image.fromarray(final_arr).convert("RGB")
-    out_path = os.path.join(OUTPUT_DIR, "hybe-india-audition-kpop-thumbnail.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "hybe-india-audition-kpop-thumbnail.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Thumbnail saved: {out_path}")
     return out_path
 
@@ -688,8 +688,8 @@ def generate_body():
     final_arr = add_grain(np.clip(final_arr, 0, 255).astype(np.uint8), intensity=9)
 
     result = Image.fromarray(final_arr).convert("RGB")
-    out_path = os.path.join(OUTPUT_DIR, "hybe-india-audition-kpop-1.png")
-    result.save(out_path, "PNG", optimize=True)
+    out_path = os.path.join(OUTPUT_DIR, "hybe-india-audition-kpop-1.webp")
+    result.save(out_path, "WEBP", quality=82, method=6)
     print(f"Body image saved: {out_path}")
     return out_path
 

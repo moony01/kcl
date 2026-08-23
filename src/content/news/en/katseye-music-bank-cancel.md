@@ -3,7 +3,7 @@ title: "KATSEYE Just Skipped Music Bank - And the 'Scheduling' Answer Made It Wo
 excerpt: "KATSEYE Music Bank cancellation turned a missed stage into a fan-trust test as the group's Korean promo strategy faces new scrutiny."
 date: '2026-05-06'
 category: 'Tech & Culture'
-thumbnail: '/images/news/katseye-music-bank-cancel-thumbnail.png'
+thumbnail: '/images/news/katseye-music-bank-cancel-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ That context matters. If KATSEYE had cancelled a distant festival or a private b
 
 The strongest signal came from fan communities. The r/kpop thread on the official cancellation drew hundreds of upvotes, while KATSEYE-specific and neutral discussion spaces kept the topic alive through the weekend. Some users focused on logistics. Others asked whether fans had enough notice. A separate neutral thread debated whether the situation was strange at all, which shows the split clearly: one side treated the cancellation as normal industry friction, while another treated it as another sign that the group's communication layer is not stable enough.
 
-KCL does not read Reddit as proof of hidden facts. It is proof of public mood. The fanbase was not working from verified inside information; it was reacting to a short official explanation that arrived inside a tense era. That distinction is important. Speculation should not be laundered into fact. But fan skepticism itself is a real market signal, because it changes how the next announcement will be received.
+MEARROW does not read Reddit as proof of hidden facts. It is proof of public mood. The fanbase was not working from verified inside information; it was reacting to a short official explanation that arrived inside a tense era. That distinction is important. Speculation should not be laundered into fact. But fan skepticism itself is a real market signal, because it changes how the next announcement will be received.
 
 ### "Scheduling" is technically plausible and emotionally weak
 
@@ -37,7 +37,7 @@ The agency's stated reason may be exactly true. Artist schedules are stitched to
 
 The problem is that "scheduling commitments" does not answer the question fans were actually asking. Fans wanted to know why a visible music-show slot collapsed during a Korea trip built around visible music-show momentum. A technically accurate explanation can still fail if it does not match the emotional scale of the disruption. That is what happened here: the sentence was small, but the trust cost was large.
 
-![KATSEYE Music Bank cancellation backstage corridor during Korean promotions](/images/news/katseye-music-bank-cancel-1.png)
+![KATSEYE Music Bank cancellation backstage corridor during Korean promotions](/images/news/katseye-music-bank-cancel-1.webp)
 _A ChatGPT-generated editorial visualization of the backstage uncertainty around a cancelled music-show appearance._
 
 ## The Chart Context Makes the No-Show Stranger
@@ -58,21 +58,21 @@ A domestic K-pop group can sometimes survive an opaque notice because the fandom
 
 ### Manon's hiatus shaped the atmosphere around the cancellation
 
-The Music Bank issue also landed in an existing public mood around KATSEYE's lineup visibility. An earlier Weverse update said Manon would pause activities for health and well-being, and previous reporting around the group has shown how quickly absence becomes the center of the story. KCL covered that same tension during the group's Coachella era, when the performance succeeded but the five-member optics kept pulling fans back into transparency questions. [Related: KATSEYE reached Coachella as five, not six](/en/news/katseye-coachella-debut)
+The Music Bank issue also landed in an existing public mood around KATSEYE's lineup visibility. An earlier Weverse update said Manon would pause activities for health and well-being, and previous reporting around the group has shown how quickly absence becomes the center of the story. MEARROW covered that same tension during the group's Coachella era, when the performance succeeded but the five-member optics kept pulling fans back into transparency questions. [Related: KATSEYE reached Coachella as five, not six](/en/news/katseye-coachella-debut)
 
 That background does not prove why Music Bank was cancelled. It should not be used to turn a scheduling notice into a conspiracy. But current perception affects interpretation. When a fandom already feels under-informed, every new vague update gets stacked on top of the last one. The May 1 notice was judged not only as a single message, but as part of a pattern fans are trying to decode.
 
 ### Public mood is not the same thing as historical fact
 
-This is the line KCL thinks matters most: fans can be right to demand clearer communication without being right about every theory. The current public perception of KATSEYE does not determine what actually caused the Music Bank cancellation. It only tells us how fragile the trust environment has become.
+This is the line MEARROW thinks matters most: fans can be right to demand clearer communication without being right about every theory. The current public perception of KATSEYE does not determine what actually caused the Music Bank cancellation. It only tells us how fragile the trust environment has become.
 
 That distinction is not a soft defense of the company. It is a discipline issue. If the article turns fan frustration into confirmed causation, it becomes rumor. If it ignores fan frustration entirely, it misses the story. The real news is in the middle: a young global group with measurable chart heat is learning that K-pop's promotion system turns vague logistics into public drama very quickly.
 
-## KCL's View On KATSEYE's Music Bank Problem
+## MEARROW's View On KATSEYE's Music Bank Problem
 
 ### The cancellation exposed an operating-model mismatch
 
-KCL sees this as a systems story more than a scandal story. HYBE x Geffen is not simply managing a girl group. It is managing a hybrid export model: K-pop training infrastructure, American label positioning, Korean broadcast expectations, global fan platforms, and an audience that expects near-real-time explanation. That model can create enormous upside, but it also gives small communication failures a much larger blast radius.
+MEARROW sees this as a systems story more than a scandal story. HYBE x Geffen is not simply managing a girl group. It is managing a hybrid export model: K-pop training infrastructure, American label positioning, Korean broadcast expectations, global fan platforms, and an audience that expects near-real-time explanation. That model can create enormous upside, but it also gives small communication failures a much larger blast radius.
 
 Music Bank was the perfect stress point. It is local enough to matter to K-pop fans, visible enough to matter internationally, and procedural enough that fans expect planning to be precise. If the group could not appear, the company needed a message that acknowledged the fan-side cost, not only the scheduling reason. A short notice may satisfy the administrative requirement. It does not satisfy the relationship requirement.
 

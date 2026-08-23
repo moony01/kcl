@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { FULL_URL } from '@/lib/constants';
 
 /**
- * KCL robots.txt 생성기
+ * MEARROW robots.txt 생성기
  *
  * SEO 최적화:
  * - 검색 엔진 크롤러 허용/차단 규칙

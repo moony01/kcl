@@ -3,7 +3,7 @@ title: "Lisa at the World Cup? The 13-Minute LA Stage That Could Change K-pop's 
 excerpt: "Lisa World Cup stage at SoFi puts BLACKPINK's solo star beside Katy Perry and Future in K-pop's biggest sports crossover yet."
 date: '2026-05-11'
 category: 'Market Trend'
-thumbnail: '/images/news/lisa-world-cup-stage-thumbnail.png'
+thumbnail: '/images/news/lisa-world-cup-stage-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The 2026 FIFA World Cup is being staged across the United States, Canada, and Me
 
 That structure makes Lisa's placement more useful for understanding the market. K-pop is often discussed as one export wave moving outward from Seoul. The World Cup frame is different. It asks whether a K-pop artist can become a useful cultural signal inside another country's own opening story. Lisa is Thai, globally famous through BLACKPINK, managed as a solo star, and positioned in a U.S. ceremony for a tournament shared with Canada and Mexico. That is not a simple "Korea to the world" pipeline. It is a proof point for how borderless the top layer of K-pop has become.
 
-![Lisa World Cup opening ceremony stage visualized through a global stadium broadcast control room](/images/news/lisa-world-cup-stage-1.png)
+![Lisa World Cup opening ceremony stage visualized through a global stadium broadcast control room](/images/news/lisa-world-cup-stage-1.webp)
 _ChatGPT-generated editorial image showing the global broadcast pressure behind Lisa's reported World Cup ceremony slot, without real faces or official logos._
 
 ## The Real Shock Is The Audience Mismatch
@@ -50,11 +50,11 @@ The U.S. lineup matters because it mixes American pop, hip-hop, Latin pop, Afrob
 
 That may be the strongest part of the booking. When K-pop first entered Western mainstream events, the question was often whether the genre could be accepted. Here, the more interesting question is whether Lisa can operate as one name among several global names without the whole moment needing to be translated for casual viewers. If that happens, K-pop's ceiling moves. It stops being a special guest category and starts looking like ordinary infrastructure for global entertainment.
 
-## KCL's View On The Lisa World Cup Signal
+## MEARROW's View On The Lisa World Cup Signal
 
 ### The next K-pop growth story is not only about charts
 
-KCL reads `Lisa World Cup` as a market signal, not just a milestone headline. The next phase of K-pop expansion is increasingly about where artists can be placed when the audience did not assemble for K-pop first. Las Vegas residency rooms, fashion institutions, film platforms, sports ceremonies, and national broadcast rituals all do a different job from streaming charts. They turn an artist into a cultural asset that other industries can use.
+MEARROW reads `Lisa World Cup` as a market signal, not just a milestone headline. The next phase of K-pop expansion is increasingly about where artists can be placed when the audience did not assemble for K-pop first. Las Vegas residency rooms, fashion institutions, film platforms, sports ceremonies, and national broadcast rituals all do a different job from streaming charts. They turn an artist into a cultural asset that other industries can use.
 
 That does not make the World Cup stage risk-free. A short ceremony can be swallowed by production choices, football discourse, or audience impatience. If the camera work is weak, if the segment feels overpacked, or if viewers read the lineup as random, the online afterlife may be smaller than the announcement. But the risk is part of why the booking is useful. K-pop's elite acts are no longer being tested only against other idol groups. They are being tested against the grammar of global spectacle.
 

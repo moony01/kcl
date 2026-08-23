@@ -3,7 +3,7 @@ title: "MMA 2026 Just Doubled Its Stage — The Two-Day Gamble K-pop Can’t Ign
 excerpt: "MMA 2026’s two-day move turns one awards night into a bigger K-pop fan-event test for Kakao, Melon and global fandom infrastructure."
 date: "2026-06-09"
 category: "Business"
-thumbnail: "/images/news/mma-two-day-gamble-thumbnail.png"
+thumbnail: "/images/news/mma-two-day-gamble-thumbnail.webp"
 active: true
 ---
 
@@ -35,7 +35,7 @@ That matters because K-pop ceremonies no longer compete only with other ceremoni
 
 The same expansion can backfire. Two days require more narrative control. Fans need a reason to care on day one, return on day two and keep posting after the last encore. If the lineup is uneven or the pacing drags, the longer format could expose weak spots that a compressed ceremony would hide.
 
-![Melon Music Awards 2026 global production room illustration](/images/news/mma-two-day-gamble-1.png)
+![Melon Music Awards 2026 global production room illustration](/images/news/mma-two-day-gamble-1.webp)
 _ChatGPT-generated editorial illustration representing how a two-day K-pop awards event can become a larger broadcast, production and global fandom operation._
 
 That is the uncomfortable part of the gamble. K-pop fans are powerful, but they are also overloaded. June has already shown how crowded release calendars can stretch fandom labor. A two-day awards event asks the same audience to give a weekend-level commitment at a time when every platform is already demanding attention.
@@ -68,11 +68,11 @@ For agencies, the upside is obvious: more slots, more broadcast value and more c
 
 That pressure is not bad if the event is designed well. It can push teams to build performances with clearer concepts, cleaner camera grammar and more durable hooks. The problem comes when the weekend grows faster than the storytelling. Bigger stages do not automatically create bigger meaning.
 
-## KCL's View On MMA 2026
+## MEARROW's View On MMA 2026
 
 ### The winner is the format, not only the lineup
 
-KCL reads MMA 2026’s two-day move as a test of format power. The lineup will matter, of course, but the more important question is whether the show can make fans treat the weekend itself as the headline. If fans wake up after day one already arguing about what day two might reveal, the expansion will have worked.
+MEARROW reads MMA 2026’s two-day move as a test of format power. The lineup will matter, of course, but the more important question is whether the show can make fans treat the weekend itself as the headline. If fans wake up after day one already arguing about what day two might reveal, the expansion will have worked.
 
 That is the difference between adding hours and creating architecture. A strong two-day MMA should make each day feel necessary. It should give audiences a reason to compare, return and keep the conversation alive without feeling tricked into watching filler.
 

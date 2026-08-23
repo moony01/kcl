@@ -3,7 +3,7 @@ title: 'BLACKPINK''s ''GO'' Debuted at No. 63 on the Hot 100. The Number That Ac
 excerpt: 'On March 11, BLACKPINK''s ''GO'' entered the Billboard Hot 100 at No. 63. Alone, that number sounds unremarkable. But ''GO'' is the 11th BLACKPINK song to crack the Hot 100 — making them the first female K-pop act in history to reach that milestone.'
 date: '2026-03-12'
 category: 'Industry'
-thumbnail: '/images/news/blackpink-go-billboard-hot100-11th-entry-record-2026-thumbnail.png'
+thumbnail: '/images/news/blackpink-go-billboard-hot100-11th-entry-record-2026-thumbnail.webp'
 active: true
 ---
 
@@ -47,7 +47,7 @@ This is the counterintuitive element of the story. "JUMP," the lead single from 
 
 The reason is purely about sequence. **"JUMP" was the 10th entry. "GO" was the 11th.** No amount of rank improvement can create the same milestone that a new entry number delivers. Chart peaks fluctuate; cumulative count only moves one direction. The 11th entry will be part of K-pop history. The peak position of that 11th entry is a footnote.
 
-![BLACKPINK on a global stage with a glowing Billboard Hot 100 chart visualization in the background, pink and black tones, representing their 11th chart entry milestone](/images/news/blackpink-go-billboard-hot100-11th-entry-record-2026-1.png)
+![BLACKPINK on a global stage with a glowing Billboard Hot 100 chart visualization in the background, pink and black tones, representing their 11th chart entry milestone](/images/news/blackpink-go-billboard-hot100-11th-entry-record-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## UK Charts: The Record Isn't Only American
@@ -70,7 +70,7 @@ Before March 11, 2026, the K-pop girl group Hot 100 ceiling was 10 entries. It i
 
 [Related: BLACKPINK 'DEADLINE' Sells 1.77M First Week — K-Pop Girl Group Sales Record Shattered](/en/news/blackpink-deadline-ep-record-sales-yg-2026)
 
-## KCL's Take
+## MEARROW's Take
 
 Three things stand out from the "GO" milestone.
 

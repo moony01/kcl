@@ -3,7 +3,7 @@ title: "K-pop Album Exports Just Crossed $100M - The U.S. Took Japan's Crown"
 excerpt: "K-pop album exports hit $120M in Q1 as the U.S. overtook Japan, exposing a physical-album market shift fans cannot ignore."
 date: '2026-05-17'
 category: 'Market Trend'
-thumbnail: '/images/news/kpop-album-exports-us-thumbnail.png'
+thumbnail: '/images/news/kpop-album-exports-us-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ That scale changes the question. This is no longer only about how many versions 
 
 The most clickable part of the data is the market ranking. Yonhap and Korea JoongAng Daily reported that the United States accounted for about 28 percent of K-pop album exports in the first quarter, moving ahead of Japan, which had held the No. 1 position until last year. Seoul Economic Daily put the split at 28.8 percent for the U.S. and 25.3 percent for Japan.
 
-![K-pop album exports market shift from Seoul to the U.S. and Europe](/images/news/kpop-album-exports-us-1.png)
+![K-pop album exports market shift from Seoul to the U.S. and Europe](/images/news/kpop-album-exports-us-1.webp)
 _ChatGPT-generated editorial image showing K-pop albums as export products in a global trade dashboard._
 
 That does not mean Japan is collapsing. It means the old mental map is outdated. Japan remains a deep physical music market with strong idol-adjacent buying culture, but the U.S. is now acting like more than a touring and streaming destination. American fans are buying the object, not only playing the track. For agencies, that turns U.S. strategy into a warehouse, retail, shipping and collector-design problem, not just a playlist problem.
@@ -44,11 +44,11 @@ The Korea Customs Service attributed the rise partly to the global expansion of 
 
 But this is also the weak point. The same system that creates export records can create waste, resale distortions and pressure to buy more versions than fans can reasonably use. The winning companies will be the ones that treat the album as a premium fan object without turning the collector economy into a trust problem. A $120 million quarter is impressive. It also raises the standard for sustainability, transparency and value.
 
-## KCL's View: The Album Is Becoming A Market Signal
+## MEARROW's View: The Album Is Becoming A Market Signal
 
 ### The crown moved because the buyer changed
 
-KCL sees this quarter as a warning to anyone still reading K-pop through Korea-Japan-U.S. expansion in that order. The U.S. taking the top export position suggests a deeper shift in fan behavior: Western fans are moving from attention to possession. That is the moment when fandom stops being only a social-media metric and becomes a supply-chain metric.
+MEARROW sees this quarter as a warning to anyone still reading K-pop through Korea-Japan-U.S. expansion in that order. The U.S. taking the top export position suggests a deeper shift in fan behavior: Western fans are moving from attention to possession. That is the moment when fandom stops being only a social-media metric and becomes a supply-chain metric.
 
 For companies, the next advantage may come from boring operational details. Faster official shipping, fewer region locks, smarter bundles, cleaner environmental claims and localized retail drops could matter as much as teaser strategy. For trainees and new groups, the lesson is sharper: global demand now rewards artists who can turn a fandom into repeatable rituals, not only viral moments.
 

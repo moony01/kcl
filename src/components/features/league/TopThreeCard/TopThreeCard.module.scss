@@ -4,7 +4,7 @@
  * Top 3 대형 카드 스타일
  * - 순위별 테마 컬러
  * - 글로우 효과
- * - 호버 시 보라색 테두리 강조
+ * - 호버 시 MEARROW 블루 테두리 강조
  */
 
 @use '../../../../styles/abstracts/variables' as *;
@@ -349,8 +349,8 @@ $bronze: #cd7f32;
 }
 
 // ===== 라이트 모드 스타일 오버라이드 =====
-// 흰색 배경 + 보라색(로고 색상) 테마
-$light-primary: #8B5CF6;
+// 흰색 배경 + MEARROW 블루 테마
+$light-primary: #315CFF;
 
 :global(:root:not([data-theme='dark'])) {
   .card {

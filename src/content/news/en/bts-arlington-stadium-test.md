@@ -3,7 +3,7 @@ title: '80,000 Seats, Two Nights — BTS Just Turned Arlington Into Its Next Sta
 excerpt: 'BTS brings the ARIRANG tour to Arlington on August 15 and 16. The two-night AT&T Stadium stop tests whether a post-hiatus comeback can scale.'
 date: '2026-08-16'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-arlington-stadium-test-thumbnail.png'
+thumbnail: '/images/news/bts-arlington-stadium-test-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ The album at the center of the tour is equally deliberate. [BIGHIT MUSIC’s off
 
 That is why the Arlington booking carries more pressure than a routine North American date. A returning act can lean on nostalgia once. A two-night stadium weekend asks the new material, the old catalog, and the production itself to share the load. The tour has to feel current while still rewarding the years of waiting.
 
-![BTS stadium tour atmosphere outside a packed stadium at blue hour](/images/news/bts-arlington-stadium-test-1.png)
+![BTS stadium tour atmosphere outside a packed stadium at blue hour](/images/news/bts-arlington-stadium-test-1.webp)
 _A symbolic editorial image of anonymous fans moving toward a stadium; no identifiable performers are depicted._
 
 ## Two Nights Create a Different Fan Economy
@@ -42,11 +42,11 @@ The mechanism has already been visible elsewhere on this tour. In its report on 
 
 Arlington’s two-night structure makes that behavior easier to observe. A fan who travels for one show may spend a day arriving and leaving. A fan who attends both nights has a longer window for meals, shopping, meetups, and local sightseeing. For the K-pop industry, that difference is strategically important: the best stadium partnerships increasingly treat the host city as part of the product.
 
-## KCL’s View: The Real Test Is Repeatability
+## MEARROW’s View: The Real Test Is Repeatability
 
 ### A sold-out headline is not the whole scoreboard
 
-KCL reads the Arlington weekend as a test of repeatable scale rather than a prediction of a record. The basic inputs are clear: an official two-night booking, a venue with more than 80,000 seats, an album built around a full-group return, and a tour promoted across a global schedule. The next layer is operational. Can the event move a stadium-sized crowd smoothly? Can fans feel that both nights are worth attending? Can the surrounding businesses participate without turning fandom into a queue of upsells?
+MEARROW reads the Arlington weekend as a test of repeatable scale rather than a prediction of a record. The basic inputs are clear: an official two-night booking, a venue with more than 80,000 seats, an album built around a full-group return, and a tour promoted across a global schedule. The next layer is operational. Can the event move a stadium-sized crowd smoothly? Can fans feel that both nights are worth attending? Can the surrounding businesses participate without turning fandom into a queue of upsells?
 
 That is also where this stop differs from the [BTS London stadium story](/en/news/bts-london-stadium-record). London showed how a concert could spill into citywide fan activity. Arlington now tests whether that model can hold in a huge American football stadium and across two consecutive nights. One city supplied the cultural proof of concept; the next asks whether the infrastructure can scale with it.
 

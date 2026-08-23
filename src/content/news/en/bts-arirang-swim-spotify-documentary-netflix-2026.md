@@ -3,7 +3,7 @@ title: 'BTS Arirang D-4: ''SWIM'' Preview, Spotify''s Global SWIMSIDE Pop-Ups, a
 excerpt: 'Four days before the album drops. BTS has opened three simultaneous fronts: the SWIM lead single preview, Spotify''s SWIMSIDE global pop-up campaign across 6 cities, and Netflix documentary BTS: The Return premiering March 27. This isn''t a K-pop comeback. This is a global media event.'
 date: '2026-03-16'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-swim-spotify-documentary-netflix-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-release-day-swim-gwanghwamun-concert-2026-thumbnail.webp'
 active: true
 ---
 
@@ -79,12 +79,12 @@ In São Paulo, local fans created a spontaneous handmade art gallery outside the
 
 None of this was in the marketing plan. All of it is free earned media worth more than any paid placement.
 
-![BTS Arirang SWIM lead single — Spotify SWIMSIDE global campaign and Netflix documentary The Return](/images/news/bts-arirang-swim-spotify-documentary-netflix-2026-1.png)
+![BTS Arirang SWIM lead single — Spotify SWIMSIDE global campaign and Netflix documentary The Return](/images/news/bts-arirang-swim-spotify-documentary-netflix-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
-## The KCL Read: Three Fronts, One Architecture
+## The MEARROW Read: Three Fronts, One Architecture
 
-KCL's analytical framework identifies what's structurally unusual here.
+MEARROW's analytical framework identifies what's structurally unusual here.
 
 Traditional K-pop comebacks follow a sequential logic: album → MV → variety appearances → concert. Each piece feeds the next.
 

@@ -3,7 +3,7 @@ title: "BTS Sold Out Bulacan In Two Nights — The Queue Became the Real Show"
 excerpt: "BTS Bulacan tickets sold out for two nights, exposing how Southeast Asia demand now shapes K-pop touring economics."
 date: "2026-06-12"
 category: "Artist"
-thumbnail: "/images/news/bts-bulacan-ticket-war-thumbnail.png"
+thumbnail: "/images/news/bts-bulacan-ticket-war-thumbnail.webp"
 active: true
 ---
 
@@ -23,7 +23,7 @@ That matters because this was not a casual venue announcement drifting through a
 
 The most useful detail was not only that seats sold out. It was how the waiting itself became content. [GMA Entertainment](https://www.gmanetwork.com/entertainment/showbiznews/megan-young-joins-ticket-war-for-bts-world-tour-concert-in-bulacan/134233/) covered actress Megan Young joining the ticket war, while a separate [GMA News report](https://www.gmanetwork.com/news/lifestyle/hobbiesandactivities/990922/megan-young-shares-bts-in-bulacan-presale-experience/story/) said she had browser tabs ready for both days and saw queue positions around 34,000 and 24,000.
 
-![BTS Bulacan ticket queue demand visualized through a Southeast Asia tour room](/images/news/bts-bulacan-ticket-war-1.png)
+![BTS Bulacan ticket queue demand visualized through a Southeast Asia tour room](/images/news/bts-bulacan-ticket-war-1.webp)
 _ChatGPT-generated editorial image representing Southeast Asia tour planning, virtual ticket queues and K-pop fan demand without real faces, logos or readable text._
 
 Those numbers do not prove total demand by themselves, and they should not be inflated into official attendance figures. But they do reveal the lived experience of the sale. A fan was not thinking in abstract words like "global expansion" or "touring economics" while staring at the queue. The fan was watching a moving gate and calculating whether two nights would be enough.
@@ -46,11 +46,11 @@ That cross-market echo is the bigger signal. Bulacan was not an isolated spike c
 
 [Related: BTS Dynamite Japan streams showed why old hits can still move markets](/en/news/bts-dynamite-japan-streams)
 
-## KCL's View: The Scarcity Is The Product Test
+## MEARROW's View: The Scarcity Is The Product Test
 
 ### Two nights are not just capacity; they are evidence
 
-KCL reads the Bulacan sellout as a market test, not only a fandom celebration. The Philippine Sports Stadium date gives BTS a large local stage, but the useful question for the industry is whether two nights were enough to measure demand or only enough to expose unmet demand. When fans immediately start asking for another show, the shortage becomes part of the marketing engine.
+MEARROW reads the Bulacan sellout as a market test, not only a fandom celebration. The Philippine Sports Stadium date gives BTS a large local stage, but the useful question for the industry is whether two nights were enough to measure demand or only enough to expose unmet demand. When fans immediately start asking for another show, the shortage becomes part of the marketing engine.
 
 This is where BTS remain structurally different from most K-pop acts. Many groups can sell urgency during comeback week. Fewer can turn a ticket queue into a regional news cycle months before the performance. The Bulacan story links three assets at once: a reunited global act, a Southeast Asian fanbase willing to fight through process friction, and a touring system where scarcity itself becomes proof of scale.
 

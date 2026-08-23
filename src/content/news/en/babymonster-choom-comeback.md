@@ -3,7 +3,7 @@ title: 'BABYMONSTER''s ''CHOOM'' Lands May 4 — And YG Is Already Betting a Wor
 excerpt: 'BABYMONSTER drops CHOOM on May 4 with four tracks, fan-event momentum, and a five-continent tour behind it. YG is treating this like a 2026 test case.'
 date: '2026-05-02'
 category: 'Artist'
-thumbnail: '/images/news/babymonster-choom-comeback-thumbnail.png'
+thumbnail: '/images/news/babymonster-choom-comeback-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to YG’s April 20 and April 30 updates, `CHOOM` includes `MOON`, the 
 
 The offline `MONSTIEZ DAY` event ran from `March 30` through `April 5` at three Seoul locations, according to Weverse and Korea JoongAng Daily. That detail is easy to miss if you only watch the teasers, but it matters. K-pop agencies do not run these touchpoints only to reward loyalty. They also use them to tighten fandom rhythm before a release. When a comeback is structured around collectible formats, repeat visual drops, and event-based participation, the release week stops being a pure music moment. It becomes a conversion moment.
 
-![BABYMONSTER CHOOM world tour arena setup with red LED stage lights](/images/news/babymonster-choom-comeback-1.png)
+![BABYMONSTER CHOOM world tour arena setup with red LED stage lights](/images/news/babymonster-choom-comeback-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## The Tour Clock Makes the Stakes Higher
@@ -52,11 +52,11 @@ The timing is not accidental. YG is entering a loud year in which its legacy sto
 
 That challenge gets sharper because `May 2026` is crowded. The K-pop field is full of comeback traffic, and clutter changes how releases are judged. In a quiet month, a solid EP can survive on fandom force alone. In a loud month, the question becomes harsher: what is the one image, one movement, or one sonic idea that casual listeners remember after the scroll moves on? YG clearly believes `CHOOM` can answer that with performance. The title itself is effectively a thesis statement. If the choreography and stage identity do not hit immediately, the whole campaign risks looking overbuilt. If they do hit, YG suddenly has a much longer runway than one release week.
 
-## KCL's Take on `BABYMONSTER CHOOM`
+## MEARROW's Take on `BABYMONSTER CHOOM`
 
 ### This is the point where hype has to become structure
 
-From KCL’s perspective, the most important thing about `BABYMONSTER CHOOM` is not whether it opens big. Most major YG-backed comebacks are expected to open big. The real issue is whether this rollout turns BABYMONSTER into a group that can hold attention across multiple release beats, multiple markets, and a tour cycle that stretches well beyond Korea. That is a different standard. It is closer to infrastructure than buzz.
+From MEARROW’s perspective, the most important thing about `BABYMONSTER CHOOM` is not whether it opens big. Most major YG-backed comebacks are expected to open big. The real issue is whether this rollout turns BABYMONSTER into a group that can hold attention across multiple release beats, multiple markets, and a tour cycle that stretches well beyond Korea. That is a different standard. It is closer to infrastructure than buzz.
 
 ### If `CHOOM` lands, the rest of YG's 2026 story gets louder fast
 

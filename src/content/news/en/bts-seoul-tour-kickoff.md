@@ -3,7 +3,7 @@ title: "Gwanghwamun Was the Teaser — What BTS Opened in Seoul Is Bigger Than a
 excerpt: "BTS launched its Seoul-area tour run on April 9, 2026 with a rain-soaked stadium, merch pickup traffic, and citywide fan activations. Why this kickoff matters far beyond the concert itself."
 date: '2026-04-09'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-seoul-tour-kickoff-thumbnail.png'
+thumbnail: '/images/news/bts-seoul-tour-kickoff-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The Goyang opener runs across April 9, 11, and 12. That matters because it turns
 
 Weverse Shop scheduled on-site pickup for official merch and albums from April 8 through April 12 at the Goyang venue. That sounds logistical, but it is really economic design. Fans arrive early, wait, browse, eat, move between neighborhoods, and turn dead time into spending time. The merch line is not separate from the concert economy. It is one of the engines that enlarges it.
 
-![BTS Seoul tour kickoff expanding into citywide fan spending](/images/news/bts-seoul-tour-kickoff-1.png)
+![BTS Seoul tour kickoff expanding into citywide fan spending](/images/news/bts-seoul-tour-kickoff-1.webp)
 _AI-generated editorial image visualizing how the BTS Seoul kickoff spills into merch traffic, fan movement, and surrounding city commerce._
 
 ### 'THE CITY SEOUL' Pulled the Tour Into the City
@@ -42,11 +42,11 @@ AP also noted that `ARIRANG` debuted at No. 1 on the Billboard 200. That timing 
 
 Yonhap and The Korea Times reported that the `ARIRANG` world tour is launching as an 85-show, 34-city run, which BigHit Music described as the largest tour by a Korean act. The size is impressive, but the more important question is replication. If Goyang proves the model works, then Tokyo, North America, Europe, and the rest of Asia can inherit the same monetization structure with lower execution risk.
 
-## KCL's Take on the BTS Seoul Kickoff
+## MEARROW's Take on the BTS Seoul Kickoff
 
 ### The Real Product Is Demand Translation
 
-KCL's view is that the sold-out crowd is only the first layer. BTS already used the free Gwanghwamun comeback concert to restore symbolic momentum. The Goyang kickoff now converts that momentum into paid demand. Add merch pickup, digital viewing, city activations, and travel spillover, and the result is a tour that translates fandom emotion into multiple revenue channels at once. What opened near Seoul on April 9 was not simply a concert. It was a working blueprint for the next phase of K-pop touring.
+MEARROW's view is that the sold-out crowd is only the first layer. BTS already used the free Gwanghwamun comeback concert to restore symbolic momentum. The Goyang kickoff now converts that momentum into paid demand. Add merch pickup, digital viewing, city activations, and travel spillover, and the result is a tour that translates fandom emotion into multiple revenue channels at once. What opened near Seoul on April 9 was not simply a concert. It was a working blueprint for the next phase of K-pop touring.
 
 [Related: BTS Tour Tickets Sold Out Before Opening Night — 2.4 Million Seats, 41 Stadium Dates, and a Real Shot at Taylor Swift's Numbers](/en/news/bts-arirang-world-tour-sellout-record-2026)
 

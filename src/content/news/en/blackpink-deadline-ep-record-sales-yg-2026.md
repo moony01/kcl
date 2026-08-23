@@ -3,7 +3,7 @@ title: 'BLACKPINK''s ''Deadline'' Shatters Every Record — 1.77M First-Week Sal
 excerpt: 'BLACKPINK''s third mini-album ''Deadline'' sold 1,774,577 copies in its first week, breaking the all-time K-pop girl group record. Day-one sales of 1.46M, Spotify''s biggest female album debut of 2026, and a Billboard Global 200 No. 1 — YG Entertainment has proven BLACKPINK''s reign continues.'
 date: '2026-03-07'
 category: 'Industry'
-thumbnail: '/images/news/blackpink-deadline-ep-record-sales-yg-2026-thumbnail.png'
+thumbnail: '/images/news/blackpink-deadline-ep-record-sales-yg-2026-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ BLACKPINK's third mini-album features five tracks:
 
 A notable shift: this album was **distributed through The Orchard, not Interscope Records**. The distribution structure changed after 'Born Pink' in 2022, signaling that YG secured greater autonomy in global distribution.
 
-![BLACKPINK Deadline EP record-breaking first-week sales](/images/news/blackpink-deadline-ep-record-sales-yg-2026-1.png)
+![BLACKPINK Deadline EP record-breaking first-week sales](/images/news/blackpink-deadline-ep-record-sales-yg-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## Charts — No. 1 Everywhere
@@ -75,7 +75,7 @@ When the 2023 re-signing was announced, the dominant industry narrative was that
 
 [Related: BIGBANG Is Back — 20th Anniversary World Tour, Coachella, and YG's Full 2026 Masterplan](/en/news/yg-bigbang-20th-anniversary-world-tour-2026)
 
-## YG Entertainment — Where They Stand in KCL
+## YG Entertainment — Where They Stand in MEARROW
 
 ### 2026: YG's Full Lineup Activation
 
@@ -114,7 +114,7 @@ This number goes beyond a sales record:
 
 BLACKPINK holds both first and second place. Breaking your own record after a three-plus-year hiatus defies the conventional wisdom that fandom loyalty decays proportionally with time.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 'Deadline's 1.77M first-week sales transcend BLACKPINK's individual record. They answer **structural questions about the K-pop girl group market**.
 
@@ -124,4 +124,4 @@ Second, **where is the ceiling for girl group first-week sales?** 1.77M is the n
 
 Third, **does YG's multi-IP strategy work?** Running BIGBANG and BLACKPINK simultaneously while each member pursues independent activities — whether this structure is sustainable will become clearer in the second half of 2026.
 
-What BLACKPINK proved with 'Deadline' is simple. The throne of K-pop's girl group market still belongs to BLACKPINK. How competing groups respond to reclaim it — KCL will be watching.
+What BLACKPINK proved with 'Deadline' is simple. The throne of K-pop's girl group market still belongs to BLACKPINK. How competing groups respond to reclaim it — MEARROW will be watching.

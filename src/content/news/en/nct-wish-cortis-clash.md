@@ -3,7 +3,7 @@ title: "'6 PM, Same Day' — NCT WISH and CORTIS Are Targeting The Same Fandom W
 excerpt: "NCT WISH's first full album ODE TO LOVE and CORTIS's pre-release single REDRED both arrive at 6 p.m. KST on April 20, 2026. Here's why that rookie clash matters beyond the songs."
 date: "2026-04-20"
 category: "Industry"
-thumbnail: "/images/news/nct-wish-cortis-clash-thumbnail.png"
+thumbnail: "/images/news/nct-wish-cortis-clash-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ The key for NCT WISH is not speed, but position. A first full album is already a
 
 CORTIS is entering the day with momentum already quantified. `Soompi` reported that `GREENGREEN` surpassed **1,227,986 stock pre-orders** as of April 2. That means the market had already committed to the project at a scale well beyond ordinary rookie expectations before the pre-release even dropped. Weverse opened pre-orders on March 27, while `Forbes` reaffirmed the two-step rollout: `REDRED` first, full EP later. That makes today's release more than a song reveal. It is the conversion test for a hype cycle that has already been paid for.
 
-![Two illuminated stages symbolizing the April 20 NCT WISH and CORTIS release clash](/images/news/nct-wish-cortis-clash-1.png)
+![Two illuminated stages symbolizing the April 20 NCT WISH and CORTIS release clash](/images/news/nct-wish-cortis-clash-1.webp)
 _When both acts hit the same hour, fandoms are choosing not just music, but timing, attention, and spending._
 
 ## What fans are really buying today is not only music, but scheduling
@@ -42,11 +42,11 @@ In K-pop, a comeback is no longer just about streaming. When two acts arrive at 
 
 It will take longer than a few hours to judge which songs age better. But it will not take long to see which company designed a more effective use of fan focus. SM is selling the symbolism of a **first full album**. HYBE is selling the stickiness of a **pre-release-to-EP** funnel. Both are coherent strategies. But when they occupy the same slot, the market usually magnifies one faster than the other.
 
-## How KCL reads NCT WISH vs CORTIS
+## How MEARROW reads NCT WISH vs CORTIS
 
 ### Fifth-gen competition has moved from debut wars to scheduling wars
 
-From KCL's view, this is the real takeaway. Fifth-generation boy-group competition is no longer just about who debuts, or even who charts first. It is about **who arrives at which hour, in what release format, and under what corporate story**. NCT WISH is growing inside SM's anniversary-wide brand architecture. CORTIS is stacking already-proven purchase power onto a longer global rollout. Neither team is being sold on talent alone. Their operating systems have become part of the product.
+From MEARROW's view, this is the real takeaway. Fifth-generation boy-group competition is no longer just about who debuts, or even who charts first. It is about **who arrives at which hour, in what release format, and under what corporate story**. NCT WISH is growing inside SM's anniversary-wide brand architecture. CORTIS is stacking already-proven purchase power onto a longer global rollout. Neither team is being sold on talent alone. Their operating systems have become part of the product.
 
 ## The real numbers start showing after 7 p.m.
 

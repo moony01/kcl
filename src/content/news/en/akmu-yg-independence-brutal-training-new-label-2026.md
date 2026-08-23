@@ -3,7 +3,7 @@ title: "Yang Hyun-suk Showed Up at Their Home. Then AKMU Left YG After 12 Years 
 excerpt: "YG's executive producer Yang Hyun-suk personally visited Lee Chan-hyuk and Lee Suhyun's home for dinner. Six months later, AKMU walked away from 12 years at YG and launched their own label, 'Center of Inspiration.' Then came the brutal training, and the tears."
 date: '2026-03-11'
 category: 'Industry'
-thumbnail: '/images/news/akmu-yg-independence-brutal-training-new-label-2026-thumbnail.png'
+thumbnail: '/images/news/akmu-yg-independence-brutal-training-new-label-2026-thumbnail.webp'
 active: true
 ---
 
@@ -79,7 +79,7 @@ The thing is: that tells you something real. "Brutal training" wasn't performanc
 
 Which raises the obvious question: Why leave the security of one of K-pop's founding labels for this?
 
-![AKMU's Lee Chan-hyuk and Suhyun standing at the crossroads of independence, with a warm studio light capturing their determination](/images/news/akmu-yg-independence-brutal-training-new-label-2026-1.png)
+![AKMU's Lee Chan-hyuk and Suhyun standing at the crossroads of independence, with a warm studio light capturing their determination](/images/news/akmu-yg-independence-brutal-training-new-label-2026-1.webp)
 _In January 2026, AKMU left 12 years at YG to launch their independent label 'Center of Inspiration'_
 
 ## A 4th Studio Album — Seven Years in the Making
@@ -107,7 +107,7 @@ Chan-hyuk writes and produces everything. That was true at YG too. But now the t
 
 The trade is obvious: resources for freedom. The question is whether it's worth it.
 
-## KCL's Read on AKMU's Gamble
+## MEARROW's Read on AKMU's Gamble
 
 AKMU's independence move is unusual in K-pop — and it's only possible because of what AKMU uniquely is.
 
@@ -123,6 +123,6 @@ Whether that belief translates into their strongest work yet, or whether the abs
 
 After twelve years, AKMU is making their first truly independent record. Yang Hyun-suk came to their house, had dinner, and still couldn't stop them.
 
-KCL will be watching.
+MEARROW will be watching.
 
 [Related: Yang Hyun-suk Returns to the Audition Stage — What Is YG Building Next?](/en/news/yg-yang-hyunsuk-audition-return)

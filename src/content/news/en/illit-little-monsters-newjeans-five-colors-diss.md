@@ -3,7 +3,7 @@ title: "Five Gummy Bears in NewJeans' Colors — The Evidence Behind ILLIT's All
 excerpt: "Fans spotted five gummy bears in ILLIT's 'Little Monsters' music video matching NewJeans' signature member colors. With a court ruling acknowledging similarities and Google AI confusing the two groups, the controversy has reached a boiling point."
 date: '2026-02-15'
 category: 'Industry'
-thumbnail: '/images/news/illit-little-monsters-newjeans-five-colors-diss-thumbnail.png'
+thumbnail: '/images/news/illit-little-monsters-newjeans-five-colors-diss-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The court's response was devastating for HYBE: **"Insufficient evidence was foun
 
 That single line in the ruling turned the K-pop world upside down. What had been dismissed as "fan opinion" or "fandom emotions" was now elevated to a **judicial finding** — a fundamentally different category of legitimacy.
 
-![ILLIT-NewJeans similarity controversy — court ruling and fandom reactions](/images/news/illit-little-monsters-newjeans-five-colors-diss-1.png)
+![ILLIT-NewJeans similarity controversy — court ruling and fandom reactions](/images/news/illit-little-monsters-newjeans-five-colors-diss-1.webp)
 _The court's acknowledgment of similarities reignited one of K-pop's most heated debates_
 
 ## When Google AI Joined the Fight
@@ -52,9 +52,9 @@ Respond, and it reads as acknowledging the similarity. Stay silent, and it looks
 
 Industry insiders note that ILLIT should have established a clearly differentiated musical and visual direction from their debut. The irony is that 'Magnetic' — their breakout debut hit — may have become a trap. Its early success reinforced the existing formula, making it harder to pivot away from the very comparisons that now haunt the group.
 
-## KCL's Perspective on the ILLIT-NewJeans Saga
+## MEARROW's Perspective on the ILLIT-NewJeans Saga
 
-From KCL's analytical lens, this situation strikes at the heart of **IP strategy and risk management** in the K-pop industry.
+From MEARROW's analytical lens, this situation strikes at the heart of **IP strategy and risk management** in the K-pop industry.
 
 "Concept similarity" has always been a gray area in K-pop. The line between following a trend and copying a specific artist is inherently blurry. But when a court acknowledges similarity and AI systems literally confuse two groups, it signals a **failure in establishing IP distinctiveness** at the agency level.
 

@@ -63,7 +63,7 @@
   font-size: 11px;
   font-weight: 600;
   color: var(--color-primary);
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(49, 92, 255, 0.08);
   border-radius: 4px;
 }
 
@@ -75,8 +75,8 @@
   border-radius: 4px;
 
   &.notice {
-    color: #6366f1;
-    background: rgba(99, 102, 241, 0.08);
+    color: #315cff;
+    background: rgba(49, 92, 255, 0.08);
   }
 
   &.update {

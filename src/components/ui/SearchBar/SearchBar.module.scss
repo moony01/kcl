@@ -43,7 +43,7 @@
     flex-shrink: 0;
   }
 
-  // 포커스 상태: 보라색 보더 + 미세한 글로우 링
+  // 포커스 상태: MEARROW 블루 보더 + 미세한 글로우 링
   &.focused,
   &:focus-within {
     border-color: rgba($color-primary, 0.5);
@@ -414,7 +414,7 @@
 // 깔끔한 솔리드 배경 + 미세한 보더 + 단일 그림자
 // backdrop-filter 제거 (라이트 모드에서 불필요)
 // =============================================
-$light-primary: #8B5CF6;
+$light-primary: #315CFF;
 $light-text: #1F2937;
 $light-text-dim: #6B7280;
 $light-text-muted: #9CA3AF;
@@ -431,7 +431,7 @@ $light-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 
-    // 포커스: 보라색 보더 악센트 + 미세한 링
+    // 포커스: MEARROW 블루 보더 악센트 + 미세한 링
     &.focused,
     &:focus-within {
       border-color: rgba($light-primary, 0.5);

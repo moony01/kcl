@@ -3,7 +3,7 @@ title: "aespa in Crisis — Karina's Political Scandal, Ningning's Japan Absence
 excerpt: "aespa's crisis began with Karina's political jacket controversy in May 2025, then snowballed through Ningning's Japan exclusion and a Chinese fan boycott of Winter. Yet they're about to perform at Osaka and Tokyo Dome this April. Can SM's flagship act prove it's still standing?"
 date: '2026-03-09'
 category: 'Artist'
-thumbnail: '/images/news/aespa-crisis-tokyo-dome-comeback-2026-thumbnail.png'
+thumbnail: '/images/news/aespa-crisis-tokyo-dome-comeback-2026-thumbnail.webp'
 active: true
 ---
 
@@ -41,7 +41,7 @@ In November 2025, Winter's largest Chinese fanbase declared an official boycott 
 
 The fanbase announced they would no longer purchase aespa albums, fan events, or official merchandise. This wasn't vague discontent — it was a structured, declared consumer withdrawal from one of K-pop's most financially significant overseas markets.
 
-![An image symbolizing aespa's global tours and ongoing crisis](/images/news/aespa-crisis-tokyo-dome-comeback-2026-1.png)
+![An image symbolizing aespa's global tours and ongoing crisis](/images/news/aespa-crisis-tokyo-dome-comeback-2026-thumbnail.webp)
 _SM Entertainment's flagship act aespa continues a global tour even as controversies mounted through 2025_
 
 ## Three Crises, Three Directions — Why aespa?
@@ -69,7 +69,7 @@ On April 25, aespa takes the Tokyo Dome stage.
 
 For a K-pop girl group, filling one of Japan's five major dome venues represents the highest commercial tier in the industry. Tokyo Dome holds approximately 55,000 people. A sold-out run would certify aespa as **an artist who survived controversy**. A weak showing would signal that the accumulated controversies had begun to erode actual consumer behavior.
 
-## What KCL Is Watching
+## What MEARROW Is Watching
 
 aespa's crisis is a textbook case of how K-pop media and fandom consume idol "mistakes."
 
@@ -85,4 +85,4 @@ Saying "a crisis arrived" is easy. Recording how it was overcome is far harder.
 
 aespa's 2025–2026 story isn't over. Tokyo Dome in April. A full studio album later in 2026. The next chapter has already begun.
 
-KCL will be watching.
+MEARROW will be watching.

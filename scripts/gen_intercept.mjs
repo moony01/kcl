@@ -3,6 +3,7 @@
  * ChatGPT Image Gen - intercept AFTER prompt sent, skip cached images
  */
 import { chromium } from 'playwright-core';
+import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -23,7 +24,7 @@ async function ss(page, label) {
 }
 
 async function generateOne(context, type) {
-  const outFile = type === 'thumbnail' ? `${slug}-thumbnail.png` : `${slug}-1.png`;
+  const outFile = type === 'thumbnail' ? `${slug}-thumbnail.webp` : `${slug}-1.webp`;
   const outPath = path.join(outDir, outFile);
   log(`\n=== ${type} ===`);
 
@@ -168,7 +169,7 @@ async function generateOne(context, type) {
       log(`Magic bytes: PNG=${isPNG}, JPG=${isJPG}`);
 
       if ((isPNG || isJPG) && best.buf.length > 100000) {
-        fs.writeFileSync(outPath, best.buf);
+        await sharp(best.buf).webp({ quality: 82, effort: 6 }).toFile(outPath);
         log(`SAVED: ${outPath} (${best.buf.length} bytes)`);
         await ss(page, `${type}_saved`);
         await page.close();
@@ -190,7 +191,7 @@ async function generateOne(context, type) {
   log('Intercept v2 starting');
 
   // Delete old placeholder files
-  for (const f of [`${slug}-thumbnail.png`, `${slug}-1.png`]) {
+  for (const f of [`${slug}-thumbnail.webp`, `${slug}-1.webp`]) {
     const fp = path.join(outDir, f);
     if (fs.existsSync(fp)) { fs.unlinkSync(fp); log(`Deleted: ${f}`); }
   }

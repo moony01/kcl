@@ -3,7 +3,7 @@ title: "NewJeans vs HYBE/ADOR Contract Dispute: An In-Depth Analysis of K-pop's 
 excerpt: "From Min Hee-jin's dismissal to contract termination attempts and court rulings. A comprehensive analysis of the most intense label-artist dispute in K-pop history and its impact on the industry."
 date: '2026-01-24'
 category: 'Industry Analysis'
-thumbnail: '/images/news/newjeans-hybe-contract-dispute-thumbnail.png'
+thumbnail: '/images/news/newjeans-hybe-contract-dispute-thumbnail.webp'
 ---
 
 If you had to pick the hottest keyword that defined the K-pop industry in 2025, it would undoubtedly be the **'NewJeans vs HYBE'** dispute. Beyond a simple contract disagreement, this case raised fundamental questions about K-pop's governance structure, artist rights, and the balance between creators and capital. Fandoms were divided, the industry was on edge, and the courts had to make unprecedented decisions.
@@ -18,7 +18,7 @@ At the extraordinary shareholders' meeting in May, Min narrowly avoided dismissa
 
 Following Min's dismissal, NewJeans held an emergency press conference in September with a shocking announcement: they were **notifying ADOR of their contract termination**. The members stated, "Our creative environment has been destroyed, and we can no longer operate as ADOR artists," claiming the contract should be void.
 
-![Image symbolizing the contract dispute](/images/news/newjeans-hybe-contract-dispute-1.png)
+![Image symbolizing the contract dispute](/images/news/newjeans-hybe-contract-dispute-1.webp)
 _An unprecedented legal battle between label and artists unfolded in K-pop history_
 
 ADOR (HYBE) immediately responded with legal action, and in **October, a Korean court ruled the contract valid**. The court determined that "there were insufficient grounds for contract termination" and ruled that NewJeans remains under ADOR. This decision blocked NewJeans' path to independence, leading to a continued stalemate. The global fandom split into two camps, each supporting their respective sides in heated debates across social media.
@@ -31,11 +31,11 @@ This dispute sent a powerful wake-up call throughout the K-pop industry. **First
 
 **Third, the politicization of fandom communities** intensified. While fandoms previously focused solely on supporting artists, they now actively voice opinions on corporate management and industry systems. Hashtag campaigns, encouragement to participate in shareholder meetings, and even fans sending inquiries to investor relations departments emerged as new phenomena.
 
-## KCL's Perspective on This Dispute
+## MEARROW's Perspective on This Dispute
 
-KCL (K-pop Company League) is a ranking system that comprehensively evaluates K-pop agencies' capabilities and performance. This dispute raised the need for a new evaluation metric: **'Agency Risk.'** No matter how exceptional an artist lineup or revenue performance may be, image damage and business disruption risks from internal conflicts directly impact corporate value.
+MEARROW (K-pop Talent Network) is a ranking system that comprehensively evaluates K-pop agencies' capabilities and performance. This dispute raised the need for a new evaluation metric: **'Agency Risk.'** No matter how exceptional an artist lineup or revenue performance may be, image damage and business disruption risks from internal conflicts directly impact corporate value.
 
-HYBE remains the top K-pop company by revenue, but this dispute increased stock volatility and raised governance concerns in ESG (Environmental, Social, and Governance) evaluations. Meanwhile, competitors like SM, JYP, and YG differentiated themselves with messages like "We prioritize trust with our artists." KCL is also reviewing enhanced evaluation models that reflect **governance stability, artist relations, and risk management capabilities**.
+HYBE remains the top K-pop company by revenue, but this dispute increased stock volatility and raised governance concerns in ESG (Environmental, Social, and Governance) evaluations. Meanwhile, competitors like SM, JYP, and YG differentiated themselves with messages like "We prioritize trust with our artists." MEARROW is also reviewing enhanced evaluation models that reflect **governance stability, artist relations, and risk management capabilities**.
 
 ## 2026 Outlook and Lessons for the K-pop Industry
 

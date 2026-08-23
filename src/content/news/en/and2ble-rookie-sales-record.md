@@ -3,7 +3,7 @@ title: "AND2BLE's 730K Debut Is A Rookie Warning Rivals Can't Ignore"
 excerpt: "AND2BLE crossed 730,000 first-week debut-album copies and took two music-show wins within eight days, turning re-debut heat into a market test."
 date: "2026-06-04"
 category: "Market Trend"
-thumbnail: "/images/news/and2ble-rookie-sales-record-thumbnail.png"
+thumbnail: "/images/news/and2ble-rookie-sales-record-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ For a new group, the first trophy is symbolic. The second trophy is more useful.
 
 The timing also creates a cleaner narrative loop. Sales prove the fandom was ready before the debut fully unfolded. Trophies prove the fandom can act during the live campaign. If social clips, performance views and stage edits keep moving after those trophies, AND2BLE will have something more valuable than a strong week: a conversion machine.
 
-![AND2BLE rookie sales record market-analysis image](/images/news/and2ble-rookie-sales-record-1.png)
+![AND2BLE rookie sales record market-analysis image](/images/news/and2ble-rookie-sales-record-1.webp)
 _ChatGPT-generated editorial image representing how album sales, music-show trophies and fandom signals can feed one rookie-era momentum machine._
 
 ## The Re-Debut Frame Makes This More Complicated
@@ -42,11 +42,11 @@ A brand-new rookie can be messy. Fans may accept uneven interviews, awkward stag
 
 That is why AND2BLE's opening numbers are double-edged. The group can use them to argue that the waiting audience was real. But high expectations arrive immediately with the same data. If the next stages feel ordinary, the conversation can turn from `record-breaking rookie` to `front-loaded debut` very quickly.
 
-## KCL View: This Is A Retention Test Now
+## MEARROW View: This Is A Retention Test Now
 
 ### The debut has already done the easy loud part
 
-KCL reads AND2BLE's first week as a retention test disguised as a victory lap. The debut has already done the easy loud part: a big album number, fast trophies and enough news velocity to make the group unavoidable for a moment. The hard part begins after the market stops reacting to the word `debut`.
+MEARROW reads AND2BLE's first week as a retention test disguised as a victory lap. The debut has already done the easy loud part: a big album number, fast trophies and enough news velocity to make the group unavoidable for a moment. The hard part begins after the market stops reacting to the word `debut`.
 
 The next signal is not only another number. It is behavior. Do fans keep pushing fancams after the trophy headline? Do casual listeners remember the title track without being reminded by sales posts? Do international fan accounts translate stage moments quickly enough to keep the global loop alive? Do Korean platforms show any stickiness beyond fandom ordering power?
 

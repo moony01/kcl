@@ -3,7 +3,7 @@ title: 'What Big 4 K-Pop Agencies Really Look for in Trainees - The Truth About 
 excerpt: 'What do HYBE, SM, JYP, and YG actually evaluate during auditions? Insights from trainers and successful trainees reveal the hidden criteria for selection.'
 date: '2026-01-30'
 category: 'Trainee System'
-thumbnail: '/images/news/big4-trainee-requirements-attitude-thumbnail.png'
+thumbnail: '/images/news/big4-trainee-requirements-attitude-thumbnail.webp'
 ---
 
 "I wasn't rejected because of my singing or dancing skills."
@@ -36,7 +36,7 @@ NMIXX's Haewon revealed in an interview after passing JYP's audition:
 
 This isn't unique to JYP. HYBE, SM, and YG all have separate **'Character/Attitude' sections** on their evaluation forms, and low scores here result in rejection regardless of other high marks.
 
-![Trainee training session](/images/news/big4-trainee-requirements-attitude-1.png)
+![Trainee training session](/images/news/big4-trainee-requirements-attitude-1.webp)
 _A day in the practice room is a continuous cycle of feedback and self-reflection_
 
 ## Hidden Evaluation Criteria by Agency
@@ -73,13 +73,13 @@ According to casting directors, these are the types that **fail in the first rou
 
 **5. SNS History Issues** - Past controversial social media posts. Agencies **investigate applicants' online history** before auditions.
 
-## KCL's Perspective: Agency Rankings and Training Philosophy
+## MEARROW's Perspective: Agency Rankings and Training Philosophy
 
-Looking at KCL (K-pop Company League) agency ranking data, an interesting pattern emerges. **Agencies with systematic training programs tend to have better long-term artist performance.**
+Looking at MEARROW (K-pop Talent Network) agency ranking data, an interesting pattern emerges. **Agencies with systematic training programs tend to have better long-term artist performance.**
 
 It's not about "agencies that select outstanding trainees," but rather **"agencies that turn ordinary trainees into stars"** that are truly prestigious. This comes down to the difference in systems that **select trainees with good attitudes** and **elevate their skills through systematic training**.
 
-A common thread among agencies maintaining top positions in KCL rankings is their **high emphasis on character evaluation**. This is a strategic choice that considers **long-term artist longevity** over short-term results.
+A common thread among agencies maintaining top positions in MEARROW rankings is their **high emphasis on character evaluation**. This is a strategic choice that considers **long-term artist longevity** over short-term results.
 
 ## In Closing: Practical Advice for Aspiring Trainees
 
@@ -95,4 +95,4 @@ If you're preparing for auditions right now, remember:
 
 **5. Only apply through official channels** - HYBE, SM, JYP, and YG only accept applications through their official websites or emails. Beware of scams promising "guaranteed acceptance."
 
-The journey toward becoming a K-pop idol is long and challenging. But with the **right attitude** and **relentless effort**, that dream can certainly come true. KCL is rooting for your challenge.
+The journey toward becoming a K-pop idol is long and challenging. But with the **right attitude** and **relentless effort**, that dream can certainly come true. MEARROW is rooting for your challenge.

@@ -3,7 +3,7 @@ title: '5 Members, 6 Years, 1 September Bet: Why YG''s New Boy Group Already Fee
 excerpt: 'YG new boy group plans now point to a five-member September launch window. The real story is why YG is betting on a smaller roster this time.'
 date: '2026-05-03'
 category: 'Business'
-thumbnail: '/images/news/yg-boygroup-september-bet-thumbnail.png'
+thumbnail: '/images/news/yg-boygroup-september-bet-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ There is also a symbolic layer here. YG's most iconic boy group, `BIGBANG`, debu
 
 That is a meaningful strategic reversal from the industry's recent habit of going bigger, louder and more expansive with trainee pools, pre-debut content universes and multi-member positioning. YG's move says something different: maybe the next fight is not about giving fans the largest cast, but about giving them the fastest emotional read on who each member is.
 
-![YG new boy group training silhouettes under September stage lights](/images/news/yg-boygroup-september-bet-1.png)
+![YG new boy group training silhouettes under September stage lights](/images/news/yg-boygroup-september-bet-1.webp)
 _The number matters because a five-member team has less space to hide and more pressure to become instantly legible._
 
 ## The Trainee Pipeline Behind the Announcement Looks Deliberate
@@ -54,11 +54,11 @@ For aspiring idols, that changes how the announcement should be read. The headli
 
 In other words, trainees should not overread the fantasy that a September team was assembled overnight. But they also should not miss the broader signal. YG is tightening the connection between scouting, public communication and launch timing. That makes its pipeline feel more transparent than before, even if the final internal decisions are still closely guarded.
 
-## KCL's View on the Five-Member Bet
+## MEARROW's View on the Five-Member Bet
 
 ### YG may be optimizing for clarity before scale
 
-KCL reads this as a strategy story before it becomes a music story. Plenty of agencies can announce a boy group. The harder part is making the market understand, within seconds, why this group exists and how it differs from the last one. By choosing a five-member structure and saying so early, YG is doing some of that work in advance. The company is telling fans to expect concentration, not sprawl.
+MEARROW reads this as a strategy story before it becomes a music story. Plenty of agencies can announce a boy group. The harder part is making the market understand, within seconds, why this group exists and how it differs from the last one. By choosing a five-member structure and saying so early, YG is doing some of that work in advance. The company is telling fans to expect concentration, not sprawl.
 
 That matters in a year when multiple players are building new male acts across the industry. The rookie fight is getting louder, but louder is not always better. A smaller team can move faster in branding, faster in member recognition and faster in narrative discipline if the songs and performance level arrive on time.
 

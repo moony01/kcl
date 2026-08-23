@@ -3,7 +3,7 @@ title: "BTS Used the Black University That Preserved Korean Music in 1896 — Th
 excerpt: "In 1896, seven Korean students recorded Arirang at Howard University because white schools refused them. 130 years later, BTS's album teaser recreated that exact scene — and filled the HBCU campus with predominantly white faces. HYBE has said nothing."
 date: '2026-03-26'
 category: 'Industry'
-thumbnail: '/images/news/bts-arirang-animation-whitewash-howard-university-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-animation-whitewash-howard-university-2026-thumbnail.webp'
 active: true
 ---
 
@@ -40,7 +40,7 @@ Howard University's student newspaper, *The Hilltop*, captured the mixed reactio
 
 The reaction outside campus was sharper. Reddit's r/kpopnoir thread — which draws primarily Black K-pop fans — lit up with thousands of responses. "So BTS decided to whitewash Howard University in their trailer… yeah I'm done." The r/Fauxmoi thread framing was blunt: "The fact that HYBE has remained silent speaks volumes on how little they care."
 
-![The historic first recording of Arirang at Howard University in 1896 — Korean students and Black American students together, a moment of solidarity erased from BTS's animation](/images/news/bts-arirang-animation-whitewash-howard-university-2026-1.png)
+![The historic first recording of Arirang at Howard University in 1896 — Korean students and Black American students together, a moment of solidarity erased from BTS's animation](/images/news/bts-arirang-animation-whitewash-howard-university-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## HYBE's Silence
@@ -59,7 +59,7 @@ K-pop owes substantial creative debts to Black American music — in rhythm, in 
 
 This specific case is different in form but not in kind. It's not overt mockery. It's something quieter and more systemic: using a Black historical space as the backdrop for a story about Korean identity, while visually erasing the Black people from that space. It's erasure by omission rather than by insult — which makes it, in some ways, harder to confront directly.
 
-## KCL's Take
+## MEARROW's Take
 
 BTS's decision to build an album around the 1896 Howard recording was genuinely ambitious and historically interesting. The history deserves attention. The connection between Korean diasporic music and America's HBCU landscape is a story worth telling.
 

@@ -42,7 +42,7 @@ function toMonthlyChampion(record: SeasonRecord): MonthlyChampion {
     month: record.month,
     companyId: record.champion_company_id,
     companyName: record.company?.name_en || 'Unknown',
-    companyLogo: record.company?.gradient_color || '#8B5CF6',
+    companyLogo: record.company?.gradient_color || '#315CFF',
     companyLogoUrl: record.company
       ? getCompanyLogoUrl(record.champion_company_id, record.company.logo_url, record.company.name_en) || undefined
       : undefined,

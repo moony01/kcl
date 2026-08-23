@@ -3,7 +3,7 @@ title: "BTS Just Took Over the World Cup Final - Football Fans Did Not See K-pop
 excerpt: "BTS World Cup halftime puts K-pop beside Madonna and Shakira, turning FIFA's first final-stage show into a fandom power test."
 date: '2026-05-15'
 category: 'Tech & Culture'
-thumbnail: '/images/news/bts-world-cup-halftime-thumbnail.png'
+thumbnail: '/images/news/bts-world-cup-halftime-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ That tension is the hook. BTS are not being added to a normal K-pop award stage.
 
 Madonna gives the show pop-history weight. Shakira gives it World Cup familiarity and a direct connection to global football memory. BTS bring something different: a fandom system that can turn one scheduling detail into days of search, translation, reposting, edits, streaming parties, and argument. That is the part FIFA is buying, even if the press release talks in softer language.
 
-![BTS World Cup halftime broadcast control room with K-pop fandom lights](/images/news/bts-world-cup-halftime-1.png)
+![BTS World Cup halftime broadcast control room with K-pop fandom lights](/images/news/bts-world-cup-halftime-1.webp)
 _An abstract broadcast room visualizes how K-pop fandom could reshape the World Cup final's media cycle._
 
 The risk is also different. Football fans are already debating whether a final needs a halftime show at all. K-pop fans, especially BTS fans, will measure camera time, setlist choices, live vocals, choreography, crowd audio, and respect from the broadcast. Those two audiences do not grade the same event by the same standards. FIFA is trying to merge them in real time.
@@ -50,13 +50,13 @@ The casting is not random. Shakira has a World Cup history that casual football 
 
 That combination matters because FIFA does not need only applause inside the stadium. It needs a global replay loop. Shakira can travel across Latin America, football audiences, and official tournament music. Madonna can trigger legacy media and pop-culture commentary. BTS can activate fan translation accounts, short-form edits, reaction videos, and country-by-country watch behavior.
 
-For K-pop, the symbolism is unusually direct. BTS are not appearing as a regional guest, a pre-match novelty, or a cultural add-on. They are listed as co-headliners beside two of the most recognizable pop names in the world. In KCL terms, that is a status shift: K-pop is no longer asking to be included in global event programming. It is being used as one of the tools that makes the programming global.
+For K-pop, the symbolism is unusually direct. BTS are not appearing as a regional guest, a pre-match novelty, or a cultural add-on. They are listed as co-headliners beside two of the most recognizable pop names in the world. In MEARROW terms, that is a status shift: K-pop is no longer asking to be included in global event programming. It is being used as one of the tools that makes the programming global.
 
-## KCL Sees A Platform Shift
+## MEARROW Sees A Platform Shift
 
 ### K-pop is becoming event infrastructure
 
-KCL reads this booking as part of a larger platform shift. The old export story was simple: Korean music traveled overseas, built fanbases, and proved demand through concerts, albums, and streaming. The new story is more aggressive. K-pop is becoming infrastructure for other global events that want instant online participation.
+MEARROW reads this booking as part of a larger platform shift. The old export story was simple: Korean music traveled overseas, built fanbases, and proved demand through concerts, albums, and streaming. The new story is more aggressive. K-pop is becoming infrastructure for other global events that want instant online participation.
 
 That is why the World Cup booking connects with recent BTS data stories. Latin American streaming strength, sold-out tour demand, and social-media density are not separate achievements when viewed from a broadcast executive's desk. They are signals that BTS can move attention across countries before the performance even happens. A World Cup final wants that kind of pre-event electricity.
 

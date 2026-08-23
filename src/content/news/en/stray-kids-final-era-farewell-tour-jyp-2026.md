@@ -3,7 +3,7 @@ title: '"This Isn''t Goodbye" — Stray Kids Announce ''The Final Era'' Farewell
 excerpt: 'Stray Kids have officially announced ''The Final Era'' farewell world tour for late 2026. With Lee Know''s military enlistment looming, JYP''s crown jewel is writing the final chapter of their golden age.'
 date: '2026-03-08'
 category: 'Artist'
-thumbnail: '/images/news/stray-kids-final-era-farewell-tour-jyp-2026-thumbnail.png'
+thumbnail: '/images/news/stray-kids-final-era-farewell-tour-jyp-2026-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ Lee Know (Lee Minho), the group's eldest member born in 1998, must enlist by age
 
 As [BTS's comeback proved](/en/news/bts-arirang-comeback-2026), military enlistment isn't merely a hiatus for K-pop groups — it's a generational turning point.
 
-![An ocean of blue lightsticks at a K-pop concert](/images/news/stray-kids-final-era-farewell-tour-jyp-2026-1.png)
+![An ocean of blue lightsticks at a K-pop concert](/images/news/stray-kids-final-era-farewell-tour-jyp-2026-1.webp)
 _The iconic sea of blue light — STAY's lightsticks illuminating a Stray Kids concert_
 
 ## JYP's Strategic Calculation
@@ -55,7 +55,7 @@ Stray Kids recently topped the **global box office** with their concert film, 'S
 
 This box office success is expected to amplify ticket demand for 'The Final Era' tour to explosive levels.
 
-## KCL's Take on Stray Kids' Final Chapter
+## MEARROW's Take on Stray Kids' Final Chapter
 
 Stray Kids' farewell tour carries significance beyond a mere concert series. It marks the **opening act of the 4th-generation military enlistment era**.
 

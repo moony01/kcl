@@ -3,7 +3,7 @@ title: "Rosé Just Rewrote Every K-pop Solo Record in 6 Months — And She's Not
 excerpt: "1 billion Spotify streams for APT., 12 weeks at No. 1 on Global 200, Grammy opening stage, Guinness records. Rosé's 6-month solo run shattered every ceiling K-pop soloists thought existed."
 date: '2026-03-29'
 category: 'Artist'
-thumbnail: '/images/news/rose-solo-kpop-records-thumbnail.png'
+thumbnail: '/images/news/rose-solo-kpop-records-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Released on December 6, 2024, debut studio album "rosie" moved 102,000 units in 
 
 On Spotify, the album logged 179.3 million first-week streams, the largest opening for any female K-pop act in history. On the United World Chart, Rosé topped both the albums and singles charts simultaneously, making her the **first Asian solo artist** to achieve this milestone.
 
-![Rosé's solo album rosie charting at No. 3 on Billboard 200, the highest for any K-pop female soloist](/images/news/rose-solo-kpop-records-1.png)
+![Rosé's solo album rosie charting at No. 3 on Billboard 200, the highest for any K-pop female soloist](/images/news/rose-solo-kpop-records-1.webp)
 _Rosé's 'rosie' set the all-time record for a K-pop female solo artist on the Billboard 200_
 
 ## Grammy Night — The First K-pop Soloist to Open That Stage
@@ -59,7 +59,7 @@ iHeartRadio operates the largest radio network in the United States. A K-pop act
 
 [Related: BLACKPINK's 'GO' enters Billboard Hot 100 at No. 63, setting K-pop girl group record](/en/news/blackpink-go-billboard-hot100-11th-entry-record-2026)
 
-## KCL's Take — The Solo Era Has Truly Arrived
+## MEARROW's Take — The Solo Era Has Truly Arrived
 
 ### Not Escaping a Group's Shadow, But Drawing a New Map
 

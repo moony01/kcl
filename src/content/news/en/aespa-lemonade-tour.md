@@ -3,7 +3,7 @@ title: '25 Cities, a New Album, and a North America Push - aespa Is Building Mor
 excerpt: 'aespa just paired its May 29 album LEMONADE with an August kickoff and a 25-region world tour. The bigger story is not the comeback but the price reset.'
 date: '2026-04-23'
 category: 'Artist'
-thumbnail: '/images/news/aespa-lemonade-tour-thumbnail.png'
+thumbnail: '/images/news/aespa-lemonade-tour-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Korea JoongAng Daily and Soompi report that `SYNK : ____æ____` begins in Seoul 
 
 The same reports note that venues have not been announced yet. That looks like an omission on the surface, but the market often reads it the opposite way. When cities are announced before buildings, it usually means the internal demand modeling is already mature enough to lock the routing first and optimize venue size, price, and inventory later. In other words, this does not look like a tour that is still wondering whether the demand exists. It looks like a tour testing how far that demand can be pushed.
 
-![aespa LEMONADE world tour roadmap glowing across neon citrus arenas](/images/news/aespa-lemonade-tour-1.png)
+![aespa LEMONADE world tour roadmap glowing across neon citrus arenas](/images/news/aespa-lemonade-tour-1.webp)
 _The route from Seoul to North America and Europe captures how much bigger aespa's next cycle is meant to feel._
 
 ## Why the album and the tour were fused together
@@ -42,11 +42,11 @@ For years, aespa has been judged on concept density, visuals, and the force of i
 
 That is also why the reaction accelerated so quickly. The tour does not start until August, but pre-orders, city planning, budget talk, and route-sharing began in April. This is no longer a one-listen event. It is a season that fans begin buying into before the first full performance window even opens. If aespa can sustain that structure, `LEMONADE` may become more than a successful record. It could become a reference point for which girl-group act can command the most expensive demand in the second half of 2026.
 
-## KCL's Take on aespa's `LEMONADE` Cycle
+## MEARROW's Take on aespa's `LEMONADE` Cycle
 
 ### The real win here is that SM made it impossible to separate the comeback from the business story
 
-KCL sees the smart move in the timing. Most acts finish the comeback reveal first and attach the tour later. aespa did the opposite, linking the world tour almost immediately after the album announcement. That sequencing shifts the conversation from "how good will the music be?" to "how large can this demand become?" It turns artistic anticipation into a business narrative with almost no delay.
+MEARROW sees the smart move in the timing. Most acts finish the comeback reveal first and attach the tour later. aespa did the opposite, linking the world tour almost immediately after the album announcement. That sequencing shifts the conversation from "how good will the music be?" to "how large can this demand become?" It turns artistic anticipation into a business narrative with almost no delay.
 
 ### That is why the first real verdict may come in May, not August
 

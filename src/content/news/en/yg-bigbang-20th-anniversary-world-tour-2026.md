@@ -3,7 +3,7 @@ title: 'BIGBANG Is Back — 20th Anniversary World Tour, Coachella, and YG''s Fu
 excerpt: 'YG Entertainment just unveiled its entire 2026 roadmap: BIGBANG''s 20th anniversary world tour, a confirmed Coachella appearance, and a new boy group debut. Yang Hyun-suk delivered the announcement personally.'
 date: '2026-03-05'
 category: 'Industry'
-thumbnail: '/images/news/yg-bigbang-20th-anniversary-world-tour-2026-thumbnail.png'
+thumbnail: '/images/news/yg-bigbang-20th-anniversary-world-tour-2026-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ BIGBANG's Coachella 2026 appearance was confirmed simultaneously. This isn't jus
 
 G-Dragon's 2025 solo activities already reignited his visibility in the American market. YG's strategy is clear: channel that momentum into BIGBANG as a unit and detonate it at Coachella.
 
-![YG Entertainment's 2026 masterplan announcement — a futuristic image symbolizing BIGBANG's 20th anniversary world tour and new boy group debut](/images/news/yg-bigbang-20th-anniversary-world-tour-2026-1.png)
+![YG Entertainment's 2026 masterplan announcement — a futuristic image symbolizing BIGBANG's 20th anniversary world tour and new boy group debut](/images/news/yg-bigbang-20th-anniversary-world-tour-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## YG's Next Generation: First New Boy Group Since TREASURE
@@ -67,9 +67,9 @@ His decision to personally deliver the 2026 roadmap sends two messages:
 
 [Related: Min Heejin vs HYBE — The 25.5 Billion Won Put Option Ruling That Could Decide ADOR's Fate](/en/news/min-heejin-hybe-put-option-255b-ruling)
 
-## KCL's Take: What YG's 2026 Strategy Really Means
+## MEARROW's Take: What YG's 2026 Strategy Really Means
 
-From KCL's perspective, this announcement isn't a schedule reveal — it's a declaration. YG is re-entering the Big 3 competition at full force.
+From MEARROW's perspective, this announcement isn't a schedule reveal — it's a declaration. YG is re-entering the Big 3 competition at full force.
 
 The 2024–2025 K-pop market was dominated by HYBE (BTS comeback) and JYP (Stray Kids' global expansion). SM Entertainment also made waves with aespa and NCT WISH. YG, meanwhile, had BABYMONSTER's growth trajectory and G-Dragon's solo comeback, but lacked a defining large-scale move.
 
@@ -79,4 +79,4 @@ If it works, YG proves the "Big 3" label still means something. If it doesn't? T
 
 ## The Second Half of 2026 Changes Everything
 
-BIGBANG's return. Coachella. A new boy group. YG played every card in its hand at once. All that's left is execution. One thing is certain for K-pop fans and KCL league observers alike — the K-pop landscape in the second half of 2026 will look very different from today.
+BIGBANG's return. Coachella. A new boy group. YG played every card in its hand at once. All that's left is execution. One thing is certain for K-pop fans and MEARROW league observers alike — the K-pop landscape in the second half of 2026 will look very different from today.

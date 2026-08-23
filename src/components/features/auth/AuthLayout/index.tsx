@@ -16,6 +16,7 @@
 import { ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './AuthLayout.module.scss';
+import { BRAND_NAME } from '@/lib/brand';
 import {
   Crown,
   Heart,
@@ -73,7 +74,7 @@ export default function AuthLayout({ children, footerLink }: AuthLayoutProps) {
           <div className={styles.heroContent}>
 
             {/* 브랜드 로고 */}
-            <span className={styles.heroBrand}>KCL</span>
+            <span className={styles.heroBrand}>{BRAND_NAME}</span>
 
             {/* 대형 헤드라인 - 핵심 단어에 그라데이션 */}
             <h2 className={styles.heroHeadline}>
@@ -133,7 +134,7 @@ export default function AuthLayout({ children, footerLink }: AuthLayoutProps) {
         {/* ========================================= */}
         <div className={styles.rightPanel}>
           <div className={styles.authBox}>
-            <h1 className={styles.logo}>KCL</h1>
+            <h1 className={styles.logo}>{BRAND_NAME}</h1>
             {children}
           </div>
 

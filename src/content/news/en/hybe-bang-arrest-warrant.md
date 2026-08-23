@@ -3,7 +3,7 @@ title: "Right Before BTS's U.S. Tour, Bang Si-hyuk Faces an Arrest Warrant — H
 excerpt: "Police sought an arrest warrant for Bang Si-hyuk on April 21, 2026. Days before BTS's U.S. run, the filing put HYBE's governance risk back above its comeback narrative."
 date: '2026-04-21'
 category: 'Business'
-thumbnail: '/images/news/hybe-bang-arrest-warrant-thumbnail.png'
+thumbnail: '/images/news/hybe-bang-arrest-warrant-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ This story is hitting at the worst possible narrative moment for HYBE. AP and Ko
 
 Fans often read a K-pop agency through the glow of its artists. The market does not. Once an arrest warrant enters the picture, the conversation moves immediately to disclosure standards, internal controls, and key-man risk. Bang Si-hyuk was the emblem of HYBE's rise. That makes him, in a moment like this, the clearest symbol of how concentrated its reputational and governance risk may be. BTS can sell tickets. They cannot answer governance questions on HYBE's behalf.
 
-![A HYBE crisis scene where Bang Si-hyuk arrest warrant risk collides with BTS U.S. tour timing](/images/news/hybe-bang-arrest-warrant-1.png)
+![A HYBE crisis scene where Bang Si-hyuk arrest warrant risk collides with BTS U.S. tour timing](/images/news/hybe-bang-arrest-warrant-1.webp)
 _At the very moment HYBE needs the comeback story to dominate, the market is reading governance risk first._
 
 ## How the Public Is Receiving It
@@ -42,7 +42,7 @@ Public perception amplifies the shock. Bang is still widely recognized as the ar
 
 Still, current distrust cannot determine whether the 2019 allegations are true. Public fatigue with HYBE may intensify the reaction, but it cannot replace a court's finding of fact. Those are different layers, and mixing them is how analysis turns into factional noise. [Related: Min Hee-jin Offered to Walk Away From $18 Million — HYBE's Answer Was Even More Telling](/en/news/min-heejin-18m-deal-rejected)
 
-## KCL's Take on the Real Risk
+## MEARROW's Take on the Real Risk
 
 ### Artist power cannot cancel out governance weakness
 

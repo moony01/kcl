@@ -3,7 +3,7 @@ title: "G-Dragon's Shirt Apology Has One Brutal Problem: Fans Won't Blame the St
 excerpt: "G-Dragon shirt apology after K-SPARK Macau has fans asking why a global K-pop veteran still needs a basic cultural review system."
 date: '2026-05-05'
 category: 'Artist'
-thumbnail: '/images/news/gdragon-shirt-apology-thumbnail.png'
+thumbnail: '/images/news/gdragon-shirt-apology-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ Galaxy Corporation's statement focused on cultural sensitivity, responsible revi
 
 That gap is why the reaction kept growing after the apology. Agency language can explain a failed process. It cannot fully replace personal accountability when the artist is the person onstage. In a fandom economy built around direct intimacy, fans often treat silence differently from legal caution. They do not only want to know which department failed. They want to know whether the artist understands why people were hurt.
 
-![G-Dragon shirt apology crisis review room with global K-pop fan reaction](/images/news/gdragon-shirt-apology-1.png)
+![G-Dragon shirt apology crisis review room with global K-pop fan reaction](/images/news/gdragon-shirt-apology-1.webp)
 _A symbolic crisis-room scene reflects how one stage outfit became a global review problem._
 
 ### The internet is also judging memory
@@ -54,11 +54,11 @@ There is an important line here. Current anger toward G-Dragon does not automati
 
 But reputation still changes how the verified facts land. If a public figure already has a history of being debated around cultural sensitivity, a new incident arrives with less patience attached. That does not decide the truth of the past. It does decide how quickly audiences ask whether the latest apology is enough.
 
-## KCL's View On The G-Dragon Shirt Apology
+## MEARROW's View On The G-Dragon Shirt Apology
 
 ### Global K-pop now needs pre-stage cultural auditing
 
-KCL reads this less as a one-artist wardrobe problem and more as a systems problem for global K-pop. The industry has become excellent at choreography review, lighting review, brand review, copyright clearance and platform timing. Cultural-language review still appears too inconsistent for the size of the export machine. That gap is no longer acceptable when a single outfit can become international news within hours.
+MEARROW reads this less as a one-artist wardrobe problem and more as a systems problem for global K-pop. The industry has become excellent at choreography review, lighting review, brand review, copyright clearance and platform timing. Cultural-language review still appears too inconsistent for the size of the export machine. That gap is no longer acceptable when a single outfit can become international news within hours.
 
 The fix is not complicated in theory. Any world-facing performance should pass through a multilingual, multicultural review layer for visible text, symbols, flags, historical references and culturally loaded imagery. That review should happen before rehearsal, not after a fan translates a photo. For major acts, this is not a creative burden. It is reputational infrastructure.
 

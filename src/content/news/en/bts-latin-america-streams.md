@@ -3,7 +3,7 @@ title: 'Brazil and Mexico Beat Korea on BTS Streams - 739 Million Plays Changed 
 excerpt: 'BTS Latin America streams put Brazil and Mexico ahead of Korea in Arirang first-week demand, turning fandom power into a market signal.'
 date: '2026-05-14'
 category: 'Industry'
-thumbnail: '/images/news/bts-latin-america-streams-thumbnail.png'
+thumbnail: '/images/news/bts-latin-america-streams-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The streaming story did not arrive alone. Yonhap reported that BTS drew a combin
 
 Mexico City gave the market that visual proof. The group's National Palace appearance with President Claudia Sheinbaum drew an estimated 50,000 people to the Zocalo, according to the Los Angeles Times, Korea.net, and El Pais coverage. El Pais also reported that the three concerts were expected to generate an estimated 1.861 billion pesos in economic impact for the city. Those figures do more than decorate a comeback narrative. They show why labels, promoters, and governments now read K-pop fandom as infrastructure.
 
-![BTS Latin America streams visualized as a stadium and global demand map](/images/news/bts-latin-america-streams-1.png)
+![BTS Latin America streams visualized as a stadium and global demand map](/images/news/bts-latin-america-streams-1.webp)
 _ChatGPT-generated editorial image representing BTS' Latin America streaming surge and stadium-scale fan demand, without real faces, official logos, or readable text._
 
 ## YouTube Confirms It Was Not A One-Platform Spike
@@ -44,11 +44,11 @@ MK reported that HYBE framed the Latin market as a business axis connected to th
 
 The business case is straightforward but difficult to execute. Latin American fans are highly organized, but the market is not frictionless. Ticket access, pricing, official merch distribution, venue capacity, exchange rates, and city-by-city logistics can turn demand into frustration fast. The same fandom that can produce millions of streams can also expose weak infrastructure when fans feel locked out. The Mexico ticket pressure around BTS is a reminder that demand without access becomes a reputational risk.
 
-## What KCL Sees In The Shift
+## What MEARROW Sees In The Shift
 
 ### This is not just a BTS victory lap
 
-KCL reads the `BTS ARIRANG` numbers as a preview of the next export model. The old version of K-pop globalization was company-led: agencies selected markets, built promotions, and treated fans as the receiving end. The new version is more circular. Fans create the signal first, data confirms the signal second, and companies follow with tours, campaigns, and investment after the market has already proven itself.
+MEARROW reads the `BTS ARIRANG` numbers as a preview of the next export model. The old version of K-pop globalization was company-led: agencies selected markets, built promotions, and treated fans as the receiving end. The new version is more circular. Fans create the signal first, data confirms the signal second, and companies follow with tours, campaigns, and investment after the market has already proven itself.
 
 That gives Latin America unusual leverage. If Brazil and Mexico can outrank Korea in first-week streaming for the biggest K-pop comeback of the year, the region has earned a stronger place in planning rooms. Future album rollouts should not only add Spanish captions after launch. They should consider release timing, local media, regional retail, fan communication, and tour capacity from the beginning.
 

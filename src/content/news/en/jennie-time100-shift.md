@@ -3,7 +3,7 @@ title: 'Is Jennie Bigger Than K-Pop Now? The TIME100 Line That Changes the Argum
 excerpt: 'Jennie made TIME100, but the bigger story is the language around her. Why this moment reads less like BLACKPINK halo and more like a solo-brand reclassification.'
 date: '2026-04-17'
 category: 'Artist'
-thumbnail: '/images/news/jennie-time100-shift-thumbnail.png'
+thumbnail: '/images/news/jennie-time100-shift-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ This TIME100 moment reads bigger because it arrived at exactly the right time. S
 
 Of course BLACKPINK remains the foundation of Jennie’s global recognition. Pretending otherwise would be lazy analysis. But this moment is no longer explainable by group halo alone. That halo opened doors. The solo cycle is what kept walking through them. The metrics around `Ruby`, the festival positioning, the sustained visibility in fashion and mainstream pop spaces, and now `Jennie TIME100` all point in the same direction. The story is no longer just that a BLACKPINK member is being noticed. It is that Jennie, under her own name, is becoming harder to contain within one category.
 
-![Jennie TIME100 global influence visualized as a red-carpet silhouette under flashbulbs](/images/news/jennie-time100-shift-1.png)
+![Jennie TIME100 global influence visualized as a red-carpet silhouette under flashbulbs](/images/news/jennie-time100-shift-1.webp)
 _What the TIME100 selection really highlights is not a single magazine moment, but a change in where Jennie is being placed within global culture._
 
 ## Fans celebrated. The market started recalculating.
@@ -42,11 +42,11 @@ That split reaction is part of what makes the story interesting. Fans see confir
 
 With that comes pressure. Lists like TIME100 do not simply reward a successful cycle. They raise the standard for what comes next. Once an artist enters that zone, the question stops being whether she has potential. The question becomes whether she can keep justifying the influence label across music, live performance, brand power, and cultural relevance. Jennie is now much closer to that test. The market is ready to judge her less as a promising crossover act and more as someone expected to keep shaping the room she walks into.
 
-## KCL’s read on Jennie TIME100
+## MEARROW’s read on Jennie TIME100
 
 ### The real story is reclassification, not celebration
 
-KCL does not read `TIME100 Jennie` as a simple prestige win. The more important development is the shift in how mainstream U.S. media is now describing her. Earlier phases of the K-pop global story often centered on introducing artists from Korea to a broader Western audience. Jennie is entering a different coordinate. She still represents K-pop at a symbolic level, but she is also increasingly legible outside that frame. That distinction matters because the most expensive moment in any crossover story is not initial popularity. It is the moment an artist stops needing the origin label in every sentence.
+MEARROW does not read `TIME100 Jennie` as a simple prestige win. The more important development is the shift in how mainstream U.S. media is now describing her. Earlier phases of the K-pop global story often centered on introducing artists from Korea to a broader Western audience. Jennie is entering a different coordinate. She still represents K-pop at a symbolic level, but she is also increasingly legible outside that frame. That distinction matters because the most expensive moment in any crossover story is not initial popularity. It is the moment an artist stops needing the origin label in every sentence.
 
 ## The next benchmark is already moving
 

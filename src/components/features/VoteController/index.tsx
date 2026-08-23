@@ -69,7 +69,7 @@ export interface VoteControllerProps {
   voteSurfaceDescriptionId?: string;
   /** 여러 카드가 하나의 quota 상태를 공유할 때 주입하는 quota 컨트롤러 */
   quotaController?: Pick<UseVoteQuotaReturn, 'quota' | 'useVote' | 'isLoading'>;
-  /** Surface-specific quota/source adapter; omitted for the normal KCL web policy. */
+  /** Surface-specific quota/source adapter; omitted for the normal MEARROW web policy. */
   votePolicy?: VotePolicyAdapter;
 }
 

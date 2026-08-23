@@ -3,7 +3,7 @@ title: 'Darkness vs Sugar — Why ITZY''s Two Solo Debuts Are Polar Opposites'
 excerpt: 'Yeji chose dark electro. Yuna chose bubblegum pop. Two solo debuts from the same K-pop group going in completely opposite directions isn''t a coincidence — it''s JYP''s calculated experiment.'
 date: '2026-03-27'
 category: 'Artist'
-thumbnail: '/images/news/yuna-solo-debut-ice-cream-thumbnail.png'
+thumbnail: '/images/news/yuna-solo-debut-ice-cream-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ For JYP, Yeji's AIR was a debut that delivered critical acclaim while leaving co
 
 On March 23, 2026, Yuna released her mini-album 'Ice Cream.' The title track is bright, addictive bubblegum pop with a message about living freely in the moment — "like ice cream melting away."
 
-![Stage lighting atmosphere capturing ITZY Yuna solo debut Ice Cream performance](/images/news/yuna-solo-debut-ice-cream-1.png)
+![Stage lighting atmosphere capturing ITZY Yuna solo debut Ice Cream performance](/images/news/yuna-solo-debut-ice-cream-1.webp)
 _Image: Colorful stage lighting of a solo debut performance_
 
 ### A Genre Spectrum in 4 Tracks
@@ -67,9 +67,9 @@ This isn't simply a story of "different members, different music." After Yeji's 
 
 At the same time, JYP's other flagship act Stray Kids announced a farewell tour ahead of military enlistment. JYP needs ITZY members' solo activities to fill the Stray Kids vacuum. The precise one-year spacing between Yeji and Yuna's solos reads clearly in this context.
 
-## KCL's Take on the ITZY Solo Experiment
+## MEARROW's Take on the ITZY Solo Experiment
 
-KCL views ITZY's solo projects not as simple individual activities, but as JYP's **portfolio rebalancing strategy**.
+MEARROW views ITZY's solo projects not as simple individual activities, but as JYP's **portfolio rebalancing strategy**.
 
 The 4th-generation K-pop girl group market in 2026 is extremely crowded. aespa, LE SSERAFIM, NewJeans, IVE, and (G)I-DLE are locked in fierce group-level competition, while the solo market remains relatively untapped. Rosé and Jennie proved the "4th-gen soloist" model viable by charting on the Billboard Hot 100 without the BLACKPINK name.
 

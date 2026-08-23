@@ -3,7 +3,7 @@ title: 'TWS Just Hit 1 Million in 4 Days - And the "Rookie" Label No Longer Work
 excerpt: 'TWS hit 1,003,844 sales for NO TRAGEDY in four days, turning a bright comeback into a real million-seller breakout for Pledis.'
 date: '2026-05-03'
 category: 'Artist'
-thumbnail: '/images/news/tws-no-tragedy-million-thumbnail.png'
+thumbnail: '/images/news/tws-no-tragedy-million-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ The fan experience around `NO TRAGEDY` also helps explain why sales converted so
 
 That is where modern K-pop keeps widening the gap with older ideas of album demand. The CD is still important, but the real product is often the full participation bundle: collectible versions, access, exclusives, proof of support and the feeling of arriving on time. TWS benefited from exactly that kind of infrastructure.
 
-![TWS No Tragedy million-seller stage under red rose lighting](/images/news/tws-no-tragedy-million-1.png)
+![TWS No Tragedy million-seller stage under red rose lighting](/images/news/tws-no-tragedy-million-1.webp)
 _A fast-selling K-pop era looks less like one release day and more like a coordinated fan-entry machine._
 
 ## The Music Shift Helped the Numbers Land Harder
@@ -54,11 +54,11 @@ This is the detail that can get lost when every headline becomes about volume. T
 
 That is why `NO TRAGEDY` feels more meaningful than a simple "career high." It reads like the moment when growth stopped being a projection and started becoming evidence.
 
-## KCL's View on TWS's Million-Seller Jump
+## MEARROW's View on TWS's Million-Seller Jump
 
 ### This is when "promising" turns into pressure
 
-KCL's read is simple: TWS is now entering the part of the cycle where success becomes heavier, not easier. The million-seller label gives the group prestige, but it also strips away some of the protection that comes with being called a rookie. Once the market sees a group move at this speed, every next release gets judged against scale, not only charm. That can be useful for Pledis. It can also become dangerous if the company mistakes early velocity for infinite elasticity.
+MEARROW's read is simple: TWS is now entering the part of the cycle where success becomes heavier, not easier. The million-seller label gives the group prestige, but it also strips away some of the protection that comes with being called a rookie. Once the market sees a group move at this speed, every next release gets judged against scale, not only charm. That can be useful for Pledis. It can also become dangerous if the company mistakes early velocity for infinite elasticity.
 
 The smarter takeaway is not that TWS has already reached its final tier. It is that the business conversation around the group has changed faster than the branding conversation. Fans may still enjoy the freshness and warmth that made TWS easy to root for, but the sales data is already placing the act into a more competitive class. That changes how comeback budgets, tour planning, promotional risk and even creative patience get evaluated from here.
 

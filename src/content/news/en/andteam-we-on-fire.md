@@ -3,7 +3,7 @@ title: '1.2 Million Copies Later, &TEAM Is Breaking the Korea-Japan Rulebook'
 excerpt: "&TEAM's We on Fire sold 1.24 million copies in its first week. The bigger story is how a Japan-first act is redrawing HYBE's cross-border playbook."
 date: '2026-04-29'
 category: 'Artist'
-thumbnail: '/images/news/andteam-we-on-fire-thumbnail.png'
+thumbnail: '/images/news/andteam-we-on-fire-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ For years, K-pop companies sold a familiar story to investors and fans alike: tr
 
 That is why the first-million line is bigger than a chart trophy. DIPE and USEN's *encore* both described &TEAM as the first Japanese artist to reach million-seller status in both Korea and Japan. Whether you read that as symbolic or structural, it points to the same underlying shift. A group does not need to behave like a textbook Korean idol act to monetize through K-pop-style channels, and it does not need to stay boxed into a domestic Japanese framework to scale physically. Once those walls weaken, the question changes from "Which market owns this group?" to "Which system is best at turning identity, performance, and fandom into cross-border demand?"
 
-![&TEAM We on Fire sales bridge between Seoul and Tokyo skylines](/images/news/andteam-we-on-fire-1.png)
+![&TEAM We on Fire sales bridge between Seoul and Tokyo skylines](/images/news/andteam-we-on-fire-1.webp)
 _The bigger story is not one sales spike. It is the bridge forming between two album economies that used to be treated as separate worlds._
 
 ## The Billboard Japan Result Makes The Story Harder To Ignore
@@ -52,11 +52,11 @@ The showcase setup makes that clear. Weverse posted official details for `&TEAM 
 
 USEN's *encore* and StarNews both tied the comeback to the upcoming `2026 &TEAM CONCERT TOUR 'BLAZE THE WAY'`. USEN specified a May 13 start at K-Arena Yokohama and described the run as spanning `11 Asian cities`, including a first Singapore date. Even without over-reading one tour announcement, the sequencing is revealing. Album spike first, then performance expansion. That is classic idol-business logic: turn release-week intensity into ticketing confidence before the emotional peak cools off.
 
-## The KCL View On &TEAM's `We on Fire` Breakout
+## The MEARROW View On &TEAM's `We on Fire` Breakout
 
 ### This may be the cleanest proof yet that K-pop is becoming a system, not a passport
 
-KCL does not read `We on Fire` as only an &TEAM success story. It reads more like evidence that the most powerful Korean entertainment companies are getting better at building acts that can travel between identity layers without losing commercial force. &TEAM is Japanese in origin, HYBE in system design, and increasingly K-pop in how the market talks about its scale. That combination used to confuse industry categories. Now it is starting to look like an advantage.
+MEARROW does not read `We on Fire` as only an &TEAM success story. It reads more like evidence that the most powerful Korean entertainment companies are getting better at building acts that can travel between identity layers without losing commercial force. &TEAM is Japanese in origin, HYBE in system design, and increasingly K-pop in how the market talks about its scale. That combination used to confuse industry categories. Now it is starting to look like an advantage.
 
 ### If that advantage keeps compounding, other companies will copy the route fast
 

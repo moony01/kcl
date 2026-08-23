@@ -1,5 +1,5 @@
 /**
- * KCL 뉴스 댓글 Supabase API 레이어
+ * MEARROW 뉴스 댓글 Supabase API 레이어
  * 클라이언트 사이드에서 뉴스 댓글 CRUD 처리
  */
 

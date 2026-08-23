@@ -3,7 +3,7 @@ title: "Stray Kids Just Dominated the Box Office Too — The K-Pop Concert Film 
 excerpt: "Stray Kids' concert film 'The dominATE Experience' made history as the first K-pop movie to reach #1 at the global box office. With $19.9 million across 61 territories in its opening weekend, the film surpassed BTS records and signals a fundamental shift in how K-pop generates revenue."
 date: '2026-02-18'
 category: 'Market Trend'
-thumbnail: '/images/news/stray-kids-dominate-kpop-first-global-box-office-thumbnail.png'
+thumbnail: '/images/news/stray-kids-dominate-kpop-first-global-box-office-thumbnail.webp'
 active: true
 ---
 
@@ -40,7 +40,7 @@ Timing played a role — Variety called it "the quietest weekend of the year so 
 
 The film's director is **Paul Dugdale** — an Emmy and BAFTA winner with three Grammy nominations, who has directed live-event films for Taylor Swift, Adele, Coldplay, and the Rolling Stones. This was his first K-pop project. The fact that a filmmaker of this caliber chose K-pop for his next venture tells you everything about where Hollywood sees this genre heading.
 
-![Stray Kids 'The dominATE Experience' — A New Era for K-Pop Concert Cinema](/images/news/stray-kids-dominate-kpop-first-global-box-office-1.png)
+![Stray Kids 'The dominATE Experience' — A New Era for K-Pop Concert Cinema](/images/news/stray-kids-dominate-kpop-first-global-box-office-1.webp)
 _From 1.3 million tickets to $185.9 million in tour revenue to the #1 movie worldwide — Stray Kids' new revenue formula_
 
 ## From a $185.9M Tour to the Big Screen — JYP's IP Expansion Strategy
@@ -59,7 +59,7 @@ JYP Entertainment's strategy is crystal clear:
 
 This isn't simply a concert recorded and put in theaters. It's **a systematic pipeline converting tour IP into film IP**.
 
-## KCL's Take: The Future of Concert Cinema
+## MEARROW's Take: The Future of Concert Cinema
 
 K-pop physical album sales plunged 19% in 2024. As the album era's decline accelerates, live experiences and visual content are emerging as critical new revenue pillars.
 

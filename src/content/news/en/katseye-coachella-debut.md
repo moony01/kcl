@@ -3,7 +3,7 @@ title: 'KATSEYE Reached Coachella as Five, Not Six — Why the Fandom Shook Hard
 excerpt: 'KATSEYE made its Coachella debut as five. The stage landed, but Manon''s hiatus and transparency questions shook the fandom harder.'
 date: '2026-04-12'
 category: 'Tech & Culture'
-thumbnail: '/images/news/katseye-coachella-debut-thumbnail.png'
+thumbnail: '/images/news/katseye-coachella-debut-thumbnail.webp'
 active: true
 ---
 
@@ -17,7 +17,7 @@ This was not just another overseas appearance. KATSEYE is HYBE and Geffen's glob
 
 Timing mattered too. `PINKY UP`, released on April 9, gave the group a fresh center of gravity right before the festival. KATSEYE did not walk into Coachella as a nostalgia act or a reality-show afterimage. It walked in as a current pop project. Then came the surprise `Golden` performance with EJAE, Audrey Nuna, and Rei Ami, which pushed the group from "HYBE's global experiment" into a real-time social-media event.
 
-![Desert lights symbolizing KATSEYE's five-member Coachella stage](/images/news/katseye-coachella-debut-1.png)
+![Desert lights symbolizing KATSEYE's five-member Coachella stage](/images/news/katseye-coachella-debut-1.webp)
 _An editorial image symbolizing the desert stage and the visual tension of a five-member performance_
 
 ### Fans kept counting the missing microphone
@@ -42,11 +42,11 @@ Coachella proved one thing clearly: KATSEYE is no longer just a survival-show pr
 
 What remains unproven is just as important. If KATSEYE wants to scale for the long term, it needs narrative management as disciplined as its performance planning. How much should be explained when a member steps away? What does a credible roadmap for recovery or return look like? Is the group still being framed around a six-member story, or is a new equilibrium already being built? KATSEYE's biggest risk right now is not lack of star power. It is audience fatigue created by prolonged uncertainty.
 
-## KCL's Take on KATSEYE at Coachella
+## MEARROW's Take on KATSEYE at Coachella
 
 ### What HYBE exported was not just a group, but an operating model
 
-KCL does not see this `KATSEYE Coachella debut` as just another trophy line on a resume. The deeper point is that a K-pop company is now applying the same compression, speed, and storyline engineering to a non-Korean-majority group that it once reserved for domestic idol launches. Coachella was the largest public test of whether that operating model can survive global scrutiny. On pure buzz, it already passed.
+MEARROW does not see this `KATSEYE Coachella debut` as just another trophy line on a resume. The deeper point is that a K-pop company is now applying the same compression, speed, and storyline engineering to a non-Korean-majority group that it once reserved for domestic idol launches. Coachella was the largest public test of whether that operating model can survive global scrutiny. On pure buzz, it already passed.
 
 The harder stage comes next. A multinational group also inherits a multinational expectation map. Silence turns into distrust faster when the audience is global, hyper-online, and emotionally invested. KATSEYE proved it can command a stage at Coachella. The next proof point is whether it can handle the explanation burden that comes after the applause.
 

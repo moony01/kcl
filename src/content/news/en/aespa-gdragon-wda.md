@@ -3,7 +3,7 @@ title: "aespa Pulled G-Dragon Into WDA - And the Real Target Wasn't Korea"
 excerpt: "aespa G-Dragon WDA turns LEMONADE into a China-chart and fandom strategy test before the May 29 album drop."
 date: '2026-05-18'
 category: 'Artist'
-thumbnail: '/images/news/aespa-gdragon-wda-thumbnail.png'
+thumbnail: '/images/news/aespa-gdragon-wda-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The most important early data point may not be the loudest one on Western timeli
 
 That is why the title's hidden target is not just Korea. Korea still supplies the label, broadcast and fandom center. But the first visible proof point shows why SM keeps building aespa as a transnational product. A pre-release that can create measurable movement across Chinese platforms gives the album campaign more than domestic buzz. It gives the company a market signal.
 
-![aespa G-Dragon WDA fandom analytics and chart reaction](/images/news/aespa-gdragon-wda-1.png)
+![aespa G-Dragon WDA fandom analytics and chart reaction](/images/news/aespa-gdragon-wda-1.webp)
 _A ChatGPT-generated editorial visualization of global fandom data and digital identity pressure, without real faces or official logos._
 
 ### The business logic is bigger than one chart
@@ -68,11 +68,11 @@ The feature should not be read as SM borrowing credibility because aespa lacks i
 
 That tension is the asset. If the collaboration sounded too seamless, it would be less interesting. The useful question is not whether every listener loved the pairing on first play. The useful question is whether the pairing made `LEMONADE` harder to ignore. On that metric, the answer is already leaning yes.
 
-## KCL's View On The WDA Bet
+## MEARROW's View On The WDA Bet
 
 ### SM is testing collaboration as market architecture
 
-KCL reads `WDA` as more than a guest-feature headline. It is a market architecture test. The song connects one of K-pop's most recognizable legacy figures with a group whose brand is already built around synthetic identity, digital mythology and global visual scale. That combination lets SM test several markets at once: Korean media, Chinese platforms, older BIGBANG-era attention, aespa fandom loyalty and Western curiosity around high-concept K-pop.
+MEARROW reads `WDA` as more than a guest-feature headline. It is a market architecture test. The song connects one of K-pop's most recognizable legacy figures with a group whose brand is already built around synthetic identity, digital mythology and global visual scale. That combination lets SM test several markets at once: Korean media, Chinese platforms, older BIGBANG-era attention, aespa fandom loyalty and Western curiosity around high-concept K-pop.
 
 The risk is clear. A collaboration this visible can make the album feel dependent on the guest. It can also distract from the members if the public conversation becomes only about G-Dragon. But the upside is just as clear: one pre-release created enough narrative density that `LEMONADE` now enters May 29 with a bigger question attached to it.
 

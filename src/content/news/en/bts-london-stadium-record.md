@@ -3,7 +3,7 @@ title: "When Does a BTS London Concert Become a City Takeover?"
 excerpt: "Live Nation reported 130,000 in aggregate attendance across two BTS London concert nights. The bigger story was the citywide cultural lift."
 date: '2026-07-14'
 category: 'Artist'
-thumbnail: '/images/news/bts-london-stadium-record-thumbnail.png'
+thumbnail: '/images/news/bts-london-stadium-record-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ The weekend did not end at the turnstiles. [BBC London](https://www.bbc.com/news
 
 That extension showed up in ordinary businesses. A Korean matcha cafe in Covent Garden created limited-edition Arirang matcha and dessert items and saw queues form before opening. The director of a Korean restaurant and pub in Chinatown told the BBC that customer numbers almost doubled during the program. Those examples do not establish a citywide economic total, but they make the mechanism visible: traveling fans needed food, places to meet and activities between showtimes.
 
-![BTS London concert fans sharing bracelets near a stadium and local cafe](/images/news/bts-london-stadium-record-1.png)
+![BTS London concert fans sharing bracelets near a stadium and local cafe](/images/news/bts-london-stadium-record-1.webp)
 _Anonymous fans exchange bracelets outside a London-inspired stadium district as nearby cafes catch the concert rush._
 
 The most useful detail may be how fans planned the trip. BBC London spoke with visitors from Norway, as well as two friends from the United States who deliberately turned the concerts into a longer holiday. The report also documented fans exchanging handmade bracelets, photocards and small gifts with people they had never met. The stadium sold the ticket. The community filled the rest of the itinerary.
@@ -56,11 +56,11 @@ That is where BTS still has an advantage that raw streaming numbers cannot fully
 
 There is also a business lesson for smaller artists. A city takeover is not created by printing more merchandise after a venue sells out. It starts with a fan culture that already has rituals people want to practice together. The official program can organize those rituals, but it cannot fake the trust underneath them.
 
-## KCL's view: a stadium show is now a platform
+## MEARROW's view: a stadium show is now a platform
 
 ### The next touring race will be measured outside the venue
 
-KCL reads the London result as a change in what a top-tier K-pop tour is expected to do. Ticket sales remain the gate. The stronger model uses the concert as a platform that connects travel, food, retail, fan-made exchange and local cultural institutions. A stadium performance can then support several days of attention without asking fans to spend longer at the venue.
+MEARROW reads the London result as a change in what a top-tier K-pop tour is expected to do. Ticket sales remain the gate. The stronger model uses the concert as a platform that connects travel, food, retail, fan-made exchange and local cultural institutions. A stadium performance can then support several days of attention without asking fans to spend longer at the venue.
 
 That creates opportunity and pressure. Host cities gain visitors and cultural activity. Korean businesses get a concentrated audience. Fans receive more ways to meet. But every extra pop-up and collaboration also competes for the same wallet. If the surrounding program becomes a shopping obstacle course, the warmth that made it valuable will disappear.
 

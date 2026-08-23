@@ -3,7 +3,7 @@ title: "BTS Finally Got the AMA Slot K-Pop Rarely Touches — And That's the Rea
 excerpt: "BTS landed a 2026 AMA Artist of the Year nomination. Why SWIM, ARIRANG, and U.S. staying power make this bigger than another fan-vote headline."
 date: "2026-04-18"
 category: "Artist"
-thumbnail: "/images/news/bts-ama-aoty-thumbnail.png"
+thumbnail: "/images/news/bts-ama-aoty-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to Reuters via GMA News, the 2026 AMA nominations were determined usin
 
 Taken together, Soompi and AP show the broader picture. `ARIRANG` opened at No. 1 on the Billboard 200 in early April, `SWIM` hit No. 1 on the Hot 100, and BTS launched its world tour in Goyang on April 9. Days later came the AMA nomination slate. Album, single, tour, and awards momentum did not arrive as separate beats. They stacked into one sentence. That density is what makes this nomination feel expensive. The U.S. market is not treating BTS as a reunion curiosity. It is reading them again as a live center of gravity.
 
-![Global award-stage silhouettes symbolizing BTS's Artist of the Year nomination at the AMAs](/images/news/bts-ama-aoty-1.png)
+![Global award-stage silhouettes symbolizing BTS's Artist of the Year nomination at the AMAs](/images/news/bts-ama-aoty-1.webp)
 _An image symbolizing BTS moving from the genre lane into the main awards room._
 
 ## Why This Does Not End as a Fandom Story
@@ -42,11 +42,11 @@ The Korea Times also noted that KATSEYE earned three nominations and multiple K-
 
 E! reported that fan voting runs through May 8 on `VoteAMAs.com` and the `@AMAs` Instagram account, while the ceremony airs live from MGM Grand Garden Arena in Las Vegas on May 25. That means the story now splits in two. One track is fan mobilization. The other is whether BTS can convert the nomination into a second win in the category after its 2021 breakthrough. Getting into the room and walking out with the trophy are very different headlines.
 
-## KCL's View on BTS and the AMAs
+## MEARROW's View on BTS and the AMAs
 
 ### The word used to explain BTS is changing again
 
-KCL does not read this as another routine BTS nomination piece. The more revealing point is that the U.S. mainstream appears willing to classify BTS once more as a current top-tier pop competitor, not merely the most successful act inside a foreign-genre bucket. `K-pop representative group` is still true. But `Artist of the Year` is a room where that description alone is not enough. BTS is moving beyond that framing again.
+MEARROW does not read this as another routine BTS nomination piece. The more revealing point is that the U.S. mainstream appears willing to classify BTS once more as a current top-tier pop competitor, not merely the most successful act inside a foreign-genre bucket. `K-pop representative group` is still true. But `Artist of the Year` is a room where that description alone is not enough. BTS is moving beyond that framing again.
 
 ## The Only Real Question Left
 

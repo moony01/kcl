@@ -3,7 +3,7 @@ title: "Taeyang Waited 9 Years for This - The Kid LAROI Feature Is the Trap Door
 excerpt: "Taeyang QUINTESSENCE lands May 18 with The Kid LAROI, a 10-track reset, and a bigger BIGBANG timing problem."
 date: '2026-05-17'
 category: 'Artist'
-thumbnail: '/images/news/taeyang-quintessence-comeback-thumbnail.png'
+thumbnail: '/images/news/taeyang-quintessence-comeback-thumbnail.webp'
 active: true
 ---
 
@@ -45,7 +45,7 @@ The revealed tracklist runs across `BAD`, `LIVE FAST DIE SLOW`, `WOULD YOU`, `MO
 
 That sequencing matters because a 10-track full album asks for a different kind of attention than a one-song comeback. Fans can argue about the title track, but the real durability test will be whether the record produces second and third favorites. A full album that lives only through one feature will feel smaller than its campaign. A full album that creates multiple replay lanes can feed performances, shorts, fan edits, and tour speculation for weeks.
 
-![Taeyang QUINTESSENCE comeback control room with global rollout lines](/images/news/taeyang-quintessence-comeback-1.png)
+![Taeyang QUINTESSENCE comeback control room with global rollout lines](/images/news/taeyang-quintessence-comeback-1.webp)
 _A symbolic ChatGPT-generated editorial image of the global rollout pressure behind Taeyang's new album._
 
 ### BIGBANG's anniversary cycle raises the stakes
@@ -68,11 +68,11 @@ The word `QUINTESSENCE` gives the comeback elegance, but it also raises the burd
 
 That is why the final days before release matter. A trailer, a sampler, and track names can build heat, but they also sharpen expectations. Fans are no longer asking whether Taeyang is back. They are asking what version of Taeyang was worth this long a wait.
 
-## KCL's View On Taeyang's Comeback Test
+## MEARROW's View On Taeyang's Comeback Test
 
 ### This is a solo album with group-era consequences
 
-KCL reads `Taeyang QUINTESSENCE` as a hinge point between solo artistry and BIGBANG's 2026 valuation. The album can succeed as music and still do something bigger for the market: prove that BIGBANG's members can create present-tense demand separately before the anniversary project asks fans to pay together.
+MEARROW reads `Taeyang QUINTESSENCE` as a hinge point between solo artistry and BIGBANG's 2026 valuation. The album can succeed as music and still do something bigger for the market: prove that BIGBANG's members can create present-tense demand separately before the anniversary project asks fans to pay together.
 
 That distinction matters. Legacy acts often survive through memory. Premium legacy acts convert memory into new spending. If Taeyang delivers a full album that feels current, The Black Label and the broader BIGBANG ecosystem get a stronger argument for bigger venues, higher ticket confidence, and a cleaner international story.
 

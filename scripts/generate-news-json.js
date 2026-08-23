@@ -26,12 +26,17 @@ const __dirname = path.dirname(__filename);
 
 // 경로 설정
 const CONTENT_DIR = path.join(__dirname, '../src/content/news');
+const SOURCE_LOCALE = 'en';
 const OUTPUT_DIR = path.join(__dirname, '../src/generated');
 const META_OUTPUT = path.join(OUTPUT_DIR, 'news-meta.json');
 const CONTENT_OUTPUT_DIR = path.join(OUTPUT_DIR, 'news-content');
 // 외부 연동용 공개 API JSON 경로
 const PUBLIC_API_DIR = path.join(__dirname, '../public/api');
 const PUBLIC_API_OUTPUT = path.join(PUBLIC_API_DIR, 'news.json');
+// Workers 런타임이 ASSETS binding으로 읽을 상세 본문 경로
+const PUBLIC_CONTENT_OUTPUT_DIR = path.join(PUBLIC_API_DIR, 'news-content');
+// Pages와 Workers가 서로 다른 본문 로더를 사용하도록 빌드마다 생성
+const RUNTIME_OUTPUT = path.join(OUTPUT_DIR, 'news-runtime.ts');
 
 /**
  * 디렉토리가 없으면 재귀적으로 생성
@@ -42,6 +47,80 @@ function ensureDir(dirPath) {
     fs.mkdirSync(dirPath, { recursive: true });
     console.log(`  [생성] 디렉토리: ${path.relative(process.cwd(), dirPath)}`);
   }
+}
+
+/**
+ * 빌드 타깃별 뉴스 본문 로더 생성
+ *
+ * Pages/test: 기존 generated JSON dynamic import를 사용
+ * Workers: public/api/news-content 정적 asset을 ASSETS binding으로 읽음
+ */
+function writeRuntimeModule() {
+  const isWorkersBuild = process.env.NEXT_RUNTIME_TARGET === 'workers';
+
+  const workersModule = `import { getCloudflareContext } from '@opennextjs/cloudflare';
+
+export interface GeneratedNewsPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  content: string;
+  thumbnail?: string | null;
+  category?: string;
+  locale: string;
+  active?: boolean;
+}
+
+export async function loadNewsPost(
+  slug: string,
+  locale: string,
+): Promise<GeneratedNewsPost | null> {
+  try {
+    const { env } = getCloudflareContext();
+    if (!env.ASSETS) return null;
+
+    const assetPath = \`/api/news-content/\${encodeURIComponent(locale)}/\${encodeURIComponent(slug)}.json\`;
+    const response = await env.ASSETS.fetch(new URL(assetPath, 'http://assets.local'));
+
+    if (!response.ok) {
+      await response.body?.cancel();
+      return null;
+    }
+
+    return (await response.json()) as GeneratedNewsPost;
+  } catch {
+    return null;
+  }
+}
+`;
+
+  const pagesModule = `export interface GeneratedNewsPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  content: string;
+  thumbnail?: string | null;
+  category?: string;
+  locale: string;
+  active?: boolean;
+}
+
+export async function loadNewsPost(
+  slug: string,
+  locale: string,
+): Promise<GeneratedNewsPost | null> {
+  try {
+    const newsModule = await import(\`@/generated/news-content/\${locale}/\${slug}.json\`);
+    return newsModule.default as GeneratedNewsPost;
+  } catch {
+    return null;
+  }
+}
+`;
+
+  fs.writeFileSync(RUNTIME_OUTPUT, isWorkersBuild ? workersModule : pagesModule, 'utf8');
 }
 
 /**
@@ -84,7 +163,14 @@ function main() {
 
   // 출력 디렉토리 생성
   ensureDir(OUTPUT_DIR);
+  ensureDir(PUBLIC_API_DIR);
+
+  // 생성물에 남아 있는 이전 로케일 콘텐츠가 fallback을 우회하지 않도록
+  // 뉴스 출력 디렉토리는 매번 원문 로케일 기준으로 재생성한다.
+  fs.rmSync(CONTENT_OUTPUT_DIR, { recursive: true, force: true });
+  fs.rmSync(PUBLIC_CONTENT_OUTPUT_DIR, { recursive: true, force: true });
   ensureDir(CONTENT_OUTPUT_DIR);
+  ensureDir(PUBLIC_CONTENT_OUTPUT_DIR);
 
   // 콘텐츠 디렉토리 존재 확인
   if (!fs.existsSync(CONTENT_DIR)) {
@@ -96,19 +182,19 @@ function main() {
   const allNewsMeta = [];
 
   // 로케일 디렉토리 순회
-  const localeDirs = fs
-    .readdirSync(CONTENT_DIR, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
+  const sourceLocaleDir = path.join(CONTENT_DIR, SOURCE_LOCALE);
+  const localeDirs = fs.existsSync(sourceLocaleDir) ? [SOURCE_LOCALE] : [];
 
-  console.log(`  [발견] 로케일: ${localeDirs.join(', ')}`);
+  console.log(`  [원문] 로케일: ${localeDirs.join(', ') || '(없음)'}`);
 
   for (const locale of localeDirs) {
     const localeDir = path.join(CONTENT_DIR, locale);
     const localeOutputDir = path.join(CONTENT_OUTPUT_DIR, locale);
+    const publicLocaleOutputDir = path.join(PUBLIC_CONTENT_OUTPUT_DIR, locale);
 
     // 로케일별 출력 디렉토리 생성
     ensureDir(localeOutputDir);
+    ensureDir(publicLocaleOutputDir);
 
     // 마크다운 파일 순회
     const mdFiles = fs.readdirSync(localeDir).filter((file) => file.endsWith('.md'));
@@ -120,12 +206,20 @@ function main() {
       const newsData = parseNewsFile(filePath, locale);
 
       // 메타데이터 (목록용 - content 제외)
-      const { content, ...meta } = newsData;
+      const meta = { ...newsData };
+      delete meta.content;
       allNewsMeta.push(meta);
 
       // 상세 데이터 (본문 포함)
       const contentOutputPath = path.join(localeOutputDir, `${newsData.slug}.json`);
       fs.writeFileSync(contentOutputPath, JSON.stringify(newsData, null, 2), 'utf8');
+
+      // Workers 런타임에서는 이 파일을 ASSETS binding으로 읽어 Worker 번들에서 본문을 분리한다.
+      const publicContentOutputPath = path.join(
+        publicLocaleOutputDir,
+        `${newsData.slug}.json`,
+      );
+      fs.writeFileSync(publicContentOutputPath, JSON.stringify(newsData, null, 2), 'utf8');
     }
   }
 
@@ -136,7 +230,6 @@ function main() {
   fs.writeFileSync(META_OUTPUT, JSON.stringify(allNewsMeta, null, 2), 'utf8');
 
   // 외부 연동용 공개 API JSON 생성 (영어 + active 뉴스만)
-  ensureDir(PUBLIC_API_DIR);
   const publicApiData = allNewsMeta
     .filter((item) => item.locale === 'en' && item.active !== false)
     .map((item) => ({
@@ -148,6 +241,8 @@ function main() {
       url: `https://www.kclhq.com/en/news/${item.slug}`,
     }));
   fs.writeFileSync(PUBLIC_API_OUTPUT, JSON.stringify(publicApiData, null, 2), 'utf8');
+
+  writeRuntimeModule();
 
   console.log(`\n✅ 생성 완료!`);
   console.log(`   - 메타데이터: ${path.relative(process.cwd(), META_OUTPUT)}`);

@@ -3,7 +3,7 @@ title: "1.82 Million Copies, 3 Trophies - NCT WISH Is No Longer SM's Side Quest"
 excerpt: "NCT WISH Ode to Love sold 1.82M in week one and swept three public-broadcast wins. SM's youngest NCT unit is no side story."
 date: '2026-05-09'
 category: 'Artist'
-thumbnail: '/images/news/nct-wish-ode-sales-thumbnail.png'
+thumbnail: '/images/news/nct-wish-ode-sales-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ That margin matters because it made the win feel less fragile. The point spread 
 
 The momentum did not stop there. On `May 2`, `Ode to Love` won MBC's `Show! Music Core` with `6,333` points, according to Soompi. The next day, NCT WISH took their first-ever `Inkigayo` win with `5,456` points. TenAsia then framed the outcome directly: NCT WISH had achieved their first three-crown sweep across Korea's public-broadcast music shows.
 
-![NCT WISH Ode to Love music show trophies and sales surge](/images/news/nct-wish-ode-sales-1.png)
+![NCT WISH Ode to Love music show trophies and sales surge](/images/news/nct-wish-ode-sales-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces or identifiable people._
 
 The reason this matters is emotional as much as statistical. A sales record tells fans the base is large. A three-show run tells them the era has public visibility. When those two signals arrive together, the comeback starts to feel like a shared confirmation rather than an internal fandom celebration.
@@ -68,11 +68,11 @@ The April and May calendar has been crowded with major comeback energy from TWS,
 
 That context makes the achievement cleaner. The group did not need an empty calendar to look strong. It held attention while other acts were fighting for the same broadcast clips, social feeds, and fan budgets. That is the kind of resilience that matters more than a one-day spike.
 
-## KCL's View On The New NCT WISH Problem
+## MEARROW's View On The New NCT WISH Problem
 
 ### SM now has to promote them like a front-line asset
 
-KCL reads `NCT WISH Ode to Love` as a promotion problem for SM, but in the best possible sense. The company now has evidence that the youngest unit can pull album demand, digital attention, and broadcast trophies at the same time. That means future scheduling cannot treat NCT WISH as a junior add-on to the larger NCT architecture.
+MEARROW reads `NCT WISH Ode to Love` as a promotion problem for SM, but in the best possible sense. The company now has evidence that the youngest unit can pull album demand, digital attention, and broadcast trophies at the same time. That means future scheduling cannot treat NCT WISH as a junior add-on to the larger NCT architecture.
 
 The next move should be clearer international routing, stronger platform storytelling, and fewer assumptions that the unit needs to wait its turn behind older names. Waiting too long would waste the moment. The group has already shown that its audience can move fast when the release package feels complete.
 

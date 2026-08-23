@@ -16,10 +16,10 @@
   width: 100%;
   padding: 18px;
   overflow: hidden;
-  background: linear-gradient(145deg, #ffffff 0%, #f7f5ff 100%);
-  border: 1px solid #e7e2f7;
+  background: linear-gradient(145deg, #ffffff 0%, #f5f7ff 100%);
+  border: 1px solid #dbe4ff;
   border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(52, 36, 112, 0.12);
+  box-shadow: 0 8px 24px rgba(23, 33, 58, 0.12);
 }
 
 .header {
@@ -28,7 +28,7 @@
 
 .eyebrow {
   margin: 0 0 5px;
-  color: #7c3aed;
+  color: #315cff;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -57,12 +57,12 @@
   min-height: 52px;
   padding: 8px 9px;
   background: #fff;
-  border: 1px solid #eeeaf8;
+  border: 1px solid #e1e7f5;
   border-radius: 12px;
 }
 
 .rank {
-  color: #7c3aed;
+  color: #315cff;
   font-size: 14px;
   font-weight: 800;
   text-align: center;
@@ -107,7 +107,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  color: #6d28d9;
+  color: #2549d8;
   font-size: 14px;
   font-variant-numeric: tabular-nums;
   font-weight: 800;
@@ -148,11 +148,11 @@
 }
 
 .score strong {
-  color: #5b21b6;
+  color: #2549d8;
 }
 
 .score small {
-  color: #8b7fa8;
+  color: #64748b;
   font-size: 10px;
   font-weight: 700;
 }
@@ -179,9 +179,9 @@
   font-weight: 800;
   line-height: 1.2;
   text-align: left;
-  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  background: linear-gradient(135deg, #315cff, #2549d8);
   border-radius: 9px;
-  box-shadow: 0 4px 10px rgba(109, 40, 217, 0.24);
+  box-shadow: 0 4px 10px rgba(37, 73, 216, 0.24);
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
@@ -193,7 +193,7 @@
 }
 
 .voteButtonText {
-  color: #ede9fe;
+  color: #eef2ff;
   font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
@@ -215,14 +215,14 @@
   justify-content: center;
   min-height: 28px;
   margin-top: 10px;
-  color: #7c3aed;
+  color: #315cff;
   font-size: 11px;
   text-align: center;
 }
 
 .expandButton {
   padding: 5px 2px;
-  color: #6d28d9;
+  color: #2549d8;
   background: transparent;
   font-size: 12px;
   font-weight: 700;
@@ -252,9 +252,9 @@
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
-  background: linear-gradient(135deg, #8b5cf6 0%, #5b21b6 100%);
+  background: linear-gradient(135deg, #5477ff 0%, #2549d8 100%);
   border-radius: 11px;
-  box-shadow: 0 6px 14px rgba(91, 33, 182, 0.28);
+  box-shadow: 0 6px 14px rgba(37, 73, 216, 0.28);
   text-decoration: none;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
@@ -280,7 +280,7 @@
 .powerCtaButton:hover,
 .powerCtaButton:focus-visible {
   color: #fff;
-  box-shadow: 0 8px 18px rgba(91, 33, 182, 0.38);
+  box-shadow: 0 8px 18px rgba(37, 73, 216, 0.38);
   transform: translateY(-1px);
 }
 
@@ -291,7 +291,7 @@
   display: grid;
   padding: 18px;
   pointer-events: none;
-  background: rgba(29, 10, 55, 0.42);
+  background: rgba(8, 11, 20, 0.42);
   place-items: center;
 }
 
@@ -303,10 +303,10 @@
   padding: 28px;
   color: #fff;
   text-align: center;
-  background: radial-gradient(circle at 30% 25%, #9f7aea, #4c1d95 72%);
+  background: radial-gradient(circle at 30% 25%, #8ea4ff, #172b79 72%);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
-  box-shadow: 0 18px 45px rgba(39, 9, 79, 0.46);
+  box-shadow: 0 18px 45px rgba(23, 43, 121, 0.46);
   place-items: center;
 }
 
@@ -381,10 +381,10 @@
   gap: 7px;
   padding: 20px 18px 16px;
   color: #fff;
-  background: linear-gradient(135deg, #5b21b6, #312e81);
+  background: linear-gradient(135deg, #2549d8, #17213a);
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 16px;
-  box-shadow: 0 16px 38px rgba(49, 20, 108, 0.42);
+  box-shadow: 0 16px 38px rgba(23, 33, 58, 0.42);
 }
 
 .powerCta h2,
@@ -406,14 +406,14 @@
   width: 100%;
   margin-top: 3px;
   background: #fff;
-  color: #5b21b6;
+  color: #2549d8;
   box-shadow: none;
 }
 
 .powerCtaButton:hover,
 .powerCtaButton:focus-visible {
-  color: #4c1d95;
-  background: #f5f3ff;
+  color: #1e3a8a;
+  background: #f5f7ff;
   box-shadow: none;
 }
 
@@ -476,7 +476,7 @@
   width: 100%;
   padding: 11px 14px;
   color: #fff;
-  background: #7c3aed;
+  background: #315cff;
   border-radius: 10px;
   font-size: 13px;
   font-weight: 800;

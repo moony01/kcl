@@ -3,7 +3,7 @@ title: "AKMU Broke K-pop's Fan War - The Charts Exposed What Idols Still Can't B
 excerpt: "AKMU Paradise of Rumors turned chart wins into a market warning: fandom machines still cannot fully buy Korean public listening."
 date: '2026-05-21'
 category: 'Market Trend'
-thumbnail: '/images/news/akmu-chart-war-thumbnail.png'
+thumbnail: '/images/news/akmu-chart-war-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ A Perfect All-Kill means a track has reached No. 1 across the major Korean daily
 
 That is why AKMU's run feels different from the usual comeback-week headline. The duo is not selling a fictional underdog story. AKMU has been a trusted Korean digital force for years. But the timing changes the meaning. In a month packed with major agency releases, a singer-songwriter duo winning through domestic listening habits is a reminder that K-pop's center of gravity is not only global fandom scale.
 
-![AKMU Paradise of Rumors chart control room showing domestic K-pop chart momentum](/images/news/akmu-chart-war-1.png)
+![AKMU Paradise of Rumors chart control room showing domestic K-pop chart momentum](/images/news/akmu-chart-war-1.webp)
 _ChatGPT-generated editorial image visualizing the split between public listening charts and fandom-driven K-pop scoreboards._
 
 ## Why This Hurts The Fandom Machine
@@ -56,11 +56,11 @@ The chart victory also lands differently because AKMU is no longer just "the YG 
 
 That does not mean every idol can copy the route. AKMU's advantage is rare. They are writers, performers, siblings, television-era public figures, and digital-chart regulars in one package. Most idol teams depend on company infrastructure in a way AKMU does not. Still, the post-YG success changes what "leaving the system" can mean in Korean pop. It is no longer only a risk story.
 
-## KCL's View On The AKMU Chart War
+## MEARROW's View On The AKMU Chart War
 
 ### The market is splitting into two scoreboards
 
-KCL reads this week as a scoreboard split. One side is the global fandom economy: album variants, tour demand, short-form clips, fan platforms, and social ranking. The other side is domestic public listening: songs that Koreans keep replaying because they feel culturally close, lyrically distinct, or emotionally useful.
+MEARROW reads this week as a scoreboard split. One side is the global fandom economy: album variants, tour demand, short-form clips, fan platforms, and social ranking. The other side is domestic public listening: songs that Koreans keep replaying because they feel culturally close, lyrically distinct, or emotionally useful.
 
 The global industry is still expanding. IFPI reported that recorded music revenue reached $31.7 billion in 2025, with paid streaming and regional growth continuing to drive the market. K-pop agencies are right to chase that scale. But AKMU is showing the opposite pressure at the same time: the Korean public is still a scarce asset, and it cannot be forced into existence by budget alone.
 

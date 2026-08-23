@@ -3,7 +3,7 @@ title: 'The Evolution of AI-Powered Fandom Platforms: How Technology Connects He
 excerpt: 'From fan cafes to Weverse, Bubble, and AI chatbots. A deep dive into how K-pop fandom platforms have evolved and where they are heading next.'
 date: '2026-01-21'
 category: 'Tech & Culture'
-thumbnail: '/images/news/ai-fandom-platform-evolution-thumbnail.png'
+thumbnail: '/images/news/ai-fandom-platform-evolution-thumbnail.webp'
 ---
 
 In 2026, being a K-pop fan is no longer just about supporting your favorite artist. Fans now receive AI-generated personalized messages, watch live streams with real-time translation, and have conversations with their bias in virtual fan meetings. All of this has been made possible by the remarkable evolution of **AI-powered fandom platforms**.
@@ -18,7 +18,7 @@ The history of K-pop fandom platforms can be divided into three distinct generat
 
 **The Third Generation (2020-present)** is defined by the emergence of **super apps** like Weverse, Bubble, and Universe. These platforms integrate community, commerce, content, and messaging into a single app. As of 2023, Weverse's monthly active users (MAU) exceeded **10 million**, representing a 40% year-over-year growth.
 
-![Global Fandom Connectivity](/images/news/ai-fandom-platform-evolution-1.png)
+![Global Fandom Connectivity](/images/news/ai-fandom-platform-evolution-1.webp)
 _Global connectivity established by 3rd generation fandom platforms_
 
 ## How AI Technology Has Revolutionized the Fandom Experience
@@ -37,7 +37,7 @@ The **'AI Bias Chatbot'** service piloted by SM Entertainment in 2025 opened a n
 
 Of course, this technology has also sparked **ethical debates**. Questions like "Can this replace genuine communication with the artist?" and "Where do the boundaries of an artist's personality rights lie?" are being actively discussed within fandoms.
 
-![AI Chatbot Interaction](/images/news/ai-fandom-platform-evolution-2.png)
+![AI Chatbot Interaction](/images/news/ai-fandom-platform-evolution-2.webp)
 _Future fandom experience communicating with AI chatbots_
 
 ### Personalized Content Curation
@@ -64,15 +64,15 @@ Bubble's strength lies in **intimacy**. While messages are actually sent 1:N, th
 
 Fandomly, which emerged in 2024, is a platform that puts **AI-based communication** at the forefront. AI analyzes artist schedules to recommend optimal timing for fans to write support messages, and automatically translates fan messages to deliver to artists. While still small in scale, it's attracting industry attention for its technological innovation.
 
-## KCL's Perspective on AI Fandom Platform Trends
+## MEARROW's Perspective on AI Fandom Platform Trends
 
-KCL (K-pop Company League) data provides interesting insights.
+MEARROW (K-pop Talent Network) data provides interesting insights.
 
-Analysis of the **correlation between fandom platform investment and Firepower** shows that artists from agencies actively investing in AI-based fan services tend to record higher firepower scores in KCL rankings. This suggests that technology investment directly impacts fandom activity and loyalty.
+Analysis of the **correlation between fandom platform investment and Firepower** shows that artists from agencies actively investing in AI-based fan services tend to record higher firepower scores in MEARROW rankings. This suggests that technology investment directly impacts fandom activity and loyalty.
 
 Notably, HYBE, SM, and JYP—all positioned in the **upper tiers of the Premier League**—either operate their own fandom platforms or have strategic partnerships. In contrast, smaller agencies relying solely on social media without their own platforms show relatively lower fandom cohesion.
 
-KCL is considering introducing a **'Fandom Tech Index'** as a new evaluation metric. This is because the era has arrived where competitive advantage is determined not just by fan numbers, but by how effectively agencies communicate with their fandoms.
+MEARROW is considering introducing a **'Fandom Tech Index'** as a new evaluation metric. This is because the era has arrived where competitive advantage is determined not just by fan numbers, but by how effectively agencies communicate with their fandoms.
 
 ## Conclusion: Technology Is Just a Tool; Connection Is the Core
 

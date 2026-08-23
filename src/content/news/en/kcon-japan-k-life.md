@@ -3,7 +3,7 @@ title: 'KCON Japan 2026 Just Changed the Product — K-pop Was Only the Hook'
 excerpt: 'KCON Japan 2026 adds beauty, food, AI film and story zones. The bigger story is that K-pop may no longer be the whole product.'
 date: '2026-04-27'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kcon-japan-k-life-thumbnail.png'
+thumbnail: '/images/news/kcon-japan-k-life-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The strongest clue sits in the brand mix. JoongAng reported that Olive Young wil
 
 CJ's March announcement for `KCON LA 2026` used the language of an "integrated K-Lifestyle convention platform." Read that next to the Japan updates and the 2026 strategy becomes easier to decode. The point is not just to make the stage larger. The point is to build an event architecture where Korean culture can be consumed in layers: music first, then beauty, then food, then story, then platform distribution. In a global entertainment market where straight music revenue is increasingly pressured, that layered model is exactly where the margin expansion lives.
 
-![KCON Japan 2026 festival floor with glowing beauty booths and an AI-style screen hall](/images/news/kcon-japan-k-life-1.png)
+![KCON Japan 2026 festival floor with glowing beauty booths and an AI-style screen hall](/images/news/kcon-japan-k-life-1.webp)
 _The stage may open the door, but the floor is where the wider K-culture sale now happens._
 
 ## Why Japan Is The Right Test Market
@@ -54,11 +54,11 @@ In earlier K-pop cycles, getting onto a festival stage was largely about fandom 
 
 CJ ENM named ZEROBASEONE's Sung Han-bin as KCON's first global ambassador earlier this year, a move covered by Asiae and CHOSUNBIZ. That is not accidental. An ambassador role makes more sense when the event wants a face that can connect performance, fandom, and platform identity at the same time. It also tells the market that KCON is thinking beyond isolated concert dates. It is building continuity across Japan and Los Angeles, trying to make the festival itself feel like a portable brand rather than a stop-by-stop schedule.
 
-## KCL's View On The Real Shift
+## MEARROW's View On The Real Shift
 
 ### This is where K-pop becomes infrastructure
 
-KCL does not read `KCON Japan 2026` as a simple scale-up. The more important shift is structural. K-pop spent years proving it could export artists. Now the more valuable question is whether it can export a repeatable lifestyle environment around those artists. If the answer is yes, then festivals stop being promotional expenses and become infrastructure: places where music, commerce, fandom data, screen content, and brand partnerships all reinforce one another in real time.
+MEARROW does not read `KCON Japan 2026` as a simple scale-up. The more important shift is structural. K-pop spent years proving it could export artists. Now the more valuable question is whether it can export a repeatable lifestyle environment around those artists. If the answer is yes, then festivals stop being promotional expenses and become infrastructure: places where music, commerce, fandom data, screen content, and brand partnerships all reinforce one another in real time.
 
 ### That makes KCON more important than one weekend in Chiba
 

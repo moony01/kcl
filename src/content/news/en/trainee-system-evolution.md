@@ -3,7 +3,7 @@ title: 'The Era of 1 Million Trainees: How is the Training System Changing?'
 excerpt: 'From closed dormitory training to public audition programs and data-driven training systems. An in-depth analysis of changes in the K-Pop idol debut process.'
 date: '2024-12-28'
 category: 'Trainee System'
-thumbnail: '/images/news/trainee-system.jpg'
+thumbnail: '/images/news/trainee-system.webp'
 ---
 
 ## From Hungry Spirit to Systematic Management
@@ -22,6 +22,6 @@ Mental health management for trainees, which was previously overlooked, has beco
 
 The strategy of revealing the training process through YouTube or TikTok before debut and gathering fandoms has become commonplace. This is advantageous for reducing debut failure risks and securing initial fandoms. Fan feedback is reflected in real-time to modify group concepts.
 
-## Rookies That KCL is Watching
+## Rookies That MEARROW is Watching
 
-KCL (K-pop Company League) discovers and highlights small and medium-sized agencies with systematic training systems amid these changes. Through transparent evaluation metrics, we will support hidden gem agencies and artists to shine in the global market.
+MEARROW (K-pop Talent Network) discovers and highlights small and medium-sized agencies with systematic training systems amid these changes. Through transparent evaluation metrics, we will support hidden gem agencies and artists to shine in the global market.

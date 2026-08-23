@@ -7,7 +7,7 @@ describe('company logo registry', () => {
     expect(
       getCompanyLogoUrl(
         'ba57c11a-bf5b-4058-93e8-449c572d72c2',
-        '/images/legacy-fan-art.jpg',
+        '/images/legacy-fan-art.webp',
         'YG',
       ),
     ).toBe('/images/company-logos/yg.svg');
@@ -15,8 +15,8 @@ describe('company logo registry', () => {
 
   it('resolves mock and historical company names to the same official assets', () => {
     expect(getCompanyLogoUrl('co-hybe', undefined, 'HYBE')).toBe('/images/company-logos/hybe.svg');
-    expect(getCompanyLogoUrl('co-jyp', undefined, 'JYP Entertainment')).toBe('/images/company-logos/jyp.png');
-    expect(getCompanyLogoUrl('co-s2', undefined, 'S2')).toBe('/images/company-logos/s2.png');
+    expect(getCompanyLogoUrl('co-jyp', undefined, 'JYP Entertainment')).toBe('/images/company-logos/jyp.webp');
+    expect(getCompanyLogoUrl('co-s2', undefined, 'S2')).toBe('/images/company-logos/s2.webp');
   });
 
   it('keeps an unknown company fallback and derives a readable disc color', () => {

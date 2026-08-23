@@ -3,7 +3,7 @@ title: "BTS Kept 13 Songs on Billboard for 7 Weeks - The Album Era Wasn't Suppos
 excerpt: "BTS ARIRANG Billboard run kept 13 vocal tracks on global charts for seven weeks, turning one album into a market stress test."
 date: '2026-05-14'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-arirang-billboard-record-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-billboard-record-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ The most unusual line in the latest reports is not the No. 7 album placement. It
 
 That is the dangerous part for competitors. If fans only stream the title track, the album behaves like a marketing wrapper. If fans keep returning to the full tracklist, every song becomes inventory: playlist inventory, concert inventory, short-form edit inventory, lyric-discussion inventory, and fan-culture inventory. Thirteen tracks staying active gives BTS more surfaces for attention than a normal single-led comeback can offer.
 
-![BTS ARIRANG Billboard record shown as thirteen glowing global chart lanes](/images/news/bts-arirang-billboard-record-1.png)
+![BTS ARIRANG Billboard record shown as thirteen glowing global chart lanes](/images/news/bts-arirang-billboard-record-1.webp)
 _ChatGPT-generated editorial image visualizing thirteen ARIRANG tracks as global chart momentum._
 
 The fan response shows why this detail travels. On Reddit, BTS communities were not only celebrating another No. 1. They were arguing over the shape of the record itself: whether all songs had remained on Global 200, how the Bell of King Seongdeok track should be counted, and why the number seven keeps returning inside the group's narrative. That kind of debate is useful because it turns a chart line into shareable fandom language.
@@ -48,11 +48,11 @@ The Billboard story is not happening alone. Starnews separately reported that `A
 
 The live business is also adding oxygen. Reports say BTS began the North American leg of the `ARIRANG` world tour in Tampa on April 25, with 31 concerts across 12 cities and Stanford Stadium shows scheduled for May 16, 17, and 19. A tour does not automatically create chart stability, but it does keep the era visible. Every city produces clips, setlist debates, merch photos, local-news attention, and fresh emotional reasons to revisit the album.
 
-## KCL's Take On BTS ARIRANG Billboard Pressure
+## MEARROW's Take On BTS ARIRANG Billboard Pressure
 
 ### The real record is attention depth
 
-KCL reads this week as a warning to companies that treat albums as short promotional vehicles. The K-pop market has spent years optimizing teasers, preorders, photocard versions, dance challenges, and first-week fandom mobilization. Those tools still matter. But `ARIRANG` is showing a different advantage: attention depth. The album is giving fans enough musical and narrative material to keep arguing, streaming, collecting, and showing up after the launch window has closed.
+MEARROW reads this week as a warning to companies that treat albums as short promotional vehicles. The K-pop market has spent years optimizing teasers, preorders, photocard versions, dance challenges, and first-week fandom mobilization. Those tools still matter. But `ARIRANG` is showing a different advantage: attention depth. The album is giving fans enough musical and narrative material to keep arguing, streaming, collecting, and showing up after the launch window has closed.
 
 That matters for the wider business because 2026 is crowded with comeback, tour, and festival supply. Fans cannot give every release seven weeks of active attention. The acts that win will not be the ones that make the loudest first splash. They will be the ones that create a reason to return after the algorithm has already moved on.
 

@@ -3,7 +3,7 @@ title: '550,000 Fans: TWICE Just Did What K-pop Girl Groups Were Never Supposed 
 excerpt: 'TWICE drew 550,000 fans across 35 North American shows. The number may have reset the ceiling for K-pop girl-group touring.'
 date: '2026-04-28'
 category: 'Market Trend'
-thumbnail: '/images/news/twice-550k-north-america-thumbnail.png'
+thumbnail: '/images/news/twice-550k-north-america-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ The old shorthand for K-pop success in North America was simple: win Los Angeles
 
 For years, the unspoken belief in the industry was that boy groups could build mass touring scale in North America faster, while girl groups were more likely to face a harder ceiling. TWICE's new record does not erase every gap, but it does attack that assumption directly. If a girl group can carry `35 dates` across `20 cities` and finish the leg at `550,000`, then the conversation cannot stay stuck at whether female acts are "niche" in the West. The more relevant question becomes which groups can build the infrastructure, local loyalty, and catalog depth to follow the path.
 
-![TWICE North America record atmosphere inside a sold-out arena tour](/images/news/twice-550k-north-america-1.png)
+![TWICE North America record atmosphere inside a sold-out arena tour](/images/news/twice-550k-north-america-1.webp)
 _The bigger story is not one loud night. It is the proof that a K-pop girl group can keep arena-scale demand alive across an entire North American route._
 
 ## Why This Matters For JYP And The Wider Market
@@ -42,11 +42,11 @@ JYP's gain here is larger than a celebratory press cycle. A tour at this scale s
 
 This result arrives while the broader K-pop touring economy is under real scrutiny. Ticket-price fatigue, oversupply fears, and debate over whether the market has been stretched too far have all been part of the 2026 conversation. Against that background, TWICE's numbers function like a rebuttal. They do not prove every K-pop act can tour at this level, but they do show that top-tier demand has not disappeared. It has become more selective, more route-sensitive, and more dependent on acts with years of fan trust already banked. [Related: Why 2026 K-pop Concert Prices Started Feeling Like a Breaking Point](/en/news/kpop-concert-price-inflation-2026)
 
-## KCL's View On The TWICE North America Record
+## MEARROW's View On The TWICE North America Record
 
 ### The ceiling moved, but only for groups that earn the right to test it
 
-KCL does not read this as a feel-good number floating in isolation. We read it as evidence that the North American market has matured enough to reward consistency over novelty. TWICE did not arrive as a new discovery. The group arrived with a long catalog, a stable identity, a fandom used to showing up, and a tour machine strong enough to make repetition look normal. That is the real competitive advantage. Once a group turns repeated arena attendance into habit, it stops being dependent on hype spikes.
+MEARROW does not read this as a feel-good number floating in isolation. We read it as evidence that the North American market has matured enough to reward consistency over novelty. TWICE did not arrive as a new discovery. The group arrived with a long catalog, a stable identity, a fandom used to showing up, and a tour machine strong enough to make repetition look normal. That is the real competitive advantage. Once a group turns repeated arena attendance into habit, it stops being dependent on hype spikes.
 
 ### Other agencies will study this route very closely
 

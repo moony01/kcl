@@ -3,7 +3,7 @@ title: "Gov Ball Just Became K-pop’s Weekend — 3 Acts, One NYC Test Nobody C
 excerpt: "Gov Ball K-pop momentum turned Stray Kids, Jennie and KATSEYE into a three-act test of festival scale, fandom labor and U.S. reach."
 date: "2026-06-08"
 category: "Tech & Culture"
-thumbnail: "/images/news/gov-ball-kpop-weekend-thumbnail.png"
+thumbnail: "/images/news/gov-ball-kpop-weekend-thumbnail.webp"
 active: true
 ---
 
@@ -35,7 +35,7 @@ That is exactly why the stage is valuable. If Stray Kids, Jennie or KATSEYE can 
 
 K-pop fans arrive with an operating system. They know the setlist rumors, the member context, the camera angles, the fan chants, the outfit references and the moments most likely to travel on short-form video. At a festival, that behavior changes the atmosphere for everyone nearby. A casual listener may not know the lore, but they can feel when a crowd has already decided that a moment matters.
 
-![Gov Ball K-pop festival analytics with crowd phones and stage dashboards](/images/news/gov-ball-kpop-weekend-1.png)
+![Gov Ball K-pop festival analytics with crowd phones and stage dashboards](/images/news/gov-ball-kpop-weekend-1.webp)
 _ChatGPT-generated editorial image representing how festival crowds, phone clips and fan-engagement data turn a live K-pop stage into a market signal._
 
 The catch is that the same fandom engine can also expose weak staging. If the sound mix, pacing or camera-ready moments do not land, fan clips spread that too. Festivals reward scale, but they punish dead air. K-pop’s advantage is preparation. Its risk is that the preparation has to survive weather, mixed crowds, shortened sets and outdoor production limits.
@@ -66,13 +66,13 @@ Putting both into the same weekend makes the label “K-pop” more flexible and
 
 This is where the weekend becomes more interesting than a simple “K-pop is popular” headline. K-pop’s global reach is no longer one lane. It can look like Stray Kids commanding a performance-heavy fandom. It can look like Jennie carrying solo celebrity gravity. It can look like KATSEYE testing whether K-pop-shaped training and global-pop positioning can share the same stage vocabulary.
 
-For KCL, that ambiguity is not a weakness. It is the market’s next shape. The more K-pop expands into festivals, sports events, fashion platforms and streaming campaigns, the less useful the old border becomes. The stronger question is which parts of the K-pop machine travel: choreography precision, fandom coordination, visual storytelling, platform strategy or the emotional contract between artists and fans.
+For MEARROW, that ambiguity is not a weakness. It is the market’s next shape. The more K-pop expands into festivals, sports events, fashion platforms and streaming campaigns, the less useful the old border becomes. The stronger question is which parts of the K-pop machine travel: choreography precision, fandom coordination, visual storytelling, platform strategy or the emotional contract between artists and fans.
 
-## KCL's View On Gov Ball's K-pop Weekend
+## MEARROW's View On Gov Ball's K-pop Weekend
 
 ### The real win is repeatable festival grammar
 
-KCL reads Gov Ball 2026 as a test of repeatability. One loud festival weekend is valuable, but the industry will care more if the format can be repeated without needing a once-in-a-year lineup collision. Can K-pop acts keep converting casual festival crowds? Can promoters program them across different stages without isolating them as niche slots? Can fanbases support the moment without exhausting themselves before the next campaign begins?
+MEARROW reads Gov Ball 2026 as a test of repeatability. One loud festival weekend is valuable, but the industry will care more if the format can be repeated without needing a once-in-a-year lineup collision. Can K-pop acts keep converting casual festival crowds? Can promoters program them across different stages without isolating them as niche slots? Can fanbases support the moment without exhausting themselves before the next campaign begins?
 
 The answer will not come from one setlist. It will come from the afterlife of the weekend: clips that keep moving, press that reaches outside fandom circles, sponsor interest, tour-routing confidence and whether future festivals treat K-pop acts as structural draws rather than decorative global flavor.
 

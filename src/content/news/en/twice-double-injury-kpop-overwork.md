@@ -3,7 +3,7 @@ title: "'Just Sit in a Chair and Perform' — The K-pop Machine That Won't Let I
 excerpt: "TWICE's Dahyun performed on a broken ankle from a chair. Chaeyoung couldn't board her flight due to back pain. Two members sidelined mid-tour across 43 cities — exposing the relentless overwork system behind K-pop's biggest stages."
 date: '2026-03-28'
 category: 'Industry'
-thumbnail: '/images/news/twice-double-injury-kpop-overwork-thumbnail.png'
+thumbnail: '/images/news/twice-double-injury-kpop-overwork-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ This wasn't Chaeyoung's first health crisis. In November 2025, she was diagnosed
 
 TWICE is a nine-member group. As of March 27, 2026, only seven members are performing. The 43-city world tour isn't even halfway done. A solo concert at Tokyo's National Stadium is scheduled for April. The tour doesn't stop.
 
-![Backstage tension between K-pop stage lights and an empty rehearsal room](/images/news/twice-double-injury-kpop-overwork-1.png)
+![Backstage tension between K-pop stage lights and an empty rehearsal room](/images/news/twice-double-injury-kpop-overwork-1.webp)
 _The stage lights never go off — even when the idols go down._
 
 ## Fans Erupted. JYP Went Silent.
@@ -54,7 +54,7 @@ Third, **Jeongyeon's canceled brand deal**. Her only brand partnership in a deca
 
 [Related: BTS RM's ankle injury also raised tour alarms](/en/news/bts-rm-ankle-injury-world-tour-countdown-2026)
 
-## KCL's Perspective: K-pop's Overwork Machine
+## MEARROW's Perspective: K-pop's Overwork Machine
 
 ### The Tour That Never Stops
 
@@ -62,7 +62,7 @@ K-pop world tours have expanded aggressively since 2023. BTS's Arirang World Tou
 
 The problem is structural. Tour dates are locked months in advance, intertwined with venue bookings, ticket sales, and sponsor contracts. Canceling shows for one member isn't an option in this system. That's why Dahyun sat in a chair and performed on a broken ankle. That's why Chaeyoung joined a 43-city tour with a history of fainting spells.
 
-KCL views this not as a JYP-specific failure but as a systemic limitation across the K-pop industry. A system where tour schedules take precedence over idol health. A system that only pauses when fans protest loudly enough. Unless this structure changes, what happened to TWICE will happen again.
+MEARROW views this not as a JYP-specific failure but as a systemic limitation across the K-pop industry. A system where tour schedules take precedence over idol health. A system that only pauses when fans protest loudly enough. Unless this structure changes, what happened to TWICE will happen again.
 
 ## Seven Members. The Show Goes On.
 

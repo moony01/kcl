@@ -3,7 +3,7 @@ title: 'BTS Is About to Take Over Stanford - The Bay Area Has 72 Hours to Prepar
 excerpt: "BTS Stanford Stadium shows turn three sold-out Bay Area nights into a live test of K-pop's city-scale concert power."
 date: '2026-05-15'
 category: 'Artist'
-thumbnail: '/images/news/bts-stanford-takeover-thumbnail.png'
+thumbnail: '/images/news/bts-stanford-takeover-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The timing makes it louder. The first show is Saturday, the second is Sunday, an
 
 Stanford's own language frames the concerts as more than a rental. The university said BTS will become just the second musical act to perform at Stanford Stadium after Coldplay's shows last year. That turns the venue itself into part of the headline. BTS are not being routed into a generic arena. They are being placed inside a campus with its own prestige, traffic pattern, and public identity.
 
-![BTS Stanford Stadium concert crowd outside a Bay Area campus venue](/images/news/bts-stanford-takeover-1.png)
+![BTS Stanford Stadium concert crowd outside a Bay Area campus venue](/images/news/bts-stanford-takeover-1.webp)
 _ChatGPT-generated editorial image representing the city-scale logistics behind BTS's Stanford Stadium run, without real faces, logos, or readable text._
 
 That matters for K-pop because the strongest live events no longer stop at the ticket scan. Fans build full-day itineraries around them: food stops, cup sleeve events, freebie trading, photo routes, merch timing, hotel plans, and post-show transit. KQED's local guide captured exactly that mood, listing K-pop-themed events, meals, parties, and transit advice for fans visiting or living in the Bay Area.
@@ -52,11 +52,11 @@ That detail is important because it shows the difference between audience and fa
 
 This is why BTS tour stops keep becoming civic stories. The group's live business does not rely only on stage time. It activates local communities before arrival and leaves behind media traces after departure. Every fan project gives local reporters a human angle. Every transit advisory gives non-fans a reason to notice. Every sold-out night gives the industry another data point.
 
-## KCL's View On The Stanford Takeover
+## MEARROW's View On The Stanford Takeover
 
 ### The real product is coordinated attention
 
-KCL reads the Stanford run as another proof that BTS's post-hiatus tour is operating at city scale, not only venue scale. Tampa showed the raw stadium restart. Mexico City showed civic attention and Latin American demand. Stanford now tests a different market: a wealthy, transit-complicated, tech-adjacent region where the fanbase has enough density to turn three dates into a local event system.
+MEARROW reads the Stanford run as another proof that BTS's post-hiatus tour is operating at city scale, not only venue scale. Tampa showed the raw stadium restart. Mexico City showed civic attention and Latin American demand. Stanford now tests a different market: a wealthy, transit-complicated, tech-adjacent region where the fanbase has enough density to turn three dates into a local event system.
 
 That matters for the rest of K-pop because the ceiling is moving. It is no longer enough to ask whether a group can sell a large venue. The harder question is whether the group can make the area around the venue reorganize itself. Can local media cover the visit before the show? Can fan groups build welcome campaigns? Can transit agencies issue special warnings? Can restaurants, shops, and event organizers catch the overflow?
 

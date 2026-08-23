@@ -92,7 +92,7 @@ function toCompanyType(company: CompanyRanking): CompanyType {
 }
 
 /**
- * Legacy KCL vote board structure shared by the home and embed surfaces.
+ * Legacy vote board structure shared by the MEARROW home and embed surfaces.
  *
  * In selection mode a ranking card selects a company and VoteController owns
  * the panel contract. In direct mode VoteController owns the full-card

@@ -3,7 +3,7 @@ title: 'ALLDAY PROJECT Annie: 7 Years as a Trainee, Breaking Prejudice to Achiev
 excerpt: 'Moon Seoyun, daughter of Shinsegae Chairman Jung Yoo-kyung. She overcame prejudice that "rich kids have no talent" and family opposition, debuting with THE BLACK LABEL''s ALLDAY PROJECT after 7 years of training. Remote lessons across the Pacific, and Melon #1 just 3 days after debut. This is the victory of one who never gave up.'
 date: '2026-02-03'
 category: 'Trainee System'
-thumbnail: '/images/news/annie-allday-project-7-years-trainee-dream-thumbnail.png'
+thumbnail: '/images/news/annie-allday-project-7-years-trainee-dream-thumbnail.webp'
 ---
 
 "A chaebol's daughter becoming an idol?"
@@ -38,7 +38,7 @@ But Annie didn't back down. Instead, she chose to **negotiate**.
 
 This was her **first hurdle**—convincing her family. Eventually, under the condition of 'college admission,' Annie was allowed to begin her trainee life. True to her promise, she enrolled at **Columbia University** in the United States. An Ivy League student and K-pop trainee simultaneously. Two parallel lives had begun.
 
-![A trainee taking video lessons](/images/news/annie-allday-project-7-years-trainee-dream-1.png)
+![A trainee taking video lessons](/images/news/annie-allday-project-7-years-trainee-dream-1.webp)
 _Even with the Pacific Ocean between them, training for her dream never stopped_
 
 ## Four Years of Remote Lessons Across the Pacific
@@ -83,9 +83,9 @@ Youngseo was different. She immediately applied for **THE BLACK LABEL's audition
 
 She proved that one failure isn't the end.
 
-## KCL's View on THE BLACK LABEL's Training Philosophy
+## MEARROW's View on THE BLACK LABEL's Training Philosophy
 
-According to KCL (K-pop Company League) data, THE BLACK LABEL maintains a **top ranking in artist completeness**. The defining characteristic of this label, led by producer Teddy, is **"nurturing that brings out individual colors."**
+According to MEARROW (K-pop Talent Network) data, THE BLACK LABEL maintains a **top ranking in artist completeness**. The defining characteristic of this label, led by producer Teddy, is **"nurturing that brings out individual colors."**
 
 As seen in Annie and Youngseo's cases, THE BLACK LABEL accepts trainees from **diverse backgrounds**. Whether from a chaebol family or a survival show dropout, what matters is **skill and determination**. A flexible system that allows 7 years of remote training or starting fresh after a pre-debut contract termination.
 
@@ -107,4 +107,4 @@ In the end, what matters isn't **your background**. Not your origins, not your a
 
 We hope ALLDAY PROJECT Annie's story becomes a small **beacon of hope** for you today.
 
-KCL supports everyone chasing their dreams. 🌟
+MEARROW supports everyone chasing their dreams. 🌟

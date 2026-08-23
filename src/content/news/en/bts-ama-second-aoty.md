@@ -3,7 +3,7 @@ title: "BTS Beat Taylor Swift at the AMAs - Why This Win Hits Harder Than 2021"
 excerpt: "BTS AMAs 2026 ended with Artist of the Year and Song of the Summer, turning a fan-voted trophy into a K-pop market warning."
 date: "2026-05-26"
 category: "Tech & Culture"
-thumbnail: "/images/news/bts-ama-second-aoty-thumbnail.png"
+thumbnail: "/images/news/bts-ama-second-aoty-thumbnail.webp"
 active: true
 ---
 
@@ -45,7 +45,7 @@ The night did not stop at the grand prize. Reuters reported that BTS also won `S
 
 For a comeback-era act, that distinction is important. Legacy can fill an arena, but current songs have to survive replay, clips, edits, radio memory, streaming habits, and casual recognition. `SWIM` gives the fandom a cleaner argument: BTS did not return to collect tribute trophies. They returned with a song strong enough to win a seasonal category while the group was still touring.
 
-![BTS AMAs 2026 fan-vote control room with trophy and global signals](/images/news/bts-ama-second-aoty-1.png)
+![BTS AMAs 2026 fan-vote control room with trophy and global signals](/images/news/bts-ama-second-aoty-1.webp)
 _A ChatGPT-generated editorial image showing how fan voting, awards television, and global K-pop scale converged around BTS at the 2026 AMAs._
 
 ### The pre-recorded `Hooligan` stage kept the tour inside the broadcast
@@ -60,7 +60,7 @@ That overlap is the modern BTS advantage. Awards, touring, streaming, fandom ide
 
 American award shows have become more comfortable giving K-pop its own labels. That can be valuable because dedicated categories create recognition for more acts, more fan bases, and more releases. But the BTS result exposes the limit of that structure. When the genre's biggest act can win the main prize, the old question returns: is K-pop a separate import category, or is it simply part of the central pop market when the numbers are large enough?
 
-KCL reads the 2026 AMAs as a pressure point in that debate. BTS did not need the ceremony to erase the K-pop label. The label is part of the group's identity and commercial power. The problem for U.S. pop gatekeepers is that the label can no longer be used as a containment device. BTS can sit inside the K-pop lane, then cross into the main field, then win it.
+MEARROW reads the 2026 AMAs as a pressure point in that debate. BTS did not need the ceremony to erase the K-pop label. The label is part of the group's identity and commercial power. The problem for U.S. pop gatekeepers is that the label can no longer be used as a containment device. BTS can sit inside the K-pop lane, then cross into the main field, then win it.
 
 ### The fan-vote argument cuts both ways
 
@@ -68,11 +68,11 @@ Critics will say the AMAs are fan-voted, so the result mostly reflects fandom si
 
 That is exactly what BTS still has. The 2026 result shows that the group's fandom did not merely wait for the members to come back. It stayed organized enough to convert emotion into visible market outcomes. For trainees and younger groups, that is the hard lesson. Talent opens the audition room. Identity builds the first audience. But durable fandom infrastructure is what keeps a career dangerous after the debut story gets old.
 
-## KCL's View On The Second Grand Prize
+## MEARROW's View On The Second Grand Prize
 
 ### BTS made the comeback era measurable
 
-KCL sees this `Artist of the Year` win as one of the cleanest measurements of BTS's post-hiatus power. The comeback story already had album sales, tour demand, and streaming momentum. The AMAs added a public pop-culture referendum: can BTS still beat the biggest American-facing names in a fan-voted main category? The answer, on May 25, was yes.
+MEARROW sees this `Artist of the Year` win as one of the cleanest measurements of BTS's post-hiatus power. The comeback story already had album sales, tour demand, and streaming momentum. The AMAs added a public pop-culture referendum: can BTS still beat the biggest American-facing names in a fan-voted main category? The answer, on May 25, was yes.
 
 That does not make every future U.S. award show a guaranteed BTS room. It does make the old skepticism look weaker. The market can argue about formats, voting systems, and category politics, but it cannot ignore a second grand-prize win in the same top field five years after the first.
 

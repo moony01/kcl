@@ -3,7 +3,7 @@ title: "'KPop Demon Hunters' Wins Grammy - The Significance of K-pop's First-Eve
 excerpt: "'Golden' from Netflix's 'KPop Demon Hunters' won at the 68th Grammy Awards, marking a historic milestone for K-pop. Nominated in 4 categories, the track finally brought home the trophy. We analyze what this victory means for the K-pop industry."
 date: '2026-02-04'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-demon-hunters-grammy-first-win-thumbnail.png'
+thumbnail: '/images/news/kpop-demon-hunters-grammy-first-win-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ BTS was nominated for **three consecutive years** from 2021 to 2023 in the Best 
 
 This is exactly why 'Golden's' win carries such weight. It opened the Grammy door not through pure K-pop music, but through **a fusion with a Hollywood film**. Music critic Hee-yun analyzed the win as "an effect of KPop Demon Hunters' global reach." The combination of K-pop's musical prowess with **Netflix as a global platform** broke down the perception barriers among Grammy voters.
 
-![A historic moment for K-pop at the Grammys](/images/news/kpop-demon-hunters-grammy-first-win-1.png)
+![A historic moment for K-pop at the Grammys](/images/news/kpop-demon-hunters-grammy-first-win-1.webp)
 _K-pop's first-ever Grammy trophy — the new door that 'Golden' opened_
 
 ## What EJAE's Tears Tell Us
@@ -56,11 +56,11 @@ Particularly noteworthy is that the winning song 'Golden' **contains Korean lyri
 
 **Third, the elevation of K-pop's cultural status.** A Grammy win means more than a music award. It represents official recognition from the mainstream American music industry, directly impacting K-pop artists' **US tour scale, brand deals, and media exposure**.
 
-## KCL's Perspective on K-pop's Grammy Journey
+## MEARROW's Perspective on K-pop's Grammy Journey
 
-KCL's agency global influence index reveals an interesting pattern: **agencies with higher investments in visual content (dramas, films, documentaries) show faster global recognition growth rates**. HYBE's active use of Weverse documentary series and SM's construction of culture technology (CT)-based universes follow the same logic.
+MEARROW's agency global influence index reveals an interesting pattern: **agencies with higher investments in visual content (dramas, films, documentaries) show faster global recognition growth rates**. HYBE's active use of Weverse documentary series and SM's construction of culture technology (CT)-based universes follow the same logic.
 
-'Golden's' Grammy win proves this strategy is the right answer. Going forward, KCL will track a new metric — the **'Media Crossover Index'** — by agency, quantifying the synergy created by the fusion of music and visual media.
+'Golden's' Grammy win proves this strategy is the right answer. Going forward, MEARROW will track a new metric — the **'Media Crossover Index'** — by agency, quantifying the synergy created by the fusion of music and visual media.
 
 ## The First Trophy, But Certainly Not the Last
 

@@ -3,7 +3,7 @@ title: "Guinness Puts BTS Beside Taylor and Beyonce - The No. 8 Detail Fans Can'
 excerpt: "BTS Guinness ICONS meets ARIRANG's eighth Billboard 200 top-10 week, turning a No. 8 chart line into a fandom power signal."
 date: '2026-05-18'
 category: 'Tech & Culture'
-thumbnail: '/images/news/bts-guinness-icons-thumbnail.png'
+thumbnail: '/images/news/bts-guinness-icons-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ On May 17 local time, Billboard announced that `ARIRANG` was spending its eighth
 
 That is why the number matters. A debut can be powered by preorders, concentrated fandom buying and a first-week media wave. An eighth top-10 week asks a different question: are enough people still listening, buying, discussing and returning after the fireworks are over? For BTS, the answer is still yes. No. 8 sounds smaller than No. 1, but in week eight it behaves like proof of endurance.
 
-![BTS Guinness ICONS and Billboard 200 momentum shown through global chart screens](/images/news/bts-guinness-icons-1.png)
+![BTS Guinness ICONS and Billboard 200 momentum shown through global chart screens](/images/news/bts-guinness-icons-1.webp)
 _A ChatGPT-generated editorial visualization of BTS record culture, global charts and fandom momentum without real faces or official logos._
 
 ## ARIRANG Turned Chart Math Into Culture
@@ -56,11 +56,11 @@ Being listed in Pop Culture near Taylor Swift, Beyonce, Drake, Elton John and Pa
 
 For K-pop companies, that matters because it changes the benchmark for ambition. The target is not only a No. 1 debut, a viral dance challenge or a sold-out arena. The harder target is becoming culturally durable enough that a record institution can archive the act while the charts are still proving present demand.
 
-## KCL's View: No. 8 Is Where The Story Gets More Useful
+## MEARROW's View: No. 8 Is Where The Story Gets More Useful
 
 ### Durability beats peak worship
 
-KCL reads the current moment as a warning against peak worship. The industry loves launch-week trophies because they are easy to market. Week-eight strength is harder to package, but it is more valuable. It shows whether a release can keep fans organized after the countdown ends, whether the album still creates repeat behavior, and whether cultural prestige can keep reinforcing commercial performance.
+MEARROW reads the current moment as a warning against peak worship. The industry loves launch-week trophies because they are easy to market. Week-eight strength is harder to package, but it is more valuable. It shows whether a release can keep fans organized after the countdown ends, whether the album still creates repeat behavior, and whether cultural prestige can keep reinforcing commercial performance.
 
 That is why the Guinness-Billboard overlap is so clickable. It is not just "BTS made another list." It is "BTS made the list while the numbers are still alive." For trainees, rookie teams and smaller agencies, the lesson is practical: the goal is not only to create a loud opening. The goal is to build a story that fans can keep defending, explaining and expanding after the first week has lost its novelty.
 

@@ -3,7 +3,7 @@ title: "BTS 'ARIRANG' Returns in 8 Days — 260,000 at Gwanghwamun, Netflix Worl
 excerpt: "Three years of military service are over. BTS drops their fifth studio album 'ARIRANG' on March 20, then takes the stage at Gwanghwamun Square on March 21 in a Netflix-exclusive worldwide livestream. Today (March 12), 7,000 additional standing tickets go on sale. Police are already investigating ticket scam cases. And officials expect 260,000 people to flood central Seoul."
 date: '2026-03-12'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-comeback-gwanghwamun-concert-ticket-scandal-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-comeback-gwanghwamun-concert-ticket-scandal-2026-thumbnail.webp'
 active: true
 ---
 
@@ -47,7 +47,7 @@ The ticket fraud investigation is significant beyond the fan frustration it repr
 
 A successful crackdown here sets precedent. A failed one signals that no amount of anti-scalping policy design can stop secondary market abuse at this scale.
 
-![BTS THE COMEBACK LIVE ARIRANG — Gwanghwamun Square concert poster with 260,000 expected attendees in Seoul's historic central plaza](/images/news/bts-arirang-comeback-gwanghwamun-concert-ticket-scandal-2026-1.png)
+![BTS THE COMEBACK LIVE ARIRANG — Gwanghwamun Square concert poster with 260,000 expected attendees in Seoul's historic central plaza](/images/news/bts-arirang-comeback-gwanghwamun-concert-ticket-scandal-2026-1.webp)
 _March 21, 2026 — Gwanghwamun Square. BTS ends three years of military service with all seven members present._
 
 ## 'ARIRANG' — A Name That Earns Its Weight
@@ -74,9 +74,9 @@ BTS announced the **ARIRANG World Tour**, scheduled from April 2026 through Marc
 
 The math is straightforward: three years of pent-up demand, a fanbase that grew during the hiatus, and an album designed for a global audience. The Gwanghwamun concert is the signal flare. The world tour is what follows.
 
-## KCL's Read on the Comeback
+## MEARROW's Read on the Comeback
 
-KCL data shows something counterintuitive about the military hiatus period: BTS streaming figures and social media mentions were **up 127%** compared to pre-enlistment levels in the six months following the final member's discharge. Absence created scarcity. Scarcity intensified demand.
+MEARROW data shows something counterintuitive about the military hiatus period: BTS streaming figures and social media mentions were **up 127%** compared to pre-enlistment levels in the six months following the final member's discharge. Absence created scarcity. Scarcity intensified demand.
 
 The title choice — ARIRANG — is also strategically precise. For Korean fans, it carries centuries of emotional and cultural weight. For international fans, it introduces a new cultural vocabulary, one that positions BTS as artists rooted in Korean identity while speaking universally. That's a harder trick to pull off than it sounds.
 

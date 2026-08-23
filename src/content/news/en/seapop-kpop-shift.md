@@ -3,7 +3,7 @@ title: "SEA Pop Just Pushed Back — K-pop’s Next Rival Is Already Homegrown"
 excerpt: "SEA pop’s local chart surge shows K-pop’s next regional rival is not another Korean agency, but homegrown Asian fandom."
 date: '2026-07-02'
 category: 'Industry'
-thumbnail: '/images/news/seapop-kpop-shift-thumbnail.png'
+thumbnail: '/images/news/seapop-kpop-shift-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ That example matters because P-pop did not pretend K-pop never existed. Bajo tol
 
 Thailand is moving through a similar confidence curve. Thai producer Cod Satrusayang told Al Jazeera that T-pop and Thai music were long seen as emulations of Korean and American styles, but that the past five years have shown Thai artists forging their own identity. That is exactly the kind of shift K-pop companies should watch. Influence is useful until the student no longer needs the teacher’s brand to be taken seriously.
 
-![SEA pop and K-pop stages facing each other through anonymous fandom lights](/images/news/seapop-kpop-shift-1.png)
+![SEA pop and K-pop stages facing each other through anonymous fandom lights](/images/news/seapop-kpop-shift-1.webp)
 _ChatGPT-generated editorial image showing anonymous concert stages and fandom light waves without real faces, logos or readable text._
 
 ## The Money Is Following The Attention
@@ -52,10 +52,10 @@ BGYO told Al Jazeera that social media is as central to the job as training, wit
 
 This is where the next K-pop strategy problem begins. Global agencies can spend more money, but they cannot easily manufacture local belonging. A Seoul-made act can tour Manila, Bangkok or Jakarta and still generate huge demand. Yet a homegrown act can make those markets feel like the center of the story, not a stop on somebody else’s world tour.
 
-## KCL’s View: The Rival Is Not Anti-K-pop — It Is Post-K-pop
+## MEARROW’s View: The Rival Is Not Anti-K-pop — It Is Post-K-pop
 ### The next competition is for daily fandom time
 
-KCL reads this shift as a post-K-pop moment, not an anti-K-pop backlash. Southeast Asian pop scenes are not rejecting K-pop’s influence. They are absorbing the parts that work and rebuilding the emotional product around local identity. That is more dangerous than simple competition because it turns K-pop’s own success into training material for the next wave.
+MEARROW reads this shift as a post-K-pop moment, not an anti-K-pop backlash. Southeast Asian pop scenes are not rejecting K-pop’s influence. They are absorbing the parts that work and rebuilding the emotional product around local identity. That is more dangerous than simple competition because it turns K-pop’s own success into training material for the next wave.
 
 For Korean agencies, the answer is not to treat SEA pop as a temporary fad. The smarter response is to rethink Southeast Asia as a co-creation market: local songwriting, local language strategy, deeper partnerships, regional trainees with real creative agency and fan campaigns that do not feel copy-pasted from Seoul.
 

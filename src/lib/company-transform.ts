@@ -34,7 +34,7 @@ export function dbCompanyToLegacy(
     // gradient_color를 CSS gradient로 변환
     image: company.gradient_color
       ? `linear-gradient(135deg, ${company.gradient_color} 0%, #1A1A1A 100%)`
-      : 'linear-gradient(135deg, #8B5CF6 0%, #1A1A1A 100%)',
+      : 'linear-gradient(135deg, #315CFF 0%, #1A1A1A 100%)',
     // 주가 히스토리는 별도 API로 제공 예정
     stockHistory: generateMockHistory(company.firepower),
   };

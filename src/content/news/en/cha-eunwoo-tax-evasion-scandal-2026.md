@@ -3,7 +3,7 @@ title: 'Cha Eunwoo Faces $13.7M Tax Evasion Allegations: Dispatch Exposes Family
 excerpt: "ASTRO's Cha Eunwoo is embroiled in a 20 billion won tax scandal. We analyze Dispatch's exposé on family involvement, paper company allegations, and the brand exodus in what may be K-pop's biggest tax controversy."
 date: '2026-01-26'
 category: 'Company News'
-thumbnail: '/images/news/cha-eunwoo-tax-evasion-scandal-2026-thumbnail.png'
+thumbnail: '/images/news/cha-eunwoo-tax-evasion-scandal-2026-thumbnail.webp'
 ---
 
 The most shocking tax controversy in K-pop history has erupted. ASTRO's Cha Eunwoo (real name Lee Dong-min) is under investigation by the National Tax Service for alleged tax evasion amounting to **20 billion won (approximately $13.7 million)**, with Dispatch exclusively reporting evidence that his entire family may be involved.
@@ -32,7 +32,7 @@ Dispatch's investigative report thoroughly exposed the reality of the corporatio
 
 After Cha Eunwoo's mother took over as CEO in 2020, additional companies were established: **L&C** (artist management) and **D ANY LLC** (asset management). According to Dispatch, D ANY LLC's registered address is **the same as the eel restaurant operated by Cha Eunwoo's parents**.
 
-![Cha Eunwoo Tax Scandal Structure](/images/news/cha-eunwoo-tax-evasion-scandal-2026-1.png)
+![Cha Eunwoo Tax Scandal Structure](/images/news/cha-eunwoo-tax-evasion-scandal-2026-1.webp)
 _Corporate structure of Cha Eunwoo's family companies as revealed by Dispatch (Source: Dispatch, Korea JoongAng Daily)_
 
 The NTS claims these corporations were **"paper companies" operated solely for tax reduction purposes** without substantial business activities. If the 20 billion won tax assessment was calculated based on a 20% corporate tax rate, analysts suggest that Cha Eunwoo's taxable income could **exceed 100 billion won**.
@@ -62,9 +62,9 @@ Legal experts analyze that this case may have originated from **differing interp
 
 Looking at past celebrity tax controversies, most were resolved civilly after payment of additional taxes, though some cases did lead to criminal indictment.
 
-## KCL's Perspective on Celebrity Risk Management
+## MEARROW's Perspective on Celebrity Risk Management
 
-From the KCL (K-pop Company League) perspective, this incident once again highlights the issue of **risk management in entertainment companies**.
+From the MEARROW (K-pop Talent Network) perspective, this incident once again highlights the issue of **risk management in entertainment companies**.
 
 **Key Implications:**
 

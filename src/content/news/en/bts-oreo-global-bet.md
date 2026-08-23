@@ -3,7 +3,7 @@ title: "BTS Just Turned Oreos Purple - The 80-Market Bet Is Bigger Than a Cookie
 excerpt: "BTS Oreo launches across 80+ markets with purple wafers and hotteok flavor, turning a snack collab into a fandom commerce test."
 date: "2026-05-27"
 category: "Business"
-thumbnail: "/images/news/bts-oreo-global-bet-thumbnail.png"
+thumbnail: "/images/news/bts-oreo-global-bet-thumbnail.webp"
 active: true
 ---
 
@@ -33,7 +33,7 @@ The `13` embossments are not a random decorative number. The official release fr
 
 For K-pop companies, that loop is familiar. Album versions, photocards, fan calls, pop-ups, and tour merch already train fans to treat physical goods as participation tools. Oreo is importing that logic into consumer packaged goods. The smartest part is that the product does not need every buyer to be a collector. It only needs enough fans to make the hunt visible.
 
-![BTS Oreo global fandom commerce dashboard](/images/news/bts-oreo-global-bet-1.png)
+![BTS Oreo global fandom commerce dashboard](/images/news/bts-oreo-global-bet-1.webp)
 _ChatGPT-generated editorial image visualizing how a limited snack drop can become a global fandom-commerce dashboard._
 
 ## Why Brands Are Chasing Fandom Instead Of Attention
@@ -44,11 +44,11 @@ On fan spaces including r/bangtan, same-day discussion quickly moved from whethe
 
 This is why the `80+` market number matters. A local collab can be cute. A global rollout tests logistics, regional hype, reseller behavior, and brand safety at the same time. It also lets Oreo borrow the emotional timing around BTS's 13th anniversary without relying only on a television commercial or one celebrity post.
 
-## KCL View: BTS Oreo Is A Distribution Lesson
+## MEARROW View: BTS Oreo Is A Distribution Lesson
 
 ### The playbook is bigger than BTS
 
-KCL reads this as a distribution story first and a food story second. BTS bring the heat, but the structure is what other agencies and brands will study: a cultural flavor with a simple explanation, a color code fans already understand, collectible details that reward repeat purchase, and a launch calendar that gives social media several waves instead of one spike.
+MEARROW reads this as a distribution story first and a food story second. BTS bring the heat, but the structure is what other agencies and brands will study: a cultural flavor with a simple explanation, a color code fans already understand, collectible details that reward repeat purchase, and a launch calendar that gives social media several waves instead of one spike.
 
 The risk is equally clear. If shelves are empty, fans will turn the hunt into frustration. If the product is easy to find but not distinctive, it becomes one more limited flavor. The sweet spot is harder: enough scarcity to feel like an event, enough supply to keep the fandom from feeling used, and enough cultural specificity to make the cookie feel like more than purple packaging.
 

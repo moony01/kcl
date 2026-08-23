@@ -3,7 +3,7 @@ title: "HYBE's $135M Question: Bang Si-hyuk Dodged Arrest, Not the Case"
 excerpt: "Bang Si-hyuk's warrant was rejected, but HYBE's investor-fraud probe now tests governance during BTS's richest comeback cycle."
 date: '2026-05-04'
 category: 'Industry'
-thumbnail: '/images/news/hybe-135m-question-thumbnail.png'
+thumbnail: '/images/news/hybe-135m-question-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The heart of the investigation is not a normal entertainment-company scandal. It
 
 Different outlets have framed the suspected amount slightly differently. Korea JoongAng Daily put one key figure at about `190 billion won`, or roughly `$128 million`, while AP described police belief that the fund may have paid Bang around `200 billion won`, or about `$135 million`, through a side arrangement. Those numbers are why the story travels outside Korea. They make the dispute legible to global readers who may not follow Korean securities law but instantly understand the scale of a nine-figure allegation.
 
-![HYBE investor fraud investigation boardroom after warrant rejection](/images/news/hybe-135m-question-1.png)
+![HYBE investor fraud investigation boardroom after warrant rejection](/images/news/hybe-135m-question-1.webp)
 _The legal question is now less about one dramatic warrant headline and more about whether HYBE can separate business momentum from governance risk._
 
 ### The IPO context makes the claim sharper
@@ -54,11 +54,11 @@ Strong revenue can calm investors, but it cannot answer a governance question by
 
 This is the part fans sometimes resist. Loving an artist does not require defending every corporate process around that artist. At the same time, criticizing a corporate investigation does not erase the scale of what HYBE has built. Both can be true: BTS can be commercially historic, and HYBE's chairman can still face a serious regulatory cloud.
 
-## KCL's View On The HYBE Investor-Fraud Investigation
+## MEARROW's View On The HYBE Investor-Fraud Investigation
 
 ### The real risk is trust compression
 
-KCL sees this as a trust-compression story. HYBE is being squeezed from three sides at once. Fans want the BTS era to feel celebratory. Investors want the Q1 rebound to signal durable growth. Regulators want clarity on whether pre-IPO shareholders were misled. None of those audiences reads the same headline the same way, but each one affects the others.
+MEARROW sees this as a trust-compression story. HYBE is being squeezed from three sides at once. Fans want the BTS era to feel celebratory. Investors want the Q1 rebound to signal durable growth. Regulators want clarity on whether pre-IPO shareholders were misled. None of those audiences reads the same headline the same way, but each one affects the others.
 
 If prosecutors eventually decide there is no chargeable case, HYBE may frame the episode as an overextended investigation that failed to justify detention. If the case strengthens, every future earnings beat will carry a governance discount. That is the real danger. A company can survive one bad headline. It has a harder time thriving when every good headline arrives with a legal asterisk.
 

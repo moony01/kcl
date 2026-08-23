@@ -3,7 +3,7 @@ title: "BTS Drew 190,000 in Tampa - Then a Stadium Full of U.S. Fans Sang 'Arira
 excerpt: "BTS packed 190,000 fans into three Tampa nights, turning the Arirang tour into proof that U.S. stadium demand is still intensifying."
 date: '2026-05-03'
 category: 'Artist'
-thumbnail: '/images/news/bts-tampa-190k-thumbnail.png'
+thumbnail: '/images/news/bts-tampa-190k-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ That balance is the real story. Plenty of global pop acts can turn a stadium int
 
 That is why the Tampa footage landed so quickly online. Fans were not only reposting stage spectacle. They were reposting proof of translation: proof that a show anchored in a distinctly Korean idea could still feel enormous, pop-forward, and stadium-ready in Florida. That is a stronger signal than another "BTS still sells out" headline, because it suggests the group's newest phase is not relying on brand familiarity alone.
 
-![BTS Tampa stadium singalong crowd lights](/images/news/bts-tampa-190k-1.png)
+![BTS Tampa stadium singalong crowd lights](/images/news/bts-tampa-190k-1.webp)
 _An AI-rendered editorial image capturing the stadium-scale singalong energy around BTS's Tampa stop._
 
 ## The North American Leg Already Looks Like Infrastructure
@@ -54,11 +54,11 @@ That venue milestone deserves more attention than it is getting. Coastal capital
 
 That is one reason the Sun Bowl stop feels more strategic than decorative. A group that can normalize stadium behavior in places outside the most obvious pop capitals gives the whole industry new planning data. Promoters watch that. Local governments watch that. Competing agencies definitely watch that. When the first Korean act enters a venue with this level of civic preparation around it, the result is not merely symbolic. It becomes a case study.
 
-## KCL's View On BTS's Tampa Signal
+## MEARROW's View On BTS's Tampa Signal
 
 ### The ceiling question in America has changed
 
-KCL does not read Tampa as proof that BTS remains popular. That argument is too small for the evidence on the table. The sharper takeaway is that BTS is helping move K-pop deeper into the American stadium grid without stripping out the Korean center of the product. That combination is what makes this moment commercially dangerous for everyone else. It raises the bar on two fronts at once: scale and specificity.
+MEARROW does not read Tampa as proof that BTS remains popular. That argument is too small for the evidence on the table. The sharper takeaway is that BTS is helping move K-pop deeper into the American stadium grid without stripping out the Korean center of the product. That combination is what makes this moment commercially dangerous for everyone else. It raises the bar on two fronts at once: scale and specificity.
 
 For years, one of the quiet fears around K-pop expansion was that the farther the genre traveled, the more it would need to translate itself into something softer, blander, or more legible to mainstream U.S. pop grammar. BTS's Tampa stop suggests a more powerful route. The group can bring the audience to its concept instead of running from the concept for safety. That does not mean every act can do the same thing tomorrow. It does mean the most successful act in the field is expanding the range of what now looks possible.
 

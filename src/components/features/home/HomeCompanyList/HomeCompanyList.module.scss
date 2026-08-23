@@ -23,7 +23,7 @@
 
 .card {
   @include mix.glass-panel;
-  --company-accent: #8b5cf6;
+  --company-accent: var(--color-primary, #315cff);
   position: relative;
   display: grid;
   grid-template-columns: auto auto minmax(0, 1fr);

@@ -3,7 +3,7 @@ title: "'Next to Michael Jackson' — K-pop Just Landed at the Grammy Museum, an
 excerpt: 'BIGBANG reunites after 6 years, Taemin becomes the first male K-pop solo at Coachella, and the Grammy Museum places a K-pop exhibit on the same floor as Michael Jackson. Nine Asian acts at one festival — this is what cultural domination looks like.'
 date: '2026-03-29'
 category: 'Tech & Culture'
-thumbnail: '/images/news/coachella-2026-kpop-takeover-thumbnail.png'
+thumbnail: '/images/news/coachella-2026-kpop-takeover-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ Taemin's Grammy Museum exhibit "TAEMIN: Performer. Artist. Icon." runs from Apri
 
 The exhibit sits on the fourth floor — the same level as Michael Jackson's permanent gallery. Placing a K-pop soloist's performance wardrobe alongside pop's greatest legend is not a curatorial coincidence. It's the Grammy Museum's deliberate statement about where K-pop performance belongs in music history.
 
-![Coachella 2026 K-pop stage costumes and Grammy Museum exhibition concept](/images/news/coachella-2026-kpop-takeover-1.png)
+![Coachella 2026 K-pop stage costumes and Grammy Museum exhibition concept](/images/news/coachella-2026-kpop-takeover-1.webp)
 _Grammy Museum "TAEMIN: Performer. Artist. Icon." exhibition concept_
 
 On April 11, Taemin hits the Coachella stage. He'll be the first male K-pop solo artist to do so. While K-pop groups — BLACKPINK (2019), ENHYPEN, and others — have opened the door, the solo male slot remained empty. Taemin fills it.
@@ -71,7 +71,7 @@ The full Asian lineup exceeds nine acts:
 
 Compare this to 2019, when BLACKPINK stood alone as the only K-pop act at Coachella. In seven years, the Asian lineup has expanded more than ninefold.
 
-## KCL's Take on Coachella 2026
+## MEARROW's Take on Coachella 2026
 
 Coachella's expansion of K-pop isn't about diversity optics. It's a business calculation. Coachella 2026 is sold out. K-pop fandoms' purchasing power and social media mobilization directly contribute to the festival's revenue model — and that's already been proven.
 

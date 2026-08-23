@@ -3,7 +3,7 @@ title: "BTS Just Made Japan Stream 'Dynamite' 900 Million Times — The Catalog 
 excerpt: "BTS Dynamite Japan streams hit 900M on Oricon, proving catalog songs can still move markets years after release."
 date: "2026-06-11"
 category: "Market Trend"
-thumbnail: "/images/news/bts-dynamite-japan-streams-thumbnail.png"
+thumbnail: "/images/news/bts-dynamite-japan-streams-thumbnail.webp"
 active: true
 ---
 
@@ -25,7 +25,7 @@ K-pop usually sells urgency: comeback dates, teaser clocks, first-week sales, mu
 
 For BTS, the track has become a memory machine. Older fans remember the pandemic-era emotional role of the song. Newer listeners meet it as a gateway into the group's wider discography. Casual listeners may not follow every album cycle, but they can still recognize the hook. When a song can serve all three audiences at once, it stops being a past release and starts functioning like a standing asset.
 
-![BTS Dynamite Japan streams visualized through Tokyo and Seoul data waves](/images/news/bts-dynamite-japan-streams-1.png)
+![BTS Dynamite Japan streams visualized through Tokyo and Seoul data waves](/images/news/bts-dynamite-japan-streams-1.webp)
 _ChatGPT-generated editorial image representing Japan-to-Korea streaming demand, catalog memory and K-pop data momentum without real faces, logos or readable text._
 
 ## Japan Is The Hardest Kind Of Longevity Test
@@ -46,11 +46,11 @@ Depth changes how labels should read catalog value. A one-song miracle can be ex
 
 [Related: BTS Guinness Icons showed why record culture keeps compounding](/en/news/bts-guinness-icons)
 
-## KCL's View: Catalog Memory Is Becoming A Market Weapon
+## MEARROW's View: Catalog Memory Is Becoming A Market Weapon
 
 ### The industry keeps overvaluing the opening week
 
-KCL reads the 900 million mark as a warning against peak obsession. First-week numbers still matter, but they often reward mobilization more than durability. Catalog streaming rewards something harder to manufacture: repeat usefulness. A song has to survive mood shifts, platform changes, fanbase aging, new competitor releases and the simple boredom that kills most viral tracks.
+MEARROW reads the 900 million mark as a warning against peak obsession. First-week numbers still matter, but they often reward mobilization more than durability. Catalog streaming rewards something harder to manufacture: repeat usefulness. A song has to survive mood shifts, platform changes, fanbase aging, new competitor releases and the simple boredom that kills most viral tracks.
 
 That is where BTS have an advantage smaller agencies should study carefully. The group does not only release songs; it gives fans records, anniversaries, cultural status and emotional context to keep reactivating those songs. Every new milestone becomes fresh content for old music. Every old hit becomes supporting evidence for new claims about the group's global scale. The catalog and the current news cycle keep feeding each other.
 

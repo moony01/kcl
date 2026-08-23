@@ -3,7 +3,7 @@ title: '260,000 Fans Shut Down Seoul — BTS Arirang Comeback Rewrites K-Pop His
 excerpt: 'After 3+ years away, BTS packed 260,000 fans into Gwanghwamun Square and stopped the world on Netflix. Here''s what happened on March 21 — and what it means for K-pop.'
 date: '2026-03-24'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-comeback-gwanghwamun-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-comeback-gwanghwamun-2026-thumbnail.webp'
 active: true
 ---
 
@@ -56,7 +56,7 @@ Standout moment: "Like Animals," an emotional rock-pop track that RM co-wrote wi
 
 A concurrent Netflix documentary follows each member through the writing process — the longing, the phone calls, the gradual assembling of what became one of K-pop's most anticipated records.
 
-![260,000 fans fill Gwanghwamun Square as BTS performs the Arirang comeback concert in Seoul, 2026](/images/news/bts-arirang-comeback-gwanghwamun-2026-1.png)
+![260,000 fans fill Gwanghwamun Square as BTS performs the Arirang comeback concert in Seoul, 2026](/images/news/bts-arirang-comeback-gwanghwamun-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## ARIRANG World Tour — 34 Cities, One Year
@@ -82,9 +82,9 @@ The backdrop to this comeback is critical context. According to the New York Tim
 
 This means BTS is returning to a K-pop landscape that has been fundamentally transformed from 2022. K-pop is now a Grammy-winning genre. Netflix is one of its most powerful distribution channels. BTS isn't stepping back into the same room they left — they're walking into a bigger one.
 
-## KCL's Take: What This Comeback Really Means
+## MEARROW's Take: What This Comeback Really Means
 
-Calling this a "comeback" undersells what happened. From KCL's perspective, here's what matters:
+Calling this a "comeback" undersells what happened. From MEARROW's perspective, here's what matters:
 
 **It's evolution, not a reset.** Three years off is a long time in K-pop. Fourth-gen groups have established their footholds. Streaming dynamics have shifted. BTS responded not by ignoring the changes but by adapting — strategic collaborators (Diplo, Artemas), a Netflix partnership that integrates documentary, album, and live performance into a single content ecosystem, and a title that speaks to Korean cultural identity at a moment when that identity carries global cultural capital.
 

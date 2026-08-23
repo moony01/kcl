@@ -3,7 +3,7 @@ title: 'BTS Comeback Countdown: New Music and World Tour After Military Service'
 excerpt: 'With all seven members discharged, BTS prepares for their grand return. Will 2026 truly become the Year of BTS as RM declared? An in-depth analysis of their comeback project and world tour prospects.'
 date: '2026-01-23'
 category: 'Artist'
-thumbnail: '/images/news/bts-2026-comeback-countdown-thumbnail.png'
+thumbnail: '/images/news/bts-2026-comeback-countdown-thumbnail.webp'
 ---
 
 Spring 2026. The moment that ARMYs worldwide have been counting down to is finally approaching. The **complete reunion of all seven BTS members**. As the members who enlisted sequentially starting in 2022 have all completed their military service, the biggest comeback in K-pop history is now imminent.
@@ -41,7 +41,7 @@ A strategy targeting the global market, similar to the 'Dynamite' and 'Butter' e
 
 HYBE is reportedly planning **ARMY participation comeback events** through Weverse. This is expected to be a new form of promotion where fans worldwide can directly participate in the comeback process.
 
-![Global fandom awaiting BTS comeback](/images/news/bts-2026-comeback-countdown-1.png)
+![Global fandom awaiting BTS comeback](/images/news/bts-2026-comeback-countdown-1.webp)
 _Spring 2026: The world awaits BTS's return_
 
 ## World Tour Announcement: Reclaiming the Global Stage
@@ -60,9 +60,9 @@ The industry expects BTS to begin a **stadium world tour** in the second half of
 
 Experts predict this tour will be the largest in BTS history. Some analysts suggest the fandom has actually **grown during the two-year hiatus**. Members' solo activities attracted new fans, while existing fans' loyalty only strengthened.
 
-## KCL's Perspective on BTS Comeback's Industry Impact
+## MEARROW's Perspective on BTS Comeback's Industry Impact
 
-According to KCL (K-pop Company League) data, BTS's return is expected to have **ripple effects across the entire K-pop industry**, beyond just being an artist comeback.
+According to MEARROW (K-pop Talent Network) data, BTS's return is expected to have **ripple effects across the entire K-pop industry**, beyond just being an artist comeback.
 
 ### HYBE Stock and Performance Outlook
 
@@ -72,9 +72,9 @@ BTS's group activity resumption directly impacts HYBE's performance. Securities 
 
 BTS's activities reignite global interest in K-pop. When 'Dynamite' reached #1 on the Billboard Hot 100 in 2020, other K-pop artists' international streaming **increased by an average of 25%**. The 'Rising Tide Effect' that BTS creates lifts the entire industry.
 
-### KCL Ranking Forecast
+### MEARROW Ranking Forecast
 
-Currently, HYBE maintains a top position in KCL's First Division. Once BTS's complete group comeback materializes, **HYBE's Firepower index is expected to surge**, further solidifying their #1 position. Other Big 4 agencies are also likely to coordinate their artists' activities around BTS's comeback timing.
+Currently, HYBE maintains a top position in MEARROW's First Division. Once BTS's complete group comeback materializes, **HYBE's Firepower index is expected to surge**, further solidifying their #1 position. Other Big 4 agencies are also likely to coordinate their artists' activities around BTS's comeback timing.
 
 ## RM's Declaration: "Make 2026 the Year of BTS"
 

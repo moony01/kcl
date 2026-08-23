@@ -3,7 +3,7 @@ title: "Weverse Just Exposed K-pop's $4.3B Secret - Fans Are The Product Now"
 excerpt: "K-pop superfan platforms are turning chats, lives and memberships into a $4.3B race. Weverse just showed why every label wants in."
 date: '2026-05-20'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-superfan-money-machine-thumbnail.png'
+thumbnail: '/images/news/kpop-superfan-money-machine-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ That makes Weverse look massive, but it also exposes the dependency question. If
 
 The timing matters because the wider music business has started saying the quiet part out loud. Goldman Sachs, cited by MBW, estimates the addressable superfan opportunity at $4.3 billion annually based on 2026 projections. Universal Music Group has been talking more aggressively about premium fan tiers, direct-to-consumer commerce and deeper artist-fan relationships. Spotify is reportedly exploring a super-premium subscription lane. Warner Music has also been linked to its own superfan app work.
 
-![K-pop superfan platforms turning fan chats into a global business network](/images/news/kpop-superfan-money-machine-1.png)
+![K-pop superfan platforms turning fan chats into a global business network](/images/news/kpop-superfan-money-machine-1.webp)
 _A ChatGPT-generated editorial image showing K-pop fandom as a connected superfan platform economy._
 
 This is where K-pop's lead becomes uncomfortable for competitors. Western labels are still debating how to package superfandom without making it feel like another subscription tax. K-pop already trained fans to treat memberships, livestreams, fan chats, light sticks, pop-ups, photocards and timed merch drops as one connected ritual. Weverse did not invent that devotion. It captured it, measured it and turned it into a repeatable product surface.
@@ -54,11 +54,11 @@ Tencent Music's first-quarter 2026 earnings release adds another clue. The compa
 
 The strategic message is simple: whoever controls the fan relationship controls more than a notification feed. They control purchase timing, translation, live access, community heat, data feedback and the emotional lane between one comeback and the next.
 
-## KCL's View On Superfan Platforms
+## MEARROW's View On Superfan Platforms
 
 ### The winner is the company that creates habits
 
-KCL reads the platform war as a habit war. The most valuable fan is not simply the loudest fan on release day. It is the fan whose daily routine includes checking the artist, joining live moments, buying access products, responding to community cues and carrying those signals back to X, TikTok, Reddit, YouTube and offline events.
+MEARROW reads the platform war as a habit war. The most valuable fan is not simply the loudest fan on release day. It is the fan whose daily routine includes checking the artist, joining live moments, buying access products, responding to community cues and carrying those signals back to X, TikTok, Reddit, YouTube and offline events.
 
 That is why the Weverse data feels bigger than normal app metrics. A 12 million MAU platform with 303 million combined posts and comments is not just measuring fandom. It is shaping the pathway from casual interest to paid participation. Weverse says about 15 percent of users became more active over time after using features such as DM and LIVE, and that 20 percent of current superfans started from more casual stages. If that pattern holds, the platform is not merely serving superfans. It is manufacturing them.
 

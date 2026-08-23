@@ -3,7 +3,7 @@ title: "Jungkook’s Deleted Weverse Live Sparks Censorship Debate — Protectio
 excerpt: "After Jungkook’s Weverse live was removed, debate intensified over idol speech control versus risk management. Based on KJAD and cross-checks, here’s what is confirmed and what it means for K-pop."
 date: '2026-02-27'
 category: 'Artist'
-thumbnail: '/images/news/jungkook-weverse-censorship-thumbnail.png'
+thumbnail: '/images/news/jungkook-weverse-censorship-thumbnail.webp'
 active: true
 ---
 
@@ -18,7 +18,7 @@ Even after removal, short clips and translated quotes circulated rapidly on X an
 ### Why fandom reaction split immediately
 One side argued that strict communication control is inevitable right before a major comeback cycle. The other argued that restricting an adult artist’s direct speech reads as over-management. The same incident was framed as either protection or censorship, depending on where fans place trust.
 
-![Symbolic visual of the online censorship debate after Jungkook's Weverse live was removed](/images/news/jungkook-weverse-censorship-1.png)
+![Symbolic visual of the online censorship debate after Jungkook's Weverse live was removed](/images/news/jungkook-weverse-censorship-1.webp)
 _An editorial visual representing post-removal fan discourse and platform control tension._
 
 ## Why Timing Made the Controversy Larger
@@ -32,12 +32,12 @@ Today’s fandom often rewards unscripted honesty more than polished messaging. 
 
 [Related: Taemin BPM staff salary scandal analysis](/en/news/taemin-bpm-staff-salary-scandal)
 
-## KCL View: This Is a Governance Problem, Not a Binary War
+## MEARROW View: This Is a Governance Problem, Not a Binary War
 ### “Company vs artist” is too simplistic
 Reducing this to “label oppression” or “idol recklessness” misses the operational issue: transparent live-policy governance and fast post-incident communication. Without visible standards, each takedown fuels speculation.
 
 ### Practical way forward
-KCL suggests three steps: publish clearer livestream policy boundaries, standardize minimum disclosure when content is removed, and preserve an artist-led clarification channel to reduce one-sided control narratives. Fandom does not demand total freedom; it demands understandable rules.
+MEARROW suggests three steps: publish clearer livestream policy boundaries, standardize minimum disclosure when content is removed, and preserve an artist-led clarification channel to reduce one-sided control narratives. Fandom does not demand total freedom; it demands understandable rules.
 
 ## The Open Question
 This incident is bigger than one deleted stream. It tests how K-pop institutions can preserve trust in a global fandom era where authenticity and risk management are both non-negotiable.

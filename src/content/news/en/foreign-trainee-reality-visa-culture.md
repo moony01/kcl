@@ -3,7 +3,7 @@ title: 'The Reality of Foreign K-pop Trainees - Visas, Language Barriers, and Cu
 excerpt: '28% of HYBE trainees are non-Korean. From the new K-Culture Training Visa to Korean language struggles and culture shock — an in-depth look at the harsh realities and survival strategies of international trainees chasing their K-pop dreams.'
 date: '2026-02-04'
 category: 'Trainee System'
-thumbnail: '/images/news/foreign-trainee-reality-visa-culture-thumbnail.png'
+thumbnail: '/images/news/foreign-trainee-reality-visa-culture-thumbnail.webp'
 ---
 
 The moment you board that flight to Korea, the real battle begins.
@@ -28,7 +28,7 @@ To address this, the South Korean government introduced the **K-Culture Training
 
 But reality remains tough. Even with a visa, **housing, training fees, and living expenses** are entirely self-funded. Freelance trainees without agency backing receive no structured support, and those who fail to sign with a company before their visa expires must return home.
 
-![Preparing for trainee life in Korea](/images/news/foreign-trainee-reality-visa-culture-1.png)
+![Preparing for trainee life in Korea](/images/news/foreign-trainee-reality-visa-culture-1.webp)
 _Between visa documents and passports begins the long journey of a K-pop trainee_
 
 ## The Language Barrier — "If You Can't Speak Korean, You Can't Even Receive Feedback"
@@ -65,11 +65,11 @@ Despite all these barriers, there are international idols who broke through to b
 
 Their common strategies can be distilled into three principles: **1) Never give up on Korean**, **2) Don't reject the culture — absorb it**, **3) Work twice as hard as everyone else**.
 
-## KCL's Perspective on the Global Trainee Era
+## MEARROW's Perspective on the Global Trainee Era
 
-KCL's agency ranking data reveals a fascinating correlation: **groups with higher percentages of foreign members tend to show stronger global streaming metrics**. The fact that HYBE — which actively operates multinational groups like &TEAM (8 Japanese members), ENHYPEN (2 Japanese members), and NiziU (all Japanese) — leads in global revenue growth is no coincidence.
+MEARROW's agency ranking data reveals a fascinating correlation: **groups with higher percentages of foreign members tend to show stronger global streaming metrics**. The fact that HYBE — which actively operates multinational groups like &TEAM (8 Japanese members), ENHYPEN (2 Japanese members), and NiziU (all Japanese) — leads in global revenue growth is no coincidence.
 
-The future of K-pop will be determined not by **"where you're from"** but by **"how prepared you are."** KCL tracks this flow of global talent through data, providing objective analysis of each agency's global strategy and its outcomes.
+The future of K-pop will be determined not by **"where you're from"** but by **"how prepared you are."** MEARROW tracks this flow of global talent through data, providing objective analysis of each agency's global strategy and its outcomes.
 
 ## If Your Dream Can Cross Borders
 

@@ -3,7 +3,7 @@ title: 'BTS Confirms March 20 Comeback: How the 4-Year Reunion Will Impact the K
 excerpt: 'With BTS officially confirming their comeback on March 20, the entire K-pop industry is buzzing. We analyze the economic impact of their 14-track new album and world tour through data.'
 date: '2026-01-25'
 category: 'Industry Analysis'
-thumbnail: '/images/news/bts-march-2026-comeback-industry-impact-thumbnail.png'
+thumbnail: '/images/news/bts-march-2026-comeback-industry-impact-thumbnail.webp'
 ---
 
 On March 20, 2026, the clock of the global music market will once again begin to rotate around BTS. BigHit Music has officially confirmed the comeback date for the full group, marking the first major group activity since 2022's 'Proof'. This comeback is more than just an artist's return; it is expected to be a 'mega-event' that redefines K-pop's status in the global entertainment market, which has been reorganized since the pandemic, and creates massive economic added value. Major foreign media outlets such as Billboard and Forbes are already paying attention to the ripple effects of this comeback, calling it "the most influential cultural event of 2026."
@@ -20,7 +20,7 @@ The world tour schedule announced along with the comeback is exciting the market
 
 According to a report by Daol Investment & Securities on December 28, 2025, trillions of won in revenue are expected from direct ticket sales and merchandise sales alone. The Guardian analyzed that "the 'BTS effect,' where the hotel, aviation, food and beverage, and tourism industries grow explosively in every city BTS visits, will be reproduced." Compared to the revenue of about $116.8 million from the 2019 tour, this tour is expected to be one of the highest-grossing tours in entertainment history, considering inflation and the expansion of the fandom.
 
-![BTS World Tour Economic Impact Analysis](/images/news/bts-march-2026-comeback-industry-impact-1.png)
+![BTS World Tour Economic Impact Analysis](/images/news/bts-march-2026-comeback-industry-impact-1.webp)
 _Global economic ripple effects of the BTS World Tour (Source: Daol Investment & Securities, The Guardian)_
 
 ## HYBE's 2026 Strategy: The Driving Force of Overwhelming Growth
@@ -35,9 +35,9 @@ A report by Mirae Asset Securities in October 2025 projected HYBE's 2026 revenue
 
 Forbes and Korea JoongAng Daily evaluated that "BTS's return will serve as an opportunity to prove that K-pop has completely settled as a global mainstream genre beyond a temporary fad." Now, K-pop has officially opened the 'stadium tour era,' touring stadiums around the world beyond arena tours.
 
-## The Meaning of BTS's Return from KCL's Perspective
+## The Meaning of BTS's Return from MEARROW's Perspective
 
-From the perspective of KCL (K-pop Company League), BTS's return will raise HYBE's firepower index to an unprecedented level. This is an event that solidifies HYBE's status as standing shoulder to shoulder with the global Big 3 labels, beyond the competition between the domestic Big 4 agencies.
+From the perspective of MEARROW (K-pop Talent Network), BTS's return will raise HYBE's firepower index to an unprecedented level. This is an event that solidifies HYBE's status as standing shoulder to shoulder with the global Big 3 labels, beyond the competition between the domestic Big 4 agencies.
 
 In terms of fandom economics, this album will breathe life into the entire industrial ecosystem, recording more than 3 million copies in first-week sales and hundreds of billions of won in related merchandise sales. Small and medium-sized agencies will also have the opportunity to grow together by utilizing the global market infrastructure that BTS has expanded.
 

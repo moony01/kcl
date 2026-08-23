@@ -3,7 +3,7 @@ title: 'One Viral Post Body-Shamed aespa Karina — Fans Turned on Their Own and
 excerpt: 'A Pann post mocking aespa Karina went viral — but this time K-pop fans fought back against the shamers inside their own community. A turning point in K-pop fandom culture''s darkest habit.'
 date: '2026-03-02'
 category: 'Tech & Culture'
-thumbnail: '/images/news/karina-body-shaming-fandom-thumbnail.png'
+thumbnail: '/images/news/karina-body-shaming-fandom-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ The result became a feedback loop. An idol gains weight — fans "encourage" die
 
 Karina has been subject to this dynamic for years. As the leader of SM Entertainment's aespa, her physical appearance has been over-scrutinized online since her debut. This wasn't the first controversy around her body.
 
-![K-pop fandom community split over body shaming controversy online](/images/news/karina-body-shaming-fandom-1.png)
+![K-pop fandom community split over body shaming controversy online](/images/news/karina-body-shaming-fandom-1.webp)
 _The moment a fandom divides — between those who shame and those who refuse to_
 
 ## Three Reasons This Time Was Different
@@ -42,9 +42,9 @@ Third, the learning effect from the Tzuyu incident is showing up. In February 20
 
 [Related: How Tzuyu Clapped Back at a Body Shamer — and What It Meant](/en/news/tzuyu-body-shaming-clap-back)
 
-## KCL's Take: A Possible Inflection Point
+## MEARROW's Take: A Possible Inflection Point
 
-KCL doesn't read the Karina situation as just another viral moment. It looks like the start of an internal reckoning within K-pop fandom culture.
+MEARROW doesn't read the Karina situation as just another viral moment. It looks like the start of an internal reckoning within K-pop fandom culture.
 
 The usual arc of K-pop body-shaming controversies has been: mockery → defense → silence. This time the arc looked more like: mockery → internal critique → structural challenge. That difference might seem minor, but it isn't. Each time fandom communities publicly reject their own toxicity, they create pressure — however slight — on the agencies that have long profited from treating idol bodies as tools.
 

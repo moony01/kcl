@@ -3,7 +3,7 @@ title: 'Four Voices, Four Years, One Teaser: Why MAMAMOO''s ''4WARD'' Already Fe
 excerpt: 'MAMAMOO 4WARD teaser turns a June comeback and world tour into RBW''s biggest 12th-anniversary test.'
 date: '2026-05-07'
 category: 'Artist'
-thumbnail: '/images/news/mamamoo-4ward-return-thumbnail.png'
+thumbnail: '/images/news/mamamoo-4ward-return-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The teaser also gives the comeback a useful title before the music arrives. `4WA
 
 Allkpop's earlier coverage put the gap in plain terms: MAMAMOO's last group release was the `2022` EP `MIC ON` with the title track `ILLELLA`, while the members have spent the years since on solo and subunit work. The group also completed its last world-tour cycle in `2023`. That means `4WARD` is not being received like a comeback after a short off-season. It is being received like a proof-of-life moment for one of third-generation K-pop's most respected vocal brands.
 
-![MAMAMOO 4WARD comeback rehearsal room before June return](/images/news/mamamoo-4ward-return-1.png)
+![MAMAMOO 4WARD comeback rehearsal room before June return](/images/news/mamamoo-4ward-return-1.webp)
 _Image: ChatGPT-generated editorial image of an empty rehearsal room before a major K-pop reunion era._
 
 That gap can help and hurt at the same time. Absence creates hunger, and MAMAMOO's catalog gives fans plenty of reasons to wait. But absence also raises the bar. A group this associated with live vocals, personality, and stage control cannot return with content that only feels technically adequate. The comeback has to feel necessary. If `4WARD` sounds like a ceremonial release, it will satisfy loyal fans but struggle to reset the wider conversation. If it sounds like a group with something current to prove, the gap becomes an advantage.
@@ -44,11 +44,11 @@ TenAsia reported that Solar, Moonbyul, Wheein, and Hwasa have been active indivi
 
 That matters because a reunion is strongest when the members do not arrive empty-handed. Solo activity keeps each member visible, but it also changes the group balance. Fans are not waiting for four artists to restart from zero. They are waiting to see whether four separate adult careers can still lock into one sound and one stage language. MAMAMOO's advantage is that their identity was never built only on synchronized youth branding. Their appeal has always depended on contrast: different vocal colors, different personalities, and the feeling that the stage can bend around them.
 
-## KCL's View On MAMAMOO 4WARD
+## MEARROW's View On MAMAMOO 4WARD
 
 ### RBW is testing the economics of trust
 
-From KCL's point of view, the most important word in this rollout is not "comeback." It is "trust." MAMAMOO fans are not discovering the group; they are deciding whether the company has prepared a return worthy of the wait. That is a more demanding audience than casual discovery traffic. They remember the peak performances, the vocal runs, the jokes, the solo eras, and the frustration of waiting through anniversary windows that did not deliver enough full-group activity.
+From MEARROW's point of view, the most important word in this rollout is not "comeback." It is "trust." MAMAMOO fans are not discovering the group; they are deciding whether the company has prepared a return worthy of the wait. That is a more demanding audience than casual discovery traffic. They remember the peak performances, the vocal runs, the jokes, the solo eras, and the frustration of waiting through anniversary windows that did not deliver enough full-group activity.
 
 For RBW, that makes `4WARD` unusually high-leverage. A successful cycle can reprice the group as a durable touring asset and remind the market that mature K-pop acts can still command global attention without pretending to be rookies. A weak cycle would be more damaging than a normal underperformance because it would teach fans to treat future group promises as nostalgia packaging. The teaser is small, but the commercial question behind it is not.
 

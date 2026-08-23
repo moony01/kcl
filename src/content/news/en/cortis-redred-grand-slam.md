@@ -3,7 +3,7 @@ title: "CORTIS Just Pulled a REDRED Grand Slam - The Melon #1 Detail Rivals Can'
 excerpt: "CORTIS REDRED hit six music-show wins, Melon Top 100 No. 1 and Spotify Global Top 100, turning rookie heat into a market warning."
 date: '2026-05-20'
 category: 'Market Trend'
-thumbnail: '/images/news/cortis-redred-grand-slam-thumbnail.png'
+thumbnail: '/images/news/cortis-redred-grand-slam-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ That is why the grand-slam language travels so quickly online. The verified fact
 
 The trophy run would already be enough for a headline, but the Melon detail is the part rivals should study. KStarTrend and StarNews reported that `REDRED` reached No. 1 on Melon's `Top 100` at 11 p.m. on May 13 and held the top position at the same time on May 14 and May 15. That is not the same as claiming every hour belonged to CORTIS. It is still a serious marker because boy groups often convert albums, voting and fandom labor more easily than broad public listening.
 
-![CORTIS REDRED chart and music-show strategy room](/images/news/cortis-redred-grand-slam-1.png)
+![CORTIS REDRED chart and music-show strategy room](/images/news/cortis-redred-grand-slam-1.webp)
 _ChatGPT-generated editorial image showing how trophies, streaming charts and fan-voting signals can merge into one rookie-market pressure map._
 
 The uncomfortable part for competitors is that `REDRED` is not behaving like a song trapped inside a preorder bubble. It has trophies, yes. It also has enough public-chart movement to make the story feel less sealed inside fandom walls. That changes how the industry reads the group.
@@ -54,11 +54,11 @@ The physical layer is just as loud. The Chosun Ilbo's English service reported t
 
 That comparison is the real business hook. CORTIS is not simply having a bigger second era. It is compressing the timeline of scale. A milestone that previously took months now takes days. If labels are looking for the next fifth-generation benchmark, this is the part they will underline: speed, not only size.
 
-## KCL's View On The REDRED Market Signal
+## MEARROW's View On The REDRED Market Signal
 
 ### Rookie success now needs three proofs
 
-KCL reads the `REDRED` run as a new checklist for premium rookie momentum. One proof is fandom force: music-show voting, organized streaming, repeat purchases and the social pressure that keeps a campaign visible. The second proof is public-chart leakage: the moment a song begins escaping the fandom boundary and starts appearing in broader listening spaces. The third proof is global platform translation: whether the domestic story can be repeated in English, Japanese, Thai, Spanish and fan-edited formats fast enough to become international.
+MEARROW reads the `REDRED` run as a new checklist for premium rookie momentum. One proof is fandom force: music-show voting, organized streaming, repeat purchases and the social pressure that keeps a campaign visible. The second proof is public-chart leakage: the moment a song begins escaping the fandom boundary and starts appearing in broader listening spaces. The third proof is global platform translation: whether the domestic story can be repeated in English, Japanese, Thai, Spanish and fan-edited formats fast enough to become international.
 
 CORTIS has shown all three in the same window. That does not guarantee permanent dominance, but it changes the burden of comparison. Rival rookies cannot answer this only with a good first-week number or one viral clip. They now have to show whether their systems can turn attention into trophies, public listening, albums and exportable streaming data at the same time.
 

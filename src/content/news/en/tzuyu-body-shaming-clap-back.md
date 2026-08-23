@@ -3,7 +3,7 @@ title: "'Save Your Money' - Tzuyu's Clap Back Sparks Global Conversation on K-po
 excerpt: "TWICE's Tzuyu shut down a body-shaming subscriber on Bubble with two devastating words. Her response — 'Save your money' — ignited a global debate on K-pop's toxic beauty standards."
 date: '2026-02-24'
 category: 'Artist'
-thumbnail: '/images/news/tzuyu-body-shaming-clap-back-thumbnail-official.png'
+thumbnail: '/images/news/tzuyu-body-shaming-clap-back-thumbnail-official.webp'
 active: true
 ---
 
@@ -36,7 +36,7 @@ The real catalyst traces back a few days earlier. On February 13–14, TWICE per
 
 The moment that drew the most attention was Tzuyu's solo performance of **'DIVE IN'** — a high-energy stage featuring a short bodysuit paired with fur boots and powerfully choreographed routines. Fan-recorded clips of the performance spread rapidly online, drawing overwhelming praise from global fans. But predictably, a vocal minority zeroed in on her body instead of her performance. The backlash migrated from social media comment sections to Bubble, where the now-infamous message was sent.
 
-![Body shaming controversy sparked by Tzuyu's solo stage and global fandom response](/images/news/tzuyu-body-shaming-clap-back-1-official.png)
+![Body shaming controversy sparked by Tzuyu's solo stage and global fandom response](/images/news/tzuyu-body-shaming-clap-back-1-official.webp)
 _Image source: TWICE official X (@JYPETWICE), [original post](https://x.com/JYPETWICE/status/2022524297303199965)_
 
 ### Global Fans Strike Back
@@ -59,9 +59,9 @@ This isn't a Tzuyu-specific problem. Inappropriate and abusive messages through 
 
 Netizens widely praised Tzuyu's response for striking at the heart of this dynamic. "Save your money" isn't just a witty retort — it's a pointed observation about the absurdity of paying to be cruel.
 
-## What KCL Reads Into Tzuyu's Two Lines
+## What MEARROW Reads Into Tzuyu's Two Lines
 
-KCL sees two significant signals in this incident.
+MEARROW sees two significant signals in this incident.
 
 First, **the way idols respond to hate is evolving**. In the past, the playbook was silence — or at best, a legal notice from the agency. But Tzuyu didn't wait for JYP Entertainment's PR team. She responded personally, with wit and composure. This aligns with a broader trend among K-pop artists who are increasingly setting boundaries in their own voice, empowered by direct communication platforms like Bubble. The intermediary is disappearing. Artists are speaking for themselves.
 

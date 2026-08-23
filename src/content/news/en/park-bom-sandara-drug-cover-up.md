@@ -3,7 +3,7 @@ title: '"Sandara Got Caught and They Made Me Take the Fall" — Park Bom Just Br
 excerpt: "2NE1's Park Bom dropped a bombshell handwritten letter alleging she was used as a scapegoat to cover up Sandara Park's drug use. She named Yang Hyun-suk, Teddy, and CL. Here's what changed — and what hasn't."
 date: '2026-03-04'
 category: 'Industry'
-thumbnail: '/images/news/park-bom-sandara-drug-cover-up-thumbnail.png'
+thumbnail: '/images/news/park-bom-sandara-drug-cover-up-thumbnail.webp'
 active: true
 ---
 
@@ -45,7 +45,7 @@ If accurate, this suggests her case served as a direct catalyst for new legislat
 
 ## Sandara's Response — and What Wasn't Said
 
-![A torn handwritten letter in dramatic lighting symbolizing the collapse of 2NE1's narrative and a 12-year cover-up allegation](/images/news/park-bom-sandara-drug-cover-up-1.png)
+![A torn handwritten letter in dramatic lighting symbolizing the collapse of 2NE1's narrative and a 12-year cover-up allegation](/images/news/park-bom-sandara-drug-cover-up-1.webp)
 _Image: AI Generated_
 
 ### "Groundless" — But No Specifics
@@ -70,7 +70,7 @@ This matters because it shapes how the letter is received before anyone reads th
 
 That's worth naming directly. But it's equally important to separate two things: **what Park Bom's current public perception is, and what actually happened 12 years ago.** The credibility of historical claims doesn't rise or fall solely based on the mental state of the person raising them today. YG's continued silence and Sandara's non-specific denial both speak independently of Park Bom's current condition.
 
-## KCL's Take: This Is Bigger Than a Feud
+## MEARROW's Take: This Is Bigger Than a Feud
 
 Reading this as "former group members fighting" misses the scale of what's happening.
 

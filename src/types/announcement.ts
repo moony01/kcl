@@ -1,5 +1,5 @@
 /**
- * KCL 공지사항 타입 정의
+ * MEARROW 공지사항 타입 정의
  * Supabase kcl_announcements 테이블과 매핑
  */
 

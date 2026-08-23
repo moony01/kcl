@@ -3,7 +3,7 @@ title: "Eunseok's Apology Should Have Ended It - Then RIIZE Fans Made It Worse"
 excerpt: "RIIZE Eunseok apology became a wider fandom crisis after reports of racist fan posts turned one deleted caption into a trust test."
 date: '2026-05-13'
 category: 'Artist'
-thumbnail: '/images/news/riize-eunseok-apology-thumbnail.png'
+thumbnail: '/images/news/riize-eunseok-apology-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ That is why the phrase itself became less important than the review failure behi
 
 ## The Fan Reaction Became The Second Scandal
 
-![RIIZE Eunseok apology aftermath in a cold K-pop rehearsal room](/images/news/riize-eunseok-apology-1.png)
+![RIIZE Eunseok apology aftermath in a cold K-pop rehearsal room](/images/news/riize-eunseok-apology-1.webp)
 _A symbolic rehearsal-room scene reflects how one deleted caption became a wider fandom trust test._
 
 ### Reports moved from apology to community behavior
@@ -38,7 +38,7 @@ This matters because K-pop fandoms are not just audience groups anymore. They ar
 
 The old industry habit was to treat fandom discourse as outside the company wall. That wall is thinner now. Fan-platform culture is part of the product, and companies profit from the intimacy those platforms create. If the space is monetized, the harm that spreads inside it cannot be dismissed as unrelated noise.
 
-KCL reads the RIIZE fandom backlash as a warning for every agency using paid messaging, Weverse-style communities and official fan-club channels. The more official the room feels, the more responsibility the artist and company carry for how that room responds to harm. Silence may be legally cautious, but it can look like abandonment to the fans who were targeted.
+MEARROW reads the RIIZE fandom backlash as a warning for every agency using paid messaging, Weverse-style communities and official fan-club channels. The more official the room feels, the more responsibility the artist and company carry for how that room responds to harm. Silence may be legally cautious, but it can look like abandonment to the fans who were targeted.
 
 ## How The Public Is Reading Eunseok Now
 
@@ -54,11 +54,11 @@ There is an important line to keep clear. Current public anger toward Eunseok do
 
 But perception still changes how verified facts land. If fans believe a company treats global cultural harm as a temporary PR problem, every new incident arrives with less patience attached. That is the risk now facing RIIZE. The apology may be sincere, but sincerity has to compete with the larger memory of how often K-pop asks international fans to absorb the lesson on behalf of the industry.
 
-## KCL's View On RIIZE's Global Trust Test
+## MEARROW's View On RIIZE's Global Trust Test
 
 ### The system cannot outsource cultural context to fans
 
-KCL sees this as a systems problem, not only an idol-wording problem. K-pop companies have trained fans to act as real-time cultural auditors. Fans translate questionable language, explain why it hurts, pressure companies to respond, and then fight each other while the official side waits for the storm to settle. That is a bad operating model for a global industry.
+MEARROW sees this as a systems problem, not only an idol-wording problem. K-pop companies have trained fans to act as real-time cultural auditors. Fans translate questionable language, explain why it hurts, pressure companies to respond, and then fight each other while the official side waits for the storm to settle. That is a bad operating model for a global industry.
 
 The better model is internal cultural review before content moves, especially on platforms that feel private but function as public media the moment a screenshot appears. Artists need training that covers language, race, regional history and how private jokes become international signals. Staff need escalation rules that do more than delete the post and wait.
 

@@ -1,9 +1,9 @@
 ---
 title: "RM Needs 2 Weeks in a Cast. The ARIRANG World Tour Starts in 18 Days."
-excerpt: "BTS's leader performed the Gwanghwamun comeback concert sitting on a stool after spraining his ankle during rehearsals. With the ARIRANG World Tour kicking off April 9 in Goyang — just 18 days away — the math is uncomfortable. KCL breaks down what we know and what's at stake."
+excerpt: "BTS's leader performed the Gwanghwamun comeback concert sitting on a stool after spraining his ankle during rehearsals. With the ARIRANG World Tour kicking off April 9 in Goyang — just 18 days away — the math is uncomfortable. MEARROW breaks down what we know and what's at stake."
 date: '2026-03-22'
 category: 'Artist'
-thumbnail: '/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-thumbnail.png'
+thumbnail: '/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-thumbnail.webp'
 active: true
 ---
 
@@ -47,7 +47,7 @@ For a K-pop group where synchronized choreography is a core element of the live 
 
 The concert was still historic. The album is still a phenomenon. But the image of BTS's leader on a stool — during the group's most anticipated comeback in four years — is the image that followed the concert into the next morning.
 
-![RM performing seated at the Gwanghwamun concert while wearing an ankle cast, with six BTS members in full choreography around him](/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-1.png)
+![RM performing seated at the Gwanghwamun concert while wearing an ankle cast, with six BTS members in full choreography around him](/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-1.webp)
 _Image: AI generated via ChatGPT_
 
 ## The Math: 18 Days
@@ -94,9 +94,9 @@ The military service hiatus gave each member time to rest, focus, and pursue sol
 
 The rehearsal injury — which occurred during final preparations for the comeback concert — is a direct consequence of that compressed timeline. A group that has been separated for years, reassembled in July 2025, recorded an album, and is now immediately performing at full intensity across some of the world's most demanding venues doesn't get the luxury of phased preparation.
 
-## KCL Perspective
+## MEARROW Perspective
 
-From a KCL (K-pop Company League) standpoint, the RM injury is a low-probability but non-trivial risk factor for HYBE's 2026 revenue model.
+From a MEARROW (K-pop Talent Network) standpoint, the RM injury is a low-probability but non-trivial risk factor for HYBE's 2026 revenue model.
 
 Analyst projections for the ARIRANG World Tour place it among the highest-grossing concert tours of the decade. A full, eight-member-equivalent performance — with RM performing complete choreography — is the product being sold to stadium audiences worldwide.
 

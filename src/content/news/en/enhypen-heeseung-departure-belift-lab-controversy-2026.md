@@ -3,7 +3,7 @@ title: "Was Heeseung Pushed Out? ENHYPEN's Shocking 6-Member Announcement, and t
 excerpt: "On March 10, 2026, BELIFT LAB announced Heeseung's departure from ENHYPEN — and one line in his farewell letter has ignited a firestorm. 'The direction suggested by the company.' ENGENE is demanding answers. Is this HYBE's One Direction moment?"
 date: '2026-03-10'
 category: 'Industry'
-thumbnail: '/images/news/enhypen-heeseung-departure-belift-lab-controversy-2026-thumbnail.png'
+thumbnail: '/images/news/enhypen-heeseung-departure-belift-lab-controversy-2026-thumbnail.webp'
 active: true
 ---
 
@@ -46,7 +46,7 @@ In six years, Heeseung and ENHYPEN built something real:
 
 Heeseung was at the center of all of it. Now he's leaving.
 
-![ENHYPEN Heeseung departure announcement and ENGENE reaction](/images/news/enhypen-heeseung-departure-belift-lab-controversy-2026-1.png)
+![ENHYPEN Heeseung departure announcement and ENGENE reaction](/images/news/enhypen-heeseung-departure-belift-lab-controversy-2026-1.webp)
 _On March 10, 2026, BELIFT LAB officially announced Heeseung's departure from ENHYPEN_
 
 ## The Fan Event Cancellations — A Red Flag in Plain Sight
@@ -95,7 +95,7 @@ But the question fans are asking hasn't been answered.
 
 **Why couldn't he do both?**
 
-## The KCL Take
+## The MEARROW Take
 
 Member departures are not new in K-pop. But this situation has qualities that set it apart.
 
@@ -109,4 +109,4 @@ When these three factors collide, ENGENE isn't just grieving a member's departur
 
 BELIFT LAB has not addressed these concerns. The silence grows louder with every hour.
 
-What Heeseung's solo chapter looks like, and whether ENHYPEN's six-member era finds its footing — KCL will be watching.
+What Heeseung's solo chapter looks like, and whether ENHYPEN's six-member era finds its footing — MEARROW will be watching.

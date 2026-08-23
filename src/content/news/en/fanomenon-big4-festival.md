@@ -3,7 +3,7 @@ title: "HYBE, SM, JYP, and YG Are Building Their Own Coachella — And That May 
 excerpt: "HYBE, SM, JYP, and YG are pushing a K-pop festival joint venture called Fanomenon. If it launches in 2027, the business map around tours, stages, and fan money could shift fast."
 date: "2026-04-29"
 category: "Business"
-thumbnail: "/images/news/fanomenon-big4-festival-thumbnail.png"
+thumbnail: "/images/news/fanomenon-big4-festival-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ The early framework is clearer than many fans might assume. Korea JoongAng Daily
 
 At the same time, the agencies have been careful not to oversell certainty. Korea JoongAng Daily quoted JYP as saying the matter is still at the stage of reviewing the possibility of cooperation and that multiple processes, including the FTC filing, are underway. CHOSUNBIZ and Reddit users quoting the Business Post report both highlighted that core governance questions remain open, including the CEO structure and board composition. That uncertainty is not a weakness in the story. It is the tension point. The biggest K-pop companies agree that a shared festival may be worth building, but they still have to decide who gets real control once the lights go on.
 
-![Fanomenon K-pop festival joint venture imagined as four giant stage districts converging into one night skyline](/images/news/fanomenon-big4-festival-1.png)
+![Fanomenon K-pop festival joint venture imagined as four giant stage districts converging into one night skyline](/images/news/fanomenon-big4-festival-1.webp)
 _If the event launches, the most important change may be who owns the stage platform itself rather than which act closes the night._
 
 ## Why The Big Four Might Want Their Own Stage Economy
@@ -52,11 +52,11 @@ Social reaction has been immediate because the headline collapses four fandom wo
 
 That part is also feeding the chatter. Multiple reports tied the initiative closely to Park Jin-young's committee role and earlier public ambition to create a festival that could surpass Coachella. Even in fan spaces, the reaction is not only "Can this happen?" but also "How did he get all four to agree?" That question matters because the `Fanomenon` conversation is already bigger than branding. It is turning into a test of whether K-pop can act like an industry coalition when the prize is global infrastructure rather than just another chart week.
 
-## KCL's View On The Real Bet
+## MEARROW's View On The Real Bet
 
 ### This is a control story more than a culture story
 
-KCL reads this less as a flashy dream-project headline and more as a control play. For years, K-pop companies proved they could export artists into global systems built by others: Western festivals, overseas promoters, third-party ticketing ecosystems, and platform partners. A joint festival reverses that direction. Instead of asking for a slot inside somebody else's machine, the Big Four would be trying to build a machine that everyone else has to enter on their terms.
+MEARROW reads this less as a flashy dream-project headline and more as a control play. For years, K-pop companies proved they could export artists into global systems built by others: Western festivals, overseas promoters, third-party ticketing ecosystems, and platform partners. A joint festival reverses that direction. Instead of asking for a slot inside somebody else's machine, the Big Four would be trying to build a machine that everyone else has to enter on their terms.
 
 ### The hardest part will not be the lineup
 

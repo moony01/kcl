@@ -3,7 +3,7 @@ title: "YG Is Finally Off THE BLACK LABEL's Board - So Why Are Fans More Nervous
 excerpt: "THE BLACK LABEL has no YG executives on its board for the first time, but the 14.55% stake and IPO push raise a harder fan question."
 date: '2026-05-04'
 category: 'Business'
-thumbnail: '/images/news/black-label-yg-board-thumbnail.png'
+thumbnail: '/images/news/black-label-yg-board-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ That is a steep dilution. It is also not zero. A 14.55% shareholder is not the s
 
 The table shows why the story is more useful as a trajectory than as a single-day split. THE BLACK LABEL has been moving away from YG structurally for years. Yang's board exit is the visible endpoint of a longer dilution process, not a sudden emotional breakup.
 
-![THE BLACK LABEL YG board split shown through a rehearsal studio and investor room transition](/images/news/black-label-yg-board-1.png)
+![THE BLACK LABEL YG board split shown through a rehearsal studio and investor room transition](/images/news/black-label-yg-board-1.webp)
 _The boardroom change matters because THE BLACK LABEL is now being read less like a YG sub-label and more like an IPO candidate._
 
 ## Why IPO Logic Is Driving the Conversation
@@ -60,11 +60,11 @@ The criticism has been consistent: fans want more frequent comebacks, clearer pr
 
 That is the emotional gap driving the click. Investors hear "cleaner governance." Fans hear "will my artist finally release music?" Those are not the same question, and THE BLACK LABEL now has to answer both.
 
-## KCL's Take on THE BLACK LABEL's Independence
+## MEARROW's Take on THE BLACK LABEL's Independence
 
 ### This is a business reset, not proof of an artist reset
 
-KCL reads this as a governance milestone with an artist-risk shadow. The board exit strengthens THE BLACK LABEL's IPO story. It gives the company a cleaner argument to investors: independent board, diluted old-parent influence, management with public-listing experience, and a roster with global recognition.
+MEARROW reads this as a governance milestone with an artist-risk shadow. The board exit strengthens THE BLACK LABEL's IPO story. It gives the company a cleaner argument to investors: independent board, diluted old-parent influence, management with public-listing experience, and a roster with global recognition.
 
 But the competitive test is not paperwork. In K-pop, company value is ultimately converted through release cadence, touring, IP expansion, fan retention, and the ability to build new acts without starving existing ones. If THE BLACK LABEL uses independence to increase execution speed, the move could become one of 2026's most important business pivots. If the company remains slow, fans will read the board change as corporate theater.
 

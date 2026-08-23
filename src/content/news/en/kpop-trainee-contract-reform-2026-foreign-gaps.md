@@ -3,7 +3,7 @@ title: 'Korea Changed Its Trainee Contract Rules — 3 Traps Foreign Trainees St
 excerpt: 'South Korea revised its standard trainee contracts in January 2026 with expanded mental health support and minor protections. But for foreign trainees, critical gaps remain — no translation requirements, no visa provisions, and zero enforcement power.'
 date: '2026-02-14'
 category: 'Trainee System'
-thumbnail: '/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-thumbnail.png'
+thumbnail: '/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-thumbnail.webp'
 active: true
 ---
 
@@ -51,7 +51,7 @@ Agencies can adopt it in full, cherry-pick the parts they like, or ignore it ent
 
 Major agencies generally follow the standard contract because reputational damage isn't worth the risk. But the K-pop ecosystem extends far beyond the Big 4. Hundreds of registered entertainment agencies operate in South Korea, many of them actively recruiting foreign trainees. How faithfully these smaller agencies follow a non-binding "recommendation" is anyone's guess.
 
-![Article image](/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-1.png)
+![Article image](/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-1.webp)
 _An empty practice room hallway — a pair of dance shoes symbolizing an uncertain journey ahead_
 
 ## What Foreign Trainees Should Do Before Signing
@@ -68,11 +68,11 @@ When the system doesn't protect you, you have to protect yourself. Here are five
 
 **5. Scrutinize penalty clauses for early termination.** Don't accept a vague "penalties apply" statement. Demand specifics: how penalties are calculated, what the cap is, and under what conditions they're waived. Pay special attention to clauses that allow agencies to bill you for the full cost of training invested during your contract period.
 
-## KCL's Take on the Contract Revision
+## MEARROW's Take on the Contract Revision
 
-Let's be clear: this revision is not meaningless. Concrete compensation timelines, broader mental health support, and stronger minor protections are genuine steps forward. But when measured against the reality that KCL's data reveals, this progress only goes halfway.
+Let's be clear: this revision is not meaningless. Concrete compensation timelines, broader mental health support, and stronger minor protections are genuine steps forward. But when measured against the reality that MEARROW's data reveals, this progress only goes halfway.
 
-KCL's agency-level data on foreign member ratios tells a clear story — the K-pop industry has already crossed the point of no return on globalization. 28% of HYBE's trainees are non-Korean. JYP runs localized projects like NiziU and A2K across multiple countries. Groups like KATSEYE feature entirely non-Korean lineups. The industry has gone global. The contracts haven't.
+MEARROW's agency-level data on foreign member ratios tells a clear story — the K-pop industry has already crossed the point of no return on globalization. 28% of HYBE's trainees are non-Korean. JYP runs localized projects like NiziU and A2K across multiple countries. Groups like KATSEYE feature entirely non-Korean lineups. The industry has gone global. The contracts haven't.
 
 A truly global-standard trainee contract would include at least three things: mandatory certified translations in major languages, visa and residency provisions with clear cost-sharing terms, and legal enforceability of the standard contract itself. None of these made it into the 2026 revision.
 

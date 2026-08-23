@@ -3,7 +3,7 @@ title: "'She Won $17.6M but Lost the Fans' — The Shocking Aftermath of Min Hee
 excerpt: "The Seoul Central District Court ordered HYBE to pay $17.6 million to Min Hee-jin. She won in court. But NewJeans fans are turning against her. Behind the paradox of legal victory and fandom betrayal lies a story that could reshape K-pop governance."
 date: '2026-02-19'
 category: 'Business'
-thumbnail: '/images/news/hybe-min-heejin-255b-ruling-fan-betrayal-thumbnail.png'
+thumbnail: '/images/news/hybe-min-heejin-255b-ruling-fan-betrayal-thumbnail.webp'
 active: true
 ---
 
@@ -39,7 +39,7 @@ As reported by allkpop, Min had already been distancing herself from NewJeans ev
 
 Fan reactions split sharply. Some accused her of "using NewJeans and then discarding them." Others defended her, pointing out that the real issue is K-pop idols not being recognized as "employees" under Korean labor law, which prevented NewJeans from receiving any direct compensation. The debate grew so heated that Reddit's r/kpopthoughts created a dedicated megathread just for this ruling.
 
-![Legal victory and fandom divide](/images/news/hybe-min-heejin-255b-ruling-fan-betrayal-1.png)
+![Legal victory and fandom divide](/images/news/hybe-min-heejin-255b-ruling-fan-betrayal-1.webp)
 _The paradox of winning in court while losing fan trust_
 
 ## $17.6M Was Just Round One — The $30M War Still Ahead

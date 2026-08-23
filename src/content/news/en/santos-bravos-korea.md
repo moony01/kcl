@@ -3,7 +3,7 @@ title: 'Santos Bravos Came to Seoul for a Reason - and It Wasn''t Korea'
 excerpt: 'Santos Bravos'' Korea push was not about domestic charts. HYBE used Seoul''s K-pop machine to beam a Latin act into the wider fandom economy.'
 date: '2026-04-30'
 category: 'Tech & Culture'
-thumbnail: '/images/news/santos-bravos-korea-thumbnail.png'
+thumbnail: '/images/news/santos-bravos-korea-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ There is already a short-term payoff signal. StarNews, citing HYBE Latin America
 
 Those numbers are company-cited, so they should be read carefully. But even with that caution, the direction is hard to ignore. The Korea campaign was brief, yet it created enough circulation for the agency to frame it as a turning point in global expansion. That is exactly the type of return HYBE would want from a controlled experiment: not proof that Korea became the main market, but proof that Korea amplified the signal.
 
-![Santos Bravos Korea expansion stage with neon Seoul broadcast lights and a Latin pop silhouette crowd](/images/news/santos-bravos-korea-1.png)
+![Santos Bravos Korea expansion stage with neon Seoul broadcast lights and a Latin pop silhouette crowd](/images/news/santos-bravos-korea-1.webp)
 _Santos Bravos did not need to sound Korean to move through a Korean promotion system. That is what makes the strategy worth watching._
 
 ## The Fan Reaction Reveals Why This Matters Beyond One Group
@@ -54,11 +54,11 @@ JoongAng's broader point was that many foreign artists now use Korea not mainly 
 
 For Santos Bravos, that credibility relay may matter more than any single chart result. Being seen in Seoul changes how a group can be packaged in Manila, Bangkok, Jakarta, Mexico City, or Sao Paulo. It gives marketers and fans a shared frame of reference instantly.
 
-## KCL's View on the Real Shift
+## MEARROW's View on the Real Shift
 
 ### The most important export may no longer be Korean artists alone
 
-KCL's read is that Santos Bravos matters because it exposes what large K-pop companies are really trying to globalize. It is not just choreography discipline, fan-sign mechanics, or photocard culture in isolation. It is a full-stack system: training, content serialization, challenge distribution, music-show legitimacy, and fandom conversion. Once that stack starts working on artists who are not Korean and are not singing in Korean, the old definition of K-pop starts looking less stable.
+MEARROW's read is that Santos Bravos matters because it exposes what large K-pop companies are really trying to globalize. It is not just choreography discipline, fan-sign mechanics, or photocard culture in isolation. It is a full-stack system: training, content serialization, challenge distribution, music-show legitimacy, and fandom conversion. Once that stack starts working on artists who are not Korean and are not singing in Korean, the old definition of K-pop starts looking less stable.
 
 That does not mean the `K` disappears tomorrow. Korea still supplies the infrastructure, the references, and much of the symbolic power. But it does mean the center of gravity is shifting. The question is no longer only whether non-Korean idols can join K-pop. The bigger question is whether K-pop itself is becoming a platform that can host multiple local identities without losing its commercial logic.
 

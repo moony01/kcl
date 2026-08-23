@@ -176,7 +176,7 @@ function transformToCompanyRanking(
     nameKo: company.name_ko,
     nameEn: company.name_en,
     logoUrl: getCompanyLogoUrl(company.id, company.logo_url, company.name_en),
-    gradientColor: company.gradient_color || '#8B5CF6',
+    gradientColor: company.gradient_color || '#315CFF',
     rank: company.rank,
     previousRank: company.rank, // 초기값, 리그 분리 후 재계산
     rankChange: 0, // 초기값, 리그 분리 후 재계산

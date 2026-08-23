@@ -3,7 +3,7 @@ title: 'HYBE Just Built ABD — One Girl Group, One ADOR-Sized Question'
 excerpt: 'HYBE ABD adds a girl-group-only label before a late-2026 debut, raising a bigger question about its multi-label future.'
 date: '2026-05-13'
 category: 'Business'
-thumbnail: '/images/news/hybe-abd-girlgroup-bet-thumbnail.png'
+thumbnail: '/images/news/hybe-abd-girlgroup-bet-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ Music Business Worldwide reported that ABD will be led by Jiwon No, previously H
 
 The Pledis connection gives the launch both credibility and pressure. SEVENTEEN turned Pledis into one of the most important performance and fandom-development engines inside HYBE. TWS gave the label another current-generation boy-group proof point. But girl groups carry different risks: visual identity, public reception, brand comparison, member narrative, and debut timing can harden quickly. ABD will have to prove that Pledis-rooted production knowledge can translate into a fresh girl-group system without feeling like a repackaged department.
 
-![HYBE ABD girl group label launch visualized as a futuristic K-pop corporate command room](/images/news/hybe-abd-girlgroup-bet-1.png)
+![HYBE ABD girl group label launch visualized as a futuristic K-pop corporate command room](/images/news/hybe-abd-girlgroup-bet-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces, official logos, or readable text._
 
 ## The ADOR Question Is Impossible To Avoid
@@ -44,11 +44,11 @@ Soompi quoted HYBE describing ABD as part of its multi-label strategy, built to 
 
 That combination matters. HYBE's growth problem is no longer only "Can BTS still move the numbers?" The answer is obviously yes. The harder question is whether HYBE can build enough durable, differentiated intellectual property around BTS so that every earnings season does not collapse into one superstar variable. Girl groups are central to that answer because they sit at the intersection of streaming, fashion, platform content, choreography virality, brand deals, and global trainee narratives.
 
-## How KCL Reads HYBE ABD
+## How MEARROW Reads HYBE ABD
 
 ### The launch tests whether the multi-label model can still surprise people
 
-KCL reads ABD as a pressure valve and a proof test at the same time. It gives HYBE a new creative lane at a moment when the company needs more than scale. It needs trust in process. A multi-label system only works if each label has a reason to exist beyond legal structure. BigHit Music has BTS and TXT identity. Pledis has performance-fandom architecture. Source Music has LE SSERAFIM's resilience story. Belift Lab has ILLIT and ENHYPEN. ADOR has NewJeans, along with all the complexity attached to that name.
+MEARROW reads ABD as a pressure valve and a proof test at the same time. It gives HYBE a new creative lane at a moment when the company needs more than scale. It needs trust in process. A multi-label system only works if each label has a reason to exist beyond legal structure. BigHit Music has BTS and TXT identity. Pledis has performance-fandom architecture. Source Music has LE SSERAFIM's resilience story. Belift Lab has ILLIT and ENHYPEN. ADOR has NewJeans, along with all the complexity attached to that name.
 
 ABD now has to earn its own sentence. The company can say `A Bold Dream`, but fans will ask a more practical question: what does this group sound like, why is a new label the right home, and how will HYBE prevent the act from being swallowed by comparisons before debut day? The best version of ABD is not "another HYBE girl group." It is a label-specific answer to a market that already has too many acts fighting for the same aesthetic territory.
 

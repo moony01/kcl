@@ -3,7 +3,7 @@ title: "BLACKPINK Got the Guinness ICON Stamp — 16.9 Billion Streams Changed t
 excerpt: "BLACKPINK Guinness ICON status turns 16.9B Spotify streams and 100M YouTube subscribers into a new K-pop scoreboard."
 date: '2026-06-23'
 category: 'Artist'
-thumbnail: '/images/news/blackpink-guinness-icon-thumbnail.png'
+thumbnail: '/images/news/blackpink-guinness-icon-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ Guinness also said BLACKPINK had the most subscribers for a band on YouTube with
 
 YouTube is not only where fans watch videos. It is where casual audiences discover eras out of order, where reaction culture keeps old releases alive, where solo curiosity loops back into group clips, and where brand value becomes visible in public. A 100 million subscriber channel is a distribution channel that no agency can simply buy overnight. It gives BLACKPINK leverage every time the group or any member needs to restart attention.
 
-![BLACKPINK Guinness ICON status shown through an abstract record archive and global fandom screens](/images/news/blackpink-guinness-icon-1.png)
+![BLACKPINK Guinness ICON status shown through an abstract record archive and global fandom screens](/images/news/blackpink-guinness-icon-1.webp)
 _ChatGPT-generated editorial image showing anonymous K-pop silhouettes facing a record archive and global fandom metrics, with no real faces, logos or readable text._
 
 ## The Record Stack Is Not Only Digital
@@ -52,11 +52,11 @@ Guinness also used the members' solo achievements to widen the frame. The articl
 
 This is the part other companies will study closely. Solo expansion usually threatens group identity if the public starts seeing the members as separate products. BLACKPINK's case has been different. The solo brands create new entry points, then the group record book absorbs that attention back into a larger story. The group no longer needs every fan to enter through the same song or the same era. It only needs the ecosystem to keep pointing back to BLACKPINK as the source code.
 
-## KCL's View: This Is The Memory Machine
+## MEARROW's View: This Is The Memory Machine
 
 ### The next K-pop race is not only peak numbers
 
-KCL reads the Guinness ICON moment as a lesson in memory management. K-pop companies are already good at making a launch feel urgent. The harder job is making a career feel cumulative. BLACKPINK's advantage is that every new number appears to reinforce older numbers instead of replacing them. The group can talk about YouTube and Spotify, albums and awards, solos and group milestones, fashion visibility and fandom organization without those lanes cancelling each other out.
+MEARROW reads the Guinness ICON moment as a lesson in memory management. K-pop companies are already good at making a launch feel urgent. The harder job is making a career feel cumulative. BLACKPINK's advantage is that every new number appears to reinforce older numbers instead of replacing them. The group can talk about YouTube and Spotify, albums and awards, solos and group milestones, fashion visibility and fandom organization without those lanes cancelling each other out.
 
 That is why this story should matter to rookies and trainees too. A debut team cannot copy 100 million subscribers. A small agency cannot manufacture 16.9 billion streams. But the operating principle is clear: build proof that compounds. A viral clip should lead to a track people revisit. A solo moment should strengthen the group identity. A fandom campaign should create evidence that remains useful after the hashtag ends.
 

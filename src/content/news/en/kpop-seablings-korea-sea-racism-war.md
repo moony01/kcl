@@ -3,7 +3,7 @@ title: "'You Live Off Our Money' — Racist K-Pop Fans Just United All of Southe
 excerpt: "A camera rule break at a DAY6 concert in Malaysia spiraled into K-pop's worst racism crisis. The #SEAblings movement, ASEAN market risks, and what the industry must do next."
 date: '2026-02-17'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-seablings-korea-sea-racism-war-thumbnail.png'
+thumbnail: '/images/news/kpop-seablings-korea-sea-racism-war-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The incident snowballed beyond anyone's expectation. Thai, Vietnamese, Indonesia
 
 Korean netizens didn't stop there. Successive waves of derogatory comments about Southeast Asian nations' economies, appearances, and cultures triggered an escalating cycle of retaliation. The conflict even dragged **BTS's RM** into the crossfire — racist attacks targeting him during the Korea-SEA online feud prompted fans to launch the **#PurpleRibbonForRM** protection campaign.
 
-![Digital solidarity movement visualization](/images/news/kpop-seablings-korea-sea-racism-war-1.png)
+![Digital solidarity movement visualization](/images/news/kpop-seablings-korea-sea-racism-war-1.webp)
 _Digital art symbolizing the cross-border solidarity and conflict within K-pop fandoms_
 
 ## The Birth of #SEAblings — "We Are Siblings"
@@ -38,9 +38,9 @@ This isn't just an online spat — the **numbers** tell a much more serious stor
 
 With K-pop physical album sales declining for the first time in nine years in 2024, losing Southeast Asia could be catastrophic for the industry. Some #SEAblings participants have already declared boycotts of Korean cultural content — a warning sign that threatens not just K-pop, but the entire Korean Wave including K-dramas and K-beauty.
 
-## KCL's Take: K-Pop's Cultural Diplomacy Crisis
+## MEARROW's Take: K-Pop's Cultural Diplomacy Crisis
 
-KCL views this incident as a **structural problem** within the K-pop industry finally surfacing. K-pop generates enormous revenue from global markets, yet lacks any meaningful **cultural respect framework or communication system** for the international fans who generate that revenue.
+MEARROW views this incident as a **structural problem** within the K-pop industry finally surfacing. K-pop generates enormous revenue from global markets, yet lacks any meaningful **cultural respect framework or communication system** for the international fans who generate that revenue.
 
 Entertainment agencies are well aware of Southeast Asia's economic value through tour revenue and album sales. Yet virtually none have issued official statements addressing racist remarks within fan communities, nor do they operate cultural understanding programs. This crisis is the price of that neglect.
 

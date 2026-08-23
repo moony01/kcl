@@ -3,7 +3,7 @@ title: "BTS Just Took Over Mexico's National Palace - And It Wasn't Even the Con
 excerpt: "BTS Mexico Palace visit drew massive ARMY attention before the ARIRANG shows, turning one balcony moment into soft-power proof."
 date: '2026-05-07'
 category: 'Artist'
-thumbnail: '/images/news/bts-mexico-palace-thumbnail.png'
+thumbnail: '/images/news/bts-mexico-palace-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ During the Palacio Nacional greeting, El Financiero reported that Sheinbaum told
 
 That is a subtle but important difference. The president cannot simply create tour dates for a private artist. Korea JoongAng Daily's earlier coverage of Lee's response also made that boundary clear, noting that popular-culture activities are led by private entities and that government involvement is limited. Still, the political visibility changes the pressure around the conversation. It tells agencies and promoters that BTS demand in Mexico is not only measurable at checkout pages. It is visible in public space.
 
-![BTS Mexico Palace fandom crowd outside a civic concert district](/images/news/bts-mexico-palace-1.png)
+![BTS Mexico Palace fandom crowd outside a civic concert district](/images/news/bts-mexico-palace-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces or identifiable people._
 
 ## The Real Shock Was Scale, Not Surprise
@@ -40,9 +40,9 @@ _AI-generated editorial image by ChatGPT, created without real faces or identifi
 
 The numbers explain why this became more than a celebrity visit. Three stadium dates are already enormous. Selling them out in minutes is bigger. Having over a million people chase a reported 150,000-ticket supply is the kind of mismatch that creates public frustration, secondary-market anxiety, and pressure for institutional attention. El Financiero also reported that a later ticket release drew a virtual queue above half a million people for a limited number of additional seats.
 
-For KCL, that mismatch is the heart of the story. K-pop is often discussed as a digital-first export because streaming, social video, and fandom platforms move so fast. But the Mexico case proves the offline side is now just as important. When demand concentrates in one city, the bottleneck becomes physical: seats, roads, hotels, security, crowd management, and government optics. A fandom can trend globally on X in minutes, but a city still has to absorb the bodies.
+For MEARROW, that mismatch is the heart of the story. K-pop is often discussed as a digital-first export because streaming, social video, and fandom platforms move so fast. But the Mexico case proves the offline side is now just as important. When demand concentrates in one city, the bottleneck becomes physical: seats, roads, hotels, security, crowd management, and government optics. A fandom can trend globally on X in minutes, but a city still has to absorb the bodies.
 
-## KCL's View Of The BTS Palacio Nacional Signal
+## MEARROW's View Of The BTS Palacio Nacional Signal
 
 ### Soft power is no longer only a Seoul story
 

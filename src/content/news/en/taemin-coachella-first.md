@@ -3,7 +3,7 @@ title: "Male K-Pop Soloists Can't Do Coachella? Taemin Flipped The Script In 50 
 excerpt: "Taemin completed the first official full Coachella solo set by a Korean male K-pop artist. The bigger story is how one 50-minute performance shifted both U.S. trend momentum and cultural positioning."
 date: '2026-04-19'
 category: 'Tech & Culture'
-thumbnail: '/images/news/taemin-coachella-first-thumbnail.png'
+thumbnail: '/images/news/taemin-coachella-first-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Dispatch, CNA, and K-pop Newswire all highlighted the same surprise: Taemin used
 
 K-pop Newswire noted that even a livestream glitch did not derail the overall narrative of the show, while CNA pointed to how Taemin balanced signature songs like `Move` and `Heaven` with new material. If he had only run a greatest-hits medley, the headline would have stayed at "successful debut." Instead, the response became something more valuable: a sense that audiences were willing to follow him into music they had never heard before.
 
-![Symbolic display of stage costume and festival lighting representing Taemin Coachella breakthrough](/images/news/taemin-coachella-first-1.png)
+![Symbolic display of stage costume and festival lighting representing Taemin Coachella breakthrough](/images/news/taemin-coachella-first-1.webp)
 _Image: a ChatGPT-generated editorial visualization of Taemin's Grammy Museum recognition and Coachella breakthrough_
 
 ## The public meaning of Taemin's name is shifting
@@ -42,11 +42,11 @@ Rolling Stone UK described Taemin as `the idol's idol`, while Forbes framed the 
 
 The more durable part of the reaction is visual: the opening break-out sequence, the sweat-soaked styling, the costume transition, and the decision to push unreleased songs into a high-pressure slot. `Taemin Coachella` became less of a one-off search term and more of a package of clips people kept replaying, reposting, and reinterpreting.
 
-## KCL's view on Taemin at Coachella
+## MEARROW's view on Taemin at Coachella
 
 ### The biggest thing that changed is the expectation line
 
-KCL does not see this story as only "the first Korean male solo artist at Coachella." The more important shift is the new expectation around what a male K-pop soloist is supposed to do on a U.S. festival stage. The bar is no longer just getting booked. It is whether you can hold attention, build mythology, and sell future music in the same set. Taemin placed that bar noticeably higher.
+MEARROW does not see this story as only "the first Korean male solo artist at Coachella." The more important shift is the new expectation around what a male K-pop soloist is supposed to do on a U.S. festival stage. The bar is no longer just getting booked. It is whether you can hold attention, build mythology, and sell future music in the same set. Taemin placed that bar noticeably higher.
 
 ## The next chapter starts after Coachella
 

@@ -3,7 +3,7 @@ title: 'Even BTS Freebies Got Hit — The Line HYBE Just Drew Around ARMY''s Fan
 excerpt: 'The BTS fan-made merch crackdown reached Goyang. From tossed freebies in Korea to a U.S. seizure suit, HYBE is redrawing the ARMY merch economy.'
 date: '2026-04-16'
 category: 'Business'
-thumbnail: '/images/news/bts-fan-merch-crackdown-thumbnail.png'
+thumbnail: '/images/news/bts-fan-merch-crackdown-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to Music Business Worldwide and the complaint itself, HYBE, BIGHIT MUS
 
 The filing is not written like a one-off Tampa problem. It explicitly argues that similar activity is expected at later U.S. tour stops as well. The complaint also says HYBE obtained the same kind of relief during BTS concert runs in 2019 and 2021, when courts authorized seizure actions and counterfeit goods were taken from bootleg sellers near venues. In other words, the current move is not a sudden overreaction. It is a familiar BTS-scale anti-counterfeit play, now reappearing in a much larger, more monetized touring environment.
 
-![BTS fan-made merch crackdown alongside official merchandise inspection at a concert booth](/images/news/bts-fan-merch-crackdown-1.png)
+![BTS fan-made merch crackdown alongside official merchandise inspection at a concert booth](/images/news/bts-fan-merch-crackdown-1.webp)
 _The conflict is no longer abstract: fan-made culture and official merchandise enforcement are now sitting on the same table._
 
 ## Why This Feels More Sensitive Right Now
@@ -42,11 +42,11 @@ AP reported that BTS opened the `ARIRANG` world tour in Goyang on April 9 by fil
 
 HYBE's legal rationale is straightforward: trademark protection, consumer confusion, and low-quality counterfeit goods. Fans' emotional objection is also straightforward: freebies do not feel like the same thing as bootleg commerce. That is why this controversy cuts deeper than a standard IP dispute. The harder question is who gets to define what counts as a legitimate object of memory at a BTS show. Is the concert experience only what flows through the official sales circuit, or can fandom still build its own parallel layer of meaning around it?
 
-## How KCL Reads The BTS Fan-Made Merch Crackdown
+## How MEARROW Reads The BTS Fan-Made Merch Crackdown
 
 ### HYBE is saying more than 'no counterfeits'
 
-From KCL's perspective, the company is drawing a broader boundary than a simple anti-bootleg line. What HYBE appears to be building is an official circuit for nearly every spendable or collectible touchpoint around BTS: venue access, nearby pickup, platform-linked commerce, pop-up consumption, and tour-adjacent merchandise. That is a powerful business model. But the more fully it encloses the live experience, the more directly it collides with the informal creativity that fandoms have historically used to make concerts feel communal rather than corporate.
+From MEARROW's perspective, the company is drawing a broader boundary than a simple anti-bootleg line. What HYBE appears to be building is an official circuit for nearly every spendable or collectible touchpoint around BTS: venue access, nearby pickup, platform-linked commerce, pop-up consumption, and tour-adjacent merchandise. That is a powerful business model. But the more fully it encloses the live experience, the more directly it collides with the informal creativity that fandoms have historically used to make concerts feel communal rather than corporate.
 
 ## One Question Is Left
 

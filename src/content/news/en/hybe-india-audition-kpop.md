@@ -3,7 +3,7 @@ title: "HYBE Just Opened Auditions Across India — The Moment K-Pop Stopped Bei
 excerpt: "HYBE launches massive auditions across 10 Indian cities on March 31. Samsung, Nongshim, and H&M signed on as sponsors. This isn't a talent search — it's Bang Si-hyuk's plan to redefine K-pop itself."
 date: '2026-03-28'
 category: 'Trainee System'
-thumbnail: '/images/news/hybe-india-audition-kpop-thumbnail.png'
+thumbnail: '/images/news/hybe-india-audition-kpop-thumbnail.webp'
 active: true
 ---
 
@@ -44,7 +44,7 @@ The sponsor roster for this audition is telling.
 
 Why would a food company and a fashion brand fund an audition? Simple: **this isn't an audition — it's a business platform.** What HYBE is building in India isn't a trainee supply pipeline. It's an entire K-pop ecosystem.
 
-![HYBE India auditions — the moment K-pop's training system is transplanted into Indian practice rooms](/images/news/hybe-india-audition-kpop-1.png)
+![HYBE India auditions — the moment K-pop's training system is transplanted into Indian practice rooms](/images/news/hybe-india-audition-kpop-1.webp)
 _HYBE's 360-degree music industry capabilities are being transplanted to India_
 
 Samsung already competes for first place in India's smartphone market. Nongshim is preparing to enter the Indian instant noodle market. H&M operates dozens of stores across India. For each of them, a K-pop audition isn't just sponsorship — **it's a marketing channel to connect with India's 20-30 demographic**.
@@ -65,7 +65,7 @@ The crucial point: **selected artists may not need to move to Korea at all.** Th
 
 [Related: 2026 K-Pop Audition Calendar & Guide](/en/news/2026-kpop-audition-guide)
 
-## KCL's Take: Is K-Pop Still 'Korean'?
+## MEARROW's Take: Is K-Pop Still 'Korean'?
 
 ### How Far Does the 'K' Extend?
 
@@ -75,7 +75,7 @@ Until now, K-pop was made in Korea, in Korean, with Korean artists at the center
 
 HYBE's multi-home strategy flips that premise. If you can recruit Indians in India, train them in India, and debut them in Hindi or English — is that still K-pop?
 
-KCL's answer: **"K-pop is not a genre — it's a system."** Systematic trainee development, precision visual planning, global fandom building — if this methodology is K-pop's essence, then it's K-pop regardless of where it's made. Bang Si-hyuk is exporting the system itself.
+MEARROW's answer: **"K-pop is not a genre — it's a system."** Systematic trainee development, precision visual planning, global fandom building — if this methodology is K-pop's essence, then it's K-pop regardless of where it's made. Bang Si-hyuk is exporting the system itself.
 
 ## India's Next K-Pop Star
 

@@ -3,7 +3,7 @@ title: "3,000 Fans, JYP, and Korea's First Lady — India Just Became K-pop's Ha
 excerpt: "3,000 fans packed Delhi's K-Dream Stage with JYP on the judges' panel. The bigger story is why India now looks like K-pop's next serious market."
 date: '2026-04-24'
 category: 'Industry'
-thumbnail: '/images/news/india-kdream-stage-thumbnail.png'
+thumbnail: '/images/news/india-kdream-stage-thumbnail.webp'
 active: true
 ---
 
@@ -39,14 +39,14 @@ Korea JoongAng Daily reported that X:IN and YOUNITE performed at the event, and 
 
 The macro backdrop makes the Delhi moment easier to read. The 2026 Overseas Hallyu Survey, cited by Yonhap-linked coverage and AJU Press, showed India among the leading markets in favorability toward Korean content, at 83.8 percent. Those numbers do not automatically guarantee a profitable local trainee ecosystem. But they do make one thing clear: India is already too large and too engaged to be treated as an afterthought. If the audience is this active, companies eventually ask the next question: should this market only import K-pop, or also help produce it?
 
-![India K-pop crowd energy on a Delhi championship stage under blue and magenta lights](/images/news/india-kdream-stage-1.png)
+![India K-pop crowd energy on a Delhi championship stage under blue and magenta lights](/images/news/india-kdream-stage-1.webp)
 _Delhi looked less like a fan outpost and more like a live test of how far India's K-pop infrastructure can scale._
 
-## KCL's Take On The India K-pop Signal
+## MEARROW's Take On The India K-pop Signal
 
 ### The real shift is from fandom consumption to talent infrastructure
 
-KCL does not read `K-Dream Stage` as merely another overseas fandom celebration. The sharper interpretation is that India is moving into the part of the K-pop value chain where companies start asking operational questions. Where do you scout? Who trains locally? Which brands sponsor? Which language mix travels best? Which cities can consistently fill a venue? Those are not fan-club questions. They are system questions. Once they enter the conversation, the market has crossed into a different phase.
+MEARROW does not read `K-Dream Stage` as merely another overseas fandom celebration. The sharper interpretation is that India is moving into the part of the K-pop value chain where companies start asking operational questions. Where do you scout? Who trains locally? Which brands sponsor? Which language mix travels best? Which cities can consistently fill a venue? Those are not fan-club questions. They are system questions. Once they enter the conversation, the market has crossed into a different phase.
 
 ### This is where trainees and mid-size labels should pay attention
 

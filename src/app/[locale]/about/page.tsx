@@ -27,7 +27,7 @@ export async function generateMetadata({
   };
 }
 
-/** KCL 소개 페이지 - AdSense 검토를 위한 필수 정보 페이지 */
+/** MEARROW 소개 페이지 - AdSense 검토를 위한 필수 정보 페이지 */
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);

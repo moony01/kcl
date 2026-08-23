@@ -68,7 +68,7 @@
     border-radius: inherit;
     // The direct-vote cards use a very light surface, so the legacy white
     // overlay was effectively invisible while holding a card.
-    background: linear-gradient(90deg, rgba(111, 45, 255, 0.58), rgba(168, 85, 247, 0.78));
+    background: linear-gradient(90deg, rgba(37, 73, 216, 0.58), rgba(84, 119, 255, 0.78));
     box-shadow: inset -14px 0 18px -12px rgba(255, 255, 255, 0.8);
   }
 
@@ -314,19 +314,19 @@
   svg {
     flex-shrink: 0;
     opacity: 1;
-    color: #8e5bff;
-    filter: drop-shadow(0 0 6px rgba(142, 91, 255, 0.55));
+    color: #8ea4ff;
+    filter: drop-shadow(0 0 6px rgba(49, 92, 255, 0.55));
     animation: powerHintFlame 1.2s ease-in-out infinite;
   }
 
   span {
-    background: linear-gradient(120deg, #6f2dff 0%, #a855f7 38%, #c084fc 52%, #8b5cf6 72%, #6f2dff 100%);
+    background: linear-gradient(120deg, #2549d8 0%, #315cff 38%, #8ea4ff 52%, #5477ff 72%, #2549d8 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     text-shadow:
-      0 0 7px rgba(146, 84, 255, 0.35),
-      0 0 16px rgba(168, 85, 247, 0.2);
+      0 0 7px rgba(49, 92, 255, 0.35),
+      0 0 16px rgba(84, 119, 255, 0.2);
     animation: powerHintGradientSparkle 1.6s ease-in-out infinite;
   }
 }
@@ -336,14 +336,14 @@
   100% {
     filter: brightness(1) saturate(1);
     text-shadow:
-      0 0 7px rgba(146, 84, 255, 0.35),
-      0 0 16px rgba(168, 85, 247, 0.2);
+      0 0 7px rgba(49, 92, 255, 0.35),
+      0 0 16px rgba(84, 119, 255, 0.2);
   }
   50% {
     filter: brightness(1.18) saturate(1.15);
     text-shadow:
-      0 0 10px rgba(146, 84, 255, 0.55),
-      0 0 24px rgba(168, 85, 247, 0.35);
+      0 0 10px rgba(49, 92, 255, 0.55),
+      0 0 24px rgba(84, 119, 255, 0.35);
   }
 }
 

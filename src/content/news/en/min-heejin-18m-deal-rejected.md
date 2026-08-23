@@ -3,7 +3,7 @@ title: 'Min Hee-jin Offered HYBE $18M to End the War — They Said No'
 excerpt: 'On February 25, 2026, Min Hee-jin offered to waive her $18M court victory in exchange for HYBE dropping all lawsuits. HYBE responded by depositing $20M with the court instead. The most expensive feud in K-pop history just entered a new chapter.'
 date: '2026-03-03'
 category: 'Business'
-thumbnail: '/images/news/min-heejin-18m-deal-rejected-thumbnail.png'
+thumbnail: '/images/news/min-heejin-18m-deal-rejected-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ Min Hee-jin's offer carried an implicit message: end the lawsuits, and there's a
 
 ## Why HYBE Said No
 
-![Min Hee-jin vs HYBE legal dispute timeline showing the $18M offer and rejection](/images/news/min-heejin-18m-deal-rejected-1.png)
+![Min Hee-jin vs HYBE legal dispute timeline showing the $18M offer and rejection](/images/news/min-heejin-18m-deal-rejected-1.webp)
 _Following Min Hee-jin's press conference, HYBE deposited court funds — signaling its intent to continue the appeal._
 
 ### It's Not Just About the Money
@@ -58,7 +58,7 @@ HYBE's court deposit means the appeal moves forward. Depending on the outcome, t
 
 Some legal observers believe HYBE may selectively drop certain smaller claims — particularly those targeting fans — as the reputational cost of maintaining them continues to mount. However, the core lawsuits connected to Min Hee-jin personally are widely expected to continue.
 
-## The KCL Angle
+## The MEARROW Angle
 
 Strip away the personalities and the headlines, and this dispute is really about one question: **how much creative autonomy can a director hold in a K-pop major label structure before the system rejects it?**
 

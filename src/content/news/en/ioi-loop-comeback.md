@@ -3,7 +3,7 @@ title: "I.O.I Is Finally Coming Back — But the Two Missing Names Change Everyt
 excerpt: "I.O.I will release 'I.O.I : LOOP' on May 19 and return to Seoul stages on May 29. The real story is why this reunion still arrives incomplete."
 date: '2026-04-25'
 category: 'Artist'
-thumbnail: '/images/news/ioi-loop-comeback-thumbnail.png'
+thumbnail: '/images/news/ioi-loop-comeback-thumbnail.webp'
 active: true
 ---
 
@@ -41,7 +41,7 @@ This is the commercial tension inside `I.O.I : LOOP`. The comeback will almost c
 
 That is not necessarily a weakness. It may be the actual appeal. Fans are not only buying access to old songs and old chemistry. They are buying the chance to see what survives after almost a decade of separate lives.
 
-![I.O.I comeback reunion concept with nine stage silhouettes, looping light trails, and nostalgic arena glow](/images/news/ioi-loop-comeback-1.png)
+![I.O.I comeback reunion concept with nine stage silhouettes, looping light trails, and nostalgic arena glow](/images/news/ioi-loop-comeback-1.webp)
 _The emotional center of this comeback is not just reunion. It is the space between what fans remember and what can still return._
 
 ## What `LOOP` Is Really Selling
@@ -58,11 +58,11 @@ The Seoul shows from May 29 to 31 are not a side note. They are the proof-of-dem
 
 For I.O.I, that matters because the group occupies a special place in K-pop's history. It was one of the clearest demonstrations that a short-lived project group could leave a disproportionately large mark. If the concerts land with force, the comeback stops being a beautiful exception and starts looking like a case study.
 
-## KCL's View on the I.O.I Return
+## MEARROW's View on the I.O.I Return
 
 ### The real hook is not happiness. It is unfinished feeling.
 
-KCL does not read this as a simple "the legends are back" story. The more powerful reading is that I.O.I still carries unresolved emotional capital. Fans never got a long middle era with this group. They got acceleration, fragmentation, and then memory. `LOOP` works as a title because it quietly admits the structure of the comeback itself: the audience is returning to an old point, but not as the same people, and not with the same conditions.
+MEARROW does not read this as a simple "the legends are back" story. The more powerful reading is that I.O.I still carries unresolved emotional capital. Fans never got a long middle era with this group. They got acceleration, fragmentation, and then memory. `LOOP` works as a title because it quietly admits the structure of the comeback itself: the audience is returning to an old point, but not as the same people, and not with the same conditions.
 
 That is why the missing members are not just a disappointment to be footnoted away. They sharpen the comeback's meaning. This reunion is not about restoring the past perfectly. It is about testing how much of that past can still feel alive when reality refuses to line up neatly.
 

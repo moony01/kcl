@@ -3,7 +3,7 @@ title: '"K-pop Has Left Korea Behind" — The Uncomfortable Truth Behind 60% Ove
 excerpt: 'Stray Kids hit No. 2 on the IFPI Global Artist Chart while idol music''s share of Korean streaming dropped from 21.7% to 14.1%. Album exports hit a record $301.7M, but domestic sales fell for the second straight year. K-pop is conquering the world — and quietly losing its home crowd in the process.'
 date: '2026-02-21'
 category: 'Market Trend'
-thumbnail: '/images/news/kpop-korean-market-optional-global-paradox-thumbnail.png'
+thumbnail: '/images/news/kpop-korean-market-optional-global-paradox-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ But arithmetic doesn't capture everything. As agencies optimize for internationa
 
 Circle Chart journalist Kim Jin-woo frames the domestic side of this equation bluntly: "domestic listeners' exhaustion with K-pop's increasingly global-oriented strategy, shown in a noticeable increase in English lyrics."
 
-![K-pop Global Revenue vs. Domestic Revenue — Overseas Revenue Dependency by Agency](/images/news/kpop-korean-market-optional-global-paradox-1.png)
+![K-pop Global Revenue vs. Domestic Revenue — Overseas Revenue Dependency by Agency](/images/news/kpop-korean-market-optional-global-paradox-1.webp)
 _With overseas revenue shares crossing 50% at most major agencies, Korea's slice of the pie keeps shrinking_
 
 ## Global Hits, Domestic Disconnect

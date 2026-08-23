@@ -3,7 +3,7 @@ title: "‘Gangnam Style’ Hit 6 Billion Views — and K-pop Still Measures Its
 excerpt: "PSY’s ‘Gangnam Style’ is the first K-pop video past 6 billion YouTube views. Fourteen years on, its longevity still defines global reach."
 date: '2026-07-21'
 category: 'Tech & Culture'
-thumbnail: '/images/news/gangnam-style-6-billion-thumbnail.png'
+thumbnail: '/images/news/gangnam-style-6-billion-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ In December 2012, “Gangnam Style” became the first video of any kind to reac
 
 That was the disruptive part. A Korean-language song could travel without radio programmers or English-language familiarity deciding the size of its audience first. Viewers understood the comic rhythm, the dance and the visual escalation before they understood every lyric. The video turned cultural specificity into an advantage because its world was memorable enough to invite imitation.
 
-![Gangnam Style 6 billion views visualized as global digital motion](/images/news/gangnam-style-6-billion-1.png)
+![Gangnam Style 6 billion views visualized as global digital motion](/images/news/gangnam-style-6-billion-1.webp)
 _An OpenClaw-generated editorial visualization of a playful dance signal expanding through billions of digital viewing paths; no real person or official logo is depicted._
 
 ## Six billion exposes the difference between a spike and a standard
@@ -54,11 +54,11 @@ This is why the record should not be read as an instruction to recreate the hors
 
 That question also sits behind newer platform experiments. [Related: BTS turned a two-day Spotify video window into a test of fandom distribution](/en/news/bts-normal-spotify-window). BTS can deliberately redirect a massive audience through one service. “Gangnam Style” represents the opposite kind of power: an open video whose audience kept widening long after the launch plan ended.
 
-## KCL’s view: the record belongs to culture as much as scale
+## MEARROW’s view: the record belongs to culture as much as scale
 
 ### K-pop’s biggest YouTube number still comes from participation, not polish
 
-KCL reads 6 billion as a durability record disguised as a view count. The number is historic because it is the highest in K-pop, but its business value lies in how slowly and broadly it was built. It proves that catalog can remain an active discovery product when audiences are given something simple to repeat and distinctive enough to remember.
+MEARROW reads 6 billion as a durability record disguised as a view count. The number is historic because it is the highest in K-pop, but its business value lies in how slowly and broadly it was built. It proves that catalog can remain an active discovery product when audiences are given something simple to repeat and distinctive enough to remember.
 
 There is also a warning inside the celebration. View counts invite the industry to chase larger dashboards, but “Gangnam Style” did not become durable because viewers were instructed to admire its production budget. People copied it. They parodied it. They brought the move into spaces where PSY and P Nation had no control over the presentation. The loss of control was part of the distribution.
 

@@ -3,7 +3,7 @@ title: "SM Just Hit 279.1 Billion Won - The Money Machine Wasn't Albums"
 excerpt: "SM Entertainment Q1 revenue jumped 20.6% as concerts, merch, and DearU became the real growth engine."
 date: '2026-05-07'
 category: 'Business'
-thumbnail: '/images/news/sm-q1-money-machine-thumbnail.png'
+thumbnail: '/images/news/sm-q1-money-machine-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ SM's merchandise and licensing revenue rose `20.3 percent` to `47.4 billion won`
 
 This is where SM's quarter starts to look like a broader K-pop business lesson. The fan-light is not a side accessory anymore. The pop-up is not a cute offline bonus. These objects sit between identity and commerce. They help turn a fandom into something visible in arenas, malls, airports, and social feeds. For a company, that visibility can become repeatable revenue. For fans, it becomes proof of belonging. That exchange is exactly why merchandise can grow even when music revenue has a softer quarter.
 
-![SM Entertainment Q1 K-pop concert revenue boardroom](/images/news/sm-q1-money-machine-1.png)
+![SM Entertainment Q1 K-pop concert revenue boardroom](/images/news/sm-q1-money-machine-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces or identifiable people._
 
 ## Albums Slipped, But Album Demand Did Not Disappear
@@ -62,11 +62,11 @@ SM's major subsidiaries generated `136.8 billion won` in combined revenue, up `3
 
 That is not as flashy as an album title or a tour poster, but it changes how the quarter should be read. SM is not only relying on one superstar release to carry the room. The company is trying to build a thicker operating base around artists: production, Japan activity, brand goods, platform subscriptions, and event commerce. That kind of structure does not make the business risk-free. It does make one weak line less fatal when the surrounding lines are working.
 
-## KCL's View Of SM's New Money Machine
+## MEARROW's View Of SM's New Money Machine
 
 ### The company is selling the era, not only the record
 
-KCL reads SM's first quarter as a warning against lazy K-pop financial analysis. If the only question is "who sold the most albums," this quarter looks less interesting than it actually is. The more revealing question is who can stretch one artist era across every monetizable surface: album, concert, fan-light, pop-up, app, subsidiary, and overseas routing.
+MEARROW reads SM's first quarter as a warning against lazy K-pop financial analysis. If the only question is "who sold the most albums," this quarter looks less interesting than it actually is. The more revealing question is who can stretch one artist era across every monetizable surface: album, concert, fan-light, pop-up, app, subsidiary, and overseas routing.
 
 SM's answer in Q1 was strong, but not invincible. Consolidated net income fell `85.5 percent` to `36.7 billion won`, largely because the previous year had a high base from the additional acquisition of DearU shares and higher tax impact. Standalone operating profit also fell `5.9 percent` because of the prior-year one-off digital music effect. Those caveats matter. The headline growth is real, but the quarter was not frictionless.
 

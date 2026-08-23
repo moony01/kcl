@@ -3,7 +3,7 @@ title: "10 Agencies, 300 Million Won Each — Korea's K-pop Middle Class Just Go
 excerpt: "Korea's K-pop agency fund gives 10 smaller labels up to 300 million won a year. The real test is whether money can widen the market."
 date: '2026-06-18'
 category: 'Industry'
-thumbnail: '/images/news/kpop-indie-agency-fund-thumbnail.png'
+thumbnail: '/images/news/kpop-indie-agency-fund-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ For years, global fans have seen the biggest agencies turn world tours, platform
 
 The Korea Herald noted that the new initiative differs from older support programs focused on narrower areas such as album production or live performance. Korea.kr said the money can be directed toward export-focused albums, music videos, local overseas marketing, promotion and performances depending on the agency's strategy. The Korea Times and Digital Music News both described international promotions, music videos and overseas tours as possible uses.
 
-![K-pop agency fund connecting small studios to global stages](/images/news/kpop-indie-agency-fund-1.png)
+![K-pop agency fund connecting small studios to global stages](/images/news/kpop-indie-agency-fund-1.webp)
 _ChatGPT-generated editorial image showing smaller K-pop studios connected to overseas stages without real faces, logos or readable text._
 
 That flexibility is more important than the headline number. A smaller label's overseas problem is rarely one clean expense. It is a chain of bets: translation, short-form content, showcase travel, local PR, distribution, fan-event staffing, music-video polish, data tracking and emergency cash when a market reacts better than expected. If the fund only paid for one category, it would force companies to pretend their bottleneck was simple. The flexible structure admits that each group has a different weak point.
@@ -44,11 +44,11 @@ The Korea Times reported that K-pop exports rose 32.4 percent year over year in 
 
 Those numbers turn the fund into more than a culture-policy headline. If K-pop's export engine keeps growing while the bottom half cannot afford enough international attempts, the market becomes louder but narrower. Fans get more global content, but mostly from companies already built to distribute it. The risk is not that smaller acts disappear overnight. The risk is that they debut, show promise, and then cannot afford the second or third foreign touchpoint where fandom usually becomes durable.
 
-## KCL's View: Funding Is Only The First Gate
+## MEARROW's View: Funding Is Only The First Gate
 
 ### The winners will be the agencies that turn support into repeatable proof
 
-KCL reads the Global Leap Forward Support project as a useful intervention, not a rescue fantasy. A grant can fund a showcase, but it cannot replace positioning. It can pay for a music video, but it cannot invent a fandom language. It can open a market test, but it cannot force that market to stay. The agencies that benefit most will be the ones that treat the money as an operating experiment: choose a market, measure the response, collect fan behavior, and return with a clearer second move.
+MEARROW reads the Global Leap Forward Support project as a useful intervention, not a rescue fantasy. A grant can fund a showcase, but it cannot replace positioning. It can pay for a music video, but it cannot invent a fandom language. It can open a market test, but it cannot force that market to stay. The agencies that benefit most will be the ones that treat the money as an operating experiment: choose a market, measure the response, collect fan behavior, and return with a clearer second move.
 
 That is why the selected cohort should be watched beyond the first press cycle. If Rescene converts KCON exposure into repeat U.S. engagement, if Xikers deepens Japan without becoming generic, if TUNEXX makes India feel like a real route rather than a novelty stop, the fund will look smarter than its budget size. If the money becomes scattered promotion with no learning loop, the project may create pretty overseas photos and little structural change.
 

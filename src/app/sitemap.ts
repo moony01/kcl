@@ -4,7 +4,7 @@ import { getAllActualAuditions, getAuditionLocales } from '@/lib/auditions';
 import { getAllNews } from '@/lib/news';
 
 /**
- * KCL 사이트맵 생성기
+ * MEARROW 사이트맵 생성기
  *
  * SEO 최적화 (2026-01-31 업데이트):
  * - 실제 콘텐츠가 있는 페이지만 포함
