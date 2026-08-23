@@ -3,7 +3,7 @@ title: "16 Second Chances, No Eliminations: The Scout Just Exposed K-pop's Audit
 excerpt: "The Scout Stars Reborn premieres May 8 with 16 reboot candidates, five mentors, and a format that challenges K-pop auditions."
 date: "2026-05-08"
 category: "Trainee System"
-thumbnail: "/images/news/the-scout-reboot-thumbnail.png"
+thumbnail: "/images/news/the-scout-reboot-thumbnail.webp"
 active: true
 ---
 
@@ -25,7 +25,7 @@ ENA is not hiding behind unknown judges. The master panel includes Lee Seung Chu
 
 Lee Seung Chul's role is especially important. At the production press conference, he criticized the old battle-and-elimination structure, arguing that one song mission can decide a contestant's fate too narrowly. The Scout's public pitch is the opposite: no classic elimination, no backstory exploitation, no age disclosure as an easy emotional shortcut. In theory, that removes some of audition TV's cheapest weapons.
 
-![The Scout Stars Reborn K-pop audition studio with anonymous candidates and mentor silhouettes](/images/news/the-scout-reboot-1.png)
+![The Scout Stars Reborn K-pop audition studio with anonymous candidates and mentor silhouettes](/images/news/the-scout-reboot-1.webp)
 _The strongest promise in The Scout is not fame. It is whether a second-chance format can avoid turning stalled careers into disposable content._
 
 ## No Eliminations Does Not Mean No Pressure

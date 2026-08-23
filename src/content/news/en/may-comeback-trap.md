@@ -3,7 +3,7 @@ title: "Six Girl Groups, 25 Days - The May Comeback Trap Nobody Can Escape"
 excerpt: "May K-pop comebacks pack BABYMONSTER, NMIXX, ITZY, I.O.I, LE SSERAFIM, and aespa into one ruthless calendar squeeze."
 date: '2026-05-17'
 category: 'Industry'
-thumbnail: '/images/news/may-comeback-trap-thumbnail.png'
+thumbnail: '/images/news/may-comeback-trap-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The danger is not that fans will choose only one group. K-pop fandom rarely beha
 
 That is why the physical-album context matters. Korea's Q1 album exports recently crossed $100 million, and the U.S. overtook Japan as the largest destination in Korea Customs Service data reported by Korea JoongAng Daily. K-pop companies are not simply releasing songs into a listening market. They are shipping collectible objects into a global fan economy. A crowded comeback month therefore tests logistics, pricing, and emotional loyalty at the same time.
 
-![May K-pop comebacks shown as six empty stage worlds](/images/news/may-comeback-trap-1.png)
+![May K-pop comebacks shown as six empty stage worlds](/images/news/may-comeback-trap-1.webp)
 _A symbolic view of the May 2026 girl-group release squeeze without any real artist likeness._
 
 ## Why Agencies Chose The Squeeze

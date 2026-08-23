@@ -3,7 +3,7 @@ title: 'BTS Is About to Take Over Stanford - The Bay Area Has 72 Hours to Prepar
 excerpt: "BTS Stanford Stadium shows turn three sold-out Bay Area nights into a live test of K-pop's city-scale concert power."
 date: '2026-05-15'
 category: 'Artist'
-thumbnail: '/images/news/bts-stanford-takeover-thumbnail.png'
+thumbnail: '/images/news/bts-stanford-takeover-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The timing makes it louder. The first show is Saturday, the second is Sunday, an
 
 Stanford's own language frames the concerts as more than a rental. The university said BTS will become just the second musical act to perform at Stanford Stadium after Coldplay's shows last year. That turns the venue itself into part of the headline. BTS are not being routed into a generic arena. They are being placed inside a campus with its own prestige, traffic pattern, and public identity.
 
-![BTS Stanford Stadium concert crowd outside a Bay Area campus venue](/images/news/bts-stanford-takeover-1.png)
+![BTS Stanford Stadium concert crowd outside a Bay Area campus venue](/images/news/bts-stanford-takeover-1.webp)
 _ChatGPT-generated editorial image representing the city-scale logistics behind BTS's Stanford Stadium run, without real faces, logos, or readable text._
 
 That matters for K-pop because the strongest live events no longer stop at the ticket scan. Fans build full-day itineraries around them: food stops, cup sleeve events, freebie trading, photo routes, merch timing, hotel plans, and post-show transit. KQED's local guide captured exactly that mood, listing K-pop-themed events, meals, parties, and transit advice for fans visiting or living in the Bay Area.

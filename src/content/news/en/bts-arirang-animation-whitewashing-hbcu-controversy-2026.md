@@ -3,7 +3,7 @@ title: "BTS ARIRANG Trailer Accused of Whitewashing Howard University's Black St
 excerpt: "BTS's ARIRANG animation trailer sparked a fierce online debate: critics say the 1896 Howard University crowd was drawn almost entirely white — ignoring that Howard is America's most iconic HBCU. ARMY is divided. HYBE is silent. And the album drops tomorrow."
 date: '2026-03-19'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-animation-whitewashing-hbcu-controversy-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-animation-whitewashing-hbcu-controversy-2026-thumbnail.webp'
 active: true
 ---
 
@@ -60,7 +60,7 @@ ARMY pushback was swift and pointed to several factors:
 
 **The larger intent.** The animation, defenders argued, was clearly made in good faith to honor a story of cultural connection — not to diminish anyone.
 
-![BTS ARIRANG animation trailer — the whitewashing controversy over Howard University's Black student body depiction](/images/news/bts-arirang-animation-whitewashing-hbcu-controversy-2026-1.png)
+![BTS ARIRANG animation trailer — the whitewashing controversy over Howard University's Black student body depiction](/images/news/bts-arirang-animation-whitewashing-hbcu-controversy-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## Why Howard University Makes This Uniquely Charged

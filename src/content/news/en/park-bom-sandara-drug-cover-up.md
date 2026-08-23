@@ -3,7 +3,7 @@ title: '"Sandara Got Caught and They Made Me Take the Fall" — Park Bom Just Br
 excerpt: "2NE1's Park Bom dropped a bombshell handwritten letter alleging she was used as a scapegoat to cover up Sandara Park's drug use. She named Yang Hyun-suk, Teddy, and CL. Here's what changed — and what hasn't."
 date: '2026-03-04'
 category: 'Industry'
-thumbnail: '/images/news/park-bom-sandara-drug-cover-up-thumbnail.png'
+thumbnail: '/images/news/park-bom-sandara-drug-cover-up-thumbnail.webp'
 active: true
 ---
 
@@ -45,7 +45,7 @@ If accurate, this suggests her case served as a direct catalyst for new legislat
 
 ## Sandara's Response — and What Wasn't Said
 
-![A torn handwritten letter in dramatic lighting symbolizing the collapse of 2NE1's narrative and a 12-year cover-up allegation](/images/news/park-bom-sandara-drug-cover-up-1.png)
+![A torn handwritten letter in dramatic lighting symbolizing the collapse of 2NE1's narrative and a 12-year cover-up allegation](/images/news/park-bom-sandara-drug-cover-up-1.webp)
 _Image: AI Generated_
 
 ### "Groundless" — But No Specifics

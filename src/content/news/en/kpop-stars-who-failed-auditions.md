@@ -3,7 +3,7 @@ title: 'K-pop Stars Who Failed Auditions Before Making It Big - Stories of Persi
 excerpt: 'Jungkook was rejected by 7 agencies. Suzy failed JYP auditions 3 times. Discover the hidden rejection stories of today''s top K-pop stars and their journeys of perseverance.'
 date: '2026-02-03'
 category: 'Trainee System'
-thumbnail: '/images/news/kpop-stars-who-failed-auditions-thumbnail.png'
+thumbnail: '/images/news/kpop-stars-who-failed-auditions-thumbnail.webp'
 ---
 
 The crushing weight of hearing "maybe next time" instead of "congratulations" is something only those who've experienced it truly understand.
@@ -32,7 +32,7 @@ Failure isn't just about setbacks. Many successful idols confess that "the exper
 
 **Kang Daniel** shares a similar journey. After being rejected by several major agencies, he joined MMO Entertainment and appeared on 'Produce 101 Season 2,' where he earned the **highest number of votes in the show's history**, becoming Wanna One's center. "Every time I was rejected, I asked myself, 'What am I lacking?' That process shaped who I am."
 
-![A dancer practicing alone in a studio](/images/news/kpop-stars-who-failed-auditions-1.png)
+![A dancer practicing alone in a studio](/images/news/kpop-stars-who-failed-auditions-1.webp)
 _Behind countless rejections lies the sweat and tears shed alone in practice rooms_
 
 ## Success Stories After Changing Agencies

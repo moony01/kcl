@@ -3,7 +3,7 @@ title: "A First Win Wasn't The Real Headline — Did KISS OF LIFE Actually Come 
 excerpt: "KISS OF LIFE finally won their first music show trophy with 'Who is she.' The bigger story is how far public trust has really returned."
 date: "2026-04-22"
 category: "Artist"
-thumbnail: "/images/news/kiss-of-life-first-win-thumbnail.png"
+thumbnail: "/images/news/kiss-of-life-first-win-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ The comeback did not open quietly. Reports said the `Who is she` music video cro
 
 Still, it is too early to treat these numbers as total image restoration. This feels less like the kind of broad public explosion that defined the group's `Sticky` era and more like a controlled re-entry into the growth curve. In other words, this first win is strong enough to erase the lazy "they are finished" narrative. It is not strong enough, at least yet, to declare that the shadow of controversy has fully disappeared.
 
-![Symbolic red-lit stage silhouette representing KISS OF LIFE's first win and comeback test](/images/news/kiss-of-life-first-win-1.png)
+![Symbolic red-lit stage silhouette representing KISS OF LIFE's first win and comeback test](/images/news/kiss-of-life-first-win-1.webp)
 _The first trophy arrived, but so did the tension between celebration and scrutiny._
 
 ## How the public is receiving this moment

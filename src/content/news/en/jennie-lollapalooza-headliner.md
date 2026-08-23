@@ -3,7 +3,7 @@ title: 'It’s Not Coachella. It’s Not a Tour. Why Jennie Is Suddenly Sitting 
 excerpt: 'Jennie will headline Lollapalooza Chicago 2026. With 4-day passes already on waitlist, this slot tests whether a K-pop soloist can hold the top tier of the U.S. festival market.'
 date: '2026-04-15'
 category: 'Tech & Culture'
-thumbnail: '/images/news/jennie-lollapalooza-headliner-thumbnail.png'
+thumbnail: '/images/news/jennie-lollapalooza-headliner-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The booking becomes even more interesting because it is Jennie’s first `Lollap
 
 The official ticket site shows `All 4-Day Tickets ON WAITLIST!` for this year’s festival. General admission for Thursday, Friday, and Saturday is sold out, with Sunday inventory still available. No serious analyst should assign that entire demand curve to Jennie alone. But that is not the point. The point is that she is no longer orbiting a high-demand event from the side. She is positioned inside the center of the poster for an event that is already converting attention into scarcity.
 
-![Jennie Lollapalooza headliner scene at a major U.S. festival backstage](/images/news/jennie-lollapalooza-headliner-1.png)
+![Jennie Lollapalooza headliner scene at a major U.S. festival backstage](/images/news/jennie-lollapalooza-headliner-1.webp)
 _Image: AI-generated via ChatGPT_
 
 That matters for K-pop because touring was never the real question. K-pop already proved it could sell concert tickets. The bigger question was whether a solo act from the scene could become part of the top-layer festival grammar in the United States, where casual listeners, brand partners, and cross-genre audiences all intersect. The waitlist status does not prove the verdict yet, but it makes the test feel real.

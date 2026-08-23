@@ -3,7 +3,7 @@ title: "AKMU Broke K-pop's Fan War - The Charts Exposed What Idols Still Can't B
 excerpt: "AKMU Paradise of Rumors turned chart wins into a market warning: fandom machines still cannot fully buy Korean public listening."
 date: '2026-05-21'
 category: 'Market Trend'
-thumbnail: '/images/news/akmu-chart-war-thumbnail.png'
+thumbnail: '/images/news/akmu-chart-war-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ A Perfect All-Kill means a track has reached No. 1 across the major Korean daily
 
 That is why AKMU's run feels different from the usual comeback-week headline. The duo is not selling a fictional underdog story. AKMU has been a trusted Korean digital force for years. But the timing changes the meaning. In a month packed with major agency releases, a singer-songwriter duo winning through domestic listening habits is a reminder that K-pop's center of gravity is not only global fandom scale.
 
-![AKMU Paradise of Rumors chart control room showing domestic K-pop chart momentum](/images/news/akmu-chart-war-1.png)
+![AKMU Paradise of Rumors chart control room showing domestic K-pop chart momentum](/images/news/akmu-chart-war-1.webp)
 _ChatGPT-generated editorial image visualizing the split between public listening charts and fandom-driven K-pop scoreboards._
 
 ## Why This Hurts The Fandom Machine

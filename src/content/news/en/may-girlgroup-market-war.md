@@ -3,7 +3,7 @@ title: '4 Comebacks, 26 Days, One Brutal Question: Who Owns May?'
 excerpt: 'May 2026 K-pop comebacks from BABYMONSTER, NMIXX, LE SSERAFIM, and aespa are turning one month into a girl-group market war.'
 date: '2026-05-02'
 category: 'Market Trend'
-thumbnail: '/images/news/may-girlgroup-market-war-thumbnail.png'
+thumbnail: '/images/news/may-girlgroup-market-war-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ That is what makes this `girl-group comeback war` more interesting than a simple
 
 `LE SSERAFIM` is pushing narrative structure. The label chose to let `Celebration` arrive before the album, which tells fans to feel the era before they can fully hear it. Then there is `aespa`, where the scale play is almost impossible to miss. `LEMONADE` is not being floated as a standalone album moment. It arrives with a 10-song frame, then feeds directly into a new world-tour cycle that starts in Seoul on `Aug. 7 and 8` before extending to `25 regions`.
 
-![May 2026 K-pop comeback stage rehearsal with four color-coded launch zones](/images/news/may-girlgroup-market-war-1.png)
+![May 2026 K-pop comeback stage rehearsal with four color-coded launch zones](/images/news/may-girlgroup-market-war-1.webp)
 _A single stage can now feel like four simultaneous launch pads once a comeback month becomes a market event._
 
 ## The Stakes Are Bigger Than Chart Wins

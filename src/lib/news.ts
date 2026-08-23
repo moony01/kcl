@@ -6,6 +6,9 @@
  */
 
 import newsMeta from '@/generated/news-meta.json';
+import { loadNewsPost } from '@/generated/news-runtime';
+
+const NEWS_SOURCE_LOCALE = 'en';
 
 /**
  * 뉴스 게시글 타입 정의
@@ -53,29 +56,14 @@ export interface NewsMeta {
  * @returns 뉴스 메타데이터 배열
  */
 export function getAllNews(locale: string = 'ko'): NewsMeta[] {
-  // 해당 로케일의 뉴스만 필터링 (active가 false인 항목은 제외)
-  const localePosts = (newsMeta as NewsMeta[]).filter(
-    (post) => post.locale === locale && post.active !== false,
-  );
+  void locale;
 
-  // en 요청이거나 locale 자체가 en인 경우 바로 정렬 반환
-  if (locale === 'en') {
-    return localePosts.sort(
+  // 현재 뉴스 원문은 영어 하나만 유지한다. 모든 locale 목록은 영어 원문을 사용한다.
+  return (newsMeta as NewsMeta[])
+    .filter((post) => post.locale === NEWS_SOURCE_LOCALE && post.active !== false)
+    .sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
-  }
-
-  // en 뉴스 중 해당 locale에 같은 slug가 없는 것을 fallback으로 추가
-  const localeSlugs = new Set(localePosts.map((p) => p.slug));
-  const fallbackPosts = (newsMeta as NewsMeta[]).filter(
-    (post) =>
-      post.locale === 'en' && post.active !== false && !localeSlugs.has(post.slug),
-  );
-
-  // 날짜 내림차순 정렬
-  return [...localePosts, ...fallbackPosts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
 }
 
 /**
@@ -87,22 +75,11 @@ export function getAllNews(locale: string = 'ko'): NewsMeta[] {
  * @returns 뉴스 게시글 또는 null
  */
 export async function getNewsBySlug(slug: string, locale: string = 'ko'): Promise<NewsPost | null> {
-  try {
-    // 동적 import로 해당 뉴스 JSON 로드
-    const newsModule = await import(`@/generated/news-content/${locale}/${slug}.json`);
-    return newsModule.default as NewsPost;
-  } catch {
-    // 해당 언어 파일이 없으면 영어로 fallback
-    if (locale !== 'en') {
-      try {
-        const fallbackModule = await import(`@/generated/news-content/en/${slug}.json`);
-        return fallbackModule.default as NewsPost;
-      } catch {
-        return null;
-      }
-    }
-    return null;
-  }
+  void locale;
+
+  // 한국어를 포함한 모든 locale URL은 영어 원문 파일로 fallback한다.
+  const post = await loadNewsPost(slug, NEWS_SOURCE_LOCALE);
+  return post as NewsPost | null;
 }
 
 /**

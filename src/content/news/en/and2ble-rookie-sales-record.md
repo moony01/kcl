@@ -3,7 +3,7 @@ title: "AND2BLE's 730K Debut Is A Rookie Warning Rivals Can't Ignore"
 excerpt: "AND2BLE crossed 730,000 first-week debut-album copies and took two music-show wins within eight days, turning re-debut heat into a market test."
 date: "2026-06-04"
 category: "Market Trend"
-thumbnail: "/images/news/and2ble-rookie-sales-record-thumbnail.png"
+thumbnail: "/images/news/and2ble-rookie-sales-record-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ For a new group, the first trophy is symbolic. The second trophy is more useful.
 
 The timing also creates a cleaner narrative loop. Sales prove the fandom was ready before the debut fully unfolded. Trophies prove the fandom can act during the live campaign. If social clips, performance views and stage edits keep moving after those trophies, AND2BLE will have something more valuable than a strong week: a conversion machine.
 
-![AND2BLE rookie sales record market-analysis image](/images/news/and2ble-rookie-sales-record-1.png)
+![AND2BLE rookie sales record market-analysis image](/images/news/and2ble-rookie-sales-record-1.webp)
 _ChatGPT-generated editorial image representing how album sales, music-show trophies and fandom signals can feed one rookie-era momentum machine._
 
 ## The Re-Debut Frame Makes This More Complicated

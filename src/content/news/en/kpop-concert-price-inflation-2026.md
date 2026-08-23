@@ -3,7 +3,7 @@ title: "K-pop Labels Doubled Ticket Prices in 3 Years — And Fans Kept Paying"
 excerpt: "BTS standing tickets at $200, rookie ILLIT's first tour M&G at $180. K-pop concert prices doubled in 3 years. How far will labels push before fans break?"
 date: '2026-03-28'
 category: 'Business'
-thumbnail: '/images/news/kpop-concert-price-inflation-2026-thumbnail.png'
+thumbnail: '/images/news/kpop-concert-price-inflation-2026-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ By 2026, the same label's tickets jumped to 198,000 won ($142) for VIP and 154,0
 
 The most striking numbers are at the bottom. **ILLIT debuted barely a year ago.** Yet their first-ever tour's M&G price ($181) exceeds ENHYPEN's 2024 Sound Check ($140) and BTS's 2022 standing price ($157). In K-pop's 2026 concert market, there is no rookie discount.
 
-![Chart comparing K-pop concert ticket prices from 2019 to 2026 showing 140 percent increase](/images/news/kpop-concert-price-inflation-2026-1.png)
+![Chart comparing K-pop concert ticket prices from 2019 to 2026 showing 140 percent increase](/images/news/kpop-concert-price-inflation-2026-1.webp)
 _From $80 in 2019 to $189 in 2026 — K-pop concert prices rose 140% in seven years_
 
 ## "Rookies at $180" — The Price Anchor Has Shifted

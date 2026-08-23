@@ -3,7 +3,7 @@ title: "HYBE Stock Crashed 15% in a Day — Why K-Pop's Biggest Album Couldn't S
 excerpt: "BTS's ARIRANG sold 4.17 million copies, set Spotify's biggest K-pop opening day with 110 million streams, and drew 18.4 million Netflix viewers. Then HYBE's stock plunged 15%. The answer was in Gwanghwamun Square."
 date: '2026-03-29'
 category: 'Market Trend'
-thumbnail: '/images/news/hybe-stock-bts-paradox-thumbnail.png'
+thumbnail: '/images/news/hybe-stock-bts-paradox-thumbnail.webp'
 active: true
 ---
 
@@ -55,7 +55,7 @@ Paradoxically, securities analysts upgraded their outlook. Kiwoom Securities rai
 
 The bull case rests on the ARIRANG World Tour: 82 shows across 34 cities in 23 countries, targeting 5 to 5.2 million attendees, with projected tour revenue of ₩1.9 to 2.1 trillion. Analysts argue that a free open-air concert's headcount has no predictive power over paid ticket demand.
 
-![Infographic contrasting HYBE stock crash with BTS record-breaking streaming metrics](/images/news/hybe-stock-bts-paradox-1.png)
+![Infographic contrasting HYBE stock crash with BTS record-breaking streaming metrics](/images/news/hybe-stock-bts-paradox-1.webp)
 _K-pop's most successful album launch and its biggest single-day stock crash unfolded on the same timeline_
 
 ## MEARROW's Take: The BTS Paradox

@@ -3,7 +3,7 @@ title: "No Arrest — Yet: Why Bang Si-hyuk's HYBE Probe Just Entered the Danger
 excerpt: "Prosecutors rejected the Bang Si-hyuk arrest request, but HYBE's fraud probe deepened. Why the no-arrest headline may be the misleading part."
 date: '2026-04-25'
 category: 'Business'
-thumbnail: '/images/news/bang-hybe-fraud-probe-thumbnail.png'
+thumbnail: '/images/news/bang-hybe-fraud-probe-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The reason this story keeps detonating in headlines is simple: the alleged profi
 
 Police also believe the private equity fund may have promised Bang about 30 percent of post-IPO stock-sale profits. If that allegation is eventually substantiated, the reputational damage would not come only from the amount involved. It would come from the structure. The optics of a founder privately benefiting from a sequence that early investors say they did not fully understand is exactly the kind of narrative that public-company markets punish long before any court reaches a final conclusion.
 
-![HYBE fraud probe tension outside a Seoul entertainment headquarters as media cameras gather](/images/news/bang-hybe-fraud-probe-1.png)
+![HYBE fraud probe tension outside a Seoul entertainment headquarters as media cameras gather](/images/news/bang-hybe-fraud-probe-1.webp)
 _The procedural rejection lowered the temperature for a day, but the market-facing governance question is still fully alive._
 
 ## Why HYBE still has a narrative problem

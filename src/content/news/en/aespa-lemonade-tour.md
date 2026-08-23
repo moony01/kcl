@@ -3,7 +3,7 @@ title: '25 Cities, a New Album, and a North America Push - aespa Is Building Mor
 excerpt: 'aespa just paired its May 29 album LEMONADE with an August kickoff and a 25-region world tour. The bigger story is not the comeback but the price reset.'
 date: '2026-04-23'
 category: 'Artist'
-thumbnail: '/images/news/aespa-lemonade-tour-thumbnail.png'
+thumbnail: '/images/news/aespa-lemonade-tour-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Korea JoongAng Daily and Soompi report that `SYNK : ____æ____` begins in Seoul 
 
 The same reports note that venues have not been announced yet. That looks like an omission on the surface, but the market often reads it the opposite way. When cities are announced before buildings, it usually means the internal demand modeling is already mature enough to lock the routing first and optimize venue size, price, and inventory later. In other words, this does not look like a tour that is still wondering whether the demand exists. It looks like a tour testing how far that demand can be pushed.
 
-![aespa LEMONADE world tour roadmap glowing across neon citrus arenas](/images/news/aespa-lemonade-tour-1.png)
+![aespa LEMONADE world tour roadmap glowing across neon citrus arenas](/images/news/aespa-lemonade-tour-1.webp)
 _The route from Seoul to North America and Europe captures how much bigger aespa's next cycle is meant to feel._
 
 ## Why the album and the tour were fused together

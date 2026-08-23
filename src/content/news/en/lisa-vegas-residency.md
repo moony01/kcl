@@ -3,7 +3,7 @@ title: "Lisa Just Claimed Vegas — And K-pop May Have Crossed Its Last U.S. Bar
 excerpt: "Lisa has locked in a four-night Las Vegas residency. As K-pop's first true Vegas resident run, 'Viva La Lisa' looks bigger than a concert win — it looks like a new U.S. business model."
 date: '2026-04-14'
 category: 'Business'
-thumbnail: '/images/news/lisa-vegas-residency-thumbnail.png'
+thumbnail: '/images/news/lisa-vegas-residency-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The first-K-pop-artist angle is real, but the impact goes beyond bragging rights
 
 Tours expand by traveling. Residencies concentrate by turning one city into a destination event. Fans are not only buying a ticket; they are bundling flights, hotels, food, merchandise, and premium seating into one trip. That is why a Vegas residency is not just a performance schedule. It is a spending architecture. In Caesars' own venue materials, `The Colosseum` is presented as a 4,300-seat room, and the company also highlighted it as Billboard's top venue in the 2,501-to-5,000-capacity class for 2025. Multiply that by four nights and the seat inventory alone reaches at least 17,200. The raw number looks smaller than a stadium run, but the revenue density can be far more aggressive.
 
-![Lisa Las Vegas residency visualized through a red velvet theater and strategic stage lighting](/images/news/lisa-vegas-residency-1.png)
+![Lisa Las Vegas residency visualized through a red velvet theater and strategic stage lighting](/images/news/lisa-vegas-residency-1.webp)
 _An editorial illustration of the destination-event logic behind a Las Vegas residency_
 
 ### Even the onsale timing shows this is already built to convert

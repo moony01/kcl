@@ -3,7 +3,7 @@ title: '2025 K-Pop Global Market Outlook: From Expansion to Localization'
 excerpt: "Beyond North America and Europe, K-Pop is reaching Latin America and the Middle East. The global expansion of K-Pop meets 'localization' strategies, entering a new phase. We analyze the key trends for 2025."
 date: '2025-01-15'
 category: 'Industry Analysis'
-thumbnail: '/images/news/market-outlook.jpg'
+thumbnail: '/images/news/market-outlook.webp'
 ---
 
 ## A New Paradigm for the Global K-Pop Market

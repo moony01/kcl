@@ -42,15 +42,17 @@ next-env.d.ts
 
 # Generated files (prebuild)
 src/generated/
+public/api/news-content/
 
 # OpenNext build output
 .open-next/
 nextImageExportOptimizer/
 next-image-export-optimizer-hashes.json
 
-# Wrangler config (contains secrets)
-wrangler.jsonc
-wrangler.jsonc.*
+# Wrangler local overrides/secrets
+.wrangler/
+wrangler.local.jsonc
+wrangler.jsonc.local
 *.bak.old
 
 # Internal planning/agent files

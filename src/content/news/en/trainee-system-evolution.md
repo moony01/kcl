@@ -3,7 +3,7 @@ title: 'The Era of 1 Million Trainees: How is the Training System Changing?'
 excerpt: 'From closed dormitory training to public audition programs and data-driven training systems. An in-depth analysis of changes in the K-Pop idol debut process.'
 date: '2024-12-28'
 category: 'Trainee System'
-thumbnail: '/images/news/trainee-system.jpg'
+thumbnail: '/images/news/trainee-system.webp'
 ---
 
 ## From Hungry Spirit to Systematic Management

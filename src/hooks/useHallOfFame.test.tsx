@@ -9,7 +9,7 @@ const fixtures = vi.hoisted(() => {
     companyId: 'company-hybe',
     companyName: 'HYBE',
     companyLogo: 'H',
-    companyLogoUrl: '/images/logos/hybe.png',
+    companyLogoUrl: '/images/logos/hybe.webp',
     totalVotes: 18_200_300,
     decidedAt: '2026-02-01T00:00:00Z',
   };

@@ -3,7 +3,7 @@ title: "BTS' Busan Homecoming Drew 110,000 — But a 75-Minute Delay Exposed the
 excerpt: "BTS marked its 13th anniversary in Busan with 110,000 fans over two nights, but HYBE's 75-minute delay apology shows the real challenge is city-scale fan logistics."
 date: '2026-06-14'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-busan-festa-delay-thumbnail.png'
+thumbnail: '/images/news/bts-busan-festa-delay-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The first night was scheduled to begin at `7 p.m.` on June 12. The show began at
 
 The old question was whether K-pop could fill venues this large. BTS answered that years ago. The current question is harder: can agencies, venues, transit corridors, merchandise teams, fan-benefit systems and city partners all move at the same speed as fandom demand?
 
-![A purple-lit Busan stadium night with huge K-pop concert crowds moving through gates](/images/news/bts-busan-festa-delay-1.png)
+![A purple-lit Busan stadium night with huge K-pop concert crowds moving through gates](/images/news/bts-busan-festa-delay-1.webp)
 _An AI-rendered editorial image of Busan concert logistics under purple stadium light._
 
 ## The City Format Raises the Stakes

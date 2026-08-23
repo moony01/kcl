@@ -3,7 +3,7 @@ title: 'BLACKPINK''s ''Deadline'' Shatters Every Record — 1.77M First-Week Sal
 excerpt: 'BLACKPINK''s third mini-album ''Deadline'' sold 1,774,577 copies in its first week, breaking the all-time K-pop girl group record. Day-one sales of 1.46M, Spotify''s biggest female album debut of 2026, and a Billboard Global 200 No. 1 — YG Entertainment has proven BLACKPINK''s reign continues.'
 date: '2026-03-07'
 category: 'Industry'
-thumbnail: '/images/news/blackpink-deadline-ep-record-sales-yg-2026-thumbnail.png'
+thumbnail: '/images/news/blackpink-deadline-ep-record-sales-yg-2026-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ BLACKPINK's third mini-album features five tracks:
 
 A notable shift: this album was **distributed through The Orchard, not Interscope Records**. The distribution structure changed after 'Born Pink' in 2022, signaling that YG secured greater autonomy in global distribution.
 
-![BLACKPINK Deadline EP record-breaking first-week sales](/images/news/blackpink-deadline-ep-record-sales-yg-2026-1.png)
+![BLACKPINK Deadline EP record-breaking first-week sales](/images/news/blackpink-deadline-ep-record-sales-yg-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## Charts — No. 1 Everywhere

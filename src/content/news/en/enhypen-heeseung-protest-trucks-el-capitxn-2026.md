@@ -3,7 +3,7 @@ title: "18 Trucks at HYBE, 513K Signatures, and a BTS Producer Swearing at Fans 
 excerpt: "Three days after Heeseung left ENHYPEN, 18 protest trucks lined up outside HYBE headquarters. Over 513,000 fans signed a petition in 24 hours. Then a BTS producer used profanity to tell fans to back off. Here's the full story of how K-pop's latest fan uprising got completely out of hand."
 date: '2026-03-13'
 category: 'Industry'
-thumbnail: '/images/news/enhypen-heeseung-protest-trucks-el-capitxn-2026-thumbnail.png'
+thumbnail: '/images/news/enhypen-heeseung-protest-trucks-el-capitxn-2026-thumbnail.webp'
 active: true
 ---
 
@@ -49,7 +49,7 @@ Fans began flooding the comment sections of unrelated K-pop artists' social medi
 
 Korean netizens, in particular, were unimpressed. The consensus on Korean platforms including TheQoo and Nate Pann was consistent: Heeseung himself said it was his decision. Pressuring the company through other artists' pages achieves nothing and embarrasses the fan community.
 
-![18 protest trucks lined up outside HYBE headquarters in Seoul with LED displays calling for Heeseung's return to ENHYPEN](/images/news/enhypen-heeseung-protest-trucks-el-capitxn-2026-1.png)
+![18 protest trucks lined up outside HYBE headquarters in Seoul with LED displays calling for Heeseung's return to ENHYPEN](/images/news/enhypen-heeseung-protest-trucks-el-capitxn-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## EL CAPITXN: The BTS Producer Who Snapped

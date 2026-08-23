@@ -3,7 +3,7 @@ title: "BTS Just Turned Oreos Purple - The 80-Market Bet Is Bigger Than a Cookie
 excerpt: "BTS Oreo launches across 80+ markets with purple wafers and hotteok flavor, turning a snack collab into a fandom commerce test."
 date: "2026-05-27"
 category: "Business"
-thumbnail: "/images/news/bts-oreo-global-bet-thumbnail.png"
+thumbnail: "/images/news/bts-oreo-global-bet-thumbnail.webp"
 active: true
 ---
 
@@ -33,7 +33,7 @@ The `13` embossments are not a random decorative number. The official release fr
 
 For K-pop companies, that loop is familiar. Album versions, photocards, fan calls, pop-ups, and tour merch already train fans to treat physical goods as participation tools. Oreo is importing that logic into consumer packaged goods. The smartest part is that the product does not need every buyer to be a collector. It only needs enough fans to make the hunt visible.
 
-![BTS Oreo global fandom commerce dashboard](/images/news/bts-oreo-global-bet-1.png)
+![BTS Oreo global fandom commerce dashboard](/images/news/bts-oreo-global-bet-1.webp)
 _ChatGPT-generated editorial image visualizing how a limited snack drop can become a global fandom-commerce dashboard._
 
 ## Why Brands Are Chasing Fandom Instead Of Attention

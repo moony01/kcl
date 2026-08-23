@@ -3,7 +3,7 @@ title: "BTS AMA Special Appearance Is Official - But the Missing Word Is the Tra
 excerpt: "BTS AMA special appearance is official for May 25, but the AMAs avoided one word fans care about most: performance."
 date: "2026-05-22"
 category: "Tech & Culture"
-thumbnail: "/images/news/bts-ama-special-appearance-thumbnail.png"
+thumbnail: "/images/news/bts-ama-special-appearance-thumbnail.webp"
 active: true
 ---
 
@@ -39,7 +39,7 @@ MEARROW sees the ambiguity as useful broadcast design. If the organizers confirm
 
 For the AMAs, BTS are not only celebrities on a lineup card. They are an attention engine. Their presence can move search traffic, social clips, livestream chatter, global time-zone planning, and press headlines before the first award is handed out. The ceremony gets suspense for free because the fandom fills the silence with theories.
 
-![BTS AMA special appearance stage with seven empty microphones under broadcast spotlights](/images/news/bts-ama-special-appearance-1.png)
+![BTS AMA special appearance stage with seven empty microphones under broadcast spotlights](/images/news/bts-ama-special-appearance-1.webp)
 _A symbolic awards-show control room captures the broadcast suspense around BTS's AMAs appearance._
 
 ## Three Nominations Make The Appearance Feel Bigger

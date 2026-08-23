@@ -3,7 +3,7 @@ title: 'HYBE Just Built ABD — One Girl Group, One ADOR-Sized Question'
 excerpt: 'HYBE ABD adds a girl-group-only label before a late-2026 debut, raising a bigger question about its multi-label future.'
 date: '2026-05-13'
 category: 'Business'
-thumbnail: '/images/news/hybe-abd-girlgroup-bet-thumbnail.png'
+thumbnail: '/images/news/hybe-abd-girlgroup-bet-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ Music Business Worldwide reported that ABD will be led by Jiwon No, previously H
 
 The Pledis connection gives the launch both credibility and pressure. SEVENTEEN turned Pledis into one of the most important performance and fandom-development engines inside HYBE. TWS gave the label another current-generation boy-group proof point. But girl groups carry different risks: visual identity, public reception, brand comparison, member narrative, and debut timing can harden quickly. ABD will have to prove that Pledis-rooted production knowledge can translate into a fresh girl-group system without feeling like a repackaged department.
 
-![HYBE ABD girl group label launch visualized as a futuristic K-pop corporate command room](/images/news/hybe-abd-girlgroup-bet-1.png)
+![HYBE ABD girl group label launch visualized as a futuristic K-pop corporate command room](/images/news/hybe-abd-girlgroup-bet-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces, official logos, or readable text._
 
 ## The ADOR Question Is Impossible To Avoid

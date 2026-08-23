@@ -3,7 +3,7 @@ title: 'HYBE × Spotify Form Unprecedented Alliance — 751M Users, Netflix, Wev
 excerpt: 'HYBE and Spotify announced a global K-pop video podcast partnership on March 6. Channel launches March 23, episodes roll out from April. Combined with Netflix and Weverse, HYBE now commands access to over 1 billion potential touchpoints — a media empire no other K-pop company can match.'
 date: '2026-03-07'
 category: 'Industry'
-thumbnail: '/images/news/hybe-spotify-podcast-media-empire-2026-thumbnail.png'
+thumbnail: '/images/news/hybe-spotify-podcast-media-empire-2026-thumbnail.webp'
 ---
 
 On March 6, HYBE officially announced a global K-pop video podcast partnership with Spotify. The channel launches on **March 23**, with video podcast episodes rolling out **from April onward**.
@@ -26,7 +26,7 @@ This is not a simple content deal. It's HYBE declaring its transformation from a
 
 **HYBE MEDIA STUDIO (HMS)**, HYBE's in-house video production unit, will produce all content. HMS handles documentaries, reality shows, and concert screenings — and is now standing up a dedicated production line for this partnership.
 
-![HYBE × Spotify K-pop video podcast partnership](/images/news/hybe-spotify-podcast-media-empire-2026-1.png)
+![HYBE × Spotify K-pop video podcast partnership](/images/news/hybe-spotify-podcast-media-empire-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## Why Spotify — What 751 Million Users Means

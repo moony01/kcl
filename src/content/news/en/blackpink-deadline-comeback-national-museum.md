@@ -3,7 +3,7 @@ title: 'Sold Out in 25 Minutes, a National Museum Turned Pink — BLACKPINK''s '
 excerpt: 'BLACKPINK returns after 3 years and 5 months with mini-album Deadline. Pre-orders sold out in 25 minutes, the National Museum of Korea is turning pink — here is everything behind the most talked-about comeback of 2026.'
 date: '2026-02-20'
 category: 'Artist'
-thumbnail: '/images/news/blackpink-deadline-comeback-national-museum-thumbnail.png'
+thumbnail: '/images/news/blackpink-deadline-comeback-national-museum-thumbnail.webp'
 active: true
 ---
 
@@ -39,7 +39,7 @@ The five-track format drew backlash: "We waited 3.5 years for five songs?" Add l
 
 A significant behind-the-scenes shift: BLACKPINK switched U.S. distribution from Interscope Records (their partner since 2018) to **The Orchard**. This signals a strategic move toward greater revenue control and distribution autonomy for YG and the group.
 
-![BLACKPINK Deadline comeback visual](/images/news/blackpink-deadline-comeback-national-museum-1.png)
+![BLACKPINK Deadline comeback visual](/images/news/blackpink-deadline-comeback-national-museum-1.webp)
 _BLACKPINK 3rd mini-album 'Deadline' concept visual_
 
 ## The National Museum Collaboration — Truly Unprecedented

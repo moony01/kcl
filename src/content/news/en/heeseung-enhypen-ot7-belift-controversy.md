@@ -3,7 +3,7 @@ title: 'Out of the Group, Still on the Merch: BELIFT''s OT7 Profit Play Sparks G
 excerpt: 'BELIFT LAB removed Heeseung from ENHYPEN, then kept selling OT7 merchandise, fancalls, and content. 1 million fans signed a petition. An international boycott was declared. The real source of outrage was never the departure itself.'
 date: '2026-03-17'
 category: 'Business'
-thumbnail: '/images/news/heeseung-enhypen-ot7-belift-controversy-thumbnail.png'
+thumbnail: '/images/news/heeseung-enhypen-ot7-belift-controversy-thumbnail.webp'
 active: true
 ---
 
@@ -41,7 +41,7 @@ Industry observers and fan communities pushed back immediately. Gulf News report
 
 The timing made it worse. BELIFT separated Heeseung from group schedules while maintaining OT7 photos, videos, and merchandise for weeks. To fans, the message read as: "We're ending his membership" and "we're still cashing in on his face" — delivered at the same time.
 
-![A moody corporate boardroom at night with K-pop merchandise on the table and six silhouettes in the background, one empty seat at the head](/images/news/heeseung-enhypen-ot7-belift-controversy-1.png)
+![A moody corporate boardroom at night with K-pop merchandise on the table and six silhouettes in the background, one empty seat at the head](/images/news/heeseung-enhypen-ot7-belift-controversy-1.webp)
 _BELIFT's actions after the announcement read less like a farewell and more like a business transaction that wasn't finished yet_
 
 ## The OT7 Merchandising Dilemma K-pop Has Always Hidden

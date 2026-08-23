@@ -46,6 +46,9 @@ function truncateTitle(title: string, maxLength: number = 55): string {
  * 12개 언어 × 모든 뉴스 slug 조합
  */
 export function generateStaticParams() {
+  // Workers에서는 본문을 ASSETS에서 요청 시 읽어 Worker 번들에 포함하지 않는다.
+  if (process.env.NEXT_RUNTIME_TARGET === 'workers') return [];
+
   return getAllNewsParams(SUPPORTED_LOCALES as unknown as string[]);
 }
 

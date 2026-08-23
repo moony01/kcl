@@ -3,7 +3,7 @@ title: '1.2 Million Copies Later, &TEAM Is Breaking the Korea-Japan Rulebook'
 excerpt: "&TEAM's We on Fire sold 1.24 million copies in its first week. The bigger story is how a Japan-first act is redrawing HYBE's cross-border playbook."
 date: '2026-04-29'
 category: 'Artist'
-thumbnail: '/images/news/andteam-we-on-fire-thumbnail.png'
+thumbnail: '/images/news/andteam-we-on-fire-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ For years, K-pop companies sold a familiar story to investors and fans alike: tr
 
 That is why the first-million line is bigger than a chart trophy. DIPE and USEN's *encore* both described &TEAM as the first Japanese artist to reach million-seller status in both Korea and Japan. Whether you read that as symbolic or structural, it points to the same underlying shift. A group does not need to behave like a textbook Korean idol act to monetize through K-pop-style channels, and it does not need to stay boxed into a domestic Japanese framework to scale physically. Once those walls weaken, the question changes from "Which market owns this group?" to "Which system is best at turning identity, performance, and fandom into cross-border demand?"
 
-![&TEAM We on Fire sales bridge between Seoul and Tokyo skylines](/images/news/andteam-we-on-fire-1.png)
+![&TEAM We on Fire sales bridge between Seoul and Tokyo skylines](/images/news/andteam-we-on-fire-1.webp)
 _The bigger story is not one sales spike. It is the bridge forming between two album economies that used to be treated as separate worlds._
 
 ## The Billboard Japan Result Makes The Story Harder To Ignore

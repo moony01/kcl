@@ -3,7 +3,7 @@ title: 'One Camera Rule at a DAY6 Concert Ignited K-Pop''s Worst Race War — An
 excerpt: 'On January 31, 2026, a single camera confiscation at a DAY6 concert in Malaysia sparked the biggest racial conflict in K-pop fandom history. Here''s how racist remarks from Korean netizens turned millions of Southeast Asian fans into the #SEAblings movement.'
 date: '2026-03-02'
 category: 'Industry'
-thumbnail: '/images/news/day6-kpop-race-war-thumbnail.png'
+thumbnail: '/images/news/day6-kpop-race-war-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ Screenshots don't require translation. The meaning was clear.
 
 As tensions escalated, the anger began spreading beyond DAY6's fandom to K-pop at large — and to specific artists. Racist attacks directed at BTS member RM prompted fans to launch the "#PurpleRibbonForRM" protection campaign. What had started as a camera policy dispute at a mid-sized K-pop concert had now reached the most globally recognized act in the genre.
 
-![K-pop concert crowd divided by glowing phone colors symbolizing the SEAblings fandom conflict and digital solidarity movement](/images/news/day6-kpop-race-war-1.png)
+![K-pop concert crowd divided by glowing phone colors symbolizing the SEAblings fandom conflict and digital solidarity movement](/images/news/day6-kpop-race-war-1.webp)
 _The digital divide within K-pop's global fandom made visible_
 
 ## #SEAblings: How Southeast Asia Fought Back

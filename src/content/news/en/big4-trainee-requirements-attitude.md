@@ -3,7 +3,7 @@ title: 'What Big 4 K-Pop Agencies Really Look for in Trainees - The Truth About 
 excerpt: 'What do HYBE, SM, JYP, and YG actually evaluate during auditions? Insights from trainers and successful trainees reveal the hidden criteria for selection.'
 date: '2026-01-30'
 category: 'Trainee System'
-thumbnail: '/images/news/big4-trainee-requirements-attitude-thumbnail.png'
+thumbnail: '/images/news/big4-trainee-requirements-attitude-thumbnail.webp'
 ---
 
 "I wasn't rejected because of my singing or dancing skills."
@@ -36,7 +36,7 @@ NMIXX's Haewon revealed in an interview after passing JYP's audition:
 
 This isn't unique to JYP. HYBE, SM, and YG all have separate **'Character/Attitude' sections** on their evaluation forms, and low scores here result in rejection regardless of other high marks.
 
-![Trainee training session](/images/news/big4-trainee-requirements-attitude-1.png)
+![Trainee training session](/images/news/big4-trainee-requirements-attitude-1.webp)
 _A day in the practice room is a continuous cycle of feedback and self-reflection_
 
 ## Hidden Evaluation Criteria by Agency

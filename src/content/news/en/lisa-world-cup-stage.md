@@ -3,7 +3,7 @@ title: "Lisa at the World Cup? The 13-Minute LA Stage That Could Change K-pop's 
 excerpt: "Lisa World Cup stage at SoFi puts BLACKPINK's solo star beside Katy Perry and Future in K-pop's biggest sports crossover yet."
 date: '2026-05-11'
 category: 'Market Trend'
-thumbnail: '/images/news/lisa-world-cup-stage-thumbnail.png'
+thumbnail: '/images/news/lisa-world-cup-stage-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The 2026 FIFA World Cup is being staged across the United States, Canada, and Me
 
 That structure makes Lisa's placement more useful for understanding the market. K-pop is often discussed as one export wave moving outward from Seoul. The World Cup frame is different. It asks whether a K-pop artist can become a useful cultural signal inside another country's own opening story. Lisa is Thai, globally famous through BLACKPINK, managed as a solo star, and positioned in a U.S. ceremony for a tournament shared with Canada and Mexico. That is not a simple "Korea to the world" pipeline. It is a proof point for how borderless the top layer of K-pop has become.
 
-![Lisa World Cup opening ceremony stage visualized through a global stadium broadcast control room](/images/news/lisa-world-cup-stage-1.png)
+![Lisa World Cup opening ceremony stage visualized through a global stadium broadcast control room](/images/news/lisa-world-cup-stage-1.webp)
 _ChatGPT-generated editorial image showing the global broadcast pressure behind Lisa's reported World Cup ceremony slot, without real faces or official logos._
 
 ## The Real Shock Is The Audience Mismatch

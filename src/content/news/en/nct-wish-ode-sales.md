@@ -3,7 +3,7 @@ title: "1.82 Million Copies, 3 Trophies - NCT WISH Is No Longer SM's Side Quest"
 excerpt: "NCT WISH Ode to Love sold 1.82M in week one and swept three public-broadcast wins. SM's youngest NCT unit is no side story."
 date: '2026-05-09'
 category: 'Artist'
-thumbnail: '/images/news/nct-wish-ode-sales-thumbnail.png'
+thumbnail: '/images/news/nct-wish-ode-sales-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ That margin matters because it made the win feel less fragile. The point spread 
 
 The momentum did not stop there. On `May 2`, `Ode to Love` won MBC's `Show! Music Core` with `6,333` points, according to Soompi. The next day, NCT WISH took their first-ever `Inkigayo` win with `5,456` points. TenAsia then framed the outcome directly: NCT WISH had achieved their first three-crown sweep across Korea's public-broadcast music shows.
 
-![NCT WISH Ode to Love music show trophies and sales surge](/images/news/nct-wish-ode-sales-1.png)
+![NCT WISH Ode to Love music show trophies and sales surge](/images/news/nct-wish-ode-sales-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces or identifiable people._
 
 The reason this matters is emotional as much as statistical. A sales record tells fans the base is large. A three-show run tells them the era has public visibility. When those two signals arrive together, the comeback starts to feel like a shared confirmation rather than an internal fandom celebration.

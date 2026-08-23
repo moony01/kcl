@@ -3,7 +3,7 @@ title: "YG Is Finally Off THE BLACK LABEL's Board - So Why Are Fans More Nervous
 excerpt: "THE BLACK LABEL has no YG executives on its board for the first time, but the 14.55% stake and IPO push raise a harder fan question."
 date: '2026-05-04'
 category: 'Business'
-thumbnail: '/images/news/black-label-yg-board-thumbnail.png'
+thumbnail: '/images/news/black-label-yg-board-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ That is a steep dilution. It is also not zero. A 14.55% shareholder is not the s
 
 The table shows why the story is more useful as a trajectory than as a single-day split. THE BLACK LABEL has been moving away from YG structurally for years. Yang's board exit is the visible endpoint of a longer dilution process, not a sudden emotional breakup.
 
-![THE BLACK LABEL YG board split shown through a rehearsal studio and investor room transition](/images/news/black-label-yg-board-1.png)
+![THE BLACK LABEL YG board split shown through a rehearsal studio and investor room transition](/images/news/black-label-yg-board-1.webp)
 _The boardroom change matters because THE BLACK LABEL is now being read less like a YG sub-label and more like an IPO candidate._
 
 ## Why IPO Logic Is Driving the Conversation

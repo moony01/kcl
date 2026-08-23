@@ -3,7 +3,7 @@ title: "K-pop Album Exports Just Crossed $100M - The U.S. Took Japan's Crown"
 excerpt: "K-pop album exports hit $120M in Q1 as the U.S. overtook Japan, exposing a physical-album market shift fans cannot ignore."
 date: '2026-05-17'
 category: 'Market Trend'
-thumbnail: '/images/news/kpop-album-exports-us-thumbnail.png'
+thumbnail: '/images/news/kpop-album-exports-us-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ That scale changes the question. This is no longer only about how many versions 
 
 The most clickable part of the data is the market ranking. Yonhap and Korea JoongAng Daily reported that the United States accounted for about 28 percent of K-pop album exports in the first quarter, moving ahead of Japan, which had held the No. 1 position until last year. Seoul Economic Daily put the split at 28.8 percent for the U.S. and 25.3 percent for Japan.
 
-![K-pop album exports market shift from Seoul to the U.S. and Europe](/images/news/kpop-album-exports-us-1.png)
+![K-pop album exports market shift from Seoul to the U.S. and Europe](/images/news/kpop-album-exports-us-1.webp)
 _ChatGPT-generated editorial image showing K-pop albums as export products in a global trade dashboard._
 
 That does not mean Japan is collapsing. It means the old mental map is outdated. Japan remains a deep physical music market with strong idol-adjacent buying culture, but the U.S. is now acting like more than a touring and streaming destination. American fans are buying the object, not only playing the track. For agencies, that turns U.S. strategy into a warehouse, retail, shipping and collector-design problem, not just a playlist problem.

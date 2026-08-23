@@ -3,7 +3,7 @@ title: '26 Days, 100 Million Views - Why BTS''s "SWIM" Feels Bigger Than Another
 excerpt: 'BTS''s "SWIM" hit 100 million views on April 15 in just 26 days. Why that milestone says more about ARIRANG-era fan conversion than another No. 1.'
 date: '2026-04-15'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-swim-100m-thumbnail.png'
+thumbnail: '/images/news/bts-swim-100m-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ This story reads differently because the YouTube spike matches what is happening
 
 Many K-pop comebacks post huge first-week numbers and then split apart by platform. `ARIRANG` opened with 641,000 equivalent units, then still held 187,000 in its second week while remaining at No. 1. The point is not that the drop disappeared. It is that the floor stayed high enough for the story to keep traveling. When a release can hold sales, maintain streaming weight, and then convert that momentum into video acceleration, the public conversation stops being about a launch and starts becoming about sustained market dominance.
 
-![BTS SWIM 100 million views visualized as a blue tidal wave of fan momentum and data growth](/images/news/bts-swim-100m-1.png)
+![BTS SWIM 100 million views visualized as a blue tidal wave of fan momentum and data growth](/images/news/bts-swim-100m-1.webp)
 _Image: Generated with ChatGPT_
 
 ## Once the tour began, the numbers stopped being online-only

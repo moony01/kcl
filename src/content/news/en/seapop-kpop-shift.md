@@ -3,7 +3,7 @@ title: "SEA Pop Just Pushed Back — K-pop’s Next Rival Is Already Homegrown"
 excerpt: "SEA pop’s local chart surge shows K-pop’s next regional rival is not another Korean agency, but homegrown Asian fandom."
 date: '2026-07-02'
 category: 'Industry'
-thumbnail: '/images/news/seapop-kpop-shift-thumbnail.png'
+thumbnail: '/images/news/seapop-kpop-shift-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ That example matters because P-pop did not pretend K-pop never existed. Bajo tol
 
 Thailand is moving through a similar confidence curve. Thai producer Cod Satrusayang told Al Jazeera that T-pop and Thai music were long seen as emulations of Korean and American styles, but that the past five years have shown Thai artists forging their own identity. That is exactly the kind of shift K-pop companies should watch. Influence is useful until the student no longer needs the teacher’s brand to be taken seriously.
 
-![SEA pop and K-pop stages facing each other through anonymous fandom lights](/images/news/seapop-kpop-shift-1.png)
+![SEA pop and K-pop stages facing each other through anonymous fandom lights](/images/news/seapop-kpop-shift-1.webp)
 _ChatGPT-generated editorial image showing anonymous concert stages and fandom light waves without real faces, logos or readable text._
 
 ## The Money Is Following The Attention

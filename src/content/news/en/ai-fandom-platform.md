@@ -3,7 +3,7 @@ title: 'The Evolution of Fandom Platforms: How Generative AI is Changing Fan Cul
 excerpt: 'Beyond 1:1 private messages to AI voice, real-time translation, and personalized bias chatbots. We introduce the latest AI technologies being adopted in fandom platforms.'
 date: '2025-01-10'
 category: 'Tech & Culture'
-thumbnail: '/images/news/ai-fandom.jpg'
+thumbnail: '/images/news/ai-fandom.webp'
 ---
 
 ## When Fandom Meets Technology

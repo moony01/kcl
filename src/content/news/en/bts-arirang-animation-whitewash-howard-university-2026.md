@@ -3,7 +3,7 @@ title: "BTS Used the Black University That Preserved Korean Music in 1896 — Th
 excerpt: "In 1896, seven Korean students recorded Arirang at Howard University because white schools refused them. 130 years later, BTS's album teaser recreated that exact scene — and filled the HBCU campus with predominantly white faces. HYBE has said nothing."
 date: '2026-03-26'
 category: 'Industry'
-thumbnail: '/images/news/bts-arirang-animation-whitewash-howard-university-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-animation-whitewash-howard-university-2026-thumbnail.webp'
 active: true
 ---
 
@@ -40,7 +40,7 @@ Howard University's student newspaper, *The Hilltop*, captured the mixed reactio
 
 The reaction outside campus was sharper. Reddit's r/kpopnoir thread — which draws primarily Black K-pop fans — lit up with thousands of responses. "So BTS decided to whitewash Howard University in their trailer… yeah I'm done." The r/Fauxmoi thread framing was blunt: "The fact that HYBE has remained silent speaks volumes on how little they care."
 
-![The historic first recording of Arirang at Howard University in 1896 — Korean students and Black American students together, a moment of solidarity erased from BTS's animation](/images/news/bts-arirang-animation-whitewash-howard-university-2026-1.png)
+![The historic first recording of Arirang at Howard University in 1896 — Korean students and Black American students together, a moment of solidarity erased from BTS's animation](/images/news/bts-arirang-animation-whitewash-howard-university-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## HYBE's Silence

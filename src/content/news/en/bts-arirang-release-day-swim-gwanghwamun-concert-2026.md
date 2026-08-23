@@ -3,7 +3,7 @@ title: 'BTS ARIRANG Is Out NOW — SWIM MV Drops, Gwanghwamun Concert Tomorrow, 
 excerpt: 'The 3 year 9 month wait is over. At 1PM KST on March 20, 2026, BTS''s fifth studio album ARIRANG dropped worldwide. The SWIM MV just went live and ARMY is going insane. Tomorrow''s Gwanghwamun concert streams free on Netflix. Here''s everything happening right now.'
 date: '2026-03-20'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-release-day-swim-gwanghwamun-concert-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-release-day-swim-gwanghwamun-concert-2026-thumbnail.webp'
 active: true
 ---
 
@@ -44,7 +44,7 @@ The **SWIM** music video released simultaneously with the album today. Nautical 
 
 Within 7 minutes of the album dropping, ARMY trended both "#BTSComeback2026" and "ARIRANG OUT TODAY" to global #1 simultaneously. The streaming numbers reflect the scale of anticipation: ARIRANG had already shattered 3.45 million Spotify pre-saves before today — the highest pre-save count in K-pop history — and entered Spotify's global charts at the top the moment it dropped.
 
-![BTS fifth album ARIRANG release day — SWIM MV and the Gwanghwamun comeback concert](/images/news/bts-arirang-release-day-swim-gwanghwamun-concert-2026-1.png)
+![BTS fifth album ARIRANG release day — SWIM MV and the Gwanghwamun comeback concert](/images/news/bts-arirang-release-day-swim-gwanghwamun-concert-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## Tomorrow: Gwanghwamun Square — A Historic Comeback Stage

@@ -3,7 +3,7 @@ title: "The Hunt for the Next BTS — Big 4, Lee Soo-man, and Min Hee-jin All La
 excerpt: "SM, YG, and HYBE are all preparing boy group debuts simultaneously. Add Lee Soo-man's A2O Soul after his non-compete clause expired and Min Hee-jin's Ooak Records — 2026 is shaping up to be the most intense rookie boy group war in K-pop history."
 date: '2026-03-09'
 category: 'Industry'
-thumbnail: '/images/news/2026-rookie-boy-group-war-big4-debut-battle-thumbnail.png'
+thumbnail: '/images/news/2026-rookie-boy-group-war-big4-debut-battle-thumbnail.webp'
 active: true
 ---
 
@@ -50,7 +50,7 @@ ADOR is conducting the **"2026 ADOR Boys Global Audition"** across 11 cities wor
 
 With uncertainty surrounding ADOR's artist lineup due to the NewJeans dispute, a new boy group will be the critical project to redefine ADOR's label identity.
 
-![An image symbolizing the 2026 K-pop boy group debut war](/images/news/2026-rookie-boy-group-war-big4-debut-battle-1.png)
+![An image symbolizing the 2026 K-pop boy group debut war](/images/news/2026-rookie-boy-group-war-big4-debut-battle-thumbnail.webp)
 _2026 marks the most intense boy group debut battle in K-pop history_
 
 ## Lee Soo-man's Return — Non-Compete Lifted, A2O Soul Rises

@@ -3,7 +3,7 @@ title: "Eunseok's Apology Should Have Ended It - Then RIIZE Fans Made It Worse"
 excerpt: "RIIZE Eunseok apology became a wider fandom crisis after reports of racist fan posts turned one deleted caption into a trust test."
 date: '2026-05-13'
 category: 'Artist'
-thumbnail: '/images/news/riize-eunseok-apology-thumbnail.png'
+thumbnail: '/images/news/riize-eunseok-apology-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ That is why the phrase itself became less important than the review failure behi
 
 ## The Fan Reaction Became The Second Scandal
 
-![RIIZE Eunseok apology aftermath in a cold K-pop rehearsal room](/images/news/riize-eunseok-apology-1.png)
+![RIIZE Eunseok apology aftermath in a cold K-pop rehearsal room](/images/news/riize-eunseok-apology-1.webp)
 _A symbolic rehearsal-room scene reflects how one deleted caption became a wider fandom trust test._
 
 ### Reports moved from apology to community behavior

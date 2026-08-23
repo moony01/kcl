@@ -3,7 +3,7 @@ title: '"Purple Gwanghwamun" — BTS Returns After 1,250 Days in First-Ever K-Po
 excerpt: "On March 21, BTS performed at Seoul's Gwanghwamun Square — the first K-pop act ever at this 600-year-old landmark — as Netflix streamed the show to 190 countries in what the platform called 'the biggest watch party in the world.' MEARROW breaks down the historic comeback concert."
 date: '2026-03-21'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-gwanghwamun-concert-netflix-record-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-gwanghwamun-concert-netflix-record-2026-thumbnail.webp'
 active: true
 ---
 
@@ -40,7 +40,7 @@ BTS's last full group performance was the "BTS 2030 Busan World Expo" concert at
 
 By June 2025, all seven members were civilians again. Nine months of preparation followed. Today, they stood at Gwanghwamun.
 
-![BTS performing at the historic Gwanghwamun Square in front of Gyeongbokgung Palace, purple light flooding the stage against the ancient palace gate](/images/news/bts-arirang-gwanghwamun-concert-netflix-record-2026-1.png)
+![BTS performing at the historic Gwanghwamun Square in front of Gyeongbokgung Palace, purple light flooding the stage against the ancient palace gate](/images/news/bts-arirang-gwanghwamun-concert-netflix-record-2026-thumbnail.webp)
 _Image: AI generated via ChatGPT_
 
 ## Netflix Partnership: A New Distribution Model for K-Pop

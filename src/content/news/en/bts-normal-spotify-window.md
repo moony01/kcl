@@ -3,7 +3,7 @@ title: "A Bathroom Ad, a Two-Day Window — BTS Just Made Spotify the Comeback G
 excerpt: "BTS will debut the ‘Normal’ video on Spotify before wider release. The two-day window turns fandom urgency into a platform experiment."
 date: '2026-07-16'
 category: 'Tech & Culture'
-thumbnail: '/images/news/bts-normal-spotify-window-thumbnail.png'
+thumbnail: '/images/news/bts-normal-spotify-window-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ Friday's package adds more than a video. Big Hit Music told Korean media that th
 
 The release window changes the emotional order. Fans do not need Spotify to discover that “Normal” exists; they need it if they want to participate at the first possible moment. That distinction turns a familiar song into a timed event. The asset is the music video, but the product being tested is urgency.
 
-![BTS Normal Spotify window visualized as a timed platform gateway expanding into global fandom](/images/news/bts-normal-spotify-window-1.png)
+![BTS Normal Spotify window visualized as a timed platform gateway expanding into global fandom](/images/news/bts-normal-spotify-window-1.webp)
 _Codex-generated editorial image visualizing a timed platform gate opening into global fandom distribution; no real people are depicted._
 
 ## Spotify is buying behavior, not only streams

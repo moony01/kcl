@@ -3,7 +3,7 @@ title: "'You Live Off Our Money' — Racist K-Pop Fans Just United All of Southe
 excerpt: "A camera rule break at a DAY6 concert in Malaysia spiraled into K-pop's worst racism crisis. The #SEAblings movement, ASEAN market risks, and what the industry must do next."
 date: '2026-02-17'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-seablings-korea-sea-racism-war-thumbnail.png'
+thumbnail: '/images/news/kpop-seablings-korea-sea-racism-war-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The incident snowballed beyond anyone's expectation. Thai, Vietnamese, Indonesia
 
 Korean netizens didn't stop there. Successive waves of derogatory comments about Southeast Asian nations' economies, appearances, and cultures triggered an escalating cycle of retaliation. The conflict even dragged **BTS's RM** into the crossfire — racist attacks targeting him during the Korea-SEA online feud prompted fans to launch the **#PurpleRibbonForRM** protection campaign.
 
-![Digital solidarity movement visualization](/images/news/kpop-seablings-korea-sea-racism-war-1.png)
+![Digital solidarity movement visualization](/images/news/kpop-seablings-korea-sea-racism-war-1.webp)
 _Digital art symbolizing the cross-border solidarity and conflict within K-pop fandoms_
 
 ## The Birth of #SEAblings — "We Are Siblings"

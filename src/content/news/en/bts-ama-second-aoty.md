@@ -3,7 +3,7 @@ title: "BTS Beat Taylor Swift at the AMAs - Why This Win Hits Harder Than 2021"
 excerpt: "BTS AMAs 2026 ended with Artist of the Year and Song of the Summer, turning a fan-voted trophy into a K-pop market warning."
 date: "2026-05-26"
 category: "Tech & Culture"
-thumbnail: "/images/news/bts-ama-second-aoty-thumbnail.png"
+thumbnail: "/images/news/bts-ama-second-aoty-thumbnail.webp"
 active: true
 ---
 
@@ -45,7 +45,7 @@ The night did not stop at the grand prize. Reuters reported that BTS also won `S
 
 For a comeback-era act, that distinction is important. Legacy can fill an arena, but current songs have to survive replay, clips, edits, radio memory, streaming habits, and casual recognition. `SWIM` gives the fandom a cleaner argument: BTS did not return to collect tribute trophies. They returned with a song strong enough to win a seasonal category while the group was still touring.
 
-![BTS AMAs 2026 fan-vote control room with trophy and global signals](/images/news/bts-ama-second-aoty-1.png)
+![BTS AMAs 2026 fan-vote control room with trophy and global signals](/images/news/bts-ama-second-aoty-1.webp)
 _A ChatGPT-generated editorial image showing how fan voting, awards television, and global K-pop scale converged around BTS at the 2026 AMAs._
 
 ### The pre-recorded `Hooligan` stage kept the tour inside the broadcast

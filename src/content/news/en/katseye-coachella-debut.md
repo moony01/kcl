@@ -3,7 +3,7 @@ title: 'KATSEYE Reached Coachella as Five, Not Six — Why the Fandom Shook Hard
 excerpt: 'KATSEYE made its Coachella debut as five. The stage landed, but Manon''s hiatus and transparency questions shook the fandom harder.'
 date: '2026-04-12'
 category: 'Tech & Culture'
-thumbnail: '/images/news/katseye-coachella-debut-thumbnail.png'
+thumbnail: '/images/news/katseye-coachella-debut-thumbnail.webp'
 active: true
 ---
 
@@ -17,7 +17,7 @@ This was not just another overseas appearance. KATSEYE is HYBE and Geffen's glob
 
 Timing mattered too. `PINKY UP`, released on April 9, gave the group a fresh center of gravity right before the festival. KATSEYE did not walk into Coachella as a nostalgia act or a reality-show afterimage. It walked in as a current pop project. Then came the surprise `Golden` performance with EJAE, Audrey Nuna, and Rei Ami, which pushed the group from "HYBE's global experiment" into a real-time social-media event.
 
-![Desert lights symbolizing KATSEYE's five-member Coachella stage](/images/news/katseye-coachella-debut-1.png)
+![Desert lights symbolizing KATSEYE's five-member Coachella stage](/images/news/katseye-coachella-debut-1.webp)
 _An editorial image symbolizing the desert stage and the visual tension of a five-member performance_
 
 ### Fans kept counting the missing microphone

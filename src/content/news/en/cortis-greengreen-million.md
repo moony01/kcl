@@ -3,7 +3,7 @@ title: "1,196,961 in One Day: CORTIS's GREENGREEN Just Broke the Rookie Ceiling"
 excerpt: "CORTIS GREENGREEN sold 1,196,961 copies on day one, turning rookie hype into a market-reset number rivals cannot ignore."
 date: '2026-05-05'
 category: 'Market Trend'
-thumbnail: '/images/news/cortis-greengreen-million-thumbnail.png'
+thumbnail: '/images/news/cortis-greengreen-million-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ BIGHIT MUSIC did not drop `GREENGREEN` cold. The official Weverse notice set a t
 
 Sports Kyunghyang reported that `REDRED` also gave CORTIS a global-platform lift before the album arrived. The track entered Spotify's `Weekly Top Songs Global` at `No. 103` for the `April 24-30` tracking period and reached `No. 100` on Spotify's `Daily Top Songs Global` on `May 2`. Those are not the same as album sales, but they made the sales story feel less isolated. CORTIS was not only moving boxes. The group was already visible in the streaming conversation before the physical release landed.
 
-![CORTIS GREENGREEN million seller warehouse after day-one sales surge](/images/news/cortis-greengreen-million-1.png)
+![CORTIS GREENGREEN million seller warehouse after day-one sales surge](/images/news/cortis-greengreen-million-1.webp)
 _A ChatGPT-generated editorial visualization of the fulfillment pressure behind a million-copy first day._
 
 ### The EP is selling a creator-group narrative

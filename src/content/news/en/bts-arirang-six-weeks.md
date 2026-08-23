@@ -3,7 +3,7 @@ title: 'The 6-Week Billboard Trap: BTS Is Still Top 5 - And Rivals Have a Proble
 excerpt: 'BTS ARIRANG held No. 5 on the Billboard 200 with 56,000 units. The problem for rivals is what survived after the launch.'
 date: '2026-05-04'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-six-weeks-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-six-weeks-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The one-spot slide from last week's `No. 4` position matters less than the floor
 
 Then came the bigger flex: the album spent its first three weeks at `No. 1`, a first for a K-pop album. That record gave BTS a clean trophy line. But trophies can sometimes flatten the story. The sixth-week top-five hold shows something more operational. BTS did not simply arrive with a massive one-week push. MEARROW reads the hold as a sign that repeat listening, physical demand and public curiosity may still be working together well after the opening week.
 
-![BTS ARIRANG Billboard 200 momentum shown through global fan data screens](/images/news/bts-arirang-six-weeks-1.png)
+![BTS ARIRANG Billboard 200 momentum shown through global fan data screens](/images/news/bts-arirang-six-weeks-1.webp)
 _A ChatGPT-generated editorial visualization of ARIRANG's six-week Billboard 200 momentum and global fan attention._
 
 ## Why This Is Bad News For Copycats

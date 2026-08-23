@@ -3,7 +3,7 @@ title: '80,000 Seats, Two Nights — BTS Just Turned Arlington Into Its Next Sta
 excerpt: 'BTS brings the ARIRANG tour to Arlington on August 15 and 16. The two-night AT&T Stadium stop tests whether a post-hiatus comeback can scale.'
 date: '2026-08-16'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-arlington-stadium-test-thumbnail.png'
+thumbnail: '/images/news/bts-arlington-stadium-test-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ The album at the center of the tour is equally deliberate. [BIGHIT MUSIC’s off
 
 That is why the Arlington booking carries more pressure than a routine North American date. A returning act can lean on nostalgia once. A two-night stadium weekend asks the new material, the old catalog, and the production itself to share the load. The tour has to feel current while still rewarding the years of waiting.
 
-![BTS stadium tour atmosphere outside a packed stadium at blue hour](/images/news/bts-arlington-stadium-test-1.png)
+![BTS stadium tour atmosphere outside a packed stadium at blue hour](/images/news/bts-arlington-stadium-test-1.webp)
 _A symbolic editorial image of anonymous fans moving toward a stadium; no identifiable performers are depicted._
 
 ## Two Nights Create a Different Fan Economy

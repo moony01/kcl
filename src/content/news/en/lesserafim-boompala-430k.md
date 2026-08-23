@@ -3,7 +3,7 @@ title: "LE SSERAFIM Sold 435,675 in One Day - But BOOMPALA's Real Problem Is Not
 excerpt: "LE SSERAFIM BOOMPALA opened with 435,675 Hanteo sales, but PUREFLOW pt.1 now faces a bigger test: whether debate becomes demand."
 date: "2026-05-23"
 category: "Industry"
-thumbnail: "/images/news/lesserafim-boompala-430k-thumbnail.png"
+thumbnail: "/images/news/lesserafim-boompala-430k-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ ChosunBiz and allkpop both described `BOOMPALA` as a Latin house-based track tha
 
 That is probably the point. `BOOMPALA` is not trying to win only through elegant subtlety. It is designed to travel through short-form clips, dance challenges, reaction edits, and argument. A chorus that some listeners find repetitive can still be useful if it is easy to imitate and hard to ignore. The question is whether that repeatability turns into affection after the first shock fades. A sample can open the door, but it cannot do the whole comeback's work by itself.
 
-![LE SSERAFIM BOOMPALA comeback stage split between sales momentum and fan debate](/images/news/lesserafim-boompala-430k-1.png)
+![LE SSERAFIM BOOMPALA comeback stage split between sales momentum and fan debate](/images/news/lesserafim-boompala-430k-1.webp)
 _A ChatGPT-generated editorial image representing the split between release-day celebration and fan debate around `BOOMPALA`._
 
 ## PUREFLOW Is Selling A New Kind Of Fear

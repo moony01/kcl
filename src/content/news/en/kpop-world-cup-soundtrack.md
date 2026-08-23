@@ -3,7 +3,7 @@ title: "K-pop Just Invaded the World Cup Soundtrack — But TWS Is the Real Test
 excerpt: "K-pop World Cup soundtrack buzz now has Lisa, TWS and Korea's football campaign in one frame. The real story is fandom as sports strategy."
 date: '2026-06-10'
 category: 'Industry'
-thumbnail: '/images/news/kpop-world-cup-soundtrack-thumbnail.png'
+thumbnail: '/images/news/kpop-world-cup-soundtrack-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The clearest Korean case is TWS. A Weverse notice announced the digital single `
 
 That also explains the mixed reaction. Some fans see the assignment as a fast credibility lift for a young Pledis boy group. Others question whether a relatively new team should be placed so close to a World Cup campaign before the public has fully settled on its identity. Both reactions are useful to the company. Praise creates momentum; doubt creates debate; debate keeps the release visible.
 
-![K-pop World Cup soundtrack strategy room overlooking a football stadium with global fandom data](/images/news/kpop-world-cup-soundtrack-1.png)
+![K-pop World Cup soundtrack strategy room overlooking a football stadium with global fandom data](/images/news/kpop-world-cup-soundtrack-1.webp)
 _Image: AI-generated via ChatGPT, representing the fusion of K-pop fandom strategy and global football audiences_
 
 ## Lisa Shows the Global Version of the Same Play

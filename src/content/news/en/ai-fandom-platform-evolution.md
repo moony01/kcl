@@ -3,7 +3,7 @@ title: 'The Evolution of AI-Powered Fandom Platforms: How Technology Connects He
 excerpt: 'From fan cafes to Weverse, Bubble, and AI chatbots. A deep dive into how K-pop fandom platforms have evolved and where they are heading next.'
 date: '2026-01-21'
 category: 'Tech & Culture'
-thumbnail: '/images/news/ai-fandom-platform-evolution-thumbnail.png'
+thumbnail: '/images/news/ai-fandom-platform-evolution-thumbnail.webp'
 ---
 
 In 2026, being a K-pop fan is no longer just about supporting your favorite artist. Fans now receive AI-generated personalized messages, watch live streams with real-time translation, and have conversations with their bias in virtual fan meetings. All of this has been made possible by the remarkable evolution of **AI-powered fandom platforms**.
@@ -18,7 +18,7 @@ The history of K-pop fandom platforms can be divided into three distinct generat
 
 **The Third Generation (2020-present)** is defined by the emergence of **super apps** like Weverse, Bubble, and Universe. These platforms integrate community, commerce, content, and messaging into a single app. As of 2023, Weverse's monthly active users (MAU) exceeded **10 million**, representing a 40% year-over-year growth.
 
-![Global Fandom Connectivity](/images/news/ai-fandom-platform-evolution-1.png)
+![Global Fandom Connectivity](/images/news/ai-fandom-platform-evolution-1.webp)
 _Global connectivity established by 3rd generation fandom platforms_
 
 ## How AI Technology Has Revolutionized the Fandom Experience
@@ -37,7 +37,7 @@ The **'AI Bias Chatbot'** service piloted by SM Entertainment in 2025 opened a n
 
 Of course, this technology has also sparked **ethical debates**. Questions like "Can this replace genuine communication with the artist?" and "Where do the boundaries of an artist's personality rights lie?" are being actively discussed within fandoms.
 
-![AI Chatbot Interaction](/images/news/ai-fandom-platform-evolution-2.png)
+![AI Chatbot Interaction](/images/news/ai-fandom-platform-evolution-2.webp)
 _Future fandom experience communicating with AI chatbots_
 
 ### Personalized Content Curation

@@ -3,7 +3,7 @@ title: "BLACKPINK Got the Guinness ICON Stamp — 16.9 Billion Streams Changed t
 excerpt: "BLACKPINK Guinness ICON status turns 16.9B Spotify streams and 100M YouTube subscribers into a new K-pop scoreboard."
 date: '2026-06-23'
 category: 'Artist'
-thumbnail: '/images/news/blackpink-guinness-icon-thumbnail.png'
+thumbnail: '/images/news/blackpink-guinness-icon-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ Guinness also said BLACKPINK had the most subscribers for a band on YouTube with
 
 YouTube is not only where fans watch videos. It is where casual audiences discover eras out of order, where reaction culture keeps old releases alive, where solo curiosity loops back into group clips, and where brand value becomes visible in public. A 100 million subscriber channel is a distribution channel that no agency can simply buy overnight. It gives BLACKPINK leverage every time the group or any member needs to restart attention.
 
-![BLACKPINK Guinness ICON status shown through an abstract record archive and global fandom screens](/images/news/blackpink-guinness-icon-1.png)
+![BLACKPINK Guinness ICON status shown through an abstract record archive and global fandom screens](/images/news/blackpink-guinness-icon-1.webp)
 _ChatGPT-generated editorial image showing anonymous K-pop silhouettes facing a record archive and global fandom metrics, with no real faces, logos or readable text._
 
 ## The Record Stack Is Not Only Digital

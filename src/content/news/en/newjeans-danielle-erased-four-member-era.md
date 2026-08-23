@@ -3,7 +3,7 @@ title: '"Danielle, Completely Erased" — NewJeans'' Four-Member Era Is Now Irre
 excerpt: 'ADOR has wiped all traces of Danielle and Min Hee-jin from NewJeans'' official channels. Profile photos, banners, Spotify — the transition to a four-member lineup has entered the point of no return.'
 date: '2026-02-11'
 category: 'Industry'
-thumbnail: '/images/news/newjeans-danielle-erased-four-member-era-thumbnail.png'
+thumbnail: '/images/news/newjeans-danielle-erased-four-member-era-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ Behind this "erasure" lies cold business logic. In late 2025, ADOR confirmed tha
 
 In this context, maintaining Danielle's image on official channels creates contradictions both legally and from a branding perspective. Continuing to use a terminated artist's likeness could itself become a litigation risk, and preserving the "five-member NewJeans" image could foster false expectations among fans. ADOR's judgment was a **"clean cut"** — painful but fast, decisive, and irreversible.
 
-![An image symbolizing ADOR's strategic decision](/images/news/newjeans-danielle-erased-four-member-era-1.png)
+![An image symbolizing ADOR's strategic decision](/images/news/newjeans-danielle-erased-four-member-era-1.webp)
 _The removal of a member from official channels was not a simple image change but a strategic verdict_
 
 ## Minji's Decision — The Final Variable

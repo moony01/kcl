@@ -3,7 +3,7 @@ title: '5 Members, 6 Years, 1 September Bet: Why YG''s New Boy Group Already Fee
 excerpt: 'YG new boy group plans now point to a five-member September launch window. The real story is why YG is betting on a smaller roster this time.'
 date: '2026-05-03'
 category: 'Business'
-thumbnail: '/images/news/yg-boygroup-september-bet-thumbnail.png'
+thumbnail: '/images/news/yg-boygroup-september-bet-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ There is also a symbolic layer here. YG's most iconic boy group, `BIGBANG`, debu
 
 That is a meaningful strategic reversal from the industry's recent habit of going bigger, louder and more expansive with trainee pools, pre-debut content universes and multi-member positioning. YG's move says something different: maybe the next fight is not about giving fans the largest cast, but about giving them the fastest emotional read on who each member is.
 
-![YG new boy group training silhouettes under September stage lights](/images/news/yg-boygroup-september-bet-1.png)
+![YG new boy group training silhouettes under September stage lights](/images/news/yg-boygroup-september-bet-1.webp)
 _The number matters because a five-member team has less space to hide and more pressure to become instantly legible._
 
 ## The Trainee Pipeline Behind the Announcement Looks Deliberate

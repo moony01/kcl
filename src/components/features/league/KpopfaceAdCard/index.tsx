@@ -119,7 +119,7 @@ export default function KpopfaceAdCard({ compact = false }: { compact?: boolean 
         {/* next.config.mjs의 custom image loader와 충돌하지 않는 정적 로고 */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/kpopface-logo.png"
+          src="/images/kpopface-logo.webp"
           alt=""
           width={40}
           height={40}

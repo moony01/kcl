@@ -3,7 +3,7 @@ title: "YoonA Hit 58.1%, Park Jihoon Hit 48.7% - The Baeksang Vote Wasn't Even C
 excerpt: "Baeksang Popularity Award voting gave YoonA and Park Jihoon huge leads, exposing how idol fandom power now crosses music, TV, and film."
 date: '2026-05-08'
 category: 'Tech & Culture'
-thumbnail: '/images/news/baeksang-fan-vote-gap-thumbnail.png'
+thumbnail: '/images/news/baeksang-fan-vote-gap-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ YoonA's number is especially telling because she is not a newcomer being discove
 
 Park Jihoon's case works differently but points in the same direction. He is not only an actor from The King's Warden or Weak Hero discourse. He is also a former Wanna One member and solo artist, which means his public-vote base was built through survival-show fandom, idol promotion, and actor fandom layered on top of one another. Korea JoongAng Daily noted that The King's Warden led the Baeksang film field alongside No Other Choice with seven nominations, including a Rookie Award nomination for Park. The professional recognition may have raised his acting profile, but the popularity race shows how much his idol-era mobilization still matters.
 
-![Baeksang Popularity Award fan voting command center with anonymous K-pop fandom silhouettes](/images/news/baeksang-fan-vote-gap-1.png)
+![Baeksang Popularity Award fan voting command center with anonymous K-pop fandom silhouettes](/images/news/baeksang-fan-vote-gap-1.webp)
 _A ChatGPT-generated editorial visualization of fandoms turning award voting into coordinated campaign infrastructure._
 
 ## The Gap Says More Than The Trophy

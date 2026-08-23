@@ -3,7 +3,7 @@ title: "RM Needs 2 Weeks in a Cast. The ARIRANG World Tour Starts in 18 Days."
 excerpt: "BTS's leader performed the Gwanghwamun comeback concert sitting on a stool after spraining his ankle during rehearsals. With the ARIRANG World Tour kicking off April 9 in Goyang — just 18 days away — the math is uncomfortable. MEARROW breaks down what we know and what's at stake."
 date: '2026-03-22'
 category: 'Artist'
-thumbnail: '/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-thumbnail.png'
+thumbnail: '/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-thumbnail.webp'
 active: true
 ---
 
@@ -47,7 +47,7 @@ For a K-pop group where synchronized choreography is a core element of the live 
 
 The concert was still historic. The album is still a phenomenon. But the image of BTS's leader on a stool — during the group's most anticipated comeback in four years — is the image that followed the concert into the next morning.
 
-![RM performing seated at the Gwanghwamun concert while wearing an ankle cast, with six BTS members in full choreography around him](/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-1.png)
+![RM performing seated at the Gwanghwamun concert while wearing an ankle cast, with six BTS members in full choreography around him](/images/news/bts-rm-ankle-injury-world-tour-countdown-2026-1.webp)
 _Image: AI generated via ChatGPT_
 
 ## The Math: 18 Days

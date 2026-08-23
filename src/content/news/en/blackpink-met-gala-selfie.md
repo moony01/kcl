@@ -3,7 +3,7 @@ title: "One Bathroom Selfie Did What Four Red Carpets Couldn't - BLACKPINK Hijac
 excerpt: "BLACKPINK Met Gala 2026 turned four solo red carpets into one viral group-image test for K-pop fashion power."
 date: '2026-05-13'
 category: 'Tech & Culture'
-thumbnail: '/images/news/blackpink-met-gala-selfie-thumbnail.png'
+thumbnail: '/images/news/blackpink-met-gala-selfie-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ E! Online described the moment as a rule-breaking bathroom selfie, while other e
 
 That is why the selfie worked harder than a standard press image. It did not need a stage, choreography, music-video budget, or comeback countdown. It needed four members in the same visual field. For a group whose recent years have been shaped by solo launches, fashion deals, acting schedules, touring, and contract discourse, the sight of all four together carries emotional information by itself. It answers a question fans keep asking even when no one says it out loud: does BLACKPINK still feel like a unit when the cameras are not asking them to perform as one?
 
-![BLACKPINK Met Gala mirror selfie moment visualized through anonymous high-fashion silhouettes](/images/news/blackpink-met-gala-selfie-1.png)
+![BLACKPINK Met Gala mirror selfie moment visualized through anonymous high-fashion silhouettes](/images/news/blackpink-met-gala-selfie-1.webp)
 _ChatGPT-generated editorial image representing the viral group-photo energy around BLACKPINK's 2026 Met Gala appearance, without real faces, official logos, or readable text._
 
 ## Fashion Power Is Now K-pop Infrastructure

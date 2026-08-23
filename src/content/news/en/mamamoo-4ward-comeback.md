@@ -3,7 +3,7 @@ title: "MAMAMOO's '4WARD' Isn't Just A Comeback — It's A Second-Act Test"
 excerpt: "MAMAMOO 4WARD brings '4 Flowers,' a June 4 release and a world-tour reset after the group's long recording gap."
 date: "2026-06-03"
 category: "Artist"
-thumbnail: "/images/news/mamamoo-4ward-comeback-thumbnail.png"
+thumbnail: "/images/news/mamamoo-4ward-comeback-thumbnail.webp"
 active: true
 ---
 
@@ -25,7 +25,7 @@ The confirmed schedule gives the story urgency. Allkpop reported that `4WARD` an
 
 That gap changes the stakes. A normal comeback can rely on rhythm: teasers, concept photos, music show stages, fan signs, chart tracking. A comeback after more than three years has to answer a different question: can the fan base move quickly after being asked to wait? The first 24 to 72 hours will say more than the teaser aesthetic. Playlist traction, YouTube replay behavior, fan-made edits, and Korean chart stability will show whether the reunion is only sentimental or commercially active.
 
-![MAMAMOO 4WARD comeback editorial stage image](/images/news/mamamoo-4ward-comeback-1.png)
+![MAMAMOO 4WARD comeback editorial stage image](/images/news/mamamoo-4ward-comeback-1.webp)
 _ChatGPT-generated editorial image representing the polished comeback-stage mood around MAMAMOO's `4WARD` rollout._
 
 ## The Tour Makes This Bigger Than One Song

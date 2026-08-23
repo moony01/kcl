@@ -3,7 +3,7 @@ title: "Male K-Pop Soloists Can't Do Coachella? Taemin Flipped The Script In 50 
 excerpt: "Taemin completed the first official full Coachella solo set by a Korean male K-pop artist. The bigger story is how one 50-minute performance shifted both U.S. trend momentum and cultural positioning."
 date: '2026-04-19'
 category: 'Tech & Culture'
-thumbnail: '/images/news/taemin-coachella-first-thumbnail.png'
+thumbnail: '/images/news/taemin-coachella-first-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Dispatch, CNA, and K-pop Newswire all highlighted the same surprise: Taemin used
 
 K-pop Newswire noted that even a livestream glitch did not derail the overall narrative of the show, while CNA pointed to how Taemin balanced signature songs like `Move` and `Heaven` with new material. If he had only run a greatest-hits medley, the headline would have stayed at "successful debut." Instead, the response became something more valuable: a sense that audiences were willing to follow him into music they had never heard before.
 
-![Symbolic display of stage costume and festival lighting representing Taemin Coachella breakthrough](/images/news/taemin-coachella-first-1.png)
+![Symbolic display of stage costume and festival lighting representing Taemin Coachella breakthrough](/images/news/taemin-coachella-first-1.webp)
 _Image: a ChatGPT-generated editorial visualization of Taemin's Grammy Museum recognition and Coachella breakthrough_
 
 ## The public meaning of Taemin's name is shifting

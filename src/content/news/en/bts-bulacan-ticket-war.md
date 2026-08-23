@@ -3,7 +3,7 @@ title: "BTS Sold Out Bulacan In Two Nights — The Queue Became the Real Show"
 excerpt: "BTS Bulacan tickets sold out for two nights, exposing how Southeast Asia demand now shapes K-pop touring economics."
 date: "2026-06-12"
 category: "Artist"
-thumbnail: "/images/news/bts-bulacan-ticket-war-thumbnail.png"
+thumbnail: "/images/news/bts-bulacan-ticket-war-thumbnail.webp"
 active: true
 ---
 
@@ -23,7 +23,7 @@ That matters because this was not a casual venue announcement drifting through a
 
 The most useful detail was not only that seats sold out. It was how the waiting itself became content. [GMA Entertainment](https://www.gmanetwork.com/entertainment/showbiznews/megan-young-joins-ticket-war-for-bts-world-tour-concert-in-bulacan/134233/) covered actress Megan Young joining the ticket war, while a separate [GMA News report](https://www.gmanetwork.com/news/lifestyle/hobbiesandactivities/990922/megan-young-shares-bts-in-bulacan-presale-experience/story/) said she had browser tabs ready for both days and saw queue positions around 34,000 and 24,000.
 
-![BTS Bulacan ticket queue demand visualized through a Southeast Asia tour room](/images/news/bts-bulacan-ticket-war-1.png)
+![BTS Bulacan ticket queue demand visualized through a Southeast Asia tour room](/images/news/bts-bulacan-ticket-war-1.webp)
 _ChatGPT-generated editorial image representing Southeast Asia tour planning, virtual ticket queues and K-pop fan demand without real faces, logos or readable text._
 
 Those numbers do not prove total demand by themselves, and they should not be inflated into official attendance figures. But they do reveal the lived experience of the sale. A fan was not thinking in abstract words like "global expansion" or "touring economics" while staring at the queue. The fan was watching a moving gate and calculating whether two nights would be enough.

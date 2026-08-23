@@ -3,7 +3,7 @@ title: 'i-dle Announces Arena Tour Live on NBC''s Today Show — CUBE Entertainm
 excerpt: 'i-dle announced a 10-city North American arena tour live on NBC''s Today Show, performing their new single "Mono." With four consecutive Perfect All-Kills, a Melon Daesang, and full contract renewal — CUBE Entertainment is making its biggest move yet.'
 date: '2026-03-06'
 category: 'Industry'
-thumbnail: '/images/news/idle-nbc-today-show-arena-tour-cube-2026-thumbnail.png'
+thumbnail: '/images/news/idle-nbc-today-show-arena-tour-cube-2026-thumbnail.webp'
 active: true
 ---
 
@@ -38,7 +38,7 @@ General ticket sales begin March 11 at 3pm local time. VIP packages include prem
 
 The key detail: **every single stop is arena-level**. State Farm Arena (Atlanta) holds roughly 20,000. The Kia Forum (LA) seats approximately 17,000. A K-pop girl group running a 10-city North American arena tour is a concrete marker of how the market has shifted.
 
-![i-dle's NBC Today Show appearance and North American arena tour](/images/news/idle-nbc-today-show-arena-tour-cube-2026-1.png)
+![i-dle's NBC Today Show appearance and North American arena tour](/images/news/idle-nbc-today-show-arena-tour-cube-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## How i-dle Got Here — The Numbers Speak

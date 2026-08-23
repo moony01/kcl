@@ -3,7 +3,7 @@ title: 'HYBE Made More Money Than Ever. So Why Did the Quarter Still Turn Red?'
 excerpt: 'HYBE Q1 2026 revenue hit a record 698.3 billion won, but a 255 billion won one-off charge still pushed the BTS-fueled quarter into loss.'
 date: '2026-04-30'
 category: 'Industry'
-thumbnail: '/images/news/hybe-q1-red-ink-thumbnail.png'
+thumbnail: '/images/news/hybe-q1-red-ink-thumbnail.webp'
 active: true
 ---
 
@@ -45,7 +45,7 @@ The quarter also showed why HYBE cares so much about fan commerce infrastructure
 
 That matters because the tour itself only partially touched first-quarter earnings. Music Business Worldwide noted that concert revenue was still lower year over year at `88.7 billion won`, reflecting the fact that the `85-show` BTS world tour launched in April, after most of the quarter had already passed. In other words, HYBE got a huge revenue burst before the full touring machine even flowed through the books. The quarter was loud, but it may not have been the peak.
 
-![HYBE Q1 2026 earnings scene with glowing blue revenue boards and a red loss line](/images/news/hybe-q1-red-ink-1.png)
+![HYBE Q1 2026 earnings scene with glowing blue revenue boards and a red loss line](/images/news/hybe-q1-red-ink-1.webp)
 _The real paradox was not weak demand. It was that blockbuster fandom spending and a red operating line arrived in the same quarter._
 
 ## Why The Loss Still Matters Even If The Charge Was One-Time

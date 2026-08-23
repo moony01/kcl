@@ -3,7 +3,7 @@ title: "TREASURE’s ‘IF I’ Hit 100 Million Fast — The Real Story Is YG’
 excerpt: "TREASURE IF I 100 million views milestone made it the fastest K-pop MV of 2026 to hit the mark, turning YG’s NEW WAV rollout into a fan-speed test."
 date: "2026-06-15"
 category: "Tech & Culture"
-thumbnail: "/images/news/treasure-if-i-100m-thumbnail.png"
+thumbnail: "/images/news/treasure-if-i-100m-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ A milestone like this usually needs more than a good chorus. It needs a visual i
 
 That distinction matters for TREASURE because the group’s strongest lane has always been tied to performance intensity. `IF I` did not need to look soft, expensive or lore-heavy to win attention. It needed to look repeatable and forceful enough for clips, challenges and fan edits to do second-stage promotion after release day.
 
-![A global K-pop fandom turning a music video milestone into digital momentum](/images/news/treasure-if-i-100m-1.png)
+![A global K-pop fandom turning a music video milestone into digital momentum](/images/news/treasure-if-i-100m-1.webp)
 _ChatGPT-generated editorial image representing online fandom metrics, concert energy and music-video momentum without real faces, logos or readable text._
 
 ## NEW WAV Is Now Carrying A Bigger Argument

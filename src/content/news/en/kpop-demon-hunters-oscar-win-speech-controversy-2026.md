@@ -3,7 +3,7 @@ title: '''KPop Demon Hunters'' Wins Two Oscars — Then the Orchestra Cuts Off t
 excerpt: 'Netflix''s KPop Demon Hunters swept the 98th Academy Awards with Best Animated Feature and Best Original Song. Then the orchestra played the team off mid-sentence — and the internet called it disrespectful.'
 date: '2026-03-16'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-demon-hunters-oscar-win-speech-controversy-2026-thumbnail.png'
+thumbnail: '/images/news/kpop-demon-hunters-oscar-win-speech-controversy-2026-thumbnail.webp'
 active: true
 ---
 
@@ -39,7 +39,7 @@ Social media erupted within minutes. Hashtags #RespectKpopDemonHunters and #LetE
 
 The specific allegation being made: comparisons of time given to different winners before the orchestra started showed EJAE's clock began earlier than others. Whether that comparison holds up to strict analysis is contested, but the perception hardened quickly regardless.
 
-![KPop Demon Hunters wins two Oscars — Best Animated Feature and Best Original Song at the 98th Academy Awards](/images/news/kpop-demon-hunters-oscar-win-speech-controversy-2026-1.png)
+![KPop Demon Hunters wins two Oscars — Best Animated Feature and Best Original Song at the 98th Academy Awards](/images/news/kpop-demon-hunters-oscar-win-speech-controversy-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## The Academy's Response

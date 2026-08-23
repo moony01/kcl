@@ -3,7 +3,7 @@ title: "BTS Finally Got the AMA Slot K-Pop Rarely Touches — And That's the Rea
 excerpt: "BTS landed a 2026 AMA Artist of the Year nomination. Why SWIM, ARIRANG, and U.S. staying power make this bigger than another fan-vote headline."
 date: "2026-04-18"
 category: "Artist"
-thumbnail: "/images/news/bts-ama-aoty-thumbnail.png"
+thumbnail: "/images/news/bts-ama-aoty-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to Reuters via GMA News, the 2026 AMA nominations were determined usin
 
 Taken together, Soompi and AP show the broader picture. `ARIRANG` opened at No. 1 on the Billboard 200 in early April, `SWIM` hit No. 1 on the Hot 100, and BTS launched its world tour in Goyang on April 9. Days later came the AMA nomination slate. Album, single, tour, and awards momentum did not arrive as separate beats. They stacked into one sentence. That density is what makes this nomination feel expensive. The U.S. market is not treating BTS as a reunion curiosity. It is reading them again as a live center of gravity.
 
-![Global award-stage silhouettes symbolizing BTS's Artist of the Year nomination at the AMAs](/images/news/bts-ama-aoty-1.png)
+![Global award-stage silhouettes symbolizing BTS's Artist of the Year nomination at the AMAs](/images/news/bts-ama-aoty-1.webp)
 _An image symbolizing BTS moving from the genre lane into the main awards room._
 
 ## Why This Does Not End as a Fandom Story

@@ -3,7 +3,7 @@ title: 'YG Just Closed Its First Audition in 30 Years — And Yang Hyun-suk Did 
 excerpt: "YG Entertainment's first open special audition in 30 years just closed, with Yang Hyun-suk personally reviewing every application from day one. Here's what his return means for K-pop trainees worldwide."
 date: '2026-03-01'
 category: 'Trainee System'
-thumbnail: '/images/news/yg-yang-hyunsuk-audition-return-thumbnail.png'
+thumbnail: '/images/news/yg-yang-hyunsuk-audition-return-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ First, "visual" is listed as a standalone category. In K-pop, appearance has alw
 
 Second, excelling in just one area is enough to apply. Unlike SM's comprehensive evaluations that weigh singing, dancing, and looks simultaneously, YG's message is unmistakable: "Dominate in one thing." This mirrors how BIGBANG was built — G-Dragon walked in with rap, Taeyang with vocals and dance, T.O.P with visual presence and rap. Each member entered with a single, overwhelming weapon.
 
-![2026 YG Special Audition — Yang Hyun-suk's personal document review in the company's 30-year K-pop trainee selection history](/images/news/yg-yang-hyunsuk-audition-return-1.png)
+![2026 YG Special Audition — Yang Hyun-suk's personal document review in the company's 30-year K-pop trainee selection history](/images/news/yg-yang-hyunsuk-audition-return-1.webp)
 _Image source: YG Entertainment official announcement_
 
 ## The YG Trainee System — What Applicants Actually Need to Know

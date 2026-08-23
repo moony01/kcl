@@ -3,7 +3,7 @@ title: "420,000 Fans in 48 Hours: Japan Just Exposed K-pop's Real Venue Problem"
 excerpt: "Japan K-pop concerts drew over 420,000 fans in one weekend, showing why live demand is moving faster than Korea's venue map."
 date: "2026-05-06"
 category: "Market Trend"
-thumbnail: "/images/news/japan-super-weekend-thumbnail.png"
+thumbnail: "/images/news/japan-super-weekend-thumbnail.webp"
 active: true
 ---
 
@@ -37,7 +37,7 @@ The other advantage is less glamorous but just as important: Japan's transit and
 
 For K-pop companies, predictability is money. A promoter can schedule high-demand shows close together when the surrounding system can absorb queues, trains, merch lines, and hotel demand. If the same weekend happened in a market with fewer large venues and weaker transport planning, the result would look less like a festival atmosphere and more like a bottleneck.
 
-![Japan K-pop concerts operations map with glowing venue routes](/images/news/japan-super-weekend-1.png)
+![Japan K-pop concerts operations map with glowing venue routes](/images/news/japan-super-weekend-1.webp)
 _The weekend worked because Japan's live market had more than fans. It had enough venue and transport capacity to turn demand into movement._
 
 ## Korea's Venue Problem Got Louder Without Being Named

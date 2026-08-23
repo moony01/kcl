@@ -3,7 +3,7 @@ title: "BTS Just Took Over Mexico's National Palace - And It Wasn't Even the Con
 excerpt: "BTS Mexico Palace visit drew massive ARMY attention before the ARIRANG shows, turning one balcony moment into soft-power proof."
 date: '2026-05-07'
 category: 'Artist'
-thumbnail: '/images/news/bts-mexico-palace-thumbnail.png'
+thumbnail: '/images/news/bts-mexico-palace-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ During the Palacio Nacional greeting, El Financiero reported that Sheinbaum told
 
 That is a subtle but important difference. The president cannot simply create tour dates for a private artist. Korea JoongAng Daily's earlier coverage of Lee's response also made that boundary clear, noting that popular-culture activities are led by private entities and that government involvement is limited. Still, the political visibility changes the pressure around the conversation. It tells agencies and promoters that BTS demand in Mexico is not only measurable at checkout pages. It is visible in public space.
 
-![BTS Mexico Palace fandom crowd outside a civic concert district](/images/news/bts-mexico-palace-1.png)
+![BTS Mexico Palace fandom crowd outside a civic concert district](/images/news/bts-mexico-palace-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces or identifiable people._
 
 ## The Real Shock Was Scale, Not Surprise

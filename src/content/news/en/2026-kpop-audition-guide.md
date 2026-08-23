@@ -3,7 +3,7 @@ title: '2026 K-pop Audition Calendar & Success Guide - Big 4 Schedule Overview'
 excerpt: 'From JYP final open audition to HYBE 8-label unified audition. Complete 2026 major agency audition schedules and practical preparation strategies for success.'
 date: '2026-01-31'
 category: 'Trainee System'
-thumbnail: '/images/news/2026-kpop-audition-guide-thumbnail.png'
+thumbnail: '/images/news/2026-kpop-audition-guide-thumbnail.webp'
 ---
 
 January 2026 marks the beginning of the most extraordinary audition season in K-pop history.
@@ -33,7 +33,7 @@ HYBE, home to BTS, SEVENTEEN, NewJeans, and LE SSERAFIM, is conducting its large
 
 Source Music, home to LE SSERAFIM, is recruiting male trainees for the first time in company history. This is **the first boy group project from the girl group-focused label** — a chance to make history.
 
-![Audition preparation scene](/images/news/2026-kpop-audition-guide-1.png)
+![Audition preparation scene](/images/news/2026-kpop-audition-guide-1.webp)
 _2026 K-pop auditions are more competitive than ever_
 
 ## Agency Evaluation Criteria & Hidden Requirements

@@ -3,7 +3,7 @@ title: 'Santos Bravos Came to Seoul for a Reason - and It Wasn''t Korea'
 excerpt: 'Santos Bravos'' Korea push was not about domestic charts. HYBE used Seoul''s K-pop machine to beam a Latin act into the wider fandom economy.'
 date: '2026-04-30'
 category: 'Tech & Culture'
-thumbnail: '/images/news/santos-bravos-korea-thumbnail.png'
+thumbnail: '/images/news/santos-bravos-korea-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ There is already a short-term payoff signal. StarNews, citing HYBE Latin America
 
 Those numbers are company-cited, so they should be read carefully. But even with that caution, the direction is hard to ignore. The Korea campaign was brief, yet it created enough circulation for the agency to frame it as a turning point in global expansion. That is exactly the type of return HYBE would want from a controlled experiment: not proof that Korea became the main market, but proof that Korea amplified the signal.
 
-![Santos Bravos Korea expansion stage with neon Seoul broadcast lights and a Latin pop silhouette crowd](/images/news/santos-bravos-korea-1.png)
+![Santos Bravos Korea expansion stage with neon Seoul broadcast lights and a Latin pop silhouette crowd](/images/news/santos-bravos-korea-1.webp)
 _Santos Bravos did not need to sound Korean to move through a Korean promotion system. That is what makes the strategy worth watching._
 
 ## The Fan Reaction Reveals Why This Matters Beyond One Group

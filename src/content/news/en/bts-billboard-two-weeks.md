@@ -3,7 +3,7 @@ title: 'BTS Stayed No. 1 for 2 Weeks — The Bigger Signal Is What America Did N
 excerpt: 'BTS''s ARIRANG stayed No. 1 on the Billboard 200 for a second week with 187,000 units. The bigger story may be its U.S. staying power.'
 date: '2026-04-10'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-billboard-two-weeks-thumbnail.png'
+thumbnail: '/images/news/bts-billboard-two-weeks-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The sharper headline is that BTS became the first K-pop act to top the `Billboar
 
 `ARIRANG` is not only performing on charts. AP reported that BTS opened its new world tour in Goyang on April 9, 2026, while Weverse posted detailed notices for on-site merchandise sales, pickup, and sound check windows running from April 8 to April 12. That overlap matters. When week-two chart strength lands at the same time as stadium demand and venue commerce, album consumption starts converting directly into ticketing, merch, and city-level spending. [Related: Gwanghwamun Was the Teaser — What BTS Opened in Seoul Is Bigger Than a Tour](/en/news/bts-seoul-tour-kickoff)
 
-![An editorial chart room visualizing BTS holding No. 1 on Billboard 200 for a second week](/images/news/bts-billboard-two-weeks-1.png)
+![An editorial chart room visualizing BTS holding No. 1 on Billboard 200 for a second week](/images/news/bts-billboard-two-weeks-1.webp)
 _When chart durability and live demand move together, an album stops being just a release and starts acting like a market engine._
 
 ### The market is now seeing the length of demand, not just the size of fandom

@@ -3,7 +3,7 @@ title: '550,000 Fans: TWICE Just Did What K-pop Girl Groups Were Never Supposed 
 excerpt: 'TWICE drew 550,000 fans across 35 North American shows. The number may have reset the ceiling for K-pop girl-group touring.'
 date: '2026-04-28'
 category: 'Market Trend'
-thumbnail: '/images/news/twice-550k-north-america-thumbnail.png'
+thumbnail: '/images/news/twice-550k-north-america-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ The old shorthand for K-pop success in North America was simple: win Los Angeles
 
 For years, the unspoken belief in the industry was that boy groups could build mass touring scale in North America faster, while girl groups were more likely to face a harder ceiling. TWICE's new record does not erase every gap, but it does attack that assumption directly. If a girl group can carry `35 dates` across `20 cities` and finish the leg at `550,000`, then the conversation cannot stay stuck at whether female acts are "niche" in the West. The more relevant question becomes which groups can build the infrastructure, local loyalty, and catalog depth to follow the path.
 
-![TWICE North America record atmosphere inside a sold-out arena tour](/images/news/twice-550k-north-america-1.png)
+![TWICE North America record atmosphere inside a sold-out arena tour](/images/news/twice-550k-north-america-1.webp)
 _The bigger story is not one loud night. It is the proof that a K-pop girl group can keep arena-scale demand alive across an entire North American route._
 
 ## Why This Matters For JYP And The Wider Market

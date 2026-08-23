@@ -3,7 +3,7 @@ title: "Bomb Threats, Gas Guns, and a Terror Alert: The Full Story of BTS Gwangh
 excerpt: "As 260,000 fans descended on Seoul's Gwanghwamun Square for BTS's comeback concert, South Korean authorities raised the terror alert level, deployed 15,000 security personnel with anti-drone systems, and arrested concertgoers carrying gas guns, stun guns, and knives. MEARROW breaks down the largest security operation in K-pop history."
 date: '2026-03-21'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-concert-terror-alert-weapons-security-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-concert-terror-alert-weapons-security-2026-thumbnail.webp'
 active: true
 ---
 
@@ -90,7 +90,7 @@ The gas gun incident was not isolated. Multiple individuals were stopped at secu
 
 The scope of the seizures across the entry points marked a new threshold for K-pop event security. While most incidents likely involved genuine oversight rather than malicious intent, every seized item validated the checkpoint infrastructure.
 
-![A high-security operation visual representing the unprecedented 15,000-strong security force, anti-drone systems, and armed checkpoint seizures protecting the BTS Gwanghwamun comeback concert](/images/news/bts-arirang-concert-terror-alert-weapons-security-2026-1.png)
+![A high-security operation visual representing the unprecedented 15,000-strong security force, anti-drone systems, and armed checkpoint seizures protecting the BTS Gwanghwamun comeback concert](/images/news/bts-arirang-concert-terror-alert-weapons-security-2026-thumbnail.webp)
 _Image: AI generated via ChatGPT_
 
 ## The Concert Went On

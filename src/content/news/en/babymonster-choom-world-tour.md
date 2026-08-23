@@ -3,7 +3,7 @@ title: "27 Shows, 18 Cities - BABYMONSTER's 'CHOOM' Tour Just Exposed YG's Real 
 excerpt: "BABYMONSTER CHOOM tour adds 27 Asia-Oceania shows, turning YG's young girl group into a live-market test."
 date: '2026-05-12'
 category: 'Business'
-thumbnail: '/images/news/babymonster-choom-world-tour-thumbnail.png'
+thumbnail: '/images/news/babymonster-choom-world-tour-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The Asia-Oceania announcement did not appear in a vacuum. StarNews and AJU Press
 
 That sellout is why the 27-show map hits differently. If Seoul demand had looked soft, the overseas expansion would read like ambition trying to outrun evidence. Instead, YG can point to immediate domestic pressure first, then use the overseas schedule as the next layer of proof. The sequence is important: home market heat, then regional route, then later Europe, North America and South America.
 
-![BABYMONSTER CHOOM tour arena and global routing screens](/images/news/babymonster-choom-world-tour-1.png)
+![BABYMONSTER CHOOM tour arena and global routing screens](/images/news/babymonster-choom-world-tour-1.webp)
 _ChatGPT-generated editorial image visualizing BABYMONSTER's `CHOOM` tour expansion as a live-market control room, without real faces or official logos._
 
 ### Additional seats turn scarcity into marketing

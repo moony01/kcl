@@ -49,7 +49,7 @@ const ygCompany: CompanyRanking = {
   companyName: 'YG',
   nameKo: 'YG',
   nameEn: 'YG',
-  logoUrl: '/images/logos/yg_fan_art.jpeg',
+  logoUrl: '/images/logos/yg_fan_art.webp',
   gradientColor: '#111111',
   rank: 1,
   previousRank: 1,

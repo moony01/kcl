@@ -3,7 +3,7 @@ title: "G-Dragon on aespa's WDA? SM's 10-Track Gamble Just Got Dangerous"
 excerpt: "aespa WDA drops May 11 with G-Dragon, turning LEMONADE's comeback rollout into a timing-risk test for SM."
 date: '2026-05-11'
 category: 'Tech & Culture'
-thumbnail: '/images/news/aespa-wda-gdragon-risk-thumbnail.png'
+thumbnail: '/images/news/aespa-wda-gdragon-risk-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ The timing is the dangerous part. G-Dragon's agency, Galaxy Corporation, recentl
 
 That places `WDA` in a strange release environment. SM is not only borrowing G-Dragon's cultural weight. It is borrowing him at a moment when that weight is being re-audited by global fans. For aespa, the collaboration can still perform commercially. Yet the discourse attached to it will not be purely musical, and that is where the risk begins.
 
-![aespa WDA fandom reaction under violet and lemon stage lights](/images/news/aespa-wda-gdragon-risk-1.png)
+![aespa WDA fandom reaction under violet and lemon stage lights](/images/news/aespa-wda-gdragon-risk-1.webp)
 _A symbolic release-day crowd captures how `WDA` turns anticipation into argument traffic._
 
 ## The Fan Economy Around WDA Is Built For Arguments

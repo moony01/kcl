@@ -3,7 +3,7 @@ title: "MEOVV Just Said 'AWAKENING' - The Black Label's Mystery Game Has One Las
 excerpt: "MEOVV comeback teasers dropped on May 8 with 'AWAKENING' and 'ready to strike.' Now mystery has to become momentum."
 date: '2026-05-08'
 category: 'Artist'
-thumbnail: '/images/news/meovv-awakening-test-thumbnail.png'
+thumbnail: '/images/news/meovv-awakening-test-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ MEOVV did not enter the market as an anonymous new group. Korea JoongAng Daily r
 
 That context changes how fans read every comeback hint. A small-label rookie can ask for patience while building infrastructure. MEOVV arrived with global-label framing, fashion-heavy anticipation, and the shadow of THE BLACK LABEL's prestige. Capitol's own artist page notes that MEOVV premiered with the debut single `Meow` on September 6, 2024. From the beginning, this was not marketed as a slow local experiment. It was positioned as a global-facing act.
 
-![MEOVV comeback teaser control room with cat-eye lights and fan reaction screens](/images/news/meovv-awakening-test-1.png)
+![MEOVV comeback teaser control room with cat-eye lights and fan reaction screens](/images/news/meovv-awakening-test-1.webp)
 _A ChatGPT-generated editorial image representing how cryptic K-pop teaser campaigns turn fan reaction into business pressure._
 
 That is why the phrase `ready to strike` cuts both ways. It sounds fierce, but it also sets a measurable expectation. If THE BLACK LABEL is ready, the next steps should feel coordinated: a date, a content schedule, a clear music format, and a promotional path that converts curiosity into reach. If the campaign lingers too long in pure atmosphere, the very mystery that made it viral can turn into frustration.

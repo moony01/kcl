@@ -3,7 +3,7 @@ title: "JYP Just Partnered With Tencent — The Hidden Agenda Behind K-pop's Big
 excerpt: "JYP, CJ ENM, and Tencent Music have launched ONECEAD, a joint venture that signals K-pop's aggressive return to the Chinese market after a decade-long freeze."
 date: '2026-02-09'
 category: 'Business'
-thumbnail: '/images/news/onecead-jyp-tencent-china-kpop-thumbnail.png'
+thumbnail: '/images/news/onecead-jyp-tencent-china-kpop-thumbnail.webp'
 active: true
 ---
 
@@ -17,7 +17,7 @@ The name ONECEAD is no accident. It fuses JYP Entertainment's motto **"Leader in
 
 ONECEAD's inaugural project is **MODYSSEY**, a seven-member global boy group assembled through Mnet Plus's survival competition "Planet C: Home Race." The lineup — Hengyu, Fan Zheyi, Li Zihao, Lynnlynn, Suren, Yichen, and Rowan — was selected through millions of global votes, with the roster strategically calibrated for Greater China appeal.
 
-![Image symbolizing the ONECEAD joint venture and K-pop's return to the Chinese market](/images/news/onecead-jyp-tencent-china-kpop-1.png)
+![Image symbolizing the ONECEAD joint venture and K-pop's return to the Chinese market](/images/news/onecead-jyp-tencent-china-kpop-1.webp)
 _A new network connecting the Korean and Chinese music markets is now live_
 
 But ONECEAD's ambitions extend far beyond a single group. The venture aims to build a **comprehensive music business platform** spanning artist management, music production, touring, and merchandise across Greater China and international markets.

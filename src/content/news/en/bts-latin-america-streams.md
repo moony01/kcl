@@ -3,7 +3,7 @@ title: 'Brazil and Mexico Beat Korea on BTS Streams - 739 Million Plays Changed 
 excerpt: 'BTS Latin America streams put Brazil and Mexico ahead of Korea in Arirang first-week demand, turning fandom power into a market signal.'
 date: '2026-05-14'
 category: 'Industry'
-thumbnail: '/images/news/bts-latin-america-streams-thumbnail.png'
+thumbnail: '/images/news/bts-latin-america-streams-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The streaming story did not arrive alone. Yonhap reported that BTS drew a combin
 
 Mexico City gave the market that visual proof. The group's National Palace appearance with President Claudia Sheinbaum drew an estimated 50,000 people to the Zocalo, according to the Los Angeles Times, Korea.net, and El Pais coverage. El Pais also reported that the three concerts were expected to generate an estimated 1.861 billion pesos in economic impact for the city. Those figures do more than decorate a comeback narrative. They show why labels, promoters, and governments now read K-pop fandom as infrastructure.
 
-![BTS Latin America streams visualized as a stadium and global demand map](/images/news/bts-latin-america-streams-1.png)
+![BTS Latin America streams visualized as a stadium and global demand map](/images/news/bts-latin-america-streams-1.webp)
 _ChatGPT-generated editorial image representing BTS' Latin America streaming surge and stadium-scale fan demand, without real faces, official logos, or readable text._
 
 ## YouTube Confirms It Was Not A One-Platform Spike

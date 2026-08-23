@@ -3,7 +3,7 @@ title: "KATSEYE Just Skipped Music Bank - And the 'Scheduling' Answer Made It Wo
 excerpt: "KATSEYE Music Bank cancellation turned a missed stage into a fan-trust test as the group's Korean promo strategy faces new scrutiny."
 date: '2026-05-06'
 category: 'Tech & Culture'
-thumbnail: '/images/news/katseye-music-bank-cancel-thumbnail.png'
+thumbnail: '/images/news/katseye-music-bank-cancel-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ The agency's stated reason may be exactly true. Artist schedules are stitched to
 
 The problem is that "scheduling commitments" does not answer the question fans were actually asking. Fans wanted to know why a visible music-show slot collapsed during a Korea trip built around visible music-show momentum. A technically accurate explanation can still fail if it does not match the emotional scale of the disruption. That is what happened here: the sentence was small, but the trust cost was large.
 
-![KATSEYE Music Bank cancellation backstage corridor during Korean promotions](/images/news/katseye-music-bank-cancel-1.png)
+![KATSEYE Music Bank cancellation backstage corridor during Korean promotions](/images/news/katseye-music-bank-cancel-1.webp)
 _A ChatGPT-generated editorial visualization of the backstage uncertainty around a cancelled music-show appearance._
 
 ## The Chart Context Makes the No-Show Stranger

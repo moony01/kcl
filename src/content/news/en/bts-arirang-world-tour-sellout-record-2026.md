@@ -3,7 +3,7 @@ title: "BTS Sold Out 41 Stadiums Before Playing a Single Note — The $1.87 Bill
 excerpt: "Live Nation has officially confirmed: every single one of BTS's 41 North American, European, and UK stadium dates for the ARIRANG World Tour is sold out. 2.4 million tickets. $1.87 billion projected revenue. With 82 shows, BTS is closing in on Taylor Swift's all-time record set across 149 concerts."
 date: '2026-03-22'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-world-tour-sellout-record-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-world-tour-sellout-record-2026-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ Complete pre-tour sellouts at this scale are extraordinarily rare. Taylor Swift'
 
 What makes this even more striking: the Goyang opening shows (April 9-12) sold out entirely during the ARMY membership presale — before general tickets even went on sale.
 
-![BTS ARIRANG World Tour sold out 41 stadiums, 2.4 million tickets — compared to Taylor Swift's Eras Tour record](/images/news/bts-arirang-world-tour-sellout-record-2026-1.png)
+![BTS ARIRANG World Tour sold out 41 stadiums, 2.4 million tickets — compared to Taylor Swift's Eras Tour record](/images/news/bts-arirang-world-tour-sellout-record-2026-1.webp)
 _Image source: BTS World Tour official announcement_
 
 ## The Taylor Swift Comparison Nobody Can Ignore

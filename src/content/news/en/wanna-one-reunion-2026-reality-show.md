@@ -3,7 +3,7 @@ title: "Wanna One Reunites After 7 Years - The Produce 101 Legends Return"
 excerpt: "Wanna One, the national produce group that shook Korea in 2017, breaks a 7-year silence to return via a reality show. We analyze Mnet's reunion announcement, the members' handwritten letters, and what this comeback means for the K-pop industry."
 date: '2026-02-04'
 category: 'Artist'
-thumbnail: '/images/news/wanna-one-reunion-2026-reality-show-thumbnail.png'
+thumbnail: '/images/news/wanna-one-reunion-2026-reality-show-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ The letter that moved fans the most was **Park Jihoon's**:
 
 These letters surpassed **1 million views** on Mnet Plus within 24 hours of release, demonstrating the explosive interest surrounding Wanna One's reunion.
 
-![Wanna One reunion news](/images/news/wanna-one-reunion-2026-reality-show-1.png)
+![Wanna One reunion news](/images/news/wanna-one-reunion-2026-reality-show-1.webp)
 _Wanna One, united once again across 7 years — the beginning of a new reality show_
 
 ## Why a Reality Show Instead of Music?

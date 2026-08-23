@@ -3,7 +3,7 @@ title: 'Caught Between China and Japan — 120,000 Petitioned to Remove a K-Pop 
 excerpt: 'Aespa''s Ningning was pulled from a Japanese TV performance — not for anything she did musically, but for being Chinese. A 120,000-signature petition. A geopolitical war that drafted K-pop without asking.'
 date: '2026-03-25'
 category: 'Industry'
-thumbnail: '/images/news/kpop-china-japan-ningning-geopolitical-war-2026-thumbnail.png'
+thumbnail: '/images/news/kpop-china-japan-ningning-geopolitical-war-2026-thumbnail.webp'
 active: true
 ---
 
@@ -48,7 +48,7 @@ These groups face an impossible trade-off: promote the Chinese member to hold th
 
 SM Entertainment is reportedly reconsidering its regional member deployment strategy in the wake of the aespa incident. What was once a purely creative decision — who performs where — is now a geopolitical risk calculation.
 
-![K-pop group on a massive concert stage split by conflict between two audiences — representing the China-Japan geopolitical divide affecting K-pop groups in 2026](/images/news/kpop-china-japan-ningning-geopolitical-war-2026-1.png)
+![K-pop group on a massive concert stage split by conflict between two audiences — representing the China-Japan geopolitical divide affecting K-pop groups in 2026](/images/news/kpop-china-japan-ningning-geopolitical-war-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## China's Market Is Changing Structurally

@@ -3,7 +3,7 @@ title: 'Darkness vs Sugar — Why ITZY''s Two Solo Debuts Are Polar Opposites'
 excerpt: 'Yeji chose dark electro. Yuna chose bubblegum pop. Two solo debuts from the same K-pop group going in completely opposite directions isn''t a coincidence — it''s JYP''s calculated experiment.'
 date: '2026-03-27'
 category: 'Artist'
-thumbnail: '/images/news/yuna-solo-debut-ice-cream-thumbnail.png'
+thumbnail: '/images/news/yuna-solo-debut-ice-cream-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ For JYP, Yeji's AIR was a debut that delivered critical acclaim while leaving co
 
 On March 23, 2026, Yuna released her mini-album 'Ice Cream.' The title track is bright, addictive bubblegum pop with a message about living freely in the moment — "like ice cream melting away."
 
-![Stage lighting atmosphere capturing ITZY Yuna solo debut Ice Cream performance](/images/news/yuna-solo-debut-ice-cream-1.png)
+![Stage lighting atmosphere capturing ITZY Yuna solo debut Ice Cream performance](/images/news/yuna-solo-debut-ice-cream-1.webp)
 _Image: Colorful stage lighting of a solo debut performance_
 
 ### A Genre Spectrum in 4 Tracks

@@ -3,7 +3,7 @@ title: 'BTS Filled Goyang — And Exposed the 50,000-Seat Gap Korea Still Hasn''
 excerpt: 'BTS packed Goyang with roughly 132,000 fans, but the bigger story is Korea''s K-pop venue shortage. Why a global industry still leans on one 50,000-seat stage.'
 date: '2026-04-14'
 category: 'Industry'
-thumbnail: '/images/news/bts-korea-venue-crisis-thumbnail.png'
+thumbnail: '/images/news/bts-korea-venue-crisis-thumbnail.webp'
 active: true
 ---
 
@@ -19,7 +19,7 @@ According to Interpark, Yonhap and AJU Press, BTS opened the `ARIRANG` world tou
 
 The Korea Times reported that Goyang Stadium holds about 41,000 in fixed seating and can stretch close to 50,000 in concert configuration. In 2025 alone, it hosted 18 major concerts, drew 700,000 attendees and generated about 10.9 billion won in revenue. That matters because it means BTS did not choose Goyang only for symbolism. They chose it because Korea's large-scale live business increasingly defaults there when a show needs real stadium volume.
 
-![BTS Goyang concert control screens visualizing Korea's K-pop venue shortage](/images/news/bts-korea-venue-crisis-1.png)
+![BTS Goyang concert control screens visualizing Korea's K-pop venue shortage](/images/news/bts-korea-venue-crisis-1.webp)
 _A symbolic editorial image of Goyang Stadium and the shortage of large-scale concert infrastructure in Korea_
 
 ## The issue is not BTS. It is the number of stages.

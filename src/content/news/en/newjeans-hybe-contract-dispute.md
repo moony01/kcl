@@ -3,7 +3,7 @@ title: "NewJeans vs HYBE/ADOR Contract Dispute: An In-Depth Analysis of K-pop's 
 excerpt: "From Min Hee-jin's dismissal to contract termination attempts and court rulings. A comprehensive analysis of the most intense label-artist dispute in K-pop history and its impact on the industry."
 date: '2026-01-24'
 category: 'Industry Analysis'
-thumbnail: '/images/news/newjeans-hybe-contract-dispute-thumbnail.png'
+thumbnail: '/images/news/newjeans-hybe-contract-dispute-thumbnail.webp'
 ---
 
 If you had to pick the hottest keyword that defined the K-pop industry in 2025, it would undoubtedly be the **'NewJeans vs HYBE'** dispute. Beyond a simple contract disagreement, this case raised fundamental questions about K-pop's governance structure, artist rights, and the balance between creators and capital. Fandoms were divided, the industry was on edge, and the courts had to make unprecedented decisions.
@@ -18,7 +18,7 @@ At the extraordinary shareholders' meeting in May, Min narrowly avoided dismissa
 
 Following Min's dismissal, NewJeans held an emergency press conference in September with a shocking announcement: they were **notifying ADOR of their contract termination**. The members stated, "Our creative environment has been destroyed, and we can no longer operate as ADOR artists," claiming the contract should be void.
 
-![Image symbolizing the contract dispute](/images/news/newjeans-hybe-contract-dispute-1.png)
+![Image symbolizing the contract dispute](/images/news/newjeans-hybe-contract-dispute-1.webp)
 _An unprecedented legal battle between label and artists unfolded in K-pop history_
 
 ADOR (HYBE) immediately responded with legal action, and in **October, a Korean court ruled the contract valid**. The court determined that "there were insufficient grounds for contract termination" and ruled that NewJeans remains under ADOR. This decision blocked NewJeans' path to independence, leading to a continued stalemate. The global fandom split into two camps, each supporting their respective sides in heated debates across social media.

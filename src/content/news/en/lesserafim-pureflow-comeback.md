@@ -3,7 +3,7 @@ title: 'May 22 Is Not Even The Real Shock — Why LE SSERAFIM Put ''Celebration'
 excerpt: 'LE SSERAFIM opens its new era with ''Celebration'' on April 24 ahead of PUREFLOW pt.1, signaling a much bigger reset than a routine comeback.'
 date: '2026-04-13'
 category: 'Artist'
-thumbnail: '/images/news/lesserafim-pureflow-comeback-thumbnail.png'
+thumbnail: '/images/news/lesserafim-pureflow-comeback-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to Yonhap and multiple follow-up reports relaying Source Music’s exp
 
 This `LE SSERAFIM PUREFLOW` cycle also carries unusual weight because of the format. Yonhap and Korea JoongAng Daily both framed the project as the group’s first full-length album in nearly three years, following `Unforgiven` in 2023. That matters. A studio album asks for a longer narrative arc than a single or mini album, and the `pt.1` at the end of the title makes the project feel even less self-contained. Fans are not only asking what this album sounds like. They are already asking what comes after part one.
 
-![LE SSERAFIM PUREFLOW era visualized through water-lit silhouettes on a reflective stage](/images/news/lesserafim-pureflow-comeback-1.png)
+![LE SSERAFIM PUREFLOW era visualized through water-lit silhouettes on a reflective stage](/images/news/lesserafim-pureflow-comeback-1.webp)
 _An editorial visual for a comeback that looks festive on the surface but functions like the entry point to a larger chapter._
 
 ## Fans Are Reacting To The Structure Before The Music

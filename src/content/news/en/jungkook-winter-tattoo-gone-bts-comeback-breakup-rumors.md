@@ -3,7 +3,7 @@ title: "Jungkook's Tattoo Is Gone — 6 Clues Behind the BTS Comeback D-7 Breaku
 excerpt: "A new BTS video posted by V shows Jungkook's arm completely bare. With Winter's alleged couple tattoo also missing, breakup speculation has exploded just 7 days before BTS ARIRANG drops. We break down all 6 pieces of evidence—and the counter-arguments."
 date: '2026-03-13'
 category: 'Exclusive'
-thumbnail: '/images/news/jungkook-winter-tattoo-gone-bts-comeback-breakup-rumors-thumbnail.png'
+thumbnail: '/images/news/jungkook-winter-tattoo-gone-bts-comeback-breakup-rumors-thumbnail.webp'
 active: true
 ---
 
@@ -58,7 +58,7 @@ On January 1, 2026, after weeks of silence during the height of the dating rumor
 
 SM Entertainment announced it would pursue legal action against those spreading malicious comments and harassment targeting Winter following the dating rumors. Critically, however, **SM's statement never denied the relationship itself**. Industry observers interpreted this as deliberate: protect Winter from online abuse while leaving the actual rumor unaddressed. The same playbook was used by other major agencies in past high-profile idol dating situations.
 
-![Jungkook Winter dating timeline](/images/news/jungkook-winter-tattoo-gone-bts-comeback-breakup-rumors-1.png)
+![Jungkook Winter dating timeline](/images/news/jungkook-winter-tattoo-gone-bts-comeback-breakup-rumors-thumbnail.webp)
 _From the first couple tattoo post in December 2025 to the breakup speculation of March 2026 — a timeline of the biggest K-pop dating controversy of the year_
 
 ## The Counter-Arguments

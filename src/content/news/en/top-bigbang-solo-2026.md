@@ -3,7 +3,7 @@ title: "BIGBANG Is at Coachella — T.O.P Just Dropped a Solo Album Nobody Saw C
 excerpt: "While BIGBANG headlines Coachella 2026 for their 20th anniversary, T.O.P quietly released his first full solo album in 13 years — independently, without YG or the group. Here's what his choice reveals."
 date: '2026-04-06'
 category: 'Artist'
-thumbnail: '/images/news/top-bigbang-solo-2026-thumbnail.png'
+thumbnail: '/images/news/top-bigbang-solo-2026-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ The album is titled **'Another Dimension'** (Korean: 다중관점). Eleven track
 
 T.O.P made the album under his own independent label, **Topspot Pictures**. "For nearly ten years, I focused solely on making music," he said in interviews. "I adopted a more narrative-driven approach and experimented with complex sound structures I hadn't tried before." The result is an album built entirely on one artist's decade of uninterrupted work.
 
-![T.O.P's artistic independence — a musician stepping into a new creative dimension](/images/news/top-bigbang-solo-2026-1.png)
+![T.O.P's artistic independence — a musician stepping into a new creative dimension](/images/news/top-bigbang-solo-2026-1.webp)
 _T.O.P self-produced 'Another Dimension' under his independent label Topspot Pictures, distributed by Kakao Entertainment._
 
 ## BIGBANG's 20th Anniversary vs. T.O.P's Separate Stage

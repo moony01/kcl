@@ -3,7 +3,7 @@ title: 'SM Did It Again: Xiumin Allegedly Blocked from KBS — A Haunting Echo o
 excerpt: 'SM Entertainment faces allegations of blocking former artist Xiumin from KBS broadcasts. A decade after the JYJ Law was passed, the same disturbing pattern appears to be repeating — and the implications for the K-pop industry are alarming.'
 date: '2026-02-12'
 category: 'Industry'
-thumbnail: '/images/news/sm-xiumin-kbs-ban-jyj-pattern-thumbnail.png'
+thumbnail: '/images/news/sm-xiumin-kbs-ban-jyj-pattern-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ While SM's direct involvement was never legally confirmed, it was an open secret
 
 Yet here we are in 2026, watching the same company allegedly engage in the same pattern. "What good is a law if it's not enforced?" This frustrated sentiment from fans perfectly captures the situation.
 
-![Timeline of SM Entertainment's alleged broadcast interference from JYJ to Xiumin](/images/news/sm-xiumin-kbs-ban-jyj-pattern-1.png)
+![Timeline of SM Entertainment's alleged broadcast interference from JYJ to Xiumin](/images/news/sm-xiumin-kbs-ban-jyj-pattern-1.webp)
 _A troubling pattern: SM's alleged influence over broadcast appearances, from JYJ (2009) to Xiumin (2026)_
 
 ## The 2.6 Billion Won Asset Seizure

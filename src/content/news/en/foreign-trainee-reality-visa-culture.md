@@ -3,7 +3,7 @@ title: 'The Reality of Foreign K-pop Trainees - Visas, Language Barriers, and Cu
 excerpt: '28% of HYBE trainees are non-Korean. From the new K-Culture Training Visa to Korean language struggles and culture shock — an in-depth look at the harsh realities and survival strategies of international trainees chasing their K-pop dreams.'
 date: '2026-02-04'
 category: 'Trainee System'
-thumbnail: '/images/news/foreign-trainee-reality-visa-culture-thumbnail.png'
+thumbnail: '/images/news/foreign-trainee-reality-visa-culture-thumbnail.webp'
 ---
 
 The moment you board that flight to Korea, the real battle begins.
@@ -28,7 +28,7 @@ To address this, the South Korean government introduced the **K-Culture Training
 
 But reality remains tough. Even with a visa, **housing, training fees, and living expenses** are entirely self-funded. Freelance trainees without agency backing receive no structured support, and those who fail to sign with a company before their visa expires must return home.
 
-![Preparing for trainee life in Korea](/images/news/foreign-trainee-reality-visa-culture-1.png)
+![Preparing for trainee life in Korea](/images/news/foreign-trainee-reality-visa-culture-1.webp)
 _Between visa documents and passports begins the long journey of a K-pop trainee_
 
 ## The Language Barrier — "If You Can't Speak Korean, You Can't Even Receive Feedback"

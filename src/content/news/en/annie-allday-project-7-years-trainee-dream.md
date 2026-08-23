@@ -3,7 +3,7 @@ title: 'ALLDAY PROJECT Annie: 7 Years as a Trainee, Breaking Prejudice to Achiev
 excerpt: 'Moon Seoyun, daughter of Shinsegae Chairman Jung Yoo-kyung. She overcame prejudice that "rich kids have no talent" and family opposition, debuting with THE BLACK LABEL''s ALLDAY PROJECT after 7 years of training. Remote lessons across the Pacific, and Melon #1 just 3 days after debut. This is the victory of one who never gave up.'
 date: '2026-02-03'
 category: 'Trainee System'
-thumbnail: '/images/news/annie-allday-project-7-years-trainee-dream-thumbnail.png'
+thumbnail: '/images/news/annie-allday-project-7-years-trainee-dream-thumbnail.webp'
 ---
 
 "A chaebol's daughter becoming an idol?"
@@ -38,7 +38,7 @@ But Annie didn't back down. Instead, she chose to **negotiate**.
 
 This was her **first hurdle**—convincing her family. Eventually, under the condition of 'college admission,' Annie was allowed to begin her trainee life. True to her promise, she enrolled at **Columbia University** in the United States. An Ivy League student and K-pop trainee simultaneously. Two parallel lives had begun.
 
-![A trainee taking video lessons](/images/news/annie-allday-project-7-years-trainee-dream-1.png)
+![A trainee taking video lessons](/images/news/annie-allday-project-7-years-trainee-dream-1.webp)
 _Even with the Pacific Ocean between them, training for her dream never stopped_
 
 ## Four Years of Remote Lessons Across the Pacific

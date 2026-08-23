@@ -3,7 +3,7 @@ title: "BTS Kept 13 Songs on Billboard for 7 Weeks - The Album Era Wasn't Suppos
 excerpt: "BTS ARIRANG Billboard run kept 13 vocal tracks on global charts for seven weeks, turning one album into a market stress test."
 date: '2026-05-14'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-arirang-billboard-record-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-billboard-record-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ The most unusual line in the latest reports is not the No. 7 album placement. It
 
 That is the dangerous part for competitors. If fans only stream the title track, the album behaves like a marketing wrapper. If fans keep returning to the full tracklist, every song becomes inventory: playlist inventory, concert inventory, short-form edit inventory, lyric-discussion inventory, and fan-culture inventory. Thirteen tracks staying active gives BTS more surfaces for attention than a normal single-led comeback can offer.
 
-![BTS ARIRANG Billboard record shown as thirteen glowing global chart lanes](/images/news/bts-arirang-billboard-record-1.png)
+![BTS ARIRANG Billboard record shown as thirteen glowing global chart lanes](/images/news/bts-arirang-billboard-record-1.webp)
 _ChatGPT-generated editorial image visualizing thirteen ARIRANG tracks as global chart momentum._
 
 The fan response shows why this detail travels. On Reddit, BTS communities were not only celebrating another No. 1. They were arguing over the shape of the record itself: whether all songs had remained on Global 200, how the Bell of King Seongdeok track should be counted, and why the number seven keeps returning inside the group's narrative. That kind of debate is useful because it turns a chart line into shareable fandom language.

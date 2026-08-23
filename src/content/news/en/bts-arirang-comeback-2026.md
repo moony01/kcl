@@ -3,7 +3,7 @@ title: 'BTS Dropped the ''ARIRANG'' Tracklist — And It''s Not the Comeback Any
 excerpt: 'BTS unveiled the 14-track ''ARIRANG'' tracklist today (March 4). Diplo, JPEGMAFIA, Kevin Parker. This lineup signals something far beyond a standard comeback.'
 date: '2026-03-04'
 category: 'Artist'
-thumbnail: '/images/news/bts-arirang-comeback-2026-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-comeback-2026-thumbnail.webp'
 active: true
 ---
 
@@ -39,7 +39,7 @@ The credits sheet reads like a who's-who of modern genre-crossing music:
 
 This is not a list of "big names for marketing." Diplo represents global dance-pop. Kevin Parker brings indie rock sensibility. JPEGMAFIA signals experimental hip-hop credibility. El Guincho opens a door to the Latin-influenced global pop world Rosalía has built. This is a multi-directional offensive, not a single-market expansion.
 
-![A futuristic music production studio representing the global collaboration behind BTS ARIRANG album](/images/news/bts-arirang-comeback-2026-1.png)
+![A futuristic music production studio representing the global collaboration behind BTS ARIRANG album](/images/news/bts-arirang-comeback-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## The Netflix Concert and World Tour Strategy

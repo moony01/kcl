@@ -3,7 +3,7 @@ title: "IVE's Yujin Caught in Dating Rumors With Actor Moon Sang Min — A Singl
 excerpt: "A viral post with 27,000+ views claims IVE's Ahn Yujin used Moon Sang Min's old Instagram profile picture as her phone wallpaper. Fans are divided. Starship Entertainment stays silent. Here's what the 'lovestagram' evidence actually shows — and what it means for K-pop's dating culture in 2026."
 date: '2026-03-18'
 category: 'Artist'
-thumbnail: '/images/news/ive-yujin-moon-sangmin-dating-rumors-lovestagram-2026-thumbnail.png'
+thumbnail: '/images/news/ive-yujin-moon-sangmin-dating-rumors-lovestagram-2026-thumbnail.webp'
 active: true
 ---
 
@@ -44,7 +44,7 @@ Yet "largely dismissed" doesn't mean "universally dismissed." A vocal subset of 
 
 This split is itself revealing. The era of violent fandom backlash to idol dating (mass unfollow campaigns, fan cafe meltdowns, sasaeng-style pressure) has softened considerably by 2026. What remains is something more complex: **fans who intellectually accept idols' right to date, but emotionally struggle when confronted with evidence of it**.
 
-![IVE's Ahn Yujin dating rumors with actor Moon Sang Min — a lovestagram phone wallpaper match goes viral on Korean online communities](/images/news/ive-yujin-moon-sangmin-dating-rumors-lovestagram-2026-1.png)
+![IVE's Ahn Yujin dating rumors with actor Moon Sang Min — a lovestagram phone wallpaper match goes viral on Korean online communities](/images/news/ive-yujin-moon-sangmin-dating-rumors-lovestagram-2026-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## Starship Entertainment's Silence — A Strategy, Not an Oversight

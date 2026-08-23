@@ -3,7 +3,7 @@ title: 'CIX Just Hit the 7-Year Wall - And Seunghun Said the Quiet Part Out Loud
 excerpt: 'CIX disbandment turned into a harsher K-pop warning when Seunghun retirement exposed the cost behind the seven-year wall.'
 date: '2026-05-06'
 category: 'Industry'
-thumbnail: '/images/news/cix-seven-year-end-thumbnail.png'
+thumbnail: '/images/news/cix-seven-year-end-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ The C9 announcement explained what would happen to the team. Seunghun's letter e
 
 The line that traveled fastest was the one about putting down the singer title for a while. It did not read like a clean solo pivot, a label transfer, or a promise to return next season. It read like someone who had spent most of his life training, debuting, promoting, competing, and waiting had finally reached a point where the stage itself needed distance.
 
-![CIX disbandment rehearsal room symbolizing Seunghun retirement](/images/news/cix-seven-year-end-1.png)
+![CIX disbandment rehearsal room symbolizing Seunghun retirement](/images/news/cix-seven-year-end-1.webp)
 _A ChatGPT-generated editorial image of an empty rehearsal room, symbolizing the quiet aftermath of a group ending._
 
 That emotional specificity is why the story moved beyond CIX's core fandom. Plenty of groups pause, rebrand, or dissolve. Fewer idols say so plainly that they are scared of life outside the work they have done since childhood. Seunghun's message pulled the business event back into human scale.

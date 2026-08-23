@@ -3,7 +3,7 @@ title: "HYBE's $135M Question: Bang Si-hyuk Dodged Arrest, Not the Case"
 excerpt: "Bang Si-hyuk's warrant was rejected, but HYBE's investor-fraud probe now tests governance during BTS's richest comeback cycle."
 date: '2026-05-04'
 category: 'Industry'
-thumbnail: '/images/news/hybe-135m-question-thumbnail.png'
+thumbnail: '/images/news/hybe-135m-question-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The heart of the investigation is not a normal entertainment-company scandal. It
 
 Different outlets have framed the suspected amount slightly differently. Korea JoongAng Daily put one key figure at about `190 billion won`, or roughly `$128 million`, while AP described police belief that the fund may have paid Bang around `200 billion won`, or about `$135 million`, through a side arrangement. Those numbers are why the story travels outside Korea. They make the dispute legible to global readers who may not follow Korean securities law but instantly understand the scale of a nine-figure allegation.
 
-![HYBE investor fraud investigation boardroom after warrant rejection](/images/news/hybe-135m-question-1.png)
+![HYBE investor fraud investigation boardroom after warrant rejection](/images/news/hybe-135m-question-1.webp)
 _The legal question is now less about one dramatic warrant headline and more about whether HYBE can separate business momentum from governance risk._
 
 ### The IPO context makes the claim sharper

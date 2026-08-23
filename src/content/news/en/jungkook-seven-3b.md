@@ -3,7 +3,7 @@ title: "Jungkook’s ‘Seven’ Hit 3 Billion Streams — K-pop’s Solo Ceilin
 excerpt: "Jungkook Seven 3B Spotify milestone pushes K-pop solo power into a new streaming tier and turns one song into a market signal."
 date: '2026-06-25'
 category: 'Artist'
-thumbnail: '/images/news/jungkook-seven-3b-thumbnail.png'
+thumbnail: '/images/news/jungkook-seven-3b-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The wording around the record needs precision. UPI/Yonhap and The Korea Times fr
 
 Both angles point to the same underlying shift: K-pop solo performance is no longer only compared inside Korea or inside idol fandom. It is being measured against the all-platform, all-market logic of global streaming. That matters because a song crossing 3 billion streams starts to leave the usual K-pop debate and enters a more brutal category: catalog durability.
 
-![Jungkook Seven 3B Spotify milestone represented by anonymous global fandom lights and streaming waves](/images/news/jungkook-seven-3b-1.png)
+![Jungkook Seven 3B Spotify milestone represented by anonymous global fandom lights and streaming waves](/images/news/jungkook-seven-3b-1.webp)
 _ChatGPT-generated editorial image showing anonymous global fandom silhouettes, abstract music streams and no real faces, logos or readable text._
 
 ## Why `Seven` Had The Right Shape For This Kind Of Run

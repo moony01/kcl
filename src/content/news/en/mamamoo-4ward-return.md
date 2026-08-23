@@ -3,7 +3,7 @@ title: 'Four Voices, Four Years, One Teaser: Why MAMAMOO''s ''4WARD'' Already Fe
 excerpt: 'MAMAMOO 4WARD teaser turns a June comeback and world tour into RBW''s biggest 12th-anniversary test.'
 date: '2026-05-07'
 category: 'Artist'
-thumbnail: '/images/news/mamamoo-4ward-return-thumbnail.png'
+thumbnail: '/images/news/mamamoo-4ward-return-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The teaser also gives the comeback a useful title before the music arrives. `4WA
 
 Allkpop's earlier coverage put the gap in plain terms: MAMAMOO's last group release was the `2022` EP `MIC ON` with the title track `ILLELLA`, while the members have spent the years since on solo and subunit work. The group also completed its last world-tour cycle in `2023`. That means `4WARD` is not being received like a comeback after a short off-season. It is being received like a proof-of-life moment for one of third-generation K-pop's most respected vocal brands.
 
-![MAMAMOO 4WARD comeback rehearsal room before June return](/images/news/mamamoo-4ward-return-1.png)
+![MAMAMOO 4WARD comeback rehearsal room before June return](/images/news/mamamoo-4ward-return-1.webp)
 _Image: ChatGPT-generated editorial image of an empty rehearsal room before a major K-pop reunion era._
 
 That gap can help and hurt at the same time. Absence creates hunger, and MAMAMOO's catalog gives fans plenty of reasons to wait. But absence also raises the bar. A group this associated with live vocals, personality, and stage control cannot return with content that only feels technically adequate. The comeback has to feel necessary. If `4WARD` sounds like a ceremonial release, it will satisfy loyal fans but struggle to reset the wider conversation. If it sounds like a group with something current to prove, the gap becomes an advantage.

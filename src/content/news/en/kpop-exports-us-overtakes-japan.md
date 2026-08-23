@@ -3,7 +3,7 @@ title: "The U.S. Just Took Japan's K-pop Crown — And the $120M Quarter Is the 
 excerpt: 'K-pop album exports hit $120M in Q1 2026, and the U.S. passed Japan. The shift could change how agencies plan the next export push.'
 date: '2026-04-28'
 category: 'Market Trend'
-thumbnail: '/images/news/kpop-exports-us-overtakes-japan-thumbnail.png'
+thumbnail: '/images/news/kpop-exports-us-overtakes-japan-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ One reason this number looks strange to casual observers is that it seems to con
 
 The Korea Customs Service itself pointed to two forces behind the Q1 surge: the continued global expansion of K-pop fandoms and growing demand for physical albums amid fatigue with algorithm-driven streaming. That second point is easy to underestimate. In many music markets, passive listening has become frictionless and endless, but frictionless does not always mean emotionally satisfying. Physical albums create a sense of possession that streaming cannot, especially in fandoms where collecting is part of participation. Once that logic clicks, a purchase is no longer just about hearing the tracks. It becomes a way to support a bias, qualify for an event, complete a set, or own a piece of an era before it disappears.
 
-![K-pop album exports chart showing the U.S. overtaking Japan in Q1 2026](/images/news/kpop-exports-us-overtakes-japan-1.png)
+![K-pop album exports chart showing the U.S. overtaking Japan in Q1 2026](/images/news/kpop-exports-us-overtakes-japan-1.webp)
 _The ranking shift matters because it hints at where physical fandom is now monetizing most aggressively, not just where songs are being streamed._
 
 ## The Boom Comes With A Catch

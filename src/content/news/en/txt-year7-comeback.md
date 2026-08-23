@@ -3,7 +3,7 @@ title: 'TXT Renewed, Then Changed The Mood — Why Their Year-7 Comeback Feels D
 excerpt: 'TXT returns on April 13 with its 8th EP. After renewing with BigHit, 7TH YEAR looks less like an anniversary and more like a reset test for the group.'
 date: '2026-04-13'
 category: 'Artist'
-thumbnail: '/images/news/txt-year7-comeback-thumbnail.png'
+thumbnail: '/images/news/txt-year7-comeback-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Last July’s `The Star Chapter: TOGETHER` already felt like the end of one cycl
 
 The Korea Times made that subtext clearer in its April comeback-calendar coverage, describing this release as the group’s first post-renewal project and a turning point toward what is being framed as a second chapter. That helps explain why fans are reading `7TH YEAR` as a callback to TXT’s earliest identity. This comeback is being consumed as a narrative reset, not just a new batch of songs. Reaching back to your own mythology in year seven only works if you can make it feel like expansion instead of repetition.
 
-![TXT year-7 comeback pressure visualized in a thorn-lit backstage corridor](/images/news/txt-year7-comeback-1.png)
+![TXT year-7 comeback pressure visualized in a thorn-lit backstage corridor](/images/news/txt-year7-comeback-1.webp)
 _A visual metaphor for a comeback that feels more tense than nostalgic._
 
 ## This Comeback Sits At The Center Of HYBE’s 2026 Calendar

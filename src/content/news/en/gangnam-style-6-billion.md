@@ -3,7 +3,7 @@ title: "‘Gangnam Style’ Hit 6 Billion Views — and K-pop Still Measures Its
 excerpt: "PSY’s ‘Gangnam Style’ is the first K-pop video past 6 billion YouTube views. Fourteen years on, its longevity still defines global reach."
 date: '2026-07-21'
 category: 'Tech & Culture'
-thumbnail: '/images/news/gangnam-style-6-billion-thumbnail.png'
+thumbnail: '/images/news/gangnam-style-6-billion-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ In December 2012, “Gangnam Style” became the first video of any kind to reac
 
 That was the disruptive part. A Korean-language song could travel without radio programmers or English-language familiarity deciding the size of its audience first. Viewers understood the comic rhythm, the dance and the visual escalation before they understood every lyric. The video turned cultural specificity into an advantage because its world was memorable enough to invite imitation.
 
-![Gangnam Style 6 billion views visualized as global digital motion](/images/news/gangnam-style-6-billion-1.png)
+![Gangnam Style 6 billion views visualized as global digital motion](/images/news/gangnam-style-6-billion-1.webp)
 _An OpenClaw-generated editorial visualization of a playful dance signal expanding through billions of digital viewing paths; no real person or official logo is depicted._
 
 ## Six billion exposes the difference between a spike and a standard

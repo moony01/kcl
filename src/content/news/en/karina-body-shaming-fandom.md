@@ -3,7 +3,7 @@ title: 'One Viral Post Body-Shamed aespa Karina — Fans Turned on Their Own and
 excerpt: 'A Pann post mocking aespa Karina went viral — but this time K-pop fans fought back against the shamers inside their own community. A turning point in K-pop fandom culture''s darkest habit.'
 date: '2026-03-02'
 category: 'Tech & Culture'
-thumbnail: '/images/news/karina-body-shaming-fandom-thumbnail.png'
+thumbnail: '/images/news/karina-body-shaming-fandom-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ The result became a feedback loop. An idol gains weight — fans "encourage" die
 
 Karina has been subject to this dynamic for years. As the leader of SM Entertainment's aespa, her physical appearance has been over-scrutinized online since her debut. This wasn't the first controversy around her body.
 
-![K-pop fandom community split over body shaming controversy online](/images/news/karina-body-shaming-fandom-1.png)
+![K-pop fandom community split over body shaming controversy online](/images/news/karina-body-shaming-fandom-1.webp)
 _The moment a fandom divides — between those who shame and those who refuse to_
 
 ## Three Reasons This Time Was Different

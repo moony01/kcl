@@ -3,7 +3,7 @@ title: "XG's Creator Was Arrested for Cocaine — Then the Abuse Exposé Hit"
 excerpt: 'XG producer and XGALX CEO Simon Jakops was arrested in a Nagoya hotel on drug charges hours after an XG concert. Days later came something worse: allegations that staff abuse had become routine inside XGALX.'
 date: '2026-03-03'
 category: 'Artist'
-thumbnail: '/images/news/xg-simon-jakops-drug-arrest-thumbnail.png'
+thumbnail: '/images/news/xg-simon-jakops-drug-arrest-thumbnail.webp'
 active: true
 ---
 
@@ -42,7 +42,7 @@ Around February 28, multiple sources began reporting on internal allegations. Pe
 - After XG's debut, his drinking reportedly worsened, with club and bar tabs billed to the **company card**.
 - Questions were also raised about opaque credit attribution and revenue distribution practices inside XGALX.
 
-![Empty dance practice room evoking the atmosphere inside XGALX following Simon Jakops' arrest](/images/news/xg-simon-jakops-drug-arrest-1.png)
+![Empty dance practice room evoking the atmosphere inside XGALX following Simon Jakops' arrest](/images/news/xg-simon-jakops-drug-arrest-1.webp)
 _Image: AI-generated_
 
 What had appeared to be a personal legal matter began to look like the visible edge of something systemic.

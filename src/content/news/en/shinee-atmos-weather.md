@@ -3,7 +3,7 @@ title: "SHINee Just Turned 'Atmos' Into a Comeback Trap - 6 Songs, 3 Shows, One 
 excerpt: "SHINee Atmos arrives June 1 with six tracks and three KSPO Dome shows. The comeback is not only about nostalgia."
 date: '2026-05-11'
 category: 'Artist'
-thumbnail: '/images/news/shinee-atmos-weather-thumbnail.png'
+thumbnail: '/images/news/shinee-atmos-weather-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The `Atmos` teaser and schedule film immediately pushed fans into interpretation
 
 That gives `Atmos` a useful advantage in a crowded May-to-June K-pop schedule. Many comebacks try to create volume through louder visuals or bigger claims. SHINee can create volume through recognition. A weather concept does not need to explain itself loudly when the audience already trusts the group to turn an abstract word into performance language. In that sense, the teaser did the right job: it made fans feel the comeback before anyone heard the title track.
 
-![SHINee Atmos comeback stage under pearl-aqua weather lights](/images/news/shinee-atmos-weather-1.png)
+![SHINee Atmos comeback stage under pearl-aqua weather lights](/images/news/shinee-atmos-weather-1.webp)
 _ChatGPT-generated editorial image visualizing the weather-like pressure around SHINee's `Atmos` comeback, without real faces or official logos._
 
 ## The Concert Is Not A Bonus. It Is The Engine.

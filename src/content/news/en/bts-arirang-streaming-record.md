@@ -3,7 +3,7 @@ title: '1.58B Streams in 30 Days - BTS Just Entered a Club K-Pop Was Never Suppo
 excerpt: 'BTS ARIRANG reportedly crossed 1.58B Spotify streams in its first month. The bigger story is how K-pop streaming power is being repriced.'
 date: '2026-04-23'
 category: 'Market Trend'
-thumbnail: '/images/news/bts-arirang-streaming-record-thumbnail.png'
+thumbnail: '/images/news/bts-arirang-streaming-record-thumbnail.webp'
 active: true
 ---
 
@@ -23,7 +23,7 @@ The first-month figure also lands after earlier data points had already prepared
 
 Streaming records feel simple because they come as one number. The business underneath is not simple at all. Forbes reported that `ARIRANG` debuted at No. 1 on the Billboard 200 with 641,000 equivalent album units, and separate Billboard-chart coverage reported that `SWIM` simultaneously opened at No. 1 on the Hot 100. ChosunBiz separately reported BigHit's announcement that the album sold 3.98 million copies on its first day and topped Apple Music in 115 countries. Those figures describe different channels, but they point to the same conversion loop: attention became listening, listening became chart power, and chart power fed the next wave of attention.
 
-![BTS ARIRANG streaming record shown through global fan smartphones and data trails](/images/news/bts-arirang-streaming-record-1.png)
+![BTS ARIRANG streaming record shown through global fan smartphones and data trails](/images/news/bts-arirang-streaming-record-1.webp)
 _A ChatGPT-generated editorial visualization of ARIRANG turning fan attention into a global streaming wave._
 
 This is why the current moment is more important than the exact trophy line. A K-pop album crossing the 1.5 billion-stream conversation in one month puts Korean-language pop inside the same streaming vocabulary usually reserved for the largest Western and Latin releases. It also forces labels to ask a sharper question: can this level of listening be designed, or is it only possible when BTS is the artist?

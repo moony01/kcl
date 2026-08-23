@@ -3,7 +3,7 @@ title: "The Big Four Finally Joined Hands: Korea's Plan to Build the Next Coache
 excerpt: 'HYBE, SM, JYP, and YG are pushing a Fanomenon joint venture. K-pop now wants to export the festival format, not just its idols.'
 date: '2026-04-17'
 category: 'Industry'
-thumbnail: '/images/news/big4-fanomenon-festival-thumbnail.png'
+thumbnail: '/images/news/big4-fanomenon-festival-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ This timeline goes back to late 2025. According to Maeil Business and Music Busi
 
 MBW and Maeil Business both described the same broad roadmap: an annual large-scale global music festival and awards event in Korea in December 2027, followed by worldwide touring from 2028. That timeline matters because it implies K-pop no longer wants to measure success only by how many artists it can place on foreign festival posters. The new ambition is to own the event architecture itself and scale it outward.
 
-![A global outdoor stage symbolizing the Big Four's K-pop festival joint venture strategy](/images/news/big4-fanomenon-festival-1.png)
+![A global outdoor stage symbolizing the Big Four's K-pop festival joint venture strategy](/images/news/big4-fanomenon-festival-1.webp)
 _The bigger export play here is not another idol group. It is a portable festival model built around K-pop's strongest IP._
 
 ## The real asset in this deal is control, not just the lineup

@@ -3,7 +3,7 @@ title: "BTS Just Took Over the World Cup Final - Football Fans Did Not See K-pop
 excerpt: "BTS World Cup halftime puts K-pop beside Madonna and Shakira, turning FIFA's first final-stage show into a fandom power test."
 date: '2026-05-15'
 category: 'Tech & Culture'
-thumbnail: '/images/news/bts-world-cup-halftime-thumbnail.png'
+thumbnail: '/images/news/bts-world-cup-halftime-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ That tension is the hook. BTS are not being added to a normal K-pop award stage.
 
 Madonna gives the show pop-history weight. Shakira gives it World Cup familiarity and a direct connection to global football memory. BTS bring something different: a fandom system that can turn one scheduling detail into days of search, translation, reposting, edits, streaming parties, and argument. That is the part FIFA is buying, even if the press release talks in softer language.
 
-![BTS World Cup halftime broadcast control room with K-pop fandom lights](/images/news/bts-world-cup-halftime-1.png)
+![BTS World Cup halftime broadcast control room with K-pop fandom lights](/images/news/bts-world-cup-halftime-1.webp)
 _An abstract broadcast room visualizes how K-pop fandom could reshape the World Cup final's media cycle._
 
 The risk is also different. Football fans are already debating whether a final needs a halftime show at all. K-pop fans, especially BTS fans, will measure camera time, setlist choices, live vocals, choreography, crowd audio, and respect from the broadcast. Those two audiences do not grade the same event by the same standards. FIFA is trying to merge them in real time.

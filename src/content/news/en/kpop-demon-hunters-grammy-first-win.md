@@ -3,7 +3,7 @@ title: "'KPop Demon Hunters' Wins Grammy - The Significance of K-pop's First-Eve
 excerpt: "'Golden' from Netflix's 'KPop Demon Hunters' won at the 68th Grammy Awards, marking a historic milestone for K-pop. Nominated in 4 categories, the track finally brought home the trophy. We analyze what this victory means for the K-pop industry."
 date: '2026-02-04'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-demon-hunters-grammy-first-win-thumbnail.png'
+thumbnail: '/images/news/kpop-demon-hunters-grammy-first-win-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ BTS was nominated for **three consecutive years** from 2021 to 2023 in the Best 
 
 This is exactly why 'Golden's' win carries such weight. It opened the Grammy door not through pure K-pop music, but through **a fusion with a Hollywood film**. Music critic Hee-yun analyzed the win as "an effect of KPop Demon Hunters' global reach." The combination of K-pop's musical prowess with **Netflix as a global platform** broke down the perception barriers among Grammy voters.
 
-![A historic moment for K-pop at the Grammys](/images/news/kpop-demon-hunters-grammy-first-win-1.png)
+![A historic moment for K-pop at the Grammys](/images/news/kpop-demon-hunters-grammy-first-win-1.webp)
 _K-pop's first-ever Grammy trophy — the new door that 'Golden' opened_
 
 ## What EJAE's Tears Tell Us

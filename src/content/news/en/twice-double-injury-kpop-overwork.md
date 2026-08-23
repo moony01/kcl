@@ -3,7 +3,7 @@ title: "'Just Sit in a Chair and Perform' — The K-pop Machine That Won't Let I
 excerpt: "TWICE's Dahyun performed on a broken ankle from a chair. Chaeyoung couldn't board her flight due to back pain. Two members sidelined mid-tour across 43 cities — exposing the relentless overwork system behind K-pop's biggest stages."
 date: '2026-03-28'
 category: 'Industry'
-thumbnail: '/images/news/twice-double-injury-kpop-overwork-thumbnail.png'
+thumbnail: '/images/news/twice-double-injury-kpop-overwork-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ This wasn't Chaeyoung's first health crisis. In November 2025, she was diagnosed
 
 TWICE is a nine-member group. As of March 27, 2026, only seven members are performing. The 43-city world tour isn't even halfway done. A solo concert at Tokyo's National Stadium is scheduled for April. The tour doesn't stop.
 
-![Backstage tension between K-pop stage lights and an empty rehearsal room](/images/news/twice-double-injury-kpop-overwork-1.png)
+![Backstage tension between K-pop stage lights and an empty rehearsal room](/images/news/twice-double-injury-kpop-overwork-1.webp)
 _The stage lights never go off — even when the idols go down._
 
 ## Fans Erupted. JYP Went Silent.

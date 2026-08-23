@@ -3,7 +3,7 @@ title: "K-pop's Cheapest Stage Just Became Its Most Dangerous - Campuses Are Ste
 excerpt: "K-pop university festivals are turning May campuses into public-stage tests for RIIZE, ILLIT, Cortis and rookies."
 date: '2026-05-12'
 category: 'Industry'
-thumbnail: '/images/news/kpop-campus-festival-war-thumbnail.png'
+thumbnail: '/images/news/kpop-campus-festival-war-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ For a rookie or pre-debut act, that is a sharper test than a polished teaser. A 
 
 This is especially important in 2026, when the comeback and debut calendar is brutally crowded. A rookie can disappear inside teaser traffic in hours. A campus performance can create a human receipt: people were there, phones went up, the hook landed, and a crowd that did not arrive as loyal buyers still paid attention.
 
-![K-pop university festivals turning campus stages into live-market tests](/images/news/kpop-campus-festival-war-1.png)
+![K-pop university festivals turning campus stages into live-market tests](/images/news/kpop-campus-festival-war-1.webp)
 _ChatGPT-generated editorial image visualizing campus festival planning, crowd routing and social buzz around K-pop university festivals, without real faces or official logos._
 
 ## May Is Becoming A Festival Infrastructure Month

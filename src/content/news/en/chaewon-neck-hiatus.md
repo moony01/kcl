@@ -3,7 +3,7 @@ title: "Kim Chaewon Neck Hiatus Hits LE SSERAFIM - The PUREFLOW Timing Is Brutal
 excerpt: "Kim Chaewon's neck pain hiatus lands days before LE SSERAFIM's PUREFLOW, turning a health notice into a comeback-risk test."
 date: '2026-05-20'
 category: 'Artist'
-thumbnail: '/images/news/chaewon-neck-hiatus-thumbnail.png'
+thumbnail: '/images/news/chaewon-neck-hiatus-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ This is not only a staffing issue. Chaewon is not a background variable in LE SS
 
 StarNews reported that after the pre-release stage for `CELEBRATION`, some fans had already expressed concern over an intense performance that included vigorous headbanging and had asked the agency to modify the choreography. The same report said recent livestream moments appeared to show members complaining of neck pain, which amplified the controversy once Chaewon's activity suspension was announced.
 
-![Kim Chaewon neck hiatus shown through an empty K-pop practice studio](/images/news/chaewon-neck-hiatus-1.png)
+![Kim Chaewon neck hiatus shown through an empty K-pop practice studio](/images/news/chaewon-neck-hiatus-1.webp)
 _A ChatGPT-generated editorial image showing an empty rehearsal room, marked dance positions and a paused comeback schedule._
 
 That does not prove the choreography caused Chaewon's condition. MEARROW is not making that claim. The important point is different: once fans have visible performance footage, a medical notice and a physically demanding comeback aesthetic in the same week, the public conversation will connect them. Agencies cannot control that connection after the fact. They can only respond through schedule choices, choreography edits and visible care.

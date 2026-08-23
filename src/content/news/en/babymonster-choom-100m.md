@@ -3,7 +3,7 @@ title: "100 Million in 13 Days - BABYMONSTER Just Made YG's Problem Bigger"
 excerpt: "BABYMONSTER CHOOM 100M turns a 13-day YouTube sprint into YG's next fandom, tour, and rookie-market pressure test."
 date: '2026-05-19'
 category: 'Tech & Culture'
-thumbnail: '/images/news/babymonster-choom-100m-thumbnail.png'
+thumbnail: '/images/news/babymonster-choom-100m-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ Views can be bought, boosted, debated or dismissed by rival fandoms. Subscriptio
 
 Allkpop and Fan N Star reported that `CHOOM` topped YouTube's global daily trending music video chart shortly after release, entered the platform's most-viewed-within-24-hours lane, and moved past 15 million views within half a day. Those early signals explain why YG can keep treating BABYMONSTER like a performance-first act rather than a standard rookie content feed.
 
-![BABYMONSTER CHOOM 100M fandom data network and arena lights](/images/news/babymonster-choom-100m-1.png)
+![BABYMONSTER CHOOM 100M fandom data network and arena lights](/images/news/babymonster-choom-100m-1.webp)
 _A ChatGPT-generated editorial image visualizing K-pop fandom attention, YouTube velocity and live-stage pressure without real faces or official logos._
 
 The group is not only asking fans to stream a music video. It is asking them to imagine the song onstage. That is where `CHOOM` becomes commercially useful: the concept translates into choreography clips, music-show stages, dance practice cuts, short-form challenges and tour anticipation. A view count gets the headline, but performance portability keeps the campaign alive.

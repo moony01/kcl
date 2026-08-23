@@ -3,7 +3,7 @@ title: 'BTS Comeback Countdown: New Music and World Tour After Military Service'
 excerpt: 'With all seven members discharged, BTS prepares for their grand return. Will 2026 truly become the Year of BTS as RM declared? An in-depth analysis of their comeback project and world tour prospects.'
 date: '2026-01-23'
 category: 'Artist'
-thumbnail: '/images/news/bts-2026-comeback-countdown-thumbnail.png'
+thumbnail: '/images/news/bts-2026-comeback-countdown-thumbnail.webp'
 ---
 
 Spring 2026. The moment that ARMYs worldwide have been counting down to is finally approaching. The **complete reunion of all seven BTS members**. As the members who enlisted sequentially starting in 2022 have all completed their military service, the biggest comeback in K-pop history is now imminent.
@@ -41,7 +41,7 @@ A strategy targeting the global market, similar to the 'Dynamite' and 'Butter' e
 
 HYBE is reportedly planning **ARMY participation comeback events** through Weverse. This is expected to be a new form of promotion where fans worldwide can directly participate in the comeback process.
 
-![Global fandom awaiting BTS comeback](/images/news/bts-2026-comeback-countdown-1.png)
+![Global fandom awaiting BTS comeback](/images/news/bts-2026-comeback-countdown-1.webp)
 _Spring 2026: The world awaits BTS's return_
 
 ## World Tour Announcement: Reclaiming the Global Stage

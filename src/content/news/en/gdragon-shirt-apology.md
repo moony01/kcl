@@ -3,7 +3,7 @@ title: "G-Dragon's Shirt Apology Has One Brutal Problem: Fans Won't Blame the St
 excerpt: "G-Dragon shirt apology after K-SPARK Macau has fans asking why a global K-pop veteran still needs a basic cultural review system."
 date: '2026-05-05'
 category: 'Artist'
-thumbnail: '/images/news/gdragon-shirt-apology-thumbnail.png'
+thumbnail: '/images/news/gdragon-shirt-apology-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ Galaxy Corporation's statement focused on cultural sensitivity, responsible revi
 
 That gap is why the reaction kept growing after the apology. Agency language can explain a failed process. It cannot fully replace personal accountability when the artist is the person onstage. In a fandom economy built around direct intimacy, fans often treat silence differently from legal caution. They do not only want to know which department failed. They want to know whether the artist understands why people were hurt.
 
-![G-Dragon shirt apology crisis review room with global K-pop fan reaction](/images/news/gdragon-shirt-apology-1.png)
+![G-Dragon shirt apology crisis review room with global K-pop fan reaction](/images/news/gdragon-shirt-apology-1.webp)
 _A symbolic crisis-room scene reflects how one stage outfit became a global review problem._
 
 ### The internet is also judging memory

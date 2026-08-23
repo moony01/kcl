@@ -3,7 +3,7 @@ title: "Leaked: HYBE, SM, JYP, YG's Secret Seoul Summit Reveals a $30B Japan Str
 excerpt: "Over 50 K-pop entertainment companies — including all Big 4 agencies — gathered in Seoul to craft a unified Japan streaming market strategy. With 1.42 billion new plays and a paradigm shift from intuition to data, here's what their blueprint looks like."
 date: '2026-02-16'
 category: 'Market Trend'
-thumbnail: '/images/news/kpop-big4-japan-streaming-strategy-thumb.png'
+thumbnail: '/images/news/kpop-big4-japan-streaming-strategy-thumb.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ Specifically, Japanese streaming data should now dictate **release timing, platf
 
 This represents a fundamental break from how K-pop agencies have traditionally approached Japan. The old playbook — "release a Japanese-language version + hold fan meetings" — worked in the CD era. But streaming has fundamentally reshaped Japanese consumer behavior, and the old formula simply doesn't cut it anymore.
 
-![K-pop agencies unite for Japan streaming market strategy — the dawn of data-driven expansion](/images/news/kpop-big4-japan-streaming-strategy-body.png)
+![K-pop agencies unite for Japan streaming market strategy — the dawn of data-driven expansion](/images/news/kpop-big4-japan-streaming-strategy-body.webp)
 _Over 50 K-pop entertainment companies gathered in Seoul to develop a data-driven strategy for Japan's booming streaming market_
 
 ## Big 4's Japan Playbooks — Different Paths, Same Destination

@@ -3,7 +3,7 @@ title: "NMIXX Hid the Real Comeback in 'Crescendo' - May 11 Is JYP's Risky Test"
 excerpt: "NMIXX Heavy Serenade lands May 11 after Crescendo and a cappella teasers. JYP's test is whether tension converts into scale."
 date: '2026-05-05'
 category: 'Artist'
-thumbnail: '/images/news/nmixx-heavy-serenade-thumbnail.png'
+thumbnail: '/images/news/nmixx-heavy-serenade-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ Korea JoongAng Daily reported that NMIXX is currently on its `Episode 1: Zero Fr
 
 That turns `Heavy Serenade` into more than a streaming-week event. A touring act needs songs that can travel from teaser discourse into stage memory. `Crescendo` may be the first spark, but May 11 has to deliver the kind of title track that can carry fan chants, live vocals and short-form clips while still making sense inside a larger set list.
 
-![NMIXX Heavy Serenade comeback control room before May 11 release](/images/news/nmixx-heavy-serenade-1.png)
+![NMIXX Heavy Serenade comeback control room before May 11 release](/images/news/nmixx-heavy-serenade-1.webp)
 _A ChatGPT-generated editorial visualization of the production pressure behind a high-stakes May comeback._
 
 ## The Real Bet Is NMIXX's Identity

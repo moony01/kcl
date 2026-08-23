@@ -3,7 +3,7 @@ title: "CORTIS Hit 9 Wins - The REDRED Rookie Problem Rivals Can't Explain"
 excerpt: "CORTIS REDRED reached nine music-show wins after Inkigayo, but the sharper story is Youngkk, Spotify scale and rookie retention."
 date: "2026-05-25"
 category: "Market Trend"
-thumbnail: "/images/news/cortis-redred-ninth-win-thumbnail.png"
+thumbnail: "/images/news/cortis-redred-ninth-win-thumbnail.webp"
 active: true
 ---
 
@@ -31,7 +31,7 @@ The newest sign is not only another trophy. It is the spread around `YOUNGCREATO
 
 That is how idol momentum becomes harder to stop. A title track creates the first wave. A fan phrase creates repetition. A b-side gives the fandom another object to push, quote, remix and turn into identity. For a young group, that matters because it keeps the era alive between trophy clips. The fan base is not only celebrating a number. It is building language around the group.
 
-![CORTIS REDRED ninth win fan analytics room with trophies and chart signals](/images/news/cortis-redred-ninth-win-1.png)
+![CORTIS REDRED ninth win fan analytics room with trophies and chart signals](/images/news/cortis-redred-ninth-win-1.webp)
 _ChatGPT-generated editorial image showing how trophies, fan signals and chart dashboards can combine into one rookie-era feedback loop._
 
 ### Platform data gives the fandom a second scoreboard

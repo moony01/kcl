@@ -3,7 +3,7 @@ title: 'MAMAMOO Just Put 4WARD on Sale — 3 Seoul Nights, 13 Cities, One Danger
 excerpt: 'MAMAMOO 4WARD tour turns a 12th-anniversary reunion into a live-market test across Seoul, Asia and the U.S.'
 date: '2026-05-12'
 category: 'Market Trend'
-thumbnail: '/images/news/mamamoo-4ward-tour-economics-thumbnail.png'
+thumbnail: '/images/news/mamamoo-4ward-tour-economics-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ The announced route is where the story gets more serious. After Seoul, Korea Joo
 
 Ticketmaster has already listed the New York-area stop at UBS Arena for August 12 with a four-ticket limit, which shows the U.S. leg is not just a vague poster promise. The risk is capacity. MAMAMOO's audience is older, loyal, and vocal, but 2026 touring is crowded. Fans are not deciding in a vacuum; they are choosing between comebacks, festivals, stadium tours, VIP packages, and rising travel costs. A legacy group does not only need affection. It needs urgency.
 
-![MAMAMOO 4WARD tour economics shown through an empty rehearsal stage and global route map](/images/news/mamamoo-4ward-tour-economics-1.png)
+![MAMAMOO 4WARD tour economics shown through an empty rehearsal stage and global route map](/images/news/mamamoo-4ward-tour-economics-1.webp)
 _A ChatGPT-generated editorial image representing the live-market pressure behind MAMAMOO's 12th-anniversary world tour._
 
 ## Why This Feels Like A Market Test

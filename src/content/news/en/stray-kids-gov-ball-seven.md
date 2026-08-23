@@ -3,7 +3,7 @@ title: "Stray Kids Will Headline Gov Ball as Seven - Seungmin's Ankle Just Expos
 excerpt: "Stray Kids will headline Governors Ball as seven after Seungmin's ankle stress fracture, turning a festival slot into a health-risk test."
 date: "2026-05-24"
 category: "Artist"
-thumbnail: "/images/news/stray-kids-gov-ball-seven-thumbnail.png"
+thumbnail: "/images/news/stray-kids-gov-ball-seven-thumbnail.webp"
 active: true
 ---
 
@@ -37,7 +37,7 @@ K-pop fans understand that a member absence is not only visual. It changes vocal
 
 That does not mean the seven-member stage is doomed. Stray Kids have enough performance infrastructure to adapt. The point is that adaptation itself becomes visible. If the rearrangement feels clean, the group can turn the night into proof of professionalism. If it feels strained, the health story will keep competing with the music.
 
-![Stray Kids Governors Ball seven-member stage with one empty position](/images/news/stray-kids-gov-ball-seven-1.png)
+![Stray Kids Governors Ball seven-member stage with one empty position](/images/news/stray-kids-gov-ball-seven-1.webp)
 _A ChatGPT-generated editorial image symbolizing Stray Kids preparing for Governors Ball as seven, with one absent position kept respectfully empty._
 
 ## Fans Are Not Only Sad - They Are Recalculating Trust

@@ -3,7 +3,7 @@ title: "SM Just Hit 279.1 Billion Won - The Money Machine Wasn't Albums"
 excerpt: "SM Entertainment Q1 revenue jumped 20.6% as concerts, merch, and DearU became the real growth engine."
 date: '2026-05-07'
 category: 'Business'
-thumbnail: '/images/news/sm-q1-money-machine-thumbnail.png'
+thumbnail: '/images/news/sm-q1-money-machine-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ SM's merchandise and licensing revenue rose `20.3 percent` to `47.4 billion won`
 
 This is where SM's quarter starts to look like a broader K-pop business lesson. The fan-light is not a side accessory anymore. The pop-up is not a cute offline bonus. These objects sit between identity and commerce. They help turn a fandom into something visible in arenas, malls, airports, and social feeds. For a company, that visibility can become repeatable revenue. For fans, it becomes proof of belonging. That exchange is exactly why merchandise can grow even when music revenue has a softer quarter.
 
-![SM Entertainment Q1 K-pop concert revenue boardroom](/images/news/sm-q1-money-machine-1.png)
+![SM Entertainment Q1 K-pop concert revenue boardroom](/images/news/sm-q1-money-machine-1.webp)
 _AI-generated editorial image by ChatGPT, created without real faces or identifiable people._
 
 ## Albums Slipped, But Album Demand Did Not Disappear

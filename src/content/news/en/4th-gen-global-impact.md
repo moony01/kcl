@@ -3,7 +3,7 @@ title: '4th Gen Idols Taking Over Global Charts: From Billboard to Spotify'
 excerpt: 'Analyzing the incredible global achievements of 4th generation groups like Stray Kids, NewJeans, and IVE, and the new expansion of K-POP.'
 date: '2025-01-20'
 category: 'Market Trend'
-thumbnail: '/images/news/4th-gen-global-impact.jpg'
+thumbnail: '/images/news/4th-gen-global-impact.webp'
 ---
 
 ## Faster and Wider: The Rise of the 4th Generation

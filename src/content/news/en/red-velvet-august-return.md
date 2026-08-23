@@ -3,7 +3,7 @@ title: "Red Velvet's August Comeback Isn't Just Nostalgia — It Tests The Summe
 excerpt: "Red Velvet August comeback reports point to a full-group return, testing summer nostalgia, solo-era fandom and SM's rollout power."
 date: "2026-06-13"
 category: "Artist"
-thumbnail: "/images/news/red-velvet-august-return-thumbnail.png"
+thumbnail: "/images/news/red-velvet-august-return-thumbnail.webp"
 active: true
 ---
 
@@ -33,7 +33,7 @@ The Korea Herald added a detail that changes the stakes: the upcoming set would 
 
 That matters because full-group K-pop comebacks are no longer just creative reunions. They are coordination projects. Labels, solo schedules, acting work, tours, fan expectations, production timing and promotion windows all have to line up. If the August target holds, the headline will not only be "Red Velvet released music again." The more interesting story will be that the five-member brand still has enough alignment to create one shared campaign.
 
-![Red Velvet August comeback strategy room with abstract K-pop analytics and stage planning](/images/news/red-velvet-august-return-1.png)
+![Red Velvet August comeback strategy room with abstract K-pop analytics and stage planning](/images/news/red-velvet-august-return-1.webp)
 _ChatGPT-generated editorial image representing K-pop comeback planning, fan-demand analytics and stage strategy without real faces, logos or readable text._
 
 ## Why August Raises The Pressure

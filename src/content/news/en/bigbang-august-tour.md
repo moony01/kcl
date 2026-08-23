@@ -3,7 +3,7 @@ title: "'It Starts in August' — The One Coachella Line That Reopened BIGBANG's
 excerpt: "BIGBANG used Coachella to confirm an August 2026 world tour and a completed anniversary album. Why that stage line matters more than YG's March teaser."
 date: "2026-04-20"
 category: "Artist"
-thumbnail: "/images/news/bigbang-august-tour-thumbnail.png"
+thumbnail: "/images/news/bigbang-august-tour-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ If BIGBANG had announced only a tour, the story could have stayed in sentimental
 
 Dong-A Ilbo and Korea JoongAng Daily described a set built around `Bang Bang Bang`, `Fantastic Baby`, `Sober`, `Lies`, `Haru Haru`, and `Still Life`. That matters because anniversary projects do not survive on sentiment alone. They survive when the catalog still works in front of a mass live audience. Coachella gave BIGBANG a chance to prove its songs still travel, still trigger recognition, and still justify a global tour announcement in real time.
 
-![A Coachella desert stage symbolizing BIGBANG's August world tour restart under golden lights](/images/news/bigbang-august-tour-1.png)
+![A Coachella desert stage symbolizing BIGBANG's August world tour restart under golden lights](/images/news/bigbang-august-tour-1.webp)
 _A symbolic rendering of the moment BIGBANG turned Coachella into the starting gun for its August tour._
 
 ## The real test starts after the poster drops

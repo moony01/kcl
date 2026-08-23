@@ -3,7 +3,7 @@ title: "June K-pop Comeback Pileup Is Here — The Calendar Became the Real Figh
 excerpt: "June K-pop comeback lineup pressure is turning one crowded month into a test of fandom stamina, release timing and agency execution."
 date: "2026-06-05"
 category: "Industry"
-thumbnail: "/images/news/june-kpop-comeback-pileup-thumbnail.png"
+thumbnail: "/images/news/june-kpop-comeback-pileup-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ The same report also pointed to izna's third mini-album `SET THE TEMPO`, led by 
 
 BABYMONSTER also enters the same date with the digital single `SUGAR HONEY ICE TEA`, described by the agency as a summer offering. For a group already built around global performance clips and short-form spread, a summer single does not need to behave like a heavy album campaign. It needs to travel fast, sound immediately repeatable and give fans a visual language they can repost within hours.
 
-![June K-pop comeback lineup analytics room with concert dashboards](/images/news/june-kpop-comeback-pileup-1.png)
+![June K-pop comeback lineup analytics room with concert dashboards](/images/news/june-kpop-comeback-pileup-1.webp)
 _ChatGPT-generated editorial image representing how release calendars, fan reaction dashboards and stage momentum collide during a crowded K-pop comeback month._
 
 ## The Boy-Group Lane Is Also Overloaded

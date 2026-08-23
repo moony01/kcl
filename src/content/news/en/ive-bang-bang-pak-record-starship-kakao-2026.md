@@ -3,7 +3,7 @@ title: 'IVE Dethrones BTS — ''BANG BANG'' Shatters All-Time Perfect All-Kill R
 excerpt: 'IVE''s pre-release single ''BANG BANG'' reached 916 hourly Perfect All-Kills on March 7, surpassing BTS''s all-time record of 913. The first girl group ever to achieve 6 PAK songs, plus 6 music show wins — Starship and Kakao''s chart dominance has reached historic levels.'
 date: '2026-03-08'
 category: 'Artist'
-thumbnail: '/images/news/ive-bang-bang-pak-record-starship-kakao-2026-thumbnail.png'
+thumbnail: '/images/news/ive-bang-bang-pak-record-starship-kakao-2026-thumbnail.webp'
 ---
 
 On March 7, IVE's pre-release single **'BANG BANG'** reached **916 hourly Perfect All-Kills (PAK)**, surpassing BTS's all-time record of 913 hours. K-pop chart history has been rewritten.
@@ -28,7 +28,7 @@ PAK is the hardest chart metric to achieve in K-pop. Fandom streaming alone can'
 
 'BANG BANG' achieved title-track-level chart performance despite being only a pre-release single. The fact that these numbers came before the album's actual title track was even released proves IVE's mainstream influence currently stands in a league of its own in K-pop.
 
-![IVE BANG BANG Perfect All-Kill record](/images/news/ive-bang-bang-pak-record-starship-kakao-2026-1.png)
+![IVE BANG BANG Perfect All-Kill record](/images/news/ive-bang-bang-pak-record-starship-kakao-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## First Girl Group — The 6-Song PAK Club

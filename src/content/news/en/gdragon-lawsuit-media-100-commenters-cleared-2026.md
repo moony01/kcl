@@ -3,7 +3,7 @@ title: "G-Dragon Was Cleared. Then He Sued 100 People — and the Media That Spr
 excerpt: "After police cleared G-Dragon of all drug allegations, most K-pop stars would go back to music quietly. He chose war instead. 100+ lawsuits, and now the media operators who published the allegations are next."
 date: '2026-03-25'
 category: 'Industry'
-thumbnail: '/images/news/gdragon-lawsuit-media-100-commenters-cleared-2026-thumbnail.png'
+thumbnail: '/images/news/gdragon-lawsuit-media-100-commenters-cleared-2026-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ K-pop artists suing over defamation isn't new. What G-Dragon's legal operation r
 
 **Timing is deliberate.** This legal offensive is running in parallel with BIGBANG's 20th anniversary activities, Coachella 2026 preparation, and what is shaping up to be G-Dragon's most commercially active year since his return. The message is unmistakable: the legal war and the career comeback are happening simultaneously, not sequentially.
 
-![ G-Dragon in a dramatic spotlight on stage — representing his return and legal counter-offensive after being cleared of drug allegations in 2026](/images/news/gdragon-lawsuit-media-100-commenters-cleared-2026-1.png)
+![ G-Dragon in a dramatic spotlight on stage — representing his return and legal counter-offensive after being cleared of drug allegations in 2026](/images/news/gdragon-lawsuit-media-100-commenters-cleared-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## "Some Suspects Have Already Admitted to the Charges"

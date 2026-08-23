@@ -3,7 +3,7 @@ title: '436K Turned Into 1.22M — Why CORTIS Flipped The Rookie Market Before C
 excerpt: 'CORTIS GREENGREEN pre-orders hit 1.22 million a month before release, nearly tripling the debut 436K benchmark and resetting the rookie album market.'
 date: '2026-04-07'
 category: 'Market Trend'
-thumbnail: '/images/news/cortis-greengreen-preorders-thumbnail.png'
+thumbnail: '/images/news/cortis-greengreen-preorders-thumbnail.webp'
 active: true
 ---
 
@@ -33,7 +33,7 @@ That is the real story. CORTIS is moving out of the "promising rookie" lane and 
 
 The release calendar is built to convert anticipation into momentum. CORTIS will pre-release the lead single `REDRED` on April 20 at 6 p.m. KST, then drop the full `GREENGREEN` EP on May 4 at 6 p.m. KST. That sequence gives the fandom a fresh trigger point before release day and gives the label more time to turn pre-order heat into streaming and chart velocity.
 
-![A futuristic K-pop market scene symbolizing CORTIS GREENGREEN pre-order momentum](/images/news/cortis-greengreen-preorders-1.png)
+![A futuristic K-pop market scene symbolizing CORTIS GREENGREEN pre-order momentum](/images/news/cortis-greengreen-preorders-1.webp)
 _By exploding early, the pre-order curve has already turned this comeback into an event._
 
 ### Their debut era already proved global reach

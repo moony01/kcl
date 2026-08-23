@@ -3,7 +3,7 @@ title: "Guinness Puts BTS Beside Taylor and Beyonce - The No. 8 Detail Fans Can'
 excerpt: "BTS Guinness ICONS meets ARIRANG's eighth Billboard 200 top-10 week, turning a No. 8 chart line into a fandom power signal."
 date: '2026-05-18'
 category: 'Tech & Culture'
-thumbnail: '/images/news/bts-guinness-icons-thumbnail.png'
+thumbnail: '/images/news/bts-guinness-icons-thumbnail.webp'
 active: true
 ---
 
@@ -25,7 +25,7 @@ On May 17 local time, Billboard announced that `ARIRANG` was spending its eighth
 
 That is why the number matters. A debut can be powered by preorders, concentrated fandom buying and a first-week media wave. An eighth top-10 week asks a different question: are enough people still listening, buying, discussing and returning after the fireworks are over? For BTS, the answer is still yes. No. 8 sounds smaller than No. 1, but in week eight it behaves like proof of endurance.
 
-![BTS Guinness ICONS and Billboard 200 momentum shown through global chart screens](/images/news/bts-guinness-icons-1.png)
+![BTS Guinness ICONS and Billboard 200 momentum shown through global chart screens](/images/news/bts-guinness-icons-1.webp)
 _A ChatGPT-generated editorial visualization of BTS record culture, global charts and fandom momentum without real faces or official logos._
 
 ## ARIRANG Turned Chart Math Into Culture

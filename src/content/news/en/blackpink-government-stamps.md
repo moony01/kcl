@@ -3,7 +3,7 @@ title: "BLACKPINK Just Got Government Stamps - The 10-Design Signal YG Needed"
 excerpt: "BLACKPINK commemorative stamps turn Korea Post's 10-design release into a collector signal YG can monetize beyond music."
 date: '2026-05-18'
 category: 'Business'
-thumbnail: '/images/news/blackpink-government-stamps-thumbnail.png'
+thumbnail: '/images/news/blackpink-government-stamps-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ Reports from Korea JoongAng Daily, StarNews, ChosunBiz, MK and Sports Kyunghyang
 
 That is smart packaging. A single image would have made the stamp feel symbolic. Ten designs make it feel like a timeline. For fans, that changes the purchase from "I bought the anniversary stamp" to "I bought the decade." In K-pop, the difference is not small. A timeline product invites collectors to connect eras, album jackets, stages, bias memories and personal entry points into one object.
 
-![BLACKPINK commemorative stamps arranged as a premium collector release](/images/news/blackpink-government-stamps-1.png)
+![BLACKPINK commemorative stamps arranged as a premium collector release](/images/news/blackpink-government-stamps-1.webp)
 _A ChatGPT-generated editorial visualization of K-pop commemorative stamps as a premium collector product, without real faces or official logos._
 
 ### Price also tells you who this is for

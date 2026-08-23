@@ -3,7 +3,7 @@ title: "Weverse Just Exposed K-pop's $4.3B Secret - Fans Are The Product Now"
 excerpt: "K-pop superfan platforms are turning chats, lives and memberships into a $4.3B race. Weverse just showed why every label wants in."
 date: '2026-05-20'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-superfan-money-machine-thumbnail.png'
+thumbnail: '/images/news/kpop-superfan-money-machine-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ That makes Weverse look massive, but it also exposes the dependency question. If
 
 The timing matters because the wider music business has started saying the quiet part out loud. Goldman Sachs, cited by MBW, estimates the addressable superfan opportunity at $4.3 billion annually based on 2026 projections. Universal Music Group has been talking more aggressively about premium fan tiers, direct-to-consumer commerce and deeper artist-fan relationships. Spotify is reportedly exploring a super-premium subscription lane. Warner Music has also been linked to its own superfan app work.
 
-![K-pop superfan platforms turning fan chats into a global business network](/images/news/kpop-superfan-money-machine-1.png)
+![K-pop superfan platforms turning fan chats into a global business network](/images/news/kpop-superfan-money-machine-1.webp)
 _A ChatGPT-generated editorial image showing K-pop fandom as a connected superfan platform economy._
 
 This is where K-pop's lead becomes uncomfortable for competitors. Western labels are still debating how to package superfandom without making it feel like another subscription tax. K-pop already trained fans to treat memberships, livestreams, fan chats, light sticks, pop-ups, photocards and timed merch drops as one connected ritual. Weverse did not invent that devotion. It captured it, measured it and turned it into a repeatable product surface.

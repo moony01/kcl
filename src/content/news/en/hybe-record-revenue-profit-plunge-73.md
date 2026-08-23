@@ -3,7 +3,7 @@ title: "HYBE's $1.86B Revenue Record Hides a Brutal Truth — Operating Profit C
 excerpt: "HYBE posted an all-time record revenue of KRW 2.65 trillion ($1.86B) for 2025, yet operating profit collapsed 73% to just $34.6 million. Despite concert revenue surging 69%, the structural contradiction at K-pop's biggest company is impossible to ignore."
 date: '2026-02-15'
 category: 'Market Trend'
-thumbnail: '/images/news/hybe-record-revenue-profit-plunge-73-thumbnail.png'
+thumbnail: '/images/news/hybe-record-revenue-profit-plunge-73-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ On paper, that looks like a successful "post-BTS" diversification. But there's a
 
 New artists like NewJeans, ILLIT, and KATSEYE, on the other hand, require **massive upfront investment** during their debut phase. Training, promotion, music videos, global marketing — it takes a minimum of 2-3 years before returns materialize. This structural transition cost is the biggest reason HYBE posted record revenue in 2025 while operating profit cratered.
 
-![HYBE's dramatic contrast between record revenue and plunging profit](/images/news/hybe-record-revenue-profit-plunge-73-1.png)
+![HYBE's dramatic contrast between record revenue and plunging profit](/images/news/hybe-record-revenue-profit-plunge-73-1.webp)
 _Revenue hit an all-time high, but operating profit crashed 73% — exposing the structural limits of K-pop's biggest business model_
 
 ## HYBE America: The Black Hole of Global Expansion

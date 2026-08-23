@@ -3,7 +3,7 @@ title: "'WILD' Is Coming, But Manon Is Still Missing - The Costliest Void Inside
 excerpt: "KATSEYE's new EP WILD arrives on August 14. But after Coachella, the bigger story is whether HYBE x Geffen can manage Manon's absence without losing trust."
 date: '2026-04-16'
 category: 'Industry'
-thumbnail: '/images/news/katseye-wild-manon-thumbnail.png'
+thumbnail: '/images/news/katseye-wild-manon-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ Taken together, Korea JoongAng Daily and Billboard Canada show that the breakout
 
 Most groups use a hot streak to drown out discomfort. KATSEYE did the opposite. The stronger the Coachella moment looked, the more visible the missing seat became. The reaction was not, "The stage went well, so let's move on." It was, "If the group is rising this fast, why does the explanation still feel this thin?" That is why `WILD` created more questions than celebration.
 
-![KATSEYE WILD absence symbolized by five lit profile boards](/images/news/katseye-wild-manon-1.png)
+![KATSEYE WILD absence symbolized by five lit profile boards](/images/news/katseye-wild-manon-1.webp)
 _A visual metaphor for a comeback cycle where five bright signals and one unlit space are being read at the same time._
 
 ## How the Public Is Reading This Gap

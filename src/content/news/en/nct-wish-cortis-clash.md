@@ -3,7 +3,7 @@ title: "'6 PM, Same Day' — NCT WISH and CORTIS Are Targeting The Same Fandom W
 excerpt: "NCT WISH's first full album ODE TO LOVE and CORTIS's pre-release single REDRED both arrive at 6 p.m. KST on April 20, 2026. Here's why that rookie clash matters beyond the songs."
 date: "2026-04-20"
 category: "Industry"
-thumbnail: "/images/news/nct-wish-cortis-clash-thumbnail.png"
+thumbnail: "/images/news/nct-wish-cortis-clash-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ The key for NCT WISH is not speed, but position. A first full album is already a
 
 CORTIS is entering the day with momentum already quantified. `Soompi` reported that `GREENGREEN` surpassed **1,227,986 stock pre-orders** as of April 2. That means the market had already committed to the project at a scale well beyond ordinary rookie expectations before the pre-release even dropped. Weverse opened pre-orders on March 27, while `Forbes` reaffirmed the two-step rollout: `REDRED` first, full EP later. That makes today's release more than a song reveal. It is the conversion test for a hype cycle that has already been paid for.
 
-![Two illuminated stages symbolizing the April 20 NCT WISH and CORTIS release clash](/images/news/nct-wish-cortis-clash-1.png)
+![Two illuminated stages symbolizing the April 20 NCT WISH and CORTIS release clash](/images/news/nct-wish-cortis-clash-1.webp)
 _When both acts hit the same hour, fandoms are choosing not just music, but timing, attention, and spending._
 
 ## What fans are really buying today is not only music, but scheduling

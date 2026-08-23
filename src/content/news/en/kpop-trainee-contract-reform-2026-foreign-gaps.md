@@ -3,7 +3,7 @@ title: 'Korea Changed Its Trainee Contract Rules — 3 Traps Foreign Trainees St
 excerpt: 'South Korea revised its standard trainee contracts in January 2026 with expanded mental health support and minor protections. But for foreign trainees, critical gaps remain — no translation requirements, no visa provisions, and zero enforcement power.'
 date: '2026-02-14'
 category: 'Trainee System'
-thumbnail: '/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-thumbnail.png'
+thumbnail: '/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-thumbnail.webp'
 active: true
 ---
 
@@ -51,7 +51,7 @@ Agencies can adopt it in full, cherry-pick the parts they like, or ignore it ent
 
 Major agencies generally follow the standard contract because reputational damage isn't worth the risk. But the K-pop ecosystem extends far beyond the Big 4. Hundreds of registered entertainment agencies operate in South Korea, many of them actively recruiting foreign trainees. How faithfully these smaller agencies follow a non-binding "recommendation" is anyone's guess.
 
-![Article image](/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-1.png)
+![Article image](/images/news/kpop-trainee-contract-reform-2026-foreign-gaps-1.webp)
 _An empty practice room hallway — a pair of dance shoes symbolizing an uncertain journey ahead_
 
 ## What Foreign Trainees Should Do Before Signing

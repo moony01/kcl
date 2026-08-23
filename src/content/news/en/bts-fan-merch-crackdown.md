@@ -3,7 +3,7 @@ title: 'Even BTS Freebies Got Hit — The Line HYBE Just Drew Around ARMY''s Fan
 excerpt: 'The BTS fan-made merch crackdown reached Goyang. From tossed freebies in Korea to a U.S. seizure suit, HYBE is redrawing the ARMY merch economy.'
 date: '2026-04-16'
 category: 'Business'
-thumbnail: '/images/news/bts-fan-merch-crackdown-thumbnail.png'
+thumbnail: '/images/news/bts-fan-merch-crackdown-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to Music Business Worldwide and the complaint itself, HYBE, BIGHIT MUS
 
 The filing is not written like a one-off Tampa problem. It explicitly argues that similar activity is expected at later U.S. tour stops as well. The complaint also says HYBE obtained the same kind of relief during BTS concert runs in 2019 and 2021, when courts authorized seizure actions and counterfeit goods were taken from bootleg sellers near venues. In other words, the current move is not a sudden overreaction. It is a familiar BTS-scale anti-counterfeit play, now reappearing in a much larger, more monetized touring environment.
 
-![BTS fan-made merch crackdown alongside official merchandise inspection at a concert booth](/images/news/bts-fan-merch-crackdown-1.png)
+![BTS fan-made merch crackdown alongside official merchandise inspection at a concert booth](/images/news/bts-fan-merch-crackdown-1.webp)
 _The conflict is no longer abstract: fan-made culture and official merchandise enforcement are now sitting on the same table._
 
 ## Why This Feels More Sensitive Right Now

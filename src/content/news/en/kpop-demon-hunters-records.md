@@ -3,7 +3,7 @@ title: "KPop Demon Hunters Stayed Top 10 for 52 Weeks — Netflix Just Found Its
 excerpt: "KPop Demon Hunters 52 weeks in Netflix’s Global Top 10 turns a hit film into a franchise machine, not just another viral K-pop moment."
 date: '2026-06-30'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kpop-demon-hunters-records-thumbnail.png'
+thumbnail: '/images/news/kpop-demon-hunters-records-thumbnail.webp'
 active: true
 ---
 
@@ -27,7 +27,7 @@ Netflix did not treat the anniversary like a quiet press note. Tudum outlined th
 
 That matters because the franchise is now borrowing a familiar K-pop operating system. Idols do not live only through songs. They live through fan events, collectibles, livestream moments, light-stick culture, comeback rituals and a constant feeling that the story is still unfolding. `KPop Demon Hunters` is fictional, but the machine around it is becoming very real.
 
-![KPop Demon Hunters 52 weeks milestone shown through anonymous global fandom lights and rising streaming waves](/images/news/kpop-demon-hunters-records-1.png)
+![KPop Demon Hunters 52 weeks milestone shown through anonymous global fandom lights and rising streaming waves](/images/news/kpop-demon-hunters-records-1.webp)
 _ChatGPT-generated editorial image showing anonymous fandom silhouettes, global streaming energy and milestone growth without real faces, logos or readable text._
 
 ## The Soundtrack Made the Fiction Feel Real

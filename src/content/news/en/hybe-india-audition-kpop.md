@@ -3,7 +3,7 @@ title: "HYBE Just Opened Auditions Across India — The Moment K-Pop Stopped Bei
 excerpt: "HYBE launches massive auditions across 10 Indian cities on March 31. Samsung, Nongshim, and H&M signed on as sponsors. This isn't a talent search — it's Bang Si-hyuk's plan to redefine K-pop itself."
 date: '2026-03-28'
 category: 'Trainee System'
-thumbnail: '/images/news/hybe-india-audition-kpop-thumbnail.png'
+thumbnail: '/images/news/hybe-india-audition-kpop-thumbnail.webp'
 active: true
 ---
 
@@ -44,7 +44,7 @@ The sponsor roster for this audition is telling.
 
 Why would a food company and a fashion brand fund an audition? Simple: **this isn't an audition — it's a business platform.** What HYBE is building in India isn't a trainee supply pipeline. It's an entire K-pop ecosystem.
 
-![HYBE India auditions — the moment K-pop's training system is transplanted into Indian practice rooms](/images/news/hybe-india-audition-kpop-1.png)
+![HYBE India auditions — the moment K-pop's training system is transplanted into Indian practice rooms](/images/news/hybe-india-audition-kpop-1.webp)
 _HYBE's 360-degree music industry capabilities are being transplanted to India_
 
 Samsung already competes for first place in India's smartphone market. Nongshim is preparing to enter the Indian instant noodle market. H&M operates dozens of stores across India. For each of them, a K-pop audition isn't just sponsorship — **it's a marketing channel to connect with India's 20-30 demographic**.

@@ -3,7 +3,7 @@ title: "aespa Pulled G-Dragon Into WDA - And the Real Target Wasn't Korea"
 excerpt: "aespa G-Dragon WDA turns LEMONADE into a China-chart and fandom strategy test before the May 29 album drop."
 date: '2026-05-18'
 category: 'Artist'
-thumbnail: '/images/news/aespa-gdragon-wda-thumbnail.png'
+thumbnail: '/images/news/aespa-gdragon-wda-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The most important early data point may not be the loudest one on Western timeli
 
 That is why the title's hidden target is not just Korea. Korea still supplies the label, broadcast and fandom center. But the first visible proof point shows why SM keeps building aespa as a transnational product. A pre-release that can create measurable movement across Chinese platforms gives the album campaign more than domestic buzz. It gives the company a market signal.
 
-![aespa G-Dragon WDA fandom analytics and chart reaction](/images/news/aespa-gdragon-wda-1.png)
+![aespa G-Dragon WDA fandom analytics and chart reaction](/images/news/aespa-gdragon-wda-1.webp)
 _A ChatGPT-generated editorial visualization of global fandom data and digital identity pressure, without real faces or official logos._
 
 ### The business logic is bigger than one chart

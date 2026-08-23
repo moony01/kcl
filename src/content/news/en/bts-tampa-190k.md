@@ -3,7 +3,7 @@ title: "BTS Drew 190,000 in Tampa - Then a Stadium Full of U.S. Fans Sang 'Arira
 excerpt: "BTS packed 190,000 fans into three Tampa nights, turning the Arirang tour into proof that U.S. stadium demand is still intensifying."
 date: '2026-05-03'
 category: 'Artist'
-thumbnail: '/images/news/bts-tampa-190k-thumbnail.png'
+thumbnail: '/images/news/bts-tampa-190k-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ That balance is the real story. Plenty of global pop acts can turn a stadium int
 
 That is why the Tampa footage landed so quickly online. Fans were not only reposting stage spectacle. They were reposting proof of translation: proof that a show anchored in a distinctly Korean idea could still feel enormous, pop-forward, and stadium-ready in Florida. That is a stronger signal than another "BTS still sells out" headline, because it suggests the group's newest phase is not relying on brand familiarity alone.
 
-![BTS Tampa stadium singalong crowd lights](/images/news/bts-tampa-190k-1.png)
+![BTS Tampa stadium singalong crowd lights](/images/news/bts-tampa-190k-1.webp)
 _An AI-rendered editorial image capturing the stadium-scale singalong energy around BTS's Tampa stop._
 
 ## The North American Leg Already Looks Like Infrastructure

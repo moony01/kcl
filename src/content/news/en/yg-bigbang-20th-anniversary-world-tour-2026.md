@@ -3,7 +3,7 @@ title: 'BIGBANG Is Back — 20th Anniversary World Tour, Coachella, and YG''s Fu
 excerpt: 'YG Entertainment just unveiled its entire 2026 roadmap: BIGBANG''s 20th anniversary world tour, a confirmed Coachella appearance, and a new boy group debut. Yang Hyun-suk delivered the announcement personally.'
 date: '2026-03-05'
 category: 'Industry'
-thumbnail: '/images/news/yg-bigbang-20th-anniversary-world-tour-2026-thumbnail.png'
+thumbnail: '/images/news/yg-bigbang-20th-anniversary-world-tour-2026-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ BIGBANG's Coachella 2026 appearance was confirmed simultaneously. This isn't jus
 
 G-Dragon's 2025 solo activities already reignited his visibility in the American market. YG's strategy is clear: channel that momentum into BIGBANG as a unit and detonate it at Coachella.
 
-![YG Entertainment's 2026 masterplan announcement — a futuristic image symbolizing BIGBANG's 20th anniversary world tour and new boy group debut](/images/news/yg-bigbang-20th-anniversary-world-tour-2026-1.png)
+![YG Entertainment's 2026 masterplan announcement — a futuristic image symbolizing BIGBANG's 20th anniversary world tour and new boy group debut](/images/news/yg-bigbang-20th-anniversary-world-tour-2026-thumbnail.webp)
 _Image: AI-generated via ChatGPT_
 
 ## YG's Next Generation: First New Boy Group Since TREASURE

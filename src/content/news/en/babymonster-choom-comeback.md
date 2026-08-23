@@ -3,7 +3,7 @@ title: 'BABYMONSTER''s ''CHOOM'' Lands May 4 — And YG Is Already Betting a Wor
 excerpt: 'BABYMONSTER drops CHOOM on May 4 with four tracks, fan-event momentum, and a five-continent tour behind it. YG is treating this like a 2026 test case.'
 date: '2026-05-02'
 category: 'Artist'
-thumbnail: '/images/news/babymonster-choom-comeback-thumbnail.png'
+thumbnail: '/images/news/babymonster-choom-comeback-thumbnail.webp'
 active: true
 ---
 
@@ -29,7 +29,7 @@ According to YG’s April 20 and April 30 updates, `CHOOM` includes `MOON`, the 
 
 The offline `MONSTIEZ DAY` event ran from `March 30` through `April 5` at three Seoul locations, according to Weverse and Korea JoongAng Daily. That detail is easy to miss if you only watch the teasers, but it matters. K-pop agencies do not run these touchpoints only to reward loyalty. They also use them to tighten fandom rhythm before a release. When a comeback is structured around collectible formats, repeat visual drops, and event-based participation, the release week stops being a pure music moment. It becomes a conversion moment.
 
-![BABYMONSTER CHOOM world tour arena setup with red LED stage lights](/images/news/babymonster-choom-comeback-1.png)
+![BABYMONSTER CHOOM world tour arena setup with red LED stage lights](/images/news/babymonster-choom-comeback-1.webp)
 _Image: AI-generated via ChatGPT_
 
 ## The Tour Clock Makes the Stakes Higher

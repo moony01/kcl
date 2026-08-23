@@ -3,7 +3,7 @@ title: "HYBE's ILLIT Lawsuit Just Backfired - And the Copycat War Is Alive Again
 excerpt: "The HYBE ILLIT lawsuit against FastView was dismissed on May 8, reviving the copycat debate HYBE wanted to shut down."
 date: "2026-05-09"
 category: "Industry"
-thumbnail: "/images/news/hybe-illit-court-loss-thumbnail.png"
+thumbnail: "/images/news/hybe-illit-court-loss-thumbnail.webp"
 active: true
 ---
 
@@ -29,7 +29,7 @@ The alleged content was not limited to vague dislike. Reports said the videos in
 
 FastView's side previously denied having an intent to defame HYBE artists, according to Korean entertainment coverage. Separately, Kstyle and Maeil Business reported in 2025 that a former FastView employee had been sent to prosecutors on allegations including defamation and insult under Korea's Information and Communications Network Act. That separate criminal track is part of the wider context, but it is not the same as winning this civil damages claim.
 
-![HYBE ILLIT lawsuit courtroom and fandom reaction analysis](/images/news/hybe-illit-court-loss-1.png)
+![HYBE ILLIT lawsuit courtroom and fandom reaction analysis](/images/news/hybe-illit-court-loss-1.webp)
 _A reputational lawsuit can quiet a rumor cycle only when the courtroom result strengthens the public narrative._
 
 ## The Copycat Debate Survived the Courtroom

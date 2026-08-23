@@ -3,7 +3,7 @@ title: "It's Not the Concert Anymore - BTS Is About to Turn Las Vegas and Busan 
 excerpt: "BTS THE CITY ARIRANG is expanding to Las Vegas and Busan. The bigger story is how BTS is building a destination economy outside the stadium."
 date: "2026-04-22"
 category: "Tech & Culture"
-thumbnail: "/images/news/bts-city-vegas-busan-thumbnail.png"
+thumbnail: "/images/news/bts-city-vegas-busan-thumbnail.webp"
 active: true
 ---
 
@@ -36,7 +36,7 @@ NME and Seoul Economic Daily positioned the new announcement as a continuation o
 
 Billboard Canada reported that the 2026 `THE CITY LAS VEGAS` rollout will scale up with `ARIRANG` red lighting across the Strip and digital marquees, along with themed hotel experiences, food-and-beverage specials, and exclusive after-parties. In other words, the project is widening the reasons to spend money outside the venue. That is why the true KPI here is not just sellout status. It is the length of time fans stay inside the BTS economic zone.
 
-![BTS THE CITY expansion across Las Vegas and Busan visualized as a glowing destination-city network](/images/news/bts-city-vegas-busan-1.png)
+![BTS THE CITY expansion across Las Vegas and Busan visualized as a glowing destination-city network](/images/news/bts-city-vegas-busan-1.webp)
 _An editorial image of how `BTS THE CITY ARIRANG` is trying to turn movement across a city into part of the fan experience itself._
 
 ## Busan Turns the Story Into a Homecoming Narrative

@@ -3,7 +3,7 @@ title: "BTS Just Made Japan Stream 'Dynamite' 900 Million Times — The Catalog 
 excerpt: "BTS Dynamite Japan streams hit 900M on Oricon, proving catalog songs can still move markets years after release."
 date: "2026-06-11"
 category: "Market Trend"
-thumbnail: "/images/news/bts-dynamite-japan-streams-thumbnail.png"
+thumbnail: "/images/news/bts-dynamite-japan-streams-thumbnail.webp"
 active: true
 ---
 
@@ -25,7 +25,7 @@ K-pop usually sells urgency: comeback dates, teaser clocks, first-week sales, mu
 
 For BTS, the track has become a memory machine. Older fans remember the pandemic-era emotional role of the song. Newer listeners meet it as a gateway into the group's wider discography. Casual listeners may not follow every album cycle, but they can still recognize the hook. When a song can serve all three audiences at once, it stops being a past release and starts functioning like a standing asset.
 
-![BTS Dynamite Japan streams visualized through Tokyo and Seoul data waves](/images/news/bts-dynamite-japan-streams-1.png)
+![BTS Dynamite Japan streams visualized through Tokyo and Seoul data waves](/images/news/bts-dynamite-japan-streams-1.webp)
 _ChatGPT-generated editorial image representing Japan-to-Korea streaming demand, catalog memory and K-pop data momentum without real faces, logos or readable text._
 
 ## Japan Is The Hardest Kind Of Longevity Test

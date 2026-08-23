@@ -3,7 +3,7 @@ title: "Five Gummy Bears in NewJeans' Colors — The Evidence Behind ILLIT's All
 excerpt: "Fans spotted five gummy bears in ILLIT's 'Little Monsters' music video matching NewJeans' signature member colors. With a court ruling acknowledging similarities and Google AI confusing the two groups, the controversy has reached a boiling point."
 date: '2026-02-15'
 category: 'Industry'
-thumbnail: '/images/news/illit-little-monsters-newjeans-five-colors-diss-thumbnail.png'
+thumbnail: '/images/news/illit-little-monsters-newjeans-five-colors-diss-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The court's response was devastating for HYBE: **"Insufficient evidence was foun
 
 That single line in the ruling turned the K-pop world upside down. What had been dismissed as "fan opinion" or "fandom emotions" was now elevated to a **judicial finding** — a fundamentally different category of legitimacy.
 
-![ILLIT-NewJeans similarity controversy — court ruling and fandom reactions](/images/news/illit-little-monsters-newjeans-five-colors-diss-1.png)
+![ILLIT-NewJeans similarity controversy — court ruling and fandom reactions](/images/news/illit-little-monsters-newjeans-five-colors-diss-1.webp)
 _The court's acknowledgment of similarities reignited one of K-pop's most heated debates_
 
 ## When Google AI Joined the Fight

@@ -3,7 +3,7 @@ title: 'KCON Japan 2026 Just Changed the Product — K-pop Was Only the Hook'
 excerpt: 'KCON Japan 2026 adds beauty, food, AI film and story zones. The bigger story is that K-pop may no longer be the whole product.'
 date: '2026-04-27'
 category: 'Tech & Culture'
-thumbnail: '/images/news/kcon-japan-k-life-thumbnail.png'
+thumbnail: '/images/news/kcon-japan-k-life-thumbnail.webp'
 active: true
 ---
 
@@ -31,7 +31,7 @@ The strongest clue sits in the brand mix. JoongAng reported that Olive Young wil
 
 CJ's March announcement for `KCON LA 2026` used the language of an "integrated K-Lifestyle convention platform." Read that next to the Japan updates and the 2026 strategy becomes easier to decode. The point is not just to make the stage larger. The point is to build an event architecture where Korean culture can be consumed in layers: music first, then beauty, then food, then story, then platform distribution. In a global entertainment market where straight music revenue is increasingly pressured, that layered model is exactly where the margin expansion lives.
 
-![KCON Japan 2026 festival floor with glowing beauty booths and an AI-style screen hall](/images/news/kcon-japan-k-life-1.png)
+![KCON Japan 2026 festival floor with glowing beauty booths and an AI-style screen hall](/images/news/kcon-japan-k-life-1.webp)
 _The stage may open the door, but the floor is where the wider K-culture sale now happens._
 
 ## Why Japan Is The Right Test Market

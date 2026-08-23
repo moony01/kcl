@@ -3,7 +3,7 @@ title: "Min Heejin Just Won ₩25.5B From HYBE — The Put Option Ruling That Ch
 excerpt: "Seoul Central District Court ruled in favor of former ADOR CEO Min Heejin's put option claim, ordering HYBE to purchase her 18% stake for approximately ₩25.5 billion. Here's what this landmark ruling means for the K-pop industry."
 date: '2026-02-13'
 category: 'Business'
-thumbnail: '/images/news/min-heejin-hybe-put-option-255b-ruling-thumbnail.png'
+thumbnail: '/images/news/min-heejin-hybe-put-option-255b-ruling-thumbnail.webp'
 active: true
 ---
 
@@ -35,7 +35,7 @@ The ₩25.5 billion itself is relatively modest compared to HYBE's annual revenu
 
 **Third, the precedent effect.** This ruling confirms that put option clauses in shareholder agreements between K-pop agencies and creative executives carry real legal weight. Going forward, producers and creative directors joining agencies will have stronger leverage to demand protective clauses — citing this very case.
 
-![The significance of the put option ruling and its impact on the K-pop industry](/images/news/min-heejin-hybe-put-option-255b-ruling-1.png)
+![The significance of the put option ruling and its impact on the K-pop industry](/images/news/min-heejin-hybe-put-option-255b-ruling-1.webp)
 _Min Heejin's put option ruling is setting a new benchmark for K-pop management disputes_
 
 ## Min Heejin's Next Move — A New Label and NewJeans' Future

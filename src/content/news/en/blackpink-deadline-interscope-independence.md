@@ -3,7 +3,7 @@ title: "BLACKPINK Just Dropped Interscope — Why 'Deadline' Could Reshape K-pop
 excerpt: "BLACKPINK's first album in four years comes with a bombshell: they've left Interscope Records for The Orchard. This isn't just a label switch — it's a strategic power move that could redefine how K-pop conquers the global market."
 date: '2026-02-10'
 category: 'Industry'
-thumbnail: '/images/news/blackpink-deadline-interscope-independence-thumbnail.png'
+thumbnail: '/images/news/blackpink-deadline-interscope-independence-thumbnail.webp'
 active: true
 ---
 
@@ -37,7 +37,7 @@ So why leave now?
 
 **Third, this secures strategic autonomy for YG Entertainment.** Under the Interscope partnership, album timelines, promotion strategies, and even tracklists required joint approval. Moving to The Orchard is a declaration that YG is reclaiming full creative and marketing control.
 
-![BLACKPINK Distribution Independence](/images/news/blackpink-deadline-interscope-independence-1.png)
+![BLACKPINK Distribution Independence](/images/news/blackpink-deadline-interscope-independence-1.webp)
 _BLACKPINK's distribution shift sets a new precedent for K-pop artists pursuing global independence_
 
 ## The K-pop Distribution Landscape Is Shifting
