@@ -20,7 +20,7 @@ export async function getNewsViewCount(slug: string): Promise<number> {
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_news_views')
+    .from('news_views')
     .select('view_count')
     .eq('slug', slug)
     .maybeSingle();
@@ -43,7 +43,7 @@ export async function getNewsViewCounts(slugs: string[]): Promise<Record<string,
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_news_views')
+    .from('news_views')
     .select('slug, view_count')
     .in('slug', slugs);
 

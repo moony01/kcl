@@ -28,6 +28,7 @@ export {
 // Vote API
 export {
   submitVote,
+  resetDevelopmentTestVoteQuota,
   getKpopfaceEmbedVoteStatus,
   getVoteStats,
   getUserVoteStats,
@@ -37,6 +38,7 @@ export {
   type KpopfaceEmbedVoteStatus,
   type VoteStats,
   type UserVoteStats,
+  type DevelopmentVoteQuotaResetResult,
 } from './vote';
 
 // Hall of Fame API

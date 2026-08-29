@@ -99,7 +99,7 @@ export async function resolveProfileRedirect({
 
   try {
     const response = await fetchImpl(
-      `${supabaseUrl}/rest/v1/kcl_user_profiles?id=eq.${encodeURIComponent(userId)}&select=onboarding_completed`,
+      `${supabaseUrl}/rest/v1/user_profiles?id=eq.${encodeURIComponent(userId)}&select=onboarding_completed`,
       {
         headers: {
           'apikey': supabaseKey,

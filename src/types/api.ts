@@ -7,7 +7,7 @@
 /** 리그 구분 타입 (DB 컬럼 값) */
 export type DBLeagueTier = 'premier' | 'challengers';
 
-/** Supabase kcl_companies 테이블 스키마 */
+/** Supabase companies 테이블 스키마 */
 export interface DBCompany {
   id: string;
   name_ko: string;
@@ -34,7 +34,7 @@ export interface SubLabelData {
   groups: Pick<DBGroup, 'id' | 'name_ko' | 'name_en' | 'vote_count'>[];
 }
 
-/** Supabase kcl_groups 테이블 스키마 */
+/** Supabase groups 테이블 스키마 */
 export interface DBGroup {
   id: string;
   company_id: string;

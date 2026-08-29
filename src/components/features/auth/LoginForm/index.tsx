@@ -19,6 +19,7 @@ import styles from './LoginForm.module.scss';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
 import { resetGuestVoteQuota } from '@/lib/vote-quota';
+import { resetDevelopmentTestVoteQuota } from '@/lib/api/vote';
 import {
   isDevelopmentEnvironment,
   isDevelopmentTestModeEnabled,
@@ -53,26 +54,40 @@ function LoginFormInner() {
   const [oauthLoading, setOauthLoading] = useState<string | null>(null);
   const [lastProvider, setLastProvider] = useState<string | null>(null);
   const [conflictDismissed, setConflictDismissed] = useState(false);
+  const [quotaResetting, setQuotaResetting] = useState(false);
 
   const queryConflictProvider =
     searchParams.get('conflict') === 'true' ? searchParams.get('provider') : null;
   const conflictProvider = conflictDismissed ? null : queryConflictProvider;
 
-  // 마운트 시 마지막 프로바이더 및 충돌 정보 읽기
+  // 마운트 시 로컬 테스트 로그인 상태와 마지막 프로바이더 정보 읽기
   useEffect(() => {
-    setLocalTestMode(isDevelopmentTestModeEnabled());
+    const localTestModeEnabled = isDevelopmentTestModeEnabled();
+    setLocalTestMode(localTestModeEnabled);
+
+    // 로그인 페이지를 새로 열었을 때도 이미 활성화된 개발자 테스트 세션을
+    // 로그인 대기 상태로 남겨두지 않고, 토글 클릭과 동일하게 홈으로 보낸다.
+    if (localTestModeEnabled) {
+      router.replace(`/${locale}`);
+    }
 
     // localStorage에서 마지막 로그인 프로바이더 읽기
+    let lastProviderTimer: number | undefined;
     try {
       const saved = localStorage.getItem(LAST_PROVIDER_KEY);
       if (saved) {
-        const timer = window.setTimeout(() => setLastProvider(saved), 0);
-        return () => window.clearTimeout(timer);
+        lastProviderTimer = window.setTimeout(() => setLastProvider(saved), 0);
       }
     } catch {
       // localStorage 접근 실패 무시 (Private 브라우징 등)
     }
-  }, []);
+
+    return () => {
+      if (lastProviderTimer !== undefined) {
+        window.clearTimeout(lastProviderTimer);
+      }
+    };
+  }, [locale, router]);
 
   /**
    * OAuth 로그인 처리 (Google / Kakao)
@@ -125,6 +140,30 @@ function LoginFormInner() {
     setLocalTestMode(nextValue);
     if (nextValue) {
       router.replace(`/${locale}`);
+    }
+  };
+
+  const handleVoteQuotaReset = async () => {
+    if (quotaResetting) return;
+
+    const isLocalTestSession = isDevelopmentTestModeEnabled();
+    setQuotaResetting(true);
+    setError(null);
+
+    try {
+      if (isLocalTestSession) {
+        await resetDevelopmentTestVoteQuota();
+      } else {
+        resetGuestVoteQuota();
+      }
+
+      // Keep the browser-only guest identity clean after a successful reset.
+      // The server-backed developer reset already refreshed mounted quota state.
+      if (isLocalTestSession) resetGuestVoteQuota();
+    } catch {
+      setError('Vote quota reset failed.');
+    } finally {
+      setQuotaResetting(false);
     }
   };
 
@@ -252,9 +291,14 @@ function LoginFormInner() {
               type="button"
               className={styles.developerToolButton}
               data-testid="guest-quota-reset"
-              onClick={resetGuestVoteQuota}
+              onClick={() => void handleVoteQuotaReset()}
+              disabled={quotaResetting}
             >
-              Reset guest quota
+              {quotaResetting
+                ? 'Resetting vote quota…'
+                : localTestMode
+                  ? 'Reset developer vote quota'
+                  : 'Reset guest quota'}
             </button>
             <p
               className={styles.developerToolsHint}

@@ -120,10 +120,10 @@ describe('OnboardingClient', () => {
     );
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') {
+      if (table === 'groups') {
         return groupsQuery;
       }
-      if (table === 'kcl_user_profiles') {
+      if (table === 'user_profiles') {
         return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
@@ -157,8 +157,8 @@ describe('OnboardingClient', () => {
     const groupsQuery = createGroupsQuery([]);
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') return groupsQuery;
-      if (table === 'kcl_user_profiles') return profileQuery;
+      if (table === 'groups') return groupsQuery;
+      if (table === 'user_profiles') return profileQuery;
       throw new Error(`unexpected table: ${table}`);
     });
 
@@ -203,8 +203,8 @@ describe('OnboardingClient', () => {
     const groupsQuery = createGroupsQuery([]);
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') return groupsQuery;
-      if (table === 'kcl_user_profiles') return profileQuery;
+      if (table === 'groups') return groupsQuery;
+      if (table === 'user_profiles') return profileQuery;
       throw new Error(`unexpected table: ${table}`);
     });
 
@@ -234,7 +234,7 @@ describe('OnboardingClient', () => {
         company_id: 'company-sm',
         slug: 'aespa',
         group_type: 'girl',
-        kcl_companies: { name_ko: 'SM', name_en: 'SM' },
+        companies: { name_ko: 'SM', name_en: 'SM' },
       },
       {
         id: 'group-bts',
@@ -243,7 +243,7 @@ describe('OnboardingClient', () => {
         company_id: 'company-hybe',
         slug: 'bts',
         group_type: 'boy',
-        kcl_companies: { name_ko: '하이브', name_en: 'HYBE' },
+        companies: { name_ko: '하이브', name_en: 'HYBE' },
       },
     ];
 
@@ -251,10 +251,10 @@ describe('OnboardingClient', () => {
     const profileQuery = createProfileQuery();
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') {
+      if (table === 'groups') {
         return groupsQuery;
       }
-      if (table === 'kcl_user_profiles') {
+      if (table === 'user_profiles') {
         return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
@@ -291,7 +291,7 @@ describe('OnboardingClient', () => {
         company_id: 'company-sm',
         slug: 'aespa',
         group_type: 'girl',
-        kcl_companies: { name_ko: 'SM', name_en: 'SM' },
+        companies: { name_ko: 'SM', name_en: 'SM' },
       },
     ];
 
@@ -299,10 +299,10 @@ describe('OnboardingClient', () => {
     const profileQuery = createProfileQuery();
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') {
+      if (table === 'groups') {
         return groupsQuery;
       }
-      if (table === 'kcl_user_profiles') {
+      if (table === 'user_profiles') {
         return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
@@ -342,10 +342,10 @@ describe('OnboardingClient', () => {
     const profileQuery = createProfileQuery();
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') {
+      if (table === 'groups') {
         return groupsQuery;
       }
-      if (table === 'kcl_user_profiles') {
+      if (table === 'user_profiles') {
         return profileQuery;
       }
       throw new Error(`unexpected table: ${table}`);
@@ -383,15 +383,15 @@ describe('OnboardingClient', () => {
         company_id: 'company-sm',
         slug: 'aespa',
         group_type: 'girl',
-        kcl_companies: { name_ko: 'SM', name_en: 'SM' },
+        companies: { name_ko: 'SM', name_en: 'SM' },
       },
     ];
     const groupsQuery = createGroupsQuery(groups);
     const profileQuery = createProfileQuery('테스터', null, null, null);
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') return groupsQuery;
-      if (table === 'kcl_user_profiles') return profileQuery;
+      if (table === 'groups') return groupsQuery;
+      if (table === 'user_profiles') return profileQuery;
       throw new Error(`unexpected table: ${table}`);
     });
 
@@ -424,8 +424,8 @@ describe('OnboardingClient', () => {
     const groupsQuery = createGroupsQuery([]);
     const profileQuery = createProfileQuery('테스터', null, null, null);
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') return groupsQuery;
-      if (table === 'kcl_user_profiles') return profileQuery;
+      if (table === 'groups') return groupsQuery;
+      if (table === 'user_profiles') return profileQuery;
       throw new Error(`unexpected table: ${table}`);
     });
 
@@ -463,8 +463,8 @@ describe('OnboardingClient', () => {
     const groupsQuery = createGroupsQuery([]);
 
     mockFrom.mockImplementation((table: string) => {
-      if (table === 'kcl_groups') return groupsQuery;
-      if (table === 'kcl_user_profiles') return profileQuery;
+      if (table === 'groups') return groupsQuery;
+      if (table === 'user_profiles') return profileQuery;
       throw new Error(`unexpected table: ${table}`);
     });
 

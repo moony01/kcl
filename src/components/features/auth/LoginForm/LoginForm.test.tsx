@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderToString } from 'react-dom/server';
 import LoginForm from './index';
@@ -9,6 +9,7 @@ const mocks = vi.hoisted(() => ({
   createClient: vi.fn(),
   signInWithOAuth: vi.fn(),
   routerReplace: vi.fn(),
+  resetDevelopmentTestVoteQuota: vi.fn(),
 }));
 
 vi.mock('next-intl', () => ({
@@ -25,6 +26,10 @@ vi.mock('@/lib/supabase/client', () => ({
   createClient: mocks.createClient,
 }));
 
+vi.mock('@/lib/api/vote', () => ({
+  resetDevelopmentTestVoteQuota: mocks.resetDevelopmentTestVoteQuota,
+}));
+
 describe('LoginForm development controls', () => {
   beforeEach(() => {
     vi.stubEnv('NODE_ENV', 'development');
@@ -32,6 +37,12 @@ describe('LoginForm development controls', () => {
     mocks.createClient.mockReset();
     mocks.signInWithOAuth.mockReset();
     mocks.routerReplace.mockReset();
+    mocks.resetDevelopmentTestVoteQuota.mockReset();
+    mocks.resetDevelopmentTestVoteQuota.mockResolvedValue({
+      success: true,
+      deletedVotes: 3,
+      deletedScore: 300,
+    });
     mocks.createClient.mockReturnValue({
       auth: { signInWithOAuth: mocks.signInWithOAuth },
     });
@@ -55,6 +66,14 @@ describe('LoginForm development controls', () => {
       true,
     );
     expect(mocks.createClient).not.toHaveBeenCalled();
+  });
+
+  it('returns to the local home when an active test session reopens the login page', () => {
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    render(<LoginForm />);
+
+    expect(mocks.routerReplace).toHaveBeenCalledWith('/ko');
   });
 
   it('keeps the server markup independent of the browser test-mode marker', () => {
@@ -87,6 +106,18 @@ describe('LoginForm development controls', () => {
     expect(JSON.parse(window.localStorage.getItem(VOTE_QUOTA_STORAGE_KEY) ?? '')).toMatchObject({
       used: 0,
       max: 100,
+    });
+  });
+
+  it('resets the server-backed developer quota when the local test session is active', async () => {
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    render(<LoginForm />);
+
+    fireEvent.click(screen.getByTestId('guest-quota-reset'));
+
+    await waitFor(() => {
+      expect(mocks.resetDevelopmentTestVoteQuota).toHaveBeenCalledTimes(1);
     });
   });
 

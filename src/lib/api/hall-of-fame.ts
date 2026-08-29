@@ -4,7 +4,7 @@
  * 명예의 전당 관련 Supabase 직접 호출 함수들
  * SSG/CSR 마이그레이션: /api/hall-of-fame 대체
  *
- * 테이블: kcl_seasons, kcl_companies
+ * 테이블: seasons, companies
  */
 
 import { getSupabase } from '@/lib/supabase/client';
@@ -174,9 +174,9 @@ export async function getHallOfFame(): Promise<HallOfFameData> {
   const currentYear = new Date().getFullYear();
 
   try {
-    // kcl_seasons 테이블에서 모든 시즌 데이터 조회 (회사 정보 JOIN)
+    // seasons 테이블에서 모든 시즌 데이터 조회 (회사 정보 JOIN)
     const { data: seasons, error } = await supabase
-      .from('kcl_seasons')
+      .from('seasons')
       .select(
         `
         id,
@@ -185,7 +185,7 @@ export async function getHallOfFame(): Promise<HallOfFameData> {
         champion_company_id,
         total_votes,
         decided_at,
-        company:kcl_companies!champion_company_id (
+        company:companies!champion_company_id (
           id,
           name_ko,
           name_en,

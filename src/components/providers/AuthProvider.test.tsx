@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import AuthProvider, { AuthContext } from './AuthProvider';
 import {
+  DEVELOPMENT_TEST_MODE_CHANGE_EVENT,
   DEVELOPMENT_TEST_MODE_STORAGE_KEY,
   DEVELOPMENT_TEST_USER_ID,
 } from '@/lib/auth/development-test-mode';
@@ -93,6 +94,30 @@ describe('AuthProvider development test mode', () => {
     expect(screen.getByTestId('profile').textContent).toBe('none');
     expect(mocks.getSupabase).not.toHaveBeenCalled();
     expect(mocks.signOut).not.toHaveBeenCalled();
+  });
+
+  it('adopts the local authenticated user when test mode is enabled after mount', async () => {
+    render(
+      <AuthProvider>
+        <AuthProbe />
+      </AuthProvider>,
+    );
+
+    // Let the normal Supabase initialization pass its dynamic import before
+    // switching modes so this test does not leave an async initialization
+    // from one test racing with the next test.
+    await waitFor(() => expect(mocks.getSupabase).toHaveBeenCalledTimes(1));
+
+    await act(async () => {
+      window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+      window.dispatchEvent(new Event(DEVELOPMENT_TEST_MODE_CHANGE_EVENT));
+    });
+
+    await waitFor(() => {
+      expect(screen.getByTestId('user').textContent).toBe(DEVELOPMENT_TEST_USER_ID);
+      expect(screen.getByTestId('profile').textContent).toBe('Developer Test');
+      expect(screen.getByTestId('loading').textContent).toBe('false');
+    });
   });
 
   it('does not treat a stale marker as test mode in production', async () => {

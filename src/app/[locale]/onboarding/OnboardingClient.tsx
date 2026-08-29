@@ -31,7 +31,7 @@ interface GroupRow {
   company_id: string;
   slug: string;
   group_type: string | null;
-  kcl_companies: CompanyRow | CompanyRow[] | null;
+  companies: CompanyRow | CompanyRow[] | null;
 }
 
 /** 로케일에 따라 한글/영문 이름을 반환 */
@@ -92,7 +92,7 @@ export default function OnboardingClient() {
       try {
         const supabase = getSupabase();
         const { data, error } = await supabase
-          .from('kcl_user_profiles')
+          .from('user_profiles')
           .select('username, onboarding_completed')
           .eq('id', userId)
           .maybeSingle();
@@ -138,9 +138,9 @@ export default function OnboardingClient() {
       try {
         const supabase = getSupabase();
         const { data, error } = await supabase
-          .from('kcl_groups')
+          .from('groups')
           .select(
-            'id, name_ko, name_en, company_id, slug, group_type, kcl_companies(name_ko, name_en)',
+            'id, name_ko, name_en, company_id, slug, group_type, companies(name_ko, name_en)',
           )
           .eq('is_active', true)
           .order('name_en');
@@ -200,9 +200,9 @@ export default function OnboardingClient() {
   /** 그룹의 소속사 이름 추출 */
   const getCompanyName = useCallback(
     (group: GroupRow) => {
-      const company = Array.isArray(group.kcl_companies)
-        ? group.kcl_companies[0] || null
-        : group.kcl_companies;
+      const company = Array.isArray(group.companies)
+        ? group.companies[0] || null
+        : group.companies;
 
       return toDisplayName(company?.name_ko ?? null, company?.name_en ?? null, isKo);
     },
@@ -339,7 +339,7 @@ export default function OnboardingClient() {
       }
 
       const { data: updatedProfile, error: updateError } = await supabase
-        .from('kcl_user_profiles')
+        .from('user_profiles')
         .update(updateData)
         .eq('id', user.id)
         .select('id')
@@ -380,7 +380,7 @@ export default function OnboardingClient() {
     try {
       const supabase = getSupabase();
       const { data: updatedProfile, error: updateError } = await supabase
-        .from('kcl_user_profiles')
+        .from('user_profiles')
         .update({
           username: nickname.trim(),
           onboarding_completed: true,

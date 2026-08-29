@@ -52,7 +52,7 @@ export async function getNewsComments(
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_news_comments')
+    .from('news_comments')
     .select('id, slug, author_name, content, is_deleted, created_at, updated_at')
     .eq('slug', slug)
     .eq('is_deleted', false)
@@ -158,7 +158,7 @@ export async function getNewsCommentCounts(
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_news_comments')
+    .from('news_comments')
     .select('slug')
     .in('slug', slugs)
     .eq('is_deleted', false);

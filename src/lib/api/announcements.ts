@@ -81,7 +81,7 @@ export async function getAnnouncements(
   const supabase = createClient();
 
   let query = supabase
-    .from('kcl_announcements')
+    .from('announcements')
     .select('id, title, category, is_pinned, is_published, view_count, created_at, updated_at')
     .eq('is_published', true)
     .order('is_pinned', { ascending: false })
@@ -118,7 +118,7 @@ export async function getAnnouncementById(id: string, locale = 'ko'): Promise<An
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_announcements')
+    .from('announcements')
     .select('*')
     .eq('id', id)
     .eq('is_published', true)
@@ -158,7 +158,7 @@ export async function getPublishedAnnouncementIds(): Promise<string[]> {
   }
 
   const { data, error } = await supabase
-    .from('kcl_announcements')
+    .from('announcements')
     .select('id')
     .eq('is_published', true);
 

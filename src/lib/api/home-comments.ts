@@ -51,7 +51,7 @@ export async function getHomeComments(
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_home_comments')
+    .from('home_comments')
     .select('id, author_name, content, is_deleted, created_at, updated_at, likes_count')
     .eq('is_deleted', false)
     .order('created_at', { ascending: false })
