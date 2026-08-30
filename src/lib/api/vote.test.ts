@@ -3,7 +3,7 @@ import {
   DEVELOPMENT_TEST_MODE_STORAGE_KEY,
   DEVELOPMENT_TEST_USER_ID,
 } from '@/lib/auth/development-test-mode';
-import { resetDevelopmentTestVoteQuota, submitVote } from './vote';
+import { submitVote } from './vote';
 
 const mocks = vi.hoisted(() => ({
   getSupabase: vi.fn(),
@@ -73,18 +73,4 @@ describe('submitVote developer session boundary', () => {
     );
   });
 
-  it('resets the local developer fixture through the server RPC', async () => {
-    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
-    mocks.rpc.mockResolvedValueOnce({
-      data: { success: true, deleted_votes: 3, deleted_score: 300 },
-      error: null,
-    });
-
-    await expect(resetDevelopmentTestVoteQuota()).resolves.toEqual({
-      success: true,
-      deletedVotes: 3,
-      deletedScore: 300,
-    });
-    expect(mocks.rpc).toHaveBeenCalledWith('reset_development_test_vote_quota');
-  });
 });

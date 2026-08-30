@@ -19,7 +19,6 @@ import styles from './LoginForm.module.scss';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
 import { resetGuestVoteQuota } from '@/lib/vote-quota';
-import { resetDevelopmentTestVoteQuota } from '@/lib/api/vote';
 import {
   isDevelopmentEnvironment,
   isDevelopmentTestModeEnabled,
@@ -143,23 +142,14 @@ function LoginFormInner() {
     }
   };
 
-  const handleVoteQuotaReset = async () => {
+  const handleVoteQuotaReset = () => {
     if (quotaResetting) return;
 
-    const isLocalTestSession = isDevelopmentTestModeEnabled();
     setQuotaResetting(true);
     setError(null);
 
     try {
-      if (isLocalTestSession) {
-        await resetDevelopmentTestVoteQuota();
-      } else {
-        resetGuestVoteQuota();
-      }
-
-      // Keep the browser-only guest identity clean after a successful reset.
-      // The server-backed developer reset already refreshed mounted quota state.
-      if (isLocalTestSession) resetGuestVoteQuota();
+      resetGuestVoteQuota();
     } catch {
       setError('Vote quota reset failed.');
     } finally {

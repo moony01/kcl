@@ -13,15 +13,9 @@
  */
 
 import { VOTE_LIMITS } from '@/config/vote';
-import {
-  getVoteBackendUserId,
-  isDevelopmentTestModeEnabled,
-} from '@/lib/auth/development-test-mode';
+import { getVoteBackendUserId } from '@/lib/auth/development-test-mode';
 import { getSupabase } from '@/lib/supabase/client';
-import {
-  GUEST_VOTER_ID_STORAGE_KEY,
-  VOTE_QUOTA_REFRESH_EVENT,
-} from '@/lib/vote-quota';
+import { GUEST_VOTER_ID_STORAGE_KEY } from '@/lib/vote-quota';
 
 export const KPOPFACE_EMBED_POWER_MAX = VOTE_LIMITS.KPOPFACE_EMBED_POWER_MAX;
 
@@ -242,48 +236,6 @@ export interface UserVoteStats {
     vote_count: number;
     gradient_color?: string;
   }>;
-}
-
-export interface DevelopmentVoteQuotaResetResult {
-  success: true;
-  deletedVotes: number;
-  deletedScore: number;
-}
-
-/**
- * Reset today's server-side votes for the deterministic local developer user.
- *
- * The RPC only targets the fixed development fixture and is callable from the
- * local browser session, which has no Supabase JWT. Production code cannot
- * enter this path because the browser marker is development-only.
- */
-export async function resetDevelopmentTestVoteQuota(): Promise<DevelopmentVoteQuotaResetResult> {
-  if (!isDevelopmentTestModeEnabled()) {
-    throw new Error('Development test mode is not active.');
-  }
-
-  const { data, error } = await getSupabase().rpc('reset_development_test_vote_quota');
-  if (error) throw error;
-
-  const result = data as {
-    success?: boolean;
-    deleted_votes?: number;
-    deleted_score?: number;
-  } | null;
-
-  if (!result?.success) {
-    throw new Error('Development vote quota reset failed.');
-  }
-
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new Event(VOTE_QUOTA_REFRESH_EVENT));
-  }
-
-  return {
-    success: true,
-    deletedVotes: Number(result.deleted_votes || 0),
-    deletedScore: Number(result.deleted_score || 0),
-  };
 }
 
 /**

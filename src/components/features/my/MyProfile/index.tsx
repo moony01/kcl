@@ -20,7 +20,6 @@ import {
   MoreHorizontal,
   Pencil,
   Plus,
-  RefreshCw,
   Sparkles,
   Trash2,
   Upload,
@@ -45,7 +44,6 @@ import {
   type ProfileActivityRecord,
   type ProfilePostRecord,
 } from '@/lib/api/profile-content';
-import { resetDevelopmentTestVoteQuota } from '@/lib/api/vote';
 import { isDevelopmentTestModeEnabled } from '@/lib/auth/development-test-mode';
 import styles from './MyProfile.module.scss';
 
@@ -321,7 +319,6 @@ export default function MyProfile() {
   const [deleteConfirmText, setDeleteConfirmText] = useState('');
   const [deleteAccountError, setDeleteAccountError] = useState('');
   const [accountDeleting, setAccountDeleting] = useState(false);
-  const [voteQuotaResetting, setVoteQuotaResetting] = useState(false);
   const [careerEntries, setCareerEntries] = useState<CareerEntry[]>([]);
   const [feedItems, setFeedItems] = useState<FeedItem[]>([]);
   const [localPreviewMode, setLocalPreviewMode] = useState(false);
@@ -388,9 +385,6 @@ export default function MyProfile() {
         moreCareer: '활동 이력 더 보기',
         lessCareer: '간단히 보기',
         logout: '로그아웃',
-        resetVoteQuota: '투표권 초기화',
-        resettingVoteQuota: '투표권 초기화 중…',
-        resetVoteQuotaError: '투표권 초기화에 실패했습니다.',
         deleteAccount: '회원탈퇴',
         close: '닫기',
         deleteTitle: '정말 탈퇴하시겠어요?',
@@ -452,9 +446,6 @@ export default function MyProfile() {
         moreCareer: 'Show more history',
         lessCareer: 'Show less',
         logout: 'Log out',
-        resetVoteQuota: 'Reset vote quota',
-        resettingVoteQuota: 'Resetting vote quota…',
-        resetVoteQuotaError: 'The vote quota could not be reset.',
         deleteAccount: 'Delete account',
         close: 'Close',
         deleteTitle: 'Delete your account?',
@@ -821,21 +812,6 @@ export default function MyProfile() {
     router.replace(`/${locale}`);
   };
 
-  const handleDeveloperVoteQuotaReset = async () => {
-    if (!localPreviewMode || voteQuotaResetting) return;
-
-    setVoteQuotaResetting(true);
-    setContentError('');
-    try {
-      await resetDevelopmentTestVoteQuota();
-      setShowProfileMenu(false);
-    } catch (error: unknown) {
-      setContentError(getErrorMessage(error, copy.resetVoteQuotaError));
-    } finally {
-      setVoteQuotaResetting(false);
-    }
-  };
-
   const handleDeleteAccount = async () => {
     const confirmWord = isKorean ? '탈퇴' : 'DELETE';
     if (deleteConfirmText.trim() !== confirmWord) {
@@ -895,18 +871,6 @@ export default function MyProfile() {
 
               {showProfileMenu && (
                 <div className={styles.profileMenu} role="menu">
-                  {localPreviewMode && (
-                    <button
-                      type="button"
-                      onClick={() => void handleDeveloperVoteQuotaReset()}
-                      role="menuitem"
-                      data-testid="developer-vote-quota-reset"
-                      disabled={voteQuotaResetting}
-                    >
-                      <RefreshCw size={15} />
-                      {voteQuotaResetting ? copy.resettingVoteQuota : copy.resetVoteQuota}
-                    </button>
-                  )}
                   <button type="button" onClick={() => void handleSignOut()} role="menuitem">
                     <LogOut size={15} />
                     {copy.logout}
