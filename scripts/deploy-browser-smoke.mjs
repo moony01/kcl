@@ -157,7 +157,7 @@ async function main() {
 
     page.on('response', (response) => {
       const url = response.url();
-      if (url.includes('.supabase.co/rest/v1/')) {
+      if (url.includes('/rest/v1/')) {
         supabaseResponses.push({ status: response.status(), url });
       }
     });
@@ -186,11 +186,12 @@ async function main() {
       { timeout: 20_000 },
     );
     const profileFeedCount = await page.locator('[data-testid="profile-feed-card"]').count();
+    const profileFeedResponses = supabaseResponses.filter(({ url }) => url.includes('/rest/v1/profile_posts'));
     assert(
-      supabaseResponses.some(
-        ({ status, url }) => url.includes('/rest/v1/profile_posts') && status >= 200 && status < 300,
-      ),
-      'home did not successfully query the public profile feed',
+      profileFeedResponses.some(({ status }) => status >= 200 && status < 300),
+      `home did not successfully query the public profile feed (responses: ${profileFeedResponses
+        .map(({ status }) => status)
+        .join(', ') || 'none'})`,
     );
     assert(
       !(await page.locator('[data-testid="home-profile-feed"] [role="alert"]').count()),
@@ -257,6 +258,7 @@ async function main() {
           browser: browserPath,
           baseUrl: server.baseUrl,
           profileFeedCount,
+          profileFeedStatuses: profileFeedResponses.map(({ status }) => status),
           companyCount,
           ...seoEndpoints,
           supabaseResponses: supabaseResponses.map(({ status, url }) => ({ status, url })),
