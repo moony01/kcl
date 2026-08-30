@@ -1,0 +1,34 @@
+{
+  "workflow": "kcl-news",
+  "slug": "katseye-wild-billboard-200",
+  "runDate": "2026-08-30",
+  "phase": "LOCAL_COMMIT_HANDOFF",
+  "status": "INCOMPLETE",
+  "active": true,
+  "worktree": "/home/moon/workspace/kcl/.worktrees/kcl-news-20260830-v2",
+  "branch": "automation/kcl-news-20260830-v2",
+  "base": "origin/main",
+  "gates": {
+    "research": "PASS",
+    "content": "PASS",
+    "image": "PASS",
+    "factcheck": "PASS",
+    "localQa": "PASS",
+    "preMergeCommit": "PASS",
+    "deploy": "NOT_RUN",
+    "gsc": "NOT_RUN"
+  },
+  "authorization": {
+    "status": "APPLIED_AFTER_PRE_MERGE_GATES",
+    "scope": "Current user mission authorizes KCL publish/deploy/GSC after gates; worker may activate the article after the pre-merge gates but must stop before lead integration.",
+    "activeTransition": "false -> true after research, content, image, fact-check, local QA, and user authorization"
+  },
+  "nextRequired": [
+    "Lead reviews and integrates the local commit.",
+    "Lead pushes/merges and supplies the production URL and deployed SHA.",
+    "After final confirmation, verify the Cloudflare production SHA.",
+    "Use the version-matched computer-use skill in a dedicated browser session for GSC URL inspection/indexing."
+  ],
+  "localCommitSha": "fdff4039469053daca12696722a5d5a5a1928b13",
+  "updatedAt": "2026-08-30T15:09:00+09:00"
+}

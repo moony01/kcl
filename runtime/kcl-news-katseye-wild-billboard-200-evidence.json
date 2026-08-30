@@ -1,0 +1,392 @@
+{
+  "workflow": "kcl-news",
+  "slug": "katseye-wild-billboard-200",
+  "runDate": "2026-08-30",
+  "status": "INCOMPLETE",
+  "statusReason": "Local pre-merge gates and commit passed; deploy, production verification, and GSC remain in the lead handoff sequence.",
+  "worktree": "/home/moon/workspace/kcl/.worktrees/kcl-news-20260830-v2",
+  "branch": "automation/kcl-news-20260830-v2",
+  "base": {
+    "remote": "origin",
+    "ref": "origin/main",
+    "sha": "ac2ac831f6eeea696c97e876a7d1be8411266de5"
+  },
+  "authorization": {
+    "source": "current user mission",
+    "scope": "KCL dated English news run; article activation after pre-merge gates; later publish/deploy/GSC only after lead integration and production confirmation",
+    "activeBefore": false,
+    "activeAfter": true,
+    "transitionReason": "Research, content, image, fact-check, and local QA passed before activation."
+  },
+  "gates": {
+    "research": "PASS",
+    "content": "PASS",
+    "image": "PASS",
+    "factcheck": "PASS",
+    "localQa": "PASS",
+    "preMergeCommit": "PASS",
+    "deploy": "NOT_RUN",
+    "gsc": "NOT_RUN"
+  },
+  "research": {
+    "selectedTopic": "KATSEYE WILD Billboard 200 breakthrough",
+    "selectionMethod": "Automatic candidate scoring against recency, fan interest, source strength, search interest, and global SEO.",
+    "selectedScore": 96,
+    "selectedTone": "Positive",
+    "selectedCategory": "Market Trend",
+    "candidateScores": [
+      {
+        "topic": "KATSEYE WILD Billboard 200 breakthrough",
+        "score": 96,
+        "breakdown": {
+          "realTimeRelevance": "24/25",
+          "fanInterest": "24/25",
+          "mediaEvidence": "20/20",
+          "searchSeo": "18/20",
+          "globalSeo": "10/10"
+        }
+      },
+      {
+        "topic": "Stray Kids JYP global-fandom / THIS & THAT",
+        "score": 82
+      },
+      {
+        "topic": "G-Dragon Galaxy Corporation overseas expansion",
+        "score": 76
+      },
+      {
+        "topic": "General August chart roundup",
+        "score": 67
+      },
+      {
+        "topic": "JYP / Source Music audition topic",
+        "score": 56
+      }
+    ],
+    "recentEnglishNewsTone": {
+      "positive": 4,
+      "neutral": 1,
+      "negative": 0,
+      "balanceRuleTriggered": false
+    },
+    "queries": [
+      "K-pop news August 30 2026 comeback chart streaming",
+      "K-pop controversy legal dispute August 30 2026",
+      "K-pop album debut Billboard 200 August 2026",
+      "K-pop trainee audition survival show August 2026",
+      "K-pop global expansion business strategy August 2026 agency earnings",
+      "K-pop fandom project community reaction August 2026",
+      "site:billboard.com K-pop August 2026 chart album",
+      "site:soompi.com K-pop August 30 2026 news",
+      "KATSEYE WILD Billboard 200 number one August 2026 official Billboard",
+      "KATSEYE WILD first week sales Billboard 200 August 2026",
+      "KATSEYE WILD official release August 2026 Universal Music",
+      "KATSEYE WILD Billboard 200 Korea news August 2026",
+      "site:billboard.com KATSEYE WILD 170,000",
+      "site:billboard.com KATSEYE Achieves First No. 1 Album",
+      "site:billboard.com WILD Billboard 200 KATSEYE August 23 2026",
+      "site:billboard.com/chart-beat KATSEYE WILD 2026",
+      "24,500 26.95 million KATSEYE WILD",
+      "145,000 24,500 KATSEYE WILD",
+      "KATSEYE WILD 170000 145000 26.95 million streams"
+    ],
+    "sourceUrls": [
+      "https://ca.billboard.com/charts",
+      "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+      "https://en.yna.co.kr/view/AEN20260824000351315",
+      "https://rki.kbs.co.kr/service/news_view.htm?Seq_Code=203766&lang=e",
+      "https://www.universalmusic.ca/2026/08/14/katseyes-new-ep-wild-is-out-today/",
+      "https://ca.billboard.com/music/pop/katseye-wild-third-ep-stream-it-now-1236316421/",
+      "https://m.ajupress.com/amp/20260824085755615",
+      "https://en.edaily.co.kr/news/eda202608245050/",
+      "https://billboardphilippines.com/music/news/katseye-wild-billboard-200-no-1/",
+      "https://billboard.com.br/katseye-wild-primeiro-numero-1-billboard-200/",
+      "https://en.sedaily.com/news/2026/08/28/g-dragons-agency-galaxy-corporation-seeks-100-billion-won",
+      "https://kind.krx.co.kr/external/dst/irReference/19044/%5BJYP%20ENT%5D%2026Q2_Result_ENG_F.pdf",
+      "https://audition.jype.com/audition/auditions/31",
+      "https://sourcemusic.com/audition/index"
+    ],
+    "trustedSourceUrls": [
+      "https://ca.billboard.com/charts",
+      "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+      "https://en.yna.co.kr/view/AEN20260824000351315",
+      "https://rki.kbs.co.kr/service/news_view.htm?Seq_Code=203766&lang=e",
+      "https://www.universalmusic.ca/2026/08/14/katseyes-new-ep-wild-is-out-today/",
+      "https://ca.billboard.com/music/pop/katseye-wild-third-ep-stream-it-now-1236316421/",
+      "https://m.ajupress.com/amp/20260824085755615",
+      "https://en.edaily.co.kr/news/eda202608245050/",
+      "https://billboardphilippines.com/music/news/katseye-wild-billboard-200-no-1/",
+      "https://billboard.com.br/katseye-wild-primeiro-numero-1-billboard-200/"
+    ]
+  },
+  "content": {
+    "path": "src/content/news/en/katseye-wild-billboard-200.md",
+    "title": "KATSEYE's WILD Hit No. 1 — 170,000 Units and the New Global Girl-Group Math",
+    "excerpt": "KATSEYE's WILD opened at No. 1 on the Billboard 200 with 170,000 units. Its sales-heavy mix shows how global girl groups are scaling.",
+    "date": "2026-08-30",
+    "category": "Market Trend",
+    "wordCountIncludingFrontmatter": 1313,
+    "h2Count": 5,
+    "h3Count": 5,
+    "internalLinks": [
+      "/en/news/katseye-coachella-debut"
+    ],
+    "externalLinkCount": 12,
+    "activeBefore": false,
+    "activeAfter": true,
+    "facts": [
+      {
+        "claim": "WILD debuted at No. 1 on the Billboard 200.",
+        "verdict": "PASS",
+        "sources": [
+          "https://ca.billboard.com/charts",
+          "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+          "https://en.yna.co.kr/view/AEN20260824000351315",
+          "https://rki.kbs.co.kr/service/news_view.htm?Seq_Code=203766&lang=e"
+        ]
+      },
+      {
+        "claim": "WILD opened with 170,000 equivalent album units for the week ending August 20.",
+        "verdict": "PASS",
+        "sources": [
+          "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+          "https://en.yna.co.kr/view/AEN20260824000351315",
+          "https://m.ajupress.com/amp/20260824085755615",
+          "https://en.edaily.co.kr/news/eda202608245050/"
+        ]
+      },
+      {
+        "claim": "The total included 145,000 traditional sales, 24,500 SEA units, and 500 TEA units.",
+        "verdict": "PASS",
+        "sources": [
+          "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+          "https://m.ajupress.com/amp/20260824085755615",
+          "https://en.edaily.co.kr/news/eda202608245050/",
+          "https://billboardphilippines.com/music/news/katseye-wild-billboard-200-no-1/"
+        ]
+      },
+      {
+        "claim": "The 24,500 SEA units corresponded to 26.95 million on-demand audio streams.",
+        "verdict": "PASS",
+        "sources": [
+          "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+          "https://billboardphilippines.com/music/news/katseye-wild-billboard-200-no-1/",
+          "https://billboard.com.br/katseye-wild-primeiro-numero-1-billboard-200/"
+        ]
+      },
+      {
+        "claim": "WILD was released on August 14 as KATSEYE's third EP through HYBE x Geffen, with five songs on the regular edition.",
+        "verdict": "PASS",
+        "sources": [
+          "https://www.universalmusic.ca/2026/08/14/katseyes-new-ep-wild-is-out-today/",
+          "https://ca.billboard.com/music/pop/katseye-wild-third-ep-stream-it-now-1236316421/",
+          "https://en.yna.co.kr/view/AEN20260824000351315"
+        ]
+      },
+      {
+        "claim": "BEAUTIFUL CHAOS debuted at No. 4 and WILD is KATSEYE's second top-10 and third overall Billboard 200 entry.",
+        "verdict": "PASS",
+        "sources": [
+          "https://ca.billboard.com/music/pop/katseye-wild-third-ep-stream-it-now-1236316421/",
+          "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+          "https://en.edaily.co.kr/news/eda202608245050/"
+        ]
+      },
+      {
+        "claim": "WILD became the fourth album by an all-woman group to top the Billboard 200 since 2020.",
+        "verdict": "PASS",
+        "sources": [
+          "https://en.yna.co.kr/view/AEN20260824000351315",
+          "https://rki.kbs.co.kr/service/news_view.htm?Seq_Code=203766&lang=e",
+          "https://m.ajupress.com/amp/20260824085755615"
+        ]
+      },
+      {
+        "claim": "WILD reached No. 2 in the United Kingdom.",
+        "verdict": "PASS",
+        "sources": [
+          "https://en.yna.co.kr/view/AEN20260824000351315",
+          "https://rki.kbs.co.kr/service/news_view.htm?Seq_Code=203766&lang=e"
+        ]
+      },
+      {
+        "claim": "KATSEYE's formation context includes Dream Academy and the HYBE/Geffen partnership.",
+        "verdict": "PASS",
+        "sources": [
+          "https://www.universalmusic.ca/2026/08/14/katseyes-new-ep-wild-is-out-today/",
+          "https://en.yna.co.kr/view/AEN20260824000351315"
+        ]
+      },
+      {
+        "claim": "The article's sales-led interpretation and post-headline conversion implications are analysis, not reported chart facts.",
+        "verdict": "LABELED_ANALYSIS",
+        "sources": [
+          "https://www.soompi.com/article/1865061wpp/katseye-sets-record-on-billboard-200-as-wild-debuts-at-no-1",
+          "https://en.yna.co.kr/view/AEN20260824000351315"
+        ]
+      }
+    ]
+  },
+  "images": {
+    "nativeCallCount": 2,
+    "browserGeneration": "NOT_USED",
+    "playwrightOrCdp": "NOT_USED",
+    "downloadOrScraping": "NOT_USED",
+    "localGenerator": "NOT_USED",
+    "placeholderOrReuse": "NOT_USED",
+    "cliOrApiFallback": "NOT_USED",
+    "items": [
+      {
+        "role": "thumbnail",
+        "nativeOutput": "/home/moon/.local/share/orca/codex-runtime-home/home/generated_images/01a05131-b653-7512-bd7f-2c032d09c1b0/exec-404830a7-e812-41c1-bfa4-b3b630c5c282.png",
+        "viewImage": {
+          "status": "PASS",
+          "detail": "original",
+          "path": "/home/moon/.local/share/orca/codex-runtime-home/home/generated_images/01a05131-b653-7512-bd7f-2c032d09c1b0/exec-404830a7-e812-41c1-bfa4-b3b630c5c282.png"
+        },
+        "resourcePath": ".resource/katseye-wild-billboard-200-thumbnail.png",
+        "finalPath": "public/images/news/katseye-wild-billboard-200-thumbnail.png",
+        "prompt": "Use case: stylized-concept\nAsset type: KCL English news thumbnail, wide landscape editorial cover\nPrimary request: an abstract visual for a global girl-group EP reaching the top of a major album chart; five luminous jewel-like geometric prisms and record sleeves arranged in a rising five-step arc over a dark concert-stage environment, with physical vinyl and CD textures and a subtle upward line of light suggesting chart momentum\nScene/backdrop: deep charcoal stage space with faint global grid light and restrained haze\nSubject: five abstract music objects, no people\nStyle/medium: polished cinematic 3D editorial illustration for a premium music-industry news site\nComposition/framing: wide landscape composition, centered focal cluster, generous safe margins for responsive crops\nLighting/mood: confident, energetic, optimistic, high-contrast rim lighting\nColor palette: electric cobalt, violet, warm silver, and small amber highlights on a dark neutral base\nMaterials/textures: translucent acrylic, brushed metal, glossy vinyl, realistic light reflections\nText (verbatim): none\nConstraints: communicate global pop momentum without identifiable people, faces, bodies, silhouettes, artist likenesses, or human anatomy; no logos, trademarks, album-cover text, readable chart labels, watermark, or extra text; original artwork only\nAvoid: photorealistic people, crowd faces, celebrity likeness, copied branding, flat single-color card, generic stock-photo look",
+        "dimensions": {
+          "width": 1607,
+          "height": 979
+        },
+        "mtime": "2026-08-30T14:50:07.119053370+09:00",
+        "sha256": "7db5a064c6cac379115ccc5987027b12c7ee61eb1673797a23a4a9a529c6d798",
+        "reused": false
+      },
+      {
+        "role": "body",
+        "nativeOutput": "/home/moon/.local/share/orca/codex-runtime-home/home/generated_images/01a05131-b653-7512-bd7f-2c032d09c1b0/exec-6fa90857-387d-4bbc-aa72-c6d6e75eed84.png",
+        "viewImage": {
+          "status": "PASS",
+          "detail": "original",
+          "path": "/home/moon/.local/share/orca/codex-runtime-home/home/generated_images/01a05131-b653-7512-bd7f-2c032d09c1b0/exec-6fa90857-387d-4bbc-aa72-c6d6e75eed84.png"
+        },
+        "resourcePath": ".resource/katseye-wild-billboard-200-1.png",
+        "finalPath": "public/images/news/katseye-wild-billboard-200-1.png",
+        "prompt": "Use case: stylized-concept\nAsset type: KCL English news article body image, wide landscape editorial illustration\nPrimary request: visualize the business infrastructure behind a global pop release: a connected network of record-store shelves, vinyl and CD packages, streaming waveform panels, and city-to-city light routes converging on one central music release node, with no people\nScene/backdrop: dark premium operations room blending a physical music retail display with a clean digital world map\nSubject: abstract music commerce and streaming infrastructure, no humans\nStyle/medium: polished cinematic 3D editorial illustration for a serious music-industry analysis article\nComposition/framing: wide landscape view, layered depth, a clear central convergence point, balanced negative space, no readable text\nLighting/mood: intelligent, optimistic, analytical, luminous blue and violet light with warm highlights\nColor palette: cobalt blue, violet, graphite, brushed silver, restrained amber\nMaterials/textures: glossy vinyl grooves, translucent acrylic data panels, brushed metal shelving, subtle glass reflections\nText (verbatim): none\nConstraints: no identifiable people, faces, bodies, silhouettes, artist likenesses, logos, trademarks, album-cover text, readable labels, watermark, or extra text; original artwork only\nAvoid: celebrity imagery, crowd scenes, human anatomy, copied branding, flat single-color card, generic stock-photo look",
+        "dimensions": {
+          "width": 1658,
+          "height": 949
+        },
+        "mtime": "2026-08-30T14:50:07.121821519+09:00",
+        "sha256": "d4c91a69cd3452602531410744b3ec9b551948cafe23195b77608713a2763deb",
+        "reused": false
+      }
+    ]
+  },
+  "localQa": {
+    "commands": [
+      {
+        "command": "git fetch origin main",
+        "exitCode": 0
+      },
+      {
+        "command": "pnpm install --frozen-lockfile",
+        "exitCode": 0,
+        "result": "910 packages installed"
+      },
+      {
+        "command": "pnpm generate:content",
+        "exitCode": 0,
+        "result": "200 English news records and 200 public API records"
+      },
+      {
+        "command": "pnpm lint",
+        "exitCode": 0,
+        "result": "30 existing warnings, no errors"
+      },
+      {
+        "command": "pnpm test -- --run",
+        "exitCode": 0,
+        "result": "24 test files, 105 tests passed"
+      },
+      {
+        "command": "pnpm build with active:false",
+        "exitCode": 0,
+        "result": "static build and image optimizer completed"
+      },
+      {
+        "command": "pnpm build with active:true",
+        "exitCode": 0,
+        "result": "1,572 static pages; 1,200 optimizer outputs; sitemap postbuild completed"
+      },
+      {
+        "command": "git diff --check",
+        "exitCode": 0
+      },
+      {
+        "command": "pnpm exec wrangler pages dev out --ip 127.0.0.1 --port 3102",
+        "exitCode": 1,
+        "result": "Wrangler assets.directory points to missing .open-next/assets; static-export out was not served by this harness."
+      },
+      {
+        "command": "curl -fsS page, source images, and optimizer images from a temporary local static HTTP server",
+        "exitCode": 0,
+        "result": "All six URLs returned HTTP 200."
+      },
+      {
+        "command": "curl -fsSL page | rg title and both image slugs",
+        "exitCode": 0,
+        "result": "Title, thumbnail slug, and body-image slug found."
+      }
+    ],
+    "smokeUrls": [
+      {
+        "url": "http://127.0.0.1:3102/en/news/katseye-wild-billboard-200",
+        "status": 200,
+        "bytes": 115128
+      },
+      {
+        "url": "http://127.0.0.1:3102/en/news/katseye-wild-billboard-200.html",
+        "status": 200,
+        "bytes": 115128
+      },
+      {
+        "url": "http://127.0.0.1:3102/images/news/katseye-wild-billboard-200-thumbnail.png",
+        "status": 200,
+        "bytes": 2009408
+      },
+      {
+        "url": "http://127.0.0.1:3102/images/news/katseye-wild-billboard-200-1.png",
+        "status": 200,
+        "bytes": 2552761
+      },
+      {
+        "url": "http://127.0.0.1:3102/images/news/nextImageExportOptimizer/katseye-wild-billboard-200-thumbnail-opt-800.WEBP",
+        "status": 200,
+        "bytes": 35756
+      },
+      {
+        "url": "http://127.0.0.1:3102/images/news/nextImageExportOptimizer/katseye-wild-billboard-200-1-opt-800.WEBP",
+        "status": 200,
+        "bytes": 63560
+      }
+    ],
+    "optimizerOutputs": [
+      "out/images/news/nextImageExportOptimizer/katseye-wild-billboard-200-thumbnail-opt-800.WEBP",
+      "out/images/news/nextImageExportOptimizer/katseye-wild-billboard-200-1-opt-800.WEBP"
+    ],
+    "warnings": [
+      "pnpm lint reported 30 pre-existing warnings with exit 0.",
+      "pnpm test and build reported missing Supabase environment values as non-fatal warnings.",
+      "pnpm build reported existing Sass deprecation warnings as non-fatal."
+    ]
+  },
+  "deploy": {
+    "status": "NOT_RUN",
+    "commitSha": null,
+    "productionSha": null,
+    "reason": "Worker stops before lead push/merge and production confirmation."
+  },
+  "gsc": {
+    "status": "NOT_RUN",
+    "property": "sc-domain:kclhq.com",
+    "inspectedUrls": [],
+    "requestedUrls": [],
+    "reason": "Requires lead-integrated production URL/SHA and final confirmation; later browser action must use computer-use only."
+  },
+  "commitSha": "fdff4039469053daca12696722a5d5a5a1928b13",
+  "evidenceRecordedAt": "2026-08-30T15:09:00+09:00"
+}
