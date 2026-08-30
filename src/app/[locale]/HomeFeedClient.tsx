@@ -41,6 +41,10 @@ function formatPostDate(value: string, locale: string): string {
   }).format(date);
 }
 
+function getAuthorInitial(name: string): string {
+  return Array.from(name.trim())[0]?.toUpperCase() || 'M';
+}
+
 function ShareButton({
   postId,
   memberLabel,
@@ -250,6 +254,9 @@ function FeedCard({
   const postDate = formatPostDate(post.created_at, locale);
   const mediaLabel = post.media_type === 'short' ? shortLabel : imageLabel;
   const mediaUrl = getSafeMediaUrl(post.media_url);
+  const authorName = post.author?.username?.trim() || memberLabel;
+  const authorAvatarUrl = getSafeMediaUrl(post.author?.avatar_url || '');
+  const [avatarError, setAvatarError] = useState(false);
 
   return (
     <article
@@ -260,9 +267,22 @@ function FeedCard({
     >
       <header className={styles.postHeader}>
         <div className={styles.authorIdentity}>
-          <span className={styles.authorAvatar} aria-hidden="true">M</span>
+          <span className={styles.authorAvatar} aria-hidden="true">
+            {authorAvatarUrl && !avatarError ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                className={styles.authorAvatarImage}
+                src={authorAvatarUrl}
+                alt=""
+                loading="lazy"
+                onError={() => setAvatarError(true)}
+              />
+            ) : (
+              getAuthorInitial(authorName)
+            )}
+          </span>
           <div className={styles.authorCopy}>
-            <strong>{memberLabel}</strong>
+            <strong>{authorName}</strong>
             <span>{publicLabel}</span>
           </div>
         </div>
@@ -273,7 +293,7 @@ function FeedCard({
       </header>
       <MediaPreview
         post={post}
-        memberLabel={memberLabel}
+        memberLabel={authorName}
         caption={post.caption}
         shareLabel={shareLabel}
         sharedLabel={sharedLabel}
@@ -312,7 +332,7 @@ function FeedCard({
           {post.media_type !== 'short' && (
             <ShareButton
               postId={post.id}
-              memberLabel={memberLabel}
+              memberLabel={authorName}
               caption={post.caption}
               shareLabel={shareLabel}
               sharedLabel={sharedLabel}

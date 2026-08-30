@@ -55,6 +55,13 @@ export interface PublicProfilePostRecord {
   caption: string | null;
   created_at: string;
   media_url: string;
+  author: PublicProfileAuthor | null;
+}
+
+export interface PublicProfileAuthor {
+  id: string;
+  username: string | null;
+  avatar_url: string | null;
 }
 
 export interface ProfileFeedCursor {
@@ -177,8 +184,10 @@ function getPublicMediaUrl(mediaType: ProfileMediaType, storagePath: string): st
 type ProfilePostRow = Omit<ProfilePostRecord, 'media_url'>;
 type PublicProfilePostRow = Pick<
   ProfilePostRecord,
-  'id' | 'media_type' | 'storage_path' | 'caption' | 'created_at'
+  'id' | 'user_id' | 'media_type' | 'storage_path' | 'caption' | 'created_at'
 >;
+
+type PublicProfileAuthorRow = Pick<PublicProfileAuthor, 'id' | 'username' | 'avatar_url'>;
 
 function mapPost(record: ProfilePostRow): ProfilePostRecord {
   return {
@@ -187,13 +196,17 @@ function mapPost(record: ProfilePostRow): ProfilePostRecord {
   };
 }
 
-function mapPublicPost(record: PublicProfilePostRow): PublicProfilePostRecord {
+function mapPublicPost(
+  record: PublicProfilePostRow,
+  author: PublicProfileAuthor | null,
+): PublicProfilePostRecord {
   return {
     id: record.id,
     media_type: record.media_type,
     caption: record.caption,
     created_at: record.created_at,
     media_url: getPublicMediaUrl(record.media_type, record.storage_path),
+    author,
   };
 }
 
@@ -287,11 +300,11 @@ export async function listPublicProfilePosts(
   const limit = Math.min(Math.max(options.limit ?? PROFILE_FEED_PAGE_SIZE, 1), PROFILE_FEED_PAGE_SIZE);
   const supabase = getSupabase();
   // storage_path is selected only so the browser can derive the public media URL;
-  // mapPublicPost removes it from the public response. user_id and upload metadata
-  // are not needed by HomeFeedClient and remain outside this projection.
+  // mapPublicPost removes it from the public response. user_id is used to hydrate
+  // the public author card from the explicitly selected user_profiles fields.
   let query = supabase
     .from('profile_posts')
-    .select('id, media_type, storage_path, caption, created_at')
+    .select('id, user_id, media_type, storage_path, caption, created_at')
     .eq('status', 'published')
     .eq('is_public', true)
     .order('created_at', { ascending: false })
@@ -312,9 +325,23 @@ export async function listPublicProfilePosts(
   const records = (data || []) as PublicProfilePostRow[];
   const page = records.slice(0, limit);
   const last = page[page.length - 1];
+  const authorIds = [...new Set(page.map((record) => record.user_id))];
+  const authorsById = new Map<string, PublicProfileAuthor>();
+
+  if (authorIds.length > 0) {
+    const { data: authors, error: authorsError } = await supabase
+      .from('user_profiles')
+      .select('id, username, avatar_url')
+      .in('id', authorIds);
+
+    if (authorsError) throw authorsError;
+    for (const author of (authors || []) as PublicProfileAuthorRow[]) {
+      authorsById.set(author.id, author);
+    }
+  }
 
   return {
-    posts: page.map(mapPublicPost),
+    posts: page.map((record) => mapPublicPost(record, authorsById.get(record.user_id) ?? null)),
     nextCursor:
       records.length > limit && last
         ? { created_at: last.created_at, id: last.id }

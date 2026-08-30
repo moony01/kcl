@@ -24,6 +24,7 @@ function makePost(id: string, mediaType: ProfileMediaType): PublicProfilePostRec
     caption: null,
     created_at: `2026-08-29T00:00:0${id.length}Z`,
     media_url: `https://cdn.example.com/${id}`,
+    author: null,
   };
 }
 

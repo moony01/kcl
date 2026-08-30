@@ -15,6 +15,7 @@ const fixtures = vi.hoisted(() => {
     eq: vi.fn(),
     order: vi.fn(),
     or: vi.fn(),
+    in: vi.fn(),
     limit: vi.fn(),
   };
 
@@ -22,6 +23,7 @@ const fixtures = vi.hoisted(() => {
   query.eq.mockReturnValue(query);
   query.order.mockReturnValue(query);
   query.or.mockReturnValue(query);
+  query.in.mockResolvedValue({ data: [], error: null });
   query.limit.mockResolvedValue({ data: [], error: null });
 
   return {
@@ -29,7 +31,9 @@ const fixtures = vi.hoisted(() => {
     supabase: {
       from: vi.fn(() => query),
       storage: {
-        from: vi.fn(),
+        from: vi.fn(() => ({
+          getPublicUrl: vi.fn((path: string) => ({ data: { publicUrl: `https://cdn.example.com/${path}` } })),
+        })),
       },
     },
   };
@@ -66,6 +70,34 @@ describe('public profile feed query', () => {
     expect(fixtures.query.eq).toHaveBeenCalledWith('status', 'published');
     expect(fixtures.query.eq).toHaveBeenCalledWith('is_public', true);
     expect(fixtures.query.eq).not.toHaveBeenCalledWith('media_type', expect.anything());
+  });
+
+  it('hydrates each public post with its user profile', async () => {
+    const { listPublicProfilePosts } = await import('./profile-content');
+    const post = {
+      id: 'post-1',
+      user_id: 'user-1',
+      media_type: 'image',
+      storage_path: 'user-1/post-1.png',
+      caption: '연습생 연습 기록',
+      created_at: '2026-08-30T00:00:00Z',
+    };
+    fixtures.query.limit.mockResolvedValueOnce({ data: [post], error: null });
+    fixtures.query.in.mockResolvedValueOnce({
+      data: [{ id: 'user-1', username: '벚꽃쿠라', avatar_url: 'https://avatar.example.com/user-1.png' }],
+      error: null,
+    });
+
+    const page = await listPublicProfilePosts();
+
+    expect(fixtures.query.select).toHaveBeenCalledWith('id, user_id, media_type, storage_path, caption, created_at');
+    expect(fixtures.supabase.from).toHaveBeenCalledWith('user_profiles');
+    expect(fixtures.query.in).toHaveBeenCalledWith('id', ['user-1']);
+    expect(page.posts[0]?.author).toEqual({
+      id: 'user-1',
+      username: '벚꽃쿠라',
+      avatar_url: 'https://avatar.example.com/user-1.png',
+    });
   });
 });
 
