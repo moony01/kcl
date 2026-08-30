@@ -381,14 +381,12 @@ export default function MyProfile() {
         videoReading: '영상 길이를 확인하는 중입니다. 잠시 후 다시 시도해주세요.',
         videoTooLong: `숏츠는 ${PROFILE_VIDEO_MAX_SECONDS}초 이하만 업로드할 수 있습니다.`,
         deletePost: '게시물 삭제',
-        developerNotice: '개발자 테스트 모드에서는 활동 이력은 이 브라우저에 저장되고, 파일은 새로고침 전까지 임시 표시됩니다.',
         contentLoadError: '프로필 콘텐츠를 불러오지 못했습니다.',
         all: '전체',
         images: '이미지',
         shorts: '숏츠',
         moreCareer: '활동 이력 더 보기',
         lessCareer: '간단히 보기',
-        preview: '퍼블리싱 미리보기',
         logout: '로그아웃',
         resetVoteQuota: '투표권 초기화',
         resettingVoteQuota: '투표권 초기화 중…',
@@ -447,14 +445,12 @@ export default function MyProfile() {
         videoReading: 'Checking the video duration. Please try again in a moment.',
         videoTooLong: `Shorts must be ${PROFILE_VIDEO_MAX_SECONDS} seconds or shorter.`,
         deletePost: 'Delete post',
-        developerNotice: 'Developer test mode stores activity history in this browser; files remain temporary until refresh.',
         contentLoadError: 'Profile content could not be loaded.',
         all: 'All',
         images: 'Images',
         shorts: 'Shorts',
         moreCareer: 'Show more history',
         lessCareer: 'Show less',
-        preview: 'Publishing preview',
         logout: 'Log out',
         resetVoteQuota: 'Reset vote quota',
         resettingVoteQuota: 'Resetting vote quota…',
@@ -947,12 +943,9 @@ export default function MyProfile() {
               </span>
             </div>
           </div>
-
-          <span className={styles.previewBadge}>{copy.preview}</span>
         </div>
       </section>
 
-      {localPreviewMode && <p className={styles.devNotice}>{copy.developerNotice}</p>}
       {contentError && <p className={styles.contentError} role="alert">{contentError}</p>}
 
       <div className={styles.contentGrid}>
