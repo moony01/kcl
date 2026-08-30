@@ -2,11 +2,11 @@
  * AppShell
  *
  * 전역 레이아웃 셸 컴포넌트
- * 인스타그램 스타일의 레이아웃 구조를 제공합니다.
+ * LinkedIn 정보 구조를 MEARROW 브랜드에 맞게 해석한 레이아웃 구조를 제공합니다.
  *
  * 구조:
- * - Desktop(768px+): 사이드바 + 메인 콘텐츠
- * - Mobile(<768px): 헤더 + 메인 콘텐츠 + 하단 네비게이션
+ * - Desktop(769px+): 사이드바 + 메인 콘텐츠
+ * - Mobile(<=768px): 헤더 + 메인 콘텐츠 + 하단 네비게이션
  *
  * @param children - 페이지별 콘텐츠
  */
@@ -28,7 +28,7 @@ interface AppShellProps {
 export default function AppShell({ children }: AppShellProps) {
   return (
     <div className={styles.appContainer}>
-      {/* Desktop Sidebar - 768px 이상에서 표시 */}
+      {/* Desktop Sidebar - 769px 이상에서 표시 */}
       <div className={styles.sidebarWrapper}>
         <Sidebar />
       </div>

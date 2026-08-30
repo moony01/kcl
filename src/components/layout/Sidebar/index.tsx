@@ -3,13 +3,13 @@
 /**
  * Sidebar - 데스크탑 좌측 네비게이션 컴포넌트
  *
- * 인스타그램 스타일의 좌측 고정 네비게이션입니다.
+ * LinkedIn형 정보 구조를 적용한 좌측 고정 네비게이션입니다.
  * Feature Flags에 따라 메뉴를 동적으로 표시하며,
  * AUTH_SYSTEM 활성화 시 하단에 인증 영역을 표시합니다.
  *
  * 반응형:
- * - Mobile(<480px): 숨김
- * - Fold/Tablet(480px-1263px): 기본 아이콘 레일, hover/focus-within 시 확장
+ * - Mobile(<=768px): 숨김
+ * - Fold/Tablet(769px-1263px): 아이콘 레일
  * - Desktop(1264px+): 아이콘 + 레이블 고정
  */
 
