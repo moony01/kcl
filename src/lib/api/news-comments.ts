@@ -48,19 +48,23 @@ export async function getNewsComments(
   slug: string,
   limit: number = 50,
   offset: number = 0,
+  signal?: AbortSignal,
 ): Promise<NewsComment[]> {
   const supabase = createClient();
 
-  const { data, error } = await supabase
+  const query = supabase
     .from('news_comments')
     .select('id, slug, author_name, content, is_deleted, created_at, updated_at')
     .eq('slug', slug)
     .eq('is_deleted', false)
     .order('created_at', { ascending: false })
     .range(offset, offset + limit - 1);
+  const { data, error } = signal ? await query.abortSignal(signal) : await query;
 
   if (error) {
-    console.error('[news-comments] 목록 조회 실패:', error);
+    if (!signal?.aborted) {
+      console.error('[news-comments] 목록 조회 실패:', error);
+    }
     return [];
   }
 
@@ -152,19 +156,23 @@ export async function getNewsCommentCount(slug: string): Promise<number> {
  */
 export async function getNewsCommentCounts(
   slugs: string[],
+  signal?: AbortSignal,
 ): Promise<Record<string, number>> {
   if (slugs.length === 0) return {};
 
   const supabase = createClient();
 
-  const { data, error } = await supabase
+  const query = supabase
     .from('news_comments')
     .select('slug')
     .in('slug', slugs)
     .eq('is_deleted', false);
+  const { data, error } = signal ? await query.abortSignal(signal) : await query;
 
   if (error) {
-    console.error('[news-comments] 배치 댓글 수 조회 실패:', error);
+    if (!signal?.aborted) {
+      console.error('[news-comments] 배치 댓글 수 조회 실패:', error);
+    }
     return {};
   }
 

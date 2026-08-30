@@ -32,11 +32,24 @@ export default function RelatedNewsGrid({ posts, locale }: RelatedNewsGridProps)
   useEffect(() => {
     if (posts.length === 0) return;
 
+    const controller = new AbortController();
     const slugs = posts.map((p) => p.slug);
 
     // 댓글 수 + 조회수 배치 조회
-    getNewsCommentCounts(slugs).then(setCommentCounts);
+    getNewsCommentCounts(slugs, controller.signal).then((counts) => {
+      if (!controller.signal.aborted) {
+        setCommentCounts(counts);
+      }
+    });
     getNewsViewCounts(slugs).then(setViewCounts);
+
+    const abortOnPageHide = () => controller.abort();
+    window.addEventListener('pagehide', abortOnPageHide);
+
+    return () => {
+      window.removeEventListener('pagehide', abortOnPageHide);
+      controller.abort();
+    };
   }, [posts]);
 
   return (
