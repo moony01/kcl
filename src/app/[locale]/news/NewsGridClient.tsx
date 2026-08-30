@@ -42,8 +42,23 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
   // 댓글 수 배치 조회
   useEffect(() => {
     if (posts.length === 0) return;
+
+    const controller = new AbortController();
     const slugs = posts.map((p) => p.slug);
-    getNewsCommentCounts(slugs).then(setCommentCounts);
+
+    getNewsCommentCounts(slugs, controller.signal).then((counts) => {
+      if (!controller.signal.aborted) {
+        setCommentCounts(counts);
+      }
+    });
+
+    const abortOnPageHide = () => controller.abort();
+    window.addEventListener('pagehide', abortOnPageHide);
+
+    return () => {
+      window.removeEventListener('pagehide', abortOnPageHide);
+      controller.abort();
+    };
   }, [posts]);
 
   // 뉴스에서 고유 카테고리 추출 (출현 빈도순 정렬)

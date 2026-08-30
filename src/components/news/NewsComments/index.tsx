@@ -49,20 +49,32 @@ export default function NewsComments({ slug }: NewsCommentsProps) {
   const [deleting, setDeleting] = useState(false);
 
   /** 댓글 목록 조회 */
-  const fetchComments = useCallback(async () => {
+  const fetchComments = useCallback(async (signal?: AbortSignal) => {
     try {
       setLoading(true);
-      const data = await getNewsComments(slug);
-      setComments(data);
+      const data = await getNewsComments(slug, 50, 0, signal);
+      if (!signal?.aborted) {
+        setComments(data);
+      }
     } catch {
       // 조회 실패 무시
     } finally {
-      setLoading(false);
+      if (!signal?.aborted) {
+        setLoading(false);
+      }
     }
   }, [slug]);
 
   useEffect(() => {
-    fetchComments();
+    const controller = new AbortController();
+    fetchComments(controller.signal);
+    const abortOnPageHide = () => controller.abort();
+    window.addEventListener('pagehide', abortOnPageHide);
+
+    return () => {
+      window.removeEventListener('pagehide', abortOnPageHide);
+      controller.abort();
+    };
   }, [fetchComments]);
 
   /** 댓글 작성 */

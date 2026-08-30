@@ -31,6 +31,16 @@ function describeError(error) {
   return error instanceof Error ? error.message : String(error);
 }
 
+function isThirdPartySmokeRequest(url) {
+  return /^(?:https?:)?\/\/(?:pagead2\.googlesyndication\.com|googleads\.g\.doubleclick\.net|www\.google-analytics\.com|www\.googletagmanager\.com|unpkg\.com\/react-grab\/)/i.test(
+    url,
+  );
+}
+
+function isReactGrabRequest(url) {
+  return /^(?:https?:)?\/\/unpkg\.com\/react-grab\/dist\/index\.global\.js(?:\?|$)/i.test(url);
+}
+
 async function assertSeoEndpoints(baseUrl) {
   const canonicalSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://mearrow.com').replace(
     /\/+$/,
@@ -123,14 +133,17 @@ async function startServer() {
 }
 
 function isIgnorableConsoleError(message) {
+  const text = message.text();
+  const sourceUrl = message.location().url;
   return (
-    message.includes('AdSense head tag') ||
-    message.includes('googlesyndication.com') ||
-    message.includes('google-analytics.com') ||
+    text.includes('AdSense head tag') ||
+    text.includes('googlesyndication.com') ||
+    text.includes('google-analytics.com') ||
     // React Grab is dev-only; its unpkg script can emit a CORS error in CI.
-    (message.includes('unpkg.com/react-grab/dist/index.global.js') &&
-      message.includes('CORS policy')) ||
-    message.includes('Failed to load resource:')
+    (text.includes('unpkg.com/react-grab/dist/index.global.js') &&
+      text.includes('CORS policy')) ||
+    text.includes('Failed to load resource:') ||
+    isThirdPartySmokeRequest(sourceUrl)
   );
 }
 
@@ -155,6 +168,20 @@ async function main() {
     const supabaseResponses = [];
     const appConsoleErrors = [];
 
+    // Next's dev bootstrap logs the raw onerror Event when this optional
+    // React Grab script is unavailable. Fulfill it with an empty script so
+    // that a third-party dev aid cannot fail the application smoke test.
+    await page.route('**/*', (route) => {
+      if (isReactGrabRequest(route.request().url())) {
+        return route.fulfill({
+          status: 200,
+          contentType: 'application/javascript',
+          body: '',
+        });
+      }
+      return route.continue();
+    });
+
     page.on('response', (response) => {
       const url = response.url();
       if (url.includes('/rest/v1/')) {
@@ -162,8 +189,9 @@ async function main() {
       }
     });
     page.on('console', (message) => {
-      if (message.type() === 'error' && !isIgnorableConsoleError(message.text())) {
-        appConsoleErrors.push(message.text());
+      if (message.type() === 'error' && !isIgnorableConsoleError(message)) {
+        const sourceUrl = message.location().url;
+        appConsoleErrors.push(`${message.text()} (${sourceUrl || 'unknown source'})`);
       }
     });
 
