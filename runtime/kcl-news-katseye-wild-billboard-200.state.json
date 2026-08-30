@@ -2,7 +2,7 @@
   "workflow": "kcl-news",
   "slug": "katseye-wild-billboard-200",
   "runDate": "2026-08-30",
-  "phase": "PRE_MERGE_HANDOFF",
+  "phase": "LOCAL_COMMIT_HANDOFF",
   "status": "INCOMPLETE",
   "active": true,
   "worktree": "/home/moon/workspace/kcl/.worktrees/kcl-news-20260830-v2",
@@ -14,7 +14,7 @@
     "image": "PASS",
     "factcheck": "PASS",
     "localQa": "PASS",
-    "preMergeCommit": "PENDING_LOCAL_COMMIT",
+    "preMergeCommit": "PASS",
     "deploy": "NOT_RUN",
     "gsc": "NOT_RUN"
   },
@@ -29,5 +29,6 @@
     "After final confirmation, verify the Cloudflare production SHA.",
     "Use the version-matched computer-use skill in a dedicated browser session for GSC URL inspection/indexing."
   ],
-  "updatedAt": "2026-08-30T15:05:01+09:00"
+  "localCommitSha": "fdff4039469053daca12696722a5d5a5a1928b13",
+  "updatedAt": "2026-08-30T15:09:00+09:00"
 }

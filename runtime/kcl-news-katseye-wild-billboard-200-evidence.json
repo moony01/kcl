@@ -3,7 +3,7 @@
   "slug": "katseye-wild-billboard-200",
   "runDate": "2026-08-30",
   "status": "INCOMPLETE",
-  "statusReason": "Local pre-merge gates passed; commit, deploy, production verification, and GSC remain in the lead handoff sequence.",
+  "statusReason": "Local pre-merge gates and commit passed; deploy, production verification, and GSC remain in the lead handoff sequence.",
   "worktree": "/home/moon/workspace/kcl/.worktrees/kcl-news-20260830-v2",
   "branch": "automation/kcl-news-20260830-v2",
   "base": {
@@ -24,7 +24,7 @@
     "image": "PASS",
     "factcheck": "PASS",
     "localQa": "PASS",
-    "preMergeCommit": "PENDING_LOCAL_COMMIT",
+    "preMergeCommit": "PASS",
     "deploy": "NOT_RUN",
     "gsc": "NOT_RUN"
   },
@@ -387,6 +387,6 @@
     "requestedUrls": [],
     "reason": "Requires lead-integrated production URL/SHA and final confirmation; later browser action must use computer-use only."
   },
-  "commitSha": null,
-  "evidenceRecordedAt": "2026-08-30T15:05:01+09:00"
+  "commitSha": "fdff4039469053daca12696722a5d5a5a1928b13",
+  "evidenceRecordedAt": "2026-08-30T15:09:00+09:00"
 }

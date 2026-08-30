@@ -1,6 +1,6 @@
 # KCL News Autopilot Report: katseye-wild-billboard-200
 
-Final status: INCOMPLETE — all local pre-merge gates passed and a local commit is pending; deploy and Google Search Console were intentionally deferred to the lead handoff.
+Final status: INCOMPLETE — local pre-merge commit fdff4039469053daca12696722a5d5a5a1928b13 is ready; deploy and Google Search Console were intentionally deferred to the lead handoff.
 
 ## Run scope
 
@@ -8,6 +8,7 @@ Final status: INCOMPLETE — all local pre-merge gates passed and a local commit
 - Worktree: /home/moon/workspace/kcl/.worktrees/kcl-news-20260830-v2
 - Branch: automation/kcl-news-20260830-v2
 - Base: origin/main at ac2ac831f6eeea696c97e876a7d1be8411266de5
+- Local pre-merge commit: fdff4039469053daca12696722a5d5a5a1928b13
 - Article: src/content/news/en/katseye-wild-billboard-200.md
 - Configured KCL skill URL: https://www.kclhq.com/en/news/katseye-wild-billboard-200
 - URL produced by this repository's current origin/main configuration: https://mearrow.com/en/news/katseye-wild-billboard-200
@@ -24,7 +25,7 @@ The repository currently generates MEARROW canonical URLs from origin/main. The 
 | Images | PASS | Exactly two native Codex image_gen calls, one per distinct asset; both inspected with view_image; no browser generation, download, scraper, local generator, placeholder, or CLI/API fallback used. |
 | Fact-check | PASS | Core chart, unit, release, and milestone claims were checked against at least two independent sources where applicable. |
 | Local QA | PASS | Content generation, dev HTTP checks, lint, tests, inactive and active builds, static output HTTP checks, optimizer assets, and git diff --check passed. |
-| Pre-merge commit | PENDING | The source and evidence files are ready to stage in the task worktree. |
+| Pre-merge commit | PASS | Local commit fdff4039469053daca12696722a5d5a5a1928b13 created with [deploy:kcl]. |
 | Deploy | NOT RUN | Worker must stop before lead integration/push/merge. |
 | GSC | NOT RUN | Requires lead-provided production URL/SHA and final confirmation; later action must use computer-use only. |
 
