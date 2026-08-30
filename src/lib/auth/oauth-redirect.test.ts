@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { DEFAULT_LOCALE } from '@/lib/constants';
 import { getOAuthCallbackUrl } from './oauth-redirect';
 
 vi.hoisted(() => {
@@ -32,5 +33,14 @@ describe('getOAuthCallbackUrl', () => {
 
     expect(new URL(loginCallback).searchParams.get('returnTo')).toBe(returnTo);
     expect(new URL(signupCallback).searchParams.get('flow')).toBe('signup');
+  });
+
+  it('falls back to the default locale for a malformed locale', () => {
+    vi.stubEnv('NODE_ENV', 'production');
+
+    const redirect = new URL(getOAuthCallbackUrl('//attacker'));
+
+    expect(redirect.origin).toBe('https://mearrow.com');
+    expect(redirect.pathname).toBe(`/${DEFAULT_LOCALE}/auth/callback`);
   });
 });

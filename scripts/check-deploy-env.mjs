@@ -2,6 +2,8 @@
 
 const required = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_ANON_KEY'];
 const missing = required.filter((name) => !process.env[name]?.trim());
+const canonicalSiteOrigin = 'https://mearrow.com';
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
 if (missing.length > 0) {
   console.error(
@@ -11,6 +13,27 @@ if (missing.length > 0) {
     '[deploy-env] Refusing to build or deploy because the browser data client would be unavailable.',
   );
   process.exit(1);
+}
+
+if (configuredSiteUrl) {
+  let parsedSiteUrl;
+  try {
+    parsedSiteUrl = new URL(configuredSiteUrl);
+  } catch {
+    console.error('[deploy-env] NEXT_PUBLIC_SITE_URL is not a valid URL.');
+    process.exit(1);
+  }
+
+  if (
+    parsedSiteUrl.origin !== canonicalSiteOrigin ||
+    parsedSiteUrl.username ||
+    parsedSiteUrl.password
+  ) {
+    console.error(
+      `[deploy-env] NEXT_PUBLIC_SITE_URL must use the canonical origin ${canonicalSiteOrigin}.`,
+    );
+    process.exit(1);
+  }
 }
 
 let parsedUrl;
