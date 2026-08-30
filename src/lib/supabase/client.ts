@@ -20,7 +20,7 @@
  * import { supabase } from '@/lib/supabase/client';
  *
  * const { data, error } = await supabase
- *   .from('kcl_companies')
+ *   .from('companies')
  *   .select('*')
  *   .order('firepower', { ascending: false });
  * ```
@@ -96,7 +96,7 @@ export function getSupabase(): SupabaseClient {
  * ```typescript
  * // 클라이언트 컴포넌트에서 직접 사용
  * import { supabase } from '@/lib/supabase/client';
- * const { data } = await supabase.from('kcl_companies').select('*');
+ * const { data } = await supabase.from('companies').select('*');
  * ```
  */
 export const supabase =

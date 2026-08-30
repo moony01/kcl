@@ -4,7 +4,7 @@
  * AuthProvider - MEARROW 인증 상태 관리 프로바이더
  *
  * Supabase Auth의 세션 상태를 감지하고, 로그인된 사용자의 프로필 정보를
- * kcl_user_profiles 테이블에서 자동으로 조회하여 앱 전체에 제공합니다.
+ * user_profiles 테이블에서 자동으로 조회하여 앱 전체에 제공합니다.
  *
  * 정적 빌드(output: 'export') 호환:
  * - 서버 액션/미들웨어 없이 순수 클라이언트 사이드에서 동작
@@ -29,6 +29,7 @@ import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import {
   clearDevelopmentTestMode,
   DEVELOPMENT_TEST_USER_ID,
+  DEVELOPMENT_TEST_MODE_CHANGE_EVENT,
   getDevelopmentTestUser,
   isDevelopmentTestModeEnabled,
 } from '@/lib/auth/development-test-mode';
@@ -89,7 +90,7 @@ function clearStaleSupabaseAuthStorage() {
 }
 
 /**
- * 사용자 프로필 타입 (kcl_user_profiles 테이블 스키마)
+ * 사용자 프로필 타입 (user_profiles 테이블 스키마)
  */
 export interface UserProfile {
   id: string;
@@ -126,7 +127,7 @@ const DEVELOPMENT_TEST_PROFILE: UserProfile = {
 export interface AuthContextType {
   /** Supabase auth.users 객체 (로그인되지 않으면 null) */
   user: User | null;
-  /** kcl_user_profiles 테이블의 프로필 데이터 */
+  /** user_profiles 테이블의 프로필 데이터 */
   profile: UserProfile | null;
   /** 인증 상태 로딩 중 여부 */
   isLoading: boolean;
@@ -165,14 +166,14 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   /**
-   * kcl_user_profiles 테이블에서 사용자 프로필 조회
+   * user_profiles 테이블에서 사용자 프로필 조회
    * @param userId - auth.users의 id
    */
   const fetchProfile = useCallback(async (userId: string) => {
     try {
       const supabase = await loadSupabase();
       const profileQuery = supabase
-        .from('kcl_user_profiles')
+        .from('user_profiles')
         .select('*')
         .eq('id', userId)
         .single();
@@ -279,13 +280,40 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
    * 초기 세션 확인 + 인증 상태 변경 리스너 등록
    */
   useEffect(() => {
+    const syncDevelopmentTestMode = () => {
+      if (isDevelopmentTestModeEnabled()) {
+        setUser(getDevelopmentTestUser());
+        setProfile(DEVELOPMENT_TEST_PROFILE);
+        setIsLoading(false);
+        return true;
+      }
+
+      setUser(null);
+      setProfile(null);
+      setIsLoading(false);
+      return false;
+    };
+
+    const handleDevelopmentTestModeChange = () => {
+      syncDevelopmentTestMode();
+    };
+
+    window.addEventListener(
+      DEVELOPMENT_TEST_MODE_CHANGE_EVENT,
+      handleDevelopmentTestModeChange,
+    );
+
     // Development test mode creates a deterministic local-only user so
     // authenticated UI flows can be exercised without Supabase credentials.
+    // Keep the normal Supabase loading state intact when the marker is absent.
     if (isDevelopmentTestModeEnabled()) {
-      setUser(getDevelopmentTestUser());
-      setProfile(DEVELOPMENT_TEST_PROFILE);
-      setIsLoading(false);
-      return;
+      syncDevelopmentTestMode();
+      return () => {
+        window.removeEventListener(
+          DEVELOPMENT_TEST_MODE_CHANGE_EVENT,
+          handleDevelopmentTestModeChange,
+        );
+      };
     }
 
     let disposed = false;
@@ -293,7 +321,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
     const initializeAuth = async () => {
       const supabase = await loadSupabase();
-      if (disposed) return;
+      if (disposed || isDevelopmentTestModeEnabled()) return;
 
       // 1. 현재 세션 확인 (페이지 로드 시)
       const initSession = async () => {
@@ -304,6 +332,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             8000,
             'AuthProvider getSession',
           );
+          if (isDevelopmentTestModeEnabled()) return;
           if (session?.user) {
             setUser(session.user);
             await fetchProfile(session.user.id);
@@ -331,6 +360,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       // 2. 인증 상태 변경 리스너 (로그인/로그아웃/토큰 갱신)
       const authSubscription = supabase.auth.onAuthStateChange(
         async (event: AuthChangeEvent, session: Session | null) => {
+          if (isDevelopmentTestModeEnabled()) return;
           if (session?.user) {
             setUser(session.user);
             // 신규 가입(SIGNED_IN) 또는 토큰 갱신 시 프로필 조회
@@ -356,6 +386,10 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     return () => {
       disposed = true;
       subscription?.unsubscribe();
+      window.removeEventListener(
+        DEVELOPMENT_TEST_MODE_CHANGE_EVENT,
+        handleDevelopmentTestModeChange,
+      );
     };
   }, [fetchProfile]);
 

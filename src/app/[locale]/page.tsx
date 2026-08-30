@@ -9,7 +9,7 @@
 
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { HomeClient } from './HomeClient';
+import HomeFeedClient from './HomeFeedClient';
 import { generateAlternates } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_DESCRIPTION, BRAND_MARK_PATH, BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
@@ -73,7 +73,7 @@ const websiteJsonLd = {
 
 /**
  * 홈페이지 (정적 셸 + SEO 콘텐츠)
- * HomeClient가 SWR로 클라이언트에서 데이터 로드
+ * HomeFeedClient가 public profile_posts를 클라이언트에서 데이터 로드
  * 하단에 서버 렌더링 SEO 텍스트 섹션 포함 (AdSense 승인용)
  */
 export default async function HomePage({ params }: HomePageProps) {
@@ -84,7 +84,7 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       <JsonLd data={websiteJsonLd} />
-      <HomeClient />
+      <HomeFeedClient />
 
       {/* SEO 콘텐츠 섹션 - 서버 렌더링, 크롤러에 노출되는 정적 텍스트 */}
       <section className={styles.seoSection}>

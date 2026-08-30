@@ -13,7 +13,7 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { CalendarSearch, Home, Newspaper, Trophy, User } from 'lucide-react';
+import { CalendarSearch, Home, ListOrdered, Newspaper, Trophy, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
@@ -30,6 +30,7 @@ export default function BottomNav() {
   // Feature Flags 기반 네비게이션 메뉴 (Sidebar와 동기화)
   const NAV_ITEMS = [
     { label: t('home'), href: '/', icon: Home, enabled: true },
+    { label: t('ranking'), href: '/ranking', icon: ListOrdered, enabled: true },
     {
       label: t('hall_of_fame'),
       href: '/hall-of-fame',
@@ -63,7 +64,7 @@ export default function BottomNav() {
           const linkHref = `/${currentLocale}${item.href === '/' ? '' : item.href}`;
           const isActive = item.href === '/'
               ? pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`
-              : pathname.startsWith(linkHref);
+              : pathname === linkHref || pathname.startsWith(`${linkHref}/`);
 
           const Icon = item.icon;
 

@@ -3,6 +3,7 @@
  * 
  * 모바일 하단 네비게이션 스타일
  * iOS 안전 영역(Safe Area)을 고려한 디자인
+ * LinkedIn 모바일 탭 바처럼 화면 하단에 고정된 전역 내비게이션
  */
 
 @use '../../../styles/abstracts/variables' as *;
@@ -13,12 +14,16 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 16px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); // iOS 안전 영역
+  padding: 6px 8px;
+  padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)); // iOS 안전 영역
   z-index: $z-nav;
-  background: linear-gradient(to top, rgba($color-bg, 0.95) 0%, transparent 100%);
+  background: rgba($color-bg, 0.96);
+  border-top: 1px solid rgba($color-text, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.06);
   
-  @media (min-width: 480px) {
+  @media (min-width: 769px) {
     display: none; // 사이드바가 대체
   }
 }
@@ -28,19 +33,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 8px;
-  border-radius: 20px;
-  background: rgba($color-bg, 0.85);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba($color-text, 0.08);
-  box-shadow: 0 -4px 20px var(--color-primary-glow);
-
-  [data-theme='dark'] & {
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-  }
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .navItem {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,9 +53,11 @@
   color: $color-text-dim;
   text-decoration: none;
   transition: color 0.2s ease;
-  padding: 8px;
+  min-height: 52px;
+  padding: 6px 4px;
   border-radius: 12px;
   min-width: 44px;
+  gap: 2px;
 
   &:active {
     transform: scale(0.95);
@@ -80,13 +86,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 0;
   transition: all 0.2s ease;
 }
 
 .indicator {
   position: absolute;
-  bottom: -20px;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
   width: 4px;
@@ -97,5 +103,14 @@
 }
 
 .label {
-  display: none; // 텍스트 라벨 완전 제거 (인스타 스타일)
+  display: block;
+  max-width: 72px;
+  overflow: hidden;
+  color: $color-text-dim;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

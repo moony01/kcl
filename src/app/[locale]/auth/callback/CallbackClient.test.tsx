@@ -86,7 +86,7 @@ describe('CallbackClient onboarding redirect', () => {
     expect(mocks.fetch).toHaveBeenCalledTimes(1);
     expect(mocks.fetch).toHaveBeenCalledWith(
       expect.stringContaining(
-        '/rest/v1/kcl_user_profiles?id=eq.user-1&select=onboarding_completed',
+        '/rest/v1/user_profiles?id=eq.user-1&select=onboarding_completed',
       ),
       expect.objectContaining({
         headers: expect.objectContaining({

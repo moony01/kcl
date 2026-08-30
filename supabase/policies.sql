@@ -1,6 +1,10 @@
 -- ============================================
 -- KCL (K-pop Company League) RLS Policies
 -- ============================================
+-- NOTE: This is a historical policy reference, not a complete executable
+-- snapshot of the current MEARROW project. The remote resource set is now
+-- managed by the timestamped migrations; legacy kcl_posts/kcl_reports sections
+-- below are retained only for history and are not present remotely.
 -- 이 파일은 Supabase Dashboard에 적용된 RLS 정책의 
 -- 코드 버전 관리용 문서입니다.
 --
@@ -14,15 +18,15 @@
 -- ============================================
 
 -- ============================================
--- 1. kcl_companies (소속사 테이블)
+-- 1. companies (소속사 테이블)
 -- ============================================
 -- 용도: K-pop 소속사 정보 (순위, 화력 등)
 -- 정책: 읽기 전용 (관리자만 수정 가능)
 
-ALTER TABLE kcl_companies ENABLE ROW LEVEL SECURITY;
+ALTER TABLE companies ENABLE ROW LEVEL SECURITY;
 
 -- 정책 1: 공개 읽기 허용 (소속사 목록/상세 조회)
-CREATE POLICY "kcl_companies_select_public" ON kcl_companies
+CREATE POLICY "kcl_companies_select_public" ON companies
   FOR SELECT
   TO anon, authenticated
   USING (true);
@@ -32,15 +36,15 @@ CREATE POLICY "kcl_companies_select_public" ON kcl_companies
 
 
 -- ============================================
--- 2. kcl_groups (아티스트 그룹 테이블)
+-- 2. groups (아티스트 그룹 테이블)
 -- ============================================
 -- 용도: 소속사별 아티스트 그룹 정보
 -- 정책: 읽기 전용
 
-ALTER TABLE kcl_groups ENABLE ROW LEVEL SECURITY;
+ALTER TABLE groups ENABLE ROW LEVEL SECURITY;
 
 -- 정책 1: 공개 읽기 허용 (그룹 목록/투표 대상 조회)
-CREATE POLICY "kcl_groups_select_public" ON kcl_groups
+CREATE POLICY "kcl_groups_select_public" ON groups
   FOR SELECT
   TO anon, authenticated
   USING (true);
@@ -49,22 +53,22 @@ CREATE POLICY "kcl_groups_select_public" ON kcl_groups
 
 
 -- ============================================
--- 3. kcl_votes (투표 기록 테이블)
+-- 3. votes (투표 기록 테이블)
 -- ============================================
 -- 용도: 사용자 투표 기록 (익명, IP 해시로 식별)
 -- 정책: INSERT만 허용, 투표 조작 방지
 
-ALTER TABLE kcl_votes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE votes ENABLE ROW LEVEL SECURITY;
 
 -- 정책 1: 익명 INSERT 허용 (누구나 투표 가능)
 -- 주의: Rate Limiting은 애플리케이션 레벨(Redis)에서 처리
-CREATE POLICY "kcl_votes_insert_anon" ON kcl_votes
+CREATE POLICY "kcl_votes_insert_anon" ON votes
   FOR INSERT
   TO anon, authenticated
   WITH CHECK (true);
 
 -- 정책 2: SELECT 차단 (개별 투표 조회 불가)
--- 집계 결과는 kcl_companies.firepower 또는 kcl_groups.vote_count로 확인
+-- 집계 결과는 companies.firepower 또는 groups.vote_count로 확인
 -- (필요시 집계 전용 SELECT 정책 추가 가능)
 
 -- UPDATE/DELETE: 정책 없음 = 차단 (투표 조작 방지)
@@ -185,9 +189,9 @@ CREATE POLICY "kcl_reports_select_own" ON kcl_reports
 -- ============================================
 -- 주석 해제 후 실행하면 모든 정책 삭제
 /*
-DROP POLICY IF EXISTS "kcl_companies_select_public" ON kcl_companies;
-DROP POLICY IF EXISTS "kcl_groups_select_public" ON kcl_groups;
-DROP POLICY IF EXISTS "kcl_votes_insert_anon" ON kcl_votes;
+DROP POLICY IF EXISTS "kcl_companies_select_public" ON companies;
+DROP POLICY IF EXISTS "kcl_groups_select_public" ON groups;
+DROP POLICY IF EXISTS "kcl_votes_insert_anon" ON votes;
 DROP POLICY IF EXISTS "kcl_posts_select_visible" ON kcl_posts;
 DROP POLICY IF EXISTS "kcl_posts_insert_anon" ON kcl_posts;
 DROP POLICY IF EXISTS "kcl_posts_update_view_count" ON kcl_posts;
@@ -201,9 +205,9 @@ DROP POLICY IF EXISTS "kcl_reports_select_own" ON kcl_reports;
 -- ============================================
 -- 보안 점검 체크리스트
 -- ============================================
--- [x] kcl_companies: 읽기만 허용
--- [x] kcl_groups: 읽기만 허용  
--- [x] kcl_votes: INSERT만 허용 (투표 조작 방지)
+-- [x] companies: 읽기만 허용
+-- [x] groups: 읽기만 허용
+-- [x] votes: INSERT만 허용 (투표 조작 방지)
 -- [x] kcl_posts: 조회/작성 허용, 수정/삭제 제한
 -- [x] kcl_post_comments: 조회/작성 허용, 수정/삭제 제한
 -- [x] kcl_reports: INSERT만 허용, 중복 체크용 SELECT

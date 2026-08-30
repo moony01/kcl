@@ -4,7 +4,7 @@
  * 투표 관련 Supabase 직접 호출 함수들
  * SSG/CSR 마이그레이션: /api/vote 대체
  *
- * 테이블: kcl_votes, kcl_companies
+ * 테이블: votes, companies
  *
  * 보안:
  * - 서버 사이드 Rate Limit: submit_vote_secure RPC에서 비회원 100회/로그인 회원 300회/운영 override 500회 제한
@@ -15,8 +15,7 @@
 import { VOTE_LIMITS } from '@/config/vote';
 import { getVoteBackendUserId } from '@/lib/auth/development-test-mode';
 import { getSupabase } from '@/lib/supabase/client';
-
-const GUEST_VOTER_ID_KEY = 'kcl_guest_voter_id';
+import { GUEST_VOTER_ID_STORAGE_KEY } from '@/lib/vote-quota';
 
 export const KPOPFACE_EMBED_POWER_MAX = VOTE_LIMITS.KPOPFACE_EMBED_POWER_MAX;
 
@@ -24,14 +23,14 @@ function getGuestVoteFingerprint(): string | null {
   if (typeof window === 'undefined') return null;
 
   try {
-    const stored = localStorage.getItem(GUEST_VOTER_ID_KEY);
+    const stored = localStorage.getItem(GUEST_VOTER_ID_STORAGE_KEY);
     if (stored) return stored;
 
     const generated =
       typeof crypto !== 'undefined' && 'randomUUID' in crypto
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-    localStorage.setItem(GUEST_VOTER_ID_KEY, generated);
+    localStorage.setItem(GUEST_VOTER_ID_STORAGE_KEY, generated);
     return generated;
   } catch {
     return null;
@@ -315,9 +314,9 @@ export async function getVoteStats(): Promise<VoteStats> {
   const supabase = getSupabase();
 
   try {
-    // 전체 투표 수 (kcl_companies의 firepower 합계)
+    // 전체 투표 수 (companies의 firepower 합계)
     const { data: companies, error: companiesError } = await supabase
-      .from('kcl_companies')
+      .from('companies')
       .select('firepower');
 
     if (companiesError) {
@@ -335,7 +334,7 @@ export async function getVoteStats(): Promise<VoteStats> {
     const todayISO = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())).toISOString();
 
     const { data: todayVotes, error: todayError } = await supabase
-      .from('kcl_votes')
+      .from('votes')
       .select('vote_power')
       .gte('created_at', todayISO);
 

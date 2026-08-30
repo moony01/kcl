@@ -72,4 +72,5 @@ describe('submitVote developer session boundary', () => {
       }),
     );
   });
+
 });

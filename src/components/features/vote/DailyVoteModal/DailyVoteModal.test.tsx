@@ -66,6 +66,34 @@ describe('DailyVoteModal', () => {
     });
   });
 
+  it('오디션 목록과 상세 페이지에는 모달을 노출한다', async () => {
+    mocks.pathname = '/ko/auditions';
+    render(<DailyVoteModal />);
+
+    await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
+
+    const { unmount } = render(<DailyVoteModal />);
+    unmount();
+    mocks.pathname = '/ko/auditions/sample-audition';
+    render(<DailyVoteModal />);
+
+    await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
+  });
+
+  it('뉴스·오디션 외 일반 페이지에는 모달을 노출하지 않는다', async () => {
+    for (const pathname of ['/ko/my', '/ko/about', '/ko/faq', '/ko/notice']) {
+      mocks.pathname = pathname;
+      const { unmount } = render(<DailyVoteModal />);
+
+      await act(async () => {
+        await new Promise((resolve) => window.setTimeout(resolve, 30));
+      });
+
+      expect(screen.queryByRole('dialog', { name: '실시간 TOP 10 투표' })).toBeNull();
+      unmount();
+    }
+  });
+
   it('오늘 하루 보지 않기를 누르면 날짜를 저장하고 같은 날 다시 열지 않는다', async () => {
     const { unmount } = render(<DailyVoteModal />);
     await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });

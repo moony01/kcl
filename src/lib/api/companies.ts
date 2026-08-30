@@ -4,7 +4,7 @@
  * 소속사 관련 Supabase 직접 호출 함수들
  * SSG/CSR 마이그레이션: /api/companies 대체
  *
- * 테이블: kcl_companies, kcl_groups
+ * 테이블: companies, groups
  */
 
 import { getSupabase } from '@/lib/supabase/client';
@@ -88,7 +88,7 @@ export async function getCompanies(
   try {
     // T1.75: Supabase 쿼리 구성 (parent_company_id 포함)
     const query = supabase
-      .from('kcl_companies')
+      .from('companies')
       .select(
         `
         id,
@@ -101,7 +101,7 @@ export async function getCompanies(
         firepower,
         league_tier,
         parent_company_id,
-        groups:kcl_groups (
+        groups:groups (
           id,
           name_ko,
           name_en,

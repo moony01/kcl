@@ -157,7 +157,7 @@ async function main() {
 
     page.on('response', (response) => {
       const url = response.url();
-      if (url.includes('.supabase.co/rest/v1/')) {
+      if (url.includes('/rest/v1/')) {
         supabaseResponses.push({ status: response.status(), url });
       }
     });
@@ -172,10 +172,40 @@ async function main() {
       timeout: 30_000,
     });
     assert(homeResponse && homeResponse.status() < 500, `home returned HTTP ${homeResponse?.status()}`);
+    await page.locator('[data-testid="home-profile-feed"]').waitFor({ state: 'visible', timeout: 20_000 });
+    await page.waitForFunction(
+      () => {
+        const root = document.querySelector('[data-testid="home-profile-feed"]');
+        return Boolean(
+          root?.querySelector(
+            '[data-testid="profile-feed-card"], [data-testid="profile-feed-empty"], [role="alert"]',
+          ),
+        );
+      },
+      undefined,
+      { timeout: 20_000 },
+    );
+    const profileFeedCount = await page.locator('[data-testid="profile-feed-card"]').count();
+    const profileFeedResponses = supabaseResponses.filter(({ url }) => url.includes('/rest/v1/profile_posts'));
+    assert(
+      profileFeedResponses.some(({ status }) => status >= 200 && status < 300),
+      `home did not successfully query the public profile feed (responses: ${profileFeedResponses
+        .map(({ status }) => status)
+        .join(', ') || 'none'})`,
+    );
+    assert(
+      !(await page.locator('[data-testid="home-profile-feed"] [role="alert"]').count()),
+      'home rendered public feed data-load failure',
+    );
+    const rankingResponse = await page.goto(`${server.baseUrl}/ko/ranking?deploy-browser-smoke=ranking`, {
+      waitUntil: 'domcontentloaded',
+      timeout: 30_000,
+    });
+    assert(rankingResponse && rankingResponse.status() < 500, `ranking returned HTTP ${rankingResponse?.status()}`);
     await page.locator('[data-company-id]').first().waitFor({ state: 'visible', timeout: 20_000 });
     const companyCount = await page.locator('[data-company-id]').count();
-    assert(companyCount > 0, 'home rendered no company cards');
-    assert(!(await page.getByText('Failed to load data').count()), 'home rendered data-load failure');
+    assert(companyCount > 0, 'ranking rendered no company cards');
+    assert(!(await page.getByText('Failed to load data').count()), 'ranking rendered data-load failure');
     const seoEndpoints = await assertSeoEndpoints(server.baseUrl);
 
     const newsResponse = await page.goto(`${server.baseUrl}/en/news?deploy-browser-smoke=news`, {
@@ -227,6 +257,8 @@ async function main() {
           status: 'PASS',
           browser: browserPath,
           baseUrl: server.baseUrl,
+          profileFeedCount,
+          profileFeedStatuses: profileFeedResponses.map(({ status }) => status),
           companyCount,
           ...seoEndpoints,
           supabaseResponses: supabaseResponses.map(({ status, url }) => ({ status, url })),

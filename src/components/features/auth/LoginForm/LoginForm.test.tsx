@@ -57,6 +57,14 @@ describe('LoginForm development controls', () => {
     expect(mocks.createClient).not.toHaveBeenCalled();
   });
 
+  it('returns to the local home when an active test session reopens the login page', () => {
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
+    render(<LoginForm />);
+
+    expect(mocks.routerReplace).toHaveBeenCalledWith('/ko');
+  });
+
   it('keeps the server markup independent of the browser test-mode marker', () => {
     window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
 
@@ -80,6 +88,19 @@ describe('LoginForm development controls', () => {
   });
 
   it('resets only the local guest quota from the development control', () => {
+    render(<LoginForm />);
+
+    fireEvent.click(screen.getByTestId('guest-quota-reset'));
+
+    expect(JSON.parse(window.localStorage.getItem(VOTE_QUOTA_STORAGE_KEY) ?? '')).toMatchObject({
+      used: 0,
+      max: 100,
+    });
+  });
+
+  it('resets only the local quota even when the local test session is active', () => {
+    window.localStorage.setItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY, 'true');
+
     render(<LoginForm />);
 
     fireEvent.click(screen.getByTestId('guest-quota-reset'));

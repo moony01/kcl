@@ -4,6 +4,9 @@ import { isDevelopmentEnvironment } from '@/lib/auth/development-test-mode';
 /** localStorage key for the anonymous guest quota. */
 export const VOTE_QUOTA_STORAGE_KEY = 'kcl_vote_quota';
 
+/** localStorage key used by the server to identify an anonymous voter. */
+export const GUEST_VOTER_ID_STORAGE_KEY = 'kcl_guest_voter_id';
+
 /** Browser event emitted after the guest quota is refreshed locally. */
 export const VOTE_QUOTA_REFRESH_EVENT = 'kcl:vote-quota-refresh';
 
@@ -32,6 +35,10 @@ export function resetGuestVoteQuota(): void {
 
   try {
     window.localStorage.setItem(VOTE_QUOTA_STORAGE_KEY, JSON.stringify(data));
+    // The server also rate-limits guests by this browser identifier. Remove it
+    // in development so the reset control resets the effective quota, not only
+    // the client-side counter.
+    window.localStorage.removeItem(GUEST_VOTER_ID_STORAGE_KEY);
     window.dispatchEvent(new Event(VOTE_QUOTA_REFRESH_EVENT));
   } catch {
     // Storage restrictions should not trigger a misleading refresh.

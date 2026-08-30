@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   getTodayUTC,
+  GUEST_VOTER_ID_STORAGE_KEY,
   resetGuestVoteQuota,
   VOTE_QUOTA_REFRESH_EVENT,
   VOTE_QUOTA_STORAGE_KEY,
@@ -27,6 +28,7 @@ describe('guest vote quota developer reset', () => {
   });
 
   it("writes today's UTC guest quota locally and dispatches refresh", () => {
+    window.localStorage.setItem(GUEST_VOTER_ID_STORAGE_KEY, 'used-guest');
     const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
 
     resetGuestVoteQuota();
@@ -36,6 +38,7 @@ describe('guest vote quota developer reset', () => {
       used: 0,
       max: VOTE_LIMITS.GUEST_DAILY,
     });
+    expect(window.localStorage.getItem(GUEST_VOTER_ID_STORAGE_KEY)).toBeNull();
     expect(dispatchSpy).toHaveBeenCalledWith(expect.any(Event));
     const lastEvent = dispatchSpy.mock.calls[dispatchSpy.mock.calls.length - 1]?.[0];
     expect(lastEvent).toMatchObject({ type: VOTE_QUOTA_REFRESH_EVENT });
@@ -79,7 +82,19 @@ describe('guest vote quota developer reset', () => {
 
     expect(result.current.quota.max).toBe(VOTE_LIMITS.MEMBER_DAILY);
     act(() => {
-    expect(result.current.useVote(VOTE_LIMITS.MEMBER_DAILY)).toBe(true);
+      expect(result.current.useVote(1)).toBe(true);
+    });
+    expect(result.current.quota.used).toBe(1);
+
+    act(() => {
+      resetGuestVoteQuota();
+    });
+
+    expect(result.current.quota.used).toBe(0);
+    expect(result.current.quota.remaining).toBe(VOTE_LIMITS.MEMBER_DAILY);
+
+    act(() => {
+      expect(result.current.useVote(VOTE_LIMITS.MEMBER_DAILY)).toBe(true);
     });
     expect(result.current.quota.remaining).toBe(0);
   });

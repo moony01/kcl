@@ -139,7 +139,7 @@ export default async function LocaleLayout({
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <ThemeProvider
           attribute="data-theme"

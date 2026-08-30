@@ -40,13 +40,7 @@ const COPY: Record<'ko' | 'en', VoteModalCopy> = {
   },
 };
 
-const HIDDEN_ROUTE_SEGMENTS = new Set([
-  'auth',
-  'forgot-password',
-  'login',
-  'onboarding',
-  'signup',
-]);
+const VISIBLE_ROUTE_SEGMENTS = new Set(['news', 'auditions']);
 const SUPPORTED_EMBED_LOCALES = new Set(['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de']);
 const DAILY_DISMISS_KEY = 'kcl-daily-vote-modal-dismissed-date';
 
@@ -58,10 +52,9 @@ function getLocalDateKey(date = new Date()) {
 
 function shouldHideVoteModal(pathname: string) {
   const [, , section] = pathname.split('/');
-  // HomeClient already owns the canonical VoteBoard, so the global nudge must
-  // not cover it. AppShell routes without a board keep the modal behavior.
-  if (!section) return true;
-  return HIDDEN_ROUTE_SEGMENTS.has(section);
+  // The canonical VoteBoard belongs to the home page. Keep the global modal
+  // limited to content-discovery routes where the voting nudge is relevant.
+  return !section || !VISIBLE_ROUTE_SEGMENTS.has(section);
 }
 
 function readStorage(storage: Storage, key: string) {

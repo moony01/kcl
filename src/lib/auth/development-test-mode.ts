@@ -7,6 +7,8 @@
 import type { User } from '@supabase/supabase-js';
 
 export const DEVELOPMENT_TEST_MODE_STORAGE_KEY = 'kcl_dev_test_mode';
+/** Same-tab event used to synchronize the browser-only marker with AuthProvider. */
+export const DEVELOPMENT_TEST_MODE_CHANGE_EVENT = 'kcl:development-test-mode-change';
 /** Provisioned once in Supabase as a development-only backend fixture. */
 export const DEVELOPMENT_TEST_USER_ID = 'c1192de6-89bd-45f7-9d91-e0eec631a589';
 
@@ -66,6 +68,8 @@ export function setDevelopmentTestModeEnabled(enabled: boolean): void {
     }
   } catch {
     // Private browsing/storage restrictions should not affect auth behavior.
+  } finally {
+    window.dispatchEvent(new Event(DEVELOPMENT_TEST_MODE_CHANGE_EVENT));
   }
 }
 
@@ -83,5 +87,7 @@ export function clearDevelopmentTestMode(): void {
     window.localStorage.removeItem(DEVELOPMENT_TEST_MODE_STORAGE_KEY);
   } catch {
     // Private browsing/storage restrictions should not block sign-out cleanup.
+  } finally {
+    window.dispatchEvent(new Event(DEVELOPMENT_TEST_MODE_CHANGE_EVENT));
   }
 }

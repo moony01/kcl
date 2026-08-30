@@ -1,12 +1,12 @@
 /**
  * AppShell.module.scss
  * 
- * 인스타그램 스타일 앱 셸 레이아웃 스타일
+ * LinkedIn 정보 구조를 MEARROW 브랜드에 맞게 해석한 앱 셸 레이아웃
  * 
  * 구조:
- * - Desktop(1264px+): 사이드바(244px) + 중앙 콘텐츠
- * - Fold/Tablet(480px-1263px): 사이드바(72px) + 중앙 콘텐츠
- * - Mobile(<480px): 하단 내비게이션 + 전체 너비 콘텐츠
+ * - Desktop(1264px+): 사이드바(244px) + 중앙 콘텐츠 캔버스
+ * - Tablet/Desktop(769px-1263px): 사이드바(72px) + 중앙 콘텐츠
+ * - Mobile(<=768px): 상단 헤더 + 하단 내비게이션 + 전체 너비 콘텐츠
  */
 
 @use '../../../styles/abstracts/variables' as *;
@@ -20,16 +20,18 @@ $sidebar-width-wide: 244px;
   display: flex;
   min-height: 100vh;
   width: 100%;
+  min-width: 0;
   background-color: $color-bg;
   color: $color-text;
   position: relative;
+  overflow-x: clip;
   box-sizing: border-box;
   isolation: isolate;
 }
 
-// 사이드바 래퍼 (Desktop >= 768px에서만 표시)
+// 사이드바 래퍼 (Desktop >= 769px에서만 표시)
 .sidebarWrapper {
-  display: none; // 모바일에서 숨김
+  display: none; // 768px 이하 모바일에서 숨김
   flex-shrink: 0;
   position: fixed;
   left: 0;
@@ -39,7 +41,7 @@ $sidebar-width-wide: 244px;
   z-index: $z-overlay;
   overflow: visible;
 
-  @media (min-width: 480px) {
+  @media (min-width: 769px) {
     display: block;
     width: $sidebar-width-narrow;
   }
@@ -56,14 +58,15 @@ $sidebar-width-wide: 244px;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
+  min-width: 0;
   position: relative;
   z-index: $z-base;
 
   // 모바일: 하단 내비게이션 공간 확보
-  padding-bottom: 100px;
+  padding-bottom: 88px;
 
-  // 480px+: 사이드바 공간 확보
-  @media (min-width: 480px) {
+  // 769px+: 사이드바 공간 확보
+  @media (min-width: 769px) {
     padding-bottom: 0;
     margin-left: $sidebar-width-narrow;
     width: calc(100% - #{$sidebar-width-narrow});
@@ -79,47 +82,49 @@ $sidebar-width-wide: 244px;
 // 콘텐츠 내부 래퍼 (중앙 정렬 및 최대 너비 제한)
 .contentInner {
   width: 100%;
-  max-width: 935px; // 인스타그램 표준 피드 너비
+  max-width: 1160px; // LinkedIn형 콘텐츠 캔버스
   margin: 0 auto; // 중앙 정렬
   flex: 1;
   position: relative;
+  min-width: 0;
 
-  // 모바일: 최소 패딩
-  padding: 0 16px;
+  // 모바일: 전체 폭 피드 + 최소 좌우 여백
+  padding: 0 12px;
 
-  // 태블릿+: 더 넉넉한 패딩
-  @media (min-width: 768px) {
-    padding: 16px 32px;
+  // 데스크톱: 넉넉한 캔버스 여백
+  @media (min-width: 769px) {
+    padding: 20px 24px;
   }
 
-  // 대형 화면: 더 넓은 콘텐츠 허용
+  // 대형 화면: 중앙 피드와 보조 레일을 함께 수용
   @media (min-width: 1400px) {
-    max-width: 1100px;
+    max-width: 1240px;
+    padding-inline: 32px;
   }
 }
 
 // 하단 내비게이션 래퍼 (모바일에서만 표시)
 .bottomNavWrapper {
-  display: block; // 모바일에서 표시
+  display: block; // 768px 이하 모바일에서 표시
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: $z-nav;
 
-  @media (min-width: 480px) {
+  @media (min-width: 769px) {
     display: none; // 사이드바가 대체
   }
 }
 
 // 법적 고지 푸터
 .legalFooter {
-  padding: 40px 20px 20px;
+  padding: 28px 16px 20px;
   text-align: center;
   color: $color-text-dim;
   font-size: 0.75rem;
 
-  @media (min-width: 768px) {
-    padding-bottom: 40px;
+  @media (min-width: 769px) {
+    padding: 40px 20px;
   }
 }

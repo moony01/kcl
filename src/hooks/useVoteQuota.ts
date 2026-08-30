@@ -336,7 +336,13 @@ export function useVoteQuota(
     if (typeof window === 'undefined') return;
 
     const handleQuotaRefresh = () => {
-      if (backendUserId || isLocalDeveloperSession) return;
+      if (backendUserId) return;
+
+      if (isLocalDeveloperSession) {
+        setMax(MAX_DAILY_VOTES_LOGIN);
+        setUsed(0);
+        return;
+      }
 
       const stored = loadQuotaFromStorage(storageKey);
       if (stored?.date !== getTodayUTC()) return;

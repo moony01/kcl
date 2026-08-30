@@ -1,6 +1,10 @@
-# KCL Supabase Database Documentation
+# MEARROW Supabase Database Documentation
 
-이 디렉토리는 KCL (K-pop Company League) 프로젝트의 Supabase 데이터베이스 설정을 코드로 관리합니다.
+이 디렉토리는 MEARROW 프로젝트의 Supabase 데이터베이스 설정을 코드로 관리합니다.
+
+현재 MEARROW 원격 프로젝트는 이 프로젝트만 사용하므로 애플리케이션 테이블에 별도
+`kcl_` 또는 `mrw_` 접두사를 붙이지 않습니다. 과거 접두사와 외부 앱 리소스 정리는
+`20260829030000`·`20260829031000` 마이그레이션에 기록되어 있습니다.
 
 ## 파일 구조
 
@@ -17,7 +21,7 @@ packages/kcl/supabase/
 
 ## 테이블 스키마 개요
 
-### 1. kcl_companies (소속사)
+### 1. companies (소속사)
 
 | 컬럼           | 타입        | 설명                                             |
 | -------------- | ----------- | ------------------------------------------------ |
@@ -41,12 +45,12 @@ packages/kcl/supabase/
 - 시즌 중 고정, 월초에만 승강 적용
 - 투표로 firepower가 변해도 리그는 유지됨
 
-### 2. kcl_groups (아티스트 그룹)
+### 2. groups (아티스트 그룹)
 
 | 컬럼         | 타입    | 설명                |
 | ------------ | ------- | ------------------- |
 | id           | uuid    | PK                  |
-| company_id   | uuid    | FK -> kcl_companies |
+| company_id   | uuid    | FK -> companies     |
 | name_ko      | text    | 한글명              |
 | name_en      | text    | 영문명              |
 | slug         | text    | URL용 식별자        |
@@ -58,13 +62,13 @@ packages/kcl/supabase/
 
 **RLS 정책**: SELECT만 허용 (공개 읽기)
 
-### 3. kcl_votes (투표 기록)
+### 3. votes (투표 기록)
 
 | 컬럼       | 타입        | 설명                        |
 | ---------- | ----------- | --------------------------- |
 | id         | uuid        | PK                          |
-| company_id | uuid        | FK -> kcl_companies         |
-| group_id   | uuid        | FK -> kcl_groups (nullable) |
+| company_id | uuid        | FK -> companies         |
+| group_id   | uuid        | FK -> groups (nullable) |
 | ip_hash    | text        | 투표자 IP 해시              |
 | score      | integer     | 투표 점수 (기본 1)          |
 | created_at | timestamptz | 투표 시각                   |

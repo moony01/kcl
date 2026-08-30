@@ -56,7 +56,7 @@ export async function getNoticeComments(
   const supabase = createClient();
 
   const { data, error } = await supabase
-    .from('kcl_notice_comments')
+    .from('notice_comments')
     .select('id, announcement_id, author_name, content, is_deleted, created_at, updated_at')
     .eq('announcement_id', announcementId)
     .eq('is_deleted', false)
@@ -160,7 +160,7 @@ export async function getNoticeCommentCounts(
 
   const supabase = createClient();
   const { data, error } = await supabase
-    .from('kcl_notice_comments')
+    .from('notice_comments')
     .select('announcement_id')
     .in('announcement_id', uuidIds)
     .eq('is_deleted', false);
