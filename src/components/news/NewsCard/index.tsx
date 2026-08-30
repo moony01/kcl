@@ -60,7 +60,10 @@ export default function NewsCard({
             width={400}
             height={225}
             sizes="(max-width: 768px) 100vw, 400px"
-            unoptimized={process.env.NEXT_PUBLIC_RUNTIME_TARGET === 'workers'}
+            unoptimized={
+              process.env.NODE_ENV === 'development' ||
+              process.env.NEXT_PUBLIC_RUNTIME_TARGET === 'workers'
+            }
             className={styles.thumbnail}
           />
         ) : (
