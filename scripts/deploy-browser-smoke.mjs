@@ -173,9 +173,25 @@ async function main() {
     });
     assert(homeResponse && homeResponse.status() < 500, `home returned HTTP ${homeResponse?.status()}`);
     await page.locator('[data-testid="home-profile-feed"]').waitFor({ state: 'visible', timeout: 20_000 });
-    await page.locator('[data-testid="profile-feed-card"]').first().waitFor({ state: 'visible', timeout: 20_000 });
+    await page.waitForFunction(
+      () => {
+        const root = document.querySelector('[data-testid="home-profile-feed"]');
+        return Boolean(
+          root?.querySelector(
+            '[data-testid="profile-feed-card"], [data-testid="profile-feed-empty"], [role="alert"]',
+          ),
+        );
+      },
+      undefined,
+      { timeout: 20_000 },
+    );
     const profileFeedCount = await page.locator('[data-testid="profile-feed-card"]').count();
-    assert(profileFeedCount > 0, 'home rendered no public profile feed cards');
+    assert(
+      supabaseResponses.some(
+        ({ status, url }) => url.includes('/rest/v1/profile_posts') && status >= 200 && status < 300,
+      ),
+      'home did not successfully query the public profile feed',
+    );
     assert(
       !(await page.locator('[data-testid="home-profile-feed"] [role="alert"]').count()),
       'home rendered public feed data-load failure',

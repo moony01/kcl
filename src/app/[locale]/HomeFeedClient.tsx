@@ -497,7 +497,7 @@ export default function HomeFeedClient() {
           )}
 
           {!isLoading && !error && posts.length === 0 && (
-            <div className={styles.feedState}>
+            <div className={styles.feedState} data-testid="profile-feed-empty">
               <p>{t('feed_empty')}</p>
             </div>
           )}
