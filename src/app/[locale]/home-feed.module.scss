@@ -2,19 +2,27 @@
 
 .feedShell {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 32px 20px 80px;
 }
+
+.feedLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
+  gap: 20px;
+  align-items: start;
+}
+
+.feedMain { min-width: 0; }
 
 .feedHeader {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
-  max-width: 760px;
-  margin: 0 auto 28px;
-  padding-bottom: 22px;
+  margin: 0 0 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid $color-border;
 }
 
@@ -65,29 +73,10 @@
   white-space: nowrap;
 }
 
-.publishButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 11px;
-  border: 1px solid rgba($color-primary, 0.3);
-  border-radius: 999px;
-  background: $color-primary;
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 800;
-  line-height: 1;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.publishButton:hover {
-  box-shadow: 0 8px 18px rgba($color-primary, 0.2);
-  transform: translateY(-1px);
-}
-
-.publishButton:focus-visible,
+.composerPrompt:focus-visible,
+.composerAction:focus-visible,
+.asideLink:focus-visible,
+.asideCta:focus-visible,
 .actionLink:focus-visible,
 .shareButton:focus-visible,
 .mediaActionButton:focus-visible,
@@ -97,13 +86,182 @@
   outline-offset: 2px;
 }
 
+.feedComposer {
+  margin: 0 0 20px;
+  padding: 16px 18px 12px;
+  border: 1px solid $color-border;
+  border-radius: 18px;
+  background: $color-surface;
+  box-shadow: var(--shadow-sm);
+}
+
+.composerTop {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.composerAvatar {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: $gradient-primary;
+  color: #fff;
+  font-family: $font-display;
+  font-size: 0.92rem;
+  font-weight: 850;
+}
+
+.composerPrompt {
+  display: flex;
+  min-width: 0;
+  min-height: 42px;
+  flex: 1;
+  align-items: center;
+  padding: 0 16px;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  background: $color-bg;
+  color: $color-text-dim;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.composerPrompt:hover {
+  border-color: rgba($color-primary, 0.4);
+  background: $color-hover-surface;
+  color: $color-text;
+}
+
+.composerActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 13px;
+  padding-top: 11px;
+  border-top: 1px solid $color-border;
+}
+
+.composerAction {
+  display: inline-flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 4px 8px;
+  border-radius: 9px;
+  color: $color-primary;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.composerAction:hover {
+  background: rgba($color-primary, 0.08);
+  color: $color-text;
+}
+
+.feedAside {
+  position: sticky;
+  top: 88px;
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.asideCard {
+  padding: 20px;
+  border: 1px solid $color-border;
+  border-radius: 18px;
+  background: $color-surface;
+  box-shadow: var(--shadow-sm);
+}
+
+.asideEyebrow {
+  margin: 0 0 9px;
+  color: $color-primary;
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+.asideTitle {
+  margin: 0;
+  color: $color-text;
+  font-family: $font-display;
+  font-size: 1.05rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.asideDescription {
+  margin: 10px 0 0;
+  color: $color-text-dim;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.asideLinks {
+  display: grid;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.asideLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 6px 7px;
+  border-radius: 9px;
+  color: $color-text;
+  font-size: 0.76rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.asideLink span { flex: 1; }
+
+.asideLink:hover {
+  background: $color-hover-surface;
+  color: $color-primary;
+}
+
+.asideCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: $color-primary;
+  color: #fff;
+  font-size: 0.73rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.asideCta:hover {
+  background: $color-primary-hover;
+  transform: translateY(-1px);
+}
+
 .feedToolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  width: min(100%, 760px);
-  margin: 0 auto 16px;
+  width: 100%;
+  margin: 0 0 16px;
 }
 
 .feedFilters {
@@ -150,12 +308,12 @@
 .feedGrid {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 20px;
 }
 
 .feedCard {
-  width: min(100%, 760px);
+  width: 100%;
   min-width: 0;
   overflow: hidden;
   border: 1px solid $color-border;
@@ -486,11 +644,28 @@
 
 @keyframes feedSpin { to { transform: rotate(360deg); } }
 
+@media (max-width: 1119px) {
+  .feedLayout { display: block; }
+  .feedAside { display: none; }
+}
+
 @media (max-width: 767px) {
-  .feedShell { padding: 24px 12px 88px; }
-  .feedHeader { align-items: flex-start; margin-bottom: 20px; }
-  .feedHeaderActions { align-items: flex-end; flex-direction: column; gap: 8px; }
-  .feedCard { border-radius: 18px; }
+  .feedShell { padding: 24px 12px 96px; }
+  .feedHeader { align-items: flex-start; margin-bottom: 16px; }
+  .feedHeaderActions { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .feedComposer { padding: 14px 14px 10px; border-radius: 16px; }
+  .feedToolbar { align-items: center; gap: 10px; }
+  .feedFilters {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .feedFilters::-webkit-scrollbar { display: none; }
+  .filterButton,
+  .filterActive { flex: 0 0 auto; }
+  .feedSort { flex: 0 0 auto; }
+  .feedCard { border-radius: 16px; }
   .postHeader { padding: 14px; }
   .cardBody { padding: 14px; }
 }
@@ -499,8 +674,7 @@
   .feedHeader { display: block; }
   .feedHeaderActions { align-items: flex-start; margin-top: 14px; }
   .feedHeaderActions .feedStatus { display: inline-flex; }
-  .feedToolbar { align-items: flex-start; flex-direction: column; gap: 10px; }
-  .feedFilters { width: 100%; }
-  .filterButton,
-  .filterActive { flex: 1; }
+  .feedToolbar { align-items: center; flex-direction: row; gap: 8px; }
+  .feedSort { font-size: 0; }
+  .feedSort svg { width: 16px; height: 16px; }
 }
