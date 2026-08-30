@@ -49,6 +49,31 @@ export interface ProfilePostRecord {
   media_url: string;
 }
 
+export interface PublicProfilePostRecord {
+  id: string;
+  media_type: ProfileMediaType;
+  caption: string | null;
+  created_at: string;
+  media_url: string;
+}
+
+export interface ProfileFeedCursor {
+  created_at: string;
+  id: string;
+}
+
+export interface PublicProfileFeedPage {
+  posts: PublicProfilePostRecord[];
+  nextCursor: ProfileFeedCursor | null;
+}
+
+export interface ListPublicProfilePostsOptions {
+  cursor?: ProfileFeedCursor | null;
+  limit?: number;
+}
+
+export const PROFILE_FEED_PAGE_SIZE = 4;
+
 export interface ProfileActivityInput {
   title: string;
   organization: string;
@@ -148,9 +173,25 @@ function getPublicMediaUrl(mediaType: ProfileMediaType, storagePath: string): st
   return getSupabase().storage.from(getProfileMediaBucket(mediaType)).getPublicUrl(storagePath).data.publicUrl;
 }
 
-function mapPost(record: Omit<ProfilePostRecord, 'media_url'>): ProfilePostRecord {
+type ProfilePostRow = Omit<ProfilePostRecord, 'media_url'>;
+type PublicProfilePostRow = Pick<
+  ProfilePostRecord,
+  'id' | 'media_type' | 'storage_path' | 'caption' | 'created_at'
+>;
+
+function mapPost(record: ProfilePostRow): ProfilePostRecord {
   return {
     ...record,
+    media_url: getPublicMediaUrl(record.media_type, record.storage_path),
+  };
+}
+
+function mapPublicPost(record: PublicProfilePostRow): PublicProfilePostRecord {
+  return {
+    id: record.id,
+    media_type: record.media_type,
+    caption: record.caption,
+    created_at: record.created_at,
     media_url: getPublicMediaUrl(record.media_type, record.storage_path),
   };
 }
@@ -235,7 +276,45 @@ export async function listProfilePosts(userId: string): Promise<ProfilePostRecor
     .order('created_at', { ascending: false });
 
   if (error) throw error;
-  return ((data || []) as Array<Omit<ProfilePostRecord, 'media_url'>>).map(mapPost);
+  return ((data || []) as ProfilePostRow[]).map(mapPost);
+}
+
+/** Public feed query. RLS still enforces published + public visibility. */
+export async function listPublicProfilePosts(
+  options: ListPublicProfilePostsOptions = {},
+): Promise<PublicProfileFeedPage> {
+  const limit = Math.min(Math.max(options.limit ?? PROFILE_FEED_PAGE_SIZE, 1), PROFILE_FEED_PAGE_SIZE);
+  const supabase = getSupabase();
+  // storage_path is selected only so the browser can derive the public media URL;
+  // mapPublicPost removes it from the public response. user_id and upload metadata
+  // are not needed by HomeFeedClient and remain outside this projection.
+  let query = supabase
+    .from('profile_posts')
+    .select('id, media_type, storage_path, caption, created_at')
+    .eq('status', 'published')
+    .eq('is_public', true)
+    .order('created_at', { ascending: false })
+    .order('id', { ascending: false });
+
+  if (options.cursor) {
+    const { created_at: createdAt, id } = options.cursor;
+    query = query.or(`created_at.lt.${createdAt},and(created_at.eq.${createdAt},id.lt.${id})`);
+  }
+
+  const { data, error } = await query.limit(limit + 1);
+  if (error) throw error;
+
+  const records = (data || []) as PublicProfilePostRow[];
+  const page = records.slice(0, limit);
+  const last = page[page.length - 1];
+
+  return {
+    posts: page.map(mapPublicPost),
+    nextCursor:
+      records.length > limit && last
+        ? { created_at: last.created_at, id: last.id }
+        : null,
+  };
 }
 
 export async function uploadProfilePost(
@@ -305,7 +384,7 @@ export async function uploadProfilePost(
 
   if (publishError) throw publishError;
 
-  return mapPost(data as Omit<ProfilePostRecord, 'media_url'>);
+  return mapPost(data as ProfilePostRow);
 }
 
 export async function deleteProfilePost(

@@ -22,6 +22,7 @@ import {
   Home,
   LogIn,
   LogOut,
+  ListOrdered,
   Mail,
   Newspaper,
   Trophy,
@@ -56,12 +57,14 @@ export default function Sidebar() {
     if (path === '/') {
       return pathname === `/${locale}` || pathname === `/${locale}/`;
     }
-    return pathname?.startsWith(`/${locale}${path}`);
+    const localizedPath = `/${locale}${path}`;
+    return pathname === localizedPath || pathname?.startsWith(`${localizedPath}/`);
   };
 
   // Feature Flags 기반 네비게이션 메뉴
   const navItems = [
     { label: t('home'), icon: Home, path: '/', enabled: true },
+    { label: t('ranking'), icon: ListOrdered, path: '/ranking', enabled: true },
     {
       label: t('hall_of_fame'),
       icon: Trophy,

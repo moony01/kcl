@@ -1,0 +1,319 @@
+@use '../../styles/abstracts/variables' as *;
+
+.feedShell {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.feedHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid $color-border;
+}
+
+.feedEyebrow {
+  margin: 0 0 9px;
+  color: $color-primary;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.feedTitle {
+  margin: 0;
+  color: $color-text;
+  font-family: $font-display;
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+.feedSubtitle {
+  max-width: 620px;
+  margin: 10px 0 0;
+  color: $color-text-dim;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.feedStatus {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid rgba($color-primary, 0.22);
+  border-radius: 999px;
+  background: rgba($color-primary, 0.07);
+  color: $color-primary;
+  font-size: 0.68rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.feedGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.feedCard {
+  width: min(100%, 760px);
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  border-radius: 22px;
+  background: $color-surface;
+  box-shadow: var(--shadow-sm);
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px 14px;
+}
+
+.authorIdentity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+}
+
+.authorAvatar {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: $gradient-primary;
+  color: #fff;
+  font-family: $font-display;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.authorCopy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.authorCopy strong {
+  overflow: hidden;
+  color: $color-text;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.authorCopy span {
+  color: $color-text-dim;
+  font-size: 0.7rem;
+}
+
+.mediaType {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border: 1px solid $color-border;
+  border-radius: 999px;
+  color: $color-text-dim;
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.mediaFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: $color-panel-bg;
+}
+
+.shortMediaFrame {
+  width: min(100%, 420px);
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mediaFallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 20px;
+  color: $color-text-dim;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.mediaBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.72);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.cardBody {
+  padding: 16px 18px 18px;
+}
+
+.caption {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: $color-text;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.postActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid $color-border;
+  color: $color-text-dim;
+  font-size: 0.7rem;
+}
+
+.actionItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.feedState {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  gap: 12px;
+  padding: 28px;
+  border: 1px dashed $color-border;
+  border-radius: 18px;
+  color: $color-text-dim;
+  text-align: center;
+}
+
+.feedState p { margin: 0; }
+
+.spinner {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba($color-primary, 0.2);
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: feedSpin 0.8s linear infinite;
+}
+
+.retryButton,
+.loadMoreButton,
+.inlineError button {
+  border: 1px solid rgba($color-primary, 0.3);
+  border-radius: 10px;
+  background: transparent;
+  color: $color-primary;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.retryButton,
+.loadMoreButton { padding: 10px 14px; }
+
+.loadMoreButton { display: block; margin: 14px auto 0; }
+
+.retryButton:hover,
+.loadMoreButton:hover,
+.inlineError button:hover { background: rgba($color-primary, 0.08); }
+
+.retryButton:focus-visible,
+.loadMoreButton:focus-visible,
+.inlineError button:focus-visible {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
+
+.loadMoreButton:disabled { cursor: wait; opacity: 0.6; }
+
+.inlineError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto 0;
+  color: $color-text-dim;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.inlineError button { padding: 5px 8px; }
+
+.feedSentinel { width: 100%; height: 1px; margin-top: 4px; }
+
+.feedLoadingMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 12px 0 0;
+  color: $color-text-dim;
+  font-size: 0.76rem;
+}
+
+.feedLoadingMore .spinner { width: 16px; height: 16px; border-width: 2px; }
+
+.feedEnd {
+  margin: 24px 0 0;
+  color: $color-text-dim;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+@keyframes feedSpin { to { transform: rotate(360deg); } }
+
+@media (max-width: 767px) {
+  .feedShell { padding: 24px 12px 88px; }
+  .feedHeader { align-items: flex-start; margin-bottom: 20px; }
+  .feedCard { border-radius: 18px; }
+  .postHeader { padding: 14px; }
+  .cardBody { padding: 14px; }
+}
+
+@media (max-width: 430px) {
+  .feedHeader { display: block; }
+  .feedStatus { display: inline-flex; margin-top: 14px; }
+}

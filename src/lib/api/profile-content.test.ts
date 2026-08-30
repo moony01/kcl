@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   PROFILE_CAPTION_MAX_LENGTH,
+  PROFILE_FEED_PAGE_SIZE,
   PROFILE_IMAGE_MAX_BYTES,
   PROFILE_VIDEO_MAX_BYTES,
   PROFILE_VIDEO_MAX_SECONDS,
@@ -30,6 +31,7 @@ describe('profile content validation', () => {
   });
 
   it('keeps the agreed product limits explicit', () => {
+    expect(PROFILE_FEED_PAGE_SIZE).toBe(4);
     expect(PROFILE_VIDEO_MAX_SECONDS).toBe(60);
     expect(PROFILE_CAPTION_MAX_LENGTH).toBe(240);
   });
