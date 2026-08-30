@@ -1,12 +1,12 @@
 /**
  * Sidebar.module.scss
  * 
- * 사이드바 네비게이션 스타일 (데스크탑 전용)
- * 인스타그램 스타일의 좌측 고정 네비게이션
+ * 사이드바 네비게이션 스타일 (데스크톱 전용)
+ * LinkedIn형 좌측 고정 레일을 MEARROW 내비게이션에 맞게 해석
  * 
  * 반응형:
- * - Mobile(<480px): 숨김
- * - Fold/Tablet(480px-1263px): 기본 아이콘 레일 (72px), hover/focus-within 시 확장
+ * - Mobile(<=768px): 숨김
+ * - Tablet(769px-1263px): 기본 아이콘 레일 (72px), hover/focus-within 시 확장
  * - Desktop(1264px+): 아이콘 + 레이블 (244px) 고정
  * 
  * 핵심: 아이콘은 항상 좌측 고정, 좁은 구간에서는 텍스트가 숨겨지고 상호작용 시 펼쳐짐
@@ -30,7 +30,7 @@ $sidebar-wide: 244px;
   border-right: 1px solid rgba($color-text, 0.08);
   // 카드/검색 레이어보다 위에 고정해 확장 레일이 가려지지 않도록 합니다.
   z-index: $z-overlay;
-  padding: 8px 12px 20px;
+  padding: 16px 12px 20px;
   display: flex;
   flex-direction: column;
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,11 +40,11 @@ $sidebar-wide: 244px;
   overflow-x: hidden;
   overflow-y: auto;
 
-  // 모바일: 숨김
+  // 768px 이하 모바일: 숨김
   display: none;
 
-  // 폴드 펼침 / 대형 모바일 ~ 태블릿: 기본은 좁은 레일, 상호작용 시 넓게 확장
-  @media (min-width: 480px) and (max-width: 1263px) {
+  // 태블릿: 기본은 좁은 레일, 상호작용 시 넓게 확장
+  @media (min-width: 769px) and (max-width: 1263px) {
     display: flex;
     width: $sidebar-narrow;
 

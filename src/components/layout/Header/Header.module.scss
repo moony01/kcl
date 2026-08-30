@@ -4,8 +4,8 @@
  * 헤더 컴포넌트 스타일
  * 
  * 구조:
- * - Mobile: 로고 + 언어 선택기 (좌우 배치)
- * - Desktop: 언어 선택기만 우측 상단 (사이드바에 로고 있음)
+ * - Mobile(<=768px): 로고 + 전역 컨트롤 (좌우 배치)
+ * - Desktop(769px+): 사이드바와 맞물리는 sticky global header
  */
 
 @use '../../../styles/abstracts/variables' as *;
@@ -15,17 +15,18 @@
   position: sticky;
   top: 0;
   width: 100%;
+  min-height: 64px;
   z-index: calc($z-nav - 1);
-  background: rgba($color-bg, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba($color-bg, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba($color-text, 0.08);
-  padding: 12px 0;
+  padding: 8px 0;
 
-  @media (min-width: 480px) {
-    padding: 16px 0;
-    background: $color-bg;
-    border-bottom: none;
-    backdrop-filter: none;
+  @media (min-width: 769px) {
+    padding: 10px 0;
+    background: rgba($color-bg, 0.97);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
   }
 }
 
@@ -34,16 +35,18 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 935px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 12px;
+  min-width: 0;
 
-  @media (min-width: 768px) {
-    padding: 0 32px;
+  @media (min-width: 769px) {
+    padding: 0 24px;
   }
 
   @media (min-width: 1400px) {
-    max-width: 1100px;
+    max-width: 1240px;
+    padding-inline: 32px;
   }
 }
 
@@ -51,6 +54,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  min-height: 44px;
   text-decoration: none;
 
   &:focus-visible {
@@ -60,7 +64,7 @@
   }
 
   // 사이드바 표시 시 로고 숨김
-  @media (min-width: 480px) {
+  @media (min-width: 769px) {
     display: none;
   }
 }
@@ -94,6 +98,11 @@
 
 // 테마 토글 버튼
 .themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   padding: 8px;
   border-radius: 8px;
   background: rgba($color-bg, 0.6);
@@ -108,7 +117,7 @@
 
   // 태블릿+: 사이드바에 이미 있으므로 숨김 처리 가능
   // 하지만 우측 상단에서도 접근성을 위해 표시 유지
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     background: rgba($color-bg, 0.8);
   }
 }
@@ -118,8 +127,8 @@
   display: none;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid rgba($color-text, 0.12);
   background: rgba($color-bg, 0.6);
@@ -128,7 +137,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: flex;
   }
 
@@ -137,7 +146,7 @@
     border-color: rgba($color-primary, 0.3);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     background: rgba($color-bg, 0.8);
   }
 }
@@ -160,6 +169,8 @@
 
 // 언어 선택 드롭다운
 .langSelect {
+  min-height: 44px;
+  max-width: 140px;
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid rgba($color-text, 0.15);
