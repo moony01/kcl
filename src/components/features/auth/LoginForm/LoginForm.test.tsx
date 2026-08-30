@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { renderToString } from 'react-dom/server';
 import LoginForm from './index';
@@ -9,6 +9,7 @@ const mocks = vi.hoisted(() => ({
   createClient: vi.fn(),
   signInWithOAuth: vi.fn(),
   routerReplace: vi.fn(),
+  getSearchParams: vi.fn(() => new URLSearchParams()),
 }));
 
 vi.mock('next-intl', () => ({
@@ -17,7 +18,7 @@ vi.mock('next-intl', () => ({
 }));
 
 vi.mock('next/navigation', () => ({
-  useSearchParams: () => new URLSearchParams(),
+  useSearchParams: () => mocks.getSearchParams(),
   useRouter: () => ({ replace: mocks.routerReplace }),
 }));
 
@@ -32,9 +33,12 @@ describe('LoginForm development controls', () => {
     mocks.createClient.mockReset();
     mocks.signInWithOAuth.mockReset();
     mocks.routerReplace.mockReset();
+    mocks.getSearchParams.mockReset();
+    mocks.getSearchParams.mockReturnValue(new URLSearchParams());
     mocks.createClient.mockReturnValue({
       auth: { signInWithOAuth: mocks.signInWithOAuth },
     });
+    mocks.signInWithOAuth.mockResolvedValue({ error: null });
   });
 
   afterEach(() => {
@@ -122,5 +126,26 @@ describe('LoginForm development controls', () => {
     expect((screen.getByRole('button', { name: 'google_login' }) as HTMLButtonElement).disabled).toBe(
       false,
     );
+  });
+
+  it.each([
+    ['google', 'google_login'],
+    ['kakao', 'kakao_login'],
+  ] as const)('uses the canonical production callback for %s login', async (provider, label) => {
+    vi.stubEnv('NODE_ENV', 'production');
+    const returnTo = 'https://mearrow.com/ko/news?source=login';
+    mocks.getSearchParams.mockReturnValue(new URLSearchParams({ returnTo }));
+
+    render(<LoginForm />);
+    fireEvent.click(screen.getByRole('button', { name: label }));
+
+    await waitFor(() => expect(mocks.signInWithOAuth).toHaveBeenCalledTimes(1));
+
+    const [{ options }] = mocks.signInWithOAuth.mock.calls[0];
+    const redirect = new URL(options.redirectTo);
+    expect(redirect.origin).toBe('https://mearrow.com');
+    expect(redirect.pathname).toBe('/ko/auth/callback');
+    expect(redirect.searchParams.get('returnTo')).toBe(returnTo);
+    expect(mocks.signInWithOAuth.mock.calls[0][0].provider).toBe(provider);
   });
 });

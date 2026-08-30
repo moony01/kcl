@@ -24,6 +24,7 @@ import {
   isDevelopmentTestModeEnabled,
   setDevelopmentTestModeEnabled,
 } from '@/lib/auth/development-test-mode';
+import { getOAuthCallbackUrl } from '@/lib/auth/oauth-redirect';
 
 /** 마지막 로그인 프로바이더 localStorage 키 (CallbackClient와 공유) */
 const LAST_PROVIDER_KEY = 'kcl_last_login_provider';
@@ -108,12 +109,9 @@ function LoginFormInner() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: (() => {
-            const returnTo = searchParams.get('returnTo');
-            const callback = new URL(`${window.location.origin}/${locale}/auth/callback`);
-            if (returnTo) callback.searchParams.set('returnTo', returnTo);
-            return callback.toString();
-          })(),
+          redirectTo: getOAuthCallbackUrl(locale, {
+            returnTo: searchParams.get('returnTo'),
+          }),
           queryParams: {
             prompt: 'select_account',
           },
