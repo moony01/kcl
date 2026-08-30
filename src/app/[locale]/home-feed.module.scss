@@ -18,6 +18,15 @@
   border-bottom: 1px solid $color-border;
 }
 
+.feedHeadingCopy { min-width: 0; }
+
+.feedHeaderActions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+}
+
 .feedEyebrow {
   margin: 0 0 9px;
   color: $color-primary;
@@ -56,6 +65,88 @@
   white-space: nowrap;
 }
 
+.publishButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid rgba($color-primary, 0.3);
+  border-radius: 999px;
+  background: $color-primary;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.publishButton:hover {
+  box-shadow: 0 8px 18px rgba($color-primary, 0.2);
+  transform: translateY(-1px);
+}
+
+.publishButton:focus-visible,
+.actionLink:focus-visible,
+.shareButton:focus-visible,
+.mediaActionButton:focus-visible,
+.filterButton:focus-visible,
+.filterActive:focus-visible {
+  outline: 2px solid $color-focus;
+  outline-offset: 2px;
+}
+
+.feedToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(100%, 760px);
+  margin: 0 auto 16px;
+}
+
+.feedFilters {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  background: $color-surface;
+}
+
+.filterButton,
+.filterActive {
+  min-width: 58px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: $color-text-dim;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.filterButton:hover { color: $color-text; }
+
+.filterActive {
+  background: $color-text;
+  color: $color-surface;
+}
+
+.feedSort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: $color-text-dim;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .feedGrid {
   display: flex;
   flex-direction: column;
@@ -71,7 +162,23 @@
   border-radius: 22px;
   background: $color-surface;
   box-shadow: var(--shadow-sm);
+  scroll-margin-top: 24px;
 }
+
+.shortCard {
+  background: #0f1013;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.shortCard .authorCopy strong { color: #fff; }
+
+.shortCard .authorCopy span,
+.shortCard .mediaType,
+.shortCard .postActions { color: rgba(255, 255, 255, 0.68); }
+
+.shortCard .mediaType { border-color: rgba(255, 255, 255, 0.16); }
+
+.shortCard .cardBody { background: #0f1013; }
 
 .postHeader {
   display: flex;
@@ -147,6 +254,7 @@
   width: min(100%, 420px);
   margin: 0 auto;
   aspect-ratio: 9 / 16;
+  background: #050506;
 }
 
 .media {
@@ -183,6 +291,61 @@
   letter-spacing: 0.06em;
 }
 
+.mediaActions {
+  position: absolute;
+  right: 12px;
+  bottom: 96px;
+  z-index: 2;
+  display: grid;
+  gap: 10px;
+}
+
+.mediaActionButton {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.mediaActionButton:hover {
+  background: rgba(0, 0, 0, 0.82);
+  transform: translateY(-1px);
+}
+
+.shortCaptionOverlay {
+  position: absolute;
+  right: 18px;
+  bottom: 52px;
+  left: 18px;
+  z-index: 1;
+  max-width: calc(100% - 74px);
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+}
+
+.shortCaptionOverlay strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.shortCaptionOverlay p {
+  max-height: 3.2em;
+  margin: 0;
+  overflow: hidden;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
 .cardBody {
   padding: 16px 18px 18px;
 }
@@ -213,6 +376,24 @@
   align-items: center;
   gap: 5px;
 }
+
+.actionLink,
+.shareButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: $color-primary;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.actionLink:hover,
+.shareButton:hover { color: $color-text; }
 
 .feedState {
   display: grid;
@@ -308,6 +489,7 @@
 @media (max-width: 767px) {
   .feedShell { padding: 24px 12px 88px; }
   .feedHeader { align-items: flex-start; margin-bottom: 20px; }
+  .feedHeaderActions { align-items: flex-end; flex-direction: column; gap: 8px; }
   .feedCard { border-radius: 18px; }
   .postHeader { padding: 14px; }
   .cardBody { padding: 14px; }
@@ -315,5 +497,10 @@
 
 @media (max-width: 430px) {
   .feedHeader { display: block; }
-  .feedStatus { display: inline-flex; margin-top: 14px; }
+  .feedHeaderActions { align-items: flex-start; margin-top: 14px; }
+  .feedHeaderActions .feedStatus { display: inline-flex; }
+  .feedToolbar { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .feedFilters { width: 100%; }
+  .filterButton,
+  .filterActive { flex: 1; }
 }

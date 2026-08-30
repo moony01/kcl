@@ -70,6 +70,7 @@ export interface PublicProfileFeedPage {
 export interface ListPublicProfilePostsOptions {
   cursor?: ProfileFeedCursor | null;
   limit?: number;
+  mediaType?: ProfileMediaType;
 }
 
 export const PROFILE_FEED_PAGE_SIZE = 4;
@@ -295,6 +296,10 @@ export async function listPublicProfilePosts(
     .eq('is_public', true)
     .order('created_at', { ascending: false })
     .order('id', { ascending: false });
+
+  if (options.mediaType) {
+    query = query.eq('media_type', options.mediaType);
+  }
 
   if (options.cursor) {
     const { created_at: createdAt, id } = options.cursor;

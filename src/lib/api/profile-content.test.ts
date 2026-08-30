@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   PROFILE_CAPTION_MAX_LENGTH,
   PROFILE_FEED_PAGE_SIZE,
@@ -9,9 +9,65 @@ import {
   validateProfileMediaFile,
 } from './profile-content';
 
+const fixtures = vi.hoisted(() => {
+  const query = {
+    select: vi.fn(),
+    eq: vi.fn(),
+    order: vi.fn(),
+    or: vi.fn(),
+    limit: vi.fn(),
+  };
+
+  query.select.mockReturnValue(query);
+  query.eq.mockReturnValue(query);
+  query.order.mockReturnValue(query);
+  query.or.mockReturnValue(query);
+  query.limit.mockResolvedValue({ data: [], error: null });
+
+  return {
+    query,
+    supabase: {
+      from: vi.fn(() => query),
+      storage: {
+        from: vi.fn(),
+      },
+    },
+  };
+});
+
+vi.mock('@/lib/supabase/client', () => ({
+  getSupabase: () => fixtures.supabase,
+}));
+
 function makeFile(name: string, type: string, size: number) {
   return new File([new Uint8Array(size)], name, { type });
 }
+
+describe('public profile feed query', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it.each(['image', 'short'] as const)('filters published public posts by %s on the server', async (mediaType) => {
+    const { listPublicProfilePosts } = await import('./profile-content');
+
+    await listPublicProfilePosts({ mediaType });
+
+    expect(fixtures.query.eq).toHaveBeenCalledWith('status', 'published');
+    expect(fixtures.query.eq).toHaveBeenCalledWith('is_public', true);
+    expect(fixtures.query.eq).toHaveBeenCalledWith('media_type', mediaType);
+  });
+
+  it('keeps the unfiltered query when mediaType is omitted', async () => {
+    const { listPublicProfilePosts } = await import('./profile-content');
+
+    await listPublicProfilePosts();
+
+    expect(fixtures.query.eq).toHaveBeenCalledWith('status', 'published');
+    expect(fixtures.query.eq).toHaveBeenCalledWith('is_public', true);
+    expect(fixtures.query.eq).not.toHaveBeenCalledWith('media_type', expect.anything());
+  });
+});
 
 describe('profile content validation', () => {
   it('accepts supported image and video types within their limits', () => {

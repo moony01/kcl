@@ -5,6 +5,7 @@ import {
   listPublicProfilePosts,
   PROFILE_FEED_PAGE_SIZE,
   type ProfileFeedCursor,
+  type ProfileMediaType,
   type PublicProfilePostRecord,
 } from '@/lib/api/profile-content';
 
@@ -17,7 +18,7 @@ export interface UsePublicProfileFeedReturn {
   reload: () => Promise<void>;
 }
 
-export function usePublicProfileFeed(): UsePublicProfileFeedReturn {
+export function usePublicProfileFeed(mediaType?: ProfileMediaType): UsePublicProfileFeedReturn {
   const [posts, setPosts] = useState<PublicProfilePostRecord[]>([]);
   const [cursor, setCursor] = useState<ProfileFeedCursor | null>(null);
   const [hasMore, setHasMore] = useState(true);
@@ -25,34 +26,41 @@ export function usePublicProfileFeed(): UsePublicProfileFeedReturn {
   const [error, setError] = useState<Error | null>(null);
   const requestIdRef = useRef(0);
 
-  const loadPage = useCallback(async (nextCursor: ProfileFeedCursor | null, replace: boolean) => {
-    const requestId = ++requestIdRef.current;
-    setIsLoading(true);
-    setError(null);
+  const loadPage = useCallback(
+    async (nextCursor: ProfileFeedCursor | null, replace: boolean) => {
+      const requestId = ++requestIdRef.current;
+      setIsLoading(true);
+      setError(null);
 
-    try {
-      const page = await listPublicProfilePosts({
-        cursor: nextCursor,
-        limit: PROFILE_FEED_PAGE_SIZE,
-      });
-      if (requestId !== requestIdRef.current) return;
+      try {
+        const page = await listPublicProfilePosts({
+          cursor: nextCursor,
+          limit: PROFILE_FEED_PAGE_SIZE,
+          ...(mediaType ? { mediaType } : {}),
+        });
+        if (requestId !== requestIdRef.current) return;
 
-      setPosts((current) => {
-        if (replace) return page.posts;
-        const knownIds = new Set(current.map((post) => post.id));
-        return [...current, ...page.posts.filter((post) => !knownIds.has(post.id))];
-      });
-      setCursor(page.nextCursor);
-      setHasMore(page.nextCursor !== null);
-    } catch (cause) {
-      if (requestId !== requestIdRef.current) return;
-      setError(cause instanceof Error ? cause : new Error('Unable to load the public feed.'));
-    } finally {
-      if (requestId === requestIdRef.current) setIsLoading(false);
-    }
-  }, []);
+        setPosts((current) => {
+          if (replace) return page.posts;
+          const knownIds = new Set(current.map((post) => post.id));
+          return [...current, ...page.posts.filter((post) => !knownIds.has(post.id))];
+        });
+        setCursor(page.nextCursor);
+        setHasMore(page.nextCursor !== null);
+      } catch (cause) {
+        if (requestId !== requestIdRef.current) return;
+        setError(cause instanceof Error ? cause : new Error('Unable to load the public feed.'));
+      } finally {
+        if (requestId === requestIdRef.current) setIsLoading(false);
+      }
+    },
+    [mediaType],
+  );
 
   useEffect(() => {
+    setPosts([]);
+    setCursor(null);
+    setHasMore(true);
     void loadPage(null, true);
   }, [loadPage]);
 
