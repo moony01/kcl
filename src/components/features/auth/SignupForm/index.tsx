@@ -14,6 +14,7 @@ import styles from './SignupForm.module.scss';
 import classNames from 'classnames';
 import { createClient } from '@/lib/supabase/client';
 import { FEATURES } from '@/config/features';
+import { getOAuthCallbackUrl } from '@/lib/auth/oauth-redirect';
 
 export default function SignupForm() {
   const t = useTranslations('Auth');
@@ -35,7 +36,7 @@ export default function SignupForm() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/${locale}/auth/callback?flow=signup`,
+          redirectTo: getOAuthCallbackUrl(locale, { flow: 'signup' }),
           queryParams: {
             prompt: 'select_account',
           },
