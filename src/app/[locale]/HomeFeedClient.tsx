@@ -17,6 +17,13 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import type { ProfileMediaType, PublicProfilePostRecord } from '@/lib/api/profile-content';
+import {
+  getProfilePostSocial,
+  type ProfilePostSocialRecord,
+} from '@/lib/api/profile-social';
+import ProfilePostSocial, {
+  type ProfilePostSocialLabels,
+} from '@/components/features/profile/ProfilePostSocial';
 import { usePublicProfileFeed } from '@/hooks/usePublicProfileFeed';
 import styles from './home-feed.module.scss';
 
@@ -66,7 +73,6 @@ function ShareButton({
 
   const handleShare = async () => {
     if (typeof window === 'undefined') return;
-
     const url = `${window.location.origin}${window.location.pathname}#post-${postId}`;
 
     try {
@@ -229,6 +235,7 @@ function MediaPreview({
 function FeedCard({
   post,
   locale,
+  initialSocial,
   memberLabel,
   imageLabel,
   shortLabel,
@@ -238,9 +245,12 @@ function FeedCard({
   shareLabel,
   sharedLabel,
   openMediaLabel,
+  openProfileLabel,
+  socialLabels,
 }: {
   post: PublicProfilePostRecord;
   locale: string;
+  initialSocial?: ProfilePostSocialRecord;
   memberLabel: string;
   imageLabel: string;
   shortLabel: string;
@@ -250,6 +260,8 @@ function FeedCard({
   shareLabel: string;
   sharedLabel: string;
   openMediaLabel: string;
+  openProfileLabel: string;
+  socialLabels: ProfilePostSocialLabels;
 }) {
   const postDate = formatPostDate(post.created_at, locale);
   const mediaLabel = post.media_type === 'short' ? shortLabel : imageLabel;
@@ -257,6 +269,29 @@ function FeedCard({
   const authorName = post.author?.username?.trim() || memberLabel;
   const authorAvatarUrl = getSafeMediaUrl(post.author?.avatar_url || '');
   const [avatarError, setAvatarError] = useState(false);
+
+  const authorIdentity = (
+    <div className={styles.authorIdentity}>
+      <span className={styles.authorAvatar} aria-hidden="true">
+        {authorAvatarUrl && !avatarError ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            className={styles.authorAvatarImage}
+            src={authorAvatarUrl}
+            alt=""
+            loading="lazy"
+            onError={() => setAvatarError(true)}
+          />
+        ) : (
+          getAuthorInitial(authorName)
+        )}
+      </span>
+      <span className={styles.authorCopy}>
+        <strong>{authorName}</strong>
+        <span>{publicLabel}</span>
+      </span>
+    </div>
+  );
 
   return (
     <article
@@ -266,26 +301,15 @@ function FeedCard({
       data-media-type={post.media_type}
     >
       <header className={styles.postHeader}>
-        <div className={styles.authorIdentity}>
-          <span className={styles.authorAvatar} aria-hidden="true">
-            {authorAvatarUrl && !avatarError ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                className={styles.authorAvatarImage}
-                src={authorAvatarUrl}
-                alt=""
-                loading="lazy"
-                onError={() => setAvatarError(true)}
-              />
-            ) : (
-              getAuthorInitial(authorName)
-            )}
-          </span>
-          <div className={styles.authorCopy}>
-            <strong>{authorName}</strong>
-            <span>{publicLabel}</span>
-          </div>
-        </div>
+        {post.author?.username?.trim() ? (
+          <Link
+            className={styles.authorLink}
+            href={'/' + locale + '/profile/' + encodeURIComponent(post.author.username.trim())}
+            aria-label={authorName + ' ' + openProfileLabel}
+          >
+            {authorIdentity}
+          </Link>
+        ) : authorIdentity}
         <span className={styles.mediaType}>
           {post.media_type === 'short' ? <CirclePlay size={14} aria-hidden="true" /> : <ImageIcon size={14} aria-hidden="true" />}
           {mediaLabel}
@@ -340,6 +364,12 @@ function FeedCard({
             />
           )}
         </div>
+        <ProfilePostSocial
+          postId={post.id}
+          locale={locale}
+          initialSocial={initialSocial}
+          labels={socialLabels}
+        />
       </div>
     </article>
   );
@@ -419,7 +449,40 @@ export default function HomeFeedClient() {
   const [feedFilter, setFeedFilter] = useState<FeedFilter>('all');
   const mediaType = feedFilter === 'all' ? undefined : feedFilter;
   const { posts, isLoading, hasMore, error, loadMore, reload } = usePublicProfileFeed(mediaType);
+  const [socialByPostId, setSocialByPostId] = useState<Record<string, ProfilePostSocialRecord>>({});
+  const requestedSocialIdsRef = useRef(new Set<string>());
   const loadMoreSentinelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const requestedSocialIds = requestedSocialIdsRef.current;
+    const pendingIds = posts
+      .map((post) => post.id)
+      .filter((postId) => !requestedSocialIds.has(postId));
+    if (pendingIds.length === 0) return;
+
+    pendingIds.forEach((postId) => requestedSocialIds.add(postId));
+    let active = true;
+    let settled = false;
+
+    void getProfilePostSocial(pendingIds)
+      .then((records) => {
+        settled = true;
+        if (!active) return;
+        setSocialByPostId((current) => ({
+          ...current,
+          ...Object.fromEntries(records.map((record) => [record.post_id, record])),
+        }));
+      })
+      .catch(() => {
+        settled = true;
+        pendingIds.forEach((postId) => requestedSocialIds.delete(postId));
+      });
+
+    return () => {
+      active = false;
+      if (!settled) pendingIds.forEach((postId) => requestedSocialIds.delete(postId));
+    };
+  }, [posts]);
 
   useEffect(() => {
     const sentinel = loadMoreSentinelRef.current;
@@ -435,6 +498,24 @@ export default function HomeFeedClient() {
     observer.observe(sentinel);
     return () => observer.disconnect();
   }, [error, hasMore, isLoading, loadMore]);
+
+  const socialLabels: ProfilePostSocialLabels = {
+    like: t('feed_like'),
+    liked: t('feed_liked'),
+    comments: t('feed_comments'),
+    commentPanel: t('feed_comment_panel'),
+    commentPlaceholder: t('feed_comment_placeholder'),
+    commentSubmit: t('feed_comment_submit'),
+    commentSubmitting: t('feed_comment_submitting'),
+    commentDelete: t('feed_comment_delete'),
+    commentEmpty: t('feed_comment_empty'),
+    commentLoading: t('feed_comment_loading'),
+    commentError: t('feed_comment_error'),
+    commentSubmitError: t('feed_comment_submit_error'),
+    commentDeleteError: t('feed_comment_delete_error'),
+    loginRequired: t('feed_login_required'),
+    retry: t('feed_retry'),
+  };
 
   return (
     <section className={styles.feedShell} aria-labelledby="home-feed-title" data-testid="home-profile-feed">
@@ -510,6 +591,7 @@ export default function HomeFeedClient() {
                     key={post.id}
                     post={post}
                     locale={locale}
+                    initialSocial={socialByPostId[post.id]}
                     memberLabel={t('feed_member')}
                     imageLabel={t('feed_image')}
                     shortLabel={t('feed_short')}
@@ -519,6 +601,8 @@ export default function HomeFeedClient() {
                     shareLabel={t('feed_share')}
                     sharedLabel={t('feed_shared')}
                     openMediaLabel={t('feed_open_media')}
+                    openProfileLabel={t('feed_open_profile')}
+                    socialLabels={socialLabels}
                   />
                 ))}
               </div>
