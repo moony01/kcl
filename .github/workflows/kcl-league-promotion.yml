@@ -4,7 +4,7 @@
 #
 # 실행 순서:
 # 0. 시즌 순위 스냅샷 - 승강 전 전체 순위 저장 (snapshot_season_rankings)
-# 1. 챔피언 기록 - 전월 1위를 kcl_seasons에 기록 (Hall of Fame)
+# 1. 챔피언 기록 - 전월 1위를 seasons에 기록 (Hall of Fame)
 # 2. 리그 승강 + firepower 초기화 - monthly_league_promotion이 승강/초기화 모두 처리
 #
 # 참고: monthly_league_promotion 함수가 내부에서 firepower 초기화까지 수행하므로
@@ -13,6 +13,10 @@
 # 수동 실행: Actions 탭 > "KCL Monthly Season Settlement" > Run workflow
 
 name: KCL Monthly Season Settlement
+
+concurrency:
+  group: kcl-monthly-season-settlement
+  cancel-in-progress: false
 
 on:
   schedule:
@@ -32,13 +36,42 @@ on:
 
 env:
   SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+  EXPECTED_SUPABASE_HOST: bxnwdiurtrepozgyhzlt.supabase.co
 
 jobs:
   monthly-settlement:
     name: Execute Monthly Season Settlement
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
+      - name: Validate production Supabase target
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ]; then
+            echo "❌ SUPABASE_URL is not configured"
+            exit 1
+          fi
+
+          if [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            echo "❌ SUPABASE_SERVICE_ROLE_KEY is not configured"
+            exit 1
+          fi
+
+          SUPABASE_HOST="${SUPABASE_URL#https://}"
+          SUPABASE_HOST="${SUPABASE_HOST#http://}"
+          SUPABASE_HOST="${SUPABASE_HOST%%/*}"
+
+          if [ "$SUPABASE_HOST" != "$EXPECTED_SUPABASE_HOST" ]; then
+            echo "❌ Unexpected Supabase target: $SUPABASE_HOST"
+            echo "   Expected production project: $EXPECTED_SUPABASE_HOST"
+            exit 1
+          fi
+
+          echo "✅ Production Supabase target verified: $SUPABASE_HOST"
+
       - name: Log execution info
         run: |
           echo "🏆 KCL Monthly Season Settlement"
@@ -59,12 +92,12 @@ jobs:
           echo "📸 [Step 0/2] Snapshotting season rankings before promotion..."
 
           RESPONSE=$(curl -s -w '\n__HTTP_STATUS__%{http_code}' -X POST \
-            "${{ env.SUPABASE_URL }}/rest/v1/rpc/snapshot_season_rankings" \
-            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            "${SUPABASE_URL%/}/rest/v1/rpc/snapshot_season_rankings" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
             -H "Content-Type: application/json")
-          HTTP_STATUS=$(echo "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
-          BODY=$(echo "$RESPONSE" | grep -v '__HTTP_STATUS__')
+          HTTP_STATUS=$(printf '%s\n' "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          BODY=$(printf '%s\n' "$RESPONSE" | grep -v '__HTTP_STATUS__')
 
           echo "📊 HTTP Status: $HTTP_STATUS"
           echo "📊 Response: $BODY"
@@ -88,12 +121,12 @@ jobs:
           echo "🏅 [Step 1/2] Recording monthly champion to Hall of Fame..."
 
           RESPONSE=$(curl -s -w '\n__HTTP_STATUS__%{http_code}' -X POST \
-            "${{ env.SUPABASE_URL }}/rest/v1/rpc/record_monthly_champion" \
-            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            "${SUPABASE_URL%/}/rest/v1/rpc/record_monthly_champion" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
             -H "Content-Type: application/json")
-          HTTP_STATUS=$(echo "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
-          BODY=$(echo "$RESPONSE" | grep -v '__HTTP_STATUS__')
+          HTTP_STATUS=$(printf '%s\n' "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          BODY=$(printf '%s\n' "$RESPONSE" | grep -v '__HTTP_STATUS__')
 
           echo "📊 HTTP Status: $HTTP_STATUS"
           echo "📊 Response: $BODY"
@@ -120,12 +153,12 @@ jobs:
           echo "🔄 [Step 2/2] Executing league promotion & firepower reset..."
 
           RESPONSE=$(curl -s -w '\n__HTTP_STATUS__%{http_code}' -X POST \
-            "${{ env.SUPABASE_URL }}/rest/v1/rpc/monthly_league_promotion" \
-            -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
+            "${SUPABASE_URL%/}/rest/v1/rpc/monthly_league_promotion" \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
             -H "Content-Type: application/json")
-          HTTP_STATUS=$(echo "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
-          BODY=$(echo "$RESPONSE" | grep -v '__HTTP_STATUS__')
+          HTTP_STATUS=$(printf '%s\n' "$RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          BODY=$(printf '%s\n' "$RESPONSE" | grep -v '__HTTP_STATUS__')
 
           echo "📊 HTTP Status: $HTTP_STATUS"
           echo "📊 Response: $BODY"
@@ -147,6 +180,89 @@ jobs:
             exit 1
           fi
 
+      # Step 3: 운영 DB 반영 검증
+      # 정산 RPC가 성공해도 다른 Supabase 프로젝트를 가리키면 운영 화면은 바뀌지 않으므로
+      # 운영 companies/seasons/season_rankings를 직접 확인해 실패를 명확히 드러낸다.
+      - name: Step 3 - Verify production settlement
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+          echo "🔎 [Verification] Checking production season settlement..."
+
+          PREVIOUS_YEAR=$(date -u -d '1 month ago' '+%Y')
+          PREVIOUS_MONTH=$(date -u -d '1 month ago' '+%-m')
+
+          COMPANIES_RESPONSE=$(curl -sS -w '\n__HTTP_STATUS__%{http_code}' --get \
+            "${SUPABASE_URL%/}/rest/v1/companies" \
+            --data-urlencode 'select=firepower' \
+            --data-urlencode 'order=firepower.desc' \
+            --data-urlencode 'limit=1' \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY")
+          COMPANIES_STATUS=$(printf '%s\n' "$COMPANIES_RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          COMPANIES_BODY=$(printf '%s\n' "$COMPANIES_RESPONSE" | grep -v '__HTTP_STATUS__')
+
+          if [ "$COMPANIES_STATUS" != "200" ]; then
+            echo "❌ Production companies check failed: HTTP $COMPANIES_STATUS"
+            echo "$COMPANIES_BODY"
+            exit 1
+          fi
+
+          MAX_FIREPOWER=$(printf '%s' "$COMPANIES_BODY" | jq -er 'if type == "array" and length > 0 then .[0].firepower else error("companies response is empty") end')
+          if [ "$MAX_FIREPOWER" != "0" ]; then
+            echo "❌ Production firepower was not reset: max=$MAX_FIREPOWER"
+            exit 1
+          fi
+          echo "✅ Production firepower reset verified: max=$MAX_FIREPOWER"
+
+          SNAPSHOT_RESPONSE=$(curl -sS -w '\n__HTTP_STATUS__%{http_code}' --get \
+            "${SUPABASE_URL%/}/rest/v1/season_rankings" \
+            --data-urlencode 'select=company_id' \
+            --data-urlencode "year=eq.$PREVIOUS_YEAR" \
+            --data-urlencode "month=eq.$PREVIOUS_MONTH" \
+            --data-urlencode 'limit=1' \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY")
+          SNAPSHOT_STATUS=$(printf '%s\n' "$SNAPSHOT_RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          SNAPSHOT_BODY=$(printf '%s\n' "$SNAPSHOT_RESPONSE" | grep -v '__HTTP_STATUS__')
+
+          if [ "$SNAPSHOT_STATUS" != "200" ]; then
+            echo "❌ Production season snapshot check failed: HTTP $SNAPSHOT_STATUS"
+            echo "$SNAPSHOT_BODY"
+            exit 1
+          fi
+
+          SNAPSHOT_COUNT=$(printf '%s' "$SNAPSHOT_BODY" | jq -er 'if type == "array" then length else error("season_rankings response is not an array") end')
+          if [ "$SNAPSHOT_COUNT" -lt 1 ]; then
+            echo "❌ No production season snapshot found for ${PREVIOUS_YEAR}-${PREVIOUS_MONTH}"
+            exit 1
+          fi
+          echo "✅ Production season snapshot verified: ${PREVIOUS_YEAR}-${PREVIOUS_MONTH} (rows checked=$SNAPSHOT_COUNT)"
+
+          SEASON_RESPONSE=$(curl -sS -w '\n__HTTP_STATUS__%{http_code}' --get \
+            "${SUPABASE_URL%/}/rest/v1/seasons" \
+            --data-urlencode 'select=id' \
+            --data-urlencode "year=eq.$PREVIOUS_YEAR" \
+            --data-urlencode "month=eq.$PREVIOUS_MONTH" \
+            --data-urlencode 'limit=1' \
+            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY")
+          SEASON_STATUS=$(printf '%s\n' "$SEASON_RESPONSE" | grep '__HTTP_STATUS__' | sed 's/__HTTP_STATUS__//')
+          SEASON_BODY=$(printf '%s\n' "$SEASON_RESPONSE" | grep -v '__HTTP_STATUS__')
+
+          if [ "$SEASON_STATUS" != "200" ]; then
+            echo "❌ Production season record check failed: HTTP $SEASON_STATUS"
+            echo "$SEASON_BODY"
+            exit 1
+          fi
+
+          SEASON_COUNT=$(printf '%s' "$SEASON_BODY" | jq -er 'if type == "array" then length else error("seasons response is not an array") end')
+          if [ "$SEASON_COUNT" -lt 1 ]; then
+            echo "❌ No production Hall of Fame record found for ${PREVIOUS_YEAR}-${PREVIOUS_MONTH}"
+            exit 1
+          fi
+          echo "✅ Production Hall of Fame record verified: ${PREVIOUS_YEAR}-${PREVIOUS_MONTH}"
+
       # Dry run 모드
       - name: Dry run mode
         if: ${{ github.event.inputs.dry_run == 'true' }}
@@ -154,9 +270,9 @@ jobs:
           echo "🧪 DRY RUN MODE - No changes made"
           echo ""
           echo "Would execute:"
-          echo "  0. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/snapshot_season_rankings"
-          echo "  1. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/record_monthly_champion"
-          echo "  2. POST ${{ env.SUPABASE_URL }}/rest/v1/rpc/monthly_league_promotion"
+          echo "  0. POST ${SUPABASE_URL%/}/rest/v1/rpc/snapshot_season_rankings"
+          echo "  1. POST ${SUPABASE_URL%/}/rest/v1/rpc/record_monthly_champion"
+          echo "  2. POST ${SUPABASE_URL%/}/rest/v1/rpc/monthly_league_promotion"
           echo ""
           echo "ℹ️ monthly_league_promotion handles promotion + firepower reset internally"
 
@@ -171,6 +287,7 @@ jobs:
           echo "==================================="
           echo "📅 ${PREV_MONTH} 시즌 정산 완료"
           echo ""
-          echo "✅ 챔피언 기록 완료 (kcl_seasons)"
+          echo "✅ 챔피언 기록 완료 (seasons)"
           echo "✅ 리그 승강 완료 (league_tier 업데이트)"
           echo "✅ firepower 초기화 완료 (새 시즌 시작)"
+          echo "✅ 운영 DB 반영 검증 완료 (companies/season_rankings/seasons)"
