@@ -4,6 +4,12 @@
   min-width: 0;
 }
 
+.inlineRoot {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
 .actions {
   display: flex;
   align-items: center;
@@ -11,6 +17,12 @@
   min-height: 34px;
   padding-top: 10px;
   border-top: 1px solid $color-border;
+}
+
+.inlineRoot .actions {
+  min-height: 30px;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .actionButton {

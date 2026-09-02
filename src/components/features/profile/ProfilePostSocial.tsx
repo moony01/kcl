@@ -40,6 +40,7 @@ interface ProfilePostSocialProps {
   locale: string;
   labels: ProfilePostSocialLabels;
   initialSocial?: ProfilePostSocialRecord;
+  inline?: boolean;
 }
 
 function isRealMember(
@@ -72,6 +73,7 @@ export default function ProfilePostSocial({
   locale,
   labels,
   initialSocial,
+  inline = false,
 }: ProfilePostSocialProps) {
   const { user, isAuthenticated } = useAuth();
   const canMutate = useMemo(
@@ -219,7 +221,10 @@ export default function ProfilePostSocial({
   };
 
   return (
-    <div className={styles.root} data-testid="profile-post-social">
+    <div
+      className={[styles.root, inline ? styles.inlineRoot : ''].filter(Boolean).join(' ')}
+      data-testid="profile-post-social"
+    >
       <div className={styles.actions} aria-label={labels.commentPanel}>
         <button
           type="button"

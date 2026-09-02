@@ -321,13 +321,14 @@ function FeedCard({
               showLabel
             />
           )}
+          <ProfilePostSocial
+            postId={post.id}
+            locale={locale}
+            initialSocial={initialSocial}
+            labels={socialLabels}
+            inline
+          />
         </div>
-        <ProfilePostSocial
-          postId={post.id}
-          locale={locale}
-          initialSocial={initialSocial}
-          labels={socialLabels}
-        />
       </div>
     </article>
   );
