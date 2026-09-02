@@ -179,7 +179,7 @@ export default function DailyVoteModal() {
           </button>
           <a
             className={styles.moreVotesButton}
-            href={`/${locale}#vote-station`}
+            href={`/${locale}/ranking`}
             onClick={closeModal}
           >
             <Flame size={18} aria-hidden="true" />
