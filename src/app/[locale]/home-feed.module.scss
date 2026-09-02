@@ -78,7 +78,6 @@
 .asideLink:focus-visible,
 .asideCta:focus-visible,
 .authorLink:focus-visible,
-.actionLink:focus-visible,
 .shareButton:focus-visible,
 .mediaActionButton:focus-visible,
 .filterButton:focus-visible,
@@ -331,11 +330,7 @@
 
 .shortCard .authorCopy strong { color: #fff; }
 
-.shortCard .authorCopy span,
-.shortCard .mediaType,
 .shortCard .postActions { color: rgba(255, 255, 255, 0.68); }
-
-.shortCard .mediaType { border-color: rgba(255, 255, 255, 0.16); }
 
 .shortCard .cardBody { background: #0f1013; }
 
@@ -407,19 +402,6 @@
 .authorCopy span {
   color: $color-text-dim;
   font-size: 0.7rem;
-}
-
-.mediaType {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 9px;
-  border: 1px solid $color-border;
-  border-radius: 999px;
-  color: $color-text-dim;
-  font-size: 0.68rem;
-  font-weight: 750;
 }
 
 .mediaFrame {
@@ -543,6 +525,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px 18px;
   margin-top: 16px;
   padding-top: 13px;
@@ -557,7 +540,6 @@
   gap: 5px;
 }
 
-.actionLink,
 .shareButton {
   display: inline-flex;
   align-items: center;
@@ -572,7 +554,6 @@
   cursor: pointer;
 }
 
-.actionLink:hover,
 .shareButton:hover { color: $color-text; }
 
 .feedState {

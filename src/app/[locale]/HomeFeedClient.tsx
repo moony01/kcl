@@ -8,7 +8,6 @@ import {
   Check,
   CirclePlay,
   Clock3,
-  ExternalLink,
   Image as ImageIcon,
   ListOrdered,
   Newspaper,
@@ -116,7 +115,6 @@ function MediaPreview({
   caption,
   shareLabel,
   sharedLabel,
-  openMediaLabel,
   untitledLabel,
   imageLabel,
   shortLabel,
@@ -127,7 +125,6 @@ function MediaPreview({
   caption: string | null;
   shareLabel: string;
   sharedLabel: string;
-  openMediaLabel: string;
   untitledLabel: string;
   imageLabel: string;
   shortLabel: string;
@@ -202,16 +199,6 @@ function MediaPreview({
       )}
       {!unavailable && post.media_type === 'short' && (
         <div className={styles.mediaActions} aria-label={shortLabel}>
-          <a
-            className={styles.mediaActionButton}
-            href={mediaUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={openMediaLabel}
-            title={openMediaLabel}
-          >
-            <ExternalLink size={17} aria-hidden="true" />
-          </a>
           <ShareButton
             postId={post.id}
             memberLabel={memberLabel}
@@ -241,10 +228,8 @@ function FeedCard({
   shortLabel,
   unavailableLabel,
   untitledLabel,
-  publicLabel,
   shareLabel,
   sharedLabel,
-  openMediaLabel,
   openProfileLabel,
   socialLabels,
 }: {
@@ -256,16 +241,12 @@ function FeedCard({
   shortLabel: string;
   unavailableLabel: string;
   untitledLabel: string;
-  publicLabel: string;
   shareLabel: string;
   sharedLabel: string;
-  openMediaLabel: string;
   openProfileLabel: string;
   socialLabels: ProfilePostSocialLabels;
 }) {
   const postDate = formatPostDate(post.created_at, locale);
-  const mediaLabel = post.media_type === 'short' ? shortLabel : imageLabel;
-  const mediaUrl = getSafeMediaUrl(post.media_url);
   const authorName = post.author?.username?.trim() || memberLabel;
   const authorAvatarUrl = getSafeMediaUrl(post.author?.avatar_url || '');
   const [avatarError, setAvatarError] = useState(false);
@@ -288,7 +269,6 @@ function FeedCard({
       </span>
       <span className={styles.authorCopy}>
         <strong>{authorName}</strong>
-        <span>{publicLabel}</span>
       </span>
     </div>
   );
@@ -310,10 +290,6 @@ function FeedCard({
             {authorIdentity}
           </Link>
         ) : authorIdentity}
-        <span className={styles.mediaType}>
-          {post.media_type === 'short' ? <CirclePlay size={14} aria-hidden="true" /> : <ImageIcon size={14} aria-hidden="true" />}
-          {mediaLabel}
-        </span>
       </header>
       <MediaPreview
         post={post}
@@ -321,7 +297,6 @@ function FeedCard({
         caption={post.caption}
         shareLabel={shareLabel}
         sharedLabel={sharedLabel}
-        openMediaLabel={openMediaLabel}
         untitledLabel={untitledLabel}
         imageLabel={imageLabel}
         shortLabel={shortLabel}
@@ -331,28 +306,11 @@ function FeedCard({
         {post.media_type !== 'short' && (
           <p className={styles.caption}>{post.caption || untitledLabel}</p>
         )}
-        <div className={styles.postActions} aria-label={publicLabel}>
-          <span className={styles.actionItem}>
-            {post.media_type === 'short' ? <CirclePlay size={15} aria-hidden="true" /> : <ImageIcon size={15} aria-hidden="true" />}
-            {mediaLabel}
-          </span>
+        <div className={styles.postActions}>
           <span className={styles.actionItem}>
             <Clock3 size={15} aria-hidden="true" />
             <time dateTime={post.created_at}>{postDate}</time>
           </span>
-          <span className={styles.actionItem}>{publicLabel}</span>
-          {post.media_type !== 'short' && mediaUrl && (
-            <a
-              className={styles.actionLink}
-              href={mediaUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={openMediaLabel}
-            >
-              <ExternalLink size={15} aria-hidden="true" />
-              {openMediaLabel}
-            </a>
-          )}
           {post.media_type !== 'short' && (
             <ShareButton
               postId={post.id}
@@ -597,10 +555,8 @@ export default function HomeFeedClient() {
                     shortLabel={t('feed_short')}
                     unavailableLabel={t('feed_media_unavailable')}
                     untitledLabel={t('feed_untitled')}
-                    publicLabel={t('feed_public')}
                     shareLabel={t('feed_share')}
                     sharedLabel={t('feed_shared')}
-                    openMediaLabel={t('feed_open_media')}
                     openProfileLabel={t('feed_open_profile')}
                     socialLabels={socialLabels}
                   />
