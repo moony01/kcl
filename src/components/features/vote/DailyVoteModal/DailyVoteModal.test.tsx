@@ -142,12 +142,12 @@ describe('DailyVoteModal', () => {
     });
   });
 
-  it('하단 CTA는 기존 MEARROW 투표 영역으로 연결한다', async () => {
+  it('하단 CTA는 전용 투표 페이지로 연결한다', async () => {
     render(<DailyVoteModal />);
     await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
 
     expect(screen.getByRole('link', { name: '더 투표하러 가기' }).getAttribute('href')).toBe(
-      '/ko#vote-station',
+      '/ko/ranking',
     );
   });
 
