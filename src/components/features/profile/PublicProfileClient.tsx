@@ -169,6 +169,7 @@ export default function PublicProfileClient({
     commentSubmitError: homeT('feed_comment_submit_error'),
     commentDeleteError: homeT('feed_comment_delete_error'),
     loginRequired: homeT('feed_login_required'),
+    signupRequired: homeT('feed_signup_required'),
     retry: t('retry'),
   };
 

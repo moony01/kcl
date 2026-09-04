@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Newspaper } from 'lucide-react';
-import { getAllNews } from '@/lib/news';
+import { getAllNews, NEWS_SOURCE_LOCALE } from '@/lib/news';
 import NewsGridClient from './NewsGridClient';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
@@ -31,24 +31,12 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'News' });
 
-  return {
-    title: t('title'),
+  return generatePageMetadata({
+    locale,
+    pathname: '/news',
+    title: `${t('title')} | ${BRAND_NAME}`,
     description: t('subtitle'),
-    openGraph: {
-      title: `${BRAND_NAME} News - K-pop Industry Insights`,
-      description:
-        'Latest news and analysis from the K-pop entertainment industry. Stay updated with company updates and trends.',
-      url: `${FULL_URL}/${locale}/news`,
-      type: 'website',
-      siteName: BRAND_NAME,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${BRAND_NAME} News - K-pop Industry Insights`,
-      description: 'Latest news and analysis from the K-pop entertainment industry.',
-    },
-    alternates: generateAlternates(locale, '/news'),
-  };
+  });
 }
 
 /**
@@ -71,14 +59,14 @@ export default async function NewsPage({ params }: NewsPageProps) {
   const newsListJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: `${BRAND_NAME} News`,
-    description: 'Latest news and analysis from the K-pop entertainment industry',
+    name: `${t('title')} | ${BRAND_NAME}`,
+    description: t('subtitle'),
     url: `${FULL_URL}/${locale}/news`,
     numberOfItems: posts.length,
     itemListElement: posts.map((post, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `${FULL_URL}/${locale}/news/${post.slug}`,
+      url: `${FULL_URL}/${NEWS_SOURCE_LOCALE}/news/${post.slug}`,
       name: post.title,
     })),
   };

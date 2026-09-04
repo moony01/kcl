@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES, FULL_URL } from '@/lib/constants';
-import { BRAND_DESCRIPTION, BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
+import { BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './page.module.scss';
 
@@ -20,11 +20,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'About' });
 
-  return {
-    title: `${t('title')} | ${BRAND_NAME}`,
-    description: BRAND_DESCRIPTION,
-    alternates: generateAlternates(locale, '/about'),
-  };
+  return generatePageMetadata({
+    locale,
+    pathname: '/about',
+    title: t('meta_title'),
+    description: t('meta_description'),
+  });
 }
 
 /** MEARROW 소개 페이지 - AdSense 검토를 위한 필수 정보 페이지 */
@@ -38,7 +39,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     name: `${t('title')} | ${BRAND_NAME}`,
-    description: BRAND_DESCRIPTION,
+    description: t('meta_description'),
     url: `${FULL_URL}/${locale}/about`,
     inLanguage: locale,
     isPartOf: {

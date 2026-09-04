@@ -53,6 +53,7 @@
     "feed_comment_submit_error": "No se pudo publicar el comentario.",
     "feed_comment_delete_error": "No se pudo eliminar el comentario.",
     "feed_login_required": "Solo los miembros con sesión pueden interactuar.",
+    "feed_signup_required": "Regístrate para indicar que te gusta o comentar.",
     "support": "Apoyar",
     "search_placeholder": "Buscar artista o empresa...",
     "vote_button": "Votar Ahora",

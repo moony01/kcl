@@ -473,6 +473,7 @@ export default function HomeFeedClient() {
     commentSubmitError: t('feed_comment_submit_error'),
     commentDeleteError: t('feed_comment_delete_error'),
     loginRequired: t('feed_login_required'),
+    signupRequired: t('feed_signup_required'),
     retry: t('feed_retry'),
   };
 
@@ -483,7 +484,7 @@ export default function HomeFeedClient() {
           <header className={styles.feedHeader}>
             <div className={styles.feedHeadingCopy}>
               <p className={styles.feedEyebrow}>MEARROW COMMUNITY</p>
-              <h1 id="home-feed-title" className={styles.feedTitle}>{t('feed_title')}</h1>
+              <h2 id="home-feed-title" className={styles.feedTitle}>{t('feed_title')}</h2>
               <p className={styles.feedSubtitle}>{t('feed_subtitle')}</p>
             </div>
             <div className={styles.feedHeaderActions}>

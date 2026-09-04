@@ -10,9 +10,9 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import HomeFeedClient from './HomeFeedClient';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
-import { BRAND_DESCRIPTION, BRAND_MARK_PATH, BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
+import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import styles from './seo-content.module.scss';
 
@@ -34,42 +34,14 @@ interface HomePageProps {
  */
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Home' });
 
-  return {
-    title: BRAND_TITLE,
-    description: BRAND_DESCRIPTION,
-    openGraph: {
-      title: BRAND_TITLE,
-      description: BRAND_DESCRIPTION,
-      siteName: BRAND_NAME,
-      url: `${FULL_URL}/${locale}`,
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: BRAND_TITLE,
-      description: BRAND_DESCRIPTION,
-    },
-    alternates: generateAlternates(locale, ''),
-  };
+  return generatePageMetadata({
+    locale,
+    title: t('seo_title'),
+    description: t('seo_intro'),
+  });
 }
-
-/** WebSite + Organization JSON-LD 스키마 */
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: BRAND_TITLE,
-  url: FULL_URL,
-  description: BRAND_DESCRIPTION,
-  publisher: {
-    '@type': 'Organization',
-    name: BRAND_NAME,
-    logo: {
-      '@type': 'ImageObject',
-      url: `${FULL_URL}${BRAND_MARK_PATH}`,
-    },
-  },
-};
 
 /**
  * 홈페이지 (정적 셸 + SEO 콘텐츠)
@@ -80,6 +52,22 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Home' });
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: t('seo_title'),
+    url: `${FULL_URL}/${locale}`,
+    description: t('seo_intro'),
+    inLanguage: locale,
+    publisher: {
+      '@type': 'Organization',
+      name: BRAND_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${FULL_URL}${BRAND_MARK_PATH}`,
+      },
+    },
+  };
 
   return (
     <>

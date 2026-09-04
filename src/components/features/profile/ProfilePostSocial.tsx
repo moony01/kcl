@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { Heart, Loader2, MessageCircle, Send, Trash2 } from 'lucide-react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
 import {
   DEVELOPMENT_TEST_USER_ID,
@@ -32,6 +34,7 @@ export interface ProfilePostSocialLabels {
   commentSubmitError: string;
   commentDeleteError: string;
   loginRequired: string;
+  signupRequired: string;
   retry: string;
 }
 
@@ -76,6 +79,8 @@ export default function ProfilePostSocial({
   inline = false,
 }: ProfilePostSocialProps) {
   const { user, isAuthenticated } = useAuth();
+  const router = useRouter();
+  const signupPath = `/${locale}/signup`;
   const canMutate = useMemo(
     () => isRealMember(user, isAuthenticated),
     [isAuthenticated, user],
@@ -141,7 +146,7 @@ export default function ProfilePostSocial({
   const handleLike = async () => {
     if (likePending) return;
     if (!canMutate) {
-      setInteractionError(true);
+      router.push(signupPath);
       return;
     }
 
@@ -174,7 +179,7 @@ export default function ProfilePostSocial({
     event.preventDefault();
     if (commentSubmitting) return;
     if (!canMutate) {
-      setInteractionError(true);
+      router.push(signupPath);
       return;
     }
 
@@ -236,10 +241,11 @@ export default function ProfilePostSocial({
           disabled={likePending}
           aria-pressed={social.liked_by_viewer}
           aria-label={
-            (social.liked_by_viewer ? labels.liked : labels.like)
+            (!canMutate ? labels.signupRequired + ' ' : '')
+            + (social.liked_by_viewer ? labels.liked : labels.like)
             + ' (' + social.likes_count + ')'
           }
-          title={!canMutate ? labels.loginRequired : labels.like}
+          title={!canMutate ? labels.signupRequired : labels.like}
         >
           {likePending ? (
             <Loader2 size={16} className={styles.spin} aria-hidden="true" />
@@ -340,24 +346,34 @@ export default function ProfilePostSocial({
               rows={2}
               disabled={!canMutate || commentSubmitting}
             />
-            <button
-              type="submit"
-              className={styles.submitButton}
-              disabled={!canMutate || commentSubmitting || !commentDraft.trim()}
-              title={!canMutate ? labels.loginRequired : labels.commentSubmit}
-            >
-              {commentSubmitting ? (
-                <Loader2 size={15} className={styles.spin} aria-hidden="true" />
-              ) : (
-                <Send size={15} aria-hidden="true" />
-              )}
-              {commentSubmitting ? labels.commentSubmitting : labels.commentSubmit}
-            </button>
+            {!canMutate ? (
+              <Link
+                href={signupPath}
+                className={styles.submitButton}
+                aria-label={labels.signupRequired}
+                title={labels.signupRequired}
+              >
+                {labels.signupRequired}
+              </Link>
+            ) : (
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={commentSubmitting || !commentDraft.trim()}
+                title={labels.commentSubmit}
+              >
+                {commentSubmitting ? (
+                  <Loader2 size={15} className={styles.spin} aria-hidden="true" />
+                ) : (
+                  <Send size={15} aria-hidden="true" />
+                )}
+                {commentSubmitting ? labels.commentSubmitting : labels.commentSubmit}
+              </button>
+            )}
           </form>
           {commentSubmitError && (
             <p className={styles.formError} role="alert">{labels.commentSubmitError}</p>
           )}
-          {!canMutate && <p className={styles.loginHint}>{labels.loginRequired}</p>}
         </section>
       )}
     </div>

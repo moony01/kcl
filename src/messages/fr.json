@@ -53,6 +53,7 @@
     "feed_comment_submit_error": "Impossible de publier le commentaire.",
     "feed_comment_delete_error": "Impossible de supprimer le commentaire.",
     "feed_login_required": "Seuls les membres connectés peuvent interagir.",
+    "feed_signup_required": "Inscrivez-vous pour aimer ou commenter.",
     "support": "Soutenir",
     "search_placeholder": "Rechercher artiste ou entreprise...",
     "vote_button": "Voter Maintenant",

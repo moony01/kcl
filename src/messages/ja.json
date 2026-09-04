@@ -53,6 +53,7 @@
     "feed_comment_submit_error": "コメントを投稿できませんでした。",
     "feed_comment_delete_error": "コメントを削除できませんでした。",
     "feed_login_required": "ログインした会員のみ操作できます。",
+    "feed_signup_required": "いいねやコメントには登録が必要です。",
     "support": "応援",
     "search_placeholder": "アーティストまたは会社を検索...",
     "vote_button": "投票する",

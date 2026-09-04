@@ -1,9 +1,14 @@
 import { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { generateDynamicAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
-import { getPublishedAnnouncementIds } from '@/lib/api/announcements';
+import {
+  ANNOUNCEMENT_SOURCE_LOCALE,
+  getAnnouncementAvailableLocales,
+  getAnnouncementSeoLocale,
+  getPublishedAnnouncementIds,
+} from '@/lib/api/announcements';
 import NoticeDetailClient from './NoticeDetailClient';
 
 /**
@@ -29,14 +34,19 @@ interface NoticeDetailPageProps {
 
 /** 공지사항 상세 페이지 메타데이터 */
 export async function generateMetadata({ params }: NoticeDetailPageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Notice' });
+  const { locale, id } = await params;
+  const availableLocales = getAnnouncementAvailableLocales(id);
+  const metadataLocale = getAnnouncementSeoLocale(id, locale);
+  const t = await getTranslations({ locale: metadataLocale, namespace: 'Notice' });
 
-  return {
+  return generatePageMetadata({
+    locale: metadataLocale,
+    pathname: `/notice/${id}`,
     title: `${t('title')} | ${BRAND_NAME}`,
     description: t('subtitle'),
-    alternates: generateDynamicAlternates(locale, '/notice', (await params).id),
-  };
+    availableLocales,
+    defaultLocale: ANNOUNCEMENT_SOURCE_LOCALE,
+  });
 }
 
 /**

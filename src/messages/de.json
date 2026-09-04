@@ -53,6 +53,7 @@
     "feed_comment_submit_error": "Kommentar konnte nicht gepostet werden.",
     "feed_comment_delete_error": "Kommentar konnte nicht gelöscht werden.",
     "feed_login_required": "Nur angemeldete Mitglieder können interagieren.",
+    "feed_signup_required": "Registriere dich, um Beiträge zu liken oder zu kommentieren.",
     "support": "Unterstützen",
     "search_placeholder": "Künstler oder Firma suchen...",
     "vote_button": "Jetzt Abstimmen",

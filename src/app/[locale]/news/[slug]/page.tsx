@@ -6,8 +6,13 @@ import ExportedImage from 'next-image-export-optimizer';
 import { ArrowLeft, Calendar, Tag } from 'lucide-react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getNewsBySlug, getAllNewsParams, getRelatedNews } from '@/lib/news';
-import { generateDynamicAlternates } from '@/lib/seo';
+import {
+  getNewsBySlug,
+  getAllNewsParams,
+  getRelatedNews,
+  NEWS_SOURCE_LOCALE,
+} from '@/lib/news';
+import { generatePageMetadata } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
@@ -29,21 +34,18 @@ function splitContentBySections(content: string): string[] {
   return sections.filter((s) => s.trim());
 }
 
+function absoluteNewsImage(value: string | null | undefined): string {
+  if (!value) return `${FULL_URL}${BRAND_MARK_PATH}`;
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${FULL_URL}${value.startsWith('/') ? value : `/${value}`}`;
+}
+
 /** 광고를 삽입할 섹션 인덱스 (0-based, 해당 섹션 뒤에 광고 배치) */
 const AD_INSERT_AFTER_SECTIONS = [1, 3];
 
 /**
- * 제목을 지정된 최대 길이로 truncate
- * SEO 권장: title 태그는 55자 이내
- */
-function truncateTitle(title: string, maxLength: number = 55): string {
-  if (title.length <= maxLength) return title;
-  return title.slice(0, maxLength - 3) + '...';
-}
-
-/**
  * 정적 경로 생성
- * 12개 언어 × 모든 뉴스 slug 조합
+ * Pages 배포를 위해 지원 locale × 모든 뉴스 slug 조합
  */
 export function generateStaticParams() {
   // Workers에서는 본문을 ASSETS에서 요청 시 읽어 Worker 번들에 포함하지 않는다.
@@ -67,8 +69,8 @@ interface NewsDetailPageProps {
  * SEO를 위한 동적 title, description, canonical, hreflang 설정
  */
 export async function generateMetadata({ params }: NewsDetailPageProps): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const post = await getNewsBySlug(slug, locale);
+  const { slug } = await params;
+  const post = await getNewsBySlug(slug, NEWS_SOURCE_LOCALE);
 
   if (!post) {
     return {
@@ -76,28 +78,17 @@ export async function generateMetadata({ params }: NewsDetailPageProps): Promise
     };
   }
 
-  // SEO 최적화: title은 55자, og:title은 전체 제목 사용
-  const truncatedTitle = truncateTitle(post.title, 55);
-
-  return {
-    title: `${truncatedTitle} | ${BRAND_NAME} News`,
+  return generatePageMetadata({
+    locale: NEWS_SOURCE_LOCALE,
+    pathname: `/news/${slug}`,
+    title: `${post.title} | ${BRAND_NAME} News`,
     description: post.excerpt,
-    openGraph: {
-      title: post.title, // OG 태그는 전체 제목 허용 (70자까지)
-      description: post.excerpt,
-      type: 'article',
-      siteName: BRAND_NAME,
-      publishedTime: post.date,
-      images: post.thumbnail ? [post.thumbnail] : [],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: post.thumbnail ? [post.thumbnail] : [],
-    },
-    alternates: generateDynamicAlternates(locale, '/news', slug),
-  };
+    type: 'article',
+    imagePath: post.thumbnail ?? undefined,
+    publishedTime: post.date,
+    availableLocales: [NEWS_SOURCE_LOCALE],
+    defaultLocale: NEWS_SOURCE_LOCALE,
+  });
 }
 
 /**
@@ -120,6 +111,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   if (!post) {
     notFound();
   }
+
+  const canonical = `${FULL_URL}/${NEWS_SOURCE_LOCALE}/news/${slug}`;
+  const articleImage = absoluteNewsImage(post.thumbnail);
 
   // 날짜 포맷팅
   const formattedDate = new Date(post.date).toLocaleDateString(locale, {
@@ -277,9 +271,11 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           '@type': 'Article',
           headline: post.title,
           description: post.excerpt,
-          url: `${FULL_URL}/${locale}/news/${slug}`,
+          url: canonical,
+          mainEntityOfPage: canonical,
+          inLanguage: NEWS_SOURCE_LOCALE,
           datePublished: post.date,
-          image: post.thumbnail || `${FULL_URL}${BRAND_MARK_PATH}`,
+          image: articleImage,
           author: {
             '@type': 'Organization',
             name: BRAND_NAME,

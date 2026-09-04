@@ -53,6 +53,7 @@
     "feed_comment_submit_error": "Could not post the comment.",
     "feed_comment_delete_error": "Could not delete the comment.",
     "feed_login_required": "Only signed-in members can interact.",
+    "feed_signup_required": "Sign up to like or comment.",
     "support": "Support",
     "search_placeholder": "Search artist or company...",
     "search_no_results": "No results found",

@@ -251,6 +251,7 @@
   font-size: 0.7rem;
   font-weight: 800;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover:not(:disabled) {
     background: $color-primary-hover;

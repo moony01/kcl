@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
-import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
+import { BRAND_NAME } from '@/lib/brand';
 import styles from './privacy.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -20,11 +20,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: `${BRAND_NAME} Privacy Policy`,
-    description: BRAND_DESCRIPTION,
-    alternates: generateAlternates(locale, '/privacy'),
-  };
+  const t = await getTranslations({ locale, namespace: 'Legal' });
+  return generatePageMetadata({
+    locale,
+    pathname: '/privacy',
+    title: `${t('privacy_title')} | ${BRAND_NAME}`,
+    description: t('privacy_description'),
+  });
 }
 
 /**

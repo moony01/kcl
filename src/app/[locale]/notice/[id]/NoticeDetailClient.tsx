@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { ArrowLeft } from 'lucide-react';
 import DOMPurify from 'isomorphic-dompurify';
-import { getAnnouncementById, incrementAnnouncementView } from '@/lib/api/announcements';
+import {
+  getAnnouncementById,
+  getAnnouncementSeoLocale,
+  incrementAnnouncementView,
+} from '@/lib/api/announcements';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeComments from '@/components/features/notice/NoticeComments';
 import AdBanner from '@/components/common/AdBanner';
@@ -71,6 +75,9 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
     return labels[category] || category;
   };
 
+  const seoLocale = getAnnouncementSeoLocale(noticeId, locale);
+  const canonical = `${FULL_URL}/${seoLocale}/notice/${noticeId}`;
+
   return (
     <div className={styles.noticePage}>
       <div className={styles.container}>
@@ -129,7 +136,8 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
                 headline: notice.title,
                 datePublished: notice.created_at,
                 dateModified: notice.updated_at,
-                url: `${FULL_URL}/${locale}/notice/${noticeId}`,
+                url: canonical,
+                inLanguage: seoLocale,
                 author: {
                   '@type': 'Organization',
                   name: BRAND_NAME,

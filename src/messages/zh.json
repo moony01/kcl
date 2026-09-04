@@ -53,6 +53,7 @@
     "feed_comment_submit_error": "无法发布评论。",
     "feed_comment_delete_error": "无法删除评论。",
     "feed_login_required": "只有登录会员才能互动。",
+    "feed_signup_required": "注册后即可点赞或评论。",
     "support": "支持",
     "search_placeholder": "搜索艺人或公司...",
     "vote_button": "立即投票",

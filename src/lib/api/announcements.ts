@@ -6,9 +6,27 @@
 
 import { createClient } from '@/lib/supabase/client';
 import { BRAND_NAME } from '@/lib/brand';
+import { SUPPORTED_LOCALES, SupportedLocale } from '@/lib/constants';
 import type { Announcement, AnnouncementCategory, AnnouncementListItem } from '@/types/announcement';
 
 export const SIGNUP_EVENT_NOTICE_ID = 'event-signup-double-votes-2026-02';
+
+/**
+ * Generic database announcements are source-authored in English. The signup
+ * event is the only announcement with locale-specific generated copy.
+ */
+export const ANNOUNCEMENT_SOURCE_LOCALE: SupportedLocale = 'en';
+
+export function getAnnouncementAvailableLocales(id: string): readonly SupportedLocale[] {
+  return id === SIGNUP_EVENT_NOTICE_ID ? SUPPORTED_LOCALES : [ANNOUNCEMENT_SOURCE_LOCALE];
+}
+
+export function getAnnouncementSeoLocale(id: string, requestedLocale: string): SupportedLocale {
+  const availableLocales = getAnnouncementAvailableLocales(id);
+  return availableLocales.includes(requestedLocale as SupportedLocale)
+    ? (requestedLocale as SupportedLocale)
+    : ANNOUNCEMENT_SOURCE_LOCALE;
+}
 
 interface EventNoticeCopy {
   title: string;
