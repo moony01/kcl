@@ -109,6 +109,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        {/* OpenNext may inject this esbuild helper into next-themes' serialized
+            theme initializer. It must exist before the initializer runs. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: 'window.__name ||= function (target) { return target; };',
+          }}
+        />
         {/* React Grab — dev only */}
         {process.env.NODE_ENV === 'development' && (
           <Script

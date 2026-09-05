@@ -167,6 +167,7 @@ async function main() {
     const page = await browser.newPage({ locale: 'ko-KR', viewport: { width: 1440, height: 1000 } });
     const supabaseResponses = [];
     const appConsoleErrors = [];
+    const appPageErrors = [];
 
     // Next's dev bootstrap logs the raw onerror Event when this optional
     // React Grab script is unavailable. Fulfill it with an empty script so
@@ -193,6 +194,9 @@ async function main() {
         const sourceUrl = message.location().url;
         appConsoleErrors.push(`${message.text()} (${sourceUrl || 'unknown source'})`);
       }
+    });
+    page.on('pageerror', (error) => {
+      appPageErrors.push(describeError(error));
     });
 
     const homeResponse = await page.goto(`${server.baseUrl}/ko?deploy-browser-smoke=home`, {
@@ -278,6 +282,10 @@ async function main() {
       appConsoleErrors.length === 0,
       `browser console reported application errors: ${appConsoleErrors.slice(0, 3).join(' | ')}`,
     );
+    assert(
+      appPageErrors.length === 0,
+      `browser page reported application errors: ${appPageErrors.slice(0, 3).join(' | ')}`,
+    );
 
     console.log(
       JSON.stringify(
@@ -291,6 +299,7 @@ async function main() {
           ...seoEndpoints,
           supabaseResponses: supabaseResponses.map(({ status, url }) => ({ status, url })),
           newsImage: imageSources[0],
+          pageErrors: appPageErrors,
         },
         null,
         2,
