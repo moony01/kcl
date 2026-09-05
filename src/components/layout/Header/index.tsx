@@ -3,7 +3,7 @@
 /**
  * Header - 상단 헤더 컴포넌트
  *
- * 모바일: 로고 + 컨트롤 (480px 이상에서는 사이드바가 로고 대체)
+ * 모바일: 로고 + 컨트롤 (769px 이상에서는 사이드바가 로고 대체)
  * LeagueHeader(h1)는 HomeClient에서 별도 렌더링
  */
 
@@ -28,9 +28,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        {/* 모바일 로고 (480px 이상에서는 사이드바에 로고가 있으므로 숨김) */}
+        {/* 모바일 로고 (769px 이상에서는 사이드바에 로고가 있으므로 숨김) */}
         <Link
-          href="/"
+          href={`/${locale}`}
           className={styles.logoWrapper}
           aria-label={`${BRAND_NAME} (${BRAND_KOREAN_NAME}) 홈`}
         >

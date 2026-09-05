@@ -17,15 +17,15 @@
   width: 100%;
   min-height: 64px;
   z-index: calc($z-nav - 1);
-  background: rgba($color-bg, 0.94);
+  background-color: $color-bg;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba($color-text, 0.08);
+  border-bottom: 1px solid $color-border;
   padding: 8px 0;
 
   @media (min-width: 769px) {
     padding: 10px 0;
-    background: rgba($color-bg, 0.97);
+    background-color: $color-bg;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
   }
 }

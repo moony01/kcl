@@ -16,22 +16,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import {
-  CalendarSearch,
-  Check,
-  Home,
-  LogIn,
-  LogOut,
-  ListOrdered,
-  Mail,
-  Newspaper,
-  Trophy,
-} from 'lucide-react';
+import { Check, LogIn, LogOut, Mail } from 'lucide-react';
 import classNames from 'classnames';
 import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
 import { BRAND_KOREAN_NAME, BRAND_NAME, BRAND_MARK_PATH } from '@/lib/brand';
+import { getEnabledPrimaryNavItems } from '@/components/layout/navigationItems';
 import styles from './Sidebar.module.scss';
 
 const CONTACT_EMAIL = '';
@@ -61,27 +52,10 @@ export default function Sidebar() {
     return pathname === localizedPath || pathname?.startsWith(`${localizedPath}/`);
   };
 
-  // Feature Flags 기반 네비게이션 메뉴
-  const navItems = [
-    { label: t('home'), icon: Home, path: '/', enabled: true },
-    { label: t('ranking'), icon: ListOrdered, path: '/ranking', enabled: true },
-    {
-      label: t('hall_of_fame'),
-      icon: Trophy,
-      path: '/hall-of-fame',
-      enabled: FEATURES.HALL_OF_FAME_PAGE,
-    },
-    { label: t('news'), icon: Newspaper, path: '/news', enabled: FEATURES.NEWS_PAGE },
-    {
-      label: t('auditions'),
-      icon: CalendarSearch,
-      path: '/auditions',
-      enabled: FEATURES.AUDITIONS_PAGE,
-    },
-  ].filter((item) => item.enabled);
+  const navItems = getEnabledPrimaryNavItems();
 
   return (
-    <aside className={styles.sidebar} aria-label="주요 메뉴">
+    <aside className={styles.sidebar} aria-label="주요 메뉴" data-testid="desktop-sidebar">
       {/* Logo Area */}
       <div className={styles.logoArea}>
         <Link
@@ -104,19 +78,25 @@ export default function Sidebar() {
 
       {/* Navigation */}
       <nav className={styles.nav} aria-label="사이트 탐색">
-        {navItems.map((item) => (
-          <Link
-            key={item.label}
-            href={`/${locale}${item.path === '/' ? '' : item.path}`}
-            className={classNames(styles.navItem, { [styles.active]: isActive(item.path) })}
-            aria-label={item.label}
-          >
-            <div className={styles.iconWrapper}>
-              <item.icon className={styles.icon} />
-            </div>
-            <span className={styles.label}>{item.label}</span>
-          </Link>
-        ))}
+        {navItems.map((item) => {
+          const active = isActive(item.path);
+          const label = t(item.labelKey);
+
+          return (
+            <Link
+              key={item.id}
+              href={`/${locale}${item.path === '/' ? '' : item.path}`}
+              className={classNames(styles.navItem, { [styles.active]: active })}
+              aria-label={label}
+              aria-current={active ? 'page' : undefined}
+            >
+              <div className={styles.iconWrapper}>
+                <item.icon className={styles.icon} />
+              </div>
+              <span className={styles.label}>{label}</span>
+            </Link>
+          );
+        })}
       </nav>
 
       {/* 인증 영역 (AUTH_SYSTEM 플래그 활성화 시 표시) */}

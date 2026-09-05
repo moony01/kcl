@@ -63,7 +63,7 @@ $sidebar-width-wide: 244px;
   z-index: $z-base;
 
   // 모바일: 하단 내비게이션 공간 확보
-  padding-bottom: 88px;
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
 
   // 769px+: 사이드바 공간 확보
   @media (min-width: 769px) {

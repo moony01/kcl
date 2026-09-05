@@ -13,12 +13,20 @@
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { CalendarSearch, Home, ListOrdered, Newspaper, Trophy, User } from 'lucide-react';
+import { User, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
+import { getEnabledPrimaryNavItems } from '@/components/layout/navigationItems';
 import styles from './BottomNav.module.scss';
+
+type BottomNavItem = {
+  id: string;
+  label: string;
+  path: string;
+  icon: LucideIcon;
+};
 
 export default function BottomNav() {
   const t = useTranslations('Nav');
@@ -27,53 +35,40 @@ export default function BottomNav() {
   const currentLocale = pathname.split('/')[1] || 'en';
   const { isAuthenticated } = useAuth();
 
-  // Feature Flags 기반 네비게이션 메뉴 (Sidebar와 동기화)
-  const NAV_ITEMS = [
-    { label: t('home'), href: '/', icon: Home, enabled: true },
-    { label: t('ranking'), href: '/ranking', icon: ListOrdered, enabled: true },
-    {
-      label: t('hall_of_fame'),
-      href: '/hall-of-fame',
-      icon: Trophy,
-      enabled: FEATURES.HALL_OF_FAME_PAGE,
-    },
-    { label: t('news'), href: '/news', icon: Newspaper, enabled: FEATURES.NEWS_PAGE },
-    {
-      label: t('auditions'),
-      href: '/auditions',
-      icon: CalendarSearch,
-      enabled: FEATURES.AUDITIONS_PAGE,
-    },
-    // AUTH_SYSTEM 활성화 시 프로필/로그인 아이콘 추가
-    ...(FEATURES.AUTH_SYSTEM
-      ? [
-          {
-            label: isAuthenticated ? t('my') : t('login'),
-            href: isAuthenticated ? '/my' : '/login',
-            icon: User,
-            enabled: true,
-          },
-        ]
-      : []),
-  ].filter((item) => item.enabled);
+  const navItems: BottomNavItem[] = getEnabledPrimaryNavItems().map((item) => ({
+    id: item.id,
+    label: t(item.labelKey),
+    path: item.path,
+    icon: item.icon,
+  }));
+
+  // AUTH_SYSTEM 활성화 시 프로필/로그인 아이콘 추가
+  if (FEATURES.AUTH_SYSTEM) {
+    navItems.push({
+      id: 'auth',
+      label: isAuthenticated ? t('my') : t('login'),
+      path: isAuthenticated ? '/my' : '/login',
+      icon: User,
+    });
+  }
 
   return (
-    <nav className={styles.navContainer}>
+    <nav className={styles.navContainer} data-testid="mobile-bottom-nav">
       <div className={styles.navGlass}>
-        {NAV_ITEMS.map((item) => {
-          const linkHref = `/${currentLocale}${item.href === '/' ? '' : item.href}`;
-          const isActive = item.href === '/'
+        {navItems.map((item) => {
+          const linkHref = `/${currentLocale}${item.path === '/' ? '' : item.path}`;
+          const isActive = item.path === '/'
               ? pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`
               : pathname === linkHref || pathname.startsWith(`${linkHref}/`);
 
           const Icon = item.icon;
 
-
           return (
             <Link
-              key={item.href}
+              key={item.id}
               href={linkHref}
               aria-label={item.label}
+              aria-current={isActive ? 'page' : undefined}
               className={classNames(styles.navItem, { [styles.active]: isActive })}
             >
               <div className={styles.iconWrapper}>

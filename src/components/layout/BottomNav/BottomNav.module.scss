@@ -17,8 +17,8 @@
   padding: 6px 8px;
   padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)); // iOS 안전 영역
   z-index: $z-nav;
-  background: rgba($color-bg, 0.96);
-  border-top: 1px solid rgba($color-text, 0.1);
+  background-color: $color-bg;
+  border-top: 1px solid $color-border;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.06);
