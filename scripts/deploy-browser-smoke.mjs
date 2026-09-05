@@ -229,6 +229,68 @@ async function main() {
       !(await page.locator('[data-testid="home-profile-feed"] [role="alert"]').count()),
       'home rendered public feed data-load failure',
     );
+
+    const desktopSidebar = page.getByTestId('desktop-sidebar');
+    const desktopBottomNav = page.getByTestId('mobile-bottom-nav');
+    assert(await desktopSidebar.isVisible(), 'desktop sidebar is not visible at 1440px');
+    assert(!(await desktopBottomNav.isVisible()), 'mobile bottom nav is visible at 1440px');
+    assert(
+      (await desktopSidebar.getByRole('link', { name: '홈', exact: true }).getAttribute('aria-current')) ===
+        'page',
+      'desktop home link is missing aria-current="page"',
+    );
+
+    const desktopShell = await page.evaluate(() => ({
+      viewportWidth: window.innerWidth,
+      documentWidth: document.documentElement.scrollWidth,
+      bodyWidth: document.body.scrollWidth,
+    }));
+    assert(
+      Math.max(desktopShell.documentWidth, desktopShell.bodyWidth) <= desktopShell.viewportWidth + 1,
+      `desktop shell overflows horizontally (${JSON.stringify(desktopShell)})`,
+    );
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    const mobileHomeResponse = await page.goto(`${server.baseUrl}/ko?deploy-browser-smoke=mobile-home`, {
+      waitUntil: 'domcontentloaded',
+      timeout: 30_000,
+    });
+    assert(
+      mobileHomeResponse && mobileHomeResponse.status() < 500,
+      `mobile home returned HTTP ${mobileHomeResponse?.status()}`,
+    );
+    await page.getByTestId('home-profile-feed').waitFor({ state: 'visible', timeout: 20_000 });
+    const mobileSidebar = page.getByTestId('desktop-sidebar');
+    const mobileBottomNav = page.getByTestId('mobile-bottom-nav');
+    assert(!(await mobileSidebar.isVisible()), 'desktop sidebar is visible at 390px');
+    assert(await mobileBottomNav.isVisible(), 'mobile bottom nav is not visible at 390px');
+    assert(
+      (await mobileBottomNav.getByRole('link', { name: '홈', exact: true }).getAttribute('aria-current')) ===
+        'page',
+      'mobile home link is missing aria-current="page"',
+    );
+
+    const mobileShell = await page.evaluate(() => {
+      const bottomNav = document.querySelector('[data-testid="mobile-bottom-nav"]');
+      const styles = bottomNav ? getComputedStyle(bottomNav) : null;
+      return {
+        viewportWidth: window.innerWidth,
+        documentWidth: document.documentElement.scrollWidth,
+        bodyWidth: document.body.scrollWidth,
+        bottomNavBackground: styles?.backgroundColor || null,
+      };
+    });
+    assert(
+      Math.max(mobileShell.documentWidth, mobileShell.bodyWidth) <= mobileShell.viewportWidth + 1,
+      `mobile shell overflows horizontally (${JSON.stringify(mobileShell)})`,
+    );
+    assert(
+      mobileShell.bottomNavBackground &&
+        !/transparent|rgba\([^)]*,\s*0\s*\)/i.test(mobileShell.bottomNavBackground),
+      `mobile bottom nav background is transparent (${mobileShell.bottomNavBackground})`,
+    );
+
+    await page.setViewportSize({ width: 1440, height: 1000 });
     const rankingResponse = await page.goto(`${server.baseUrl}/ko/ranking?deploy-browser-smoke=ranking`, {
       waitUntil: 'domcontentloaded',
       timeout: 30_000,
@@ -295,6 +357,8 @@ async function main() {
           baseUrl: server.baseUrl,
           profileFeedCount,
           profileFeedStatuses: profileFeedResponses.map(({ status }) => status),
+          desktopShell,
+          mobileShell,
           companyCount,
           ...seoEndpoints,
           supabaseResponses: supabaseResponses.map(({ status, url }) => ({ status, url })),

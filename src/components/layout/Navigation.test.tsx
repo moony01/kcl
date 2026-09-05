@@ -71,6 +71,7 @@ describe('Navigation Components', () => {
     );
 
     expect(screen.getByRole('complementary', { name: '주요 메뉴' })).toBeDefined();
+    expect(screen.getByTestId('desktop-sidebar')).toBeDefined();
     expect(screen.getByText('MEARROW')).toBeDefined();
 
     // 활성 메뉴: 홈, 명예의 전당, 뉴스, 오디션
@@ -88,6 +89,8 @@ describe('Navigation Components', () => {
     expect(screen.queryByText('공지사항')).toBeNull();
     // 랭킹 메뉴는 전용 route로 노출
     expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('href')).toBe('/ko/ranking');
+    expect(screen.getByRole('link', { name: '홈' }).getAttribute('aria-current')).toBe('page');
+    expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('aria-current')).toBeNull();
 
     // AUTH_SYSTEM=true이므로 로그인 링크 표시 (비로그인 상태)
     expect(screen.getByText('로그인')).toBeDefined();
@@ -100,6 +103,7 @@ describe('Navigation Components', () => {
       </NextIntlClientProvider>,
     );
 
+    expect(screen.getByTestId('mobile-bottom-nav')).toBeDefined();
     // 활성 메뉴: 홈, 명예의 전당, 뉴스, 오디션
     expect(screen.getByText('홈')).toBeDefined();
     expect(screen.getByText('명예의 전당')).toBeDefined();
@@ -113,6 +117,8 @@ describe('Navigation Components', () => {
     expect(screen.queryByText('공지사항')).toBeNull();
     // 랭킹 메뉴는 전용 route로 노출
     expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('href')).toBe('/ko/ranking');
+    expect(screen.getByRole('link', { name: '홈' }).getAttribute('aria-current')).toBe('page');
+    expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('aria-current')).toBeNull();
 
     // AUTH_SYSTEM=true이므로 로그인 표시 (비로그인 상태)
     expect(screen.getByText('로그인')).toBeDefined();
