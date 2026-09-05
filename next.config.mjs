@@ -13,6 +13,20 @@ const isDev = process.env.NODE_ENV === 'development';
 const isWorkers = process.env.NEXT_RUNTIME_TARGET === 'workers';
 const useStaticExport = !isDev && !isWorkers;
 
+const securityHeaders = [
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  { key: 'X-XSS-Protection', value: '1; mode=block' },
+  { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+  { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
+  {
+    key: 'Content-Security-Policy',
+    value:
+      "default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://t1.kakaocdn.net https://*.googlesyndication.com https://*.google.com https://*.googleadservices.com https://*.doubleclick.net https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.google-analytics.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.adtrafficquality.google https://kapi.kakao.com https://sharer.kakao.com; frame-src 'self' https://*.doubleclick.net https://*.googlesyndication.com https://*.google.com https://fundingchoicesmessages.google.com https://*.adtrafficquality.google; frame-ancestors 'self' https://moony01.com https://www.moony01.com",
+  },
+];
+
 /**
  * Next.js 설정
  *
@@ -72,6 +86,18 @@ const nextConfig = {
     nextImageExportOptimizer_generateAndUseBlurImages: 'true',
     nextImageExportOptimizer_remoteImageCacheTTL: '0',
   },
+  // Cloudflare Workers serve SSR responses through OpenNext, so the Pages
+  // `public/_headers` file does not cover this runtime.
+  ...(isWorkers
+    ? {
+        headers: async () => [
+          {
+            source: '/:path*',
+            headers: securityHeaders,
+          },
+        ],
+      }
+    : {}),
   /**
    * 보안 헤더 설정 (SSG 모드)
    *
