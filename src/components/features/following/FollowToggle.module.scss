@@ -1,0 +1,54 @@
+@use '../../../styles/abstracts/variables' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 82px;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid rgba($color-primary, 0.34);
+  border-radius: 999px;
+  background: color-mix(in srgb, $color-primary 8%, transparent);
+  color: $color-primary;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+    background: color-mix(in srgb, $color-primary 14%, transparent);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-focus;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.66;
+  }
+}
+
+.following {
+  border-color: rgba($color-primary, 0.48);
+  background: $color-primary;
+  color: #fff;
+}
+
+.icon {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 420px) {
+  .button {
+    min-width: 0;
+    padding-inline: 9px;
+  }
+}

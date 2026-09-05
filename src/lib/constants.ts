@@ -32,5 +32,15 @@ export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
 /** 기본 언어 */
 export const DEFAULT_LOCALE: SupportedLocale = 'en';
 
+/**
+ * Static-export shell used for public profiles.
+ *
+ * Public profile data is loaded from Supabase in the browser, so the Pages
+ * build needs one concrete HTML entry while Cloudflare rewrites arbitrary
+ * profile paths to it. Workers still serves the same page through the
+ * dynamic route at request time.
+ */
+export const PUBLIC_PROFILE_STATIC_SHELL_USERNAME = '__profile';
+
 /** Google AdSense Publisher ID */
 export const ADSENSE_PUBLISHER_ID = 'ca-pub-8955182453510440';

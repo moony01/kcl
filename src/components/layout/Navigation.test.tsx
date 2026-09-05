@@ -54,6 +54,7 @@ const messages = {
     hall_of_fame: '명예의 전당',
     news: '뉴스',
     auditions: '오디션',
+    following: '관심 피드',
     ranking: '랭킹',
     theme: '테마',
     login: '로그인',
@@ -89,6 +90,7 @@ describe('Navigation Components', () => {
     expect(screen.queryByText('공지사항')).toBeNull();
     // 랭킹 메뉴는 전용 route로 노출
     expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('href')).toBe('/ko/ranking');
+    expect(screen.getByRole('link', { name: '관심 피드' }).getAttribute('href')).toBe('/ko/following');
     expect(screen.getByRole('link', { name: '홈' }).getAttribute('aria-current')).toBe('page');
     expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('aria-current')).toBeNull();
 
@@ -117,6 +119,7 @@ describe('Navigation Components', () => {
     expect(screen.queryByText('공지사항')).toBeNull();
     // 랭킹 메뉴는 전용 route로 노출
     expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('href')).toBe('/ko/ranking');
+    expect(screen.getByRole('link', { name: '관심 피드' }).getAttribute('href')).toBe('/ko/following');
     expect(screen.getByRole('link', { name: '홈' }).getAttribute('aria-current')).toBe('page');
     expect(screen.getByRole('link', { name: '랭킹' }).getAttribute('aria-current')).toBeNull();
 

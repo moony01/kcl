@@ -58,6 +58,10 @@
   }
 }
 
+.seoHeader {
+  display: none;
+}
+
 .seoGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -87,4 +91,16 @@
     color: $color-text-dim;
     margin: 0;
   }
+}
+
+.seoSection {
+  max-width: 800px;
+  margin-top: 28px;
+  padding-inline: 0;
+}
+
+.seoCard {
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }

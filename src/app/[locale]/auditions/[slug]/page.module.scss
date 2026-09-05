@@ -401,3 +401,35 @@
     margin-inline: 1rem;
   }
 }
+
+.poster {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.header {
+  padding: 0 0 24px;
+}
+
+.applyButton {
+  min-height: 48px;
+  padding-inline: 18px;
+  border-radius: 12px;
+  background: var(--color-primary);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
+.summary,
+.sourcePanel,
+.related {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.summary,
+.sourcePanel,
+.related {
+  padding: 20px;
+}

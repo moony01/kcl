@@ -4,6 +4,7 @@ import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES, FULL_URL } from '@/lib/constants';
 import { BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -52,14 +53,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   return (
     <>
       <JsonLd data={aboutJsonLd} />
-      <main className={styles.aboutPage}>
+      <PageFrame size="narrow">
+        <PageHeader
+          eyebrow={BRAND_NAME}
+          title={t('title')}
+          description={t('subtitle')}
+        />
         <div className={styles.container}>
-          {/* 페이지 헤더 */}
-          <header className={styles.header}>
-            <h1 className={styles.title}>{t('title')}</h1>
-            <p className={styles.subtitle}>{t('subtitle')}</p>
-          </header>
-
           {/* 소개 섹션 */}
           <section className={styles.section}>
             <p className={styles.intro}>{t('intro')}</p>
@@ -107,7 +107,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <p>{t('disclaimer')}</p>
           </div>
         </div>
-      </main>
+      </PageFrame>
     </>
   );
 }

@@ -27,6 +27,7 @@
     "feed_aside_title": "MEARROW NETWORK",
     "feed_aside_description": "Comparte tu trabajo y sigue las votaciones y noticias desde aquí.",
     "feed_aside_ranking": "Clasificación en tiempo real",
+    "feed_aside_following": "Siguiendo",
     "feed_aside_hall": "Salón de la Fama",
     "feed_aside_news": "Noticias",
     "feed_aside_publish": "Gestionar mi trabajo",
@@ -163,7 +164,8 @@
     "contact_copied": "¡Email Copiado!",
     "hall_of_fame": "Salón de la Fama",
     "news": "Noticias",
-    "auditions": "Audiciones"
+    "auditions": "Audiciones",
+    "following": "Siguiendo"
   },
   "News": {
     "title": "Noticias e Insights",
@@ -702,5 +704,35 @@
     "public": "Perfil público",
     "image": "Imagen",
     "short": "Short"
+  },
+  "Following": {
+    "title": "Siguiendo",
+    "subtitle": "Sigue en un solo lugar a las agencias y artistas que te interesan.",
+    "eyebrow": "YOUR SIGNAL",
+    "login_title": "Inicia sesión para crear tu lista",
+    "login_description": "Sigue agencias y artistas para consultar sus últimas clasificaciones.",
+    "login_cta": "Iniciar sesión / Registrarse",
+    "loading": "Cargando tu lista…",
+    "error": "No se pudo cargar tu lista.",
+    "retry": "Reintentar",
+    "login_required": "Inicia sesión para añadir un objetivo.",
+    "follow_error": "No se pudo actualizar el seguimiento.",
+    "follow": "Seguir",
+    "following": "Siguiendo",
+    "pending": "Actualizando…",
+    "search_label": "Buscar objetivos",
+    "search_placeholder": "Buscar agencias o artistas",
+    "open_ranking": "Buscar en la clasificación",
+    "summary_description": "Consulta el rango y la popularidad actual de lo que sigues.",
+    "following_count": "{count} siguiendo",
+    "your_signal": "YOUR SIGNAL",
+    "selected_title": "Lo que sigues",
+    "empty_title": "Tu lista está vacía",
+    "empty_description": "Añade agencias y artistas desde las recomendaciones de la derecha.",
+    "discover_eyebrow": "DISCOVER",
+    "recommendations": "Recomendaciones",
+    "no_results": "No hay resultados.",
+    "rank": "Puesto {rank}",
+    "votes": "{count} votos"
   }
 }

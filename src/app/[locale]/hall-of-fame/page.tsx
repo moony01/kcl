@@ -16,7 +16,7 @@ import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
-import styles from './hall-of-fame-seo.module.scss';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 
 /** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
@@ -61,13 +61,14 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
   };
 
   return (
-    <>
+    <PageFrame>
       <JsonLd data={hallOfFameJsonLd} />
 
-      <header className={styles.pageHeader}>
-        <h1 className={styles.title}>{t('title')}</h1>
-        <p className={styles.description}>{t('meta_description')}</p>
-      </header>
+      <PageHeader
+        eyebrow={BRAND_NAME}
+        title={t('title')}
+        description={t('meta_description')}
+      />
 
       {/* CSR 챔피언 데이터 영역 */}
       <HallOfFameClient />
@@ -75,6 +76,6 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
       {/* 명예의 전당 하단 광고 */}
       <AdBanner adSlot={AD_SLOTS.HOF_BOTTOM} adFormat="leaderboard" />
 
-    </>
+    </PageFrame>
   );
 }

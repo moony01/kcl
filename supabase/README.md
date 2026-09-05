@@ -118,6 +118,20 @@ packages/kcl/supabase/
 
 **RLS 정책**: INSERT, SELECT(중복 체크용) 허용
 
+### 7. company_follows / group_follows (관심 대상)
+
+| 컬럼       | 타입        | 설명                              |
+| ---------- | ----------- | --------------------------------- |
+| user_id    | uuid        | FK -> auth.users                  |
+| company_id | uuid        | FK -> companies (company_follows) |
+| group_id   | uuid        | FK -> groups (group_follows)      |
+| created_at | timestamptz | 관심 등록일                       |
+
+두 테이블 모두 `(user_id, 대상_id)` 복합 기본 키로 중복 등록을 막습니다.
+조회는 인증된 사용자가 자신의 행만 할 수 있으며, 등록·해제는
+`toggle_company_follow`·`toggle_group_follow` SECURITY DEFINER 함수가
+`auth.uid()`를 사용해 처리합니다. 브라우저에 직접 쓰기 권한은 부여하지 않습니다.
+
 ## RLS 정책 적용 방법
 
 ### 방법 1: Supabase Dashboard
@@ -153,6 +167,7 @@ supabase db push
 - [x] 삭제는 soft delete (is_hidden) 방식 사용
 - [x] IP 해시로 익명 사용자 식별
 - [x] 투표 조작 방지 (SELECT/UPDATE/DELETE 차단)
+- [x] 관심 관계는 RLS와 auth.uid() 바인딩 함수로 사용자 간 접근 차단
 
 ## 관련 코드
 

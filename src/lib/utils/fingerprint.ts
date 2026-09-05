@@ -4,32 +4,13 @@
  * 좋아요 중복 방지 등에 활용
  */
 
+import { createClientIdentifier } from '@/lib/utils/client-id';
+
 /** localStorage 키 */
 const FINGERPRINT_KEY = 'kcl_fingerprint';
 
 function createFingerprint(): string {
-  const browserCrypto = globalThis.crypto;
-
-  if (typeof browserCrypto?.randomUUID === 'function') {
-    return browserCrypto.randomUUID();
-  }
-
-  if (typeof browserCrypto?.getRandomValues === 'function') {
-    const bytes = browserCrypto.getRandomValues(new Uint8Array(16));
-    bytes[6] = (bytes[6] & 0x0f) | 0x40;
-    bytes[8] = (bytes[8] & 0x3f) | 0x80;
-
-    const hex = [...bytes].map((byte) => byte.toString(16).padStart(2, '0'));
-    return [
-      hex.slice(0, 4).join(''),
-      hex.slice(4, 6).join(''),
-      hex.slice(6, 8).join(''),
-      hex.slice(8, 10).join(''),
-      hex.slice(10, 16).join(''),
-    ].join('-');
-  }
-
-  return `${Date.now()}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`;
+  return createClientIdentifier();
 }
 
 /**

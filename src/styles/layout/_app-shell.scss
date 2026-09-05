@@ -22,6 +22,7 @@ body {
   overflow-y: auto;
   min-height: 100vh;
   transition: background-color 0.3s ease;
+  color-scheme: light;
 
   // 라이트 모드: 깔끔한 단색 배경 (오로라/그라디언트 없음)
   &::before {
@@ -40,6 +41,7 @@ body {
 // 다크 모드: 기존 오로라 효과 유지
 [data-theme='dark'] body {
   background-color: #0a0a0a;
+  color-scheme: dark;
 
   &::before {
     background:

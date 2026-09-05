@@ -22,6 +22,7 @@ import NewsComments from '@/components/news/NewsComments';
 import RelatedNewsGrid from '@/components/news/RelatedNewsGrid';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
+import PageFrame from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 /**
@@ -123,7 +124,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   });
 
   return (
-    <main className={styles.container}>
+    <PageFrame size="narrow">
       {/* 뒤로가기 링크 */}
       <Link href={`/${locale}/news`} className={styles.backLink}>
         <ArrowLeft size={18} />
@@ -290,6 +291,6 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           },
         }}
       />
-    </main>
+    </PageFrame>
   );
 }

@@ -6,10 +6,14 @@
   --color-secondary: #17213A;
   --color-bg: #F5F7FF;
   --color-surface: #FFFFFF;
+  --color-surface-muted: #EEF2FF;
+  --color-surface-raised: #FFFFFF;
   --color-text: #10131C;
   --color-text-dim: rgba(16, 19, 28, 0.62);
+  --color-text-muted: rgba(16, 19, 28, 0.46);
   --color-panel-bg: rgba(49, 92, 255, 0.05);
   --color-border: rgba(16, 19, 28, 0.12);
+  --color-border-strong: rgba(16, 19, 28, 0.2);
   --color-hover-surface: rgba(49, 92, 255, 0.08);
   --color-focus: #315CFF;
   --color-danger: #EF4444;
@@ -19,6 +23,10 @@
   --shadow-sm: 0 1px 3px rgba(16, 19, 28, 0.08);
   --shadow-md: 0 4px 16px rgba(16, 19, 28, 0.1);
   --shadow-lg: 0 8px 32px rgba(16, 19, 28, 0.14);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 }
 
 // 다크 모드
@@ -29,10 +37,14 @@
   --color-secondary: #1A2540;
   --color-bg: #080B14;
   --color-surface: #101522;
+  --color-surface-muted: #151C2D;
+  --color-surface-raised: #17213A;
   --color-text: #F7F8FF;
   --color-text-dim: rgba(247, 248, 255, 0.64);
+  --color-text-muted: rgba(247, 248, 255, 0.46);
   --color-panel-bg: rgba(255, 255, 255, 0.05);
   --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
   --color-danger: #FF3366;
   --color-hover-surface: rgba(255, 255, 255, 0.08);
   --color-focus: #8EA4FF;
@@ -42,4 +54,8 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 }

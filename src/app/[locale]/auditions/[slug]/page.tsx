@@ -27,6 +27,7 @@ import {
 import { DEFAULT_LOCALE, FULL_URL } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
 import { generatePageMetadata } from '@/lib/seo';
+import PageFrame from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 interface AuditionDetailPageProps {
@@ -184,7 +185,7 @@ export default async function AuditionDetailPage({ params }: AuditionDetailPageP
   if (eventJsonLd) pageJsonLd.mainEntity = { '@id': `${canonical}#event` };
 
   return (
-    <main className={styles.container}>
+    <PageFrame size="narrow">
       <JsonLd
         data={{
           '@context': 'https://schema.org',
@@ -347,6 +348,6 @@ export default async function AuditionDetailPage({ params }: AuditionDetailPageP
           </div>
         </section>
       )}
-    </main>
+    </PageFrame>
   );
 }

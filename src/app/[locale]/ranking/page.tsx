@@ -4,7 +4,7 @@ import RankingClient from './RankingClient';
 import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
-import styles from './ranking-page.module.scss';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
@@ -33,13 +33,13 @@ export default async function RankingPage({ params }: RankingPageProps) {
   const tHome = await getTranslations({ locale, namespace: 'Home' });
 
   return (
-    <section className={styles.container}>
-      <header className={styles.header}>
-        <p className={styles.eyebrow}>{BRAND_NAME}</p>
-        <h1 className={styles.title}>{tNav('ranking')}</h1>
-        <p className={styles.subtitle}>{tHome('title')}</p>
-      </header>
+    <PageFrame as="section" size="wide">
+      <PageHeader
+        eyebrow={BRAND_NAME}
+        title={tNav('ranking')}
+        description={tHome('title')}
+      />
       <RankingClient />
-    </section>
+    </PageFrame>
   );
 }

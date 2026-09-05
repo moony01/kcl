@@ -19,7 +19,7 @@
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--bg-secondary);
+  background: var(--color-surface-muted);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
@@ -37,7 +37,7 @@
 .relatedImage {
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--bg-tertiary, var(--bg-secondary));
+  background: var(--color-surface-muted);
 
   img {
     width: 100%;
@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-light, #dbe4ff) 0%, var(--primary, #315cff) 100%);
+  background: var(--gradient-primary);
 
   span {
     font-size: 2rem;
@@ -79,7 +79,7 @@
 .relatedCategory {
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
@@ -87,7 +87,7 @@
 .relatedCardTitle {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text);
   margin: 0;
   line-height: 1.4;
   display: -webkit-box;
@@ -107,7 +107,7 @@
 
 .relatedDate {
   font-size: 0.75rem;
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 }
 
 .relatedStats {
@@ -121,7 +121,7 @@
   align-items: center;
   gap: 2px;
   font-size: 0.7rem;
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 
   svg {
     opacity: 0.7;

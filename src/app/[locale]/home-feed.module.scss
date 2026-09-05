@@ -681,3 +681,162 @@
   .feedSort { font-size: 0; }
   .feedSort svg { width: 16px; height: 16px; }
 }
+
+/* MEARROW network surface refresh: TikTok discovery density + LinkedIn task clarity. */
+.feedShell {
+  max-width: none;
+  padding: 32px 0 80px;
+}
+
+.feedLayout {
+  grid-template-columns: minmax(0, 760px) minmax(248px, 292px);
+  justify-content: center;
+  gap: 28px;
+}
+
+.feedMain {
+  width: 100%;
+}
+
+.feedHeader {
+  margin-bottom: 18px;
+  padding-bottom: 22px;
+}
+
+.feedTitle {
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+}
+
+.voteEntryCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, var(--color-border));
+  border-radius: var(--radius-md);
+  background: linear-gradient(105deg, color-mix(in srgb, var(--color-primary) 12%, var(--color-surface)) 0%, var(--color-surface) 72%);
+  box-shadow: var(--shadow-sm);
+}
+
+.voteEntryCopy {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.voteEntryIcon {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.voteEntryEyebrow {
+  margin: 0 0 3px;
+  color: var(--color-primary);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.voteEntryCopy h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.voteEntryDescription {
+  margin: 3px 0 0;
+  color: var(--color-text-dim);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.voteEntryCta {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.voteEntryCta:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.feedCard {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.mediaFrame {
+  aspect-ratio: 4 / 3;
+}
+
+.shortMediaFrame {
+  aspect-ratio: 9 / 16;
+}
+
+.feedGrid {
+  gap: 16px;
+}
+
+.asideCard {
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 1120px) {
+  .feedLayout:not(:has(.feedAside)) .feedMain {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1119px) {
+  .feedMain {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .feedShell {
+    padding: 24px 0 96px;
+  }
+
+  .voteEntryCard {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .voteEntryCta {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .mediaFrame {
+    aspect-ratio: 4 / 5;
+  }
+}

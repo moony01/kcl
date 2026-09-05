@@ -8,6 +8,7 @@ import NoticeClient from './NoticeClient';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
 import styles from './notice-seo.module.scss';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
@@ -49,15 +50,14 @@ export default async function NoticePage({ params }: { params: Promise<{ locale:
   };
 
   return (
-    <>
+    <PageFrame size="narrow">
       <JsonLd data={noticeJsonLd} />
 
-      {/* SEO 헤더 - 서버 렌더링 */}
-      <header className={styles.seoHeader}>
-        <h1 className={styles.seoHeaderTitle}>{t('title')}</h1>
-        <div className={styles.seoDivider} />
-        <p className={styles.seoHeaderSubtitle}>{t('seo_intro')}</p>
-      </header>
+      <PageHeader
+        eyebrow={BRAND_NAME}
+        title={t('title')}
+        description={t('subtitle')}
+      />
 
       {/* CSR 공지사항 목록 */}
       <NoticeClient locale={locale} />
@@ -82,6 +82,6 @@ export default async function NoticePage({ params }: { params: Promise<{ locale:
           </div>
         </div>
       </section>
-    </>
+    </PageFrame>
   );
 }

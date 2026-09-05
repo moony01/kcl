@@ -1,0 +1,21 @@
+.frame {
+  width: 100%;
+  max-width: 1160px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px) 0 72px;
+}
+
+.narrow {
+  max-width: 860px;
+}
+
+.wide {
+  max-width: 1240px;
+}
+
+@media (max-width: 768px) {
+  .frame {
+    padding: 24px 0 48px;
+  }
+}

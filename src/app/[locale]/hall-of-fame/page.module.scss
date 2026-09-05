@@ -136,3 +136,14 @@
     animation: none;
   }
 }
+
+.container {
+  gap: 16px;
+}
+
+.errorContainer,
+.emptyContainer {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
