@@ -10,9 +10,9 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import HallOfFameClient from './HallOfFameClient';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
-import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
+import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import AdBanner from '@/components/common/AdBanner';
 import { AD_SLOTS } from '@/types/ads';
@@ -36,23 +36,13 @@ interface HallOfFamePageProps {
  */
 export async function generateMetadata({ params }: HallOfFamePageProps): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: `${BRAND_NAME} Hall of Fame`,
-    description: BRAND_DESCRIPTION,
-    openGraph: {
-      title: `${BRAND_NAME} Hall of Fame`,
-      description: BRAND_DESCRIPTION,
-      url: `${FULL_URL}/${locale}/hall-of-fame`,
-      type: 'website',
-      siteName: BRAND_NAME,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${BRAND_NAME} Hall of Fame`,
-      description: BRAND_DESCRIPTION,
-    },
-    alternates: generateAlternates(locale, '/hall-of-fame'),
-  };
+  const t = await getTranslations({ locale, namespace: 'HallOfFame' });
+  return generatePageMetadata({
+    locale,
+    pathname: '/hall-of-fame',
+    title: t('meta_title'),
+    description: t('meta_description'),
+  });
 }
 
 /**
@@ -66,7 +56,7 @@ export default async function HallOfFamePage({ params }: HallOfFamePageProps) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${BRAND_NAME} Hall of Fame`,
-    description: BRAND_DESCRIPTION,
+    description: t('meta_description'),
     url: `${FULL_URL}/${locale}/hall-of-fame`,
   };
 

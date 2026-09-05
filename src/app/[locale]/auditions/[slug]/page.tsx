@@ -26,6 +26,7 @@ import {
 } from '@/lib/auditions';
 import { DEFAULT_LOCALE, FULL_URL } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
+import { generatePageMetadata } from '@/lib/seo';
 import styles from './page.module.scss';
 
 interface AuditionDetailPageProps {
@@ -52,12 +53,8 @@ function detailAlternates(locale: string, slug: string): Metadata['alternates'] 
     languages[translatedLocale] = `${FULL_URL}/${translatedLocale}/auditions/${slug}`;
   }
 
-  const defaultLocale = actualLocales.includes(DEFAULT_LOCALE)
-    ? DEFAULT_LOCALE
-    : actualLocales[0];
-  if (defaultLocale) {
-    languages['x-default'] = `${FULL_URL}/${defaultLocale}/auditions/${slug}`;
-  }
+  const defaultLocale = actualLocales.includes(DEFAULT_LOCALE) ? DEFAULT_LOCALE : actualLocales[0];
+  if (defaultLocale) languages['x-default'] = `${FULL_URL}/${defaultLocale}/auditions/${slug}`;
 
   return {
     canonical: `${FULL_URL}/${locale}/auditions/${slug}`,
@@ -72,28 +69,22 @@ export async function generateMetadata({ params }: AuditionDetailPageProps): Pro
   if (!post) return { title: 'Audition not found' };
 
   const poster = absoluteUrl(post.poster);
-  const canonical = `${FULL_URL}/${locale}/auditions/${slug}`;
-
+  const actualLocales = getAuditionLocales(slug);
+  const defaultLocale = actualLocales.includes(DEFAULT_LOCALE) ? DEFAULT_LOCALE : actualLocales[0];
   return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: detailAlternates(locale, slug),
-    openGraph: {
+    ...generatePageMetadata({
+      locale,
+      pathname: `/auditions/${slug}`,
       title: post.title,
       description: post.excerpt,
-      url: canonical,
       type: 'article',
-      siteName: BRAND_NAME,
+      imagePath: poster,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
-      images: [{ url: poster, alt: post.posterAlt }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: [poster],
-    },
+      availableLocales: actualLocales,
+      ...(defaultLocale ? { defaultLocale } : {}),
+    }),
+    alternates: detailAlternates(locale, slug),
   };
 }
 

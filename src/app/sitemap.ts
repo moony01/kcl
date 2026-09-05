@@ -1,7 +1,12 @@
 import { MetadataRoute } from 'next';
 import { FULL_URL, SUPPORTED_LOCALES, SupportedLocale } from '@/lib/constants';
 import { getAllActualAuditions, getAuditionLocales } from '@/lib/auditions';
-import { getAllNews } from '@/lib/news';
+import { getAllNews, NEWS_SOURCE_LOCALE } from '@/lib/news';
+import {
+  ANNOUNCEMENT_SOURCE_LOCALE,
+  getAnnouncementAvailableLocales,
+  getPublishedAnnouncementIds,
+} from '@/lib/api/announcements';
 
 /**
  * MEARROW 사이트맵 생성기
@@ -29,7 +34,7 @@ const SITEMAP_LOCALES = SUPPORTED_LOCALES;
  * 뉴스 콘텐츠가 존재하는 언어 목록
  * /src/content/news/ 폴더에 실제 콘텐츠가 있는 언어만
  */
-const NEWS_LOCALES: SupportedLocale[] = ['ko', 'en'];
+const NEWS_LOCALES: SupportedLocale[] = [NEWS_SOURCE_LOCALE];
 
 /**
  * 최신 뉴스로 간주할 개수
@@ -67,6 +72,20 @@ function generateStaticAlternates(path: string): Record<string, string> {
 
   alternates['x-default'] = `${FULL_URL}/en${path}`;
 
+  return alternates;
+}
+
+function generateNoticeAlternates(
+  path: string,
+  availableLocales: readonly SupportedLocale[],
+): Record<string, string> {
+  const alternates: Record<string, string> = {};
+
+  for (const locale of availableLocales) {
+    alternates[locale] = `${FULL_URL}/${locale}${path}`;
+  }
+
+  alternates['x-default'] = `${FULL_URL}/${ANNOUNCEMENT_SOURCE_LOCALE}${path}`;
   return alternates;
 }
 
@@ -111,6 +130,10 @@ const STATIC_PAGES: StaticPage[] = [
   // 뉴스 목록 - 활성화됨
   { path: '/news', priority: 0.8, changeFrequency: 'daily' },
 
+  // 실시간 랭킹 및 공지사항 - 공개 페이지
+  { path: '/ranking', priority: 0.9, changeFrequency: 'daily' },
+  { path: '/notice', priority: 0.5, changeFrequency: 'weekly' },
+
   // 오디션 정보 목록 - 활성화됨
   { path: '/auditions', priority: 0.9, changeFrequency: 'daily' },
 
@@ -123,7 +146,7 @@ const STATIC_PAGES: StaticPage[] = [
   { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapEntries: MetadataRoute.Sitemap = [];
 
   // 1. 정적 콘텐츠 페이지
@@ -145,7 +168,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // 3. 뉴스 상세 페이지 (콘텐츠가 있는 언어만: ko, en)
+  // 3. 뉴스 상세 페이지 (영어 원문 locale만)
   for (const locale of NEWS_LOCALES) {
     try {
       const posts = getAllNews(locale);
@@ -187,6 +210,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: generateAuditionAlternates(post.slug),
       },
     });
+  }
+
+  // 5. 공지사항 상세 페이지 (공개 ID만, 상세 route와 동일한 locale 정책)
+  const announcementIds = await getPublishedAnnouncementIds();
+  for (const id of announcementIds) {
+    const noticePath = `/notice/${id}`;
+    const availableLocales = getAnnouncementAvailableLocales(id);
+    for (const locale of availableLocales) {
+      sitemapEntries.push({
+        url: `${FULL_URL}/${locale}${noticePath}`,
+        changeFrequency: 'weekly',
+        priority: 0.4,
+        alternates: {
+          languages: generateNoticeAlternates(noticePath, availableLocales),
+        },
+      });
+    }
   }
 
   return sitemapEntries;

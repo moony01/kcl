@@ -5,8 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { JsonLd } from '@/components/common/JsonLd';
 import { getAllAuditions, type AuditionMeta } from '@/lib/auditions';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
-import { BRAND_NAME } from '@/lib/brand';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import styles from './page.module.scss';
 
 interface AuditionsPageProps {
@@ -21,23 +20,12 @@ export async function generateMetadata({ params }: AuditionsPageProps): Promise<
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Auditions' });
 
-  return {
+  return generatePageMetadata({
+    locale,
+    pathname: '/auditions',
     title: t('metaTitle'),
     description: t('subtitle'),
-    alternates: generateAlternates(locale, '/auditions'),
-    openGraph: {
-      title: t('metaTitle'),
-      description: t('subtitle'),
-      url: `${FULL_URL}/${locale}/auditions`,
-      type: 'website',
-      siteName: BRAND_NAME,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: t('metaTitle'),
-      description: t('subtitle'),
-    },
-  };
+  });
 }
 
 function formatDate(value: string, locale: string, timezone?: string, includeTime = false) {

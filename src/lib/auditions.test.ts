@@ -31,15 +31,15 @@ describe('audition content routing', () => {
     expect(japaneseList.every((post) => post.locale === 'en')).toBe(true);
   });
 
-  it('puts a dated open audition before an ongoing listing', () => {
+  it('puts closing auditions before ongoing listings and closed auditions last', () => {
     const koreanList = getAllAuditions('ko');
 
     expect(koreanList.map((post) => post.slug)).toEqual([
-      'source-music-summer-audition-2026',
       '2026-yg-global-audition-osaka',
       'jyp-online-audition',
       'wakeone-next-wave-audition',
       'yg-online-audition',
+      'source-music-summer-audition-2026',
     ]);
   });
 });

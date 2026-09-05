@@ -1,11 +1,11 @@
 ---
 title: "2026 YG 글로벌 오디션 오사카"
-excerpt: "2008년생부터 2015년생까지 지원할 수 있는 YG 오사카 글로벌 오디션. 온라인 사전 접수는 2026년 9월 6일 23:59(JST)에 마감됩니다."
+excerpt: "2008년생부터 2015년생까지 지원할 수 있는 YG 오사카 글로벌 오디션. 온라인 사전 접수는 2026년 9월 7일 00:00(JST)에 마감되는 마감 임박 오디션입니다."
 agency: "YG Entertainment"
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
+updatedAt: "2026-09-02"
 applicationStart: "2026-07-16T18:00:00+09:00"
-applicationDeadline: "2026-09-06T23:59:00+09:00"
+applicationDeadline: "2026-09-07T00:00:00+09:00"
 auditionDate: "2026-09-20"
 timezone: "Asia/Tokyo"
 mode: "offline"
@@ -17,19 +17,19 @@ categories:
   - "댄스"
   - "기타(비주얼·연기 등)"
 eligibility: "2008년생부터 2015년생까지, 성별과 국적 무관"
-status: "open"
+status: "closing"
 officialUrl: "https://www.yg-audition.com/auditions/ongoing?id=58"
 sourceUrl: "https://www.yg-audition.com/notice?id=236"
-verifiedAt: "2026-08-09"
+verifiedAt: "2026-09-02"
 poster: "https://www.yg-audition.com/file/editor-image/1784171940149.webp"
 posterAlt: "2026 YG 글로벌 오디션 도쿄·오사카 공식 홍보 포스터"
 posterWidth: 1080
 posterHeight: 1350
 ---
 
-## 핵심 일정
+## 핵심 일정 (마감 임박)
 
-- **온라인 사전 접수 마감:** 2026년 9월 6일(일) 오후 11시 59분, 일본 현지 시각(JST)
+- **온라인 사전 접수 마감:** 2026년 9월 7일(월) 00:00, 일본 현지 시각(JST)
 - **오디션 날짜:** 2026년 9월 20일(일)
 - **시간·장소 안내 예정일:** 2026년 9월 11일(금)
 

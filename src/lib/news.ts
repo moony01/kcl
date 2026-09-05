@@ -8,7 +8,7 @@
 import newsMeta from '@/generated/news-meta.json';
 import { loadNewsPost } from '@/generated/news-runtime';
 
-const NEWS_SOURCE_LOCALE = 'en';
+export const NEWS_SOURCE_LOCALE = 'en';
 
 /**
  * 뉴스 게시글 타입 정의

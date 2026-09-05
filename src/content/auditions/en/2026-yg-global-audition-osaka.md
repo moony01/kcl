@@ -1,11 +1,11 @@
 ---
 title: "2026 YG Global Audition in Osaka"
-excerpt: "YG's Osaka global audition for applicants born from 2008 through 2015. Online pre-applications close at 11:59 PM JST on September 6, 2026."
+excerpt: "YG's Osaka global audition for applicants born from 2008 through 2015. Online pre-applications close at 00:00 JST on September 7, 2026; applications are closing soon."
 agency: "YG Entertainment"
 publishedAt: "2026-07-16"
-updatedAt: "2026-07-16"
+updatedAt: "2026-09-02"
 applicationStart: "2026-07-16T18:00:00+09:00"
-applicationDeadline: "2026-09-06T23:59:00+09:00"
+applicationDeadline: "2026-09-07T00:00:00+09:00"
 auditionDate: "2026-09-20"
 timezone: "Asia/Tokyo"
 mode: "offline"
@@ -17,19 +17,19 @@ categories:
   - "Dance"
   - "Other (visual, acting, etc.)"
 eligibility: "Born from 2008 through 2015; open to every gender and nationality"
-status: "open"
+status: "closing"
 officialUrl: "https://www.yg-audition.com/auditions/ongoing?id=58"
 sourceUrl: "https://www.yg-audition.com/notice?id=236"
-verifiedAt: "2026-08-09"
+verifiedAt: "2026-09-02"
 poster: "https://www.yg-audition.com/file/editor-image/1784171940149.webp"
 posterAlt: "Official poster for the 2026 YG Global Audition in Tokyo and Osaka"
 posterWidth: 1080
 posterHeight: 1350
 ---
 
-## Key dates
+## Key dates (closing soon)
 
-- **Online pre-application deadline:** Sunday, September 6, 2026 at 11:59 PM Japan Standard Time (JST)
+- **Online pre-application deadline:** Monday, September 7, 2026 at 00:00 Japan Standard Time (JST)
 - **Audition date:** Sunday, September 20, 2026
 - **Time and venue notification date:** Friday, September 11, 2026
 

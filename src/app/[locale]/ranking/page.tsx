@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import RankingClient from './RankingClient';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
-import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
+import { BRAND_NAME } from '@/lib/brand';
 import styles from './ranking-page.module.scss';
 
 export function generateStaticParams() {
@@ -17,11 +17,13 @@ interface RankingPageProps {
 export async function generateMetadata({ params }: RankingPageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Nav' });
-  return {
-    title: t('ranking'),
-    description: BRAND_DESCRIPTION,
-    alternates: generateAlternates(locale, '/ranking'),
-  };
+  const tHome = await getTranslations({ locale, namespace: 'Home' });
+  return generatePageMetadata({
+    locale,
+    pathname: '/ranking',
+    title: `${t('ranking')} | ${BRAND_NAME}`,
+    description: tHome('seo_intro'),
+  });
 }
 
 export default async function RankingPage({ params }: RankingPageProps) {

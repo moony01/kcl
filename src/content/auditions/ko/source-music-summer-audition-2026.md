@@ -1,9 +1,9 @@
 ---
 title: "2026 SOURCE MUSIC SUMMER AUDITION"
-excerpt: "2008년생 이후라면 성별과 국적에 관계없이 지원할 수 있는 SOURCE MUSIC 2026 여름 오디션입니다. 9~10월 전국 현장 오디션을 온라인으로 사전 접수합니다."
+excerpt: "2008년생 이후라면 성별과 국적에 관계없이 지원할 수 있었던 SOURCE MUSIC 2026 여름 오디션입니다. 9~10월 전국 현장 오디션의 온라인 사전 접수는 마감되었습니다."
 agency: "SOURCE MUSIC"
 publishedAt: "2026-08-09"
-updatedAt: "2026-08-09"
+updatedAt: "2026-09-02"
 applicationStart: "2026-08-03T00:00:00+09:00"
 applicationDeadline: "2026-08-23T23:59:00+09:00"
 timezone: "Asia/Seoul"
@@ -16,10 +16,10 @@ categories:
   - "댄스"
   - "기타(악기·연기·작곡 등)"
 eligibility: "2008년생 이후 출생자, 성별 및 국적 제한 없음"
-status: "open"
+status: "closed"
 officialUrl: "https://sourcemusic.hybeaudition.com/en"
 sourceUrl: "https://sourcemusic.com/audition/index"
-verifiedAt: "2026-08-09"
+verifiedAt: "2026-09-02"
 poster: "https://sourcemusic.com/static/images/audition-bg.jpg"
 posterAlt: "2026 SOURCE MUSIC SUMMER AUDITION 공식 포스터"
 posterWidth: 1920
@@ -32,7 +32,7 @@ posterHeight: 2158
 
 ## 사전 접수 마감
 
-온라인 사전 접수는 2026년 8월 3일부터 8월 23일(일) 24:00 KST까지 진행됩니다. 현장 접수는 별도로 진행하지 않습니다. 1차 합격자에게는 8월 24일부터 30일까지 이메일로 오디션 시간과 유의사항을 안내합니다.
+온라인 사전 접수는 2026년 8월 3일부터 8월 23일(일) 24:00 KST까지 진행되었으며 마감되었습니다. 현장 접수는 별도로 진행하지 않습니다. 1차 합격자에게는 8월 24일부터 30일까지 이메일로 오디션 시간과 유의사항을 안내합니다.
 
 ## 현장 오디션 일정
 
@@ -48,4 +48,4 @@ posterHeight: 2158
 - 10월 17일: 제주(월평)
 - 10월 18일: 서귀포
 
-[SOURCE MUSIC 공식 오디션 지원 페이지](https://sourcemusic.hybeaudition.com/en)에서 사전 접수합니다. 지원 전 공식 공지에서 장소와 변경된 일정을 다시 확인하세요.
+[SOURCE MUSIC 공식 오디션 지원 페이지](https://sourcemusic.hybeaudition.com/en)의 사전 접수는 마감되었습니다. 지역별 현장 오디션 일정과 안내는 공식 페이지에서 다시 확인하세요.

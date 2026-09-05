@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { generateAlternates } from '@/lib/seo';
+import { generatePageMetadata } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
-import { BRAND_DESCRIPTION, BRAND_NAME } from '@/lib/brand';
+import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import NoticeClient from './NoticeClient';
 import AdBanner from '@/components/common/AdBanner';
@@ -23,21 +23,13 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Notice' });
 
-  return {
-    title: t('title'),
+  return generatePageMetadata({
+    locale,
+    pathname: '/notice',
+    title: `${t('title')} | ${BRAND_NAME}`,
     description: t('subtitle'),
-    alternates: generateAlternates(locale, '/notice'),
-  };
+  });
 }
-
-/** Notice 페이지 JSON-LD */
-const noticeJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: `${BRAND_NAME} Notices & Announcements`,
-  description: BRAND_DESCRIPTION,
-  url: `${FULL_URL}/notice`,
-};
 
 /**
  * 공지사항 페이지
@@ -47,6 +39,14 @@ export default async function NoticePage({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'Notice' });
+  const noticeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${t('title')} | ${BRAND_NAME}`,
+    description: t('subtitle'),
+    url: `${FULL_URL}/${locale}/notice`,
+    inLanguage: locale,
+  };
 
   return (
     <>
