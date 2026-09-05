@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import classNames from 'classnames';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 interface FaqItem {
@@ -30,14 +31,9 @@ export default function FaqClient({ title, subtitle, items }: FaqClientProps) {
   };
 
   return (
-    <main className={styles.faqPage}>
+    <PageFrame size="narrow">
+      <PageHeader title={title} description={subtitle} />
       <div className={styles.container}>
-        {/* 페이지 헤더 */}
-        <header className={styles.header}>
-          <h1 className={styles.title}>{title}</h1>
-          <p className={styles.subtitle}>{subtitle}</p>
-        </header>
-
         {/* FAQ 아코디언 목록 */}
         <div className={styles.faqList}>
           {items.map((item, index) => (
@@ -71,6 +67,6 @@ export default function FaqClient({ title, subtitle, items }: FaqClientProps) {
           ))}
         </div>
       </div>
-    </main>
+    </PageFrame>
   );
 }

@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/common/JsonLd';
 import { getAllAuditions, type AuditionMeta } from '@/lib/auditions';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { generatePageMetadata } from '@/lib/seo';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 interface AuditionsPageProps {
@@ -66,17 +67,15 @@ export default async function AuditionsPage({ params }: AuditionsPageProps) {
   };
 
   return (
-    <main className={styles.container}>
+    <PageFrame size="wide">
       <JsonLd data={itemListJsonLd} />
 
-      <header className={styles.header}>
-        <div className={styles.eyebrow}>{t('eyebrow')}</div>
-        <div className={styles.titleWrapper}>
-          <CalendarSearch aria-hidden="true" />
-          <h1>{t('title')}</h1>
-        </div>
-        <p>{t('subtitle')}</p>
-      </header>
+      <PageHeader
+        eyebrow={t('eyebrow')}
+        title={t('title')}
+        description={t('subtitle')}
+        icon={<CalendarSearch size={26} />}
+      />
 
       {posts.length === 0 ? (
         <div className={styles.empty}>{t('noAuditions')}</div>
@@ -156,6 +155,6 @@ export default async function AuditionsPage({ params }: AuditionsPageProps) {
         <strong>{t('noticeTitle')}</strong>
         <p>{t('noticeBody')}</p>
       </aside>
-    </main>
+    </PageFrame>
   );
 }

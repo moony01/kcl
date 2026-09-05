@@ -307,7 +307,7 @@
       background: transparent;
     }
     &::-webkit-scrollbar-thumb {
-      background: var(--border-color);
+      background: var(--color-border);
       border-radius: 4px;
     }
   }
@@ -337,10 +337,10 @@
   gap: 6px;
   width: 100%;
   padding: 14px 20px;
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-  border-radius: 12px;
-  background: var(--panel-bg, rgba(255, 255, 255, 0.04));
-  color: var(--text-color, #e2e8f0);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
@@ -599,4 +599,33 @@
 
 .fadeIn {
   animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Ranking is a focused action surface, not a half-width dashboard. */
+.directMode .contentLayout {
+  justify-content: center;
+}
+
+.directMode .leagueListSection {
+  flex: 0 1 760px;
+  width: 100%;
+  max-width: 760px;
+}
+
+.directMode .contentLayout {
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .dashboardContainer {
+    min-height: 0;
+    max-width: 900px;
+    padding: 0 0 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboardContainer {
+    padding-bottom: 92px;
+  }
 }

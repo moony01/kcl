@@ -268,3 +268,50 @@
   color: $color-text-dim;
   text-align: center;
 }
+
+/* Opportunity cards keep utility metadata visible while adopting the shared surface system. */
+.grid {
+  gap: 20px;
+}
+
+.card {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.posterLink {
+  aspect-ratio: 16 / 9;
+}
+
+.cardBody {
+  padding: 20px;
+}
+
+.status {
+  top: 14px;
+  left: 14px;
+  padding: 7px 10px;
+  backdrop-filter: blur(14px);
+}
+
+.facts {
+  gap: 10px;
+  margin-top: 18px;
+  padding: 14px 0;
+}
+
+.readMore {
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.readMore:hover {
+  background: var(--color-primary-hover);
+}
+
+.notice {
+  background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface));
+}

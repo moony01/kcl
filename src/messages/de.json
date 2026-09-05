@@ -27,6 +27,7 @@
     "feed_aside_title": "MEARROW NETWORK",
     "feed_aside_description": "Teile deine Arbeit und verfolge Abstimmungen und News an einem Ort.",
     "feed_aside_ranking": "Echtzeit-Rangliste",
+    "feed_aside_following": "Gefolgt",
     "feed_aside_hall": "Ruhmeshalle",
     "feed_aside_news": "News",
     "feed_aside_publish": "Meine Arbeit verwalten",
@@ -163,7 +164,8 @@
     "contact_copied": "E-Mail Kopiert!",
     "hall_of_fame": "Ruhmeshalle",
     "news": "Nachrichten",
-    "auditions": "Auditions"
+    "auditions": "Auditions",
+    "following": "Gefolgt"
   },
   "News": {
     "title": "Nachrichten & Einblicke",
@@ -702,5 +704,35 @@
     "public": "Öffentliches Profil",
     "image": "Bild",
     "short": "Short"
+  },
+  "Following": {
+    "title": "Gefolgt",
+    "subtitle": "Behalte Agenturen und Künstler, die dir wichtig sind, an einem Ort im Blick.",
+    "eyebrow": "YOUR SIGNAL",
+    "login_title": "Melde dich an und erstelle deine Liste",
+    "login_description": "Folge Agenturen und Künstlern, um ihre aktuellen Ranglisten schnell zu sehen.",
+    "login_cta": "Anmelden / Registrieren",
+    "loading": "Deine Liste wird geladen…",
+    "error": "Deine Liste konnte nicht geladen werden.",
+    "retry": "Erneut versuchen",
+    "login_required": "Melde dich an, um ein Ziel zu folgen.",
+    "follow_error": "Der Folgen-Status konnte nicht aktualisiert werden.",
+    "follow": "Folgen",
+    "following": "Gefolgt",
+    "pending": "Wird aktualisiert…",
+    "search_label": "Gefolgte Ziele suchen",
+    "search_placeholder": "Agentur oder Künstler suchen",
+    "open_ranking": "In der Rangliste suchen",
+    "summary_description": "Aktuellen Rang und Popularität deiner gefolgten Ziele auf einen Blick.",
+    "following_count": "{count} gefolgt",
+    "your_signal": "YOUR SIGNAL",
+    "selected_title": "Deine Liste",
+    "empty_title": "Deine Liste ist leer",
+    "empty_description": "Füge Agenturen und Künstler aus den Empfehlungen rechts hinzu.",
+    "discover_eyebrow": "DISCOVER",
+    "recommendations": "Empfehlungen",
+    "no_results": "Keine Suchergebnisse.",
+    "rank": "Rang {rank}",
+    "votes": "{count} Stimmen"
   }
 }

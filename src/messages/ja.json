@@ -27,6 +27,7 @@
     "feed_aside_title": "MEARROW NETWORK",
     "feed_aside_description": "作品をシェアし、投票とニュースをここで確認しましょう。",
     "feed_aside_ranking": "リアルタイムランキング",
+    "feed_aside_following": "フォロー中",
     "feed_aside_hall": "殿堂",
     "feed_aside_news": "ニュース",
     "feed_aside_publish": "作品を管理",
@@ -163,7 +164,8 @@
     "contact_copied": "メールをコピーしました!",
     "hall_of_fame": "殿堂入り",
     "news": "ニュース",
-    "auditions": "オーディション"
+    "auditions": "オーディション",
+    "following": "フォロー中"
   },
   "News": {
     "title": "ニュース＆インサイト",
@@ -702,5 +704,35 @@
     "public": "公開プロフィール",
     "image": "画像",
     "short": "ショート"
+  },
+  "Following": {
+    "title": "フォロー中",
+    "subtitle": "気になる事務所やアーティストの動きを一か所で確認できます。",
+    "eyebrow": "YOUR SIGNAL",
+    "login_title": "ログインして気になるリストを作ろう",
+    "login_description": "事務所やアーティストをフォローして、最新ランキングをすぐに確認しましょう。",
+    "login_cta": "ログイン / 新規登録",
+    "loading": "フォローリストを読み込み中…",
+    "error": "フォローリストを読み込めませんでした。",
+    "retry": "再試行",
+    "login_required": "ログインするとフォローできます。",
+    "follow_error": "フォロー状態を変更できませんでした。",
+    "follow": "フォロー",
+    "following": "フォロー中",
+    "pending": "処理中…",
+    "search_label": "フォロー対象を検索",
+    "search_placeholder": "事務所やアーティストを検索",
+    "open_ranking": "ランキングから探す",
+    "summary_description": "フォロー中の対象の現在の順位と勢いをまとめて確認できます。",
+    "following_count": "{count}件フォロー中",
+    "your_signal": "YOUR SIGNAL",
+    "selected_title": "フォロー中の対象",
+    "empty_title": "まだフォローしていません",
+    "empty_description": "右側のおすすめから事務所やアーティストを追加してみましょう。",
+    "discover_eyebrow": "DISCOVER",
+    "recommendations": "おすすめ",
+    "no_results": "検索結果がありません。",
+    "rank": "{rank}位",
+    "votes": "{count}票"
   }
 }

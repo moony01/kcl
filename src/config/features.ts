@@ -39,6 +39,12 @@ export const FEATURES = {
   AUDITIONS_PAGE: true,
 
   /**
+   * 관심 피드 (소속사·아티스트 팔로우)
+   * - 경로: /[locale]/following
+   */
+  FOLLOWING_PAGE: true,
+
+  /**
    * 프로필/로그인 (Profile/Auth)
    * - 경로: /[locale]/my, /[locale]/login
    * - 상태: T1.70에서 활성화 (Google/Kakao OAuth + 이메일 로그인)

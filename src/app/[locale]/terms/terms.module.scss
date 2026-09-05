@@ -4,9 +4,10 @@
  */
 
 .legalPage {
-  min-height: 100vh;
-  padding: 24px 16px;
-  background: var(--bg-primary);
+  width: 100%;
+  min-height: 0;
+  padding: 0 0 72px;
+  background: transparent;
 }
 
 .container {
@@ -17,20 +18,28 @@
 .header {
   margin-bottom: 32px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--color-border);
 
   .title {
     font-size: 28px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-text);
     margin: 0 0 8px;
   }
 
   .lastUpdated {
     font-size: 13px;
-    color: var(--text-muted);
+    color: var(--color-text-muted);
     margin: 0;
   }
+}
+
+.content {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .content {
@@ -40,14 +49,14 @@
     h2 {
       font-size: 18px;
       font-weight: 600;
-      color: var(--text-primary);
+      color: var(--color-text);
       margin: 0 0 12px;
     }
 
     p {
       font-size: 14px;
       line-height: 1.8;
-      color: var(--text-secondary);
+      color: var(--color-text-dim);
       margin: 0 0 12px;
     }
 
@@ -58,7 +67,7 @@
       li {
         font-size: 14px;
         line-height: 1.8;
-        color: var(--text-secondary);
+      color: var(--color-text-dim);
         margin-bottom: 8px;
       }
     }
@@ -68,14 +77,14 @@
 .legalNotice {
   margin-top: 40px;
   padding: 16px;
-  background: var(--surface-secondary);
+  background: var(--color-surface);
   border-radius: 8px;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--color-primary);
 
   p {
     font-size: 13px;
     line-height: 1.6;
-    color: var(--text-muted);
+    color: var(--color-text-muted);
     margin: 0;
     font-style: italic;
   }
@@ -84,8 +93,11 @@
 // 반응형
 @media (max-width: 768px) {
   .legalPage {
-    padding: 16px 12px;
-    padding-bottom: 100px; // BottomNav 공간
+    padding: 0 0 96px; // BottomNav 공간
+  }
+
+  .content {
+    padding: 18px;
   }
 
   .header {

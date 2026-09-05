@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { generatePageMetadata } from '@/lib/seo';
 import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './privacy.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -39,12 +40,13 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const t = await getTranslations({ locale, namespace: 'Legal' });
 
   return (
-    <main className={styles.legalPage}>
+    <PageFrame size="narrow" className={styles.legalPage}>
       <div className={styles.container}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>{t('privacy_title')}</h1>
-          <p className={styles.lastUpdated}>{t('last_updated')}: 2026-01-15</p>
-        </header>
+        <PageHeader
+          eyebrow={BRAND_NAME}
+          title={t('privacy_title')}
+          description={`${t('last_updated')}: 2026-01-15`}
+        />
 
         <article className={styles.content}>
           {/* 개요 */}
@@ -111,6 +113,6 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <p>{t('legal_review_notice')}</p>
         </div>
       </div>
-    </main>
+    </PageFrame>
   );
 }

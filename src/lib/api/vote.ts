@@ -15,6 +15,7 @@
 import { VOTE_LIMITS } from '@/config/vote';
 import { getVoteBackendUserId } from '@/lib/auth/development-test-mode';
 import { getSupabase } from '@/lib/supabase/client';
+import { createClientIdentifier } from '@/lib/utils/client-id';
 import { GUEST_VOTER_ID_STORAGE_KEY } from '@/lib/vote-quota';
 
 export const KPOPFACE_EMBED_POWER_MAX = VOTE_LIMITS.KPOPFACE_EMBED_POWER_MAX;
@@ -26,10 +27,7 @@ function getGuestVoteFingerprint(): string | null {
     const stored = localStorage.getItem(GUEST_VOTER_ID_STORAGE_KEY);
     if (stored) return stored;
 
-    const generated =
-      typeof crypto !== 'undefined' && 'randomUUID' in crypto
-        ? crypto.randomUUID()
-        : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const generated = createClientIdentifier();
     localStorage.setItem(GUEST_VOTER_ID_STORAGE_KEY, generated);
     return generated;
   } catch {

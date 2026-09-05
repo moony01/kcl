@@ -34,6 +34,109 @@ export type { SupabaseClient };
 /** 싱글톤 인스턴스 */
 let supabaseInstance: SupabaseClient | null = null;
 
+type NoopQueryResult = {
+  data: unknown;
+  error: Error | null;
+  count: number;
+};
+
+interface NoopQueryOptions {
+  /** RPC calls cannot be treated as successful when Supabase is unavailable. */
+  rejectMutations?: boolean;
+}
+
+/**
+ * Keep the static shell usable when local Supabase variables are absent.
+ *
+ * The old fallback returned a callable proxy for `from`, but the value
+ * returned by `from()` did not implement the query-builder methods such as
+ * `select()` or `eq()`. That made every public data hook throw during local
+ * browser checks instead of rendering its empty/error state.
+ */
+function createNoopQuery({ rejectMutations = false }: NoopQueryOptions = {}) {
+  let returnsSingleRow = false;
+  let isMutation = rejectMutations;
+
+  const target = {
+    then(
+      onFulfilled?: (result: NoopQueryResult) => unknown,
+      onRejected?: (reason: unknown) => unknown,
+    ) {
+      const result: NoopQueryResult = {
+        data: returnsSingleRow ? null : [],
+        error: isMutation ? new Error('Supabase is not configured.') : null,
+        count: 0,
+      };
+      return Promise.resolve(result).then(onFulfilled, onRejected);
+    },
+  };
+
+  const query = new Proxy(target as unknown as Record<string, unknown>, {
+    get(_target, property) {
+      if (property === 'then') return target.then;
+      if (typeof property === 'symbol') return undefined;
+
+      return () => {
+        if (['delete', 'insert', 'update', 'upsert'].includes(String(property))) {
+          isMutation = true;
+        }
+        if (property === 'single' || property === 'maybeSingle') {
+          returnsSingleRow = true;
+        }
+        return query;
+      };
+    },
+  });
+
+  return query;
+}
+
+function createNoopSupabaseClient() {
+  const configurationError = () => new Error('Supabase is not configured.');
+  const noopAuth = {
+    getSession: async () => ({ data: { session: null }, error: null }),
+    getUser: async () => ({ data: { user: null }, error: null }),
+    onAuthStateChange: () => ({
+      data: { subscription: { unsubscribe: () => {} } },
+      error: null,
+    }),
+    signOut: async () => ({ error: null }),
+    signInWithOAuth: async () => ({
+      data: { provider: null, url: null },
+      error: configurationError(),
+    }),
+    signInWithPassword: async () => ({
+      data: { session: null, user: null },
+      error: configurationError(),
+    }),
+    signUp: async () => ({
+      data: { session: null, user: null },
+      error: configurationError(),
+    }),
+    resetPasswordForEmail: async () => ({ error: configurationError() }),
+    updateUser: async () => ({ data: { user: null }, error: configurationError() }),
+    exchangeCodeForSession: async () => ({
+      data: { session: null, user: null },
+      error: configurationError(),
+    }),
+  };
+
+  const noopStorage = {
+    from: () => ({
+      getPublicUrl: () => ({ data: { publicUrl: '' }, error: null }),
+      upload: async () => ({ data: null, error: configurationError() }),
+      remove: async () => ({ data: null, error: configurationError() }),
+    }),
+  };
+
+  return {
+    auth: noopAuth,
+    from: () => createNoopQuery(),
+    rpc: () => createNoopQuery({ rejectMutations: true }),
+    storage: noopStorage,
+  } as unknown as SupabaseClient;
+}
+
 /**
  * Supabase 브라우저 클라이언트 생성/반환 (싱글톤)
  *
@@ -55,15 +158,10 @@ export function getSupabase(): SupabaseClient {
       '[Supabase Client] 환경변수가 설정되지 않았습니다. ' +
         'NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY를 확인하세요.',
     );
-    // SSG 빌드 prerender 시 환경변수 없이도 컴포넌트 body 실행이 통과하도록 no-op 프록시 반환
-    // "use client" 컴포넌트는 서버에서 body가 실행되나 useEffect/이벤트 핸들러는 실행되지 않음
-    // onAuthStateChange 패턴: const { data: { subscription } } = supabase.auth.onAuthStateChange(cb)
-    const noopReturn = { data: { subscription: { unsubscribe: () => {} }, session: null, user: null }, error: null };
-    const handler: ProxyHandler<object> = {
-      get: (_target, _prop) =>
-        new Proxy((..._args: unknown[]) => noopReturn, handler),
-    };
-    return new Proxy({}, handler) as unknown as SupabaseClient;
+    // SSG 빌드와 로컬 브라우저 확인에서 데이터 훅이 조용한 빈 상태를
+    // 렌더링하도록 체인 가능한 no-op 클라이언트를 반환합니다.
+    supabaseInstance = createNoopSupabaseClient();
+    return supabaseInstance;
   }
 
   supabaseInstance = createSupabaseClient(supabaseUrl, supabaseAnonKey, {

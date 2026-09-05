@@ -1,4 +1,5 @@
 import { getSupabase } from '@/lib/supabase/client';
+import { createClientIdentifier } from '@/lib/utils/client-id';
 
 export const PROFILE_IMAGE_BUCKET = 'profile-images';
 export const PROFILE_SHORTS_BUCKET = 'profile-shorts';
@@ -100,15 +101,7 @@ export class ProfileContentError extends Error {
 }
 
 function createProfileContentId(): string {
-  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
-    return crypto.randomUUID();
-  }
-
-  const randomPart = `${Date.now().toString(16)}${Math.random().toString(16).slice(2)}`
-    .replace(/[^a-f0-9]/gi, '')
-    .padStart(12, '0')
-    .slice(-12);
-  return `00000000-0000-4000-8000-${randomPart}`;
+  return createClientIdentifier();
 }
 
 function getProfileMediaBucket(mediaType: ProfileMediaType): string {
@@ -118,12 +111,13 @@ function getProfileMediaBucket(mediaType: ProfileMediaType): string {
 export function validateProfileMediaFile(file: File | null): string | null {
   if (!file) return '파일을 선택해주세요.';
 
-  const isImage = file.type.startsWith('image/');
-  const isVideo = file.type.startsWith('video/');
+  const mimeType = file.type.toLowerCase();
   const allowedImageTypes = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/heic']);
   const allowedVideoTypes = new Set(['video/mp4', 'video/webm', 'video/quicktime']);
+  const isImage = allowedImageTypes.has(mimeType);
+  const isVideo = allowedVideoTypes.has(mimeType);
 
-  if (!allowedImageTypes.has(file.type) && !allowedVideoTypes.has(file.type)) {
+  if (!isImage && !isVideo) {
     return 'JPG, PNG, WebP, HEIC 이미지 또는 MP4, WebM, MOV 영상만 업로드할 수 있습니다.';
   }
 
@@ -139,7 +133,6 @@ export function validateProfileMediaFile(file: File | null): string | null {
 }
 
 export function buildProfileFeedPath(userId: string, file: File, contentId = createProfileContentId()): string {
-  const extensionFromName = file.name.split('.').pop()?.toLowerCase();
   const extensionByType: Record<string, string> = {
     'image/jpeg': 'jpg',
     'image/png': 'png',
@@ -149,9 +142,7 @@ export function buildProfileFeedPath(userId: string, file: File, contentId = cre
     'video/webm': 'webm',
     'video/quicktime': 'mov',
   };
-  const extension = extensionFromName && /^[a-z0-9]+$/.test(extensionFromName)
-    ? extensionFromName
-    : extensionByType[file.type] || 'bin';
+  const extension = extensionByType[file.type.toLowerCase()] || 'bin';
   return `${userId}/${contentId}.${extension}`;
 }
 
@@ -358,8 +349,15 @@ export async function uploadProfilePost(
   const validationError = validateProfileMediaFile(file);
   if (validationError) throw new ProfileContentError(validationError);
 
-  const isVideo = file.type.startsWith('video/');
-  if (isVideo && (durationSeconds === null || durationSeconds > PROFILE_VIDEO_MAX_SECONDS)) {
+  const mimeType = file.type.toLowerCase();
+  const isVideo = mimeType.startsWith('video/');
+  if (
+    isVideo &&
+    (durationSeconds === null ||
+      !Number.isInteger(durationSeconds) ||
+      durationSeconds < 1 ||
+      durationSeconds > PROFILE_VIDEO_MAX_SECONDS)
+  ) {
     throw new ProfileContentError('숏츠는 60초 이하만 업로드할 수 있습니다.');
   }
 
@@ -381,7 +379,7 @@ export async function uploadProfilePost(
       user_id: userId,
       media_type: mediaType,
       storage_path: storagePath,
-      mime_type: file.type,
+      mime_type: mimeType,
       file_size_bytes: file.size,
       duration_seconds: isVideo ? durationSeconds : null,
       caption: trimmedCaption || null,
@@ -393,7 +391,7 @@ export async function uploadProfilePost(
 
   const { error: uploadError } = await storage.upload(storagePath, file, {
     cacheControl: '31536000',
-    contentType: file.type,
+    contentType: mimeType,
     upsert: false,
   });
 

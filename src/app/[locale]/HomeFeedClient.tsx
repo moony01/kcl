@@ -8,6 +8,7 @@ import {
   Check,
   CirclePlay,
   Clock3,
+  Heart,
   Image as ImageIcon,
   ListOrdered,
   Newspaper,
@@ -360,6 +361,29 @@ function FeedComposer({ locale, isAuthenticated }: { locale: string; isAuthentic
   );
 }
 
+function VoteEntryCard({ locale }: { locale: string }) {
+  const t = useTranslations('Home');
+
+  return (
+    <section className={styles.voteEntryCard} aria-label={t('feed_aside_ranking')}>
+      <div className={styles.voteEntryCopy}>
+        <span className={styles.voteEntryIcon} aria-hidden="true">
+          <ListOrdered size={19} />
+        </span>
+        <div>
+          <p className={styles.voteEntryEyebrow}>{t('feed_aside_ranking')}</p>
+          <h2>{t('title')}</h2>
+          <p className={styles.voteEntryDescription}>{t('feed_aside_description')}</p>
+        </div>
+      </div>
+      <Link className={styles.voteEntryCta} href={`/${locale}/ranking`}>
+        <span>{t('vote_button')}</span>
+        <ArrowUpRight size={16} aria-hidden="true" />
+      </Link>
+    </section>
+  );
+}
+
 function FeedAside({ locale, isAuthenticated }: { locale: string; isAuthenticated: boolean }) {
   const t = useTranslations('Home');
   const publishingPath = `/${locale}/${isAuthenticated ? 'my' : 'login'}`;
@@ -374,6 +398,11 @@ function FeedAside({ locale, isAuthenticated }: { locale: string; isAuthenticate
           <Link className={styles.asideLink} href={`/${locale}/ranking`}>
             <ListOrdered size={17} aria-hidden="true" />
             <span>{t('feed_aside_ranking')}</span>
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
+          <Link className={styles.asideLink} href={`/${locale}/following`}>
+            <Heart size={17} aria-hidden="true" />
+            <span>{t('feed_aside_following')}</span>
             <ArrowUpRight size={15} aria-hidden="true" />
           </Link>
           <Link className={styles.asideLink} href={`/${locale}/hall-of-fame`}>
@@ -492,6 +521,7 @@ export default function HomeFeedClient() {
             </div>
           </header>
 
+          <VoteEntryCard locale={locale} />
           <FeedComposer locale={locale} isAuthenticated={isAuthenticated} />
 
           <div className={styles.feedToolbar}>

@@ -116,6 +116,9 @@ describe('profile content validation', () => {
   it('builds a user-scoped path with a safe extension', () => {
     const path = buildProfileFeedPath('user-id', makeFile('practice.MOV', 'video/quicktime', 1));
     expect(path).toMatch(/^user-id\/[0-9a-f-]+\.mov$/);
+
+    const disguisedPath = buildProfileFeedPath('user-id', makeFile('payload.html', 'image/jpeg', 1));
+    expect(disguisedPath).toMatch(/^user-id\/[0-9a-f-]+\.jpg$/);
   });
 
   it('keeps the agreed product limits explicit', () => {

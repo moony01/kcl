@@ -190,6 +190,12 @@ function transformToCompanyRanking(
       en: company.groups?.map((g) => g.name_en) || [],
       ko: company.groups?.map((g) => g.name_ko) || [],
     },
+    groups: company.groups?.map((group) => ({
+      id: group.id,
+      nameEn: group.name_en,
+      nameKo: group.name_ko,
+      voteCount: group.vote_count,
+    })),
     ...(subLabels && subLabels.length > 0 && { subLabels }),
   };
 }

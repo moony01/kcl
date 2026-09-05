@@ -57,6 +57,14 @@ export interface SubLabelInfo {
   };
 }
 
+/** 팔로우 선택기에 표시할 아티스트 그룹 요약 정보 */
+export interface GroupSummary {
+  id: string;
+  nameEn: string;
+  nameKo: string;
+  voteCount: number;
+}
+
 /** 소속사 순위 정보 */
 export interface CompanyRanking {
   companyId: string;
@@ -85,6 +93,9 @@ export interface CompanyRanking {
     en: string[];
     ko: string[];
   };
+
+  /** 팔로우 선택기용 아티스트 그룹 목록 */
+  groups?: GroupSummary[];
 
   /** T1.75: 산하 레이블 목록 (없으면 undefined) */
   subLabels?: SubLabelInfo[];

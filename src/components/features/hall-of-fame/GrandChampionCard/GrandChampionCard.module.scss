@@ -1,10 +1,12 @@
 @use '../../../../styles/abstracts/variables' as *;
 
 .container {
-  padding: 24px 0 28px;
-  border-top: 2px solid $color-primary;
-  border-bottom: 1px solid $color-border;
-  background: color-mix(in srgb, var(--color-primary) 4%, transparent);
+  padding: 24px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, var(--color-border));
+  border-top: 3px solid $color-primary;
+  border-radius: var(--radius-md);
+  background: linear-gradient(110deg, color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)) 0%, var(--color-surface) 72%);
+  box-shadow: var(--shadow-sm);
 }
 
 .title {
@@ -115,6 +117,10 @@
 }
 
 @media (max-width: 560px) {
+  .container {
+    padding: 20px;
+  }
+
   .record {
     align-items: flex-start;
     flex-direction: column;

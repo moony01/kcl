@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { CalendarSearch, Home, ListOrdered, Newspaper, Trophy } from 'lucide-react';
+import { CalendarSearch, Heart, Home, ListOrdered, Newspaper, Trophy } from 'lucide-react';
 import { isFeatureEnabled, type FeatureKey } from '@/config/features';
 
 export type PrimaryNavigationLabelKey =
@@ -7,7 +7,8 @@ export type PrimaryNavigationLabelKey =
   | 'ranking'
   | 'hall_of_fame'
   | 'news'
-  | 'auditions';
+  | 'auditions'
+  | 'following';
 
 export type PrimaryNavigationItem = {
   id: PrimaryNavigationLabelKey;
@@ -34,6 +35,13 @@ export const PRIMARY_NAV_ITEMS: readonly PrimaryNavigationItem[] = [
     path: '/auditions',
     icon: CalendarSearch,
     feature: 'AUDITIONS_PAGE',
+  },
+  {
+    id: 'following',
+    labelKey: 'following',
+    path: '/following',
+    icon: Heart,
+    feature: 'FOLLOWING_PAGE',
   },
 ];
 

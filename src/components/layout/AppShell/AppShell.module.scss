@@ -82,24 +82,26 @@ $sidebar-width-wide: 244px;
 // 콘텐츠 내부 래퍼 (중앙 정렬 및 최대 너비 제한)
 .contentInner {
   width: 100%;
-  max-width: 1160px; // LinkedIn형 콘텐츠 캔버스
+  max-width: 1280px; // 콘텐츠 캔버스: 중앙 피드 + 선택형 보조 레일
   margin: 0 auto; // 중앙 정렬
   flex: 1;
   position: relative;
   min-width: 0;
 
-  // 모바일: 전체 폭 피드 + 최소 좌우 여백
-  padding: 0 12px;
+  // 모바일: 전체 폭 피드 + 터치 여백
+  padding: 0 16px;
 
-  // 데스크톱: 넉넉한 캔버스 여백
+  // 태블릿/데스크톱: 공통 페이지 프레임이 안쪽 너비를 결정
   @media (min-width: 769px) {
-    padding: 20px 24px;
+    padding: 20px 28px;
   }
 
-  // 대형 화면: 중앙 피드와 보조 레일을 함께 수용
   @media (min-width: 1400px) {
-    max-width: 1240px;
-    padding-inline: 32px;
+    padding-inline: 36px;
+  }
+
+  @media (max-width: 480px) {
+    padding-inline: 12px;
   }
 }
 
@@ -119,6 +121,9 @@ $sidebar-width-wide: 244px;
 
 // 법적 고지 푸터
 .legalFooter {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 28px 16px 20px;
   text-align: center;
   color: $color-text-dim;

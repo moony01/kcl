@@ -7,6 +7,7 @@ import { generatePageMetadata } from '@/lib/seo';
 import { FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import { BRAND_NAME } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
+import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 /** 지원하는 12개 언어에 대해 정적 페이지 생성 */
@@ -72,16 +73,14 @@ export default async function NewsPage({ params }: NewsPageProps) {
   };
 
   return (
-    <main className={styles.container}>
+    <PageFrame>
       <JsonLd data={newsListJsonLd} />
-      {/* 페이지 헤더 */}
-      <header className={styles.header}>
-        <div className={styles.titleWrapper}>
-          <Newspaper size={32} className={styles.icon} />
-          <h1 className={styles.title}>{t('title')}</h1>
-        </div>
-        <p className={styles.subtitle}>{t('subtitle')}</p>
-      </header>
+      <PageHeader
+        eyebrow={BRAND_NAME}
+        title={t('title')}
+        description={t('subtitle')}
+        icon={<Newspaper size={26} />}
+      />
 
       {/* 뉴스 그리드 */}
       {posts.length > 0 ? (
@@ -104,6 +103,6 @@ export default async function NewsPage({ params }: NewsPageProps) {
         </div>
       )}
 
-    </main>
+    </PageFrame>
   );
 }

@@ -41,3 +41,12 @@ export {
 
 // Hall of Fame API
 export { getHallOfFame } from './hall-of-fame';
+
+// Following API
+export {
+  getMyFollowing,
+  toggleFollow,
+  FollowingError,
+  type FollowingState,
+  type FollowTargetType,
+} from './following';

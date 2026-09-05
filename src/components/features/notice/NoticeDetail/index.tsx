@@ -54,7 +54,24 @@ export default function NoticeDetail({ notice, loading, onBack }: NoticeDetailPr
       <div
         className={`${styles.detailContent} ql-editor`}
         dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize(notice.content),
+          __html: DOMPurify.sanitize(notice.content, {
+            USE_PROFILES: { html: true },
+            ALLOW_DATA_ATTR: false,
+            FORBID_TAGS: [
+              'base',
+              'embed',
+              'form',
+              'iframe',
+              'input',
+              'object',
+              'script',
+              'style',
+              'textarea',
+            ],
+            FORBID_ATTR: ['action', 'formaction', 'onerror', 'onload', 'style'],
+            ALLOW_UNKNOWN_PROTOCOLS: false,
+            ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+          }),
         }}
       />
     </div>

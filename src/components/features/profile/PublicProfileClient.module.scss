@@ -3,8 +3,7 @@
 .container {
   width: 100%;
   max-width: 980px;
-  margin: 0 auto;
-  padding: 32px 20px 88px;
+  padding: 0 0 16px;
 }
 
 .backLink {
@@ -29,18 +28,30 @@
 }
 
 .profileHeader {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 22px;
   margin-top: 26px;
-  padding: 26px;
+  padding: 68px 26px 26px;
   border: 1px solid $color-border;
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   background: $color-surface;
   box-shadow: var(--shadow-sm);
 }
 
+.profileHeader::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 58px;
+  background: linear-gradient(105deg, color-mix(in srgb, var(--color-primary) 24%, var(--color-surface)) 0%, color-mix(in srgb, var(--color-accent) 20%, var(--color-surface)) 100%);
+  content: '';
+}
+
 .avatar {
+  position: relative;
+  z-index: 1;
   display: grid;
   flex: 0 0 96px;
   width: 96px;
@@ -53,6 +64,8 @@
   font-family: $font-display;
   font-size: 2rem;
   font-weight: 850;
+  border: 4px solid var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .avatar img {
@@ -62,7 +75,42 @@
 }
 
 .profileCopy {
+  position: relative;
+  z-index: 1;
   min-width: 0;
+}
+
+.profileTabs {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profileTabs a {
+  position: relative;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  color: var(--color-text-dim);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.profileTabs a:first-child {
+  color: var(--color-primary);
+}
+
+.profileTabs a:first-child::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--color-primary);
+  content: '';
 }
 
 .profileCopy h1,
@@ -134,7 +182,7 @@
   min-width: 0;
   overflow: hidden;
   border: 1px solid $color-border;
-  border-radius: 18px;
+  border-radius: var(--radius-md);
   background: $color-surface;
   box-shadow: var(--shadow-sm);
 }
@@ -211,7 +259,7 @@
   gap: 18px;
   padding: 16px 18px;
   border: 1px solid $color-border;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   background: $color-surface;
 }
 
@@ -310,8 +358,12 @@
   .profileHeader {
     align-items: flex-start;
     gap: 15px;
-    padding: 18px;
+    padding: 56px 18px 18px;
     border-radius: 17px;
+  }
+
+  .profileHeader::before {
+    height: 46px;
   }
 
   .avatar {

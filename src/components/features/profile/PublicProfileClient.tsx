@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { ArrowLeft, CalendarDays, CirclePlay, Image as ImageIcon } from 'lucide-react';
 import {
@@ -19,6 +20,8 @@ import {
 import ProfilePostSocial, {
   type ProfilePostSocialLabels,
 } from './ProfilePostSocial';
+import PageFrame from '@/components/layout/PageFrame';
+import { PUBLIC_PROFILE_STATIC_SHELL_USERNAME } from '@/lib/constants';
 import styles from './PublicProfileClient.module.scss';
 
 interface PublicProfileClientProps {
@@ -47,6 +50,23 @@ function formatDate(value: string, locale: string): string {
 
 function getInitial(username: string): string {
   return Array.from(username.trim())[0]?.toUpperCase() || 'M';
+}
+
+function getUsernameFromPathname(pathname: string | null): string | null {
+  if (!pathname) return null;
+
+  const marker = '/profile/';
+  const markerIndex = pathname.indexOf(marker);
+  if (markerIndex < 0) return null;
+
+  const encodedUsername = pathname.slice(markerIndex + marker.length).split('/')[0];
+  if (!encodedUsername) return null;
+
+  try {
+    return decodeURIComponent(encodedUsername);
+  } catch {
+    return encodedUsername;
+  }
 }
 
 function ProfilePostMedia({
@@ -96,6 +116,10 @@ export default function PublicProfileClient({
 }: PublicProfileClientProps) {
   const t = useTranslations('PublicProfile');
   const homeT = useTranslations('Home');
+  const pathname = usePathname();
+  const resolvedUsername = username === PUBLIC_PROFILE_STATIC_SHELL_USERNAME
+    ? getUsernameFromPathname(pathname) || username
+    : username;
   const [profile, setProfile] = useState<PublicProfile | null>(null);
   const [posts, setPosts] = useState<PublicProfilePost[]>([]);
   const [activities, setActivities] = useState<PublicProfileActivity[]>([]);
@@ -108,7 +132,7 @@ export default function PublicProfileClient({
     setHasError(false);
 
     try {
-      const nextProfile = await getPublicProfileByUsername(username);
+      const nextProfile = await getPublicProfileByUsername(resolvedUsername);
       if (!isActive()) return;
       if (!nextProfile) {
         setProfile(null);
@@ -143,7 +167,7 @@ export default function PublicProfileClient({
     } finally {
       if (isActive()) setIsLoading(false);
     }
-  }, [username]);
+  }, [resolvedUsername]);
 
   useEffect(() => {
     let active = true;
@@ -175,31 +199,31 @@ export default function PublicProfileClient({
 
   if (isLoading) {
     return (
-      <main className={styles.container}>
+      <PageFrame size="wide" className={styles.container}>
         <div className={styles.state} aria-busy="true">
           <span className={styles.spinner} aria-hidden="true" />
           <p>{t('loading')}</p>
         </div>
-      </main>
+      </PageFrame>
     );
   }
 
   if (hasError) {
     return (
-      <main className={styles.container}>
+      <PageFrame size="wide" className={styles.container}>
         <div className={styles.state} role="alert">
           <p>{t('error')}</p>
           <button type="button" className={styles.retryButton} onClick={() => void loadProfile()}>
             {t('retry')}
           </button>
         </div>
-      </main>
+      </PageFrame>
     );
   }
 
   if (!profile) {
     return (
-      <main className={styles.container}>
+      <PageFrame size="wide" className={styles.container}>
         <div className={styles.state}>
           <p>{t('not_found')}</p>
           <Link className={styles.backLink} href={'/' + locale}>
@@ -207,14 +231,14 @@ export default function PublicProfileClient({
             {t('back')}
           </Link>
         </div>
-      </main>
+      </PageFrame>
     );
   }
 
   const avatarUrl = safeMediaUrl(profile.avatar_url || '');
 
   return (
-    <main className={styles.container}>
+    <PageFrame size="wide" className={styles.container}>
       <Link className={styles.backLink} href={'/' + locale}>
         <ArrowLeft size={16} aria-hidden="true" />
         {t('back')}
@@ -235,6 +259,11 @@ export default function PublicProfileClient({
           {profile.bio && <p className={styles.bio}>{profile.bio}</p>}
         </div>
       </header>
+
+      <nav className={styles.profileTabs} aria-label={t('public')}>
+        <a href="#public-profile-posts">{t('posts')}</a>
+        <a href="#public-profile-activities">{t('activities')}</a>
+      </nav>
 
       <section className={styles.section} aria-labelledby="public-profile-posts">
         <div className={styles.sectionHeading}>
@@ -313,6 +342,6 @@ export default function PublicProfileClient({
           </div>
         )}
       </section>
-    </main>
+    </PageFrame>
   );
 }

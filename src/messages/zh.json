@@ -27,6 +27,7 @@
     "feed_aside_title": "MEARROW NETWORK",
     "feed_aside_description": "分享你的作品，并在这里查看投票和新闻。",
     "feed_aside_ranking": "实时排名",
+    "feed_aside_following": "关注",
     "feed_aside_hall": "名人堂",
     "feed_aside_news": "新闻",
     "feed_aside_publish": "管理我的作品",
@@ -163,7 +164,8 @@
     "contact_copied": "邮箱已复制!",
     "hall_of_fame": "名人堂",
     "news": "新闻",
-    "auditions": "试镜"
+    "auditions": "试镜",
+    "following": "关注"
   },
   "News": {
     "title": "新闻与洞察",
@@ -702,5 +704,35 @@
     "public": "公开个人资料",
     "image": "图片",
     "short": "短视频"
+  },
+  "Following": {
+    "title": "关注",
+    "subtitle": "在一个页面查看你关心的经纪公司和艺人动态。",
+    "eyebrow": "YOUR SIGNAL",
+    "login_title": "登录后创建你的关注列表",
+    "login_description": "关注经纪公司和艺人，随时查看他们的最新排名。",
+    "login_cta": "登录 / 注册",
+    "loading": "正在加载关注列表…",
+    "error": "无法加载关注列表。",
+    "retry": "重试",
+    "login_required": "登录后即可添加关注对象。",
+    "follow_error": "无法更新关注状态。",
+    "follow": "关注",
+    "following": "已关注",
+    "pending": "处理中…",
+    "search_label": "搜索关注对象",
+    "search_placeholder": "搜索经纪公司或艺人",
+    "open_ranking": "从排名中查找",
+    "summary_description": "集中查看你关注对象的当前排名和热度。",
+    "following_count": "已关注 {count} 个",
+    "your_signal": "YOUR SIGNAL",
+    "selected_title": "我的关注",
+    "empty_title": "还没有关注对象",
+    "empty_description": "从右侧推荐列表添加经纪公司和艺人吧。",
+    "discover_eyebrow": "DISCOVER",
+    "recommendations": "推荐关注",
+    "no_results": "没有搜索结果。",
+    "rank": "第 {rank} 名",
+    "votes": "{count} 票"
   }
 }

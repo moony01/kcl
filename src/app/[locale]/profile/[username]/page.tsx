@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import PublicProfileClient from '@/components/features/profile/PublicProfileClient';
 import { BRAND_NAME } from '@/lib/brand';
-import { FULL_URL } from '@/lib/constants';
+import {
+  FULL_URL,
+  PUBLIC_PROFILE_STATIC_SHELL_USERNAME,
+  SUPPORTED_LOCALES,
+} from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
 import { generatePageMetadata } from '@/lib/seo';
 
@@ -14,12 +18,16 @@ interface PublicProfilePageProps {
 }
 
 /**
- * Public profiles are loaded from Supabase in the client. Workers handles
- * arbitrary usernames at request time; the empty list keeps the legacy static
- * export from trying to enumerate database users at build time.
+ * Public profiles are loaded from Supabase in the client. Pages needs one
+ * concrete shell path because arbitrary database usernames are not known at
+ * build time; Cloudflare rewrites arbitrary profile URLs to this shell while
+ * Workers handles the dynamic route at request time.
  */
 export function generateStaticParams() {
-  return [];
+  return SUPPORTED_LOCALES.map((locale) => ({
+    locale,
+    username: PUBLIC_PROFILE_STATIC_SHELL_USERNAME,
+  }));
 }
 
 function decodeUsername(value: string): string {

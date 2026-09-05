@@ -26,11 +26,11 @@ $sidebar-wide: 244px;
   height: 100vh;
   height: 100dvh;
   max-height: 100dvh;
-  background-color: $color-bg;
+  background-color: var(--color-surface);
   border-right: 1px solid $color-border;
   // 카드/검색 레이어보다 위에 고정해 확장 레일이 가려지지 않도록 합니다.
   z-index: $z-overlay;
-  padding: 16px 12px 20px;
+  padding: 18px 14px 20px;
   display: flex;
   flex-direction: column;
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -80,8 +80,8 @@ $sidebar-wide: 244px;
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  padding: 12px 4px;
-  margin-bottom: 4px;
+  padding: 10px 4px 18px;
+  margin-bottom: 8px;
 }
 
 // Brand Container (Logo + Text)
@@ -154,14 +154,14 @@ $sidebar-wide: 244px;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   overflow-y: auto;
 }
 
 // 네비게이션 아이템 (공통)
 .navItem {
-  height: 48px;
-  border-radius: 10px;
+  height: 50px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: flex-start; // 항상 좌측 정렬
@@ -186,6 +186,8 @@ $sidebar-wide: 244px;
 
   &.active {
     font-weight: 700;
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    color: var(--color-primary);
 
     .icon {
       stroke-width: 2.5px;

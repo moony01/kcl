@@ -17,6 +17,7 @@ import { AD_SLOTS } from '@/types/ads';
 import type { Announcement } from '@/types/announcement';
 import { BRAND_MARK_PATH, BRAND_NAME } from '@/lib/brand';
 import { FULL_URL } from '@/lib/constants';
+import PageFrame from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
 interface NoticeDetailClientProps {
@@ -80,7 +81,7 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
   const canonical = `${FULL_URL}/${seoLocale}/notice/${noticeId}`;
 
   return (
-    <div className={styles.noticePage}>
+    <PageFrame size="narrow" className={styles.noticePage}>
       <div className={styles.container}>
         {/* 목록으로 돌아가기 */}
         <Link href={`/${locale}/notice`} className={styles.backButton}>
@@ -162,6 +163,6 @@ export default function NoticeDetailClient({ locale, noticeId }: NoticeDetailCli
           </>
         )}
       </div>
-    </div>
+    </PageFrame>
   );
 }

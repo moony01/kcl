@@ -60,12 +60,6 @@ export default function NoticeClient({ locale }: NoticeClientProps) {
   return (
     <div className={styles.noticePage}>
       <div className={styles.container}>
-        {/* 페이지 헤더 */}
-        <header className={styles.header}>
-          <h2 className={styles.title}>{t('title')}</h2>
-          <p className={styles.subtitle}>{t('subtitle')}</p>
-        </header>
-
         {/* 카테고리 필터 */}
         <CategoryFilter
           selected={selectedCategory}

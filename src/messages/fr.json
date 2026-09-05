@@ -27,6 +27,7 @@
     "feed_aside_title": "MEARROW NETWORK",
     "feed_aside_description": "Partagez vos créations et suivez les votes et les actualités au même endroit.",
     "feed_aside_ranking": "Classement en direct",
+    "feed_aside_following": "Abonnements",
     "feed_aside_hall": "Temple de la renommée",
     "feed_aside_news": "Actualités",
     "feed_aside_publish": "Gérer mon travail",
@@ -163,7 +164,8 @@
     "contact_copied": "Email Copié!",
     "hall_of_fame": "Temple de la Renommée",
     "news": "Actualités",
-    "auditions": "Auditions"
+    "auditions": "Auditions",
+    "following": "Abonnements"
   },
   "News": {
     "title": "Actualités et Insights",
@@ -702,5 +704,35 @@
     "public": "Profil public",
     "image": "Image",
     "short": "Short"
+  },
+  "Following": {
+    "title": "Abonnements",
+    "subtitle": "Suivez les agences et artistes qui vous intéressent au même endroit.",
+    "eyebrow": "YOUR SIGNAL",
+    "login_title": "Connectez-vous pour créer votre liste",
+    "login_description": "Suivez des agences et des artistes pour garder leurs classements à portée de main.",
+    "login_cta": "Connexion / Inscription",
+    "loading": "Chargement de vos abonnements…",
+    "error": "Impossible de charger vos abonnements.",
+    "retry": "Réessayer",
+    "login_required": "Connectez-vous pour ajouter une cible.",
+    "follow_error": "Impossible de modifier l'abonnement.",
+    "follow": "Suivre",
+    "following": "Abonné",
+    "pending": "Mise à jour…",
+    "search_label": "Rechercher dans les abonnements",
+    "search_placeholder": "Rechercher une agence ou un artiste",
+    "open_ranking": "Chercher dans le classement",
+    "summary_description": "Retrouvez le rang et la popularité actuels de vos abonnements.",
+    "following_count": "{count} abonnement(s)",
+    "your_signal": "YOUR SIGNAL",
+    "selected_title": "Vos abonnements",
+    "empty_title": "Votre liste est vide",
+    "empty_description": "Ajoutez des agences et artistes depuis les recommandations à droite.",
+    "discover_eyebrow": "DISCOVER",
+    "recommendations": "Recommandations",
+    "no_results": "Aucun résultat.",
+    "rank": "Rang {rank}",
+    "votes": "{count} votes"
   }
 }
