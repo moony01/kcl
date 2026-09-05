@@ -1,4 +1,4 @@
-# KCL 월초 시즌 정산 자동화
+# MEARROW 월초 시즌 정산 자동화
 #
 # 매월 1일 00:00 UTC (한국시간 09:00)에 실행
 #
@@ -10,12 +10,12 @@
 # 참고: monthly_league_promotion 함수가 내부에서 firepower 초기화까지 수행하므로
 #       별도 reset_monthly_firepower 호출은 불필요 (이중 초기화 방지)
 #
-# 수동 실행: Actions 탭 > "KCL Monthly Season Settlement" > Run workflow
+# 수동 실행: Actions 탭 > "MEARROW Monthly Season Settlement" > Run workflow
 
-name: KCL Monthly Season Settlement
+name: MEARROW Monthly Season Settlement
 
 concurrency:
-  group: kcl-monthly-season-settlement
+  group: mearrow-monthly-season-settlement
   cancel-in-progress: false
 
 on:
@@ -74,7 +74,7 @@ jobs:
 
       - name: Log execution info
         run: |
-          echo "🏆 KCL Monthly Season Settlement"
+          echo "🏆 MEARROW Monthly Season Settlement"
           echo "📅 Execution time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           echo "📅 Korea time: $(TZ='Asia/Seoul' date '+%Y-%m-%d %H:%M:%S KST')"
           echo "🔧 Dry run: ${{ github.event.inputs.dry_run || 'false' }}"

@@ -4,7 +4,7 @@
 
 [![Live](https://img.shields.io/badge/Live-mearrow.com-blue)](https://mearrow.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Cloudflare Pages](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Pages-F38020.svg?logo=cloudflare)](https://mearrow.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Hosted%20on-Cloudflare%20Workers-F38020.svg?logo=cloudflare)](https://mearrow.com/)
 
 🌐 **Live**: https://mearrow.com
 
@@ -28,9 +28,9 @@ MEARROW is a K-pop talent network where content, community, and opportunity conn
 
 | Layer | Technology |
 |-------|-----------|
-| **Framework** | Next.js 16 (App Router, static export) |
+| **Framework** | Next.js 16 (App Router, OpenNext) |
 | **Database** | Supabase (PostgreSQL) |
-| **Hosting** | Cloudflare Pages |
+| **Hosting** | Cloudflare Workers |
 | **i18n** | next-intl (7 languages) |
 | **Styling** | SCSS Modules |
 | **Animation** | Framer Motion |
@@ -48,8 +48,8 @@ MEARROW is a K-pop talent network where content, community, and opportunity conn
 ### Setup
 
 ```bash
-git clone https://github.com/moony01/kcl.git
-cd kcl
+git clone https://github.com/moony01/mearrow.git
+cd mearrow
 
 pnpm install
 ```
@@ -73,12 +73,12 @@ Open [http://localhost:3000](http://localhost:3000)
 pnpm build
 ```
 
-Output is generated in the `out/` directory (static export for Cloudflare Pages).
+The production Worker bundle is generated in `.open-next/`.
 
 ## Project Structure
 
 ```
-kcl/
+mearrow/
 ├── src/
 │   ├── app/
 │   │   ├── [locale]/        # Localized routes (7 languages)
@@ -100,27 +100,25 @@ kcl/
 
 ## Deployment
 
-Deployed on Cloudflare Pages as a fully static site (`output: 'export'`).
-
-Production deployment is browser-gated. Never run a direct Pages upload from a
-shell that does not have the public Supabase variables loaded; the static client
-would render the site shell but cannot load live league data.
+MEARROW is deployed as a Cloudflare Worker using OpenNext. Production deployment
+is browser-gated and runs through GitHub Actions. Never deploy from a shell that
+does not have the public Supabase variables loaded; the client would render the
+site shell but could not load live data.
 
 ```bash
 pnpm check:deploy-env
 DEPLOY_BROWSER_PATH=/path/to/chrome pnpm test:browser:deploy
-pnpm build
-pnpm exec wrangler pages deploy out --project-name kcl --branch main
+pnpm workers:build
 ```
 
 `test:browser:deploy` starts the development server, checks that live Supabase
 data renders company cards, verifies a news image is WebP-backed, and checks an
 English news detail through the locale fallback. A failed browser gate blocks
 the production deployment. The GitHub Actions workflow
-`.github/workflows/deploy-pages.yml` runs the same gate before a manual Pages
-production deployment.
+`.github/workflows/deploy-workers.yml` runs the same gate before a manual
+Workers production deployment.
 
-The `.github/workflows/kcl-league-promotion.yml` workflow runs on the 1st of every month (UTC 00:00) to:
+The `.github/workflows/mearrow-league-promotion.yml` workflow runs on the 1st of every month (UTC 00:00) to:
 1. Snapshot season rankings
 2. Record the monthly champion
 3. Execute league promotion + reset firepower
