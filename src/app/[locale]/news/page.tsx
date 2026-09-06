@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
+import Link from 'next/link';
 import { Newspaper } from 'lucide-react';
 import { getAllNews, NEWS_SOURCE_LOCALE } from '@/lib/news';
 import NewsGridClient from './NewsGridClient';
@@ -10,7 +11,7 @@ import { JsonLd } from '@/components/common/JsonLd';
 import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
@@ -82,6 +83,17 @@ export default async function NewsPage({ params }: NewsPageProps) {
         icon={<Newspaper size={26} />}
       />
 
+      <section className={styles.editorialNote} aria-labelledby="news-editorial-note-title">
+        <div>
+          <p className={styles.editorialEyebrow}>{BRAND_NAME}</p>
+          <h2 id="news-editorial-note-title">{t('editorialNoteTitle')}</h2>
+          <p>{t('editorialNoteBody')}</p>
+        </div>
+        <Link href={`/${locale}/editorial`} className={styles.editorialLink}>
+          {t('editorialPolicyLink')}
+        </Link>
+      </section>
+
       {/* 뉴스 그리드 */}
       {posts.length > 0 ? (
         <section className={styles.grid}>
@@ -93,6 +105,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
               date: post.date,
               category: post.category,
               thumbnail: post.thumbnail ?? undefined,
+              sourceCount: post.sources?.length ?? 0,
             }))}
             locale={locale}
           />

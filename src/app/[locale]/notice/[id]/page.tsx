@@ -13,7 +13,7 @@ import NoticeDetailClient from './NoticeDetailClient';
 
 /**
  * 정적 경로 생성
- * 12개 언어 × 모든 공지사항 ID 조합
+ * 지원 언어 × 모든 공지사항 ID 조합
  * 빌드 타임에 Supabase에서 공개된 공지사항 ID를 조회
  */
 export async function generateStaticParams() {

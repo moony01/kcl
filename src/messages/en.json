@@ -72,8 +72,8 @@
       "notice_cta": "View vote guide",
       "dismiss_today": "Close"
     },
-    "seo_title": "Welcome to MEARROW — The Ultimate K-pop Company Voting Platform",
-    "seo_intro": "K-pop Talent Network (MEARROW) is the world's first fan-powered ranking platform dedicated to K-pop entertainment companies. Millions of fans from over 190 countries cast their votes daily to support their favorite companies and the artists they love. Whether you're passionate about HYBE, SM Entertainment, JYP Entertainment, YG Entertainment, or any of the dozens of other agencies shaping the K-pop industry, MEARROW gives you the power to make your voice heard.",
+    "seo_title": "MEARROW — K-pop Company Fan Voting & Rankings",
+    "seo_intro": "MEARROW is an independent, fan-made K-pop Talent Network. It records daily fan votes for entertainment companies, publishes a live ranking for the current monthly season, and keeps a public archive of champions.",
     "seo_how_title": "How MEARROW Rankings Work",
     "seo_how_desc": "MEARROW operates on a unique league system inspired by European football. Companies compete in two divisions: the Premier League (1st Division) featuring top-performing companies, and the Challengers League (2nd Division) where rising companies battle for promotion. At the end of each monthly season, the bottom-ranked Premier League companies are relegated to Challengers, while the top Challengers earn their spot in the Premier League. This creates thrilling competition and gives every company a chance to reach the top.",
     "seo_vote_title": "Cast Your Vote Every Day",
@@ -81,7 +81,15 @@
     "seo_season_title": "Monthly Seasons & Champions",
     "seo_season_desc": "MEARROW runs on a monthly season cycle. Each month brings a fresh start with reset rankings, giving every company an equal opportunity to compete. At the end of the season, the top-ranked company in the Premier League is crowned the monthly champion and inducted into the Hall of Fame.",
     "seo_global_title": "A Global Platform for K-pop Fans",
-    "seo_global_desc": "Available in 12 languages including Korean, English, Japanese, Chinese, Spanish, Portuguese, French, German, Indonesian, Turkish, Thai, and Vietnamese, MEARROW brings together K-pop fans from every corner of the world. Join the global community and make your voice heard."
+    "seo_global_desc": "MEARROW is currently available in 7 languages: Korean, English, Japanese, Chinese, Spanish, French, and German.",
+    "seo_data_title": "What the numbers mean",
+    "seo_data_desc": "Ranking totals represent votes recorded on MEARROW during the current monthly season. They are a fan signal, not an official industry chart. Previous champions remain available in the Hall of Fame.",
+    "seo_trust_title": "Independent fan platform",
+    "seo_trust_desc": "MEARROW is an unofficial fan-made service and is not affiliated with entertainment companies. News articles identify their sources and distinguish reported facts from MEARROW commentary.",
+    "seo_links_label": "Explore MEARROW",
+    "seo_ranking_link": "See the live ranking",
+    "seo_news_link": "Read sourced news",
+    "seo_editorial_link": "Read our editorial standards"
   },
   "HallOfFame": {
     "title": "Hall of Fame",
@@ -177,7 +185,17 @@
     "views": "{count} views",
     "relatedNews": "More Stories",
     "category_all": "All",
-    "loadMore": "Show more"
+    "loadMore": "Show more",
+    "sourcesLabel": "Sources ({count})",
+    "editorialNoteTitle": "How MEARROW reports",
+    "editorialNoteBody": "The public news list is limited to articles with source links and MEARROW context. Read the editorial standards to see how we handle provenance, updates, and corrections.",
+    "editorialPolicyLink": "Editorial standards",
+    "authorLabel": "By",
+    "publishedLabel": "Published",
+    "updatedLabel": "Updated",
+    "sourcesTitle": "Sources & further reading",
+    "sourcesIntro": "This article separates reported facts from MEARROW's analysis. The links below are the source material used when the article was prepared.",
+    "correctionNote": "Found an error or an outdated detail? Contact us at contact@kcl.fan so we can review it."
   },
   "Auditions": {
     "metaTitle": "K-pop Audition Information",
@@ -473,7 +491,8 @@
     "privacy": "Privacy Policy",
     "copyright": "© 2026 MEARROW. All rights reserved.",
     "about": "About MEARROW",
-    "faq": "FAQ"
+    "faq": "FAQ",
+    "editorial": "Editorial standards"
   },
   "Legal": {
     "last_updated": "Last Updated",
@@ -541,13 +560,40 @@
     "feature_4_title": "News & Insights",
     "feature_4_desc": "Get the latest K-pop industry trends and analysis reports.",
     "feature_5_title": "Multilingual Support",
-    "feature_5_desc": "Available in 12 languages including Korean, English, and Japanese for fans worldwide.",
+    "feature_5_desc": "Available in 7 languages: Korean, English, Japanese, Chinese, Spanish, French, and German.",
+    "editorial_title": "Editorial standards",
+    "editorial_desc": "How MEARROW researches, explains, and updates its public information.",
+    "editorial_link": "Read our editorial standards",
     "team_title": "Our Team",
     "team_desc": "MEARROW is operated by a small team of developers and designers who love K-pop. We strive to create a fair and transparent platform for fans to enjoy.",
     "contact_title": "Contact Us",
     "contact_desc": "If you have any feedback, suggestions, or inquiries about MEARROW, please don't hesitate to reach out.",
     "contact_email": "Email: contact@kcl.fan",
     "disclaimer": "MEARROW is an unofficial fan-made platform and is not affiliated with any entertainment company."
+  },
+  "Editorial": {
+    "meta_title": "MEARROW Editorial Standards",
+    "meta_description": "Learn how MEARROW researches, explains, and updates its public information.",
+    "title": "Editorial standards",
+    "subtitle": "How we research, explain, and update public information.",
+    "intro": "MEARROW is an independent, fan-made K-pop platform. This page explains how we present voting data and how we decide which news articles belong on the public site.",
+    "sources_title": "Sources and provenance",
+    "sources_body": "Reported claims should be linked to source material such as an official notice, chart, organizer, or reputable news outlet. Published articles show their source links so readers can check the original context.",
+    "analysis_title": "MEARROW context",
+    "analysis_body": "A news article must add clear MEARROW context instead of repeating a headline. We keep an article public when it has source material and explains why the development matters to fans, companies, or the wider K-pop market.",
+    "ranking_title": "How to read rankings",
+    "ranking_body": "Ranking totals are votes recorded on MEARROW during the current monthly season. They represent fan activity on this service and are not an official industry chart or an endorsement by an entertainment company.",
+    "updates_title": "Dates and updates",
+    "updates_body": "We show when an article was published and update it when an important detail changes. Time-sensitive audition information should always be checked against the organizer's official page before applying.",
+    "corrections_title": "Corrections",
+    "corrections_body": "When we find a factual error or an outdated detail, we review the source, update the article, and keep the explanation clear for readers. Please contact us if something needs checking.",
+    "contact_title": "Contact the editorial team",
+    "contact_body": "Questions, source suggestions, and correction requests are welcome by email.",
+    "explore_label": "Explore MEARROW",
+    "news_link": "Read sourced news",
+    "ranking_link": "View live rankings",
+    "about_link": "About MEARROW",
+    "reviewed_on": "Editorial policy reviewed September 6, 2026."
   },
   "FAQ": {
     "meta_title": "Frequently Asked Questions (FAQ) - MEARROW",
@@ -571,7 +617,7 @@
     "q8": "How can I report a bug or make a suggestion?",
     "a8": "Please email us at contact@kcl.fan. Your feedback helps us improve MEARROW for everyone.",
     "q9": "What languages does MEARROW support?",
-    "a9": "MEARROW currently supports 12 languages: Korean, English, Japanese, Chinese, Spanish, Portuguese, French, German, Indonesian, Turkish, Thai, and Vietnamese."
+    "a9": "MEARROW currently supports 7 languages: Korean, English, Japanese, Chinese, Spanish, French, and German."
   },
   "Notice": {
     "title": "Notices",
@@ -629,7 +675,7 @@
     "hero_headline": "Vote for your favorite",
     "hero_highlight": "K-pop Agency",
     "hero_stat_agencies": "38 Agencies",
-    "hero_stat_languages": "12 Languages",
+    "hero_stat_languages": "7 Languages",
     "hero_stat_live": "Live Ranking",
     "email_sent_title": "Check your email",
     "email_sent_desc": "We sent a confirmation link to {email}. Click the link to verify your account.",

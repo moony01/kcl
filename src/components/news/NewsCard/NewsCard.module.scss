@@ -170,3 +170,23 @@
     opacity: 0.7;
   }
 }
+
+.sourceCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  max-width: 100%;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  white-space: nowrap;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  svg {
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+}

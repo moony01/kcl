@@ -5,7 +5,7 @@ import { SUPPORTED_LOCALES } from '@/lib/constants';
 import { JsonLd } from '@/components/common/JsonLd';
 import FaqClient from './FaqClient';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }

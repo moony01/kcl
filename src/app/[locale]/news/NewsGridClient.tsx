@@ -24,6 +24,7 @@ interface NewsPost {
   date: string;
   category?: string;
   thumbnail?: string;
+  sourceCount?: number;
 }
 
 interface NewsGridClientProps {
@@ -128,6 +129,8 @@ export default function NewsGridClient({ posts, locale }: NewsGridClientProps) {
             date={post.date}
             category={post.category}
             thumbnail={post.thumbnail}
+            sourceCount={post.sourceCount}
+            sourceCountLabel={t('sourcesLabel', { count: post.sourceCount ?? 0 })}
             locale={locale}
             commentCount={commentCounts[post.slug] ?? 0}
           />

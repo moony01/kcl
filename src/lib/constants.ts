@@ -44,3 +44,6 @@ export const PUBLIC_PROFILE_STATIC_SHELL_USERNAME = '__profile';
 
 /** Google AdSense Publisher ID */
 export const ADSENSE_PUBLISHER_ID = 'ca-pub-8955182453510440';
+
+/** Public support address currently used by MEARROW's legal and FAQ pages. */
+export const CONTACT_EMAIL = 'contact@kcl.fan';

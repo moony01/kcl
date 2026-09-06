@@ -6,7 +6,7 @@ import { BRAND_NAME } from '@/lib/brand';
 import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './terms.module.scss';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }

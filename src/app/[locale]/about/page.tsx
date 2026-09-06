@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import Link from 'next/link';
 import { generatePageMetadata } from '@/lib/seo';
-import { SUPPORTED_LOCALES, FULL_URL } from '@/lib/constants';
+import { CONTACT_EMAIL, SUPPORTED_LOCALES, FULL_URL } from '@/lib/constants';
 import { BRAND_NAME, BRAND_TITLE } from '@/lib/brand';
 import { JsonLd } from '@/components/common/JsonLd';
 import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 import styles from './page.module.scss';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }
@@ -89,6 +90,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
           </section>
 
+          {/* 편집 기준 */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>{t('editorial_title')}</h2>
+            <p className={styles.text}>{t('editorial_desc')}</p>
+            <Link href={`/${locale}/editorial`} className={styles.editorialLink}>
+              {t('editorial_link')}
+            </Link>
+          </section>
+
           {/* 팀 소개 */}
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>{t('team_title')}</h2>
@@ -99,7 +109,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>{t('contact_title')}</h2>
             <p className={styles.text}>{t('contact_desc')}</p>
-            <p className={styles.contactEmail}>{t('contact_email')}</p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className={styles.contactEmail}>
+              {t('contact_email')}
+            </a>
           </section>
 
           {/* 면책 조항 */}

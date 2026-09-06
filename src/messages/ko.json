@@ -72,8 +72,8 @@
       "notice_cta": "투표권 안내 보기",
       "dismiss_today": "닫기"
     },
-    "seo_title": "MEARROW에 오신 것을 환영합니다 — K-pop 소속사 투표 플랫폼",
-    "seo_intro": "K-pop Talent Network(MEARROW)는 K-pop 엔터테인먼트 소속사에 특화된 세계 최초의 팬 주도 랭킹 플랫폼입니다. 190개국 이상의 수백만 팬들이 매일 투표에 참여하여 좋아하는 소속사와 아티스트를 응원합니다. HYBE, SM Entertainment, JYP Entertainment, YG Entertainment 등 K-pop 산업을 이끄는 수십 개의 소속사 중 당신이 지지하는 곳에 목소리를 내세요.",
+    "seo_title": "MEARROW — K-pop 소속사 팬 투표와 랭킹",
+    "seo_intro": "MEARROW는 독립적으로 운영되는 K-pop 팬 제작 Talent Network입니다. 매일 소속사 투표를 기록하고 현재 월간 시즌의 실시간 랭킹과 역대 챔피언 기록을 제공합니다.",
     "seo_how_title": "MEARROW 랭킹은 어떻게 작동하나요",
     "seo_how_desc": "MEARROW는 유럽 축구에서 영감을 받은 독자적인 리그 시스템으로 운영됩니다. 소속사들은 두 개의 디비전에서 경쟁합니다. 상위권 소속사가 소속된 Premier League(1부 리그)와 승격을 목표로 경쟁하는 Challengers League(2부 리그)가 있습니다. 매월 시즌이 종료되면 Premier League 하위 소속사는 Challengers로 강등되고, Challengers 상위 소속사는 Premier League로 승격됩니다. 이 시스템은 짜릿한 경쟁을 만들어내며 모든 소속사에게 정상에 오를 기회를 제공합니다.",
     "seo_vote_title": "매일 투표에 참여하세요",
@@ -81,7 +81,15 @@
     "seo_season_title": "월간 시즌 & 챔피언",
     "seo_season_desc": "MEARROW는 월간 시즌제로 운영됩니다. 매월 랭킹이 초기화되어 모든 소속사에게 동등한 경쟁 기회가 주어집니다. 시즌이 종료되면 Premier League 1위 소속사가 월간 챔피언으로 선정되어 명예의 전당에 이름을 올립니다.",
     "seo_global_title": "전 세계 K-pop 팬을 위한 글로벌 플랫폼",
-    "seo_global_desc": "한국어, 영어, 일본어, 중국어, 스페인어, 포르투갈어, 프랑스어, 독일어, 인도네시아어, 터키어, 태국어, 베트남어를 포함한 12개 언어를 지원하는 MEARROW는 전 세계 모든 K-pop 팬을 하나로 연결합니다. 글로벌 커뮤니티에 참여하여 당신의 목소리를 들려주세요."
+    "seo_global_desc": "MEARROW는 현재 한국어, 영어, 일본어, 중국어, 스페인어, 프랑스어, 독일어 7개 언어를 지원합니다.",
+    "seo_data_title": "숫자는 무엇을 의미하나요",
+    "seo_data_desc": "랭킹 득표수는 현재 월간 시즌 동안 MEARROW에 기록된 투표입니다. 공식 산업 차트가 아니라 MEARROW 안의 팬 활동을 나타내며, 이전 챔피언은 명예의 전당에서 확인할 수 있습니다.",
+    "seo_trust_title": "독립적인 팬 플랫폼",
+    "seo_trust_desc": "MEARROW는 비공식 팬 제작 서비스이며 엔터테인먼트 소속사와 제휴하지 않습니다. 뉴스에는 출처와 MEARROW의 해석을 구분해 표시합니다.",
+    "seo_links_label": "MEARROW 둘러보기",
+    "seo_ranking_link": "실시간 랭킹 보기",
+    "seo_news_link": "출처가 있는 뉴스 읽기",
+    "seo_editorial_link": "편집 기준 보기"
   },
   "HallOfFame": {
     "title": "명예의 전당",
@@ -177,7 +185,17 @@
     "views": "{count} 조회",
     "relatedNews": "다른 뉴스도 읽어보세요",
     "category_all": "전체",
-    "loadMore": "더 보기"
+    "loadMore": "더 보기",
+    "sourcesLabel": "출처 {count}개",
+    "editorialNoteTitle": "MEARROW 뉴스 운영 방식",
+    "editorialNoteBody": "공개 뉴스 목록에는 출처 링크와 MEARROW의 맥락이 확인된 기사만 포함합니다. 출처, 업데이트, 정정 처리 기준은 편집 기준에서 확인할 수 있습니다.",
+    "editorialPolicyLink": "편집 기준 보기",
+    "authorLabel": "작성",
+    "publishedLabel": "발행",
+    "updatedLabel": "업데이트",
+    "sourcesTitle": "출처 및 추가 읽을거리",
+    "sourcesIntro": "이 기사는 보도된 사실과 MEARROW의 분석을 구분합니다. 아래 링크는 작성 당시 참고한 원문 자료입니다.",
+    "correctionNote": "오류나 오래된 내용을 발견했다면 contact@kcl.fan으로 알려 주세요. 확인 후 검토하겠습니다."
   },
   "Auditions": {
     "metaTitle": "K-pop 오디션 정보",
@@ -473,7 +491,8 @@
     "privacy": "개인정보처리방침",
     "copyright": "© 2026 MEARROW. All rights reserved.",
     "about": "MEARROW 소개",
-    "faq": "자주 묻는 질문"
+    "faq": "자주 묻는 질문",
+    "editorial": "편집 기준"
   },
   "Legal": {
     "last_updated": "최종 수정일",
@@ -541,13 +560,40 @@
     "feature_4_title": "뉴스 & 인사이트",
     "feature_4_desc": "K-pop 산업의 최신 트렌드와 분석 리포트를 제공합니다.",
     "feature_5_title": "다국어 지원",
-    "feature_5_desc": "한국어, 영어, 일본어 등 12개 언어를 지원하여 전 세계 팬들이 참여할 수 있습니다.",
+    "feature_5_desc": "한국어, 영어, 일본어, 중국어, 스페인어, 프랑스어, 독일어 7개 언어를 지원합니다.",
+    "editorial_title": "편집 기준",
+    "editorial_desc": "MEARROW가 공개 정보를 조사하고 설명하고 업데이트하는 방법입니다.",
+    "editorial_link": "편집 기준 보기",
     "team_title": "팀 소개",
     "team_desc": "MEARROW는 K-pop을 사랑하는 개발자와 디자이너로 구성된 소규모 팀이 운영합니다. 우리는 팬들이 즐길 수 있는 공정하고 투명한 플랫폼을 만들기 위해 노력하고 있습니다.",
     "contact_title": "문의",
     "contact_desc": "MEARROW에 대한 의견, 제안, 문의사항이 있으시면 언제든지 연락해 주세요.",
     "contact_email": "이메일: contact@kcl.fan",
     "disclaimer": "MEARROW는 비공식 팬 제작 플랫폼이며, 어떠한 엔터테인먼트 회사와도 제휴 관계에 있지 않습니다."
+  },
+  "Editorial": {
+    "meta_title": "MEARROW 편집 기준",
+    "meta_description": "MEARROW가 공개 정보를 조사하고 설명하고 업데이트하는 방법을 안내합니다.",
+    "title": "편집 기준",
+    "subtitle": "MEARROW가 공개 정보를 조사하고 설명하고 업데이트하는 방법입니다.",
+    "intro": "MEARROW는 독립적으로 운영되는 K-pop 팬 제작 플랫폼입니다. 이 페이지에서는 투표 데이터를 어떻게 공개하고 어떤 뉴스 기사를 사이트에 게시하는지 설명합니다.",
+    "sources_title": "출처와 근거",
+    "sources_body": "사실을 전달하는 내용에는 공식 공지, 차트, 행사 주최자 또는 신뢰할 수 있는 언론 등 원문 출처를 연결합니다. 공개된 기사에는 독자가 원래 맥락을 확인할 수 있도록 출처 링크를 표시합니다.",
+    "analysis_title": "MEARROW의 맥락",
+    "analysis_body": "뉴스 기사는 헤드라인을 반복하는 데 그치지 않고 MEARROW의 해석을 담아야 합니다. 출처가 있고 해당 소식이 팬, 소속사 또는 K-pop 시장에 왜 중요한지 설명하는 글을 공개합니다.",
+    "ranking_title": "랭킹 읽는 방법",
+    "ranking_body": "랭킹 득표수는 현재 월간 시즌 동안 MEARROW에 기록된 투표입니다. MEARROW 안의 팬 활동을 나타내며 공식 산업 차트나 특정 소속사의 보증을 의미하지 않습니다.",
+    "updates_title": "발행일과 업데이트",
+    "updates_body": "기사의 발행일을 표시하고 중요한 내용이 변경되면 수정합니다. 오디션처럼 시점에 따라 바뀌는 정보는 지원 전에 반드시 주최자의 공식 페이지에서 다시 확인해 주세요.",
+    "corrections_title": "정정 안내",
+    "corrections_body": "사실 오류나 오래된 내용을 발견하면 출처를 다시 확인하고 기사를 수정하여 독자가 변경 내용을 이해할 수 있도록 합니다. 확인이 필요한 내용은 언제든지 알려 주세요.",
+    "contact_title": "편집팀 문의",
+    "contact_body": "질문, 출처 제안, 정정 요청을 이메일로 받고 있습니다.",
+    "explore_label": "MEARROW 둘러보기",
+    "news_link": "출처가 있는 뉴스 보기",
+    "ranking_link": "실시간 랭킹 보기",
+    "about_link": "MEARROW 소개",
+    "reviewed_on": "편집 기준 최종 검토일: 2026년 9월 6일"
   },
   "FAQ": {
     "meta_title": "자주 묻는 질문 (FAQ) - MEARROW",
@@ -571,7 +617,7 @@
     "q8": "버그를 발견하거나 제안이 있으면 어떻게 하나요?",
     "a8": "contact@kcl.fan으로 이메일을 보내주시면 확인 후 빠르게 처리하겠습니다. 여러분의 피드백은 MEARROW를 더 좋은 서비스로 만드는 데 큰 도움이 됩니다.",
     "q9": "MEARROW는 어떤 언어를 지원하나요?",
-    "a9": "현재 한국어, 영어, 일본어, 중국어, 스페인어, 포르투갈어, 프랑스어, 독일어, 인도네시아어, 터키어, 태국어, 베트남어 총 12개 언어를 지원합니다."
+    "a9": "현재 한국어, 영어, 일본어, 중국어, 스페인어, 프랑스어, 독일어 총 7개 언어를 지원합니다."
   },
   "Notice": {
     "title": "공지사항",
@@ -629,7 +675,7 @@
     "hero_headline": "당신이 좋아하는",
     "hero_highlight": "K-pop 소속사에 투표하세요",
     "hero_stat_agencies": "38개 소속사",
-    "hero_stat_languages": "12개 언어",
+    "hero_stat_languages": "7개 언어",
     "hero_stat_live": "실시간 랭킹",
     "email_sent_title": "이메일을 확인해주세요",
     "email_sent_desc": "{email}로 인증 링크를 보냈습니다. 링크를 클릭하여 계정을 인증해주세요.",
