@@ -25,6 +25,14 @@ function getTodayKey() {
 async function expectRenderOnlyClose(close: () => void) {
   const firstRender = render(<DailyVoteModal />);
   await screen.findByRole('dialog', { name: '실시간 TOP 10 투표' });
+  const closeButton = screen.getByRole('button', { name: '투표 모달 닫기' });
+
+  // The modal is opened from requestAnimationFrame and the global Escape
+  // listener is registered by the following effect. Wait for its focus frame
+  // so keyboard-close assertions do not race the effect setup in CI.
+  await waitFor(() => {
+    expect(document.activeElement).toBe(closeButton);
+  });
 
   close();
 
