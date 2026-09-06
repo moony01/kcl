@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import ExportedImage from 'next-image-export-optimizer';
-import { ArrowLeft, Calendar, Tag } from 'lucide-react';
+import { ArrowLeft, BookOpen, Calendar, ExternalLink, Tag } from 'lucide-react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {
@@ -122,6 +122,12 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     month: 'long',
     day: 'numeric',
   });
+  const formattedUpdatedDate = new Date(post.updatedAt ?? post.date).toLocaleDateString(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const sources = post.sources ?? [];
 
   return (
     <PageFrame size="narrow">
@@ -181,6 +187,19 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             size="sm"
           />
         </div>
+        <div className={styles.byline}>
+          <span>
+            {t('authorLabel')}: {post.author || BRAND_NAME}
+          </span>
+          <span>
+            {post.updatedAt && post.updatedAt !== post.date
+              ? t('updatedLabel')
+              : t('publishedLabel')}{' '}
+            {post.updatedAt && post.updatedAt !== post.date
+              ? formattedUpdatedDate
+              : formattedDate}
+          </span>
+        </div>
       </header>
 
       {/* 기사 본문 (섹션별 분할 + 중간 광고 삽입) */}
@@ -225,6 +244,27 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           ));
         })()}
       </article>
+
+      {sources.length > 0 && (
+        <aside className={styles.sources} aria-labelledby="news-sources-title">
+          <div className={styles.sourcesHeading}>
+            <BookOpen size={18} aria-hidden="true" />
+            <h2 id="news-sources-title">{t('sourcesTitle')}</h2>
+          </div>
+          <p className={styles.sourcesIntro}>{t('sourcesIntro')}</p>
+          <ol className={styles.sourceList}>
+            {sources.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  <span>{source.label}</span>
+                  <ExternalLink size={13} aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p className={styles.correctionNote}>{t('correctionNote')}</p>
+        </aside>
+      )}
 
       {/* 기사 하단 공유 버튼 */}
       <div className={styles.shareSection}>
@@ -276,10 +316,11 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           mainEntityOfPage: canonical,
           inLanguage: NEWS_SOURCE_LOCALE,
           datePublished: post.date,
+          dateModified: post.updatedAt ?? post.date,
           image: articleImage,
           author: {
             '@type': 'Organization',
-            name: BRAND_NAME,
+            name: post.author || BRAND_NAME,
           },
           publisher: {
             '@type': 'Organization',
@@ -289,6 +330,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
               url: `${FULL_URL}${BRAND_MARK_PATH}`,
             },
           },
+          citation: sources.map((source) => source.url),
         }}
       />
     </PageFrame>

@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Info, FileText, Shield, HelpCircle, MessageCircle } from 'lucide-react';
+import { Info, FileText, Shield, HelpCircle, MessageCircle, BookOpen } from 'lucide-react';
 import styles from './DisclaimerBanner.module.scss';
 
 /**
@@ -42,6 +42,11 @@ export function DisclaimerBanner() {
         <Link href={`/${locale}/faq`} className={styles.link}>
           <MessageCircle size={12} />
           <span>{t('faq')}</span>
+        </Link>
+        <span className={styles.divider}>|</span>
+        <Link href={`/${locale}/editorial`} className={styles.link}>
+          <BookOpen size={12} />
+          <span>{t('editorial')}</span>
         </Link>
       </div>
       <p className={styles.copyright}>{t('copyright')}</p>

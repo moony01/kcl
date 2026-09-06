@@ -10,7 +10,7 @@ import { AD_SLOTS } from '@/types/ads';
 import styles from './notice-seo.module.scss';
 import PageFrame, { PageHeader } from '@/components/layout/PageFrame';
 
-/** 지원하는 12개 언어에 대해 정적 페이지 생성 */
+/** 지원하는 언어에 대해 정적 페이지 생성 */
 export function generateStaticParams() {
   return SUPPORTED_LOCALES.map((locale) => ({ locale }));
 }

@@ -13,6 +13,17 @@ import Link from 'next/link';
 import styles from './Header.module.scss';
 import ThemeToggle from '../../common/ThemeToggle';
 import { BRAND_KOREAN_NAME, BRAND_NAME, BRAND_MARK_PATH } from '@/lib/brand';
+import { SUPPORTED_LOCALES } from '@/lib/constants';
+
+const LOCALE_LABELS: Record<(typeof SUPPORTED_LOCALES)[number], string> = {
+  ko: '한국어',
+  en: 'English',
+  ja: '日本語',
+  zh: '中文(简体)',
+  es: 'Español',
+  fr: 'Français',
+  de: 'Deutsch',
+};
 
 export default function Header() {
   const locale = useLocale();
@@ -50,18 +61,11 @@ export default function Header() {
 
 
         <select value={locale} onChange={changeLang} className={styles.langSelect}>
-          <option value="ko">한국어</option>
-          <option value="en">English</option>
-          <option value="id">Bahasa Indonesia</option>
-          <option value="tr">Türkçe</option>
-          <option value="ja">日本語</option>
-          <option value="zh">中文(简体)</option>
-          <option value="es">Español</option>
-          <option value="pt">Português</option>
-          <option value="th">ภาษาไทย</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
+          {SUPPORTED_LOCALES.map((supportedLocale) => (
+            <option value={supportedLocale} key={supportedLocale}>
+              {LOCALE_LABELS[supportedLocale]}
+            </option>
+          ))}
         </select>
         </div>
       </div>

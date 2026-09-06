@@ -19,6 +19,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { fileURLToPath } from 'url';
+import { evaluateNewsQuality } from '../src/lib/news-quality.js';
 
 // ES Module에서 __dirname 대체
 const __filename = fileURLToPath(import.meta.url);
@@ -69,10 +70,13 @@ export interface GeneratedNewsPost {
   title: string;
   excerpt: string;
   date: string;
+  updatedAt?: string;
+  author?: string;
   content: string;
   thumbnail?: string | null;
   category?: string;
   locale: string;
+  sources?: Array<{ label: string; url: string }>;
   active?: boolean;
 }
 
@@ -104,10 +108,13 @@ export async function loadNewsPost(
   title: string;
   excerpt: string;
   date: string;
+  updatedAt?: string;
+  author?: string;
   content: string;
   thumbnail?: string | null;
   category?: string;
   locale: string;
+  sources?: Array<{ label: string; url: string }>;
   active?: boolean;
 }
 
@@ -139,20 +146,25 @@ function parseNewsFile(filePath, locale) {
 
   // 파일명에서 slug 추출 (확장자 제거)
   const slug = path.basename(filePath, '.md');
+  const quality = evaluateNewsQuality(content, { category: data.category });
+  const publishedDate = data.date || new Date().toISOString().split('T')[0];
 
   const result = {
     slug,
     locale,
     title: data.title || '제목 없음',
     excerpt: data.excerpt || '',
-    date: data.date || new Date().toISOString().split('T')[0],
+    date: publishedDate,
+    updatedAt: data.updatedAt || publishedDate,
+    author: data.author || 'MEARROW Editorial Desk',
     category: data.category || 'General',
     thumbnail: data.thumbnail || null,
+    sources: quality.sources,
     content,
   };
 
-  // active 필드가 명시적으로 false인 경우만 포함 (비활성화 뉴스)
-  if (data.active === false) {
+  // 명시적 비활성화 또는 품질 기준 미달 콘텐츠는 공개 목록에서 제외합니다.
+  if (data.active === false || !quality.eligible) {
     result.active = false;
   }
 
@@ -184,6 +196,8 @@ function main() {
 
   // 모든 뉴스 메타데이터 수집
   const allNewsMeta = [];
+  let publishedCount = 0;
+  let heldForReviewCount = 0;
 
   // 로케일 디렉토리 순회
   const sourceLocaleDir = path.join(CONTENT_DIR, SOURCE_LOCALE);
@@ -209,6 +223,9 @@ function main() {
       const filePath = path.join(localeDir, mdFile);
       const newsData = parseNewsFile(filePath, locale);
 
+      if (newsData.active === false) heldForReviewCount += 1;
+      else publishedCount += 1;
+
       // 메타데이터 (목록용 - content 제외)
       const meta = { ...newsData };
       delete meta.content;
@@ -218,12 +235,15 @@ function main() {
       const contentOutputPath = path.join(localeOutputDir, `${newsData.slug}.json`);
       fs.writeFileSync(contentOutputPath, JSON.stringify(newsData, null, 2), 'utf8');
 
-      // Workers 런타임에서는 이 파일을 ASSETS binding으로 읽어 Worker 번들에서 본문을 분리한다.
-      const publicContentOutputPath = path.join(
-        publicLocaleOutputDir,
-        `${newsData.slug}.json`,
-      );
-      fs.writeFileSync(publicContentOutputPath, JSON.stringify(newsData, null, 2), 'utf8');
+      // Workers 런타임의 공개 ASSETS에는 실제 공개 기사만 복사한다.
+      // 보류 콘텐츠까지 정적 API로 노출하면 비활성화한 기사가 직접 수집될 수 있다.
+      if (newsData.active !== false) {
+        const publicContentOutputPath = path.join(
+          publicLocaleOutputDir,
+          `${newsData.slug}.json`,
+        );
+        fs.writeFileSync(publicContentOutputPath, JSON.stringify(newsData, null, 2), 'utf8');
+      }
     }
   }
 
@@ -241,7 +261,10 @@ function main() {
       summary: item.excerpt,
       slug: item.slug,
       date: item.date,
+      updatedAt: item.updatedAt,
+      author: item.author,
       category: item.category,
+      sources: item.sources,
       url: `${PUBLIC_SITE_URL}/en/news/${item.slug}`,
     }));
   fs.writeFileSync(PUBLIC_API_OUTPUT, JSON.stringify(publicApiData, null, 2), 'utf8');
@@ -253,6 +276,9 @@ function main() {
   console.log(`   - 콘텐츠: ${path.relative(process.cwd(), CONTENT_OUTPUT_DIR)}/`);
   console.log(`   - 공개 API: ${path.relative(process.cwd(), PUBLIC_API_OUTPUT)} (${publicApiData.length}개)`);
   console.log(`   - 총 ${allNewsMeta.length}개 뉴스 처리됨\n`);
+  console.log(
+    `   - 품질 게이트: ${publishedCount}개 공개 / ${heldForReviewCount}개 검토 보류\n`,
+  );
 }
 
 // 스크립트 실행

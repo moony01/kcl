@@ -139,6 +139,7 @@ const STATIC_PAGES: StaticPage[] = [
 
   // About & FAQ - AdSense 필수 페이지
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/editorial', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/faq', priority: 0.6, changeFrequency: 'monthly' },
 
   // 법적 페이지 - 필수

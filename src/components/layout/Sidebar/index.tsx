@@ -22,10 +22,9 @@ import { useState, useCallback } from 'react';
 import { FEATURES } from '@/config/features';
 import { useAuth } from '@/hooks/useAuth';
 import { BRAND_KOREAN_NAME, BRAND_NAME, BRAND_MARK_PATH } from '@/lib/brand';
+import { CONTACT_EMAIL } from '@/lib/constants';
 import { getEnabledPrimaryNavItems } from '@/components/layout/navigationItems';
 import styles from './Sidebar.module.scss';
-
-const CONTACT_EMAIL = '';
 
 export default function Sidebar() {
   const t = useTranslations('Nav');

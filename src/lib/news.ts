@@ -10,6 +10,11 @@ import { loadNewsPost } from '@/generated/news-runtime';
 
 export const NEWS_SOURCE_LOCALE = 'en';
 
+export interface NewsSource {
+  label: string;
+  url: string;
+}
+
 /**
  * 뉴스 게시글 타입 정의
  * 마크다운 파일의 frontmatter와 본문을 포함
@@ -23,6 +28,10 @@ export interface NewsPost {
   excerpt: string;
   /** 작성일 (YYYY-MM-DD) */
   date: string;
+  /** 마지막 검토일 (YYYY-MM-DD) */
+  updatedAt?: string;
+  /** 콘텐츠 작성 주체 */
+  author?: string;
   /** 마크다운 본문 */
   content: string;
   /** 썸네일 이미지 경로 */
@@ -31,6 +40,8 @@ export interface NewsPost {
   category?: string;
   /** 언어 코드 */
   locale: string;
+  /** 본문에 표시할 외부 출처 */
+  sources?: NewsSource[];
 }
 
 /**
@@ -41,9 +52,12 @@ export interface NewsMeta {
   title: string;
   excerpt: string;
   date: string;
+  updatedAt?: string;
+  author?: string;
   thumbnail?: string | null;
   category?: string;
   locale: string;
+  sources?: NewsSource[];
   /** 활성 여부 (false면 목록에서 숨김, 기본값: true) */
   active?: boolean;
 }
@@ -79,6 +93,7 @@ export async function getNewsBySlug(slug: string, locale: string = 'ko'): Promis
 
   // 한국어를 포함한 모든 locale URL은 영어 원문 파일로 fallback한다.
   const post = await loadNewsPost(slug, NEWS_SOURCE_LOCALE);
+  if (!post || post.active === false) return null;
   return post as NewsPost | null;
 }
 

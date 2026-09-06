@@ -29,7 +29,7 @@ const montserrat = Montserrat({
 });
 
 import { Metadata, Viewport } from 'next';
-import { FULL_URL, ADSENSE_PUBLISHER_ID } from '@/lib/constants';
+import { ADSENSE_PUBLISHER_ID, FULL_URL, SUPPORTED_LOCALES } from '@/lib/constants';
 import {
   BRAND_DESCRIPTION,
   BRAND_MARK_PATH,
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
 };
 
-const locales = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de'];
+const locales = SUPPORTED_LOCALES;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -99,7 +99,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
-  if (!locales.includes(locale)) {
+  if (!(locales as readonly string[]).includes(locale)) {
     notFound();
   }
 
