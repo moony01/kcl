@@ -3,6 +3,7 @@ name: MEARROW Workers
 on:
   push:
     branches:
+      - main
       - feat/cloudflare-workers-migration
   pull_request:
     branches:
@@ -81,7 +82,10 @@ jobs:
   deploy-production:
     name: Deploy production Worker
     needs: validate
-    if: github.event_name == 'workflow_dispatch' && inputs.environment == 'production'
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' &&
+      github.ref == 'refs/heads/main' && inputs.environment == 'production')
     runs-on: ubuntu-latest
     environment: workers-production
     steps:

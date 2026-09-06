@@ -115,8 +115,12 @@ pnpm workers:build
 data renders company cards, verifies a news image is WebP-backed, and checks an
 English news detail through the locale fallback. A failed browser gate blocks
 the production deployment. The GitHub Actions workflow
-`.github/workflows/deploy-workers.yml` runs the same gate before a manual
-Workers production deployment.
+`.github/workflows/deploy-workers.yml` runs the same gate before a Workers
+production deployment. A push or merge to `main` starts the production job
+automatically after validation. The job uses the `workers-production`
+Environment, so its required-reviewer approval gate can pause deployment
+before the Worker is released. A manual production run remains available from
+the `main` branch when needed.
 
 The `.github/workflows/mearrow-league-promotion.yml` workflow runs on the 1st of every month (UTC 00:00) to:
 1. Snapshot season rankings
