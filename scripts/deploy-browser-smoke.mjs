@@ -8,7 +8,6 @@ import { chromium } from 'playwright-core';
 
 const DEFAULT_PORT = process.env.DEPLOY_BROWSER_PORT || '3119';
 const DEFAULT_BASE_URL = `http://127.0.0.1:${DEFAULT_PORT}`;
-const NEWS_SLUG = '2026-rookie-boy-group-war-big4-debut-battle';
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -328,8 +327,14 @@ async function main() {
     const firstNewsImageLoaded = await newsImage.evaluate((image) => image.complete && image.naturalWidth > 0);
     assert(firstNewsImageLoaded, `news image failed to load: ${imageSources[0]}`);
 
+    const newsArticleHref = await page.locator('a[href^="/en/news/"]').first().getAttribute('href');
+    assert(
+      newsArticleHref && /^\/en\/news\/[^/?#]+$/.test(newsArticleHref),
+      `news list did not expose an active article link (${newsArticleHref || 'none'})`,
+    );
+
     const detailResponse = await page.goto(
-      `${server.baseUrl}/ko/news/${NEWS_SLUG}?deploy-browser-smoke=detail`,
+      `${server.baseUrl}${newsArticleHref}?deploy-browser-smoke=detail`,
       { waitUntil: 'domcontentloaded', timeout: 30_000 },
     );
     assert(detailResponse && detailResponse.status() < 500, `news detail returned HTTP ${detailResponse?.status()}`);
